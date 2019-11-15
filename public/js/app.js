@@ -181648,9 +181648,6 @@ __webpack_require__.r(__webpack_exports__);
     role: '',
     title: {},
     users: null,
-    active_users: null,
-    active_roles: null,
-    sources: null,
     packages: null,
     custom_fields: {
       required: true
@@ -181996,6 +181993,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     click: function click(row, index) {
       if (this.onClick) this.onClick(row, index);
+      window.location.href = '/workstation/' + row.id;
     },
     exportExcel: function exportExcel() {
       var mimeType = 'data:application/vnd.ms-excel';
@@ -182097,7 +182095,8 @@ __webpack_require__.r(__webpack_exports__);
       if (this.paginate) paginatedRows = paginatedRows.slice((this.currentPage - 1) * this.currentPerPage, this.currentPerPage === -1 ? paginatedRows.length + 1 : this.currentPage * this.currentPerPage);
       return paginatedRows;
     }
-  }
+  },
+  created: function created() {}
 });
 
 /***/ }),
@@ -183705,40 +183704,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -183773,9 +183738,6 @@ __webpack_require__.r(__webpack_exports__);
     Fire.$on('AddingUser', function (data) {
       vm.add_user = !vm.add_user;
     });
-    Fire.$on('FilterData', function (data) {
-      vm.applyFilter(data);
-    });
     Fire.$on('ReloadLeads', function (data) {
       vm.getItems();
     });
@@ -183793,6 +183755,7 @@ __webpack_require__.r(__webpack_exports__);
       assignees: [],
       owners: [],
       items: [],
+      cachItems: this.items,
       display_items: [],
       chached_display_items: [],
       count_assigned: 0,
@@ -183925,12 +183888,13 @@ __webpack_require__.r(__webpack_exports__);
     },
     getItems: function getItems() {
       var vm = this;
-      var endpoint = '/modules/get-items/' + vm.active;
+      var endpoint = '/modules/get-assigned/' + vm.active;
       vm.show_page_loader = true;
       vm.$Progress.start();
       axios.get(endpoint).then(function (response) {
         if (response.data.success == true) {
           vm.items = response.data.items;
+          vm.cachItems = response.data.items;
           vm.display_items = response.data.display_items;
           vm.chached_display_items = response.data.display_items;
           vm.count_assigned = response.data.count_assigned;
@@ -183974,20 +183938,6 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     },
-    // applyFilter(filter){
-    //     var vm = this;
-    //     vm.$Progress.start();
-    //     axios.post('/filters/filter/0',{ 'filter' : filter }).then(function (response) {
-    //         if(response.data.success == true){
-    //             vm.users.leads = response.data.leads;
-    //             Fire.$emit('CustomFilterApplied', filter);
-    //             vm.$Progress.finish();
-    //         }else{
-    //             vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
-    //             vm.$Progress.fail();
-    //         }
-    //     });
-    // },
     deleteFilter: function deleteFilter(id) {
       var _this3 = this;
 
@@ -184291,6 +184241,223 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue2_circle_progress__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue2_circle_progress__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -186244,7 +186411,7 @@ __webpack_require__.r(__webpack_exports__);
     VueCircle: vue2_circle_progress__WEBPACK_IMPORTED_MODULE_2___default.a
   },
   data: function data() {
-    return {
+    return _defineProperty({
       user: {
         notifications: 1
       },
@@ -186278,21 +186445,24 @@ __webpack_require__.r(__webpack_exports__);
         "class": 'today_date',
         dates: new Date()
       }],
-      filter: {
-        title: '',
-        search: '',
-        user_created_id: '',
-        user_assigned: '',
-        source: '',
-        product_id: '',
-        status: ''
+      call_log: {
+        commission: '',
+        total_calls: '',
+        total_sales: '',
+        con_ratio: '',
+        sum_sales: '',
+        call_history: '',
+        sum_call_back: '',
+        avg_time: ''
       },
+      filter: [],
       user_settings: {
         id: '',
         theme: 'orange',
         language: 'english',
         max_table_rows: 50
       },
+      custom_fields: [],
       active_task_id: null,
       edit_task: false,
       add_task: false,
@@ -186310,14 +186480,18 @@ __webpack_require__.r(__webpack_exports__);
       appendBorder: false,
       showSavedFilters: false,
       showFilters: false,
-      filterValue: ''
-    };
+      filterValue: '',
+      active_users: null,
+      active_roles: null
+    }, "sources", null);
   },
   mounted: function mounted() {
     var vm = this;
     this.user = JSON.parse(this.auth_user);
     vm.getUserCallBacks();
     vm.getUserTasks();
+    vm.getDashboard();
+    vm.getCustomFields();
     Fire.$on('AfterCallBackSet', function () {
       vm.getUserCallBacks();
     });
@@ -186364,9 +186538,9 @@ __webpack_require__.r(__webpack_exports__);
       this.settings_on = false;
       this.profile_on = false;
     },
-    filterProperties: function filterProperties() {
-      this.appendBorder = !this.appendBorder;
-      this.showFilters = !this.showFilters;
+    filterProperties: function filterProperties(field) {
+      field.append_border = !field.append_border;
+      field.show = !field.show;
     },
     savedFilters: function savedFilters() {
       this.appendBorder = !this.appendBorder;
@@ -186385,6 +186559,55 @@ __webpack_require__.r(__webpack_exports__);
       this.callbacks_on = false;
       this.messages_on = true;
       this.unread_messages = 0;
+    },
+    getCustomFields: function getCustomFields() {
+      var vm = this;
+      var endpoint = '/modules/fields/' + vm.active;
+      axios.get(endpoint).then(function (response) {
+        vm.custom_fields = response.data.fields;
+        vm.sources = response.data.sources;
+        vm.products = response.data.products;
+        vm.active_users = response.data.active_users;
+        vm.custom_fields.map(function (field, index) {
+          vm.filter.push({
+            module_id: field.module_id,
+            field_id: field.id,
+            field_name: field.name,
+            field_display_name: field.display_name,
+            // filter_value: '',
+            append_border: false,
+            show: false
+          });
+        });
+      });
+    },
+    getDashboard: function getDashboard() {
+      var month = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+      var vm = this;
+
+      if (month == '') {
+        var endpoint = '/calls/get-dashboard';
+      } else {
+        var endpoint = '/calls/get-dashboard/' + month;
+      }
+
+      vm.$Progress.start();
+      axios.get(endpoint).then(function (response) {
+        if (response.data.success == true) {
+          vm.call_log.commission = response.data.commission;
+          vm.call_log.total_calls = response.data.total_calls;
+          vm.call_log.total_sales = response.data.total_sales;
+          vm.call_log.con_ratio = response.data.con_ratio;
+          vm.call_log.sum_sales = response.data.sum_sales;
+          vm.call_log.call_history = response.data.call_history;
+          vm.call_log.sum_call_back = response.data.sum_call_back;
+          vm.call_log.avg_time = response.data.avg_time;
+          vm.$Progress.finish();
+        } else {
+          vm.$Progress.fail();
+          vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again', 'warning');
+        }
+      });
     },
     getUserCallBacks: function getUserCallBacks() {
       var vm = this;
@@ -186645,10 +186868,21 @@ __webpack_require__.r(__webpack_exports__);
       var event = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
       Fire.$emit(event);
     },
-    fireSearchEvent: function fireSearchEvent() {
-      Fire.$emit('Search', {
-        'search_term': this.filter.search
-      });
+    fireSearchEvent: function fireSearchEvent(term) {
+      if (term instanceof Array) {
+        var concat_term = '';
+        term.forEach(function (value) {
+          concat_term += ',' + value;
+        });
+        console.log(concat_term);
+        Fire.$emit('Search', {
+          'search_term': concat_term
+        });
+      } else {
+        Fire.$emit('Search', {
+          'search_term': term
+        });
+      }
     },
     progress: function progress(event, _progress, stepValue) {
       console.log(stepValue);
@@ -245415,7 +245649,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.btn-secondary[data-v-6263b939]{\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n    padding: 0px 6px;\n}\n.btn-secondary img[data-v-6263b939]{\n    width: 11px;\n}\nth .dropdown[data-v-6263b939]{\n  width: 25%;\n  padding: 0;\n  margin: 0;\n  float: right;\n}\nthead th[data-v-6263b939] {\n    position: sticky;\n    position: -webkit-sticky;\n    top: 0;\n    background: white;\n    z-index: 10;\n}\n.no-box-shadow[data-v-6263b939] {\n    box-shadow: none !important;\n}\n.btn-orange[data-v-6263b939] {\n\tbackground: #FF9039;\n\tcolor: #ffffff;\n    border: transparent !important;\n\tpadding: 9px 12px 9px 10px;\n    font-size: 13px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.dropdown-menu.show[data-v-6263b939] {\n    display: block;\n    width: 98%;\n}\n.orange-btn[data-v-6263b939]:hover {\n\tbackground: #FF9039;\n\tcolor: #ffffff;\n    border: transparent !important;\n\tpadding: 9px 12px 9px 10px;\n    font-size: 13px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\ntable.tg[data-v-6263b939]{\n    width: 98%;\n    margin: 0 auto;\n}\ntable.tg td p[data-v-6263b939]{\n    margin-top: 1em;\n}\nspan.days-remaining[data-v-6263b939]{\n    display: block;\n    width: 100%;\n    text-align: center;\n}\ntable tr td a.Canceled[data-v-6263b939]{\n    color: red;\n    background-color: red;\n    width: 19px;\n    display: block;\n    height: 19px;\n    margin: 0 auto;\n    border-radius: 32px;\n}\ntable tr td a.Inactive[data-v-6263b939]{\n    color: orange;\n    background-color: orange;\n    width: 19px;\n    display: block;\n    height: 19px;\n    margin: 0 auto;\n    border-radius: 32px;\n}\ntable tr td a.Active[data-v-6263b939]{\n    color: green;\n    background-color: green;\n    width: 19px;\n    display: block;\n    height: 19px;\n    margin: 0 auto;\n    border-radius: 32px;\n}\ntable tr td span.actions a[data-v-6263b939]{\n    width: 32px;\n    display: block;\n    height: 35px;\n    float: left;\n}\ntable tr td a.Save[data-v-6263b939]{\n    background-image: url('/images/DataTables/New/Check Icon.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Save[data-v-6263b939]:hover,\ntable tr td a.Save[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/New/Check Icon Hover.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Cancel[data-v-6263b939]{\n    background-image: url('/images/DataTables/New/Cancel Icon.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Cancel[data-v-6263b939]:hover,\ntable tr td a.Cancel[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/New/Cancel Hover.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-6263b939]{\n    background-image: url('/images/DataTables/New/View Icon.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-6263b939]:hover,\ntable tr td a.View[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/New/View Icon Hover.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\n.alert[data-v-6263b939] {\n    position: relative;\n    padding: 0.75rem 1.25rem;\n    margin-bottom: 1rem;\n    border: 1px solid transparent;\n    border-radius: 0.25rem;\n    width: 100%;\n    float: left;\n}\ntable tr td a.Delete[data-v-6263b939]{\n    background-image: url('/images/DataTables/New/Delete Icon.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-6263b939]:hover,\ntable tr td a.Delete[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/New/Delete Icon Hover.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\n.uploaded-files a[data-v-6263b939]{\n    display: flex;\n    width: 90%;\n    float: left;\n}\n.uploaded-files .Delete[data-v-6263b939]{\n    background-color: transparent;\n    border: none;\n    width: 49px;\n    height: 46px;\n    margin: 0;\n    box-shadow: none;\n    background-image: url('/images/DataTables/New/Delete Icon.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\n.uploaded-files .Delete[data-v-6263b939]:hover,\n.uploaded-files .Delete[data-v-6263b939]:active{\n    background-color: transparent;\n    border: none;\n    width: 49px;\n    height: 46px;\n    margin: 0;\n    box-shadow: none;\n    background-image: url('/images/DataTables/New/Delete Icon Hover.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-6263b939]{\n    background-image: url('/images/DataTables/New/Edit Icon_1.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-6263b939]:hover,\ntable tr td a.Edit[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/New/Edit Icon Hover.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\n@media screen and (max-width: 1500px) {\ntable tr td[data-v-6263b939] {\n        font-size: 12px !important;\n        padding: 5px 10px 5px 0px !important;\n}\n}\n.control-label[data-v-6263b939]{\n    float: left;\n}\n.editable[data-v-6263b939] {\n    border-radius: 20px;\n}\ndiv.material-table[data-v-6263b939] {\n    padding: 0;\n}\n#breakdown tr td[data-v-6263b939]{\n    height: 35px;\n}\n#items tr td[data-v-6263b939]{\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-6263b939], #items tr[data-v-6263b939] {\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-6263b939] {\n    cursor: pointer;\n}\n#search-input[data-v-6263b939] {\n    margin: 0;\n    border: transparent 0 !important;\n    height: 48px;\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-6263b939] {\n    padding: 0 14px 0 24px;\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-6263b939] {\n    /* table-layout: fixed; */\n    border-spacing: 0 6px;\n}\n.table-header[data-v-6263b939] {\n    height: 64px;\n    padding-left: 24px;\n    padding-right: 14px;\n    align-items: center;\n    display: flex;\n    -webkit-display: flex;\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-6263b939] {\n    display: -webkit-flex;\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-6263b939] {\n    min-width: 36px;\n    padding: 0 8px;\n}\n.table-header input[data-v-6263b939] {\n    margin: 0;\n    height: auto;\n}\n.table-header i[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.54);\n    font-size: 24px;\n}\n.table-footer[data-v-6263b939] {\n    height: 56px;\n    padding-left: 24px;\n    padding-right: 14px;\n    display: flex;\n    flex-direction: row;\n    justify-content: flex-end;\n    align-items: center;\n    font-size: 0.63vw !important;\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-6263b939] {\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-6263b939] {\n    outline: none;\n}\n.table-footer img[data-v-6263b939] {\n    width: 46px;\n}\n.table-footer label[data-v-6263b939] {\n    font-size: 0.63vw;\n    color: rgba(0, 0, 0, 0.54);\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-6263b939] {\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-6263b939],\n.table-footer .datatable-length[data-v-6263b939] {\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-6263b939] {\n    display: flex;\n    -webkit-display: flex;\n    margin: 0;\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.54);\n    padding: 0 8px;\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-6263b939] {\n    margin: 0;\n    border-bottom: none;\n    height: auto;\n    line-height: normal;\n    font-size: 0.63vw;\n    width: 40px;\n    text-align: right;\n}\n.table-footer select[data-v-6263b939] {\n    background-color: transparent;\n    width: auto;\n    padding: 0;\n    border: 0;\n    border-radius: 0;\n    height: auto;\n    margin-left: 20px;\n}\n.table-title[data-v-6263b939] {\n    font-size: 20px;\n    color: #000;\n}\ntable tr td[data-v-6263b939] {\n    height: 35px;\n    font-size: 0.73vw;\n    color: #1c2331;\n    display: table-cell;\n    font-family: 'Rubik', sans-serif !important;\n    padding: 10px 20px 10px 0px;\n    min-width: 150px;\n}\ntable tr td a i[data-v-6263b939] {\n    font-size: 18px;\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-6263b939] {\n    font-size: 0.63vw;\n    border-bottom: 1px solid #f2f2f2;\n    padding-left: 0;\n    width: auto;\n    white-space: nowrap;\n}\ntable thead tr[data-v-6263b939]:first-child {\n   border-bottom: 0 !important;\n}\ntable th[data-v-6263b939] {\n   font-size: 0.63vw;\n    font-weight: 600;\n    color: #A6A6A6;\n    cursor: pointer;\n    white-space: nowrap;\n    padding-right: 20px;\n    /* height: 56px; */\n    /* padding-left: 14px; */\n    vertical-align: middle;\n    outline: none !important;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    background-size: 11px 12px;\n    background-repeat: no-repeat;\n    background-position: left center;\n    font-family: 'Montserrat bold', sans-serif;\n}\ntable th[data-v-6263b939]:hover {\n    overflow: visible;\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-6263b939],\ntable th.sorting-desc[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_1.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 100% 7px;\n}\ntable th.sorting-desc[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_2.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 100% 7px;\n}\ntable tr td a[data-v-6263b939]{\n    color: #1890ff;\n    background-color: transparent;\n    text-decoration: none;\n    outline: none;\n    cursor: pointer;\n    transition: color 0.3s;\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-6263b939]:hover:after,\ntable th.sorting-asc[data-v-6263b939]:after,\ntable th.sorting-desc[data-v-6263b939]:after {\n    display: inline-block;\n}\ntable tbody tr[data-v-6263b939]:hover {\n    background-color: #f7f7f7;\n}\ntable th[data-v-6263b939]:last-child,\ntable td[data-v-6263b939]:last-child {\n    padding-right: 14px;\n    background-image: none !important;\n}\n\n/* table th:first-child,\ntable td:first-child {\n    padding-left: 25px;\n} */\n", ""]);
+exports.push([module.i, "\n.btn-secondary[data-v-6263b939]{\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n    padding: 0px 6px;\n}\n.btn-secondary img[data-v-6263b939]{\n    width: 11px;\n}\nth .dropdown[data-v-6263b939]{\n  width: 25%;\n  padding: 0;\n  margin: 0;\n  float: right;\n}\nthead th[data-v-6263b939] {\n    position: sticky;\n    position: -webkit-sticky;\n    top: 0;\n    background: white;\n    z-index: 10;\n}\n.no-box-shadow[data-v-6263b939] {\n    box-shadow: none !important;\n}\n.btn-orange[data-v-6263b939] {\n\tbackground: #FF9039;\n\tcolor: #ffffff;\n    border: transparent !important;\n\tpadding: 9px 12px 9px 10px;\n    font-size: 13px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.dropdown-menu.show[data-v-6263b939] {\n    display: block;\n    width: 98%;\n}\n.orange-btn[data-v-6263b939]:hover {\n\tbackground: #FF9039;\n\tcolor: #ffffff;\n    border: transparent !important;\n\tpadding: 9px 12px 9px 10px;\n    font-size: 13px;\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\ntable.tg[data-v-6263b939]{\n    width: 98%;\n    margin: 0 auto;\n}\ntable tbody tr[data-v-6263b939] { \n  cursor: pointer;\n}\ntable.tg td p[data-v-6263b939]{\n    margin-top: 1em;\n}\nspan.days-remaining[data-v-6263b939]{\n    display: block;\n    width: 100%;\n    text-align: center;\n}\ntable tr td a.Canceled[data-v-6263b939]{\n    color: red;\n    background-color: red;\n    width: 19px;\n    display: block;\n    height: 19px;\n    margin: 0 auto;\n    border-radius: 32px;\n}\ntable tr td a.Inactive[data-v-6263b939]{\n    color: orange;\n    background-color: orange;\n    width: 19px;\n    display: block;\n    height: 19px;\n    margin: 0 auto;\n    border-radius: 32px;\n}\ntable tr td a.Active[data-v-6263b939]{\n    color: green;\n    background-color: green;\n    width: 19px;\n    display: block;\n    height: 19px;\n    margin: 0 auto;\n    border-radius: 32px;\n}\ntable tr td span.actions a[data-v-6263b939]{\n    width: 32px;\n    display: block;\n    height: 35px;\n    float: left;\n}\ntable tr td a.Save[data-v-6263b939]{\n    background-image: url('/images/DataTables/New/Check Icon.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Save[data-v-6263b939]:hover,\ntable tr td a.Save[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/New/Check Icon Hover.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Cancel[data-v-6263b939]{\n    background-image: url('/images/DataTables/New/Cancel Icon.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Cancel[data-v-6263b939]:hover,\ntable tr td a.Cancel[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/New/Cancel Hover.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-6263b939]{\n    background-image: url('/images/DataTables/New/View Icon.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-6263b939]:hover,\ntable tr td a.View[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/New/View Icon Hover.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\n.alert[data-v-6263b939] {\n    position: relative;\n    padding: 0.75rem 1.25rem;\n    margin-bottom: 1rem;\n    border: 1px solid transparent;\n    border-radius: 0.25rem;\n    width: 100%;\n    float: left;\n}\ntable tr td a.Delete[data-v-6263b939]{\n    background-image: url('/images/DataTables/New/Delete Icon.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-6263b939]:hover,\ntable tr td a.Delete[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/New/Delete Icon Hover.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\n.uploaded-files a[data-v-6263b939]{\n    display: flex;\n    width: 90%;\n    float: left;\n}\n.uploaded-files .Delete[data-v-6263b939]{\n    background-color: transparent;\n    border: none;\n    width: 49px;\n    height: 46px;\n    margin: 0;\n    box-shadow: none;\n    background-image: url('/images/DataTables/New/Delete Icon.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\n.uploaded-files .Delete[data-v-6263b939]:hover,\n.uploaded-files .Delete[data-v-6263b939]:active{\n    background-color: transparent;\n    border: none;\n    width: 49px;\n    height: 46px;\n    margin: 0;\n    box-shadow: none;\n    background-image: url('/images/DataTables/New/Delete Icon Hover.svg');\n    background-size: cover;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-6263b939]{\n    background-image: url('/images/DataTables/New/Edit Icon_1.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-6263b939]:hover,\ntable tr td a.Edit[data-v-6263b939]:active{\n    background-image: url('/images/DataTables/New/Edit Icon Hover.svg');\n    background-size: 25px 35px;\n    background-repeat: no-repeat;\n}\n@media screen and (max-width: 1500px) {\ntable tr td[data-v-6263b939] {\n        font-size: 12px !important;\n        padding: 5px 10px 5px 0px !important;\n}\n}\n.control-label[data-v-6263b939]{\n    float: left;\n}\n.editable[data-v-6263b939] {\n    border-radius: 20px;\n}\ndiv.material-table[data-v-6263b939] {\n    padding: 0;\n}\n#breakdown tr td[data-v-6263b939]{\n    height: 35px;\n}\n#items tr td[data-v-6263b939]{\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-6263b939], #items tr[data-v-6263b939] {\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-6263b939] {\n    cursor: pointer;\n}\n#search-input[data-v-6263b939] {\n    margin: 0;\n    border: transparent 0 !important;\n    height: 48px;\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-6263b939] {\n    padding: 0 14px 0 24px;\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-6263b939] {\n    /* table-layout: fixed; */\n    border-spacing: 0 6px;\n}\n.table-header[data-v-6263b939] {\n    height: 64px;\n    padding-left: 24px;\n    padding-right: 14px;\n    align-items: center;\n    display: flex;\n    -webkit-display: flex;\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-6263b939] {\n    display: -webkit-flex;\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-6263b939] {\n    min-width: 36px;\n    padding: 0 8px;\n}\n.table-header input[data-v-6263b939] {\n    margin: 0;\n    height: auto;\n}\n.table-header i[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.54);\n    font-size: 24px;\n}\n.table-footer[data-v-6263b939] {\n    height: 56px;\n    padding-left: 24px;\n    padding-right: 14px;\n    display: flex;\n    flex-direction: row;\n    justify-content: flex-end;\n    align-items: center;\n    font-size: 0.63vw !important;\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-6263b939] {\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-6263b939] {\n    outline: none;\n}\n.table-footer img[data-v-6263b939] {\n    width: 46px;\n}\n.table-footer label[data-v-6263b939] {\n    font-size: 0.63vw;\n    color: rgba(0, 0, 0, 0.54);\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-6263b939] {\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-6263b939],\n.table-footer .datatable-length[data-v-6263b939] {\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-6263b939] {\n    display: flex;\n    -webkit-display: flex;\n    margin: 0;\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.54);\n    padding: 0 8px;\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-6263b939] {\n    margin: 0;\n    border-bottom: none;\n    height: auto;\n    line-height: normal;\n    font-size: 0.63vw;\n    width: 40px;\n    text-align: right;\n}\n.table-footer select[data-v-6263b939] {\n    background-color: transparent;\n    width: auto;\n    padding: 0;\n    border: 0;\n    border-radius: 0;\n    height: auto;\n    margin-left: 20px;\n}\n.table-title[data-v-6263b939] {\n    font-size: 20px;\n    color: #000;\n}\ntable tr td[data-v-6263b939] {\n    height: 35px;\n    font-size: 0.73vw;\n    color: #1c2331;\n    display: table-cell;\n    font-family: 'Rubik', sans-serif !important;\n    padding: 10px 20px 10px 0px;\n    min-width: 150px;\n}\ntable tr td a i[data-v-6263b939] {\n    font-size: 18px;\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-6263b939] {\n    font-size: 0.63vw;\n    border-bottom: 1px solid #f2f2f2;\n    padding-left: 0;\n    width: auto;\n    white-space: nowrap;\n}\ntable thead tr[data-v-6263b939]:first-child {\n   border-bottom: 0 !important;\n}\ntable th[data-v-6263b939] {\n   font-size: 0.63vw;\n    font-weight: 600;\n    color: #A6A6A6;\n    cursor: pointer;\n    white-space: nowrap;\n    padding-right: 20px;\n    /* height: 56px; */\n    /* padding-left: 14px; */\n    vertical-align: middle;\n    outline: none !important;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    background-size: 11px 12px;\n    background-repeat: no-repeat;\n    background-position: left center;\n    font-family: 'Montserrat bold', sans-serif;\n}\ntable th[data-v-6263b939]:hover {\n    overflow: visible;\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-6263b939],\ntable th.sorting-desc[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_1.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 100% 7px;\n}\ntable th.sorting-desc[data-v-6263b939] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_2.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 100% 7px;\n}\ntable tr td a[data-v-6263b939]{\n    color: #1890ff;\n    background-color: transparent;\n    text-decoration: none;\n    outline: none;\n    cursor: pointer;\n    transition: color 0.3s;\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-6263b939]:hover:after,\ntable th.sorting-asc[data-v-6263b939]:after,\ntable th.sorting-desc[data-v-6263b939]:after {\n    display: inline-block;\n}\ntable tbody tr[data-v-6263b939]:hover {\n    background-color: #f7f7f7;\n}\ntable th[data-v-6263b939]:last-child,\ntable td[data-v-6263b939]:last-child {\n    padding-right: 14px;\n    background-image: none !important;\n}\n\n/* table th:first-child,\ntable td:first-child {\n    padding-left: 25px;\n} */\n", ""]);
 
 // exports
 
@@ -372098,11 +372332,69 @@ var render = function() {
                             ])
                           ]),
                           _vm._v(" "),
+                          _c("div", { staticClass: "row mx-0 commission" }, [
+                            _c("div", { staticClass: "col-lg-6 pl-0" }, [
+                              _c("p", { staticClass: "description" }, [
+                                _vm._v("Commission")
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _c("span", { staticClass: "value" }, [
+                                  _vm._v(_vm._s(_vm.call_log.commission))
+                                ])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "col-lg-6 text-right pr-0" },
+                              [
+                                _c("p", { staticClass: "description" }, [
+                                  _vm._v("Con. Ratio")
+                                ]),
+                                _vm._v(" "),
+                                _c("p", [
+                                  _c("span", { staticClass: "value" }, [
+                                    _vm._v(_vm._s(_vm.call_log.con_ratio) + "%")
+                                  ])
+                                ])
+                              ]
+                            )
+                          ]),
+                          _vm._v(" "),
                           _vm._m(10),
                           _vm._v(" "),
-                          _vm._m(11),
-                          _vm._v(" "),
-                          _vm._m(12)
+                          _c("div", { staticClass: "row mx-0 sales" }, [
+                            _vm._m(11),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-lg-6 pl-0" }, [
+                              _c("p", { staticClass: "description" }, [
+                                _vm._v("Quantity")
+                              ]),
+                              _vm._v(" "),
+                              _c("p", [
+                                _c("span", { staticClass: "value" }, [
+                                  _vm._v(_vm._s(_vm.call_log.total_sales))
+                                ])
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "col-lg-6 text-right pr-0" },
+                              [
+                                _c("p", { staticClass: "description" }, [
+                                  _vm._v("Value")
+                                ]),
+                                _vm._v(" "),
+                                _c("p", [
+                                  _c("span", { staticClass: "value" }, [
+                                    _vm._v(_vm._s(_vm.call_log.sum_sales))
+                                  ])
+                                ])
+                              ]
+                            )
+                          ])
                         ])
                       ]
                     ),
@@ -373116,25 +373408,1251 @@ var render = function() {
                 : _vm._e()
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "closed-sidenav d-none" }, [
-              _c("p", { staticClass: "filter-heading mt-2 mx-2 mb-3" }, [
-                _vm._v("Filter")
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "row mx-0 filter-content" },
-                [
-                  _c(
-                    "b-tabs",
-                    { attrs: { "content-class": "mt-3 px-2" } },
-                    [
-                      _c("b-tab", { attrs: { title: "New" } }, [
-                        _c(
-                          "div",
-                          { staticClass: "px-2 filter-container grey-scroll" },
-                          [
-                            _c("div", { staticClass: "filter-group" }, [
+            _c(
+              "div",
+              {
+                staticClass: "closed-sidenav d-none",
+                staticStyle: { "max-width": "100%" }
+              },
+              [
+                _c("p", { staticClass: "filter-heading mt-2 mx-2 mb-3" }, [
+                  _vm._v("Filter")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "row mx-0 filter-content" },
+                  [
+                    _c(
+                      "b-tabs",
+                      { attrs: { "content-class": "mt-3 px-2" } },
+                      [
+                        _c("b-tab", { attrs: { title: "New" } }, [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "px-2 filter-container grey-scroll"
+                            },
+                            [
+                              _vm._l(_vm.filter, function(field, name, index) {
+                                return _c("div", { key: index }, [
+                                  field.field_name == "source"
+                                    ? _c(
+                                        "div",
+                                        { staticClass: "filter-group" },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "p-2 custom-control custom-checkbox",
+                                              class: {
+                                                filterborder:
+                                                  field.append_border
+                                              },
+                                              on: {
+                                                click: function($event) {
+                                                  return _vm.filterProperties(
+                                                    field
+                                                  )
+                                                }
+                                              }
+                                            },
+                                            [
+                                              _c("input", {
+                                                staticClass:
+                                                  "custom-control-input mx-0",
+                                                attrs: {
+                                                  disabled:
+                                                    field.filter_value ===
+                                                    undefined,
+                                                  type: "checkbox",
+                                                  id: "newFilter" + index
+                                                },
+                                                domProps: {
+                                                  checked:
+                                                    field.filter_value !==
+                                                    undefined
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c(
+                                                "label",
+                                                {
+                                                  staticClass:
+                                                    "custom-control-label mx-0 pt-0",
+                                                  attrs: {
+                                                    for: "newFilter" + index
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    _vm._s(
+                                                      field.field_display_name
+                                                    )
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "mr-4 pt-2 pb-2 pl-34",
+                                              class: { show: field.show },
+                                              staticStyle: { display: "none" }
+                                            },
+                                            [
+                                              _c(
+                                                "a-select",
+                                                {
+                                                  staticStyle: {
+                                                    width: "100%"
+                                                  },
+                                                  attrs: {
+                                                    mode: "multiple",
+                                                    placeholder: "Please select"
+                                                  },
+                                                  on: {
+                                                    change: function($event) {
+                                                      return _vm.fireSearchEvent(
+                                                        field.filter_value
+                                                      )
+                                                    }
+                                                  },
+                                                  model: {
+                                                    value: field.filter_value,
+                                                    callback: function($$v) {
+                                                      _vm.$set(
+                                                        field,
+                                                        "filter_value",
+                                                        $$v
+                                                      )
+                                                    },
+                                                    expression:
+                                                      "field.filter_value"
+                                                  }
+                                                },
+                                                _vm._l(_vm.sources, function(
+                                                  item,
+                                                  i
+                                                ) {
+                                                  return _c(
+                                                    "a-select-option",
+                                                    {
+                                                      key: item.name,
+                                                      attrs: {
+                                                        value: item.name
+                                                      }
+                                                    },
+                                                    [_vm._v(_vm._s(item.name))]
+                                                  )
+                                                }),
+                                                1
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ]
+                                      )
+                                    : field.field_name == "product"
+                                    ? _c(
+                                        "div",
+                                        { staticClass: "filter-group" },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "p-2 custom-control custom-checkbox",
+                                              class: {
+                                                filterborder:
+                                                  field.append_border
+                                              },
+                                              on: {
+                                                click: function($event) {
+                                                  return _vm.filterProperties(
+                                                    field
+                                                  )
+                                                }
+                                              }
+                                            },
+                                            [
+                                              _c("input", {
+                                                staticClass:
+                                                  "custom-control-input mx-0",
+                                                attrs: {
+                                                  disabled:
+                                                    field.filter_value ===
+                                                    undefined,
+                                                  type: "checkbox",
+                                                  id: "newFilter" + index
+                                                },
+                                                domProps: {
+                                                  checked:
+                                                    field.filter_value !==
+                                                    undefined
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c(
+                                                "label",
+                                                {
+                                                  staticClass:
+                                                    "custom-control-label mx-0 pt-0",
+                                                  attrs: {
+                                                    for: "newFilter" + index
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    _vm._s(
+                                                      field.field_display_name
+                                                    )
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "mr-4 pt-2 pb-2 pl-34",
+                                              class: { show: field.show },
+                                              staticStyle: { display: "none" }
+                                            },
+                                            [
+                                              _c(
+                                                "a-select",
+                                                {
+                                                  staticStyle: {
+                                                    width: "100%"
+                                                  },
+                                                  attrs: {
+                                                    mode: "multiple",
+                                                    placeholder: "Please select"
+                                                  },
+                                                  on: {
+                                                    change: function($event) {
+                                                      return _vm.fireSearchEvent(
+                                                        field.filter_value
+                                                      )
+                                                    }
+                                                  },
+                                                  model: {
+                                                    value: field.filter_value,
+                                                    callback: function($$v) {
+                                                      _vm.$set(
+                                                        field,
+                                                        "filter_value",
+                                                        $$v
+                                                      )
+                                                    },
+                                                    expression:
+                                                      "field.filter_value"
+                                                  }
+                                                },
+                                                _vm._l(_vm.packages, function(
+                                                  item,
+                                                  i
+                                                ) {
+                                                  return _c(
+                                                    "a-select-option",
+                                                    {
+                                                      key: item.name,
+                                                      attrs: {
+                                                        value: item.name
+                                                      }
+                                                    },
+                                                    [_vm._v(_vm._s(item.name))]
+                                                  )
+                                                }),
+                                                1
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ]
+                                      )
+                                    : field.field_name == "assignee"
+                                    ? _c(
+                                        "div",
+                                        { staticClass: "filter-group" },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "p-2 custom-control custom-checkbox",
+                                              class: {
+                                                filterborder:
+                                                  field.append_border
+                                              },
+                                              on: {
+                                                click: function($event) {
+                                                  return _vm.filterProperties(
+                                                    field
+                                                  )
+                                                }
+                                              }
+                                            },
+                                            [
+                                              _c("input", {
+                                                staticClass:
+                                                  "custom-control-input mx-0",
+                                                attrs: {
+                                                  disabled:
+                                                    field.filter_value ===
+                                                    undefined,
+                                                  type: "checkbox",
+                                                  id: "newFilter" + index
+                                                },
+                                                domProps: {
+                                                  checked:
+                                                    field.filter_value !==
+                                                    undefined
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c(
+                                                "label",
+                                                {
+                                                  staticClass:
+                                                    "custom-control-label mx-0 pt-0",
+                                                  attrs: {
+                                                    for: "newFilter" + index
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    _vm._s(
+                                                      field.field_display_name
+                                                    )
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "mr-4 pt-2 pb-2 pl-34",
+                                              class: { show: field.show },
+                                              staticStyle: { display: "none" }
+                                            },
+                                            [
+                                              _c(
+                                                "a-select",
+                                                {
+                                                  staticStyle: {
+                                                    width: "100%"
+                                                  },
+                                                  attrs: {
+                                                    mode: "multiple",
+                                                    placeholder: "Please select"
+                                                  },
+                                                  on: {
+                                                    change: function($event) {
+                                                      return _vm.fireSearchEvent(
+                                                        field.filter_value
+                                                      )
+                                                    }
+                                                  },
+                                                  model: {
+                                                    value: field.filter_value,
+                                                    callback: function($$v) {
+                                                      _vm.$set(
+                                                        field,
+                                                        "filter_value",
+                                                        $$v
+                                                      )
+                                                    },
+                                                    expression:
+                                                      "field.filter_value"
+                                                  }
+                                                },
+                                                _vm._l(
+                                                  _vm.active_users,
+                                                  function(item, i) {
+                                                    return _c(
+                                                      "a-select-option",
+                                                      {
+                                                        key: item.name,
+                                                        attrs: {
+                                                          value:
+                                                            item.name +
+                                                            " " +
+                                                            item.lastname
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          _vm._s(
+                                                            item.name +
+                                                              " " +
+                                                              item.lastname
+                                                          )
+                                                        )
+                                                      ]
+                                                    )
+                                                  }
+                                                ),
+                                                1
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ]
+                                      )
+                                    : field.field_name == "owner"
+                                    ? _c(
+                                        "div",
+                                        { staticClass: "filter-group" },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "p-2 custom-control custom-checkbox",
+                                              class: {
+                                                filterborder:
+                                                  field.append_border
+                                              },
+                                              on: {
+                                                click: function($event) {
+                                                  return _vm.filterProperties(
+                                                    field
+                                                  )
+                                                }
+                                              }
+                                            },
+                                            [
+                                              _c("input", {
+                                                staticClass:
+                                                  "custom-control-input mx-0",
+                                                attrs: {
+                                                  disabled:
+                                                    field.filter_value ===
+                                                    undefined,
+                                                  type: "checkbox",
+                                                  id: "newFilter" + index
+                                                },
+                                                domProps: {
+                                                  checked:
+                                                    field.filter_value !==
+                                                    undefined
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c(
+                                                "label",
+                                                {
+                                                  staticClass:
+                                                    "custom-control-label mx-0 pt-0",
+                                                  attrs: {
+                                                    for: "newFilter" + index
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    _vm._s(
+                                                      field.field_display_name
+                                                    )
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "mr-4 pt-2 pb-2 pl-34",
+                                              class: { show: field.show },
+                                              staticStyle: { display: "none" }
+                                            },
+                                            [
+                                              _c(
+                                                "a-select",
+                                                {
+                                                  staticStyle: {
+                                                    width: "100%"
+                                                  },
+                                                  attrs: {
+                                                    mode: "multiple",
+                                                    placeholder: "Please select"
+                                                  },
+                                                  on: {
+                                                    change: function($event) {
+                                                      return _vm.fireSearchEvent(
+                                                        field.filter_value
+                                                      )
+                                                    }
+                                                  },
+                                                  model: {
+                                                    value: field.filter_value,
+                                                    callback: function($$v) {
+                                                      _vm.$set(
+                                                        field,
+                                                        "filter_value",
+                                                        $$v
+                                                      )
+                                                    },
+                                                    expression:
+                                                      "field.filter_value"
+                                                  }
+                                                },
+                                                _vm._l(
+                                                  _vm.active_users,
+                                                  function(item, i) {
+                                                    return _c(
+                                                      "a-select-option",
+                                                      {
+                                                        key: item.name,
+                                                        attrs: {
+                                                          value:
+                                                            item.name +
+                                                            " " +
+                                                            item.lastname
+                                                        }
+                                                      },
+                                                      [
+                                                        _vm._v(
+                                                          _vm._s(
+                                                            item.name +
+                                                              " " +
+                                                              item.lastname
+                                                          )
+                                                        )
+                                                      ]
+                                                    )
+                                                  }
+                                                ),
+                                                1
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ]
+                                      )
+                                    : field.field_name == "gender"
+                                    ? _c(
+                                        "div",
+                                        { staticClass: "filter-group" },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "p-2 custom-control custom-checkbox",
+                                              class: {
+                                                filterborder:
+                                                  field.append_border
+                                              },
+                                              on: {
+                                                click: function($event) {
+                                                  return _vm.filterProperties(
+                                                    field
+                                                  )
+                                                }
+                                              }
+                                            },
+                                            [
+                                              _c("input", {
+                                                staticClass:
+                                                  "custom-control-input mx-0",
+                                                attrs: {
+                                                  disabled:
+                                                    field.filter_value ===
+                                                    undefined,
+                                                  type: "checkbox",
+                                                  id: "newFilter" + index
+                                                },
+                                                domProps: {
+                                                  checked:
+                                                    field.filter_value !==
+                                                    undefined
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c(
+                                                "label",
+                                                {
+                                                  staticClass:
+                                                    "custom-control-label mx-0 pt-0",
+                                                  attrs: {
+                                                    for: "newFilter" + index
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    _vm._s(
+                                                      field.field_display_name
+                                                    )
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "mr-4 pt-2 pb-2 pl-34",
+                                              class: { show: field.show },
+                                              staticStyle: { display: "none" }
+                                            },
+                                            [
+                                              _c(
+                                                "a-select",
+                                                {
+                                                  staticStyle: {
+                                                    width: "100%"
+                                                  },
+                                                  attrs: {
+                                                    mode: "multiple",
+                                                    placeholder: "Please select"
+                                                  },
+                                                  on: {
+                                                    change: function($event) {
+                                                      return _vm.fireSearchEvent(
+                                                        field.filter_value
+                                                      )
+                                                    }
+                                                  },
+                                                  model: {
+                                                    value: field.filter_value,
+                                                    callback: function($$v) {
+                                                      _vm.$set(
+                                                        field,
+                                                        "filter_value",
+                                                        $$v
+                                                      )
+                                                    },
+                                                    expression:
+                                                      "field.filter_value"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "a-select-option",
+                                                    {
+                                                      key: "Male",
+                                                      attrs: { value: "Male" }
+                                                    },
+                                                    [_vm._v("Male")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "a-select-option",
+                                                    {
+                                                      key: "Female",
+                                                      attrs: { value: "Female" }
+                                                    },
+                                                    [_vm._v("Femail")]
+                                                  )
+                                                ],
+                                                1
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ]
+                                      )
+                                    : field.field_name == "title"
+                                    ? _c(
+                                        "div",
+                                        { staticClass: "filter-group" },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "p-2 custom-control custom-checkbox",
+                                              class: {
+                                                filterborder:
+                                                  field.append_border
+                                              },
+                                              on: {
+                                                click: function($event) {
+                                                  return _vm.filterProperties(
+                                                    field
+                                                  )
+                                                }
+                                              }
+                                            },
+                                            [
+                                              _c("input", {
+                                                staticClass:
+                                                  "custom-control-input mx-0",
+                                                attrs: {
+                                                  disabled:
+                                                    field.filter_value ===
+                                                    undefined,
+                                                  type: "checkbox",
+                                                  id: "newFilter" + index
+                                                },
+                                                domProps: {
+                                                  checked:
+                                                    field.filter_value !==
+                                                    undefined
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c(
+                                                "label",
+                                                {
+                                                  staticClass:
+                                                    "custom-control-label mx-0 pt-0",
+                                                  attrs: {
+                                                    for: "newFilter" + index
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    _vm._s(
+                                                      field.field_display_name
+                                                    )
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "mr-4 pt-2 pb-2 pl-34",
+                                              class: { show: field.show },
+                                              staticStyle: { display: "none" }
+                                            },
+                                            [
+                                              _c(
+                                                "a-select",
+                                                {
+                                                  staticStyle: {
+                                                    width: "100%"
+                                                  },
+                                                  attrs: {
+                                                    mode: "multiple",
+                                                    placeholder: "Please select"
+                                                  },
+                                                  on: {
+                                                    change: function($event) {
+                                                      return _vm.fireSearchEvent(
+                                                        field.filter_value
+                                                      )
+                                                    }
+                                                  },
+                                                  model: {
+                                                    value: field.filter_value,
+                                                    callback: function($$v) {
+                                                      _vm.$set(
+                                                        field,
+                                                        "filter_value",
+                                                        $$v
+                                                      )
+                                                    },
+                                                    expression:
+                                                      "field.filter_value"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "a-select-option",
+                                                    {
+                                                      key: "Mr",
+                                                      attrs: { value: "Mr" }
+                                                    },
+                                                    [_vm._v("Mr")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "a-select-option",
+                                                    {
+                                                      key: "Mrs",
+                                                      attrs: { value: "Mrs" }
+                                                    },
+                                                    [_vm._v("Mrs")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "a-select-option",
+                                                    {
+                                                      key: "Ms",
+                                                      attrs: { value: "Ms" }
+                                                    },
+                                                    [_vm._v("Ms")]
+                                                  )
+                                                ],
+                                                1
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ]
+                                      )
+                                    : field.field_name == "status"
+                                    ? _c(
+                                        "div",
+                                        { staticClass: "filter-group" },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "p-2 custom-control custom-checkbox",
+                                              class: {
+                                                filterborder:
+                                                  field.append_border
+                                              },
+                                              on: {
+                                                click: function($event) {
+                                                  return _vm.filterProperties(
+                                                    field
+                                                  )
+                                                }
+                                              }
+                                            },
+                                            [
+                                              _c("input", {
+                                                staticClass:
+                                                  "custom-control-input mx-0",
+                                                attrs: {
+                                                  disabled:
+                                                    field.filter_value ===
+                                                    undefined,
+                                                  type: "checkbox",
+                                                  id: "newFilter" + index
+                                                },
+                                                domProps: {
+                                                  checked:
+                                                    field.filter_value !==
+                                                    undefined
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c(
+                                                "label",
+                                                {
+                                                  staticClass:
+                                                    "custom-control-label mx-0 pt-0",
+                                                  attrs: {
+                                                    for: "newFilter" + index
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    _vm._s(
+                                                      field.field_display_name
+                                                    )
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "mr-4 pt-2 pb-2 pl-34",
+                                              class: { show: field.show },
+                                              staticStyle: { display: "none" }
+                                            },
+                                            [
+                                              _c(
+                                                "a-select",
+                                                {
+                                                  staticStyle: {
+                                                    width: "100%"
+                                                  },
+                                                  attrs: {
+                                                    mode: "multiple",
+                                                    placeholder: "Please select"
+                                                  },
+                                                  on: {
+                                                    change: function($event) {
+                                                      return _vm.fireSearchEvent(
+                                                        field.filter_value
+                                                      )
+                                                    }
+                                                  },
+                                                  model: {
+                                                    value: field.filter_value,
+                                                    callback: function($$v) {
+                                                      _vm.$set(
+                                                        field,
+                                                        "filter_value",
+                                                        $$v
+                                                      )
+                                                    },
+                                                    expression:
+                                                      "field.filter_value"
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "a-select-option",
+                                                    {
+                                                      key: "Active",
+                                                      attrs: { value: "Active" }
+                                                    },
+                                                    [_vm._v("Active")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "a-select-option",
+                                                    {
+                                                      key: "Inactive",
+                                                      attrs: {
+                                                        value: "Inactive"
+                                                      }
+                                                    },
+                                                    [_vm._v("Inactive")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "a-select-option",
+                                                    {
+                                                      key: "Canceled",
+                                                      attrs: {
+                                                        value: "Canceled"
+                                                      }
+                                                    },
+                                                    [_vm._v("Canceled")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "a-select-option",
+                                                    {
+                                                      key: "Disabled",
+                                                      attrs: {
+                                                        value: "Disabled"
+                                                      }
+                                                    },
+                                                    [_vm._v("Disabled")]
+                                                  )
+                                                ],
+                                                1
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        ]
+                                      )
+                                    : _c(
+                                        "div",
+                                        { staticClass: "filter-group" },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "p-2 custom-control custom-checkbox",
+                                              class: {
+                                                filterborder:
+                                                  field.append_border
+                                              },
+                                              on: {
+                                                click: function($event) {
+                                                  return _vm.filterProperties(
+                                                    field
+                                                  )
+                                                }
+                                              }
+                                            },
+                                            [
+                                              _c("input", {
+                                                staticClass:
+                                                  "custom-control-input mx-0",
+                                                attrs: {
+                                                  disabled:
+                                                    field.filter_value ===
+                                                    undefined,
+                                                  type: "checkbox",
+                                                  id: "newFilter" + index
+                                                },
+                                                domProps: {
+                                                  checked:
+                                                    field.filter_value !==
+                                                    undefined
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c(
+                                                "label",
+                                                {
+                                                  staticClass:
+                                                    "custom-control-label mx-0 pt-0",
+                                                  attrs: {
+                                                    for: "newFilter" + index
+                                                  }
+                                                },
+                                                [
+                                                  _vm._v(
+                                                    _vm._s(
+                                                      field.field_display_name
+                                                    )
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "mr-4 pt-2 pb-2 pl-34",
+                                              class: { show: field.show },
+                                              staticStyle: { display: "none" }
+                                            },
+                                            [
+                                              _c(
+                                                "select",
+                                                {
+                                                  directives: [
+                                                    {
+                                                      name: "model",
+                                                      rawName: "v-model",
+                                                      value: field.constraint,
+                                                      expression:
+                                                        "field.constraint"
+                                                    }
+                                                  ],
+                                                  staticClass:
+                                                    "search-criteria w-100 mb-2",
+                                                  staticStyle: {
+                                                    display: "none"
+                                                  },
+                                                  on: {
+                                                    change: function($event) {
+                                                      var $$selectedVal = Array.prototype.filter
+                                                        .call(
+                                                          $event.target.options,
+                                                          function(o) {
+                                                            return o.selected
+                                                          }
+                                                        )
+                                                        .map(function(o) {
+                                                          var val =
+                                                            "_value" in o
+                                                              ? o._value
+                                                              : o.value
+                                                          return val
+                                                        })
+                                                      _vm.$set(
+                                                        field,
+                                                        "constraint",
+                                                        $event.target.multiple
+                                                          ? $$selectedVal
+                                                          : $$selectedVal[0]
+                                                      )
+                                                    }
+                                                  }
+                                                },
+                                                [
+                                                  _c(
+                                                    "option",
+                                                    { attrs: { selected: "" } },
+                                                    [_vm._v("is equal to")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "option",
+                                                    { attrs: { value: "1" } },
+                                                    [_vm._v("contains")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "option",
+                                                    { attrs: { value: "2" } },
+                                                    [_vm._v("does not contain")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "option",
+                                                    { attrs: { value: "3" } },
+                                                    [_vm._v("begins with")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c(
+                                                    "option",
+                                                    { attrs: { value: "3" } },
+                                                    [_vm._v("ends with")]
+                                                  )
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c("input", {
+                                                directives: [
+                                                  {
+                                                    name: "model",
+                                                    rawName: "v-model",
+                                                    value: field.filter_value,
+                                                    expression:
+                                                      "field.filter_value"
+                                                  }
+                                                ],
+                                                staticClass:
+                                                  "search-text w-100 mt-2",
+                                                attrs: {
+                                                  type: "text",
+                                                  placeholder: "Text Here",
+                                                  value: ""
+                                                },
+                                                domProps: {
+                                                  value: field.filter_value
+                                                },
+                                                on: {
+                                                  keyup: function($event) {
+                                                    return _vm.fireSearchEvent(
+                                                      field.filter_value
+                                                    )
+                                                  },
+                                                  input: function($event) {
+                                                    if (
+                                                      $event.target.composing
+                                                    ) {
+                                                      return
+                                                    }
+                                                    _vm.$set(
+                                                      field,
+                                                      "filter_value",
+                                                      $event.target.value
+                                                    )
+                                                  }
+                                                }
+                                              })
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                ])
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "filter-results grey-scroll mr-4 pl-34",
+                                  class: { show: false },
+                                  staticStyle: { display: "none" }
+                                },
+                                [
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "custom-control custom-checkbox"
+                                    },
+                                    [
+                                      _c("input", {
+                                        staticClass:
+                                          "custom-control-input mx-0",
+                                        attrs: {
+                                          type: "checkbox",
+                                          id: "result1"
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "label",
+                                        {
+                                          staticClass:
+                                            "custom-control-label mx-0 pt-0",
+                                          attrs: { for: "result1" }
+                                        },
+                                        [_vm._v("John Davies")]
+                                      )
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "custom-control custom-checkbox"
+                                    },
+                                    [
+                                      _c("input", {
+                                        staticClass:
+                                          "custom-control-input mx-0",
+                                        attrs: {
+                                          type: "checkbox",
+                                          id: "result2"
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c(
+                                        "label",
+                                        {
+                                          staticClass:
+                                            "custom-control-label mx-0 pt-0",
+                                          attrs: { for: "result2" }
+                                        },
+                                        [_vm._v("John Davies")]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              )
+                            ],
+                            2
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "row mx-2 mt-3 border-top pt-3 custom-filter-name-save"
+                            },
+                            [
+                              _c("div", { staticClass: "col pl-0 pr-2" }, [
+                                _c("input", {
+                                  staticClass: "save-text w-100",
+                                  attrs: {
+                                    type: "text",
+                                    placeholder: "Custom Filter Name",
+                                    value: ""
+                                  }
+                                })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "col-auto pr-0 pl-2" }, [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "btn btn-primary save-filter mt-2 rounded-pill m-0",
+                                    attrs: { type: "submit" },
+                                    on: { click: _vm.saveFilter }
+                                  },
+                                  [_vm._v("Save")]
+                                )
+                              ])
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("b-tab", { attrs: { title: "Saved", active: "" } }, [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "px-2 saved-group filter-container grey-scroll"
+                            },
+                            [
                               _c(
                                 "div",
                                 {
@@ -373143,7 +374661,7 @@ var render = function() {
                                   class: { filterborder: _vm.appendBorder },
                                   on: {
                                     click: function($event) {
-                                      return _vm.filterProperties()
+                                      return _vm.savedFilters()
                                     }
                                   }
                                 },
@@ -373151,11 +374669,13 @@ var render = function() {
                                   _c("input", {
                                     staticClass: "custom-control-input mx-0",
                                     attrs: {
-                                      disabled: _vm.filterValue === "",
                                       type: "checkbox",
-                                      id: "newFilter1"
+                                      disabled: _vm.appendBorder === false,
+                                      id: "savedFilter1"
                                     },
-                                    domProps: { checked: _vm.filterValue != "" }
+                                    domProps: {
+                                      checked: _vm.appendBorder !== false
+                                    }
                                   }),
                                   _vm._v(" "),
                                   _c(
@@ -373163,9 +374683,9 @@ var render = function() {
                                     {
                                       staticClass:
                                         "custom-control-label mx-0 pt-0",
-                                      attrs: { for: "newFilter1" }
+                                      attrs: { for: "savedFilter1" }
                                     },
-                                    [_vm._v("Name")]
+                                    [_vm._v("Saved")]
                                   )
                                 ]
                               ),
@@ -373173,258 +374693,55 @@ var render = function() {
                               _c(
                                 "div",
                                 {
-                                  staticClass: "mr-4 pt-2 pb-2 pl-34",
-                                  class: { show: _vm.showFilters },
+                                  staticClass: "pl-34",
+                                  class: { show: _vm.showSavedFilters },
                                   staticStyle: { display: "none" }
                                 },
                                 [
                                   _c(
-                                    "select",
-                                    {
-                                      staticClass: "search-criteria w-100 mb-2"
-                                    },
+                                    "div",
+                                    { staticClass: "saved-results p-2" },
                                     [
                                       _c(
-                                        "option",
-                                        { attrs: { selected: "" } },
-                                        [_vm._v("is equal to")]
+                                        "span",
+                                        { staticClass: "orange pr-2" },
+                                        [_vm._v("⬤")]
                                       ),
-                                      _vm._v(" "),
-                                      _c("option", { attrs: { value: "1" } }, [
-                                        _vm._v("contains")
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("option", { attrs: { value: "2" } }, [
-                                        _vm._v("does not contain")
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("option", { attrs: { value: "3" } }, [
-                                        _vm._v("begins with")
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("option", { attrs: { value: "3" } }, [
-                                        _vm._v("ends with")
-                                      ])
+                                      _vm._v("Name")
                                     ]
                                   ),
                                   _vm._v(" "),
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.filterValue,
-                                        expression: "filterValue"
-                                      }
-                                    ],
-                                    staticClass: "search-text w-100 mt-2",
-                                    attrs: {
-                                      type: "text",
-                                      placeholder: "Text Here",
-                                      value: ""
+                                  _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "col-auto pr-0 pl-2 float-right"
                                     },
-                                    domProps: { value: _vm.filterValue },
-                                    on: {
-                                      input: function($event) {
-                                        if ($event.target.composing) {
-                                          return
-                                        }
-                                        _vm.filterValue = $event.target.value
-                                      }
-                                    }
-                                  })
+                                    [
+                                      _c(
+                                        "button",
+                                        {
+                                          staticClass:
+                                            "btn btn-primary update-filter mt-2 rounded-pill mr-4",
+                                          attrs: { type: "submit" }
+                                        },
+                                        [_vm._v("Edit")]
+                                      )
+                                    ]
+                                  )
                                 ]
                               )
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "filter-results grey-scroll mr-4 pl-34",
-                                class: { show: _vm.filterValue != "" },
-                                staticStyle: { display: "none" }
-                              },
-                              [
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "custom-control custom-checkbox"
-                                  },
-                                  [
-                                    _c("input", {
-                                      staticClass: "custom-control-input mx-0",
-                                      attrs: { type: "checkbox", id: "result1" }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "label",
-                                      {
-                                        staticClass:
-                                          "custom-control-label mx-0 pt-0",
-                                        attrs: { for: "result1" }
-                                      },
-                                      [_vm._v("John Davies")]
-                                    )
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "custom-control custom-checkbox"
-                                  },
-                                  [
-                                    _c("input", {
-                                      staticClass: "custom-control-input mx-0",
-                                      attrs: { type: "checkbox", id: "result2" }
-                                    }),
-                                    _vm._v(" "),
-                                    _c(
-                                      "label",
-                                      {
-                                        staticClass:
-                                          "custom-control-label mx-0 pt-0",
-                                        attrs: { for: "result2" }
-                                      },
-                                      [_vm._v("John Davies")]
-                                    )
-                                  ]
-                                )
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "row mx-2 mt-3 border-top pt-3 custom-filter-name-save"
-                          },
-                          [
-                            _c("div", { staticClass: "col pl-0 pr-2" }, [
-                              _c("input", {
-                                staticClass: "save-text w-100",
-                                attrs: {
-                                  type: "text",
-                                  placeholder: "Custom Filter Name",
-                                  value: ""
-                                }
-                              })
-                            ]),
-                            _vm._v(" "),
-                            _c("div", { staticClass: "col-auto pr-0 pl-2" }, [
-                              _c(
-                                "button",
-                                {
-                                  staticClass:
-                                    "btn btn-primary save-filter mt-2 rounded-pill m-0",
-                                  attrs: { type: "submit" }
-                                },
-                                [_vm._v("Save")]
-                              )
-                            ])
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("b-tab", { attrs: { title: "Saved", active: "" } }, [
-                        _c(
-                          "div",
-                          {
-                            staticClass:
-                              "px-2 saved-group filter-container grey-scroll"
-                          },
-                          [
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "p-2 custom-control custom-checkbox",
-                                class: { filterborder: _vm.appendBorder },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.savedFilters()
-                                  }
-                                }
-                              },
-                              [
-                                _c("input", {
-                                  staticClass: "custom-control-input mx-0",
-                                  attrs: {
-                                    type: "checkbox",
-                                    disabled: _vm.appendBorder === false,
-                                    id: "savedFilter1"
-                                  },
-                                  domProps: {
-                                    checked: _vm.appendBorder !== false
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c(
-                                  "label",
-                                  {
-                                    staticClass:
-                                      "custom-control-label mx-0 pt-0",
-                                    attrs: { for: "savedFilter1" }
-                                  },
-                                  [_vm._v("Saved")]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass: "pl-34",
-                                class: { show: _vm.showSavedFilters },
-                                staticStyle: { display: "none" }
-                              },
-                              [
-                                _c(
-                                  "div",
-                                  { staticClass: "saved-results p-2" },
-                                  [
-                                    _c("span", { staticClass: "orange pr-2" }, [
-                                      _vm._v("⬤")
-                                    ]),
-                                    _vm._v("Name")
-                                  ]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "div",
-                                  {
-                                    staticClass:
-                                      "col-auto pr-0 pl-2 float-right"
-                                  },
-                                  [
-                                    _c(
-                                      "button",
-                                      {
-                                        staticClass:
-                                          "btn btn-primary update-filter mt-2 rounded-pill mr-4",
-                                        attrs: { type: "submit" }
-                                      },
-                                      [_vm._v("Edit")]
-                                    )
-                                  ]
-                                )
-                              ]
-                            )
-                          ]
-                        )
-                      ])
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            ])
+                            ]
+                          )
+                        ])
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ]
+            )
           ]
         )
       ])
@@ -373580,24 +374897,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row mx-0 commission" }, [
-      _c("div", { staticClass: "col-lg-6 pl-0" }, [
-        _c("p", { staticClass: "description" }, [_vm._v("Commission")]),
-        _vm._v(" "),
-        _c("p", [_c("span", { staticClass: "value" }, [_vm._v("$1523")])])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-lg-6 text-right pr-0" }, [
-        _c("p", { staticClass: "description" }, [_vm._v("Con. Ratio")]),
-        _vm._v(" "),
-        _c("p", [_c("span", { staticClass: "value" }, [_vm._v("40%")])])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row mx-0 calls" }, [
       _c("div", { staticClass: "col-lg-12 px-0" }, [
         _c("p", { staticClass: "description" }, [_vm._v("Calls")])
@@ -373620,22 +374919,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row mx-0 sales" }, [
-      _c("div", { staticClass: "col-lg-12 px-0" }, [
-        _c("p", { staticClass: "description" }, [_vm._v("Sales")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-lg-6 pl-0" }, [
-        _c("p", { staticClass: "description" }, [_vm._v("Quantity")]),
-        _vm._v(" "),
-        _c("p", [_c("span", { staticClass: "value" }, [_vm._v("54")])])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-lg-6 text-right pr-0" }, [
-        _c("p", { staticClass: "description" }, [_vm._v("Value")]),
-        _vm._v(" "),
-        _c("p", [_c("span", { staticClass: "value" }, [_vm._v("$2725")])])
-      ])
+    return _c("div", { staticClass: "col-lg-12 px-0" }, [
+      _c("p", { staticClass: "description" }, [_vm._v("Sales")])
     ])
   }
 ]

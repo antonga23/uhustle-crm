@@ -300,40 +300,6 @@ table.listing tr  th{
         </div>
       </div> 
     </div>
-    <!-- <div id="top-section" class="row" style="margin-top:2%; display:none;">
-      <div class="filter-card"  @click="filterItems(-1)">
-        <div class="card sales-amount">
-          <div class="card-body">
-            <p class="card-text-small">All  <strong> {{ items.length }} </strong> </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="filter-card" @click="filterItems(1)" v-if="role_id == 1 || role_id == 2">
-        <div class="card ave-time">
-          <div class="card-body">
-            <p class="card-text-small">Assigned <strong> {{ count_assigned }}</strong></p>               
-          </div>
-        </div>
-      </div>
-
-      <div class="filter-card" @click="filterItems(0)" v-if="role_id == 1 || role_id == 1">
-        <div class="card con-ratio">
-          <div class="card-body">
-            <p class="card-text-small">Unassigned<strong>{{ count_unassigned }}</strong></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="filter-card" @click="applyFilter({filter: item})" v-for="(item, index) in filter_data" :key="index">
-        <div class="card con-ratio">
-          <div class="card-body">
-            <a href="#" class="close" @click="deleteFilter( item.id)"></a>
-            <p class="card-text-small">{{ item.title }}<strong>{{ item.counts }}</strong></p>
-          </div>
-        </div>
-      </div>
-    </div> -->
     <div v-if="!add_user" id="bottom-section" class="pr-0">
       <div class="row stats mx-0 scroll-hidden horizontal-scroll">
         <div class="col-lg-12 pl-0">
@@ -414,10 +380,6 @@ table.listing tr  th{
         vm.add_user = !vm.add_user;
       });
 
-      Fire.$on('FilterData', function(data){
-        vm.applyFilter(data);
-      });
-
       Fire.$on('ReloadLeads', function(data){
         vm.getItems();
       });
@@ -448,6 +410,7 @@ table.listing tr  th{
         assignees: [],
         owners: [],
         items : [],
+        cachItems: this.items,
         display_items : [],
         chached_display_items : [],
         count_assigned : 0,
@@ -577,7 +540,7 @@ table.listing tr  th{
       getItems(){
         var vm = this;
 
-        var endpoint = '/modules/get-items/' + vm.active;
+        var endpoint = '/modules/get-assigned/' + vm.active;
 
         vm.show_page_loader = true;
 
@@ -588,6 +551,8 @@ table.listing tr  th{
           if(response.data.success == true){
 
             vm.items = response.data.items;
+            
+            vm.cachItems = response.data.items;
 
             vm.display_items = response.data.display_items;
             
@@ -635,20 +600,6 @@ table.listing tr  th{
               }
           });
       },
-      // applyFilter(filter){
-      //     var vm = this;
-      //     vm.$Progress.start();
-      //     axios.post('/filters/filter/0',{ 'filter' : filter }).then(function (response) {
-      //         if(response.data.success == true){
-      //             vm.users.leads = response.data.leads;
-      //             Fire.$emit('CustomFilterApplied', filter);
-      //             vm.$Progress.finish();
-      //         }else{
-      //             vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
-      //             vm.$Progress.fail();
-      //         }
-      //     });
-      // },
       deleteFilter(id){
         this.$swal.fire({
           title: 'Are you sure?',

@@ -1650,12 +1650,12 @@
                   <div class="row mx-0 commission"> 
                     <div class="col-lg-6 pl-0"> 
                       <p class="description">Commission</p> 
-                      <p><span class="value">$1523</span></p> 
+                      <p><span class="value">{{ call_log.commission }}</span></p> 
                     </div> 
 
                     <div class="col-lg-6 text-right pr-0"> 
                       <p class="description">Con. Ratio</p> 
-                      <p><span class="value">40%</span></p> 
+                      <p><span class="value">{{ call_log.con_ratio }}%</span></p> 
                     </div> 
                   </div> 
 
@@ -1681,11 +1681,11 @@
                     </div> 
                     <div class="col-lg-6 pl-0"> 
                       <p class="description">Quantity</p> 
-                      <p><span class="value">54</span></p> 
+                      <p><span class="value">{{ call_log.total_sales }}</span></p> 
                     </div> 
                     <div class="col-lg-6 text-right pr-0"> 
                       <p class="description">Value</p> 
-                      <p><span class="value">$2725</span></p> 
+                      <p><span class="value">{{ call_log.sum_sales }}</span></p> 
                     </div> 
                   </div> 
                 </div> 
@@ -1853,40 +1853,255 @@
             </div> 
           </div> 
 
-          <div class="closed-sidenav d-none"> 
+          <div class="closed-sidenav d-none" style="max-width:100%"> 
             <p class="filter-heading mt-2 mx-2 mb-3">Filter</p> 
             <div class="row mx-0 filter-content"> 
               <b-tabs content-class="mt-3 px-2"> 
                 <b-tab title="New"> 
-                  <div class="px-2 filter-container grey-scroll"> 
-                    <div class="filter-group"> 
-                      <div
-                        @click="filterProperties()" 
-                        :class="{ filterborder:appendBorder }" 
-                        class="p-2 custom-control custom-checkbox"
-                      > 
-                        <input 
-                          :disabled="filterValue === ''" :checked="filterValue != ''" 
-                          type="checkbox" 
-                          class="custom-control-input mx-0" 
-                          id="newFilter1"
+                  <div class="px-2 filter-container grey-scroll">
+                    <div v-for="(field, name, index) in filter" :key="index">
+
+                      <div v-if="field.field_name == 'source'" class="filter-group"> 
+                        <div
+                          @click="filterProperties(field)" 
+                          :class="{ filterborder: field.append_border }" 
+                          class="p-2 custom-control custom-checkbox"
                         > 
-                        <label class="custom-control-label mx-0 pt-0" for="newFilter1">Name</label> 
+                          <input 
+                            :disabled="field.filter_value === undefined" :checked="field.filter_value !== undefined" 
+                            type="checkbox" 
+                            class="custom-control-input mx-0" 
+                            :id="'newFilter' + index"
+                          > 
+                          <label class="custom-control-label mx-0 pt-0" :for="'newFilter' + index">{{ field.field_display_name }}</label> 
+                        </div> 
+
+                        <div class="mr-4 pt-2 pb-2 pl-34" style="display:none;" :class="{ show: field.show }"> 
+                          <a-select
+                            mode="multiple"
+                            style="width: 100%"
+                            v-model="field.filter_value" 
+                            placeholder="Please select"
+                            @change="fireSearchEvent(field.filter_value)"
+                          >
+                            <a-select-option :value="item.name" v-for="(item, i) in sources" :key="item.name"
+                              >{{ item.name }}</a-select-option
+                            >
+                          </a-select> 
+                        </div> 
+                      </div>
+
+                      <div v-else-if="field.field_name == 'product'" class="filter-group"> 
+                        <div
+                          @click="filterProperties(field)" 
+                          :class="{ filterborder: field.append_border }" 
+                          class="p-2 custom-control custom-checkbox"
+                        > 
+                          <input 
+                            :disabled="field.filter_value === undefined" :checked="field.filter_value !== undefined" 
+                            type="checkbox" 
+                            class="custom-control-input mx-0" 
+                            :id="'newFilter' + index"
+                          > 
+                          <label class="custom-control-label mx-0 pt-0" :for="'newFilter' + index">{{ field.field_display_name }}</label> 
+                        </div> 
+
+                        <div class="mr-4 pt-2 pb-2 pl-34" style="display:none;" :class="{ show: field.show }"> 
+
+                          <a-select
+                            mode="multiple"
+                            style="width: 100%"
+                            v-model="field.filter_value" 
+                            placeholder="Please select"
+                            @change="fireSearchEvent(field.filter_value)"
+                          >
+                            <a-select-option  :value="item.name" v-for="(item, i) in packages" :key="item.name"
+                              >{{ item.name }}</a-select-option
+                            >
+                          </a-select>
+                        </div> 
                       </div> 
 
-                      <div class="mr-4 pt-2 pb-2 pl-34" style="display:none;" :class="{ show:showFilters }"> 
-                        <select class="search-criteria w-100 mb-2"> 
-                          <option selected>is equal to</option> 
-                          <option value="1">contains</option> 
-                          <option value="2">does not contain</option> 
-                          <option value="3">begins with</option> 
-                          <option value="3">ends with</option> 
-                        </select> 
-                        <input class="search-text w-100 mt-2" type="text" placeholder="Text Here" v-model="filterValue" value=""> 
-                      </div> 
-                    </div> 
+                      <div v-else-if="field.field_name == 'assignee'" class="filter-group"> 
+                        <div
+                          @click="filterProperties(field)" 
+                          :class="{ filterborder: field.append_border }" 
+                          class="p-2 custom-control custom-checkbox"
+                        > 
+                          <input 
+                            :disabled="field.filter_value === undefined" :checked="field.filter_value !== undefined" 
+                            type="checkbox" 
+                            class="custom-control-input mx-0" 
+                            :id="'newFilter' + index"
+                          > 
+                          <label class="custom-control-label mx-0 pt-0" :for="'newFilter' + index">{{ field.field_display_name }}</label> 
+                        </div> 
 
-                    <div class="filter-results grey-scroll mr-4 pl-34" :class="{show:filterValue != '' }" style="display:none;"> 
+                        <div class="mr-4 pt-2 pb-2 pl-34" style="display:none;" :class="{ show: field.show }"> 
+
+                          <a-select
+                            mode="multiple"
+                            style="width: 100%"
+                            v-model="field.filter_value" 
+                            placeholder="Please select"
+                            @change="fireSearchEvent(field.filter_value)"
+                          >
+                            <a-select-option :value="item.name + ' ' + item.lastname" v-for="(item, i) in active_users" :key="item.name"
+                              >{{ item.name + ' ' + item.lastname }}</a-select-option
+                            >
+                          </a-select>
+
+                        </div> 
+                      </div>   
+
+                      <div v-else-if="field.field_name == 'owner'" class="filter-group"> 
+                        <div
+                          @click="filterProperties(field)" 
+                          :class="{ filterborder: field.append_border }" 
+                          class="p-2 custom-control custom-checkbox"
+                        > 
+                          <input 
+                            :disabled="field.filter_value === undefined" :checked="field.filter_value !== undefined" 
+                            type="checkbox" 
+                            class="custom-control-input mx-0" 
+                            :id="'newFilter' + index"
+                          > 
+                          <label class="custom-control-label mx-0 pt-0" :for="'newFilter' + index">{{ field.field_display_name }}</label> 
+                        </div> 
+
+                        <div class="mr-4 pt-2 pb-2 pl-34" style="display:none;" :class="{ show: field.show }"> 
+                          <a-select
+                            mode="multiple"
+                            style="width: 100%"
+                            v-model="field.filter_value" 
+                            placeholder="Please select"
+                            @change="fireSearchEvent(field.filter_value)"
+                          >
+                            <a-select-option :value="item.name + ' ' + item.lastname" v-for="(item, i) in active_users" :key="item.name"
+                              >{{ item.name + ' ' + item.lastname }}</a-select-option
+                            >
+                          </a-select>
+                        </div> 
+                      </div> 
+
+                      <div v-else-if="field.field_name == 'gender'" class="filter-group"> 
+                        <div
+                          @click="filterProperties(field)" 
+                          :class="{ filterborder: field.append_border }" 
+                          class="p-2 custom-control custom-checkbox"
+                        > 
+                          <input 
+                            :disabled="field.filter_value === undefined" :checked="field.filter_value !== undefined" 
+                            type="checkbox" 
+                            class="custom-control-input mx-0" 
+                            :id="'newFilter' + index"
+                          > 
+                          <label class="custom-control-label mx-0 pt-0" :for="'newFilter' + index">{{ field.field_display_name }}</label> 
+                        </div> 
+
+                        <div class="mr-4 pt-2 pb-2 pl-34" style="display:none;" :class="{ show: field.show }"> 
+                          <a-select
+                            mode="multiple"
+                            style="width: 100%"
+                            v-model="field.filter_value" 
+                            placeholder="Please select"
+                            @change="fireSearchEvent(field.filter_value)"
+                          >
+                            <a-select-option :value="'Male'" :key="'Male'">Male</a-select-option>
+                            <a-select-option :value="'Female'" :key="'Female'">Femail</a-select-option>
+                          </a-select>
+                        </div> 
+                      </div> 
+
+                      <div v-else-if="field.field_name == 'title'" class="filter-group"> 
+                        <div
+                          @click="filterProperties(field)" 
+                          :class="{ filterborder: field.append_border }" 
+                          class="p-2 custom-control custom-checkbox"
+                        > 
+                          <input 
+                            :disabled="field.filter_value === undefined" :checked="field.filter_value !== undefined" 
+                            type="checkbox" 
+                            class="custom-control-input mx-0" 
+                            :id="'newFilter' + index"
+                          > 
+                          <label class="custom-control-label mx-0 pt-0" :for="'newFilter' + index">{{ field.field_display_name }}</label> 
+                        </div> 
+
+                        <div class="mr-4 pt-2 pb-2 pl-34" style="display:none;" :class="{ show: field.show }"> 
+                          <a-select
+                            mode="multiple"
+                            style="width: 100%"
+                            v-model="field.filter_value" 
+                            placeholder="Please select"
+                            @change="fireSearchEvent(field.filter_value)"
+                          >
+                            <a-select-option :value="'Mr'" :key="'Mr'">Mr</a-select-option>
+                            <a-select-option :value="'Mrs'" :key="'Mrs'">Mrs</a-select-option>
+                            <a-select-option :value="'Ms'" :key="'Ms'">Ms</a-select-option>
+                          </a-select>
+                        </div> 
+                      </div> 
+
+                      <div v-else-if="field.field_name == 'status'" class="filter-group"> 
+                        <div
+                          @click="filterProperties(field)" 
+                          :class="{ filterborder: field.append_border }" 
+                          class="p-2 custom-control custom-checkbox"
+                        > 
+                          <input 
+                            :disabled="field.filter_value === undefined" :checked="field.filter_value !== undefined" 
+                            type="checkbox" 
+                            class="custom-control-input mx-0" 
+                            :id="'newFilter' + index"
+                          > 
+                          <label class="custom-control-label mx-0 pt-0" :for="'newFilter' + index">{{ field.field_display_name }}</label> 
+                        </div> 
+
+                        <div class="mr-4 pt-2 pb-2 pl-34" style="display:none;" :class="{ show: field.show }"> 
+                          <a-select
+                            mode="multiple"
+                            style="width: 100%"
+                            v-model="field.filter_value" 
+                            placeholder="Please select"
+                            @change="fireSearchEvent(field.filter_value)"
+                          >
+                            <a-select-option :value="'Active'" :key="'Active'">Active</a-select-option>
+                            <a-select-option :value="'Inactive'" :key="'Inactive'">Inactive</a-select-option>
+                            <a-select-option :value="'Canceled'" :key="'Canceled'">Canceled</a-select-option>
+                            <a-select-option :value="'Disabled'" :key="'Disabled'">Disabled</a-select-option>
+                          </a-select>
+                        </div> 
+                      </div> 
+
+                      <div v-else class="filter-group"> 
+                        <div
+                          @click="filterProperties(field)" 
+                          :class="{ filterborder: field.append_border }" 
+                          class="p-2 custom-control custom-checkbox"
+                        > 
+                          <input 
+                            :disabled="field.filter_value === undefined" :checked="field.filter_value !== undefined" 
+                            type="checkbox" 
+                            class="custom-control-input mx-0" 
+                            :id="'newFilter' + index"
+                          > 
+                          <label class="custom-control-label mx-0 pt-0" :for="'newFilter' + index">{{ field.field_display_name }}</label> 
+                        </div> 
+
+                        <div class="mr-4 pt-2 pb-2 pl-34" style="display:none;" :class="{ show: field.show }"> 
+                          <select class="search-criteria w-100 mb-2"  v-model="field.constraint" style="display:none"> 
+                            <option selected>is equal to</option> 
+                            <option value="1">contains</option> 
+                            <option value="2">does not contain</option> 
+                            <option value="3">begins with</option> 
+                            <option value="3">ends with</option> 
+                          </select> 
+                          <input v-on:keyup="fireSearchEvent(field.filter_value)" class="search-text w-100 mt-2" type="text" placeholder="Text Here" v-model="field.filter_value" value=""> 
+                        </div> 
+                      </div> 
+                    </div>
+                    <div class="filter-results grey-scroll mr-4 pl-34" :class="{show:false }" style="display:none;"> 
                       <div class="custom-control custom-checkbox"> 
                         <input type="checkbox" class="custom-control-input mx-0" id="result1"> 
                         <label class="custom-control-label mx-0 pt-0" for="result1">John Davies</label> 
@@ -1905,7 +2120,7 @@
                     </div> 
 
                     <div class="col-auto pr-0 pl-2"> 
-                      <button type="submit" class="btn btn-primary save-filter mt-2 rounded-pill m-0">Save</button> 
+                      <button type="submit" class="btn btn-primary save-filter mt-2 rounded-pill m-0" @click="saveFilter" >Save</button> 
                     </div> 
                   </div> 
                 </b-tab> 
@@ -1988,22 +2203,25 @@
           highlight: true, 
           class: 'today_date', 
           dates: new Date(), 
-        }], 
-        filter: { 
-          title: '', 
-          search: '', 
-          user_created_id: '', 
-          user_assigned: '', 
-          source: '', 
-          product_id: '', 
-          status: '', 
+        }],
+        call_log : {
+          commission: '',
+          total_calls: '',
+          total_sales: '',
+          con_ratio: '',
+          sum_sales: '',
+          call_history: '',
+          sum_call_back: '',
+          avg_time: '',
         }, 
+        filter: [], 
         user_settings: { 
           id: '', 
           theme: 'orange', 
           language: 'english', 
           max_table_rows: 50 
         }, 
+        custom_fields: [],
         active_task_id: null, 
         edit_task: false, 
         add_task: false, 
@@ -2021,7 +2239,10 @@
         appendBorder: false, 
         showSavedFilters: false, 
         showFilters: false, 
-        filterValue: '' 
+        filterValue: '',
+        active_users : null,
+        active_roles : null,
+        sources : null,
       } 
     }, 
 
@@ -2033,6 +2254,10 @@
       vm.getUserCallBacks(); 
 
       vm.getUserTasks(); 
+
+      vm.getDashboard(); 
+
+      vm.getCustomFields(); 
 
       Fire.$on('AfterCallBackSet', function() { 
         vm.getUserCallBacks(); 
@@ -2089,9 +2314,9 @@
         this.settings_on = false; 
         this.profile_on = false; 
       }, 
-      filterProperties() { 
-        this.appendBorder = !this.appendBorder 
-        this.showFilters = !this.showFilters 
+      filterProperties(field) { 
+        field.append_border = !field.append_border 
+        field.show = !field.show ;
       }, 
       savedFilters() { 
         this.appendBorder = !this.appendBorder 
@@ -2112,6 +2337,62 @@
         this.callbacks_on = false; 
         this.messages_on = true; 
         this.unread_messages = 0; 
+      },
+      getCustomFields(){
+
+        var vm = this;
+
+        var endpoint = '/modules/fields/' + vm.active;
+
+        axios.get(endpoint).then(function (response) {
+
+          vm.custom_fields = response.data.fields;
+          vm.sources = response.data.sources;
+          vm.products = response.data.products;
+          vm.active_users = response.data.active_users;
+
+          vm.custom_fields.map( (field, index ) => {
+            vm.filter.push({
+              module_id: field.module_id,
+              field_id: field.id,
+              field_name: field.name,
+              field_display_name: field.display_name,
+              // filter_value: '',
+              append_border: false,
+              show: false,
+            });
+          });
+        });
+      },
+      getDashboard(month = ''){
+        var vm = this;
+
+        if(month == ''){
+          var endpoint = '/calls/get-dashboard';
+        }else{
+          var endpoint = '/calls/get-dashboard/' + month;
+        }
+
+        vm.$Progress.start();
+
+        axios.get(endpoint).then(function (response) {
+            
+          if(response.data.success == true){
+            vm.call_log.commission = response.data.commission;
+            vm.call_log.total_calls = response.data.total_calls;
+            vm.call_log.total_sales = response.data.total_sales;
+            vm.call_log.con_ratio = response.data.con_ratio;
+            vm.call_log.sum_sales = response.data.sum_sales;
+            vm.call_log.call_history = response.data.call_history;
+            vm.call_log.sum_call_back = response.data.sum_call_back;
+            vm.call_log.avg_time = response.data.avg_time;
+            
+            vm.$Progress.finish();
+          }else{
+            vm.$Progress.fail();
+            vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
+          }
+        });
       }, 
       getUserCallBacks() { 
         var vm = this; 
@@ -2388,10 +2669,22 @@
       fireTableEvent(event = '') { 
         Fire.$emit(event); 
       }, 
-      fireSearchEvent() { 
-        Fire.$emit('Search', { 
-          'search_term': this.filter.search 
-        }); 
+      fireSearchEvent(term) { 
+        
+        if( term instanceof Array){
+          var concat_term = '';
+          term.forEach(function(value){
+             concat_term += ',' + value;
+          });
+          console.log(concat_term);
+          Fire.$emit('Search', { 
+            'search_term': concat_term
+          });
+        }else{
+          Fire.$emit('Search', { 
+            'search_term': term
+          }); 
+        }
       }, 
       progress(event, progress, stepValue) { 
         console.log(stepValue); 

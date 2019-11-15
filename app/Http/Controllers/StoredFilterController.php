@@ -53,9 +53,11 @@ class StoredFilterController extends Controller
     {
     
         $filter = $request->filter;
+
+        dd($filter);
+        
         $type = $request->type;
         $filter_title = $filter['title'];
-
         try{
             DB::beginTransaction();
 

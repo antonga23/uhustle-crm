@@ -244,9 +244,6 @@ export default {
         role: '',
         title: {},
         users: null,
-        active_users : null,
-        active_roles : null,
-        sources : null,
         packages : null,
         custom_fields :{
             required: true
@@ -606,8 +603,11 @@ export default {
         },
 
         click(row, index) {
+          
             if (this.onClick)
                 this.onClick(row, index);
+
+            window.location.href = '/workstation/' + row.id;
         },
 
         exportExcel() {
@@ -687,7 +687,6 @@ export default {
             }
         },
     },
-
     computed: {
         processedRows: function() {
             
@@ -728,7 +727,11 @@ export default {
                 paginatedRows = paginatedRows.slice((this.currentPage - 1) * this.currentPerPage, this.currentPerPage === -1 ? paginatedRows.length + 1 : this.currentPage * this.currentPerPage);
             return paginatedRows;
         }
+    },
+    created() {
+
     }
+
 }
 </script>
 <style scoped>
@@ -784,6 +787,9 @@ thead th {
 table.tg{
     width: 98%;
     margin: 0 auto;
+}
+table tbody tr { 
+  cursor: pointer;
 }
 table.tg td p{
     margin-top: 1em;
