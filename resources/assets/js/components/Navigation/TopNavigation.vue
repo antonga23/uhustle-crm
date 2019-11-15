@@ -78,7 +78,7 @@ select.month-selector {
   background-position: center center !important;
 }
 .callIcons .search .col-auto {
-  padding-right:46%;
+  padding-right:46% !important;
 }
 .callIcons .search a{
   background-color: #fff;
