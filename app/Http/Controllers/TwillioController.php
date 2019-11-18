@@ -479,18 +479,22 @@ class TwillioController extends Controller
                                       ->orderBy('call_date', 'ASC')
                                       ->orderBy('call_time', 'ASC')
                                       ->first();  
+        if($next_call_back){ 
+          $lead = ModuleItem::with('item_meta')->find($next_call_back['lead_id']);
+          
+          $custom_fields = ModuleCustomFields::where(['module_id' => $lead['module_id'] ])->get();
 
-        $lead = ModuleItem::with('item_meta')->find($next_call_back['lead_id']);
-        
-        $custom_fields = ModuleCustomFields::where(['module_id' => $lead->module_id])->get();
+          $lead = $this->compactModule($lead, $custom_fields);
+          
+          $next_call_back_data = [
+            'name' => $lead['name'] . ' ' . $lead['surname'],
+            'call_back' => $next_call_back
+          ];
 
-        $lead = $this->compactModule($lead, $custom_fields);
-        
-        $next_call_back_data = [
-          'name' => $lead['name'] . ' ' . $lead['surname'],
-          'call_back' => $next_call_back
-        ];
-
+        }else{
+          $next_call_back_data = [];
+        }
+          
         // TODO: Get commission from preferences
         $commission = $sum_sales * (16/100);
 
@@ -511,9 +515,9 @@ class TwillioController extends Controller
     public function compactModule($module_item = null, $custom_fields = null){
       $item = [];
 
-      $item['id'] = $module_item->id;
-
-      foreach ($module_item->item_meta as $key => $meta) {
+      $item['id'] = $module_item['id'];
+      
+      foreach ($module_item['item_meta'] as $key => $meta) {
 
         foreach ($custom_fields as $index => $field) {
 

@@ -2495,6 +2495,8 @@ input.save-text:focus {
         show_filter: false, 
         show_filter_save: false, 
         show: false, 
+        generalStats_on: false,
+        filters_on: false,
         lead_owners: [], 
         assignees: [], 
         sources: [], 
@@ -2631,7 +2633,20 @@ input.save-text:focus {
         this.notifications_on = false; 
         this.profile_on = false; 
       }, 
-
+      showGeneralStats() { 
+      this.generalStats_on = !this.generalStats_on; 
+      this.notifications_on = false; 
+      this.profile_on = false; 
+      this.settings_on = false; 
+      this.filters_on = false; 
+    }, 
+    showFiltersTab() { 
+      this.filters_on = !this.filters_on; 
+      this.settings_on = false; 
+      this.notifications_on = false; 
+      this.profile_on = false; 
+      this.generalStats_on = false; 
+    }, 
       showCallbacks() { 
         this.callbacks_on = true; 
         this.messages_on = false; 

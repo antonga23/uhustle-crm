@@ -186893,6 +186893,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       show_filter: false,
       show_filter_save: false,
       show: false,
+      generalStats_on: false,
+      filters_on: false,
       lead_owners: [],
       assignees: [],
       sources: [],
@@ -187011,6 +187013,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.settings_on = !this.settings_on;
       this.notifications_on = false;
       this.profile_on = false;
+    },
+    showGeneralStats: function showGeneralStats() {
+      this.generalStats_on = !this.generalStats_on;
+      this.notifications_on = false;
+      this.profile_on = false;
+      this.settings_on = false;
+      this.filters_on = false;
+    },
+    showFiltersTab: function showFiltersTab() {
+      this.filters_on = !this.filters_on;
+      this.settings_on = false;
+      this.notifications_on = false;
+      this.profile_on = false;
+      this.generalStats_on = false;
     },
     showCallbacks: function showCallbacks() {
       this.callbacks_on = true;
