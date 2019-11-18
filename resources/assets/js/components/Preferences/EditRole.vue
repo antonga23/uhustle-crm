@@ -20,7 +20,7 @@
     margin-bottom:7px;
     margin-left: 17px;
   }
-  .ant-switch.ant-switch-checked {
+  .ant-switch {
     margin-left: 17px;
   }
 </style>

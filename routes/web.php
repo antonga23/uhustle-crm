@@ -18,14 +18,12 @@ use App\ModuleCustomFields;
 use Illuminate\Support\Facades\Log;
 
 Route::get('/', function () {
-    // return redirect('/login');
-
-    
-     return view('/welcome');
+    return redirect('/login');
+    //  return view('/welcome');
 });
 
 Route::get('/home', function () {
-    return redirect('/dashaboard');
+    return redirect('/dashboard');
 });
 
 Route::get('/move-leads',  function(){
@@ -110,7 +108,7 @@ Route::get('/move-leads',  function(){
               $insert = $lead->user_created_id;
             break;
           case 'status':
-              $insert = $lead->user_created_id;
+              $insert = $lead->status;
             break;             
 
           default:
@@ -297,18 +295,21 @@ Route::group(['prefix' => 'comments'], function () {
 Route::group(['prefix' => 'modules'], function () {
   Route::get('/get-all', 'ModuleController@index');
   Route::get('/get-all-items', 'ModuleController@getAllItems');
+  Route::get('/get-single-item/{lead_id}', 'ModuleController@getSingleItem');
   Route::get('/get-items/{module}', 'ModuleController@getItems');
   Route::post('/add', 'ModuleController@store');
   Route::post('/update', 'ModuleController@update');
   Route::get('/destroy/{id}', 'ModuleController@destroy');
   Route::get('/get/{type}/{id}', 'ModuleController@getStatsTypeById');
   Route::post('/check-exist', 'ModuleController@checkExist');
+  Route::get('/fields/{module}', 'ModuleController@getFields');
 
   // Items
   Route::get('/get-item/{item_id}', 'ModuleController@getItem')->name('get-item-page');
   Route::post('/add-item', 'ModuleController@addItem')->name('add-item-page');
   Route::get('/delete-item/{id}', 'ModuleController@deleteItem')->name('add-item-page');
   Route::post('/update-item', 'ModuleController@updateItem')->name('update-item-page');
+  Route::get('/get-assigned/{module}', 'ModuleController@getAssigned');
 
   // Pages
   Route::get('/{name}', 'PagesController@loadModulePage')->name('load-module-page');

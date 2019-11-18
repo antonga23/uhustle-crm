@@ -271,7 +271,7 @@
                         href="#" 
                         v-b-toggle="'accordion-0'"  
                         :aria-controls="'accordion-0'"
-                        class="py-0 pr-0 expand-toggle"
+                        class="w-100 mx-0 py-0 pr-0 expand-toggle"
                       >
                         Dialer
                         <!-- <img src="images/icons/up.svg" width="11"> -->
@@ -282,7 +282,7 @@
                         <b-card>
                           <div v-for="(permission,k) in dialer_permissions" :key="k">
                             <div v-if="permission.role_id == role.id">
-                              <b-form-group class="mx-2 permissions">
+                              <b-form-group class="mx-2 mb-0 permissions">
                                 <a-row >
                                   <a-col :span="8">
                                     <b-form-checkbox 
@@ -323,7 +323,7 @@
                           block href="#" 
                           v-b-toggle="'accordion-' + (i+1)"  
                           :aria-controls="'accordion-' + (i+1)"
-                          class="py-0 pr-0 expand-toggle"
+                          class="w-100 mx-0 py-0 pr-0 expand-toggle"
                         >
                           {{ a_module.display_name }}
                           <!-- <img src="images/icons/up.svg" width="11"> -->

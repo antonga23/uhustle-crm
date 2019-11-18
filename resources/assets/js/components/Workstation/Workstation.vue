@@ -25,6 +25,7 @@
   letter-spacing: 0.05em; 
   color: #1e2253; 
   font-family: "Rubik", sans-serif;
+  padding: 5px 15px;
 } 
 .top-section .top { 
   font-size: 12px; 
@@ -37,8 +38,8 @@
 .border-top-grey { 
   border-top: 1px solid #ededee; 
 } 
-.border-right-grey { 
-  border-right: 1px solid #ededee; 
+.border-left-grey { 
+  border-left: 1px solid #ededee; 
 } 
  
 div.col-6:last-child .inner-div .row, div.col-6:nth-last-child(2) .inner-div .row { 
@@ -599,6 +600,20 @@ a.down-scroll:hover {
 .deals .card-header-tabs { 
   box-shadow: inset 0 -10px 10px #f5f5f5; 
 } 
+.activities input {
+  font-family: 'Rubik', sans-serif;
+  font-size: 12px;
+  color: #999999;
+}
+.deals #seven input,
+.deals #seven textarea {
+  font-family: 'Rubik', sans-serif;
+  font-size: 12px;
+  color: #999999;
+  white-space: nowrap;
+  padding: 5px 10px !important;
+  max-height: 33px;
+}
 .deals #eight p { 
   font-size: 10px; 
   letter-spacing: 0.05em; 
@@ -808,9 +823,6 @@ a.down-scroll:hover {
   font-family: 'Rubik', sans-serif;
   height:auto!important;
 }
-.activity-status-col label {
-  margin-bottom: 18px;
-}
 .activity-status {
   width:12px;
   height: 12px;
@@ -828,6 +840,21 @@ a.down-scroll:hover {
   background-color: #F42222; 
   margin-right: 10px;
 }
+.activity-status-input {
+  min-width:134px;
+}
+.type-input {
+  min-width: 127px;
+}
+.stage-input {
+  min-width: 135px;
+}
+.lead-source-input {
+  min-width:146px;
+}
+.status-input {
+  min-width:69px;
+}
 </style>   
 <template> 
   <div id="workstation"> 
@@ -844,58 +871,83 @@ a.down-scroll:hover {
           <div class="2" v-for="(item, name, i) in module_item" :key="i">  
             <div class="inner-div" v-if="item.custom_field_id == custom_field.id">  
               <div  
-                class="row mx-0 border-top-grey"  
+                class="row mx-0 border-top-grey align-items-center"  
                 v-if="name == 'source' && item.meta_value !== null"  
               >  
-                <div class="col-4 border-right-grey p10-25 top">  
+                <div class="col-4 p10-25 top">  
                   <p class="top">{{ custom_field.display_name }}</p>  
                 </div>  
-                <div class="col-8 p10-25 bottom truncate">  
-                  <p class="bottom mb-0">{{ item.meta_value.name }}</p>  
+                <div class="col-8 bottom truncate border-left-grey">  
+                  <input
+                    v-model="item.meta_value.name"
+                    type="text"
+                    name="itemName"
+                    class="bottom mb-0 form-control border-0"
+                  />
                 </div>  
               </div>  
               
               <div  
-                class="row mx-0 border-top-grey"  
+                class="row mx-0 border-top-grey align-items-center"  
                 v-else-if="name == 'product' && item.meta_value !== null"  
               >  
-                <div class="col-4 border-right-grey p10-25 top">  
+                <div class="col-4 p10-25 top">  
                   <p class="top">{{ custom_field.display_name }}</p>  
                 </div>  
-                <div class="col-8 p10-25 bottom truncate">  
-                  <p class="bottom mb-0">{{ item.meta_value.name }}</p>  
+                <div class="col-8 border-left-grey bottom truncate">  
+                  <input
+                    v-model="item.meta_value.name"
+                    type="text"
+                    name="itemName"
+                    class="bottom mb-0 form-control border-0"
+                  />
                 </div>  
               </div> 
 
               <div  
-                class="row mx-0 border-top-grey"  
+                class="row mx-0 border-top-grey align-items-center"  
                 v-else-if="(name == 'assignee' || name == 'owner') && item.meta_value !== null"  
               >  
                 <div class="col-4 border-right-grey p10-25 top">  
                   <p class="top">{{ custom_field.display_name }}</p>  
                 </div>  
-                <div class="col-8 p10-25 bottom truncate">  
-                  <p class="bottom mb-0">{{ item.meta_value.name + ' ' + item.meta_value.surname }}</p>  
+                <div class="col-8 border-left-grey bottom truncate">  
+                  <input
+                    v-model="item.meta_value.name + ' ' + item.meta_value.surname"
+                    type="text"
+                    name="itemName"
+                    class="bottom mb-0 form-control border-0"
+                  />
                 </div>  
               </div>  
               <div  
-                class="row mx-0 border-top-grey truncate"  
+                class="row mx-0 border-top-grey truncate align-items-center"  
                 v-else-if="name == 'email' && item.meta_value !== null"  
               >  
                 <div class="col-4 border-right-grey p10-25 top">  
                   <p class="top">{{ custom_field.display_name }}</p>  
                 </div>  
-                <div class="col-8 p10-25 bottom truncate">  
-                  <p class="bottom mb-0">{{ item.meta_value }}</p>  
+                <div class="col-8 bottom truncate border-left-grey">  
+                  <input
+                    v-model="item.meta_value"
+                    type="text"
+                    name="itemName"
+                    class="bottom mb-0 form-control border-0"
+                  /> 
                 </div>  
               </div>  
 
-              <div class="row mx-0 border-top-grey" v-else>  
+              <div class="row mx-0 border-top-grey align-items-center" v-else>  
                 <div class="col-4 border-right-grey p10-25 top">  
                   <p class="top">{{ custom_field.display_name }}</p>  
                 </div>  
-                <div class="col-8 p10-25 bottom truncate">  
-                  <p class="bottom mb-0">{{ item.meta_value }}</p>  
+                <div class="col-8 bottom truncate border-left-grey">  
+                  <input
+                    v-model="item.meta_value"
+                    type="text"
+                    name="itemName"
+                    class="bottom mb-0 form-control border-0"
+                  />  
                 </div> 
               </div> 
             </div> 
@@ -1450,378 +1502,7 @@ a.down-scroll:hover {
               </div> 
             </div> 
           </div> 
-        </div> 
- 
-        <!-- Activities Starts --> 
-        <!-- Yong <div class="row mx-0 mb-0 activities">   
-          <div class="col-lg-12 px-0">   
-            <div class="card shadow-none mt-3 border-0 tab-card">   
-              <div class="card-header tab-card-header border-bottom-0 pt-0 px-0">   
-                <ul class="nav nav-tabs card-header-tabs mx-0" id="myTab" role="tablist">   
-                  <li class="nav-item">   
-                    <a   
-                      class="nav-link active"   
-                      id="one-tab"   
-                      data-toggle="tab"   
-                      href="#five"   
-                      role="tab"   
-                      aria-controls="Five"   
-                      aria-selected="true"  
-                    >   
-                      <img   
-                        src="/images/icons/workstation/Open Activities.svg"   
-                        alt="Icon"   
-                        class="icon"   
-                        width="13%"  
-                      />   
-                      <span>Open Activities</span>   
-                    </a>   
-                  </li>   
-  
-                  <li class="nav-item">   
-                    <a   
-                      class="nav-link"   
-                      id="two-tab"   
-                      data-toggle="tab"   
-                      href="#six"   
-                      role="tab"   
-                      aria-controls="Six"   
-                      aria-selected="false"  
-                    >   
-                      <img   
-                        src="/images/icons/workstation/Closed Activities.svg"   
-                        alt="Icon"   
-                        class="icon"   
-                        width="13%"  
-                      />   
-                      <span>Closed Activities</span>   
-                    </a>   
-                  </li>   
-                </ul>   
-              </div>   
-  
-              <div class="tab-content" id="myTabContent">   
-                <div   
-                  class="tab-pane fade show active"   
-                  id="five" role="tabpanel"   
-                  aria-labelledby="one-tab"  
-                >   
-                  <b-table   
-                    hover   
-                    :items="activityItems"   
-                    :per-page="perPage"  
-                    :current-page="currentPage"  
-                    sticky-header  
-                  >  
-                    <template v-for="item in activityItems" v-slot:cell(statusColor)="data">  
-                      <p>hi {{ data.item.statusColor }}</p>  
-                    </template>  
-                  </b-table>  
-  
-                  <b-pagination  
-                    v-model="currentPage"  
-                    :total-rows="rows"  
-                    :per-page="perPage"  
-                    aria-controls="my-table"  
-                  ></b-pagination>               
-                </div>  
-  
-                <div   
-                  class="tab-pane fade"   
-                  id="six"   
-                  role="tabpanel"   
-                  aria-labelledby="two-tab"  
-                >    
-                  <b-table hover :items="activityItems" per-page="5">  
-                    <template v-slot:cell(statusColor)="data">  
-                      <p :style="{color: statusColor}">hi</p>  
-                    </template>  
-                  </b-table>  
-                </div>   
-              </div>   
-            </div>   
-          </div>    
-        </div>--> 
-        <!-- Activities Starts End --> 
- 
-        <!-- Deals Starts --> 
-        <!-- Yong <div class="row mx-0 mb-0 deals">   
-          <div class="col-lg-12 px-0">   
-            <div class="card shadow-none mt-3 border-0 tab-card">   
-              <div class="card-header tab-card-header border-bottom-0 pt-0 px-0">   
-                <ul class="nav nav-tabs card-header-tabs mx-0" id="myTab" role="tablist">   
-                  <li class="nav-item">   
-                    <a   
-                      class="nav-link active"   
-                      id="one-tab"   
-                      data-toggle="tab"   
-                      href="#seven"   
-                      role="tab"   
-                      aria-controls="Seven"   
-                      aria-selected="true"  
-                    >   
-                      <img   
-                        src="/images/icons/workstation/Deals.svg"   
-                        alt="Icon"   
-                        class="icon"   
-                        width="13%"  
-                      />   
-                      <span>Deals</span>   
-                    </a>   
-                  </li>   
-  
-                  <li class="nav-item">   
-                    <a   
-                      class="nav-link"   
-                      id="two-tab"   
-                      data-toggle="tab"   
-                      href="#eight"   
-                      role="tab"   
-                      aria-controls="Eight"   
-                      aria-selected="false"  
-                    >   
-                      <img   
-                        src="/images/icons/workstation/Create_a_deal.svg"   
-                        alt="Icon"   
-                        class="icon"   
-                        width="36"  
-                        style="margin-top:11px; margin-bottom:11px;"  
-                      />   
-                      <span>Create a Deal</span>   
-                    </a>   
-                  </li>   
-                </ul>   
-              </div>   
-  
-              <div class="tab-content" id="myTabContent">   
-                <div   
-                  class="tab-pane fade show active"   
-                  id="seven" role="tabpanel"   
-                  aria-labelledby="one-tab"  
-                >   
-                  <b-table hover :items="dealItems"></b-table>          
-                </div>  
-  
-                <div   
-                  class="tab-pane fade"   
-                  id="eight"   
-                  role="tabpanel"   
-                  aria-labelledby="two-tab"  
-                >    
-                  <p>Deal information</p>  
-                  <div class="row mx-0">  
-                    <div class="col-7 pl-0">  
-                      <div class="row mx-0">  
-                        <div class="col-6 pl-0">  
-                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Agent Name  
-                            <input   
-                              type="text"   
-                              id="agent-name"    
-                              name="AgentName"  
-                              class="form-control border-0 rounded-pill"/>  
-                          </label>  
-                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Deal Name  
-                            <input   
-                              type="text"   
-                              id="deal-name"    
-                              name="DealName"  
-                              class="form-control border-0 rounded-pill"/>  
-                          </label>  
-                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Closing Date  
-                            <input   
-                              type="date"   
-                              id="closing-date"    
-                              name="ClosingDate"  
-                              class="form-control border-0 rounded-pill"/>  
-                          </label>  
-                        </div>  
-                        <div class="col-6 pr-0">  
-                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Type  
-                            <select class="custom-select rounded-pill border-0">  
-                              <option selected>-None-</option>  
-                              <option value="1">Existing Business</option>  
-                              <option value="2">New Business</option>  
-                            </select>  
-                          </label>  
-                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Lead Source  
-                            <select class="custom-select rounded-pill border-0">  
-                              <option selected>-None-</option>  
-                              <option value="1">Advertising</option>  
-                              <option value="2">Cold Call</option>  
-                              <option value="3">Employee Referral</option>  
-                              <option value="4">External Referral</option>  
-                              <option value="5">Online Store</option>  
-                            </select>  
-                          </label>  
-                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Amount  
-                            <input   
-                              type="number"   
-                              id="amount"    
-                              name="Amount"  
-                              class="form-control border-0 rounded-pill"/>  
-                          </label>  
-                        </div>  
-  
-                        <div class="col-12 px-0">  
-                          <label class="col-lg-12 control-label w-100 p-0 mb-2">Description Information  
-                            <textarea   
-                              id="info"    
-                              name="Info"  
-                              class="form-control border-0"/>  
-                          </label>  
-                        </div>  
-                      </div>  
-  
-                    </div>  
-  
-                    <div class="col-3">  
-                      <label class="col-lg-12 control-label w-100 p-0 mb-2">Stage  
-                        <select class="custom-select rounded-pill border-0">  
-                          <option selected>-None-</option>  
-                          <option value="1">Qualification</option>  
-                          <option value="2">Needs Analysis</option>  
-                          <option value="3">Value Proposition</option>  
-                          <option value="4">Proposal</option>  
-                          <option value="5">Negotiation</option>  
-                        </select>  
-                      </label>  
-                      <label class="col-lg-12 control-label w-100 p-0 mb-2">Probability (%)  
-                        <input   
-                          type="text"   
-                          id="probability"    
-                          name="Probability"  
-                          class="form-control border-0 rounded-pill"/>  
-                      </label>  
-                      <label class="col-lg-12 control-label w-100 p-0 mb-2">Expected Revenue  
-                        <input   
-                          type="number"   
-                          id="revenue"    
-                          name="Revenue"  
-                          class="form-control border-0 rounded-pill"/>  
-                      </label>  
-                      <label class="col-lg-12 control-label w-100 p-0 mb-2">Contact Name  
-                        <input   
-                          type="text"   
-                          id="contact-name"    
-                          name="ContactName"  
-                          class="form-control border-0 rounded-pill"/>  
-                      </label>  
-                      <label class="col-lg-12 control-label w-100 p-0 mb-2">Contact Number  
-                        <input   
-                          type="tel"   
-                          id="contact-number"    
-                          name="ContactNumber"  
-                          class="form-control border-0 rounded-pill"/>  
-                      </label>  
-                    </div>  
-  
-                    <div class="col-2 align-self-end pr-0">  
-                      <div class="row mx-0">  
-                        <div class="col-lg-6 pl-0 pr-2">  
-                          <button   
-                            type="submit"   
-                            class="btn btn-default cancel-deal w-100 m-0 border-0"   
-                            @click=""  
-                          >Cancel</button>  
-                        </div>  
-                        <div class="col-lg-6 pr-0 pl-2">  
-                          <button   
-                            type="submit"   
-                            class="btn btn-primary save-deal w-100 rounded-pill m-0"   
-                            @click=""  
-                          >Save</button>  
-                        </div>  
-                      </div>  
-                    </div>  
-                  </div>  
-  
-                  <div  
-                    v-for="(stat, index) in comments.comments_graph"  
-                    :key="index"  
-                    class="row mx-0 mb-1 align-items-center"  
-                  >  
-                    <div class="col-12 px-0">  
-                      <div class="row mx-0 mb-0 align-items-center">  
-                        <div class="col-12 align-content-end px-0">  
-                          <p class="text-right mb-0 stat-perc">{{ stat.percentage }}%</p>  
-                        </div>  
-  
-                        <div class="col px-0">  
-                          <p class="mb-0 summary-abr">{{ stat.type }}</p>  
-                        </div>  
-  
-                        <div class="col-11 pr-0 pl-4">  
-                          <div class="progress-bar w-100">  
-                            <span class="tank" :style="{width: + stat.percentage + '%'}"></span>  
-                          </div>  
-                        </div>  
-                      </div>  
-                    </div>  
-                  </div>  
-                </div>  
-              </div>  
-  
-              <div class="tab-pane fade" id="four" role="tabpanel" aria-labelledby="four-tab" style="display:none;">  
-                <p  
-                  class="email-desc font-weight-light font-italic"  
-                >Choose a template or write your own email to Client</p>  
-  
-                <div class="row mx-0 align-items-center">  
-                  <div class="col-auto pl-0">  
-                    <p class="text-uppercase font-weight-bold mb-2">Templates:</p>  
-                  </div>  
-                  <div class="col-auto pl-0 mb-2 pr-1">  
-                    <button  
-                      type="submit"  
-                      class="btn btn-default m-0 border-0 text-capitalize"  
-                    >Introduce Stock</button>  
-                  </div>  
-                  <div class="col-auto mb-2 px-1">  
-                    <button  
-                      type="submit"  
-                      class="btn btn-default m-0 border-0 text-capitalize"  
-                    >First time sell</button>  
-                  </div>  
-                  <div class="col-auto mb-2 px-1">  
-                    <button  
-                      type="submit"  
-                      class="btn btn-default m-0 border-0 text-capitalize"  
-                    >Up sell</button>  
-                  </div>  
-                  <div class="col-auto mb-2 pr-0 pl-1">  
-                    <button  
-                      type="submit"  
-                      class="btn btn-default m-0 border-0 text-capitalize"  
-                    >Extra Info</button>  
-                  </div>  
-                </div>  
-  
-                <textarea  
-                  id="message-body"  
-                  name="message"  
-                  class="form-control border-0"  
-                  placeholder="Write comment here..."  
-                />  
-  
-                <div class="flex-shrink-1 text-right">  
-                  <button  
-                    id="submit-btn"  
-                    type="submit"  
-                    class="btn p-0 mb-0 mx-0"  
-                    @click="sendEmail()"  
-                  >  
-                    <img  
-                      src="/images/icons/workstation/Submit.svg"  
-                      alt="Icon"  
-                      class="icon"  
-                      width="76"  
-                    />  
-                  </button>  
-                </div>  
-              </div>  
-            </div>  
-          </div>  
-        </div>  
+        </div>   
   
         <!-- Activities Starts -->  
         <div class="row mx-0 mb-0 activities">    
@@ -1898,13 +1579,13 @@ a.down-scroll:hover {
                         <div class="row mx-0 align-items-end">
                           <div class="col-auto pl-0">
                             <label class="d-block">Due date</label>
-                            <a-date-picker v-model="activity.duedate" name="Due Date"  v-validate="'required'" />
+                            <a-date-picker v-model="activity.duedate" name="Due Date" v-validate="'required'" class="ml-2"/>
                             <span id="error" v-show="errors.has('Due Date')" class="help-block">{{ errors.first('Due Date') }}</span> 
                           </div>
 
                           <div class="col-auto activity-status-col">
                             <label class="d-block ml-0">Status</label>
-                            <a-select v-model="activity.status">
+                            <a-select v-model="activity.status" class="activity-status-input">
                               <a-select-option :value="0"><div class="d-inline-block activity-status finished-activity"></div>Finished</a-select-option>
                               <a-select-option :value="1"><div class="d-inline-block activity-status in-progress-activity"></div>In Progress</a-select-option>
                               <a-select-option :value="2"><div class="d-inline-block activity-status not-started-activity"></div>Not Started</a-select-option>
@@ -1924,11 +1605,33 @@ a.down-scroll:hover {
                     :items="activityItems"    
                     :per-page="perPage"   
                     :current-page="currentPage"   
-                    sticky-header="190px"   
-                  >   
+                    sticky-header="190px"  
+                    responsive 
+                  >
                     <template slot="statusColor" slot-scope="data">   
                       <div class="activity-status" :style="{backgroundColor: data.item.statusColor}"></div>   
-                    </template>   
+                    </template>
+
+                    <template slot="subject" slot-scope="data">   
+                      <input
+                        v-model="data.item.subject"     
+                        type="text"    
+                        id="deal-name"     
+                        name="DealName"   
+                        class="form-control border-0 rounded-pill"/> 
+                    </template> 
+
+                    <template slot="status" slot-scope="data">   
+                      <a-select v-model="data.item.status" class="activity-status-input">
+                        <a-select-option :value="0"><div class="d-inline-block activity-status finished-activity"></div>Finished</a-select-option>
+                        <a-select-option :value="1"><div class="d-inline-block activity-status in-progress-activity"></div>In Progress</a-select-option>
+                        <a-select-option :value="2"><div class="d-inline-block activity-status not-started-activity"></div>Not Started</a-select-option>
+                      </a-select> 
+                    </template> 
+
+                    <template slot="dueDate" slot-scope="data">   
+                      <a-date-picker v-model="data.item.duedate" name="Due Date"  v-validate="'required'" /> 
+                    </template>
                   </b-table>   
    
                   <b-pagination   
@@ -1936,7 +1639,8 @@ a.down-scroll:hover {
                     :total-rows="rows"   
                     :per-page="perPage"   
                     aria-controls="my-table"   
-                    align="right"
+                    align="center"
+                    size="sm"
                   ></b-pagination>                
                 </div>   
    
@@ -1951,10 +1655,32 @@ a.down-scroll:hover {
                     :items="activityItems" 
                     sticky-header="190px" 
                     :per-page="perPage"
+                    responsive
                   >   
                     <template slot="statusColor" slot-scope="data">   
                       <div class="activity-status" :style="{backgroundColor: data.item.statusColor}"></div>   
-                    </template>   
+                    </template>
+
+                    <template slot="subject" slot-scope="data">   
+                      <input
+                        v-model="data.item.subject"     
+                        type="text"    
+                        id="deal-name"     
+                        name="DealName"   
+                        class="form-control border-0 rounded-pill"/> 
+                    </template> 
+
+                    <template slot="status" slot-scope="data">   
+                      <a-select v-model="data.item.status" class="activity-status-input">
+                        <a-select-option :value="0"><div class="d-inline-block activity-status finished-activity"></div>Finished</a-select-option>
+                        <a-select-option :value="1"><div class="d-inline-block activity-status in-progress-activity"></div>In Progress</a-select-option>
+                        <a-select-option :value="2"><div class="d-inline-block activity-status not-started-activity"></div>Not Started</a-select-option>
+                      </a-select> 
+                    </template> 
+
+                    <template slot="dueDate" slot-scope="data">   
+                      <a-date-picker v-model="data.item.duedate" name="Due Date"  v-validate="'required'" /> 
+                    </template> 
                   </b-table>  
 
                   <b-pagination   
@@ -1962,7 +1688,8 @@ a.down-scroll:hover {
                     :total-rows="rows"   
                     :per-page="perPage"   
                     aria-controls="my-table" 
-                    align="right"  
+                    align="center"
+                    size="sm"  
                   ></b-pagination> 
                 </div>    
               </div>    
@@ -1991,7 +1718,7 @@ a.down-scroll:hover {
                         src="/images/icons/workstation/Deals.svg"    
                         alt="Icon"    
                         class="icon"    
-                        width="13%"   
+                        width="31"   
                       />    
                       <span>Deals</span>    
                     </a>    
@@ -2011,8 +1738,7 @@ a.down-scroll:hover {
                         src="/images/icons/workstation/Create_a_deal.svg"    
                         alt="Icon"    
                         class="icon"    
-                        width="36"   
-                        style="margin-top:11px; margin-bottom:11px;"   
+                        width="31"  
                       />    
                       <span>Create a Deal</span>    
                     </a>    
@@ -2026,7 +1752,143 @@ a.down-scroll:hover {
                   id="seven" role="tabpanel"    
                   aria-labelledby="one-tab"   
                 >    
-                  <b-table hover :items="dealItems"></b-table>           
+                  <b-table 
+                    hover 
+                    :items="dealItems" 
+                    :per-page="perPage"   
+                    :current-page="currentPage"   
+                    sticky-header="190px"
+                    responsive
+                  >
+                    <template slot="agent_name" slot-scope="data">   
+                      <input
+                        v-model="data.item.agent_name"     
+                        type="text"    
+                        id="deal-name"     
+                        name="DealName"   
+                        class="form-control border-0 rounded-pill"/> 
+                    </template>
+
+                    <template slot="deal_name" slot-scope="data">   
+                      <input
+                        v-model="data.item.deal_name"    
+                        type="text"    
+                        id="agent-name"     
+                        name="AgentName"   
+                        class="form-control border-0 rounded-pill"/> 
+                    </template>
+
+                    <template slot="closing_date" slot-scope="data">   
+                      <a-date-picker    
+                        v-model="data.item.closing_date"    
+                        id="closing-date"     
+                        name="ClosingDate"   
+                        class="form-control border-0 rounded-pill p-0"/> 
+                    </template>
+
+                    <template slot="type" slot-scope="data">   
+                      <a-select v-model="data.item.type" class="custom-select rounded-pill border-0 type-input">   
+                        <a-select-option value="-None-" selected>-None-</a-select-option>   
+                        <a-select-option value="1">Existing Business</a-select-option>   
+                        <a-select-option value="2">New Business</a-select-option>   
+                      </a-select> 
+                    </template>
+
+                    <template slot="lead_source" slot-scope="data">   
+                      <a-select v-model="data.item.lead_source" class="custom-select rounded-pill border-0 lead-source-input">   
+                        <a-select-option value="-None-" selected>-None-</a-select-option>   
+                        <a-select-option value="1">Advertising</a-select-option>   
+                        <a-select-option value="2">Cold Call</a-select-option>   
+                        <a-select-option value="3">Employee Referral</a-select-option>   
+                        <a-select-option value="4">External Referral</a-select-option>   
+                        <a-select-option value="5">Online Store</a-select-option>    
+                      </a-select>    
+                    </template>
+
+                    <template slot="amount" slot-scope="data">   
+                      <input   
+                        v-model="data.item.amount" 
+                        type="number"    
+                        id="amount"     
+                        name="Amount"   
+                        class="form-control rounded-pill border-0"/> 
+                    </template>
+
+                    <template slot="description" slot-scope="data">   
+                      <textarea 
+                        v-model="data.item.description"   
+                        id="info"     
+                        name="Info"   
+                        class="form-control rounded-pill border-0"/> 
+                    </template>
+
+                    <template slot="stage" slot-scope="data">   
+                      <a-select v-model="data.item.stage" class="custom-select rounded-pill border-0 stage-input">   
+                        <a-select-option value="-None-" selected>-None-</a-select-option>   
+                        <a-select-option value="1">Qualification</a-select-option>   
+                        <a-select-option value="2">Needs Analysis</a-select-option>   
+                        <a-select-option value="3">Value Proposition</a-select-option>   
+                        <a-select-option value="4">Proposal</a-select-option>   
+                        <a-select-option value="5">Negotiation</a-select-option>   
+                      </a-select> 
+                    </template>
+
+                    <template slot="probability" slot-scope="data">   
+                      <input
+                        v-model="data.item.probability"    
+                        type="text"    
+                        id="probability"     
+                        name="Probability"   
+                        class="form-control rounded-pill border-0"/> 
+                    </template>
+
+                    <template slot="expected_revenue" slot-scope="data">   
+                      <input
+                        v-model="data.item.expected_revenue"    
+                        type="number"    
+                        id="revenue"     
+                        name="Revenue"   
+                        class="form-control rounded-pill border-0"/> 
+                    </template>
+
+                    <template slot="contact_name" slot-scope="data">   
+                      <input  
+                        v-model="data.item.contact_name"   
+                        type="text"    
+                        id="contact-name"     
+                        name="ContactName"   
+                        class="form-control rounded-pill border-0"/> 
+                    </template>
+
+                    <template slot="contact_number" slot-scope="data">   
+                      <input 
+                        v-model="data.item.contact_number"    
+                        type="tel"    
+                        id="contact-number"     
+                        name="ContactNumber"   
+                        class="form-control rounded-pill border-0"/> 
+                    </template>
+
+                     <template slot="status" slot-scope="data">   
+                      <a-select v-model="data.item.status" class="custom-select rounded-pill border-0 status-input">   
+                        <a-select-option value="-None-" selected>-None-</a-select-option>   
+                        <a-select-option value="1">Paid</a-select-option>   
+                        <a-select-option value="2">Pending</a-select-option>   
+                        <a-select-option value="3">Due</a-select-option>   
+                        <a-select-option value="4">Rejected</a-select-option>     
+                      </a-select> 
+                    </template>
+                  </b-table>   
+
+                  <b-pagination   
+                    v-model="currentPage"   
+                    :total-rows="rows"   
+                    :per-page="perPage"   
+                    aria-controls="my-table" 
+                    align="center"
+                    size="sm"  
+                    class="mt-4"
+                  ></b-pagination>        
                 </div>   
    
                 <div    
@@ -2081,32 +1943,7 @@ a.down-scroll:hover {
     <!-- Active calls Section Ends -->  
   
     <!-- Modals Section Starts -->  
-    <div>  
-      <!-- Yong <b-modal id="modal-1" size="md" ref="my-modal" title="Lead Status" @ok="toggleModal">    
-        <div class="d-block">    
-          <div class="row">    
-            <div class="col-lg-6">    
-              <b-form-radio v-model="comment.comment_type" name="some-radios" value="A">Answered</b-form-radio>    
-            </div>    
-            <div class="col-lg-6">    
-              <b-form-radio v-model="comment.comment_type" name="some-radios" value="NA">No Answer</b-form-radio>    
-            </div>    
-            <div class="col-lg-6">    
-              <b-form-radio v-model="comment.comment_type" name="some-radios" value="VM">Voicemail</b-form-radio>    
-            </div>    
-            <div class="col-lg-6">    
-              <b-form-radio v-model="comment.comment_type" name="some-radios" value="LB">Language Barrier</b-form-radio>    
-            </div>    
-            <div class="col-lg-6">    
-              <b-form-radio v-model="comment.comment_type" name="some-radios" value="NI">Not Interested</b-form-radio>    
-            </div>    
-            <div class="col-lg-6">    
-              <b-form-radio v-model="comment.comment_type" name="some-radios" value="PTP">Promise To Pay</b-form-radio>    
-            </div>    
-          </div>    
-        </div>    
-      </b-modal>    
-   
+    <div>
       <b-modal    
         id="modal-prevent-closing"    
         size="xl"    
@@ -2176,399 +2013,11 @@ a.down-scroll:hover {
             </div>    
           </div>    
    
-          <div class="row mx-0 mb-0 justify-content-between">    
-            <div class="col-lg-4 col-md-4 col-sm-4 pl-0">    
-              <div class="card border-0 client">    
-                <div class="card-body">    
-                  <h5 class="card-title">    
-                    <img src="/images/workstation/D_A@4x.png" alt="Icon" class="icon" />    
-                    Client    
-                  </h5>    
-                  <p class="card-text truncate mb-2"    
-                    :title="lead_info.name + ' ' + lead_info.surname"   
-                  >{{ lead_info.name + ' ' + lead_info.surname }}</p>    
-                  <div class="truncate w-100">   
-                    <p v-if="lead_info.country" class="card-link d-inline border-right border-white pb-3 pr-3">{{ lead_info.country }}</p>   
-                    <p v-if="lead_info.gender" class="card-link d-inline border-right border-white ml-0 pb-3 px-3">{{ lead_info.gender }}</p>   
-                    <p v-if="lead_info.age" class="card-link d-inline ml-0 pb-3 pl-3">{{ lead_info.age }}</p>    
-                  </div>   
-                </div>    
-              </div>    
-            </div>    
-               
-            <div class="col-lg-4 col-md-4 col-sm-4">    
-              <div class="card border-0 product">    
-                <div class="card-body">    
-                  <h5 class="card-title">    
-                    <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" />    
-                    Product    
-                  </h5>    
-                  <p    
-                    class="card-text truncate mb-2"    
-                    :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price "   
-                  >{{ lead_info.product.name }}</p>    
-                  <p    
-                  class="card-link truncate w-100 mb-0"    
-                  :title="lead_info.product.description + '. ' + lead_info.product.currency + lead_info.product.price "   
-                  >{{ lead_info.product.description }}</p>     
-                </div>    
-              </div>    
-            </div>    
-           
-            <div class="col-lg-4 col-md-4 col-sm-4">    
-              <div class="card border-0 time">    
-                <div class="card-body">    
-                  <h5 class="card-title">    
-                    <img src="/images/workstation/Time_Icon@4x.png" alt="Icon" class="icon" />    
-                    Time    
-                  </h5>    
-                  <p class="card-text mb-2">11:20</p>   
-                  <div class="truncate mb-2">    
-                    <p v-if="lead_info.city" class="card-link d-inline border-right border-white pb-3 pr-3">{{ lead_info.city }}</p>    
-                    <p v-if="lead_info.country" class="card-link d-inline ml-0 pb-3 pl-3">{{ lead_info.country }}</p>     
-                  </div>     
-                </div>    
-              </div>    
-            </div>    
-          </div>        
-   
-          <div class="row stats final-modal">    
-            <div class="col-lg-6 p-0" style="padding-right: 3%;">    
-              <div class="card shadow-none mt-3 border-0 tab-card">    
-                <div class="card-header tab-card-header">    
-                  <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">    
-                    <li class="nav-item left">    
-                      <a    
-                        class="nav-link active"    
-                        id="one-tab"    
-                        data-toggle="tab"    
-                        href="#one"    
-                        role="tab"    
-                        aria-controls="One"    
-                        aria-selected="true"   
-                      >    
-                        <img src="/images/icons/workstation/Agent_Notes.svg" alt="Icon" class="icon" width="13%"/>    
-                        <span>Agent Notes</span>     
-                      </a>    
-                    </li>    
-                    <li class="nav-item right">    
-                      <a    
-                        class="nav-link"    
-                        id="two-tab"    
-                        data-toggle="tab"    
-                        href="#two"    
-                        role="tab"    
-                        aria-controls="Two"    
-                        aria-selected="false"   
-                      >    
-                        <img src="/images/icons/workstation/Schedule Callback.svg" alt="Icon" class="icon" width="13%"/>    
-                        <span>Schedule Callback</span>    
-                      </a>    
-                    </li>    
-                  </ul>    
-                </div>    
-   
-                <div class="tab-content" id="myTabContent">    
-                  <div class="tab-pane fade show active" id="one" role="tabpanel" aria-labelledby="one-tab">    
-                    <div class="notes-roll">    
-                      <ul class="list-group w-100" style="height:245px; overflow:hidden; overflow-y:scroll;">    
-                        <li    
-                          v-for="comment in comments.comments"    
-                          class="list-group-item border-left-0 border-right-0 border-top-0 rounded-0 m-0"    
-                          :key="comment.id"   
-                        >    
-                          <p class="m-0">    
-                            <strong class="d-block font-weight-bold">{{ comment.comment_type }}</strong>     
-                            <span class="comment-notes d-block" style="width: 54%;">    
-                              {{ comment.description }}     
-                              <a    
-                                href="#"    
-                                role="button"   
-                                @click="editComment(comment)"    
-                                :class="{ 'edit-comment': true, 'pulse-round': edit_comment }"    
-                                v-if="comment.user_id == user_id && getDaysAgo(comment.created_at) == 'Today'"   
-                              >    
-                                <img src="/images/icons/settings edit buttin@4x.png" alt="Icon" class="icon" width="23"/>    
-                              </a>    
-                            </span>    
-                            <span class="author d-block w-25">    
-                              {{ comment.created_at }} <br/>    
-                              <small>{{ comment.user_name }}</small>    
-                            </span>    
-                          </p>    
-                        </li>    
-                      </ul>    
-                    </div>    
-   
-                    <div class="d-flex notes-capture">    
-                      <div class="flex-shrink-1">   
-                        <b-button v-b-modal.modal-1 :class="{ 'choose-comment-type d-block': true, 'pulse' : choose_comment_type }">    
-                          <img    
-                            src="/images/workstation/Asset 28@4x.png"    
-                            alt="Icon"    
-                            class="icon w-100"   
-                          >    
-                        </b-button>   
-                      </div>   
-   
-                      <div class="flex-grow-1 mr-2">    
-                        <input    
-                          class="comment-desc d-block w-100 border-0"    
-                          type="text"    
-                          v-model="comment.comment_description"    
-                          placeholder="Write comment here"   
-                        />   
-                      </div>   
-   
-                      <div class="flex-shrink-1">    
-                        <button    
-                          id="submit-btn"    
-                          type="submit"    
-                          class="btn "    
-                          @click="prepComment()"   
-                        >   
-                          <img    
-                            src="/images/icons/workstation/Submit.svg"    
-                            alt="Icon"    
-                            class="icon"    
-                            width="76"   
-                          />   
-                        </button>   
-                      </div>    
-                    </div>                
-                  </div>    
-   
-                  <div    
-                    class="tab-pane fade"    
-                    id="two"    
-                    role="tabpanel"    
-                    aria-labelledby="two-tab"   
-                  >     
-                    <div class="row mb-0 mx-0">    
-                      <div class="col-lg-4 pr-0">    
-                        <div class="row">    
-                          <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }">    
-                            <label class="col-lg-12 control-label p-0">Date of Callback    
-                              <a-date-picker    
-                                v-model='selected_date'    
-                                format="YYYY-MM-DD"    
-                                :allowEmpty="false"   
-                                @change="checkCBDate()"   
-                              />    
-                            </label>    
-                          </div>    
-                        </div>    
-                             
-                        <div class="row">    
-                          <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }">    
-                            <label class="col-lg-12 control-label pl-0">Time of Callback    
-                              <a-time-picker v-model='selected_time' :allowEmpty="false" use24Hours format="hh:mm a"/>    
-                            </label>    
-                          </div>      
-                        </div>        
-   
-                        <div class="row">    
-                          <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }">    
-                            <label class="col-lg-12 control-label pl-0">   
-                              <strong>{{ selected_date.format('DD-MM-YYYY') + ' @' +  selected_time.format('hh:mm a') }}</strong>   
-                            </label>    
-                          </div>      
-                        </div>    
-                      </div>    
-                         
-                      <div class="col-lg-8">    
-                        <vc-date-picker    
-                          v-model="dates"    
-                          mode="multiple"    
-                          is-inline    
-                          is-expanded     
-                          :min-date='new Date()'    
-                          :max-date="max_date"    
-                          color="orange"    
-                        />    
-                      </div>    
-                    </div>    
-    
-                    <div class="d-flex callback-capture">   
-                      <div class="flex-grow-1">   
-                        <input    
-                          class="comment-desc d-block border-0"    
-                          type="text"    
-                          v-model="call_back.note"    
-                          placeholder="Write notes here"   
-                        />   
-                      </div>   
-                      <div class="flex-shrink-1">    
-                        <button    
-                          id="submit-btn"    
-                          type="submit"    
-                          class="btn"    
-                          @click="addCallback()"   
-                        >   
-                          <img    
-                            src="/images/icons/workstation/Submit.svg"    
-                            alt="Icon"    
-                            class="icon"    
-                            width="76"   
-                          />   
-                        </button>    
-                      </div>   
-                    </div>   
-                  </div>    
-                </div>    
-              </div>    
-            </div>    
-   
-            <div class="col-lg-6 p-0" style="padding-left: 3%;">    
-              <div class="card shadow-none mt-3 border-0 tab-card">    
-                <div class="card-header tab-card-header">    
-                  <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">    
-                    <li class="nav-item left">    
-                      <a    
-                        class="nav-link active"    
-                        id="three-tab"    
-                        data-toggle="tab"    
-                        href="#three"    
-                        role="tab"    
-                        aria-controls="Three"    
-                        aria-selected="true"   
-                      >    
-                        <img    
-                          src="/images/workstation/Feeback Summary.svg"    
-                          alt="Icon"    
-                          class="icon"   
-                          width="23"   
-                        />    
-                        <span class="left">Feedback Summary</span>    
-                        <span class="right">{{ comments.total_comments }}</span>    
-                      </a>    
-                    </li>    
-                    <li class="nav-item right">    
-                      <a    
-                        class="nav-link"    
-                        id="four-tab"    
-                        data-toggle="tab"    
-                        href="#four"    
-                        role="tab"    
-                        aria-controls="Four"    
-                        aria-selected="false"   
-                      >    
-                        <img    
-                          src="/images/workstation/Email Client.svg"    
-                          alt="Icon"    
-                          class="icon"    
-                          width="23"   
-                        />    
-                        <span class="left">Email Client</span>    
-                      </a>    
-                    </li>    
-                  </ul>    
-                </div>    
-   
-                <div class="tab-content h-100" id="myTabContent">    
-                  <div    
-                    class="tab-pane fade show active"    
-                    id="three"    
-                    role="tabpanel"    
-                    aria-labelledby="three-tab"    
-                    style="height: 349px;"   
-                  >   
-                    <div class="row mx-0 justify-content-between align-items-center summary">   
-                      <div class="col-auto pl-0">   
-                        <p>220 reviews</p>   
-                      </div>   
-   
-                      <div class="col-auto px-0">   
-                        <div class="row mx-0 mb-0">   
-                          <div class="col-auto px-0">   
-                            <p>Called: 600</p>   
-                          </div>   
-                          <div class="col-auto pr-0">   
-                            <p>Answered: 50</p>   
-                          </div>   
-                        </div>   
-                      </div>   
-                    </div>   
-   
-                    <div v-for="(stat, index) in callStats" :key="index" class="row mx-0 mb-1 align-items-center">   
-                      <div class="col-12 px-0">   
-                        <div class="row mx-0 mb-0 align-items-center">   
-                          <div class="col-12 align-content-end px-0">   
-                            <p class="text-right mb-0 stat-perc">{{ stat.percent }}%</p>   
-                          </div>   
-   
-                          <div class="col px-0">   
-                            <p class="mb-0 summary-abr">{{ stat.abbreviation }}</p>   
-                          </div>   
-   
-                          <div class="col-11 pr-0 pl-4">   
-                            <div class="progress-bar w-100">   
-                              <span class="tank" :style="{width: + stat.percent + '%'}"></span>   
-                            </div>   
-                          </div>   
-                        </div>   
-                      </div>   
-                    </div>   
-                  </div>   
-   
-                  <div class="tab-pane fade" id="two" role="tabpanel" aria-labelledby="two-tab">    
-                    <div class="row mb-0">   
-                      <div class="col-lg-4 pr-0">   
-                        <div class="row">   
-                          <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }">   
-                            <label class="col-lg-12 control-label">Date of Callback   
-                              <a-date-picker v-model='selected_date' format="YYYY-MM-DD" :allowEmpty="false" @change="checkCBDate()"/>   
-                            </label>   
-                          </div>   
-                        </div>   
-                           
-                        <div class="row">   
-                          <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }">   
-                            <label class="col-lg-12 control-label">Time of Callback   
-                              <a-time-picker v-model='selected_time' :allowEmpty="false" use24Hours format="hh:mm a"/>   
-                            </label>   
-                          </div>     
-                        </div>        
-   
-                        <div class="row">   
-                          <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }">   
-                            <label class="col-lg-12 control-label"><strong>{{ selected_date.format('DD-MM-YYYY') + ' @' +  selected_time.format('hh:mm a') }}</strong></label>   
-                          </div>     
-                        </div>   
-                      </div>   
-   
-                      <div class="col-lg-8">   
-                        <vc-date-picker v-model="dates" mode="multiple" is-inline is-expanded  :min-date='new Date()' :max-date="max_date" color="orange" />   
-                      </div>   
-                    </div>   
-   
-                    <div class="d-flex callback-capture">   
-                      <div class="flex-grow-1">   
-                        <input class="comment-desc" type="text" v-model="call_back.note" placeholder="Write notes here" />   
-                      </div>   
-                      <div class="flex-shrink-1">   
-                        <button    
-                          id="submit-btn"    
-                          type="submit"    
-                          class="btn p-0 m-0"   
-                          @click="addCallback()"   
-                        >   
-                          <img    
-                            src="/images/icons/workstation/Submit.svg"    
-                            alt="Icon"    
-                            class="icon"    
-                            width="76"   
-                          />   
-                        </button>   
-                      </div>   
-                    </div>   
-                  </div>   
-                </div>   
-              </div>   
-            </div>   
-          </div>   
+          <div class="row mx-0 mb-0 justify-content-between"> 
+            
+          </div> 
         </div>   
-      </b-modal>-->  
+      </b-modal>  
     </div>  
   
     <input type="hidden" @click="startCall()" ref="callBtn" />  
@@ -2610,6 +2059,8 @@ export default {
   
     if (vm.item_id != "") {  
       vm.enqueueLead(vm.item_id);  
+      vm.getActivities();  
+      vm.getDeals();  
       vm.general = true;  
       vm.active_calls = false;  
       Fire.$emit("ShowGeneral");  
@@ -2628,10 +2079,6 @@ export default {
     }  
   
     vm.prepDates();  
-
-    vm.getActivities();  
-
-    vm.getDeals();  
   
     Fire.$on("CallStarted", function() {  
       vm.general = false;  
@@ -2685,7 +2132,8 @@ export default {
     });  
   },  
   created: function() {  
-    this.getComments(this.item_id);  
+    if(this.item_id)
+      this.getComments(this.item_id);  
   },  
   props: [  
     "user_name",  
@@ -2868,33 +2316,7 @@ export default {
         expected_revenue:'' ,
         contact_name:'' ,
         contact_number:'' ,
-      },
-      dealItems: [  
-        {  
-          dealName: "#f42222",  
-          amount: "0",  
-          probability: 40,  
-          closingDate: "Dickerson",  
-          type: "Macdonald",  
-          edit: ""  
-        },  
-        {  
-          dealName: "#00d58e",  
-          amount: "0",  
-          probability: 40,  
-          closingDate: "Dickerson",  
-          type: "Macdonald",  
-          edit: ""  
-        },  
-        {  
-          dealName: "#ff8c37",  
-          amount: "0",  
-          probability: 40,  
-          closingDate: "Dickerson",  
-          type: "Macdonald",  
-          edit: ""  
-        }  
-      ],  
+      },  
       perPage: 10,  
       currentPage: 1,
       radioStyle: {
@@ -2912,7 +2334,7 @@ export default {
   methods: {
     getDeals(){
       var vm = this;
-      axios.get("/deals/get-all/" + this.item_id ).then(function(response) {  
+      axios.get("/deals/get-all/" + this.item_id ).then(function(response) {
         vm.dealItems = response.data.deals;
       });
     },
@@ -3210,6 +2632,7 @@ export default {
   
           Device.on("connect", function(conn) {  
             vm.call_status = "Successfully established call";  
+            vm.call_sid = conn.parameters.CallSid;  
             vm.call_back.call_sid = conn.parameters.CallSid;  
           });  
   
@@ -3227,8 +2650,12 @@ export default {
           });  
   
           Device.on("disconnect", function(conn) {  
-            vm.call_status = "Call Disconnected";  
-            vm.$refs["final-call-step"].show();  
+            vm.call_status = "Call Disconnected";
+            vm.general = false;  
+            vm.scripts = false;  
+            vm.idle = true;  
+            vm.active_calls = false;    
+            // vm.$refs["final-call-step"].show();  
           });  
   
           vm.$Progress.finish();  
@@ -3249,35 +2676,11 @@ export default {
       Fire.$emit("InitiateCall");  
   
       var form_data = {  
-        lead_id: vm.lead_info.id,  
-        is_client: vm.lead_info.is_client,  
-        lead_owner: vm.lead_info.user_created_id,  
-        lead_assignee: vm.lead_info.user_assigned,  
+        lead_id: vm.item_id,  
         user_id: vm.user_id,  
+        call_sid: vm.call_sid,
         // phone_number : vm.lead_info.contact_number,  
-        phone_number: "+27782013556"  
-      };  
-  
-      Device.connect(form_data);  
-    },  
-    startCall() {  
-      var vm = this;  
-      this.idle = true;  
-      this.show_edication_blocks = true;  
-      this.general = false;  
-      var audioCtx = new AudioContext();  
-  
-      audioCtx.resume();  
-  
-      Fire.$emit("InitiateCall");  
-  
-      var form_data = {  
-        lead_id: vm.lead_info.id,  
-        is_client: vm.lead_info.is_client,  
-        lead_owner: vm.lead_info.user_created_id,  
-        lead_assignee: vm.lead_info.user_assigned,  
-        // phone_number : vm.lead_info.contact_number,  
-        phone_number: "+27738802485"  
+        phone_number: "+27739898490"  
       };  
   
       Device.connect(form_data);  
@@ -3287,11 +2690,16 @@ export default {
   
       Device.disconnectAll(function(conn) {});  
   
-      vm.idle = true;  
-      vm.show_edication_blocks = true;  
+      // vm.idle = true;  
+      // vm.show_edication_blocks = true;  
+      // vm.general = false;  
+      // vm.minimized = false;  
+      // this.$refs["final-call-step"].show(); 
       vm.general = false;  
-      vm.minimized = false;  
-      this.$refs["final-call-step"].show();  
+      vm.scripts = false;  
+      vm.idle = true;  
+      vm.active_calls = false;  
+      
     },  
     getStatus(call_sid) {  
       var vm = this;  

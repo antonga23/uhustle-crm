@@ -155,7 +155,7 @@
 
                 <transition name="fade">
                   <div>
-                    <create-deal :empty_deal="deal" />
+                    <create-deal :empty_deal="deal"  :lead_id="'-None-'" />
                   </div>
                 </transition>
               </b-tab>

@@ -6,7 +6,7 @@
                 <table ref="table" class="leads-table">
                     <thead>
                         <tr>
-                            <th v-for="(column, index) in columns" @click="sort(index)" :class="(sortable ? 'sorting ' : '')
+                            <th v-for="(column, index) in modified_columns" @click="sort(index)" :class="(sortable ? 'sorting ' : '')
                                     + (sortColumn === index ?
                                         (sortType === 'desc' ? 'sorting-desc' : 'sorting-asc')
                                         : '')
@@ -16,23 +16,29 @@
                                   {{column.label}}
                                 </span>
                                     
-                                <div v-if="index == columns.length-1" class="col pl-0 dropdown">
-                                    <b-button class="rounded-circle m-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div v-if="index == modified_columns.length-1" class="col pl-0">
+                                    <b-button class="rounded-circle m-0" @click="show_column_select = !show_column_select">
                                         <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon" style="width: 10px;" />
                                     </b-button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Calls</a>
-                                        <a class="dropdown-item" href="#">Sales</a>
-                                        <a class="dropdown-item" href="#">Calls</a>
-                                        <a class="dropdown-item" href="#">Sales</a>
+                                    <div v-if="show_column_select">
+
+                                        <b-form-select 
+                                          v-model="selected_columns" 
+                                          :options="colum_select_options" 
+                                          multiple 
+                                          :select-size="4"
+                                          @change="handleChange()"
+                                          >
+                                          </b-form-select>
+                                        <!-- <button type="submit" class="btn btn-primary update-user w-100 rounded-pill m-0">Apply</button> -->
                                     </div>
                                 </div>
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(row, index) in paginated" :class="onClick ? 'clickable' : ''" @click="click(row, index)" :key="index">
-                            <td v-for="(column, i) in columns" :class="column.numeric ? 'numeric' : ''" :key="i" @>
+                        <tr v-for="(row, index) in paginated" :class="onClick ? 'clickable' : ''" :key="index">
+                            <td v-for="(column, i) in modified_columns" :class="column.numeric ? 'numeric' : ''" :key="i" >
                                 <span v-if="column.field == 'all'">
                                     <b-form-checkbox :value="row.id" v-model="selected" @change="selectOne"></b-form-checkbox>
                                 </span>
@@ -177,10 +183,10 @@
 
                                             <span v-else>
                                               <span v-if="item.item[column.field].meta_value !== null">
-                                                <span v-if="editing_row === false && item.item.id == row.id && row_id === null">
+                                                <span v-if="editing_row === false && item.item.id == row.id && row_id === null" @click="click(row, index)" >
                                                   {{ item.item[column.field].meta_value }}
                                                 </span>
-                                                <span v-if="editing_row === true && item.item.id == row.id && row_id != row.id">
+                                                <span v-if="editing_row === true && item.item.id == row.id && row_id != row.id" @click="click(row, index)" >
                                                   {{ item.item[column.field].meta_value  }}
                                                 </span>
                                               </span>
@@ -238,9 +244,6 @@ export default {
         role: '',
         title: {},
         users: null,
-        active_users : null,
-        active_roles : null,
-        sources : null,
         packages : null,
         custom_fields :{
             required: true
@@ -298,6 +301,28 @@ export default {
             vm.assignTo();
         });
 
+        this.columns.map( (column, index) => {
+
+          vm.modified_columns.push(column)
+
+          vm.selected_columns.push({
+            index: index,
+            column:column
+          });
+
+          vm.colum_select_options.push({
+
+            value: {
+              index: index,
+              column:column
+            },
+            text: column.label,
+            disabled: ( index == 0 || index == vm.columns.length - 1 )? true : false,
+
+          });
+
+        });
+
         this.Toast = vm.$swal.mixin({
             toast: true,
             position: 'top-end',
@@ -308,7 +333,11 @@ export default {
     data() {
         return {
             selected: [],
+            selected_columns: [],
+            modified_columns: [],
+            colum_select_options: [],
             leads_select_all: null,
+            show_column_select: false,
             show_mass_assign: false,
             user_assigned: '',
             lead_owner: '',
@@ -350,6 +379,26 @@ export default {
         }
     },
     methods: {
+        handleChange() {
+
+          var vm = this;
+          vm.modified_columns = [];
+          this.columns.map( ( col, index ) => {
+
+            vm.selected_columns.map( (selected, i) => {
+              
+              if(selected.index == index){
+
+
+                  vm.modified_columns.push(selected.column);
+              }
+
+            });
+
+          });
+          console.log(vm.modified_columns);
+          
+        },
         getText(col, field){
           var field_value = "";
           if(col !== undefined){
@@ -554,8 +603,11 @@ export default {
         },
 
         click(row, index) {
+          
             if (this.onClick)
                 this.onClick(row, index);
+
+            window.location.href = '/workstation/' + row.id;
         },
 
         exportExcel() {
@@ -635,7 +687,6 @@ export default {
             }
         },
     },
-
     computed: {
         processedRows: function() {
             
@@ -676,7 +727,11 @@ export default {
                 paginatedRows = paginatedRows.slice((this.currentPage - 1) * this.currentPerPage, this.currentPerPage === -1 ? paginatedRows.length + 1 : this.currentPage * this.currentPerPage);
             return paginatedRows;
         }
+    },
+    created() {
+
     }
+
 }
 </script>
 <style scoped>

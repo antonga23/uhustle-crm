@@ -74,7 +74,7 @@ class TwillioController extends Controller
         $twilio = new Client($this->account_sid, $this->auth_token);
        
         $conferences = $twilio->conferences
-                              ->read(array(),17);
+                              ->read(array(),10);
                               // ->read(array("status" => "in-progress"),500);
         
         $conferences_arr = [];
@@ -94,7 +94,7 @@ class TwillioController extends Controller
             $caller = $lead_info['caller'];
 
             $data->lead = $lead;
-            $data->lead_type = $lead_info['lead_type'];
+            $data->lead_type = 'Lead';
             $data->lead_name = ucwords($lead->name . ' ' . $lead->surname);
             $data->lead_mobile = $lead->phone_number;
             $data->lead_country = $lead->country;
@@ -137,7 +137,7 @@ class TwillioController extends Controller
 
     public function getConferenceLeadInfo($conference_name){
         $name_parts = explode('-', $conference_name);
-        $lead_type = ( $name_parts[0] == 'L' )? 'Lead' : 'Contact' ;
+
         $lead_id = (isset($name_parts[1])) ? $name_parts[1] : 830;
         $caller_id = (isset($name_parts[2])) ? $name_parts[2] : 1;
 
@@ -147,7 +147,6 @@ class TwillioController extends Controller
         return [
             'caller' => $caller,
             'lead' => $lead,
-            'lead_type' => $lead_type,
         ];
     }
 
@@ -216,20 +215,20 @@ class TwillioController extends Controller
         }else{
             // Lead information needed to create the conference
             $lead_id = $request->lead_id;
-            $is_client = $request->is_client;
-            $lead_owner = $request->lead_owner;
-            $lead_assignee = $request->lead_assignee;
             $caller_id = $request->user_id;
+            $call_sid = $request->call_sid;
 
             $to_number = $request->phone_number;
             
+            Log::info("Call SID");
+
+            Log::info($call_sid);
+
             $twiml = new Twiml;
             
             if (isset($to_number) && strlen($to_number) > 0) {
 
-                $prefix = ($is_client == 0)? 'L-' : 'C-';
-
-                $conference_name = $prefix.$lead_id . '-' . $caller_id;
+                $conference_name = $lead_id . '-' . $caller_id;
                 
                 $dial = $twiml->dial('');
 
@@ -432,8 +431,7 @@ class TwillioController extends Controller
 
         $client = new Client($this->account_sid, $this->auth_token);
 
-        $twilios = Twillio::with('lead')
-                    ->where(['agent_id' => $request_user['user_id']])
+        $twilios = Twillio::where(['agent_id' => $request_user['user_id']])
                     ->whereYear('created_at', '=' ,$now->year)
                     ->whereMonth('created_at', '=' ,$month)
                     ->orderBy('created_at', 'DESC')
@@ -493,8 +491,12 @@ class TwillioController extends Controller
           'call_back' => $next_call_back
         ];
 
+        // TODO: Get commission from preferences
+        $commission = $sum_sales * (16/100);
+
         return array(
             'success' => true, 
+            'commission' => $commission,
             'total_calls' => $total_calls,
             'total_sales' => $total_sales,
             'con_ratio' => $con_ratio,
@@ -526,4 +528,5 @@ class TwillioController extends Controller
 
       return $item;
     }
+
 }
