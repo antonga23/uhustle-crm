@@ -213,7 +213,7 @@
             title="Add new Module"
             class="p-0 add-module-btn"
           >
-            <img src="images/icons/Module_Add.svg" width="47"/>
+            <img src="images/icons/Module_Add.svg" alt="Add module icon" width="47"/>
           </a>
         </li>
       </ul>
@@ -232,7 +232,7 @@
               >   
                 <template v-slot:title>
                   <a @click="editRole(role)">{{ role.display_name }}</a>
-                  <img @click="deleteRole(role)" src="images/icons/delete.svg" width="16" class="d-none"/>
+                  <img @click="deleteRole(role)" src="images/icons/delete.svg" alt="Delete icon" width="16" class="d-none"/>
                 </template>
 
                 <div class="row mx-0 edit-role" v-if="role_edit">
@@ -274,8 +274,8 @@
                         class="w-100 mx-0 py-0 pr-0 expand-toggle"
                       >
                         Dialer
-                        <!-- <img src="images/icons/up.svg" width="11"> -->
-                        <img src="images/icons/down.svg" width="11">
+                        <!-- <img src="images/icons/up.svg" alt="Increased value icon" width="11"> -->
+                        <img src="images/icons/down.svg" alt="Decreased value icon" width="11">
                       </b-button>
 
                       <b-collapse :id="'accordion-0'" visible accordion="my-accordion" role="tabpanel">
@@ -326,8 +326,8 @@
                           class="w-100 mx-0 py-0 pr-0 expand-toggle"
                         >
                           {{ a_module.display_name }}
-                          <!-- <img src="images/icons/up.svg" width="11"> -->
-                          <img src="images/icons/down.svg" width="11">
+                          <!-- <img src="images/icons/up.svg" alt="Increased value icon" width="11"> -->
+                          <img src="images/icons/down.svg" alt="Decreased value icon" width="11">
                         </b-button>
 
                         <b-collapse :id="'accordion-' + (i+1)" accordion="my-accordion" role="tabpanel">
@@ -375,7 +375,7 @@
 
               <b-tab>
                 <template v-slot:title>
-                  <img @click="addRole" src="images/icons/Field_Add.svg" width="16" class="ml-0"/>
+                  <img @click="addRole" src="images/icons/Field_Add.svg" alt="Add field icon" width="16" class="ml-0"/>
                 </template>
 
                 <div class="row mx-0" v-if="role_add">

@@ -959,7 +959,7 @@ a.down-scroll:hover {
         <div class="card border-0 mb-0 ml-0 client"> 
           <div class="card-body"> 
             <h5 class="card-title"> 
-              <img src="/images/workstation/D_A@4x.png" alt="Icon" class="icon" /> 
+              <img src="/images/workstation/D_A@4x.png" alt="Client Icon" class="icon" /> 
               Client 
             </h5> 
             <p 
@@ -986,7 +986,7 @@ a.down-scroll:hover {
         <div class="card border-0 product mb-0"> 
           <div class="card-body"> 
             <h5 class="card-title"> 
-              <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" /> 
+              <img src="/images/workstation/Stock_Icon@4x.png" alt="Product Icon" class="icon" /> 
               Product 
             </h5> 
             <p 
@@ -1003,7 +1003,7 @@ a.down-scroll:hover {
         <div class="card border-0 mb-0 activity"> 
           <div class="card-body"> 
             <h5 class="card-title"> 
-              <img src="/images/workstation/S_A@4x.png" alt="Icon" class="icon" /> 
+              <img src="/images/workstation/S_A@4x.png" alt="Last called Icon" class="icon" /> 
               Last Called by 
             </h5> 
             <p class="card-text mb-2">John Hill</p> 
@@ -1014,7 +1014,7 @@ a.down-scroll:hover {
         <div class="card border-0 mb-0 mr-0 time"> 
           <div class="card-body"> 
             <h5 class="card-title"> 
-              <img src="/images/workstation/Time_Icon@4x.png" alt="Icon" class="icon" /> 
+              <img src="/images/workstation/Time_Icon@4x.png" alt="Time Icon" class="icon" /> 
               Time 
             </h5> 
             <p class="card-text mb-2">11:20</p> 
@@ -1049,7 +1049,7 @@ a.down-scroll:hover {
                   > 
                     <img 
                       src="/images/icons/workstation/Agent Notes.svg" 
-                      alt="Icon" 
+                      alt="Agent notes Icon" 
                       class="icon" 
                       width="31px" 
                     /> 
@@ -1069,7 +1069,7 @@ a.down-scroll:hover {
                   > 
                     <img 
                       src="/images/icons/workstation/Schedule Callback.svg" 
-                      alt="Icon" 
+                      alt="Schedule callback Icon" 
                       class="icon" 
                       width="31px" 
                     /> 
@@ -1154,7 +1154,7 @@ a.down-scroll:hover {
                       > 
                         <img 
                           src="/images/workstation/Asset 28@4x.png" 
-                          alt="Icon" 
+                          alt="Add Icon" 
                           class="icon w-100" 
                         /> 
                       </b-button> 
@@ -1194,7 +1194,7 @@ a.down-scroll:hover {
                     > 
                       <img 
                         src="/images/icons/workstation/Submit.svg" 
-                        alt="Icon" 
+                        alt="Submit Icon" 
                         class="icon" 
                         width="76" 
                       /> 
@@ -1210,7 +1210,7 @@ a.down-scroll:hover {
                       <div class="col-7 px-0"> 
                         <div class="row mx-0 align-items-center today"> 
                           <div class="col-auto px-0"> 
-                            <img src="/images/icons/circle.svg" alt="Icon" class="icon" width="17" /> 
+                            <img src="/images/icons/circle.svg" alt="Orange Circle Icon" class="icon" width="17" /> 
                           </div> 
  
                           <div class="col pr-0 pl-2"> 
@@ -1222,7 +1222,7 @@ a.down-scroll:hover {
                           <div class="col-auto px-0"> 
                             <img 
                               src="/images/icons/grey dot.svg" 
-                              alt="Icon" 
+                              alt="Grey Dot Icon" 
                               class="icon" 
                               width="17" 
                               style="vertical-align: baseline;" 
@@ -1240,7 +1240,7 @@ a.down-scroll:hover {
                           <div class="col-auto px-0"> 
                             <img 
                               src="/images/icons/blue dot.svg" 
-                              alt="Icon" 
+                              alt="Blue Dot Icon" 
                               class="icon" 
                               width="8" 
                               style="vertical-align: text-top;" 
@@ -1256,7 +1256,7 @@ a.down-scroll:hover {
                           <div class="col-auto px-0"> 
                             <img 
                               src="/images/icons/Orange Dot_Big.svg" 
-                              alt="Icon" 
+                              alt="Big Orange Dot Icon" 
                               class="icon" 
                               width="8" 
                               style="vertical-align: text-top;" 
@@ -1331,7 +1331,7 @@ a.down-scroll:hover {
                     > 
                       <img 
                         src="/images/icons/workstation/Submit.svg" 
-                        alt="Icon" 
+                        alt="Submit Icon" 
                         class="icon" 
                         width="76" 
                       /> 
@@ -1357,7 +1357,7 @@ a.down-scroll:hover {
                   > 
                     <img 
                       src="/images/icons/workstation/Feeback Summary.svg" 
-                      alt="Icon" 
+                      alt="Feedback summary Icon" 
                       class="icon" 
                       width="31px" 
                     /> 
@@ -1376,7 +1376,7 @@ a.down-scroll:hover {
                   > 
                     <img 
                       src="/images/icons/workstation/Email Client.svg" 
-                      alt="Icon" 
+                      alt="Email client Icon" 
                       class="icon" 
                       width="31px" 
                     /> 
@@ -1493,7 +1493,7 @@ a.down-scroll:hover {
                   > 
                     <img 
                       src="/images/icons/workstation/Submit.svg" 
-                      alt="Icon" 
+                      alt="Submit Icon" 
                       class="icon" 
                       width="76" 
                     /> 
@@ -1522,12 +1522,12 @@ a.down-scroll:hover {
                     >    
                       <img    
                         src="/images/icons/workstation/Open Activities.svg"    
-                        alt="Icon"    
+                        alt="Open Activities Icon"    
                         class="icon"    
                         width="31"   
                       />    
                       <span>Open Activities</span>
-                      <img src="/images/icons/Field_Add.svg" width="16" class="d-none add-activity" @click="addActivityCollapse()"/>
+                      <img src="/images/icons/Field_Add.svg" alt="Add field icon" width="16" class="d-none add-activity" @click="addActivityCollapse()"/>
                     </a>    
                   </li>    
    
@@ -1543,7 +1543,7 @@ a.down-scroll:hover {
                     >    
                       <img    
                         src="/images/icons/workstation/Closed Activities.svg"    
-                        alt="Icon"    
+                        alt="Closed Activities Icon"    
                         class="icon"    
                         width="31"   
                       />    
@@ -1716,7 +1716,7 @@ a.down-scroll:hover {
                     >    
                       <img    
                         src="/images/icons/workstation/Deals.svg"    
-                        alt="Icon"    
+                        alt="Deals Icon"    
                         class="icon"    
                         width="31"   
                       />    
@@ -1736,7 +1736,7 @@ a.down-scroll:hover {
                     >    
                       <img    
                         src="/images/icons/workstation/Create_a_deal.svg"    
-                        alt="Icon"    
+                        alt="Create a deal Icon"    
                         class="icon"    
                         width="31"  
                       />    
@@ -1980,7 +1980,7 @@ a.down-scroll:hover {
                     class="w-100 m-0"    
                     disabled   
                   >    
-                    <img src="/images/icons/Asset 135.svg" alt="Icon" class="icon" />More Time    
+                    <img src="/images/icons/Asset 135.svg" alt="Add time Icon" class="icon" />More Time    
                   </button>    
                   <button    
                     v-else @click="addTime"     
@@ -1988,7 +1988,7 @@ a.down-scroll:hover {
                     :class="{'btn' : true, 'btn-active border-0 font-weight-bold' : true}"    
                     class="w-100 m-0"   
                   >    
-                    <img src="/images/icons/Asset 135.svg" alt="Icon" class="icon" />More Time    
+                    <img src="/images/icons/Asset 135.svg" alt="Add time Icon" class="icon" />More Time    
                   </button>    
                 </label>    
                 <label class="col-lg-4 control-label pr-0 text-right" style="margin-right: 8px;float:left;">    
@@ -1998,13 +1998,13 @@ a.down-scroll:hover {
                     :class="{'btn' : true, 'btn-active border-0 font-weight-bold' : true }"    
                     class="w-100 m-0"   
                   >    
-                    <img src="/images/icons/Asset 136.svg" alt="Icon" class="icon" />Complete    
+                    <img src="/images/icons/Asset 136.svg" alt="Complete Icon" class="icon" />Complete    
                   </button>    
                 </label>    
                 <label class="col-lg-3 control-label pr-0 text-right" style="margin-right: 8px;float:left;">    
                   <img    
                     src="/images/icons/Asset 56.svg"    
-                    alt="Icon"    
+                    alt="Unavailable Icon"    
                     class="icon"    
                     style="width: 60px;margin-top: -13px;"   
                   />    

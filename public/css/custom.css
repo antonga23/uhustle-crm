@@ -551,7 +551,10 @@ label:not(.form-check-label):not(.custom-file-label) {
 ::-webkit-scrollbar {
   width: 3px;
   height:3px;
-  right: 5px;
+}
+::-webkit-scrollbar:hover {
+  width: 5px;
+  height:5px;
 }
 ::-webkit-scrollbar-track {
   background: #f0f0f1;
@@ -794,10 +797,13 @@ max-height: 350px;
 }
 
 .mass-assign .ant-select-selection.ant-select-selection--multiple {
-  border-radius: 10px;
+  border-radius: 20px;
   padding-left: 10px;
   border: 0;
-  box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
   max-height: 60px;
   overflow-y: auto;
 }

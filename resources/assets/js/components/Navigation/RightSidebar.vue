@@ -987,10 +987,10 @@ border-top: 1px solid #f7f7f7;
 
 .row.filter-content .search-criteria {
   border: 0;
-  box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
-  -webkit-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
-  -moz-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
-  -o-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow:0 0 7px rgba(0, 0, 0, 0.05);
+  -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);
   font-size: 12px;
   border-radius: 14px;
   padding: 10px;
@@ -1097,14 +1097,14 @@ input.save-text:focus {
                   <img
                     v-if="generalStats_on == false"
                     src="/images/icons/right-sidebar/General.svg"
-                    alt="Settings Cog"
+                    alt="Stats icon"
                     width="43"
                     class="inactive-icon"
                   />
                   <img
                     v-else
                     src="/images/icons/right-sidebar/General_Active.svg"
-                    alt="Settings Cog"
+                    alt="Stats icon"
                     width="43"
                   />
                 </a>
@@ -1114,14 +1114,14 @@ input.save-text:focus {
                   <img
                     v-if="filters_on == false"
                     src="/images/icons/right-sidebar/Filter.svg"
-                    alt="Settings Cog"
+                    alt="Filters icon"
                     width="43"
                     class="inactive-icon"
                   />
                   <img
                     v-else
                     src="/images/icons/right-sidebar/Filter_Active.svg"
-                    alt="Settings Cog"
+                    alt="Filters icon"
                     width="43"
                   />
                 </a>
@@ -1185,8 +1185,9 @@ input.save-text:focus {
                     <img
                       v-if="user.avatar != '' && user.avatar != null"
                       :src="avatarUrl + user.id + '/' + user.avatar"
+                      alt="Profile icon"
                     />
-                    <img v-else :src="noImageUrl" />
+                    <img v-else :src="noImageUrl" alt="Profile icon"/>
                   </a>
                 </li>
               </div>
@@ -1207,7 +1208,7 @@ input.save-text:focus {
                       @click="expanded = true;profile_on = true;account_on = false;system_settings_on = false;language_settings_on = false;"
                       v-if="profile_on == false"
                       src="/images/icons/settings edit buttin@4x.png"
-                      alt="Profile Edit Off"
+                      alt="Profile Edit On"
                       width="30"
                     />
                     <img
@@ -1235,8 +1236,9 @@ input.save-text:focus {
                             <img
                               v-if="user.avatar != '' && user.avatar != null"
                               :src="avatarUrl + user.id + '/' + user.avatar"
+                              alt="Profile icon"
                             />
-                            <img v-else :src="noImageUrl" />
+                            <img v-else :src="noImageUrl" alt="Profile icon"/>
                             <button
                               class="btn btn-info"
                               type="button"
@@ -1427,7 +1429,7 @@ input.save-text:focus {
                       @click="expanded = true;account_on = true;profile_on = false;system_settings_on = false;language_settings_on = false;"
                       v-if="account_on == false"
                       src="/images/icons/settings edit buttin@4x.png"
-                      alt="Account Edit Off"
+                      alt="Account Edit On"
                       width="30"
                     />
                     <img
@@ -1559,7 +1561,7 @@ input.save-text:focus {
                       @click="expanded = true;system_settings_on = true; account_on = false;profile_on = false;language_settings_on = false;"
                       v-if="system_settings_on == false"
                       src="/images/icons/settings edit buttin@4x.png"
-                      alt="Account Edit Off"
+                      alt="Account Edit On"
                       width="30"
                     />
                     <img
@@ -1624,7 +1626,7 @@ input.save-text:focus {
                       @click="expanded = true;system_settings_on = true; account_on = false;profile_on = false;language_settings_on = false;"
                       v-if="system_settings_on == false"
                       src="/images/icons/settings edit buttin@4x.png"
-                      alt="Account Edit Off"
+                      alt="Account Edit On"
                       width="30"
                     />
                     <img
@@ -1731,7 +1733,7 @@ input.save-text:focus {
                       @click="expanded = true;language_settings_on = true; account_on = false;profile_on = false;system_settings_on = false;"
                       v-if="system_settings_on == false"
                       src="/images/icons/settings edit buttin@4x.png"
-                      alt="Account Edit Off"
+                      alt="Account Edit On"
                       width="30"
                     />
                     <img
@@ -1814,7 +1816,7 @@ input.save-text:focus {
                 <h3 class="w-100 mb-2 mt-0">
                   Notifications
                   <span class="notifications-close">
-                    <img src="/images/icons/close-icon.svg" style="display:none;" />
+                    <img src="/images/icons/close-icon.svg" alt="Notifications off" style="display:none;" />
                   </span>
                 </h3>
 
@@ -1874,7 +1876,10 @@ input.save-text:focus {
                     <div class="col-auto pl-1 btn-has-new-messages">   
                     </div> 
 
-                    <div class="col-auto p-0"><img src="/images/icons/user_icon@4x.png" width="50"></div> 
+                    <div class="col-auto p-0">
+                      <img src="/images/icons/user_icon@4x.png" alt="Profile icon" width="50">
+                    </div> 
+
                     <div class="col-auto p-0"> 
                       <p class="d-block mb-1"><span class="caller-name">Agnes Dean</span><span class="caller-time">15:46</span></p> 
                       <p title="Personal Information" class="call_back_time d-block w-100 mt-0">Lorem Ipsum dolor sit amet, c...</p> 
@@ -1887,7 +1892,9 @@ input.save-text:focus {
                     <div class="col-auto pl-1 btn-has-new-messages"> 
                     </div> 
 
-                    <div class="col-auto p-0"><img src="/images/icons/user_icon@4x.png" width="50"></div> 
+                    <div class="col-auto p-0">
+                      <img src="/images/icons/user_icon@4x.png" alt="Profile icon" width="50">
+                    </div> 
                     <div class="col-auto p-0"> 
                       <p class="d-block mb-1"><span class="caller-name">Justin Hill</span><span class="caller-time">12:37</span></p> 
                       <p title="Personal Information" class="call_back_time d-block w-100 mt-0">Lorem Ipsum dolor sit amet, c...</p> 

@@ -443,8 +443,8 @@
               <p class="card-numeral font-weight-bold text-center mb-0">{{ call_log.total_calls }}</p>
               <p class="card-desc text-center mb-0">Calls made</p>
               <p class="card-stat text-center mb-0">
-                <img class="d-inline-block" src="/images/icons/dashboard/Up_icon.svg" width="10">
-                <!-- <img class="d-inline-block" src="/images/icons/dashboard/Down_icon.svg" width="10"> -->
+                <img class="d-inline-block" src="/images/icons/dashboard/Up_icon.svg" alt="increased value icon" width="10">
+                <!-- <img class="d-inline-block" src="/images/icons/dashboard/Down_icon.svg" alt="decreased value icon" width="10"> -->
                 14%
               </p>
             </div>
@@ -453,8 +453,8 @@
               <p class="card-numeral font-weight-bold text-center mb-0">{{ call_log.total_sales }}</p>
               <p class="card-desc text-center mb-0">Sales Quantity</p>
               <p class="card-stat text-center mb-0">
-                <img class="d-inline-block" src="/images/icons/dashboard/Up_icon.svg" width="10">
-                <!-- <img class="d-inline-block" src="/images/icons/dashboard/Down_icon.svg" width="10"> -->
+                <img class="d-inline-block" src="/images/icons/dashboard/Up_icon.svg" alt="increased value icon" width="10">
+                <!-- <img class="d-inline-block" src="/images/icons/dashboard/Down_icon.svg" alt="decreased value icon" width="10"> -->
                 3%
               </p>
             </div>
@@ -463,8 +463,8 @@
               <p class="card-numeral font-weight-bold text-center mb-0">{{ call_log.sum_sales }}</p>
               <p class="card-desc text-center mb-0">Sales amount</p>
               <p class="card-stat text-center mb-0">
-                <img class="d-inline-block" src="/images/icons/dashboard/Up_icon.svg" width="10">
-                <!-- <img class="d-inline-block" src="/images/icons/dashboard/Down_icon.svg" width="10"> -->
+                <img class="d-inline-block" src="/images/icons/dashboard/Up_icon.svg" alt="increased value icon" width="10">
+                <!-- <img class="d-inline-block" src="/images/icons/dashboard/Down_icon.svg" alt="decreased value icon" width="10"> -->
                 11%
               </p>
             </div>
@@ -473,8 +473,8 @@
               <p class="card-numeral font-weight-bold text-center m-0">{{ call_log.con_ratio }}%</p>
               <p class="card-desc text-center mb-0">Conversion Ratio</p>
               <p class="card-stat text-center mb-0">
-                <img class="d-inline-block" src="/images/icons/dashboard/Up_icon.svg" width="10">
-                <!-- <img class="d-inline-block" src="/images/icons/dashboard/Down_icon.svg" width="10"> -->
+                <img class="d-inline-block" src="/images/icons/dashboard/Up_icon.svg" alt="increased value icon" width="10">
+                <!-- <img class="d-inline-block" src="/images/icons/dashboard/Down_icon.svg" alt="decreased value icon" width="10"> -->
                 33%
               </p>
             </div>
@@ -483,8 +483,8 @@
               <p class="card-numeral font-weight-bold text-center mb-0">{{ call_log.commission }}</p>
               <p class="card-desc text-center mb-0">Commission</p>
               <p class="card-stat text-center mb-0">
-                <img class="d-inline-block" src="/images/icons/dashboard/Up_icon.svg" width="10">
-                <!-- <img class="d-inline-block" src="/images/icons/dashboard/Down_icon.svg" width="10"> -->
+                <img class="d-inline-block" src="/images/icons/dashboard/Up_icon.svg" alt="increased value icon" width="10">
+                <!-- <img class="d-inline-block" src="/images/icons/dashboard/Down_icon.svg" alt="decreased value icon" width="10"> -->
                 33%
               </p>
             </div>
@@ -506,7 +506,7 @@
                       aria-controls="One" 
                       aria-selected="true"
                     > 
-                      <img src="/images/icons/dashboard/Calls vs Sales.svg" alt="Icon" class="icon" width="31"/> 
+                      <img src="/images/icons/dashboard/Calls vs Sales.svg" alt="Tab Icon" class="icon" width="31"/> 
                       <span>Calls vs Sales</span>
                     </a> 
                   </li> 
@@ -520,7 +520,7 @@
                       aria-controls="Two" 
                       aria-selected="false"
                     > 
-                      <img src="/images/icons/dashboard/Monthly Sales.svg" alt="Icon" class="icon" width="31"/> 
+                      <img src="/images/icons/dashboard/Monthly Sales.svg" alt="Tab Icon" class="icon" width="31"/> 
                       <span>Monthly Sales</span> 
                     </a> 
                   </li> 
@@ -536,11 +536,11 @@
                 > 
                   <div class="row mx-0 justify-content-end align-items-center legend"> 
                     <div class="col-auto pl-0">
-                      <img class="d-inline-block mr-2" src="images/icons/dashboard/calls.svg" width="9">
+                      <img class="d-inline-block mr-2" src="images/icons/dashboard/calls.svg" alt="legend key icon" width="9">
                       <p class="d-inline-block mb-0">Calls</p>
                     </div>
                     <div class="col-auto pr-0">
-                      <img class="d-inline-block mr-2" src="images/icons/dashboard/sales.svg" width="9">
+                      <img class="d-inline-block mr-2" src="images/icons/dashboard/sales.svg" alt="legend key icon" width="9">
                       <p class="d-inline-block mb-0">Sales</p>
                     </div>
                   </div>
@@ -570,7 +570,7 @@
                       aria-controls="Three" 
                       aria-selected="true"
                     > 
-                      <img src="/images/icons/dashboard/Answers vs Dialing.svg" alt="Icon" class="icon" width="31"/> 
+                      <img src="/images/icons/dashboard/Answers vs Dialing.svg" alt="Tab Icon" class="icon" width="31"/> 
                       <span>Answers vs Dialing</span>
                     </a> 
                   </li> 
@@ -584,7 +584,7 @@
                       aria-controls="Four" 
                       aria-selected="false"
                     > 
-                      <img src="/images/icons/dashboard/Commissions.svg" alt="Icon" class="icon" width="31"/> 
+                      <img src="/images/icons/dashboard/Commissions.svg" alt="Tab Icon" class="icon" width="31"/> 
                       <span>Commissions</span> 
                     </a> 
                   </li> 
@@ -600,11 +600,11 @@
                 > 
                   <div class="row mx-0 justify-content-end align-items-center legend"> 
                     <div class="col-auto pl-0">
-                      <img class="d-inline-block mr-2" src="images/icons/dashboard/answers.svg" width="9">
+                      <img class="d-inline-block mr-2" src="images/icons/dashboard/answers.svg" alt="legend key icon" width="9">
                       <p class="d-inline-block mb-0">Answers</p>
                     </div>
                     <div class="col-auto pr-0">
-                      <img class="d-inline-block mr-2" src="images/icons/dashboard/dialing.svg" width="9">
+                      <img class="d-inline-block mr-2" src="images/icons/dashboard/dialing.svg" alt="legend key icon" width="9">
                       <p class="d-inline-block mb-0">Dialling</p>
                     </div>
                   </div>
@@ -638,11 +638,11 @@
                 > 
                   <div class="row mx-0 justify-content-end align-items-center legend"> 
                     <div class="col-auto pl-0">
-                      <img class="d-inline-block mr-2" src="images/icons/dashboard/year-1.svg" width="9">
+                      <img class="d-inline-block mr-2" src="images/icons/dashboard/year-1.svg" alt="legend key icon" width="9">
                       <p class="d-inline-block mb-0">2018</p>
                     </div>
                     <div class="col-auto pr-0">
-                      <img class="d-inline-block mr-2" src="images/icons/dashboard/year-2.svg" width="9">
+                      <img class="d-inline-block mr-2" src="images/icons/dashboard/year-2.svg" alt="legend key icon" width="9">
                       <p class="d-inline-block mb-0">2019</p>
                     </div>
                   </div>
@@ -792,7 +792,7 @@
                         >
                           <img 
                             src="/images/icons/workstation/Submit.svg" 
-                            alt="Icon" 
+                            alt="submit Icon" 
                             class="icon" 
                             width="76"
                           />
@@ -820,7 +820,7 @@
                 </div> 
                 <div class="col-auto pr-0"> 
                   <b-button class="m-0 p-0 rounded-circle border-0" @click="addTask">  
-                    <img src="/images/icons/Add_icon.svg" alt="Icon" class="icon" width="26"/>  
+                    <img src="/images/icons/Add_icon.svg" alt="Add Icon" class="icon" width="26"/>  
                   </b-button> 
                 </div> 
               </div> 

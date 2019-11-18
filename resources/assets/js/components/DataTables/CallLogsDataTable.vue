@@ -12,7 +12,7 @@
                         
                         <div v-if="index == modified_columns.length-1" class="col pl-0">
                             <b-button class="rounded-circle m-0" @click="show_column_select = !show_column_select">
-                                <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon" style="width: 10px;" />
+                                <img src="/images/workstation/Asset 28@4x.png" alt="Show column Icon" class="icon" style="width: 10px;" />
                             </b-button>
                             <div v-if="show_column_select">
 
@@ -68,12 +68,12 @@
                 <ul class="material-pagination">
                     <li>
                         <a href="javascript:undefined" class="waves-effect btn-flat" @click.prevent="previousPage" tabindex="0">
-                            <img src="/images/DataTables/left arrow.svg" class="chevron" />
+                            <img src="/images/DataTables/left arrow.svg" alt="Nav left icon" class="chevron" />
                         </a>
                     </li>
                     <li>
                         <a href="javascript:undefined" class="waves-effect btn-flat" @click.prevent="nextPage" tabindex="0">
-                            <img src="/images/DataTables/right arrow.svg" class="chevron" />
+                            <img src="/images/DataTables/right arrow.svg" alt="Nav right icon" class="chevron" />
                         </a>
                     </li>
                 </ul>

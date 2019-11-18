@@ -12,7 +12,7 @@
                         
                         <div v-if="index == modified_columns.length-1" class="col pl-0">
                             <b-button class="rounded-circle m-0" @click="show_column_select = !show_column_select">
-                                <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon" style="width: 10px;" />
+                                <img src="/images/workstation/Asset 28@4x.png" alt="Show column Icon" class="icon" style="width: 10px;" />
                             </b-button>
                             <div v-if="show_column_select">
 
@@ -35,8 +35,8 @@
                     <td v-for="(column, i) in modified_columns" :class="column.numeric ? 'numeric' : ''" :key="i">  
                         <span v-if="column.field == 'full_name'">  
                             <a  @click="showEditModal(row, row.leads,row.clients)"  class="small-avatar">  
-                                <img v-if="row.avatar != '' && row.avatar != null" :src="avatarUrl + row.id + '/' + row.avatar">  
-                                <img v-else :src="noImageUrl" >  
+                                <img v-if="row.avatar != '' && row.avatar != null" :src="avatarUrl + row.id + '/' + row.avatar" alt="Profile icon">  
+                                <img v-else :src="noImageUrl" alt="Profile icon"/>  
                                 {{ row.full_name }}  
                             </a>  
                         </span>  
@@ -85,12 +85,12 @@
                 <ul class="material-pagination">  
                     <li>  
                         <a href="javascript:undefined" class="waves-effect btn-flat" @click.prevent="previousPage" tabindex="0">  
-                            <img src="/images/DataTables/left arrow.svg" class="chevron" />  
+                            <img src="/images/DataTables/left arrow.svg" alt="Nav left icon" class="chevron" />  
                         </a>  
                     </li>  
                     <li>  
                         <a href="javascript:undefined" class="waves-effect btn-flat" @click.prevent="nextPage" tabindex="0">  
-                            <img src="/images/DataTables/right arrow.svg" class="chevron" />  
+                            <img src="/images/DataTables/right arrow.svg" alt="Nav right icon" class="chevron" />  
                         </a>  
                     </li>  
                 </ul>  
