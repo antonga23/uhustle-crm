@@ -152,11 +152,11 @@ span.right {
   text-overflow: ellipsis; 
 } 
 .comments-list { 
-  max-height: 190px; 
+  max-height: 218px; 
   overflow-y: auto; 
 } 
 .stats-bars { 
-  max-height: 290px; 
+  max-height: 319px; 
   overflow-y: auto; 
 } 
 .agent-comments { 
@@ -1148,17 +1148,16 @@ a.down-scroll:hover {
                         aria-expanded="false" 
                         :class="{ 'choose-comment-type d-block': true, 'pulse' : choose_comment_type }" 
                       > 
-                      <div>
-                      <div v-if="comment.comment_type" class="comment-abbr" >
+                      <div v-if="comment.comment_type" class="font-weight-bold comment-abbr">
                         {{comment.comment_type.short}}
-                        </div>
-                        <div v-else>
+                      </div>
+
+                      <div v-else>
                         <img 
                           src="/images/workstation/Asset 28@4x.png" 
                           alt="Icon" 
                           class="icon w-100" 
                         /> 
-                        </div>
                       </div>
                       </b-button> 
                       <div class="dropdown-menu"> 

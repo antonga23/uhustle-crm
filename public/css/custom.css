@@ -958,19 +958,23 @@ max-height: 350px;
   margin-right: 0.9%;
   background: linear-gradient(to right, rgba(255,128,51,1) 0%,  rgba(255,147,58,1) 100%) !important;
 }
-.notes-roll .ant-btn-primary:hover, .notes-roll .ant-btn-primary:focus {
+.notes-roll .ant-btn-primary:hover, 
+.notes-roll .ant-btn-primary:focus {
   border:0;
 }
 .e-schedule {
   border: 0;
 }
-.e-schedule-toolbar-container, .e-schedule-table.e-outer-table  tr:first-child{
+.e-schedule-toolbar-container, 
+.e-schedule-table.e-outer-table tr:first-child{
   display:none;
 }
 .e-schedule-table:first-child tr:nth-child(2) td:first-child {
   width: 60px;
+}
 /* Activity tables */
-.new-activity .ant-select-selection, .new-activity .ant-select-selection:active {
+.new-activity .ant-select-selection, 
+.new-activity .ant-select-selection:active {
   border: 0;
   box-shadow: none;
 }
@@ -1017,6 +1021,13 @@ max-height: 350px;
 .activities tr td:first-child {
   max-width: 30px;
   padding: 0 0 0 10px;
+}
+.activities .ant-select-selection--single {
+  border: 0;
+  margin-top:0!important;
+}
+.activities .ant-calendar-picker-input.ant-input {
+  box-shadow: none;
 }
 
 /* preferences */
