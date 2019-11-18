@@ -24,11 +24,18 @@
   .horizontal-scroll::-webkit-scrollbar-thumb:hover {
     background: #B3B3B3 !important;
   }
-  
+
   .dropdown-menu {
-    border-radius: 5px;
-    box-shadow: -4px -3px 5px 0px rgba(179, 179, 179, 0.24);
+        border-radius: 15px;
+        box-shadow: -4px -3px 5px 0px rgba(179, 179, 179, 0.24);
+        border: 0;
+        font-size: 0.63vw;
+        font-family: 'Rubik', sans-serif;
+        letter-spacing: 0.05em;
+        color: #1e2331;
+        top: 10px !important;
   }
+
   
   .is-hidden {
     display: none;
@@ -65,7 +72,10 @@
   .card {
     border-radius: 10px;
     border: none;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1) ;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    -o-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
     min-width: 150px;
   }
 
@@ -143,7 +153,6 @@ p.card-text {
   width: 100%;
   float: right;
   font-family: 'Montserrat bold', sans-serif;
-  letter-spacing: 1.2px;
 }
   
   p.card-text span {
@@ -254,13 +263,13 @@ p.card-text {
   
   .grey-bg-color {
     background-color: #EBEFF3;
+    width: 110%;
   }
   
   .card-text-small {
     margin-top: -7px;
     color: #3b3b3b;
     font-family: 'Rubik', sans-serif !important;
-    letter-spacing: 1.2px;
     font-size:0.73vw;
   }
     
@@ -349,6 +358,9 @@ p.card-text {
     height: 40px;
     padding: 2px 5px 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)!important;
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)!important;
+    -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)!important;
+    -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)!important;
     background-color: #fff;
   }
   
@@ -357,16 +369,25 @@ p.card-text {
     height: 30px;
     padding: 0 0 3px 0;
     box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)!important;
+    -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)!important;
+    -moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)!important;
+    -o-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)!important;
     background-color: #fff;
   }
 
   .add-new-top-section .dropdown {
-    top: -10px;
+    top: -5px;
+    right: 170px;
   }
 
   .table-section {
     padding: 0 0 0 4%;;
   }
+
+  .pb-10 {
+    padding-bottom: 10px;
+  }
+
 
   /* Media Queries */
   @media screen and (max-width: 1500px) {
@@ -379,19 +400,23 @@ p.card-text {
     }
 
     .add-new-top-section .dropdown {
-      top: -10px;
-      right: 10px;
+      top: -5px;
+      right: 100px;
     }
+     .individual-cards {
+    width: 95%;
+  }
+  
   }
 
 
 </style>
 <template>
   <div class="">
-    <div id="top-section" class="row mb-0 align-items-center grey-bg-color justify-content-between mx-0">
+    <div id="top-section" class="row pb-0 mb-4 align-items-center grey-bg-color justify-content-between mx-0">
       <div class="col-11">
-        <div class="row mb-0 horizontal-scroll">
-          <div class="col-auto pl-0">
+        <div class="row mb-0 individual-cards horizontal-scroll">
+          <div class="col-auto pb-10 pl-0">
             <div class="card mb-0 calls">
               <div class="card-body row align-items-center justify-content-between mx-0 mb-0 py-2">
                 <div class="col pl-0">
@@ -405,7 +430,7 @@ p.card-text {
             </div>
           </div>
 
-          <div class="col-auto">
+          <div class="col-auto pb-10">
             <div class="card mb-0 sales">
               <div class="card-body row align-items-center justify-content-between mx-0 mb-0 py-2">
                 <div class="col pl-0">
@@ -419,7 +444,7 @@ p.card-text {
             </div>
           </div>
 
-          <div class="col-auto">
+          <div class="col-auto pb-10">
             <div class="card mb-0 sales-amount">
               <div class="card-body row align-items-center justify-content-between mx-0 mb-0 py-2">
                 <div class="col pl-0">
@@ -433,7 +458,7 @@ p.card-text {
             </div>
           </div>
 
-          <div class="col-auto">
+          <div class="col-auto pb-10">
             <div class="card mb-0 call-backs">
               <div class="card-body row align-items-center justify-content-between mx-0 mb-0 py-2">
                 <div class="col pl-0">
@@ -447,7 +472,7 @@ p.card-text {
             </div>
           </div>
 
-          <div class="col-auto">
+          <div class="col-auto pb-10">
             <div class="card mb-0 ave-time">
               <div class="card-body row align-items-center justify-content-between mx-0 mb-0 py-2">
                 <div class="col pl-0">
@@ -461,7 +486,7 @@ p.card-text {
             </div>
           </div>
 
-          <div class="col-auto">
+          <div class="col-auto pb-10">
             <div class="card mb-0 con-ratio">
               <div class="card-body row align-items-center justify-content-between mx-0 mb-0 py-2">
                 <div class="col pl-0">
@@ -591,6 +616,7 @@ p.card-text {
           sum_call_back: '',
           avg_time: '',
         },
+        show_page_loader: false, 
         columns:[
           {
             label: 'CALLER',  // Column name
@@ -675,7 +701,6 @@ p.card-text {
         axios.get('/calls/list').then(function (response) { 
             vm.conferences = response.data.conferences;
             vm.show_page_loader = false;
-            console.log(vm.conferences);
         });
         // setInterval(function(){ 
         //     axios.get('/calls/list').then(function (response) { 

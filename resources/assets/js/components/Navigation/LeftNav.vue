@@ -9,6 +9,7 @@
   box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
 }
 [class*="sidebar-dark"] .brand-link {
   color: rgba(255, 255, 255, 0.8);
@@ -17,6 +18,9 @@
 .nav-sidebar > .nav-item {
   width: 50px;
   margin-left:6px;
+}
+.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link img {
+  padding:8px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.active,
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link:hover {
@@ -42,10 +46,12 @@
   background: #fff;
   color: #000;
   font-size: 0px;
-  letter-spacing:0.05em;
   color: #003549;
   border-radius: 0 50rem 50rem 0;
   box-shadow: 0 0 6px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 0 6px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0 0 6px rgba(0,0,0,0.1);
+  -o-box-shadow: 0 0 6px rgba(0,0,0,0.1);
   padding: 18px 0;
   width: 0;
   overflow:hidden;
@@ -58,7 +64,7 @@
   overflow:visible;
   padding: 18px 35px 18px 40px;
   left: -20px!important;
-  font-size: 0.63vw;
+  font-size: 12px;
 }
 .sidebar-collapse .nav-link span {
   top: 2px;
@@ -87,33 +93,30 @@
             <li class="nav-item">
               <a 
                 href="/dashboard" 
-                title="Dashboard" 
                 :class="{ 'nav-link dashboard' : true, 'active shadow-none' : (active == 'dashboard')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
-                <img src="/images/icons/left-sidebar/shadows/Dashboard Icon.svg" width="52"/>
+                <img src="/images/icons/left-sidebar/no-shadows/Dashboard.svg" width="52"/>
                 <span>Dashboard</span>
               </a>
             </li>
 
             <li class="nav-item">
               <a 
-                href="/workstation" 
-                title="Workstation" 
+                href="/workstation"  
                 id="workstation" 
                 :class="{ 'nav-link workstation' : true, 'active shadow-none' : (active == 'workstation')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
-                <img src="/images/icons/left-sidebar/shadows/Work Station Icon.svg" width="52"/>
+                <img src="/images/icons/left-sidebar/no-shadows/Workstation.svg" width="52"/>
                 <span>Workstation</span>
               </a>
             </li>
 
             <li class="nav-item">
               <a 
-                href="/modules/contacts" 
-                title="Contacts" 
+                href="/modules/contacts"
                 :class="{ 'nav-link contacts' : true, 'active shadow-none' : (active == 'contacts')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
-                <img src="/images/icons/left-sidebar/shadows/Contacts icon.svg" width="52"/>
+                <img src="/images/icons/left-sidebar/no-shadows/Contacts.svg" width="52"/>
                 <span>Contacts</span>
               </a>
             </li>
@@ -121,10 +124,9 @@
             <li class="nav-item">
               <a 
                 href="/modules/leads" 
-                title="Leads" 
                 :class="{ 'nav-link leads' : true, 'active shadow-none' : (active == 'leads')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
-                <img src="/images/icons/left-sidebar/shadows/Leads Icon.svg" width="52"/>
+                <img src="/images/icons/left-sidebar/no-shadows/Leads.svg" width="52"/>
                 <span>Leads</span>
               </a>
             </li>
@@ -132,10 +134,9 @@
             <li class="nav-item">
               <a 
                 href="/call-history" 
-                title="Call History" 
                 :class="{ 'nav-link call-history' : true, 'active shadow-none' : (active == 'call-history')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
-                <img src="/images/icons/left-sidebar/shadows/Call History Icon.svg" width="52"/>
+                <img src="/images/icons/left-sidebar/no-shadows/Call history.svg" width="52"/>
                 <span>Call History</span>
               </a>
             </li>
@@ -143,21 +144,19 @@
             <li class="nav-item">
               <a 
                 href="/inventory" 
-                title="Inventory" 
                 :class="{ 'nav-link inventory' : true, 'active shadow-none' : (active == 'inventory')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
-                <img src="/images/icons/left-sidebar/shadows/Inventory_Icon.svg" width="52"/>
+                <img src="/images/icons/left-sidebar/no-shadows/Inventory.svg" width="52"/>
                 <span>Inventory</span>
               </a>
             </li>
 
             <li class="nav-item" v-if="current_user.role_id == 1">
               <a 
-                href="/transactions" 
-                title="Transactions" 
+                href="/transactions"  
                 :class="{ 'nav-link transactions' : true, 'active shadow-none' : (active == 'transactions')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
-                <img src="/images/icons/left-sidebar/shadows/Transactions Icon.svg" width="52"/>
+                <img src="/images/icons/left-sidebar/no-shadows/Transactions.svg" width="52"/>
                 <span>Transactions</span>
               </a>
             </li>
@@ -165,10 +164,9 @@
             <!-- <li class="nav-item">
               <a 
                 href="/social-board" 
-                title="Social Board" 
                 :class="{ 'nav-link social-board' : true, 'active shadow-none' : (active == 'social-board')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
-                <img src="/images/icons/left-sidebar/shadows/Social Board Icon.svg" width="52"/>
+                <img src="/images/icons/left-sidebar/no-shadows/Social Board.svg" width="52"/>
                 <span>Social Board</span>
               </a>
             </li> -->
@@ -176,11 +174,10 @@
             <li class="nav-item" style="display:none;">
               <a 
                 href="/education" 
-                title="Education" 
                 :class="{ 'nav-link education' : true, 'active shadow-none' : (active == 'education')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0" 
                 disabled>
-                <img src="/images/icons/left-sidebar/shadows/Leads Icon.svg" width="52"/>
+                <img src="/images/icons/left-sidebar/no-shadows/Leads.svg" width="52"/>
                 <span>Education</span>
               </a>
             </li>
@@ -188,21 +185,19 @@
             <li class="nav-item" v-if="current_user.role_id == 1">
               <a 
                 href="/users" 
-                title="Users" 
                 :class="{ 'nav-link users' : true, 'active shadow-none' : (active == 'users')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
-                <img src="/images/icons/left-sidebar/shadows/Users Icon.svg" width="52"/>
+                <img src="/images/icons/left-sidebar/no-shadows/Users.svg" width="52"/>
                 <span>Users</span>
               </a>
             </li>
 
             <li class="nav-item"  v-if="current_user.role_id == 1">
               <a 
-                href="/preferences" 
-                title="System Preferences" 
+                href="/preferences"  
                 :class="{ 'nav-link preferences' : true, 'active shadow-none' : (active == 'preferences')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
-                <img src="/images/icons/left-sidebar/shadows/System Preferences Icon.svg" width="52"/>
+                <img src="/images/icons/left-sidebar/no-shadows/System Pref.svg" width="52"/>
                 <span>System Preferences</span>
               </a>
             </li>

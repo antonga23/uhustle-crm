@@ -11,6 +11,9 @@
   display: block; 
   border-radius: 25px; 
   box-shadow: 0px 1px 6px 0px #4a4a4a; 
+  -webkit-box-shadow: 0px 1px 6px 0px #4a4a4a; 
+  -moz-box-shadow: 0px 1px 6px 0px #4a4a4a; 
+  -o-box-shadow: 0px 1px 6px 0px #4a4a4a; 
   margin: 0 10px 19px 10px; 
   max-width: 30.333333%; 
   padding: 25px;

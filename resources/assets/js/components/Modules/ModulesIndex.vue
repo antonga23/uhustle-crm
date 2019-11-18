@@ -1,26 +1,4 @@
 <style scoped>
-.horizontal-scroll::-webkit-scrollbar-thumb {
-  background: #B3B3B3 !important;
-  border-radius: 5px !important;
-}
-.horizontal-scroll::-webkit-scrollbar {
-  width: 5px !important;
-  height: 5px;
-}
-.top-section{
-  list-style: none;
-}
-.top-section li{    
-  float: left;
-  margin-right: 52px;
-  padding: 6px 83px 3px 15px;
-  border-right: 1px solid #e3e3e3;
-}
-li p.bottom{
-  margin-bottom: 0;
-  font-size: 19px;
-  font-weight: 900;
-}
 .card{
   border-radius: 27px;
   border: none;
@@ -32,37 +10,6 @@ li p.bottom{
   margin-bottom: 0.75rem;
   padding-bottom: 0.75rem;
   border-bottom: 1px solid #fff;
-}
-.calls{
-  background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;
-  color: #fff;
-}
-.sales{
-  background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149, 240,1) 100% ) ;
-  color: #fff;
-}
-.sales-amount{
-  background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;
-  color: #fff;
-}
-.call-backs{
-  background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;
-  color: #fff;
-}
-.ave-time{
-  background: linear-gradient(to right, rgba(226,111,145,1) 0%, rgba(239,84,128,1) 100% ) ;
-  color: #fff;
-}
-.con-ratio{
-  background: linear-gradient(to right, rgba(97,167,221,1) 0%, rgba(99,101,202 ,1) 100% ) ;
-  color: #fff;
-}
-h5{
-  color: #fff;
-}
-h5 .icon{
-  width: 15px;
-  margin: -5px 15px 0 0;
 }
 .card-body p{
   color: #fff;
@@ -95,14 +42,6 @@ p.card-link{
 }
 .stats .card{
   border-radius: 10px;
-}
-
-.stats .card h5{
-  color: #818284;
-}
-.stats .card h5 .icon{
-  width: 25px;
-  margin: -5px 15px 0 0;
 }
 .stats .card .card-title {
   margin-bottom: 0.75rem;
@@ -170,8 +109,11 @@ span.right{
 
 #top-section{
   background: #fff;
-  padding: 0px 6.7%;
-
+  padding: 17px 6.7%;
+}
+#top-section .col-auto {
+  padding-left:1.6%;
+  padding-right:1.6%;
 }
 .green{
   color:#00a25a !important;
@@ -221,6 +163,20 @@ ul.items li a:hover{
   padding-right: 6px;
   width: 100%;
 }
+.horizontal-scroll::-webkit-scrollbar-thumb {
+    background: #B3B3B3 !important;
+    border-radius: 5px !important;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #B3B3B3 !important;
+    border-radius: 5px !important;
+  }
+
+  ::-webkit-scrollbar {
+  width: 3px;
+}
+
 table.listing{
   width: 100%;
 }
@@ -235,7 +191,7 @@ table.listing tr  th{
   margin-right: 15px;
 }
 .plr-3 {
-  padding: 23px 4% 0;
+  padding: 23px 4% 0 !important;
 }
 .control-label{
   float: left;
@@ -256,66 +212,89 @@ table.listing tr  th{
 /* assignees section */
 .grey-bg-color {
   background-color: #EBEFF3 !important;
-  padding-top: 17px;
-  padding-bottom:17px;
 }
 .grey-bg-color span{
   font-family: 'Rubik', sans-serif;
   color: #999999;
-  font-size: 0.63vw;
+  font-size: 12px;
 }
 
 .btn-default.cancel-assign {
   border-radius: 50rem !important;
-  box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
   background: #ffffff;
   font-size: 10px;
   color: #989899;
   text-transform: uppercase;
-  padding: 10px 20px;
   letter-spacing: 0.05em;
   font-weight: 600;
+  padding: 6px 12px;
 }
 .btn-default.assign {
   border-radius: 50rem !important;
   font-size: 10px;
-  background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%, rgba(250, 168, 59, 1) 100%) !important;
+  background: linear-gradient(to right, rgb(255, 128, 51, 1) 0%, rgba(255, 147, 58, 1) 100%) !important;
   font-weight: 600;
   text-transform: uppercase;
-  padding: 10px 20px;
   letter-spacing: 0.05em;
   color: #ffffff;
+  padding: 6px 12px;
 }
 #bottom-section {
-  padding-left: 5.6%;
-  padding-right: 5.6%;
+  padding-left: 4%;
 }
 
 </style>
 <template>
   <div>
-    <div id="top-section" class="row pb-0 mb-0 grey-bg-color align-items-center justify-content-between mx-0">
-      <div class="col-12 px-0">
+    <div id="top-section" class="row pb-4 mb-4 grey-bg-color align-items-center justify-content-between mx-0">
+      <div class="col-7 px-0">
         <div class="row mx-0 mb-0 horizontal-scroll">
           <div class="col-12">
             <div class="row mx-0">
-              <div class="col-auto">
+              <div class="col-4">
                 <span class="ml-3">Assignees:</span>
-                <v-select searchable=true :options="[{value: 1, text: 'Manager'}, {value: 2, text: 'Account Manager'},  {value: 3, text: 'Team Lead'}]" v-model="selectedAssignees" />
+                <a-select 
+                  mode="multiple"
+                  v-model="assignees" 
+                  placeholder="Select"
+                  class="border-0 w-100 mass-assign"
+                >
+                  <a-select-option 
+                    :value="user.id" 
+                    v-for="(user, index) in user_options" 
+                    :key="index"
+                  >{{ user.name }}</a-select-option>
+                </a-select>
               </div>
 
-              <div class="col-auto">
+              <div class="col-4">
                 <span class="ml-3">Owners: </span>
-                <v-select  searchable=true :options="[{value: 1, text: 'Item 1'}, {value: 2, text: 'Item 2'}]" v-model="selectedOwners" />
+
+                <a-select 
+                  mode="multiple"
+                  v-model="owners" 
+                  placeholder="Select"
+                  class="border-0 w-100 mass-assign"
+                >
+                  <a-select-option 
+                    :value="user.id" 
+                    v-for="(user, index) in user_options" 
+                    :key="index"
+                  >{{ user.name }}</a-select-option>
+                </a-select>
               </div>
 
-              <div class="col-auto">
-                <div class="row mt-3">
-                  <div class="col-auto">
+              <div class="col-4">
+                <div class="row mt-4">
+                  <div class="col-auto mr-4">
                     <button type="submit" class="btn btn-default cancel-assign w-100 m-0">Cancel</button>
                   </div>
                   <div class="col-auto">
-                    <button type="submit" class="btn btn-default assign w-100 m-0">Assign</button>
+                    <button type="submit" class="btn btn-default assign w-100 m-0" @click="assign()">Assign</button>
                   </div>
                 </div>
               </div>
@@ -324,41 +303,7 @@ table.listing tr  th{
         </div>
       </div> 
     </div>
-    <!-- <div id="top-section" class="row" style="margin-top:2%; display:none;">
-      <div class="filter-card"  @click="filterItems(-1)">
-        <div class="card sales-amount">
-          <div class="card-body">
-            <p class="card-text-small">All  <strong> {{ items.length }} </strong> </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="filter-card" @click="filterItems(1)" v-if="role_id == 1 || role_id == 2">
-        <div class="card ave-time">
-          <div class="card-body">
-            <p class="card-text-small">Assigned <strong> {{ count_assigned }}</strong></p>               
-          </div>
-        </div>
-      </div>
-
-      <div class="filter-card" @click="filterItems(0)" v-if="role_id == 1 || role_id == 1">
-        <div class="card con-ratio">
-          <div class="card-body">
-            <p class="card-text-small">Unassigned<strong>{{ count_unassigned }}</strong></p>
-          </div>
-        </div>
-      </div>
-
-      <div class="filter-card" @click="applyFilter({filter: item})" v-for="(item, index) in filter_data" :key="index">
-        <div class="card con-ratio">
-          <div class="card-body">
-            <a href="#" class="close" @click="deleteFilter( item.id)"></a>
-            <p class="card-text-small">{{ item.title }}<strong>{{ item.counts }}</strong></p>
-          </div>
-        </div>
-      </div>
-    </div> -->
-    <div v-if="!add_user" id="bottom-section">
+    <div v-if="!add_user" id="bottom-section" class="pr-0">
       <div class="row stats mx-0 scroll-hidden horizontal-scroll">
         <div class="col-lg-12 pl-0">
           <vcl-table v-if="show_page_loader" ></vcl-table>
@@ -381,7 +326,7 @@ table.listing tr  th{
         </div>
       </div>
     </div>
-    <div v-else>
+    <div v-else class="plr-3" >
       <add-module-item 
         :module="module" 
         :active_users="JSON.parse(active_users)" 
@@ -426,6 +371,9 @@ table.listing tr  th{
 
       vm.prepColums();
 
+      vm.prepUserOptions(JSON.parse(vm.active_users));
+
+
       Fire.$on('SaveFilter', function(data){
         console.log('in filters', data);
         vm.filter_data = data.filters;
@@ -433,10 +381,6 @@ table.listing tr  th{
         
       Fire.$on('AddingUser', function(data){
         vm.add_user = !vm.add_user;
-      });
-
-      Fire.$on('FilterData', function(data){
-        vm.applyFilter(data);
       });
 
       Fire.$on('ReloadLeads', function(data){
@@ -466,7 +410,10 @@ table.listing tr  th{
     ],
     data: function(){
       return {
+        assignees: [],
+        owners: [],
         items : [],
+        cachItems: this.items,
         display_items : [],
         chached_display_items : [],
         count_assigned : 0,
@@ -489,25 +436,39 @@ table.listing tr  th{
           assigned: [],
         },
         current_user: [],
+        users: [],
+        user_options: [],
         filter_data: [],
         module_custom_fields: [],
         add_user: false,
         show_page_loader: false,
         Toast: null,
-        selectedAssignees: null,
-        selectedOwners: null,
         columns:[
-          // {
-          //     label: '',  // Column name
-          //     field: 'all',  // Field name from row
-          //     numeric: false, // Affects sorting
-          //     html: false,    // Escapes output if false.
-          //     sortable:false
-          // }
+          {
+              label: '',  // Column name
+              field: 'all',  // Field name from row
+              numeric: false, // Affects sorting
+              html: false,    // Escapes output if false.
+              sortable:false
+          }
         ]
       }
     },
     methods: {
+      assign(){
+        Fire.$emit('MassAssign', {
+          assignees: this.assignees,
+          owners: this.owners
+        });
+      },
+      prepUserOptions(users){
+        users.map((user) => {
+          this.user_options.push({
+            id: user.id,
+            name: user.name + ' ' + user.lastname ,
+          });
+        });
+      },
       prepColums(){
         var vm = this;
         this.module_custom_fields.map( (field) => {
@@ -582,7 +543,7 @@ table.listing tr  th{
       getItems(){
         var vm = this;
 
-        var endpoint = '/modules/get-items/' + vm.active;
+        var endpoint = '/modules/get-assigned/' + vm.active;
 
         vm.show_page_loader = true;
 
@@ -593,6 +554,8 @@ table.listing tr  th{
           if(response.data.success == true){
 
             vm.items = response.data.items;
+            
+            vm.cachItems = response.data.items;
 
             vm.display_items = response.data.display_items;
             
@@ -640,20 +603,6 @@ table.listing tr  th{
               }
           });
       },
-      // applyFilter(filter){
-      //     var vm = this;
-      //     vm.$Progress.start();
-      //     axios.post('/filters/filter/0',{ 'filter' : filter }).then(function (response) {
-      //         if(response.data.success == true){
-      //             vm.users.leads = response.data.leads;
-      //             Fire.$emit('CustomFilterApplied', filter);
-      //             vm.$Progress.finish();
-      //         }else{
-      //             vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
-      //             vm.$Progress.fail();
-      //         }
-      //     });
-      // },
       deleteFilter(id){
         this.$swal.fire({
           title: 'Are you sure?',

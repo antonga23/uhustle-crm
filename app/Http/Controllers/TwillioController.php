@@ -11,6 +11,8 @@ use App\Twillio;
 use App\Product;
 use App\LeadsCallbacks;
 use App\ApiIntegration;
+use App\ModuleItem;
+use App\ModuleCustomFields;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client as GuzzleClient;
@@ -72,7 +74,7 @@ class TwillioController extends Controller
         $twilio = new Client($this->account_sid, $this->auth_token);
        
         $conferences = $twilio->conferences
-                              ->read(array(),5);
+                              ->read(array(),10);
                               // ->read(array("status" => "in-progress"),500);
         
         $conferences_arr = [];
@@ -92,7 +94,7 @@ class TwillioController extends Controller
             $caller = $lead_info['caller'];
 
             $data->lead = $lead;
-            $data->lead_type = $lead_info['lead_type'];
+            $data->lead_type = 'Lead';
             $data->lead_name = ucwords($lead->name . ' ' . $lead->surname);
             $data->lead_mobile = $lead->phone_number;
             $data->lead_country = $lead->country;
@@ -135,7 +137,7 @@ class TwillioController extends Controller
 
     public function getConferenceLeadInfo($conference_name){
         $name_parts = explode('-', $conference_name);
-        $lead_type = ( $name_parts[0] == 'L' )? 'Lead' : 'Contact' ;
+
         $lead_id = (isset($name_parts[1])) ? $name_parts[1] : 830;
         $caller_id = (isset($name_parts[2])) ? $name_parts[2] : 1;
 
@@ -145,7 +147,6 @@ class TwillioController extends Controller
         return [
             'caller' => $caller,
             'lead' => $lead,
-            'lead_type' => $lead_type,
         ];
     }
 
@@ -214,20 +215,20 @@ class TwillioController extends Controller
         }else{
             // Lead information needed to create the conference
             $lead_id = $request->lead_id;
-            $is_client = $request->is_client;
-            $lead_owner = $request->lead_owner;
-            $lead_assignee = $request->lead_assignee;
             $caller_id = $request->user_id;
+            $call_sid = $request->call_sid;
 
             $to_number = $request->phone_number;
             
+            Log::info("Call SID");
+
+            Log::info($call_sid);
+
             $twiml = new Twiml;
             
             if (isset($to_number) && strlen($to_number) > 0) {
 
-                $prefix = ($is_client == 0)? 'L-' : 'C-';
-
-                $conference_name = $prefix.$lead_id . '-' . $caller_id;
+                $conference_name = $lead_id . '-' . $caller_id;
                 
                 $dial = $twiml->dial('');
 
@@ -430,8 +431,7 @@ class TwillioController extends Controller
 
         $client = new Client($this->account_sid, $this->auth_token);
 
-        $twilios = Twillio::with('lead')
-                    ->where(['agent_id' => $request_user['user_id']])
+        $twilios = Twillio::where(['agent_id' => $request_user['user_id']])
                     ->whereYear('created_at', '=' ,$now->year)
                     ->whereMonth('created_at', '=' ,$month)
                     ->orderBy('created_at', 'DESC')
@@ -442,6 +442,7 @@ class TwillioController extends Controller
         $avg_time = 0;
         $total_time = 0;
         $con_ratio = 0;
+
         foreach ($twilios as $key => $value) {
 
             if($value->sale){
@@ -472,15 +473,64 @@ class TwillioController extends Controller
         }
 
 
+        $next_call_back = LeadsCallbacks::where(['user_id' => Auth::user()->id])
+                                      ->whereDate('call_date', '>=', Carbon::now())
+                                      ->where(['status' => 0])
+                                      ->orderBy('call_date', 'ASC')
+                                      ->orderBy('call_time', 'ASC')
+                                      ->first();  
+        if($next_call_back){ 
+          $lead = ModuleItem::with('item_meta')->find($next_call_back['lead_id']);
+          
+          $custom_fields = ModuleCustomFields::where(['module_id' => $lead['module_id'] ])->get();
+
+          $lead = $this->compactModule($lead, $custom_fields);
+          
+          $next_call_back_data = [
+            'name' => $lead['name'] . ' ' . $lead['surname'],
+            'call_back' => $next_call_back
+          ];
+
+        }else{
+          $next_call_back_data = [];
+        }
+          
+        // TODO: Get commission from preferences
+        $commission = $sum_sales * (16/100);
+
         return array(
             'success' => true, 
+            'commission' => $commission,
             'total_calls' => $total_calls,
             'total_sales' => $total_sales,
             'con_ratio' => $con_ratio,
             'sum_sales' => $sum_sales,
             'sum_call_back' => $sum_call_back,
             'avg_time' => $avg_time,
-            'call_history' => $twilios
+            'call_history' => $twilios,
+            'next_call_back_data' => $next_call_back_data,
         );
     }
+
+    public function compactModule($module_item = null, $custom_fields = null){
+      $item = [];
+
+      $item['id'] = $module_item['id'];
+      
+      foreach ($module_item['item_meta'] as $key => $meta) {
+
+        foreach ($custom_fields as $index => $field) {
+
+          if($field->id == $meta->custom_field_id){
+
+            $item[$field->name] = $meta->custom_field_value;
+
+          }
+
+        }
+      }
+
+      return $item;
+    }
+
 }

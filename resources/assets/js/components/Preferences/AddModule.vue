@@ -4,7 +4,7 @@
   }
   .help-block{
     color: #dc3545;
-    font-size: 0.63vw;
+    font-size: 12px;
   }
   .b-container{
     margin-bottom: 25px
@@ -34,8 +34,10 @@
     border-radius: 50rem;
     box-shadow: 0 0 4px rgba(0,0,0,0.1);
     -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);
     padding: 11px 18px!important;
-    font-size: 0.63vw;
+    font-size: 12px;
     color: #003449;
     border-color: #ccc;
     margin-bottom: 17px;
@@ -43,7 +45,7 @@
     height: auto!important;
   }
   .col input, .col-sm-1, .col-sm-2, .col-sm-3 input {
-    font-size: 0.63vw;
+    font-size: 12px;
     color: #003449;
     font-family: 'Rubik', sans-serif;
     height:auto!important;
@@ -51,7 +53,7 @@
   }
   label {
     font-family: 'Rubik', sans-serif;
-    font-size: 0.52vw;
+    font-size: 10px;
     color: #999999;
     margin-bottom:7px;
     margin-left: 17px;
@@ -66,7 +68,7 @@
   .btn-primary {
     border-radius: 50rem!important;
     text-transform:uppercase;
-    font-size: 0.52vw;
+    font-size: 10px;
     padding: 11px 14px 10px;
     line-height:1em;
     margin-left: 0.9%;

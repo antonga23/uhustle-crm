@@ -1,8 +1,4 @@
 <style scoped>
-  #dashboard {
-    height: 100vh;
-    overflow: auto;
-  }
   h1 {
     font-size: 1.04vw;
     font-family: 'Rubik', sans-serif;
@@ -14,7 +10,6 @@
     padding-left: 5.2%;
     padding-right: 5.2%;
     background-color: #F7F7F7;
-    margin-top: 1%;
   }
   #top-section {
     padding-top:1%;
@@ -23,6 +18,8 @@
   select.rounded-pill{
     box-shadow: 0 0 4px rgba(0,0,0,0.1);
     -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);
     font-size: 0.84vw;
     font-family: 'Rubik', sans-serif;
     padding:9px 17px 7px;
@@ -40,6 +37,8 @@
     padding: 1.3%;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);
     margin-left: 0.9%;
     margin-right: 0.9%;
   }
@@ -87,16 +86,33 @@
   .nav.nav-tabs.card-header-tabs .nav-link {
     color: #808080;
     font-size: 0.73vw;
+    border: none;
+  }
+  .nav-link:hover { 
+    border: none; 
   }
   .nav.nav-tabs.card-header-tabs .nav-link .icon {
     padding-top:18px;
     padding-bottom:18px;
+    margin-right: 5%;
   }
+  @media screen and (max-width: 1643px) {
+    .nav.nav-tabs.card-header-tabs .nav-link .icon {
+      width: 27px;
+    }
+  }
+  .agent-graphs .nav-tabs .nav-item {
+    margin-bottom: 3px;
+  }
+
   .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="One"], 
   .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Two"],
   .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Three"],
   .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"][aria-controls="Four"]{ 
-    box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6; 
+    box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;
+    -webkit-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;
+    -moz-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;
+    -o-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6; 
     border-top-left-radius: 25px; 
     border-top-right-radius: 25px; 
   } 
@@ -128,6 +144,8 @@
     border-radius: 15px!important;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);
   }
   .agent-details .card .heading {
     font-size: 0.94vw;
@@ -172,7 +190,7 @@
   .progress-bar{
     background: #F2F2F2;
     min-height:100px;
-    max-width:24px;
+    max-width:20px;
     justify-content: flex-end;
     margin:0 auto;
   }
@@ -202,6 +220,7 @@
     font-size: 0.94vw;
     color: #fff;
     margin-bottom:8%;
+    font-family: Montserrat, sans-serif;
   }
   
   #dash-activities {
@@ -212,6 +231,8 @@
     border-radius: 25px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);
     padding:2.9% 3.7%;
   }
   #dash-activities .col {
@@ -238,7 +259,12 @@
   .calendar .card-title {
     font-family: 'Rubik', sans-serif;
     font-weight: 600;
-    font-size: 0.63vw;
+    font-size: 12px;
+  }
+  .calendar .col-6,
+  .reminders .col-6 {
+    padding-left: 4.5%;
+    padding-right: 4.5%;
   }
   .calendar p {
     font-family: 'Rubik', sans-serif;
@@ -249,24 +275,46 @@
     font-family: 'Rubik', sans-serif;
     color: #333333;
   }
-  .reminders .row {
-    padding:20px;
-  }
   .reminders ul {
     max-height:448px;
     overflow-y: auto;
-    margin: 20px;
+    margin-top: 20px;
+    padding-top:20px;
     border-top: 1px solid #CDCDCF;
   }
   .reminders ul li {
     box-shadow: 0 0 7px rgba(0,0,0,0.05);
     -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.05);
+    -moz-box-shadow: 0 0 7px rgba(0,0,0,0.05);
+    -o-box-shadow: 0 0 7px rgba(0,0,0,0.05);
     padding:10px 15px;
   }
   .reminders ul li label {
     font-size: 16px;
     font-family: 'Rubik', sans-serif;
     color: #808080;
+  }
+  .callback-label,
+  .tasks-date {
+    font-size: 10px;
+    font-family: 'Rubik', sans-serif !important;
+    color: #808080;
+  }
+  .reminders input.list-input{
+    font-size: 0.83vw;
+    font-family: 'Rubik', sans-serif;
+    color: #808080;
+    padding-left: 37px!important;
+    width: 100%;
+    text-overflow: ellipsis;
+}
+  .reminders .terms-text textarea {
+    padding: 11px 18px!important;
+    box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+    border-color: #ccc;
   }
   a.Edit{
     background-image: url('/images/DataTables/Edit_Icon.svg');
@@ -277,13 +325,32 @@
   }
   a.Edit:hover,
   a.Edit:active{
-      background-image: url('/images/DataTables/Edit_Icon_Active.svg');
-      background-size: 20px;
-      background-repeat: no-repeat;
+    background-image: url('/images/DataTables/Edit_Icon_Active.svg');
+    background-size: 20px;
+    background-repeat: no-repeat;
   }
-  .callbacks-to-dos {
-    max-height: 414px;
-    overflow-y: auto;
+  .callback-capture {
+    background: #f4f4f4;
+    border-radius: 50rem;
+    height: 50px;
+  }
+  .comment-desc {
+    height: 50px;
+    padding: 11px;
+    margin: 0;
+    background: #f4f4f4;
+    cursor: pointer;
+    float: left;
+  }
+  .comment-desc::placeholder {  
+    font-size: 0.63vw;  
+    font-family: "Rubik", sans-serif;  
+    color: #999;  
+    font-style: italic;  
+  } 
+  #submit-btn img {
+    margin-top: -15px;
+    margin-right: -15px;
   }
   .callbacks-to-dos .border-top {
     border-color: #CDCDCF;
@@ -304,6 +371,55 @@
   .active-task {
     background-color:rgba(255,147,58,0.5);
   }
+
+  /* Custom checkbox */
+  .main label.custom-control-label { 
+    color: inherit; 
+    font-weight: 200; 
+    padding-top: 3px; 
+  }
+  .custom-checkbox .custom-control-label { 
+    padding-top: 5px; 
+  } 
+  li.custom-control.custom-checkbox { 
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.05); 
+    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);
+    -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);
+  } 
+    
+  .custom-control.custom-checkbox .custom-control-label:before { 
+    border-radius: 50%!important; 
+    border: 1px solid #ededed; 
+    box-shadow: none; 
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -o-box-shadow: none;
+    background-image: url('/images/icons/right-sidebar/Task_Check.svg') !important; 
+    background-size: cover; 
+  } 
+    
+  .custom-control-label::after, 
+  .custom-control-label::before { 
+    width: 20px; 
+    height: 20px; 
+    top: 6px; 
+    left: 0.2rem; 
+  }
+  .btn-primary {
+    font-size: 10px;
+    background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%, rgba(250, 168, 59, 1) 100%) !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    letter-spacing: 0.05em;
+  }
+  input.search-text:focus, 
+  input.save-text:focus,
+  .reminders input.list-input:focus { 
+    outline: 0 !important; 
+    border: 0 !important; 
+  } 
 </style>
 <template>
   <div id="dashboard">
@@ -312,7 +428,7 @@
       <div id="top-section" class="row mx-0">
         <div class="col-12 px-0">
           <div class="row mx-0 align-items-center">
-            <div class="col-auto pl-0">
+            <div class="col-auto pl-0" style="display:none">
               <select class="rounded-pill border-0"> 
                 <option selected>Filter by date</option> 
               </select>
@@ -327,7 +443,7 @@
         <div class="col-12 px-0 agent-stats">
           <div class="card-deck w-100 mx-0 px-0">
             <div class="card border-0 mb-0 ml-0">
-              <p class="card-numeral font-weight-bold text-center mb-0">11</p>
+              <p class="card-numeral font-weight-bold text-center mb-0">{{ call_log.total_calls }}</p>
               <p class="card-desc text-center mb-0">Calls made</p>
               <p class="card-stat text-center mb-0">
                 <img class="d-inline-block" src="/images/icons/dashboard/Up_icon.svg" width="10">
@@ -337,7 +453,7 @@
             </div>
 
             <div class="card border-0 mb-0">
-              <p class="card-numeral font-weight-bold text-center mb-0">5</p>
+              <p class="card-numeral font-weight-bold text-center mb-0">{{ call_log.total_sales }}</p>
               <p class="card-desc text-center mb-0">Sales Quantity</p>
               <p class="card-stat text-center mb-0">
                 <img class="d-inline-block" src="/images/icons/dashboard/Up_icon.svg" width="10">
@@ -347,7 +463,7 @@
             </div>
 
             <div class="card border-0 mb-0">
-              <p class="card-numeral font-weight-bold text-center mb-0">$365</p>
+              <p class="card-numeral font-weight-bold text-center mb-0">{{ call_log.sum_sales }}</p>
               <p class="card-desc text-center mb-0">Sales amount</p>
               <p class="card-stat text-center mb-0">
                 <img class="d-inline-block" src="/images/icons/dashboard/Up_icon.svg" width="10">
@@ -357,7 +473,7 @@
             </div>
 
             <div class="card border-0 mb-0">
-              <p class="card-numeral font-weight-bold text-center m-0">45%</p>
+              <p class="card-numeral font-weight-bold text-center m-0">{{ call_log.con_ratio }}%</p>
               <p class="card-desc text-center mb-0">Conversion Ratio</p>
               <p class="card-stat text-center mb-0">
                 <img class="d-inline-block" src="/images/icons/dashboard/Up_icon.svg" width="10">
@@ -367,7 +483,7 @@
             </div>
 
             <div class="card border-0 mr-0 mb-0">
-              <p class="card-numeral font-weight-bold text-center mb-0">$3000</p>
+              <p class="card-numeral font-weight-bold text-center mb-0">{{ call_log.commission }}</p>
               <p class="card-desc text-center mb-0">Commission</p>
               <p class="card-stat text-center mb-0">
                 <img class="d-inline-block" src="/images/icons/dashboard/Up_icon.svg" width="10">
@@ -393,8 +509,8 @@
                       aria-controls="One" 
                       aria-selected="true"
                     > 
-                      <img src="/images/icons/dashboard/Calls vs Sales.svg" alt="Icon" class="icon" width="37"/> 
-                      <span class="w-50">Calls vs Sales</span>
+                      <img src="/images/icons/dashboard/Calls vs Sales.svg" alt="Icon" class="icon" width="31"/> 
+                      <span>Calls vs Sales</span>
                     </a> 
                   </li> 
                   <li class="nav-item w-50"> 
@@ -407,14 +523,14 @@
                       aria-controls="Two" 
                       aria-selected="false"
                     > 
-                      <img src="/images/icons/dashboard/Monthly Sales.svg" alt="Icon" class="icon" width="37"/> 
+                      <img src="/images/icons/dashboard/Monthly Sales.svg" alt="Icon" class="icon" width="31"/> 
                       <span>Monthly Sales</span> 
                     </a> 
                   </li> 
                 </ul> 
               </div> 
 
-              <div class="tab-content" id="myTabContent"> 
+              <div class="tab-content h-100" id="myTabContent"> 
                 <div 
                   class="tab-pane fade show active" 
                   id="one" 
@@ -439,7 +555,7 @@
                   role="tabpanel" 
                   aria-labelledby="two-tab"
                 > 
-                  
+
                 </div> 
               </div> 
             </div>
@@ -457,8 +573,8 @@
                       aria-controls="Three" 
                       aria-selected="true"
                     > 
-                      <img src="/images/icons/dashboard/Answers vs Dialing.svg" alt="Icon" class="icon" width="37"/> 
-                      <span class="w-50">Answers vs Dialing</span>
+                      <img src="/images/icons/dashboard/Answers vs Dialing.svg" alt="Icon" class="icon" width="31"/> 
+                      <span>Answers vs Dialing</span>
                     </a> 
                   </li> 
                   <li class="nav-item w-50"> 
@@ -471,14 +587,14 @@
                       aria-controls="Four" 
                       aria-selected="false"
                     > 
-                      <img src="/images/icons/dashboard/Commissions.svg" alt="Icon" class="icon" width="37"/> 
+                      <img src="/images/icons/dashboard/Commissions.svg" alt="Icon" class="icon" width="31"/> 
                       <span>Commissions</span> 
                     </a> 
                   </li> 
                 </ul> 
               </div> 
 
-              <div class="tab-content" id="myTabContent"> 
+              <div class="tab-content h-100" id="myTabContent"> 
                 <div 
                   class="tab-pane fade show active" 
                   id="three" 
@@ -614,45 +730,89 @@
                 is-expanded 
                 :popover="true" />
               
-              <div class="card border-0">
+              <div class="card border-0" v-if="">
                 <div class="card-title">
-                  <p class="mb-0">This is a test</p>
+                  <p class="mb-0">{{ call_back_name }}</p>
                 </div>
 
                 <div class="row mx-0 justify-content-between align-items-center">
                   <div class="col-auto pl-0 mb-2">
                     <div class="row mx-0 align-items-center">
-                      <p class="d-inline-block mr-2 mb-0">23 Jul</p> 
-                      <a class="d-inline-block Edit" href="#" @click="showEdit()" title="Edit"></a>
+                      <p class="d-inline-block mr-2 mb-0">{{ moment(call_back_date).format( 'DD MMM' )  }}</p> 
+                      <a class="d-inline-block Edit" href="#" @click="editNextCB" title="Edit"></a> 
                     </div>
                   </div>
 
                   <div class="col-auto pr-0">
-                    <p>9:10 to 10:00</p>
+                    <p>{{ moment(call_back_time).format( 'hh:mm' ) }}</p>
                   </div>
                 </div>
 
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+                <p v-if="!edit_next_cb">{{ call_back_note }}</p>
+                <div v-else class="row mx-0 justify-content-between align-items-center">
+                  <div class="col-6 pl-0">
+                    <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }"> 
+                      <label class="control-label p-0 callback-label">Date of Callback</label>
+                      <a-date-picker 
+                        v-model='call_back_date' 
+                        format="DD-MM" 
+                        :allowEmpty="false"
+                        @change="checkCBDate(call_back_date)"
+                        class="rounded-pill"
+                        @defaultValue="moment(call_back_date).format( 'DD MMM' )"
+                      /> 
+                    </div>
+                  </div> 
+                       
+                  <div class="col-6 pr-0">
+                    <div :class="{'input': true, 'form-group' :true, 'has-error': errors.has('Name') }"> 
+                      <label class="control-label pl-0 callback-label">Time of Callback</label> 
+                      <a-time-picker 
+                        v-model='call_back_time' 
+                        :allowEmpty="false" 
+                        use24Hours 
+                        format="hh:mm"
+                      /> 
+                    </div>     
+                  </div>             
+                     
+                  <div class="col-12 px-0">
+                    <div class="d-flex callback-capture">
+                      <div class="flex-grow-1">
+                        <input 
+                          class="comment-desc d-block w-100 border-0 rounded-pill" 
+                          type="text" 
+                          v-model="call_back_note" 
+                          placeholder="Write notes here"
+                        /> 
+                      </div>
+                      <div class="flex-shrink-1">
+                        <button 
+                          id="submit-btn" 
+                          type="submit" 
+                          class="btn p-0 m-0"
+                          @click="saveCallback()"
+                        >
+                          <img 
+                            src="/images/icons/workstation/Submit.svg" 
+                            alt="Icon" 
+                            class="icon" 
+                            width="76"
+                          />
+                        </button> 
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
             <div class="col border-right to-dos">
               <h4 class="mb-2 font-weight-regular">Callbacks</h4>
-              <h4 class="font-weight-regular">Thursday 11/06</h4>
+              <h4 class="font-weight-regular">{{ moment(attrs[0].dates).format( 'dddd MM/DD')  }}</h4>
 
               <div class="callbacks-to-dos">
-                <table class="w-100">
-                  <div v-for="(task, index) in tasks" :key="index">
-                    <tr class="border-top">
-                      <td rowspan="2" width="13.609%" class="task-time">{{ task.time }}</td>
-                      <td class="task-description" :class="task.description != null ? 'active-task' : ''">{{ task.description }}</td>
-                    </tr>
-
-                    <tr class="w-100">
-                      <td class="task-description" :class="task.description != null ? 'active-task' : ''">{{ task.description }}</td>
-                    </tr>
-                  </div>
-                </table>
+                <schedule :call_backs="call_backs" ></schedule>
               </div>
             </div>
 
@@ -662,19 +822,113 @@
                   <h4 class="text-uppercase font-weight-regular mb-0">Reminders</h4> 
                 </div> 
                 <div class="col-auto pr-0"> 
-                  <b-button class="m-0 p-0 rounded-circle border-0">  
+                  <b-button class="m-0 p-0 rounded-circle border-0" @click="addTask">  
                     <img src="/images/icons/Add_icon.svg" alt="Icon" class="icon" width="26"/>  
                   </b-button> 
                 </div> 
               </div> 
-              <h4 class="font-weight-regular">Thursday 11/06</h4>
+              <h4 class="font-weight-regular">{{ moment(attrs[0].dates).format( 'dddd MM/DD')  }}</h4>
 
-              <ul class="border-top pl-0"> 
-                <li class="my-2 mx-3 p-2 align-items-center custom-control custom-checkbox"> 
-                  <input type="checkbox" class="custom-control-input mx-0" id="customControlAutosizing"> 
-                  <label class="custom-control-label mx-0" for="customControlAutosizing">Callback Justine</label> 
+              <ul class="border-top pl-0"  v-if="reminders.length > 0 && !add_task"> 
+                <!--When adding a new task, the whole li tag should be added and change input ids --> 
+                <li v-for="(task, i) in reminders" :key="i" class="row m-2 p-0 align-items-center custom-control custom-checkbox"> 
+                  <transition name="bounce">  
+                    <div class="col-12 p-2"> 
+                      <div class="row mx-0 align-items-center"> 
+                        <div class="col pl-0 custom-control custom-checkbox"> 
+                          <input 
+                            class="custom-control-input"  
+                            v-model="task.status" 
+                            :id="'task' + i" 
+                            type="checkbox" 
+                            @click="editTask(task,'status')"
+                          > 
+                          <label class="terms-text custom-control-label" :for="'task' + i"> 
+                            <input 
+                              type="text" 
+                              v-model="task.title" 
+                              class="border-0 list-input" 
+                              @focus="editTaskCollapes(task.id)"
+                            > 
+                          </label> 
+                        </div> 
+
+                        <div class="col-auto pr-0">
+                          <span class="tasks-date">{{ moment(task.deadline).format( 'DD MMM')  }}</span>
+                        </div> 
+                      </div> 
+
+                      <div class="row mx-0 justify-content-between" v-if="edit_task && active_task_id == task.id"> 
+                        <div class="col-12 px-0 custom-control custom-checkbox"> 
+                          <label class="terms-text w-100" :for="'task' + i"> 
+                            <a-textarea v-model="task.description" placeholder="Description" autosize class="rounded-pill"/> 
+                          </label> 
+                        </div>
+
+                        <div class="col-6 pl-0 custom-control">
+                          <label class="terms-text w-100" :for="'task' + i"> 
+                            <a-date-picker 
+                              v-model="task.deadline" 
+                              :defaultValue="moment(task.deadline, 'YYYY-MM-DD')"  
+                              class="w-100" 
+                            /> 
+                          </label> 
+                        </div>
+
+                        <div class="col-6 pr-0 custom-control" v-if="edit_task && active_task_id == task.id">  
+                          <button 
+                            type="submit" 
+                            class="btn btn-primary update-user w-100 rounded-pill m-0" 
+                            @click="editTask(task)"
+                          >Update</button> 
+                        </div>
+                      </div> 
+                    </div> 
+                  </transition>
                 </li> 
-              </ul>
+              </ul> 
+
+              <ul class="border-top pl-0"  v-if="reminders.length == 0 || add_task"> 
+                <!--When adding a new task, the whole li tag should be added and change input ids --> 
+                <li class="row m-2 p-0 align-items-center custom-control custom-checkbox"> 
+                  <transition name="bounce">
+                    <div class="col-12 p-2"> 
+                      <div class="row mx-0"> 
+                        <div class="col-12 px-0 custom-control"> 
+                          <label class="terms-text w-100" for="task1"> 
+                            <input 
+                              v-model="new_task.title" 
+                              placeholder="Title" 
+                              type="text" 
+                              class="border-0 list-input"
+                            > 
+                          </label> 
+
+                          <label class="terms-text w-100" for="task1"> 
+                            <a-textarea v-model="new_task.description" placeholder="Description" autosize class="rounded-pill"/> 
+                          </label>
+                        </div>
+                      </div> 
+
+                      <div class="row mx-0 justify-content-between">
+                        <div class="col-6 pl-0 custom-control">
+                          <label class="terms-text w-100" for="task1"> 
+                            <a-date-picker v-model="new_task.date" class="w-100" /> 
+                          </label> 
+                        </div>  
+ 
+                        <div class="col-6 pr-0 custom-control"> 
+                          <button 
+                            type="submit" 
+                            class="btn btn-primary update-user w-100 rounded-pill m-0" 
+                            @click="submitTask"
+                          >Add</button> 
+                        </div> 
+                      </div> 
+                    </div> 
+                  </transition>
+                </li> 
+              </ul> 
             </div>
           </div>
         </div>
@@ -686,9 +940,12 @@
 <script>
   import { Bar } from 'vue-chartjs';
   import { BarChart } from 'vue-morris';
+  import Schedule from '../Plugins/Schedule';
+  import moment from 'moment' 
   export default {
     extends: Bar,
     components: { 
+      Schedule,
       BarChart,
     },
     mounted() {
@@ -697,6 +954,14 @@
       this.getDashboard();
 
       var vm = this;
+
+      Fire.$on('AfterCallBackRequest', function(data){
+        vm.call_backs = data.call_backs;
+      });
+
+      Fire.$on('AfterTaskkRequest', function(data){
+        vm.reminders = data.tasks;
+      });
 
       Fire.$on('TopMonthFilterChange', function(data){
         vm.getCallLog(data.month);
@@ -715,6 +980,7 @@
     data: function(){
       return {
         call_log : {
+          commission: '',
           total_calls: '',
           total_sales: '',
           con_ratio: '',
@@ -723,6 +989,30 @@
           sum_call_back: '',
           avg_time: '',
         },
+        attrs: [{ 
+            key: 'today', 
+            highlight: true, 
+            class: 'today_date', 
+            dates: new Date(), 
+        }],
+        call_backs: [], 
+        reminders: [], 
+        active_task_id: null, 
+        edit_task: false, 
+        add_task: false,
+        edit_next_cb: false,
+        new_task: { 
+          title: '', 
+          description: '', 
+          date: moment() 
+        },
+        call_back_id: '',
+        call_back_time: moment(),
+        call_back_date: moment(),
+        call_back_note: null,
+        call_back_name: '',
+        next_call_back_data: [],
+        next_call_back_data_cache: [],
         Toast: null,
         comparisons: [
           { month: "May", answers: 65, dialing: 65 },
@@ -731,36 +1021,15 @@
           { month: "Aug", answers: 25, dialing: 65 },
           { month: "Sept", answers: 5, dialing: 65 },
           { month: "Oct", answers: 15, dialing: 65 },
-        ],
-        tasks: [
-          { time: '00:00', task: null},
-          { time: '01:00', task: null},
-          { time: '02:00', task: null},
-          { time: '03:00', task: null},
-          { time: '04:00', task: null},
-          { time: '05:00', task: null},
-          { time: '06:00', task: null},
-          { time: '07:00', task: null},
-          { time: '08:00', task: 'This is a task'},
-          { time: '09:00', task: null},
-          { time: '10:00', task: null},
-          { time: '11:00', task: null},
-          { time: '12:00', task: null},
-          { time: '13:00', task: null},
-          { time: '14:00', task: null},
-          { time: '15:00', task: null},
-          { time: '16:00', task: null},
-          { time: '17:00', task: null},
-          { time: '18:00', task: null},
-          { time: '19:00', task: null},
-          { time: '20:00', task: null},
-          { time: '21:00', task: null},
-          { time: '22:00', task: null},
-          { time: '23:00', task: null},
         ]
       }
     },
     methods: {
+      moment, 
+      editNextCB(){
+        this.next_call_back_data_cache = this.next_call_back_data;
+        this.edit_next_cb = !this.edit_next_cb;
+      },
       getDashboard(month = ''){
         var vm = this;
 
@@ -775,6 +1044,7 @@
         axios.get(endpoint).then(function (response) {
             
           if(response.data.success == true){
+            vm.call_log.commission = response.data.commission;
             vm.call_log.total_calls = response.data.total_calls;
             vm.call_log.total_sales = response.data.total_sales;
             vm.call_log.con_ratio = response.data.con_ratio;
@@ -782,6 +1052,11 @@
             vm.call_log.call_history = response.data.call_history;
             vm.call_log.sum_call_back = response.data.sum_call_back;
             vm.call_log.avg_time = response.data.avg_time;
+            vm.call_back_id = response.data.next_call_back_data.id;
+            vm.call_back_name = response.data.next_call_back_data.name;
+            vm.call_back_time = response.data.next_call_back_data.call_time;
+            vm.call_back_date = response.data.next_call_back_data.call_date;
+            vm.call_back_note = response.data.next_call_back_data.notes;
             
             vm.$Progress.finish();
           }else{
@@ -789,6 +1064,28 @@
             vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
           }
         });
+      },
+      addTask(){ 
+        this.new_task.title = ''; 
+        this.new_task.description = ''; 
+        this.new_task.date = moment() ;
+        this.add_task = !this.add_task; 
+      },
+      submitTask(){
+        Fire.$emit('OnAddTask', { new_task: this.new_task });
+        this.new_task.title = ''; 
+        this.new_task.description = ''; 
+        this.new_task.date = moment() ;
+        this.add_task = !this.add_task; 
+      },
+      editTask(task, mode){
+        Fire.$emit('OnEditTask', { task: task, mode : mode });
+        this.edit_task = false; 
+        this.active_task_id = null; 
+      },
+      editTaskCollapes(id){
+        this.edit_task = true; 
+        this.active_task_id = id; 
       },
     }
   }

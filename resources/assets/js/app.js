@@ -63,6 +63,11 @@ Vue.config.productionTip = false;
 Vue.use(Antd);
 window.moment = require('moment');
 
+import { SchedulePlugin } from '@syncfusion/ej2-vue-schedule';
+Vue.use(SchedulePlugin);
+
+
+import {store} from './store';
 
 /**
  * The following block of code may be used to automatically register your
@@ -98,5 +103,6 @@ Vue.component('transactions', require('./components/Transactions/TransactionsInd
 
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    store: store
 });

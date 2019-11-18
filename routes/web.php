@@ -18,11 +18,12 @@ use App\ModuleCustomFields;
 use Illuminate\Support\Facades\Log;
 
 Route::get('/', function () {
-    return redirect('/login');;
+    return redirect('/login');
+    //  return view('/welcome');
 });
 
 Route::get('/home', function () {
-    return redirect('/dashaboard');
+    return redirect('/dashboard');
 });
 
 Route::get('/move-leads',  function(){
@@ -44,7 +45,7 @@ Route::get('/move-leads',  function(){
         'module_id' => $module_id
       ]);
 
-      $module_fields = ModuleCustomFields::where(['module_id' => 2])->get();
+      $module_fields = ModuleCustomFields::where([ 'module_id' => $module_id ])->get();
 
       foreach($module_fields as $key => $value){
         
@@ -107,7 +108,7 @@ Route::get('/move-leads',  function(){
               $insert = $lead->user_created_id;
             break;
           case 'status':
-              $insert = $lead->user_created_id;
+              $insert = $lead->status;
             break;             
 
           default:
@@ -206,12 +207,21 @@ Route::group(['prefix' => 'tasks'], function () {
 	Route::get('/get-active', 'TaskController@getActive');
 	Route::post('/create', 'TaskController@store');
 	Route::post('/update', 'TaskController@update');
+	Route::get('/get-user-tasks', 'TaskController@getUserTasks');
 	Route::get('/delete/{task_id}', 'TaskController@destroy');
-    Route::post('/updatestatus/{task_id}', 'TaskController@updateStatus');
-    Route::post('/updateassign/{task_id}', 'TaskController@updateAssign');
-    Route::post('/updatetime/{task_id}', 'TaskController@updateTime');
+	Route::get('/get-activities/{client_id}', 'TaskController@getActivities');
 });
 
+// Deals Routes
+Route::group(['prefix' => 'deals'], function () {
+	Route::get('/get/{client_id}', 'DealController@getCleintById');
+	Route::get('/get-all/{lead_id}', 'DealController@index');
+	Route::get('/get-all-status', 'DealController@getAllStatus');
+	Route::post('/create', 'DealController@store');
+	Route::post('/update', 'DealController@update');
+	Route::get('/delete/{client_id}', 'DealController@destroy');
+	Route::get('/transactions', 'DealController@getAllTransactions');
+});
 // Leads Routes
 Route::group(['prefix' => 'leads'], function () {
   Route::get('/enqueue', 'LeadController@enQueue');
@@ -226,13 +236,15 @@ Route::group(['prefix' => 'leads'], function () {
   Route::post('/updateassign/{lead_id}', 'LeadController@updateAssign');
   Route::post('/updatetime/{lead_id}', 'LeadController@updateTime');
   Route::post('/setcallback', 'LeadController@setCallback');
+  Route::get('/mark-callback-complete/{id}', 'LeadController@markCallBackComplete');
   Route::get('/get-user-callbacks', 'LeadController@getUserCallBacks');
+  Route::get('/get-user-callbacks-today', 'LeadController@getUserCallBacksToday');
   Route::get('/get-lead-counts', 'LeadController@getLeadsCount');
   Route::get('/get-lead-counts/{type}', 'LeadController@getLeadsCount');
   Route::get('/get-client-counts', 'LeadController@getClientCount');
 	Route::get('/get-client-counts/{type}', 'LeadController@getClientCount');
 	Route::get('/get-select-options', 'LeadController@getSelectOptions');
-	Route::post('mass-assign', 'LeadController@massAssign');
+	Route::post('mass-assign', 'ModuleController@massAssign');
 });
 
  // Filters Routes 
@@ -282,18 +294,22 @@ Route::group(['prefix' => 'comments'], function () {
 // Modules Routes
 Route::group(['prefix' => 'modules'], function () {
   Route::get('/get-all', 'ModuleController@index');
+  Route::get('/get-all-items', 'ModuleController@getAllItems');
+  Route::get('/get-single-item/{lead_id}', 'ModuleController@getSingleItem');
   Route::get('/get-items/{module}', 'ModuleController@getItems');
   Route::post('/add', 'ModuleController@store');
   Route::post('/update', 'ModuleController@update');
   Route::get('/destroy/{id}', 'ModuleController@destroy');
   Route::get('/get/{type}/{id}', 'ModuleController@getStatsTypeById');
   Route::post('/check-exist', 'ModuleController@checkExist');
+  Route::get('/fields/{module}', 'ModuleController@getFields');
 
   // Items
   Route::get('/get-item/{item_id}', 'ModuleController@getItem')->name('get-item-page');
   Route::post('/add-item', 'ModuleController@addItem')->name('add-item-page');
   Route::get('/delete-item/{id}', 'ModuleController@deleteItem')->name('add-item-page');
   Route::post('/update-item', 'ModuleController@updateItem')->name('update-item-page');
+  Route::get('/get-assigned/{module}', 'ModuleController@getAssigned');
 
   // Pages
   Route::get('/{name}', 'PagesController@loadModulePage')->name('load-module-page');
@@ -305,4 +321,14 @@ Route::group(['prefix' => 'apis'], function () {
     Route::get('/get-all', 'ApiIntegrationController@index');
     Route::post('/update', 'ApiIntegrationController@update');
 });
+
+// API Integration Routes
+Route::group(['prefix' => 'settings'], function () {
+    Route::post('/update-commission', 'CommissionController@update');
+    Route::get('/get-comm-structures', 'CommissionController@getCommStructures');
+    Route::post('/create', 'SystemSettingsController@create');
+    Route::post('/update', 'SystemSettingsController@update');
+});
+
+
 
