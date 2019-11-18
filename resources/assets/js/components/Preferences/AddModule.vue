@@ -133,7 +133,8 @@
               <a-input 
                 v-model="field.name" 
                 v-validate="'required'" 
-                :data-vv-name="'Field ' + (index + 1) +'\'s Name'"/>
+                :data-vv-name="'Field ' + (index + 1) +'\'s Name'"
+                class="rounded-pill"/>
               <span 
                 v-show="errors.has('Field ' + (index + 1) +'\'s Name')" 
                 class="help-block"
@@ -145,7 +146,7 @@
               <a-select 
                 v-model="field.type" 
                 placeholder="Select" 
-                class="border-0"
+                class="border-0 fieldType"
               >
                 <a-select-option 
                   :value="type.value" 

@@ -64,15 +64,15 @@
                 </div>
 
                 <div v-else>
-                  <label for="input-valid">{{ attr.display_name }}</label>
                   <b-form-checkbox
-                  id="checkbox-1"
-                  class="api-checkbox"
-                  v-model="attr.value"
-                  name="checkbox-1"
-                  value="1"
-                  unchecked-value="0"
+                    id="checkbox-1"
+                    class="api-checkbox"
+                    v-model="attr.value"
+                    name="checkbox-1"
+                    value="1" 
+                    unchecked-value="0"
                   >
+                    <label for="input-valid" class="ml-0">{{ attr.display_name }}</label>
                   </b-form-checkbox>
                 </div>
               </div>

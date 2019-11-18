@@ -290,7 +290,7 @@
                     v-model="field.display_name" 
                     v-validate="'required'" 
                     :data-vv-name="'Field ' + (index + 1) +'\'s Name'"
-                    class="border-0"
+                    class="border-0 rounded-pill"
                   ></a-input>
                   <span 
                     v-show="errors.has('Field ' + (index + 1) +'\'s Name')" 
@@ -303,7 +303,7 @@
                   <a-select 
                     v-model="field.type" 
                     placeholder="Select"
-                    class="border-0 min-width-cell"
+                    class="border-0 fieldType"
                   >
                     <a-select-option 
                       :value="type.value" 
