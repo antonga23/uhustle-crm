@@ -555,7 +555,7 @@ a.down-scroll:hover {
 .final-modal .card-header { 
   border-top-left-radius: 19px; 
   border-top-right-radius: 19px; 
-  padding: 0 11px 11px; 
+  padding: 0 0 11px 0; 
   border-color: transparent; 
 } 
 .final-modal .card-header a[aria-selected="true"] { 
@@ -682,6 +682,27 @@ a.down-scroll:hover {
 #two .col-lg-8 { 
   padding-left: 7.8%; 
 } 
+@media screen and (max-width: 1771px) {
+  #two .callback-legend {
+    margin-bottom: 0;
+  }
+  #two .callback-legend .col-5{ 
+    padding-left: 0;
+    flex: 0 0 100%;
+    max-width: 100%; 
+  } 
+  #two .callback-legend .col-7 {
+    order:1;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  #two .callback-legend .row {
+    margin-bottom:14px;
+  }
+  #two .callback-legend .calendar-items .col-auto {
+    height: 10px;
+  }
+}
 .vc-reset, 
 .vc-reset * { 
   border-style: none !important; 
@@ -1032,7 +1053,7 @@ a.down-scroll:hover {
         <div class="card-deck mx-0 mb-0"> 
           <div class="card mt-3 border-0 shadow-none mr-4 ml-0 tab-card"> 
             <div class="card-header tab-card-header border-bottom-0"> 
-              <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
+              <ul class="nav nav-tabs card-header-tabs mx-0" id="myTab" role="tablist"> 
                 <li class="nav-item left w-50"> 
                   <a 
                     class="nav-link active" 
@@ -1237,7 +1258,7 @@ a.down-scroll:hover {
                         </div> 
                       </div> 
  
-                      <div class="col-5 pr-0"> 
+                      <div class="col-5 pr-0 calendar-items"> 
                         <div class="row mx-0 align-items-start recommended-call"> 
                           <div class="col-auto px-0"> 
                             <img 
@@ -1346,7 +1367,7 @@ a.down-scroll:hover {
  
           <div class="card shadow-none mt-3 mr-0 ml-4 border-0 tab-card"> 
             <div class="card-header tab-card-header border-bottom-0"> 
-              <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
+              <ul class="nav nav-tabs card-header-tabs mx-0" id="myTab" role="tablist"> 
                 <li class="nav-item left w-50"> 
                   <a 
                     class="nav-link active" 
