@@ -1148,11 +1148,18 @@ a.down-scroll:hover {
                         aria-expanded="false" 
                         :class="{ 'choose-comment-type d-block': true, 'pulse' : choose_comment_type }" 
                       > 
+                      <div>
+                      <div v-if="comment.comment_type" class="comment-abbr" >
+                        {{comment.comment_type.short}}
+                        </div>
+                        <div v-else>
                         <img 
                           src="/images/workstation/Asset 28@4x.png" 
                           alt="Icon" 
                           class="icon w-100" 
                         /> 
+                        </div>
+                      </div>
                       </b-button> 
                       <div class="dropdown-menu"> 
                         <div class="d-block"> 
@@ -1360,7 +1367,7 @@ a.down-scroll:hover {
                     <span class="left w-50">Feedback Summary</span> 
                   </a> 
                 </li> 
-                <li class="nav-item right w-50"> 
+                <!-- <li class="nav-item right w-50"> 
                   <a 
                     class="nav-link" 
                     id="four-tab" 
@@ -1378,7 +1385,7 @@ a.down-scroll:hover {
                     /> 
                     <span class="left">Email Client</span> 
                   </a> 
-                </li> 
+                </li>  -->
               </ul> 
             </div> 
  
