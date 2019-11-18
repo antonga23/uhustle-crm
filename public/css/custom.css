@@ -533,7 +533,7 @@ label:not(.form-check-label):not(.custom-file-label) {
 }
 .ant-calendar-today .ant-calendar-date {
   border-color: #ff931e!important;
-  color: #ff931e!important;
+  /* color: #ff931e!important; */
   border-radius: 50%;
 }
 .ant-time-picker-icon, .ant-calendar-picker-icon.anticon.anticon-calendar {
