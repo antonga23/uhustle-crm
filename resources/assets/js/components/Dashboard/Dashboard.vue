@@ -88,9 +88,6 @@
     font-size: 0.73vw;
     border: none;
   }
-  .nav-link:hover { 
-    border: none; 
-  }
   .nav.nav-tabs.card-header-tabs .nav-link .icon {
     padding-top:18px;
     padding-bottom:18px;

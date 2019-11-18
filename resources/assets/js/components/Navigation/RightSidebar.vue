@@ -638,7 +638,6 @@ p.heading {
 }
 
 .final-modal .card ul li.left .nav-link:hover {
-  border: none;
   background: #fff;
   padding: 6px 12px;
   font-size: 0.83vw;
