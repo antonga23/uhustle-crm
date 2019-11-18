@@ -257,13 +257,7 @@ class ModuleController extends Controller
 
     public function getAllItems(){
 
-<<<<<<< HEAD
-      $module = Module::with('module_fields')->where(['tag' => 'leads'])->first();
-
-      $module_items = ModuleItem::with('item_meta')->get()->take(50);
-=======
       $module_items = ModuleItem::with('item_meta')->get();
->>>>>>> 08f4d31108ab1fc702cc1607ce778f17d18d0270
 
       $items = $this->compactModuleItems($module_items);
 
@@ -291,16 +285,7 @@ class ModuleController extends Controller
 
     $count_unassigned = 0;
 
-<<<<<<< HEAD
-            if($meta_name->name == 'assignee' && $meta->custom_field_value != Auth::user()->id && $item->id == $meta->item_id){
-              Log::info('Should skip');
-              continue;
-            }
-
-            if($meta_name->id == $meta->custom_field_id){
-=======
     foreach ($module_items as $key => $item) {
->>>>>>> 08f4d31108ab1fc702cc1607ce778f17d18d0270
 
         $item_temp = new \StdClass();
 
@@ -308,33 +293,10 @@ class ModuleController extends Controller
 
         $fields_array = [];
 
-<<<<<<< HEAD
-              if($meta_name->name == 'assignee'){ 
-                  
-                $user = User::where(['id' => $meta->custom_field_value])->select('id','name','lastname as surname')->first();
-                
-                $display_array[$meta_name->name] = $user['name'] . ' ' . $user['lastname'];
-=======
         $display_array = [];
->>>>>>> 08f4d31108ab1fc702cc1607ce778f17d18d0270
 
         foreach ($item->item_meta as $k => $meta) {
 
-<<<<<<< HEAD
-              }else if ($meta_name->name == 'owner'){
-                  
-                $user = User::where(['id' => $meta->custom_field_value])->select('id','name','lastname as surname')->first();
-                
-                $display_array[$meta_name->name] = $user['name'] . ' ' . $user['lastname'];
-
-                $fields_array[$meta_name->name] = [
-                    'custom_field_id' => $meta->custom_field_id,
-                    'meta_id' => $meta->id,
-                    'meta_value' => $user
-                  ];
-
-              }else if ($meta_name->name == 'product'){
-=======
           $meta_name = ModuleCustomFields::where(['id' => $meta->custom_field_id])
                                           ->select('id','name','display_name', 'can_edit', 'can_read')
                                           ->first();
@@ -343,7 +305,6 @@ class ModuleController extends Controller
 
 
             $fields_array['id'] = $item->id;
->>>>>>> 08f4d31108ab1fc702cc1607ce778f17d18d0270
 
             $display_array['id'] = $item->id;
 

@@ -727,7 +727,7 @@
                 is-expanded 
                 :popover="true" />
               
-              <div class="card border-0">
+              <div class="card border-0" v-if="">
                 <div class="card-title">
                   <p class="mb-0">{{ call_back_name }}</p>
                 </div>
