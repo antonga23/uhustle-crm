@@ -189224,6 +189224,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     addBField: function addBField(comm_structure_id) {
+      console.log(comm_structure_id);
       this.structure_b.push({
         min_sales: {
           comm_structure_id: comm_structure_id,
@@ -190390,6 +190391,46 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -190422,6 +190463,7 @@ __webpack_require__.r(__webpack_exports__);
     this.getPermissions();
     this.getDialerPermissions();
     this.getApis();
+    this.getCommissionStructures();
     var vm = this;
     Fire.$on('DoneAddingRole', function () {
       vm.getRoles();
@@ -190459,6 +190501,9 @@ __webpack_require__.r(__webpack_exports__);
         description: '',
         status: ''
       },
+      structure_a: [],
+      structure_b: [],
+      structure_c: [],
       roles: null,
       modules: null,
       apis: null,
@@ -190472,6 +190517,9 @@ __webpack_require__.r(__webpack_exports__);
       show_page_loader: false,
       role_edit: false,
       role_add: false,
+      commission_structure_a: false,
+      commission_structure_b: false,
+      commission_structure_c: false,
       Toast: null,
       dialer_options: ['On', 'Off', 'Can Whisper', 'Can Barge'],
       dialer_selected: [],
@@ -190485,6 +190533,44 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     toggleAll: function toggleAll() {},
+    onChange: function onChange(type) {
+      if (type == 'a') {
+        this.commission_structure_a = true;
+        this.commission_structure_b = false;
+        this.commission_structure_c = false;
+      }
+
+      if (type == 'b') {
+        this.commission_structure_a = false;
+        this.commission_structure_b = true;
+        this.commission_structure_c = false;
+      }
+
+      if (type == 'c') {
+        this.commission_structure_a = false;
+        this.commission_structure_b = false;
+        this.commission_structure_c = true;
+      }
+    },
+    getCommissionStructures: function getCommissionStructures() {
+      var vm = this;
+      axios.get('/settings/get-comm-structures').then(function (response) {
+        if (response.data.structure_a.length > 0) {
+          vm.structure_a = response.data.structure_a;
+          console.log(response.data.structure_a);
+        }
+
+        if (response.data.structure_b.length > 0) {
+          vm.structure_b = response.data.structure_b;
+          console.log(response.data.structure_b);
+        }
+
+        if (response.data.structure_c.length > 0) {
+          vm.structure_c = response.data.structure_c;
+          console.log(response.data.structure_c);
+        }
+      });
+    },
     dialerToggleAll: function dialerToggleAll(checked) {
       this.dialer_selected = checked ? this.dialer_options.slice() : [];
     },
@@ -366924,6 +367010,10 @@ var render = function() {
                                                                     ? _c(
                                                                         "span",
                                                                         {
+                                                                          staticStyle: {
+                                                                            cursor:
+                                                                              "pointer"
+                                                                          },
                                                                           on: {
                                                                             click: function(
                                                                               $event
@@ -366962,6 +367052,10 @@ var render = function() {
                                                                     ? _c(
                                                                         "span",
                                                                         {
+                                                                          staticStyle: {
+                                                                            cursor:
+                                                                              "pointer"
+                                                                          },
                                                                           on: {
                                                                             click: function(
                                                                               $event
@@ -377502,7 +377596,7 @@ var render = function() {
                                           on: {
                                             click: function($event) {
                                               return _vm.addBField(
-                                                range.comm_structure_id
+                                                range.status.comm_structure_id
                                               )
                                             }
                                           }
@@ -377734,7 +377828,7 @@ var render = function() {
                                           on: {
                                             click: function($event) {
                                               return _vm.addCField(
-                                                item.comm_structure_id
+                                                item.status.comm_structure_id
                                               )
                                             }
                                           }
@@ -379047,6 +379141,213 @@ var render = function() {
                                                   ),
                                                   0
                                                 )
+                                              ],
+                                              1
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "b-button",
+                                              {
+                                                directives: [
+                                                  {
+                                                    name: "b-toggle",
+                                                    rawName: "v-b-toggle",
+                                                    value: "accordion-00",
+                                                    expression: "'accordion-00'"
+                                                  }
+                                                ],
+                                                staticClass:
+                                                  "w-100 mx-0 py-0 pr-0 expand-toggle",
+                                                attrs: {
+                                                  block: "",
+                                                  href: "#",
+                                                  "aria-controls":
+                                                    "accordion-00"
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "\n                        Commission\n                        "
+                                                ),
+                                                _vm._v(" "),
+                                                _c("img", {
+                                                  attrs: {
+                                                    src:
+                                                      "images/icons/down.svg",
+                                                    width: "11"
+                                                  }
+                                                })
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "b-collapse",
+                                              {
+                                                attrs: {
+                                                  id: "accordion-00",
+                                                  visible: "",
+                                                  accordion: "my-accordion",
+                                                  role: "tabpanel"
+                                                }
+                                              },
+                                              [
+                                                _c("b-card", [
+                                                  _c("div", [
+                                                    _c(
+                                                      "div",
+                                                      [
+                                                        _c(
+                                                          "b-form-group",
+                                                          {
+                                                            staticClass:
+                                                              "mx-2 mb-0 permissions"
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "a-row",
+                                                              [
+                                                                _c(
+                                                                  "a-col",
+                                                                  {
+                                                                    attrs: {
+                                                                      span: 8
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _c(
+                                                                      "a-switch",
+                                                                      {
+                                                                        attrs: {
+                                                                          id:
+                                                                            "structure_a"
+                                                                        },
+                                                                        on: {
+                                                                          change: function(
+                                                                            $event
+                                                                          ) {
+                                                                            return _vm.onChange(
+                                                                              "a"
+                                                                            )
+                                                                          }
+                                                                        },
+                                                                        model: {
+                                                                          value:
+                                                                            _vm.commission_structure_a,
+                                                                          callback: function(
+                                                                            $$v
+                                                                          ) {
+                                                                            _vm.commission_structure_a = $$v
+                                                                          },
+                                                                          expression:
+                                                                            "commission_structure_a"
+                                                                        }
+                                                                      }
+                                                                    ),
+                                                                    _vm._v(
+                                                                      "\n                                    Commission Structure A\n                                  "
+                                                                    )
+                                                                  ],
+                                                                  1
+                                                                ),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "a-col",
+                                                                  {
+                                                                    attrs: {
+                                                                      span: 8
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _c(
+                                                                      "a-switch",
+                                                                      {
+                                                                        attrs: {
+                                                                          id:
+                                                                            "structure_b"
+                                                                        },
+                                                                        on: {
+                                                                          change: function(
+                                                                            $event
+                                                                          ) {
+                                                                            return _vm.onChange(
+                                                                              "b"
+                                                                            )
+                                                                          }
+                                                                        },
+                                                                        model: {
+                                                                          value:
+                                                                            _vm.commission_structure_b,
+                                                                          callback: function(
+                                                                            $$v
+                                                                          ) {
+                                                                            _vm.commission_structure_b = $$v
+                                                                          },
+                                                                          expression:
+                                                                            "commission_structure_b"
+                                                                        }
+                                                                      }
+                                                                    ),
+                                                                    _vm._v(
+                                                                      "\n                                    Commission Structure B\n                                  "
+                                                                    )
+                                                                  ],
+                                                                  1
+                                                                ),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "a-col",
+                                                                  {
+                                                                    attrs: {
+                                                                      span: 8
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _c(
+                                                                      "a-switch",
+                                                                      {
+                                                                        attrs: {
+                                                                          id:
+                                                                            "structure_c"
+                                                                        },
+                                                                        on: {
+                                                                          change: function(
+                                                                            $event
+                                                                          ) {
+                                                                            return _vm.onChange(
+                                                                              "c"
+                                                                            )
+                                                                          }
+                                                                        },
+                                                                        model: {
+                                                                          value:
+                                                                            _vm.commission_structure_c,
+                                                                          callback: function(
+                                                                            $$v
+                                                                          ) {
+                                                                            _vm.commission_structure_c = $$v
+                                                                          },
+                                                                          expression:
+                                                                            "commission_structure_c"
+                                                                        }
+                                                                      }
+                                                                    ),
+                                                                    _vm._v(
+                                                                      "\n                                    Commission Structure C\n                                  "
+                                                                    )
+                                                                  ],
+                                                                  1
+                                                                )
+                                                              ],
+                                                              1
+                                                            )
+                                                          ],
+                                                          1
+                                                        )
+                                                      ],
+                                                      1
+                                                    )
+                                                  ])
+                                                ])
                                               ],
                                               1
                                             ),

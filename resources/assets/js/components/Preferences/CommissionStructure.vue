@@ -155,7 +155,7 @@
 
                   <b-button 
                     v-else 
-                    @click="addBField(range.comm_structure_id)" 
+                    @click="addBField(range.status.comm_structure_id)" 
                     class="icon m-0 p-0"
                   >
                     <img src="images/icons/Field_Add.svg" width="19"/>
@@ -214,7 +214,7 @@
 
                   <b-button 
                     v-else 
-                    @click="addCField(item.comm_structure_id)" 
+                    @click="addCField(item.status.comm_structure_id)" 
                     class="icon m-0 p-0"
                   >
                     <img src="images/icons/Field_Add.svg" width="19"/>
@@ -353,6 +353,7 @@
         });
       },
       addBField(comm_structure_id){
+        console.log(comm_structure_id);
         this.structure_b.push(
           {
             min_sales : {

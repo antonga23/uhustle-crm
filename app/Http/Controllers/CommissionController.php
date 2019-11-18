@@ -281,15 +281,13 @@ class CommissionController extends Controller
             ];
             array_push($structure_c_data,$structure_c_temp);
       }else{
-        
+
         foreach($structure_c->attributes as $j => $c_attr){
-                  
           $structure_c_temp[$c_attr['key']] = [
             'comm_structure_id' => $attr['comm_structure_id'],
             'field_id' => $c_attr['id'],
             'value' => $c_attr['value'] 
           ];
-
         }
         array_push($structure_c_data,$structure_c_temp);
       }
