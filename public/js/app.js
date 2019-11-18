@@ -370521,39 +370521,42 @@ var render = function() {
                       )
                     ]),
                     _vm._v(" "),
-                    _c("li", { staticClass: "nav-item" }, [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "nav-link icon p-0 filterIcon",
-                          attrs: { href: "#" },
-                          on: {
-                            click: function($event) {
-                              return _vm.showFiltersTab()
-                            }
-                          }
-                        },
-                        [
-                          _vm.filters_on == false
-                            ? _c("img", {
-                                staticClass: "inactive-icon",
-                                attrs: {
-                                  src: "/images/icons/right-sidebar/Filter.svg",
-                                  alt: "Settings Cog",
-                                  width: "43"
+                    _vm.active == "leads" || _vm.active == "contacts"
+                      ? _c("li", { staticClass: "nav-item" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "nav-link icon p-0 filterIcon",
+                              attrs: { href: "#" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.showFiltersTab()
                                 }
-                              })
-                            : _c("img", {
-                                attrs: {
-                                  src:
-                                    "/images/icons/right-sidebar/Filter_Active.svg",
-                                  alt: "Settings Cog",
-                                  width: "43"
-                                }
-                              })
-                        ]
-                      )
-                    ]),
+                              }
+                            },
+                            [
+                              _vm.filters_on == false
+                                ? _c("img", {
+                                    staticClass: "inactive-icon",
+                                    attrs: {
+                                      src:
+                                        "/images/icons/right-sidebar/Filter.svg",
+                                      alt: "Settings Cog",
+                                      width: "43"
+                                    }
+                                  })
+                                : _c("img", {
+                                    attrs: {
+                                      src:
+                                        "/images/icons/right-sidebar/Filter_Active.svg",
+                                      alt: "Settings Cog",
+                                      width: "43"
+                                    }
+                                  })
+                            ]
+                          )
+                        ])
+                      : _vm._e(),
                     _vm._v(" "),
                     _c("li", { staticClass: "nav-item" }, [
                       _c(

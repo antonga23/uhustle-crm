@@ -1110,7 +1110,7 @@ input.save-text:focus {
                   />
                 </a>
               </li>
-               <li class="nav-item">
+               <li class="nav-item" v-if="active == 'leads' || active == 'contacts'">
                 <a class="nav-link icon p-0 filterIcon" href="#" @click="showFiltersTab()">
                   <img
                     v-if="filters_on == false"
