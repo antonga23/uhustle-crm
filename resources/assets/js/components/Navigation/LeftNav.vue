@@ -66,12 +66,6 @@
   left: -20px!important;
   font-size: 12px;
 }
-.sidebar-collapse .nav-link span {
-  top: 2px;
-}
-.sidebar-collapse .nav-link:hover span {
-  padding: 16px 35px 16px 40px;
-}
 /*Nav Ends*/
 </style>
 <template>

@@ -21,12 +21,6 @@
   width: 16.718% !important;
 }
 
-.sidebar-collapse .main-sidebar,
-.sidebar-collapse .main-sidebar:before {
-  margin-left: 0 !important;
-  /* margin-right: -10.833%!important;  */
-}
-
 @media (max-width: 991.98px) {
   .main-sidebar,
   .main-sidebar:before {
@@ -750,13 +744,6 @@ p.badges {
 }
 .menu-toggle:hover {
   background-image: url("/images/icons/right-sidebar/Filter_Active.svg") !important;
-}
-
-.sidebar-collapse .menu-toggle {
-  background-image: url("/images/icons/right-sidebar/General.svg") !important;
-}
-.sidebar-collapse .menu-toggle:hover {
-  background-image: url("/images/icons/right-sidebar/General_Active.svg") !important;
 }
 
 .reminders { 

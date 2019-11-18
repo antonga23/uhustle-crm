@@ -566,19 +566,7 @@ label:not(.form-check-label):not(.custom-file-label) {
 ::-webkit-scrollbar-thumb:hover {
   background: #333; 
 }
-@media (min-width: 992px) {
-  .sidebar-mini.sidebar-collapse #content-wrapper.content-wrapper, .sidebar-mini.sidebar-collapse .content-wrapper, .sidebar-mini.sidebar-collapse .main-footer, .sidebar-mini.sidebar-collapse .main-header.navbar.navbar-expand.navbar-white.navbar-light {
-    margin-left: 56px!important;
-  }
-}
 @media (min-width: 768px) {
-  .sidebar-collapse .content-wrapper,
-  .sidebar-collapse .main-footer,
-  .sidebar-collapse .main-header {
-    transition: margin-right 0.5s ease-in-out;
-    margin-left: 56px!important; 
-    margin-right: 16.718%;
-  }
   .content-wrapper,
   .main-footer,
   .main-header {
@@ -590,14 +578,6 @@ label:not(.form-check-label):not(.custom-file-label) {
 
 .main-sidebar {
   height:100%;
-}
-.sidebar-collapse .main-sidebar .sidebar .sidebar-menu .closed-sidenav {
-  transition: display 0.3s ease-in-out;
-  display: block!important;
-}
-.sidebar-collapse .main-sidebar .sidebar .sidebar-menu .open-sidenav {
-  transition: display 0.5s ease-in-out;
-  display: none!important;
 }
 .closed-sidenav .nav-tabs, 
 .reminders .nav-tabs{
