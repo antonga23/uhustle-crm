@@ -129,7 +129,7 @@
         <b-tab>
           <template v-slot:title>
             <a href="#">{{ (module === null)? 'Add Module' : 'Update ' + module.display_name }}</a>
-            <img @click="deleteModule()" src="images/icons/delete.svg" width="16"/>
+            <img @click="deleteModule()" src="images/icons/delete.svg" alt="Delete module icon" width="16"/>
           </template>
 
           <div class="row my-0 mx-0 align-items-center fields-divider">
@@ -263,7 +263,7 @@
                   @click="removeField(index)"
                   class="icon m-0 p-0"
                 >
-                  <img src="images/icons/Field_Delete.svg" width="19"/>
+                  <img src="images/icons/Field_Delete.svg" alt="Delete field icon" width="19"/>
                 </b-button>
 
                 <b-button 
@@ -271,7 +271,7 @@
                   @click="addField()" 
                   class="icon m-0 p-0"
                 >
-                  <img src="images/icons/Field_Add.svg" width="19"/>
+                  <img src="images/icons/Field_Add.svg" alt="Add field icon" width="19"/>
                 </b-button>
               </b-col>
             </b-row>
@@ -371,7 +371,7 @@
                     @click="removeField(index)"
                     class="icon m-0 p-0"
                   >
-                    <img src="images/icons/Field_Delete.svg" width="19"/>
+                    <img src="images/icons/Field_Delete.svg" alt="Delete field icon" width="19"/>
                   </b-button>
 
                   <b-button 
@@ -379,7 +379,7 @@
                     @click="addField()" 
                     class="icon m-0 p-0"
                   >
-                    <img src="images/icons/Field_Add.svg" width="19"/>
+                    <img src="images/icons/Field_Add.svg" alt="Add field icon" width="19"/>
                   </b-button>
                 </td>
               </tr>

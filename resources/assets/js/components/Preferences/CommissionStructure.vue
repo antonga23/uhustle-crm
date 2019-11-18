@@ -150,7 +150,7 @@
                     @click="removeBField(index)"
                     class="icon m-0 p-0"
                   >
-                    <img src="images/icons/Field_Delete.svg" width="19"/>
+                    <img src="images/icons/Field_Delete.svg" alt="Delete field icon" width="19"/>
                   </b-button>
 
                   <b-button 
@@ -158,7 +158,7 @@
                     @click="addBField(range.status.comm_structure_id)" 
                     class="icon m-0 p-0"
                   >
-                    <img src="images/icons/Field_Add.svg" width="19"/>
+                    <img src="images/icons/Field_Add.svg" alt="Add field icon" width="19"/>
                   </b-button>
                 </a-col>
               </a-row>
@@ -209,7 +209,7 @@
                     @click="removeCField(index)"
                     class="icon m-0 p-0"
                   >
-                    <img src="images/icons/Field_Delete.svg" width="19"/>
+                    <img src="images/icons/Field_Delete.svg" alt="Delete field icon" width="19"/>
                   </b-button>
 
                   <b-button 
@@ -217,7 +217,7 @@
                     @click="addCField(item.status.comm_structure_id)" 
                     class="icon m-0 p-0"
                   >
-                    <img src="images/icons/Field_Add.svg" width="19"/>
+                    <img src="images/icons/Field_Add.svg" alt="Add field icon" width="19"/>
                   </b-button>
                 </a-col>
               </a-row>

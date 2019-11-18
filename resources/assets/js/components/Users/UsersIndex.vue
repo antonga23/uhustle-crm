@@ -500,7 +500,7 @@ table.listing tr th {
                     <a class data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <img
                         src="/images/icons/Call-History-Add-Icon.svg"
-                        alt="Icon"
+                        alt="Add Call history Icon"
                         class="icon"
                         style="width: 60px;"
                       />

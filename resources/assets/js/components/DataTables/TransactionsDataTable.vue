@@ -54,12 +54,12 @@
                 <ul class="material-pagination">
                     <li>
                         <a href="javascript:undefined" class="waves-effect btn-flat" @click.prevent="previousPage" tabindex="0">
-                            <img src="/images/DataTables/left arrow.svg" class="chevron" />
+                            <img src="/images/DataTables/left arrow.svg" alt="Nav left icon" class="chevron" />
                         </a>
                     </li>
                     <li>
                         <a href="javascript:undefined" class="waves-effect btn-flat" @click.prevent="nextPage" tabindex="0">
-                            <img src="/images/DataTables/right arrow.svg" class="chevron" />
+                            <img src="/images/DataTables/right arrow.svg" alt="Nav right icon" class="chevron" />
                         </a>
                     </li>
                 </ul>

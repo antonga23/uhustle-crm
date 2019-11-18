@@ -3,32 +3,35 @@
 /*Right Component*/
 .main-header.navbar.navbar-expand {
   padding: 13px 4% 1.55%;
-     position: relative;
-    top: 10px;
+  position: relative;
+  top: 10px;
 }
 .navbar-nav li.title{
   line-height: 20px;
 }
 
 .nav-link.top-link.d-block.text-center {
-    box-shadow: 0 0 7px rgba(0,0,0,0.1);
+  box-shadow: 0 0 7px rgba(0,0,0,0.1);
 }
 
 .nav-link.top-link.d-block.text-center:hover {
-    box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
-    background: #ffffff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow:0 0 5px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
 }
 
 a.add-new {
 	border-radius: 50rem !important;
-    box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
-    -webkit-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
-    -moz-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
-    -o-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
-    background: #ffffff;
-    font-size: 16px;
-    color: #989899;
-    font-weight: 600;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  font-size: 16px;
+  color: #989899;
+  font-weight: 600;
 }
 li.title a strong{
   color: #003549;
