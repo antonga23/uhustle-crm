@@ -180873,9 +180873,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 
@@ -184354,12 +184351,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['active', 'logged_user'],
   data: function data() {
@@ -184400,13 +184391,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -187387,6 +187371,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var v_calendar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! v-calendar */ "./node_modules/v-calendar/lib/v-calendar.umd.min.js");
 /* harmony import */ var v_calendar__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(v_calendar__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
 //
 //
 //
@@ -246530,7 +246517,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\nh1[data-v-2c246ed2] {\n    font-size: 1.04vw;\n    font-family: 'Rubik', sans-serif;\n    padding-left: 5.2%;\n    padding-right: 5.2%;\n    margin-top:1%;\n}\n#dash-container[data-v-2c246ed2] {\n    padding-left: 5.2%;\n    padding-right: 5.2%;\n    background-color: #F7F7F7;\n}\n#top-section[data-v-2c246ed2] {\n    padding-top:1%;\n    margin-bottom: 5.5%;\n}\nselect.rounded-pill[data-v-2c246ed2]{\n    box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    font-size: 0.84vw;\n    font-family: 'Rubik', sans-serif;\n    padding:9px 17px 7px;\n    color: #333333;\n}\n.divider-line[data-v-2c246ed2] {\n    height: 1px;\n    background-color: #ccc;\n}\n#top-section .agent-stats[data-v-2c246ed2] {\n    margin-top:2.5%;\n}\n#top-section .agent-stats .card[data-v-2c246ed2]{    \n    border-radius: 25px;\n    padding: 1.3%;\n    box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n}\n#top-section .agent-stats .card .card-numeral[data-v-2c246ed2] {\n    font-size: 1.58vw;\n    line-height: 1em;\n    letter-spacing: 0.1em;\n    color: #333333;\n}\n#top-section .agent-stats .card .card-desc[data-v-2c246ed2] {\n    font-size: 0.82vw;\n    font-family: 'Rubik', sans-serif;\n    line-height: 1em;\n    color: #333333;\n    margin-top: 8px;\n}\n#top-section .agent-stats .card .card-stat[data-v-2c246ed2] {\n    font-size: 0.71vw;\n    font-family: 'Rubik', sans-serif;\n    line-height: 1em;\n    letter-spacing: 0.1em;\n    margin-top: 12px;\n}\n.agent-graphs[data-v-2c246ed2] {\n    margin-top:3.4%;\n}\n.agent-graphs .card[data-v-2c246ed2] {\n    margin-left: 1.7%;\n    margin-right: 1.7%;\n    background-color: transparent;\n}\n.agent-graphs .tab-content[data-v-2c246ed2] {\n    padding-top:12px;\n    border-bottom-left-radius: 25px;\n    border-bottom-right-radius: 25px;\n    background-color: #fff;\n    box-shadow: 0 0 20px 10px #e6e6e6;\n    -webkit-box-shadow: 0 0 20px 10px #e6e6e6;\n    -moz-box-shadow: 0 0 20px 10px #e6e6e6;\n    -o-box-shadow: 0 0 20px 10px #e6e6e6;\n}\n.agent-graphs .tab-pane[data-v-2c246ed2] {\n    padding:2.5% 8.5% 5%;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[data-v-2c246ed2] {\n    color: #808080;\n    font-size: 0.73vw;\n    border: none;\n}\n.nav-link[data-v-2c246ed2]:hover { \n    border: none;\n}\n.nav.nav-tabs.card-header-tabs .nav-link .icon[data-v-2c246ed2] {\n    padding-top:18px;\n    padding-bottom:18px;\n    margin-right: 5%;\n}\n@media screen and (max-width: 1643px) {\n.nav.nav-tabs.card-header-tabs .nav-link .icon[data-v-2c246ed2] {\n      width: 27px;\n}\n}\n.agent-graphs .nav-tabs .nav-item[data-v-2c246ed2] {\n    margin-bottom: 3px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"One\"][data-v-2c246ed2], \n  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Two\"][data-v-2c246ed2],\n  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Three\"][data-v-2c246ed2],\n  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Four\"][data-v-2c246ed2]{ \n    box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;\n    -webkit-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;\n    -moz-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;\n    -o-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6; \n    border-top-left-radius: 25px; \n    border-top-right-radius: 25px;\n}\n.card .card-header.tab-card-header[data-v-2c246ed2] {\n    background-color: transparent;\n    border-top-left-radius: 25px;\n    border-top-right-radius: 25px;\n}\n.agent-details[data-v-2c246ed2] {\n    margin-top: 3.1%;\n}\n.agent-details .container-row .col[data-v-2c246ed2], .agent-details .container-row .col-3[data-v-2c246ed2]{\n    padding-left: 1.3%;\n    padding-right: 1.3%;\n}\n.agent-details .top-row .col[data-v-2c246ed2] {\n    padding-left: 1.7%;\n    padding-right: 1.7%;\n}\n.agent-details .bottom-row[data-v-2c246ed2]{\n    margin-top: 3.8%;\n}\n.agent-details .bottom-row .col[data-v-2c246ed2] {\n    padding-left: 1.7%;\n    padding-right: 1.7%;\n}\n.agent-details .card[data-v-2c246ed2] {\n    padding: 5% 7% 5.7%!important;\n    border-radius: 15px!important;\n    box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n}\n.agent-details .card .heading[data-v-2c246ed2] {\n    font-size: 0.94vw;\n    font-family: 'Rubik', sans-serif;\n    color: #B3B3B3;\n    margin-bottom: 3%;\n}\n.agent-details .card .detail[data-v-2c246ed2] {\n    font-size: 1.57vw;\n    color: #1A1C43;\n    line-height: 1em;\n    margin-top:7px;\n}\n#three .col[data-v-2c246ed2] {\n    padding-left:3.6%;\n    padding-right:3.6%;\n}\n#three .col[data-v-2c246ed2]:first-child {\n    padding-left:0;\n}\n#three .col[data-v-2c246ed2]:last-child {\n    padding-right:0;\n}\n#three .col-6[data-v-2c246ed2] {\n    padding-left:5px;\n    padding-right:5px;\n}\n.legend[data-v-2c246ed2] {\n    margin-bottom:3.1%;\n}\n.legend p[data-v-2c246ed2] {\n    font-family: 'Rubik', sans-serif;\n    font-size: 0.7vw;\n    color:#999999;\n}\n.comparison-month[data-v-2c246ed2] {\n    color:#999999;;\n    font-size: 0.7vw;\n    font-family: 'Rubik', sans-serif;\n    margin-top:20%;\n}\n.progress-bar[data-v-2c246ed2]{\n    background: #F2F2F2;\n    min-height:100px;\n    max-width:20px;\n    justify-content: flex-end;\n    margin:0 auto;\n}\n.tank[data-v-2c246ed2]{\n    border-top-left-radius: 50rem;\n    border-top-right-radius: 50rem;\n    transition: all 0.5s ease 0s;\n}\n.tank.answers[data-v-2c246ed2] {\n    background:  linear-gradient(#02D3F4 0%, #0496F0 100%) !important;\n    background: #0496F0;\n}\n.tank.dialing[data-v-2c246ed2] {\n    background:  linear-gradient(#FFA380 0%, #FF8087 100%) !important;\n    background: #0496F0;\n}\n.card.target .card-text[data-v-2c246ed2]{\n    margin: auto;\n}\n.card.target.reached[data-v-2c246ed2] {\n    background:  linear-gradient(to right, rgba(160,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;\n}\n.card.target.not-reached[data-v-2c246ed2] {\n    background:  linear-gradient(to right, rgba(255,163,128,1) 0%, rgba(255,63,61,1) 100%) !important;\n}\n.card.target .heading[data-v-2c246ed2] {\n    font-size: 0.94vw;\n    color: #fff;\n    margin-bottom:8%;\n    font-family: Montserrat, sans-serif;\n}\n#dash-activities[data-v-2c246ed2] {\n    margin-top:5.2%;\n    padding-bottom: 65px;\n}\n#dash-activities .card[data-v-2c246ed2] {\n    border-radius: 25px;\n    box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    padding:2.9% 3.7%;\n}\n#dash-activities .col[data-v-2c246ed2] {\n    padding-left: 3.4%;\n    padding-right: 3.4%;\n}\n#dash-activities .border-right[data-v-2c246ed2] {\n    border-color: #003449;\n}\n#dash-activities h4[data-v-2c246ed2] {\n    font-size: 0.84vw;\n    font-family: 'Rubik', sans-serif;\n}\n#dash-activities .calendar h4[data-v-2c246ed2] {\n    margin-left:4.3%;\n}\n.calendar .card[data-v-2c246ed2] {\n    padding: 6% 5%!important;\n}\n.calendar p[data-v-2c246ed2] {\n    font-size: 16px;\n    font-family: 'Rubik', sans-serif;\n}\n.calendar .card-title[data-v-2c246ed2] {\n    font-family: 'Rubik', sans-serif;\n    font-weight: 600;\n    font-size: 12px;\n}\n.calendar .col-6[data-v-2c246ed2],\n  .reminders .col-6[data-v-2c246ed2] {\n    padding-left: 4.5%;\n    padding-right: 4.5%;\n}\n.calendar p[data-v-2c246ed2] {\n    font-family: 'Rubik', sans-serif;\n    font-size: 10px;\n}\n.reminders p[data-v-2c246ed2] {\n    font-size: 16px;\n    font-family: 'Rubik', sans-serif;\n    color: #333333;\n}\n.reminders ul[data-v-2c246ed2] {\n    max-height:448px;\n    overflow-y: auto;\n    margin-top: 20px;\n    padding-top:20px;\n    border-top: 1px solid #CDCDCF;\n}\n.reminders ul li[data-v-2c246ed2] {\n    box-shadow: 0 0 7px rgba(0,0,0,0.05);\n    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.05);\n    -moz-box-shadow: 0 0 7px rgba(0,0,0,0.05);\n    -o-box-shadow: 0 0 7px rgba(0,0,0,0.05);\n    padding:10px 15px;\n}\n.reminders ul li label[data-v-2c246ed2] {\n    font-size: 16px;\n    font-family: 'Rubik', sans-serif;\n    color: #808080;\n}\n.callback-label[data-v-2c246ed2],\n  .tasks-date[data-v-2c246ed2] {\n    font-size: 10px;\n    font-family: 'Rubik', sans-serif !important;\n    color: #808080;\n}\n.reminders input.list-input[data-v-2c246ed2]{\n    font-size: 0.83vw;\n    font-family: 'Rubik', sans-serif;\n    color: #808080;\n    padding-left: 37px!important;\n    width: 100%;\n    text-overflow: ellipsis;\n}\n.reminders .terms-text textarea[data-v-2c246ed2] {\n    padding: 11px 18px!important;\n    box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    border-color: #ccc;\n}\na.Edit[data-v-2c246ed2]{\n    background-image: url('/images/DataTables/Edit_Icon.svg');\n    background-size: 20px;\n    background-repeat: no-repeat;\n    width:20px;\n    height:20px;\n}\na.Edit[data-v-2c246ed2]:hover,\n  a.Edit[data-v-2c246ed2]:active{\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');\n    background-size: 20px;\n    background-repeat: no-repeat;\n}\n.callback-capture[data-v-2c246ed2] {\n    background: #f4f4f4;\n    border-radius: 50rem;\n    height: 50px;\n}\n.comment-desc[data-v-2c246ed2] {\n    height: 50px;\n    padding: 11px;\n    margin: 0;\n    background: #f4f4f4;\n    cursor: pointer;\n    float: left;\n}\n.comment-desc[data-v-2c246ed2]::-webkit-input-placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n.comment-desc[data-v-2c246ed2]::-moz-placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n.comment-desc[data-v-2c246ed2]:-ms-input-placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n.comment-desc[data-v-2c246ed2]::-ms-input-placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n.comment-desc[data-v-2c246ed2]::placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n#submit-btn img[data-v-2c246ed2] {\n    margin-top: -15px;\n    margin-right: -15px;\n}\n.callbacks-to-dos .border-top[data-v-2c246ed2] {\n    border-color: #CDCDCF;\n}\n.callbacks-to-dos .task-time[data-v-2c246ed2] {\n    font-size: 0.73vw;\n    color: #818284;\n    padding-right:3.5%;\n}\n.callbacks-to-dos .task-description[data-v-2c246ed2] {\n    height:22px;\n    font-size: 11px;\n    font-weight:500;\n    font-family: 'Rubik', sans-serif;\n    color: #6B6B6B;\n    padding-left:3.5%;\n}\n.active-task[data-v-2c246ed2] {\n    background-color:rgba(255,147,58,0.5);\n}\n\n  /* Custom checkbox */\n.main label.custom-control-label[data-v-2c246ed2] { \n    color: inherit; \n    font-weight: 200; \n    padding-top: 3px;\n}\n.custom-checkbox .custom-control-label[data-v-2c246ed2] { \n    padding-top: 5px;\n}\nli.custom-control.custom-checkbox[data-v-2c246ed2] { \n    box-shadow: 0 0 7px rgba(0, 0, 0, 0.05); \n    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n}\n.custom-control.custom-checkbox .custom-control-label[data-v-2c246ed2]:before { \n    border-radius: 50%!important; \n    border: 1px solid #ededed; \n    box-shadow: none; \n    -webkit-box-shadow: none;\n    -moz-box-shadow: none;\n    -o-box-shadow: none;\n    background-image: url('/images/icons/right-sidebar/Task_Check.svg') !important; \n    background-size: cover;\n}\n.custom-control-label[data-v-2c246ed2]::after, \n  .custom-control-label[data-v-2c246ed2]::before { \n    width: 20px; \n    height: 20px; \n    top: 6px; \n    left: 0.2rem;\n}\n.btn-primary[data-v-2c246ed2] {\n    font-size: 10px;\n    background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%, rgba(250, 168, 59, 1) 100%) !important;\n    font-weight: 600;\n    text-transform: uppercase;\n    padding: 10px 20px;\n    letter-spacing: 0.05em;\n}\ninput.search-text[data-v-2c246ed2]:focus, \n  input.save-text[data-v-2c246ed2]:focus,\n  .reminders input.list-input[data-v-2c246ed2]:focus { \n    outline: 0 !important; \n    border: 0 !important;\n} \n", ""]);
+exports.push([module.i, "\nh1[data-v-2c246ed2] {\n    font-size: 1.04vw;\n    font-family: 'Rubik', sans-serif;\n    padding-left: 5.2%;\n    padding-right: 5.2%;\n    margin-top:1%;\n}\n#dash-container[data-v-2c246ed2] {\n    padding-left: 5.2%;\n    padding-right: 5.2%;\n    background-color: #F7F7F7;\n}\n#top-section[data-v-2c246ed2] {\n    padding-top:1%;\n    margin-bottom: 5.5%;\n}\nselect.rounded-pill[data-v-2c246ed2]{\n    box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    font-size: 0.84vw;\n    font-family: 'Rubik', sans-serif;\n    padding:9px 17px 7px;\n    color: #333333;\n}\n.divider-line[data-v-2c246ed2] {\n    height: 1px;\n    background-color: #ccc;\n}\n#top-section .agent-stats[data-v-2c246ed2] {\n    margin-top:2.5%;\n}\n#top-section .agent-stats .card[data-v-2c246ed2]{    \n    border-radius: 25px;\n    padding: 1.3%;\n    box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n}\n#top-section .agent-stats .card .card-numeral[data-v-2c246ed2] {\n    font-size: 1.58vw;\n    line-height: 1em;\n    letter-spacing: 0.1em;\n    color: #333333;\n}\n#top-section .agent-stats .card .card-desc[data-v-2c246ed2] {\n    font-size: 0.82vw;\n    font-family: 'Rubik', sans-serif;\n    line-height: 1em;\n    color: #333333;\n    margin-top: 8px;\n}\n#top-section .agent-stats .card .card-stat[data-v-2c246ed2] {\n    font-size: 0.71vw;\n    font-family: 'Rubik', sans-serif;\n    line-height: 1em;\n    letter-spacing: 0.1em;\n    margin-top: 12px;\n}\n.agent-graphs[data-v-2c246ed2] {\n    margin-top:3.4%;\n}\n.agent-graphs .card[data-v-2c246ed2] {\n    margin-left: 1.7%;\n    margin-right: 1.7%;\n    background-color: transparent;\n}\n.agent-graphs .tab-content[data-v-2c246ed2] {\n    padding-top:12px;\n    border-bottom-left-radius: 25px;\n    border-bottom-right-radius: 25px;\n    background-color: #fff;\n    box-shadow: 0 0 20px 10px #e6e6e6;\n    -webkit-box-shadow: 0 0 20px 10px #e6e6e6;\n    -moz-box-shadow: 0 0 20px 10px #e6e6e6;\n    -o-box-shadow: 0 0 20px 10px #e6e6e6;\n}\n.agent-graphs .tab-pane[data-v-2c246ed2] {\n    padding:2.5% 8.5% 5%;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[data-v-2c246ed2] {\n    color: #808080;\n    font-size: 0.73vw;\n    border: none;\n}\n.nav.nav-tabs.card-header-tabs .nav-link .icon[data-v-2c246ed2] {\n    padding-top:18px;\n    padding-bottom:18px;\n    margin-right: 5%;\n}\n@media screen and (max-width: 1643px) {\n.nav.nav-tabs.card-header-tabs .nav-link .icon[data-v-2c246ed2] {\n      width: 27px;\n}\n}\n.agent-graphs .nav-tabs .nav-item[data-v-2c246ed2] {\n    margin-bottom: 3px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"One\"][data-v-2c246ed2], \n  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Two\"][data-v-2c246ed2],\n  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Three\"][data-v-2c246ed2],\n  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Four\"][data-v-2c246ed2]{ \n    box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;\n    -webkit-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;\n    -moz-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;\n    -o-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6; \n    border-top-left-radius: 25px; \n    border-top-right-radius: 25px;\n}\n.card .card-header.tab-card-header[data-v-2c246ed2] {\n    background-color: transparent;\n    border-top-left-radius: 25px;\n    border-top-right-radius: 25px;\n}\n.agent-details[data-v-2c246ed2] {\n    margin-top: 3.1%;\n}\n.agent-details .container-row .col[data-v-2c246ed2], .agent-details .container-row .col-3[data-v-2c246ed2]{\n    padding-left: 1.3%;\n    padding-right: 1.3%;\n}\n.agent-details .top-row .col[data-v-2c246ed2] {\n    padding-left: 1.7%;\n    padding-right: 1.7%;\n}\n.agent-details .bottom-row[data-v-2c246ed2]{\n    margin-top: 3.8%;\n}\n.agent-details .bottom-row .col[data-v-2c246ed2] {\n    padding-left: 1.7%;\n    padding-right: 1.7%;\n}\n.agent-details .card[data-v-2c246ed2] {\n    padding: 5% 7% 5.7%!important;\n    border-radius: 15px!important;\n    box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n}\n.agent-details .card .heading[data-v-2c246ed2] {\n    font-size: 0.94vw;\n    font-family: 'Rubik', sans-serif;\n    color: #B3B3B3;\n    margin-bottom: 3%;\n}\n.agent-details .card .detail[data-v-2c246ed2] {\n    font-size: 1.57vw;\n    color: #1A1C43;\n    line-height: 1em;\n    margin-top:7px;\n}\n#three .col[data-v-2c246ed2] {\n    padding-left:3.6%;\n    padding-right:3.6%;\n}\n#three .col[data-v-2c246ed2]:first-child {\n    padding-left:0;\n}\n#three .col[data-v-2c246ed2]:last-child {\n    padding-right:0;\n}\n#three .col-6[data-v-2c246ed2] {\n    padding-left:5px;\n    padding-right:5px;\n}\n.legend[data-v-2c246ed2] {\n    margin-bottom:3.1%;\n}\n.legend p[data-v-2c246ed2] {\n    font-family: 'Rubik', sans-serif;\n    font-size: 0.7vw;\n    color:#999999;\n}\n.comparison-month[data-v-2c246ed2] {\n    color:#999999;;\n    font-size: 0.7vw;\n    font-family: 'Rubik', sans-serif;\n    margin-top:20%;\n}\n.progress-bar[data-v-2c246ed2]{\n    background: #F2F2F2;\n    min-height:100px;\n    max-width:20px;\n    justify-content: flex-end;\n    margin:0 auto;\n}\n.tank[data-v-2c246ed2]{\n    border-top-left-radius: 50rem;\n    border-top-right-radius: 50rem;\n    transition: all 0.5s ease 0s;\n}\n.tank.answers[data-v-2c246ed2] {\n    background:  linear-gradient(#02D3F4 0%, #0496F0 100%) !important;\n    background: #0496F0;\n}\n.tank.dialing[data-v-2c246ed2] {\n    background:  linear-gradient(#FFA380 0%, #FF8087 100%) !important;\n    background: #0496F0;\n}\n.card.target .card-text[data-v-2c246ed2]{\n    margin: auto;\n}\n.card.target.reached[data-v-2c246ed2] {\n    background:  linear-gradient(to right, rgba(160,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;\n}\n.card.target.not-reached[data-v-2c246ed2] {\n    background:  linear-gradient(to right, rgba(255,163,128,1) 0%, rgba(255,63,61,1) 100%) !important;\n}\n.card.target .heading[data-v-2c246ed2] {\n    font-size: 0.94vw;\n    color: #fff;\n    margin-bottom:8%;\n    font-family: Montserrat, sans-serif;\n}\n#dash-activities[data-v-2c246ed2] {\n    margin-top:5.2%;\n    padding-bottom: 65px;\n}\n#dash-activities .card[data-v-2c246ed2] {\n    border-radius: 25px;\n    box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    padding:2.9% 3.7%;\n}\n#dash-activities .col[data-v-2c246ed2] {\n    padding-left: 3.4%;\n    padding-right: 3.4%;\n}\n#dash-activities .border-right[data-v-2c246ed2] {\n    border-color: #003449;\n}\n#dash-activities h4[data-v-2c246ed2] {\n    font-size: 0.84vw;\n    font-family: 'Rubik', sans-serif;\n}\n#dash-activities .calendar h4[data-v-2c246ed2] {\n    margin-left:4.3%;\n}\n.calendar .card[data-v-2c246ed2] {\n    padding: 6% 5%!important;\n}\n.calendar p[data-v-2c246ed2] {\n    font-size: 16px;\n    font-family: 'Rubik', sans-serif;\n}\n.calendar .card-title[data-v-2c246ed2] {\n    font-family: 'Rubik', sans-serif;\n    font-weight: 600;\n    font-size: 12px;\n}\n.calendar .col-6[data-v-2c246ed2],\n  .reminders .col-6[data-v-2c246ed2] {\n    padding-left: 4.5%;\n    padding-right: 4.5%;\n}\n.calendar p[data-v-2c246ed2] {\n    font-family: 'Rubik', sans-serif;\n    font-size: 10px;\n}\n.reminders p[data-v-2c246ed2] {\n    font-size: 16px;\n    font-family: 'Rubik', sans-serif;\n    color: #333333;\n}\n.reminders ul[data-v-2c246ed2] {\n    max-height:448px;\n    overflow-y: auto;\n    margin-top: 20px;\n    padding-top:20px;\n    border-top: 1px solid #CDCDCF;\n}\n.reminders ul li[data-v-2c246ed2] {\n    box-shadow: 0 0 7px rgba(0,0,0,0.05);\n    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.05);\n    -moz-box-shadow: 0 0 7px rgba(0,0,0,0.05);\n    -o-box-shadow: 0 0 7px rgba(0,0,0,0.05);\n    padding:10px 15px;\n}\n.reminders ul li label[data-v-2c246ed2] {\n    font-size: 16px;\n    font-family: 'Rubik', sans-serif;\n    color: #808080;\n}\n.callback-label[data-v-2c246ed2],\n  .tasks-date[data-v-2c246ed2] {\n    font-size: 10px;\n    font-family: 'Rubik', sans-serif !important;\n    color: #808080;\n}\n.reminders input.list-input[data-v-2c246ed2]{\n    font-size: 0.83vw;\n    font-family: 'Rubik', sans-serif;\n    color: #808080;\n    padding-left: 37px!important;\n    width: 100%;\n    text-overflow: ellipsis;\n}\n.reminders .terms-text textarea[data-v-2c246ed2] {\n    padding: 11px 18px!important;\n    box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    border-color: #ccc;\n}\na.Edit[data-v-2c246ed2]{\n    background-image: url('/images/DataTables/Edit_Icon.svg');\n    background-size: 20px;\n    background-repeat: no-repeat;\n    width:20px;\n    height:20px;\n}\na.Edit[data-v-2c246ed2]:hover,\n  a.Edit[data-v-2c246ed2]:active{\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');\n    background-size: 20px;\n    background-repeat: no-repeat;\n}\n.callback-capture[data-v-2c246ed2] {\n    background: #f4f4f4;\n    border-radius: 50rem;\n    height: 50px;\n}\n.comment-desc[data-v-2c246ed2] {\n    height: 50px;\n    padding: 11px;\n    margin: 0;\n    background: #f4f4f4;\n    cursor: pointer;\n    float: left;\n}\n.comment-desc[data-v-2c246ed2]::-webkit-input-placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n.comment-desc[data-v-2c246ed2]::-moz-placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n.comment-desc[data-v-2c246ed2]:-ms-input-placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n.comment-desc[data-v-2c246ed2]::-ms-input-placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n.comment-desc[data-v-2c246ed2]::placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n#submit-btn img[data-v-2c246ed2] {\n    margin-top: -15px;\n    margin-right: -15px;\n}\n.callbacks-to-dos .border-top[data-v-2c246ed2] {\n    border-color: #CDCDCF;\n}\n.callbacks-to-dos .task-time[data-v-2c246ed2] {\n    font-size: 0.73vw;\n    color: #818284;\n    padding-right:3.5%;\n}\n.callbacks-to-dos .task-description[data-v-2c246ed2] {\n    height:22px;\n    font-size: 11px;\n    font-weight:500;\n    font-family: 'Rubik', sans-serif;\n    color: #6B6B6B;\n    padding-left:3.5%;\n}\n.active-task[data-v-2c246ed2] {\n    background-color:rgba(255,147,58,0.5);\n}\n\n  /* Custom checkbox */\n.main label.custom-control-label[data-v-2c246ed2] { \n    color: inherit; \n    font-weight: 200; \n    padding-top: 3px;\n}\n.custom-checkbox .custom-control-label[data-v-2c246ed2] { \n    padding-top: 5px;\n}\nli.custom-control.custom-checkbox[data-v-2c246ed2] { \n    box-shadow: 0 0 7px rgba(0, 0, 0, 0.05); \n    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n}\n.custom-control.custom-checkbox .custom-control-label[data-v-2c246ed2]:before { \n    border-radius: 50%!important; \n    border: 1px solid #ededed; \n    box-shadow: none; \n    -webkit-box-shadow: none;\n    -moz-box-shadow: none;\n    -o-box-shadow: none;\n    background-image: url('/images/icons/right-sidebar/Task_Check.svg') !important; \n    background-size: cover;\n}\n.custom-control-label[data-v-2c246ed2]::after, \n  .custom-control-label[data-v-2c246ed2]::before { \n    width: 20px; \n    height: 20px; \n    top: 6px; \n    left: 0.2rem;\n}\n.btn-primary[data-v-2c246ed2] {\n    font-size: 10px;\n    background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%, rgba(250, 168, 59, 1) 100%) !important;\n    font-weight: 600;\n    text-transform: uppercase;\n    padding: 10px 20px;\n    letter-spacing: 0.05em;\n}\ninput.search-text[data-v-2c246ed2]:focus, \n  input.save-text[data-v-2c246ed2]:focus,\n  .reminders input.list-input[data-v-2c246ed2]:focus { \n    outline: 0 !important; \n    border: 0 !important;\n} \n", ""]);
 
 // exports
 
@@ -246682,7 +246669,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n/*Nav starts*/\n.main-sidebar[data-v-57a1bf10], .main-sidebar[data-v-57a1bf10]:before {\n  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;\n  width: 56px !important;\n}\n.sidebar-dark-primary[data-v-57a1bf10] {\n  background-color: #fff;\n  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -o-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n[class*=\"sidebar-dark\"] .brand-link[data-v-57a1bf10] {\n  color: rgba(255, 255, 255, 0.8);\n  border-bottom: none;\n}\n.nav-sidebar > .nav-item[data-v-57a1bf10] {\n  width: 50px;\n  margin-left:6px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link img[data-v-57a1bf10] {\n  padding:8px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link[data-v-57a1bf10]:hover {\n  background-size: 50px;\n  background-image: url('/images/icons/left-sidebar/no-shadows/Orange Icon Background 2.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link[data-v-57a1bf10] {\n  background-repeat: no-repeat;\n  min-height:56px;\n  transition: background-image .3s ease;\n}\n.main-sidebar[data-v-57a1bf10] {\n  width: 56px!important;\n  overflow:visible;\n}\n#sidebar[data-v-57a1bf10], .nav.nav-pills.nav-sidebar.flex-column[data-v-57a1bf10], .nav.nav-pills a.nav-link[data-v-57a1bf10] {\n  overflow: visible!important;\n}\n.nav-link span[data-v-57a1bf10]{\n  position: relative;\n  left: -16px!important;\n  top: 2px;\n  background: #fff;\n  color: #000;\n  font-size: 0px;\n  color: #003549;\n  border-radius: 0 50rem 50rem 0;\n  box-shadow: 0 0 6px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 6px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 6px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 6px rgba(0,0,0,0.1);\n  padding: 18px 0;\n  width: 0;\n  overflow:hidden;\n  z-index:-1;\n  transition-delay: 2s;\n  transition: width .5s ease, padding .5s ease, overflow .5s ease, left .5s ease;\n}\n.nav-link:hover span[data-v-57a1bf10]{\n  width: auto; \n  overflow:visible;\n  padding: 18px 35px 18px 40px;\n  left: -20px!important;\n  font-size: 12px;\n}\n.sidebar-collapse .nav-link span[data-v-57a1bf10] {\n  top: 2px;\n}\n.sidebar-collapse .nav-link:hover span[data-v-57a1bf10] {\n  padding: 16px 35px 16px 40px;\n}\n/*Nav Ends*/\n", ""]);
+exports.push([module.i, "\n/*Nav starts*/\n.main-sidebar[data-v-57a1bf10], .main-sidebar[data-v-57a1bf10]:before {\n  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;\n  width: 56px !important;\n}\n.sidebar-dark-primary[data-v-57a1bf10] {\n  background-color: #fff;\n  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -o-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n[class*=\"sidebar-dark\"] .brand-link[data-v-57a1bf10] {\n  color: rgba(255, 255, 255, 0.8);\n  border-bottom: none;\n}\n.nav-sidebar > .nav-item[data-v-57a1bf10] {\n  width: 50px;\n  margin-left:6px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link img[data-v-57a1bf10] {\n  padding:8px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link[data-v-57a1bf10]:hover {\n  background-size: 50px;\n  background-image: url('/images/icons/left-sidebar/no-shadows/Orange Icon Background 2.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link[data-v-57a1bf10] {\n  background-repeat: no-repeat;\n  min-height:56px;\n  transition: background-image .3s ease;\n}\n.main-sidebar[data-v-57a1bf10] {\n  width: 56px!important;\n  overflow:visible;\n}\n#sidebar[data-v-57a1bf10], .nav.nav-pills.nav-sidebar.flex-column[data-v-57a1bf10], .nav.nav-pills a.nav-link[data-v-57a1bf10] {\n  overflow: visible!important;\n}\n.nav-link span[data-v-57a1bf10]{\n  position: relative;\n  left: -16px!important;\n  top: 2px;\n  background: #fff;\n  color: #000;\n  font-size: 0px;\n  color: #003549;\n  border-radius: 0 50rem 50rem 0;\n  box-shadow: 0 0 6px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 6px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 6px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 6px rgba(0,0,0,0.1);\n  padding: 18px 0;\n  width: 0;\n  overflow:hidden;\n  z-index:-1;\n  transition-delay: 2s;\n  transition: width .5s ease, padding .5s ease, overflow .5s ease, left .5s ease;\n}\n.nav-link:hover span[data-v-57a1bf10]{\n  width: auto; \n  overflow:visible;\n  padding: 18px 35px 18px 40px;\n  left: -20px!important;\n  font-size: 12px;\n}\n/*Nav Ends*/\n", ""]);
 
 // exports
 
@@ -246701,7 +246688,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.main-sidebar[data-v-48ad9a74] {\n  right: 0 !important;\n  left: auto;\n  overflow: visible;\n  position: absolute;\n  top: 0;\n  right: 0 !important;\n  bottom: 0;\n  z-index: 830;\n  transition: right 0.3s ease-in-out;\n  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -o-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n.main-sidebar[data-v-48ad9a74],\n.main-sidebar[data-v-48ad9a74]:before {\n  transition: margin-right 0.3s ease-in-out, width 0.3s ease-in-out !important;\n  width: 16.718% !important;\n}\n.sidebar-collapse .main-sidebar[data-v-48ad9a74],\n.sidebar-collapse .main-sidebar[data-v-48ad9a74]:before {\n  margin-left: 0 !important;\n  /* margin-right: -10.833%!important;  */\n}\n@media (max-width: 991.98px) {\n.main-sidebar[data-v-48ad9a74],\n  .main-sidebar[data-v-48ad9a74]:before {\n    margin-left: -0 !important;\n    margin-left: -10.833% !important;\n}\n.sidebar-open .main-sidebar[data-v-48ad9a74],\n  .sidebar-open .main-sidebar[data-v-48ad9a74]:before {\n    margin-right: 0 !important;\n}\n}\n.sidebar[data-v-48ad9a74] {\n  overflow: visible;\n}\np[data-v-48ad9a74] {\n  color: #9fb3bb;\n  margin: 0;\n}\nh2[data-v-48ad9a74] {\n  color: #003449;\n  font-size: 29px;\n  letter-spacing: 4.2px;\n  font-weight: 600;\n}\nh3[data-v-48ad9a74] {\n  color: #1a1c43;\n  font-size: 0.83vw;\n  font-weight: 700;\n}\nh3 img[data-v-48ad9a74] {\n  float: right;\n  cursor: pointer;\n  margin-top: -7px;\n}\n.main label.custom-control-label[data-v-48ad9a74] {\n  color: inherit;\n  font-weight: 200;\n  padding-top: 3px;\n}\n.navbar[data-v-48ad9a74] {\n  border-color: #cdcdcf;\n  margin-top: 6%;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] {\n  color: rgba(0, 0, 0, 0.5);\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] {\n  font-size: 14px;\n  color: #1e2331;\n  padding-top: 6px;\n  position: relative;\n  top: -4%;\n}\n.help-block[data-v-48ad9a74] {\n  color: red;\n}\n.status[data-v-48ad9a74] {\n  display: none;\n}\n.status.active[data-v-48ad9a74] {\n  width: 76px;\n  text-align: center;\n  border-radius: 8px;\n  display: block;\n  background: #00d68f;\n  padding: 4px 3px;\n  line-height: 20px;\n  color: #fff;\n  text-transform: uppercase;\n  font-size: 12px;\n  float: left;\n  margin: 0;\n}\n.status.offline[data-v-48ad9a74] {\n  width: 76px;\n  text-align: center;\n  border-radius: 8px;\n  display: block;\n  background: orange;\n  padding: 4px 3px;\n  line-height: 20px;\n  color: #fff;\n  text-transform: uppercase;\n  font-size: 12px;\n  float: left;\n  margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover,\n.status.offline[data-v-48ad9a74]:hover {\n  color: #3b3b3b;\n  cursor: pointer;\n}\n.status.show[data-v-48ad9a74] {\n  display: block !important;\n}\n.collapse[data-v-48ad9a74] {\n  border-bottom: 1px solid #cdccce;\n}\n.p-3[data-v-48ad9a74] {\n  padding: 0.8rem 2rem 1.4rem 1.7rem !important;\n}\n.pl-34[data-v-48ad9a74] {\n  padding-left: 34px;\n}\n.ml-12[data-v-48ad9a74] {\n  margin-left: 12px;\n}\n.progress-bar[data-v-48ad9a74] {\n  background: #f7f6fb;\n  border-radius: 5px;\n}\n.tank[data-v-48ad9a74] {\n  background: linear-gradient(\n    to right,\n    rgba(161, 237, 128, 1) 0%,\n    rgba(98, 211, 126, 1) 100%\n  ) !important;\n  border-radius: 5px;\n  background: rgb(114, 218, 126);\n  height: 8px;\n  transition: all 0.5s ease 0s;\n}\n.value[data-v-48ad9a74] {\n  font-weight: 900;\n  font-size: 0.83vw;\n  color: #1a1c43;\n  margin-top: -8px;\n  letter-spacing: 0.1em;\n  font-family: Montserrat !important;\n}\n.description[data-v-48ad9a74] {\n  font-size: 12px;\n  font-family: \"Rubik\", sans-serif;\n  color: #1e2331;\n  padding-bottom: 10px;\n}\n.position[data-v-48ad9a74] {\n  display: block;\n  position: relative;\n  background: #ff8234;\n  color: #fff;\n  height: 62px;\n  text-align: center;\n  font-size: 17px;\n  padding: 18px 9px;\n  width: 62px;\n  transform: rotate(45deg);\n  /* Standard syntax */\n  margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74] {\n  transform: rotate(0deg);\n  /* Standard syntax */\n}\np.heading[data-v-48ad9a74] {\n  border-bottom: 1px solid #cdccce;\n  margin-bottom: 10px;\n  font-weight: 900;\n}\n.navbar ul[data-v-48ad9a74] {\n  margin-bottom: 10px;\n}\n.personal-info[data-v-48ad9a74],\n.general-system-prefs[data-v-48ad9a74],\n.notifications .w-100[data-v-48ad9a74] {\n  margin-top: 20px;\n}\n.personal-info img[data-v-48ad9a74] {\n  border-radius: 50%;\n  width: 27%;\n}\n.personal-info button.btn-info[data-v-48ad9a74] {\n  margin: 5px 0 15px 0;\n  font-size: 9px;\n}\n.btn-info[data-v-48ad9a74] {\n  height: 24px !important;\n  background: #f98b39 !important;\n  border-color: #f98b39 !important;\n  color: #fff !important;\n  padding: 4px 17px 6px !important;\n  border-radius: 24px !important;\n}\n.settings .row.border-bottom[data-v-48ad9a74],\n.notifications .row.border-bottom[data-v-48ad9a74] {\n  border-color: #cdccce;\n  padding: 21px 0px 16px 0;\n}\n.notification-popup[data-v-48ad9a74] {\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\n  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\n  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\n  border-radius: 21px;\n  width: 100% !important;\n}\n.settings .row p.description[data-v-48ad9a74] {\n  font-size: 9px;\n  display: block;\n}\n.custom-checkbox .custom-control-label[data-v-48ad9a74] {\n  padding-top: 5px;\n}\n.themes label[data-v-48ad9a74]:first-child,\n.themes label[data-v-48ad9a74]:nth-child(2),\n.language label[data-v-48ad9a74],\n.notifications label[data-v-48ad9a74],\n.action-btns label[data-v-48ad9a74]:first-child,\n.action-btns label[data-v-48ad9a74]:nth-child(2) {\n  margin-right: 8px;\n  float: left;\n}\n.control-label[data-v-48ad9a74] {\n  color: #989899;\n  font-family: \"Rubik\", sans-serif;\n  font-size: 12px;\n  text-align: left;\n}\n.btn-default[data-v-48ad9a74] {\n  padding: 6px 12px 6px 10px;\n  font-size: 10px;\n  border: transparent !important;\n  border-radius: 5px !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-default[data-v-48ad9a74]:hover {\n  background: #00344a;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 6px 12px 6px 10px;\n  font-size: 10px;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-active[data-v-48ad9a74] {\n  background: #00344a;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 6px 12px 6px 10px;\n  font-size: 0.6vw;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.themes .btn-default[data-v-48ad9a74],\n.language .btn-default[data-v-48ad9a74],\n.language .btn-active[data-v-48ad9a74] {\n  border-radius: 50rem !important;\n  padding: 8px 15px !important;\n}\n.btn-orange[data-v-48ad9a74],\n.btn-orange-active[data-v-48ad9a74] {\n  background: linear-gradient(\n    to right,\n    rgb(255, 128, 51, 1) 0%,\n    rgba(255, 147, 58, 1) 100%\n  ) !important;\n  color: #ffffff;\n  border: transparent !important;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-white[data-v-48ad9a74] {\n  background: #fff;\n  border: transparent !important;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.orange-btn[data-v-48ad9a74]:hover {\n  background: linear-gradient(\n    to right,\n    rgb(255, 128, 51, 1) 0%,\n    rgba(255, 147, 58, 1) 100%\n  ) !important;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 8px 15px;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-blue[data-v-48ad9a74] {\n  background: linear-gradient(\n    to right,\n    rgb(60, 144, 206, 1) 0%,\n    rgba(65, 197, 231, 1) 100%\n  ) !important;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 8px 15px;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.blue-btn[data-v-48ad9a74]:hover {\n  background: linear-gradient(\n    to right,\n    rgb(60, 144, 206, 1) 0%,\n    rgba(65, 197, 231, 1) 100%\n  ) !important;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 8px 15px;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-dark[data-v-48ad9a74] {\n  background: linear-gradient(\n    to right,\n    rgb(25, 25, 26, 1) 0%,\n    rgba(23, 23, 66, 1) 100%\n  ) !important;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 8px 15px;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.dark-btn[data-v-48ad9a74]:hover {\n  background: linear-gradient(\n    to right,\n    rgb(25, 25, 26, 1) 0%,\n    rgba(23, 23, 66, 1) 100%\n  ) !important;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 8px 15px;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.notifications-close img[data-v-48ad9a74] {\n  width: 20px;\n  top: 5px;\n  position: relative;\n}\n.btn-has-new-dot[data-v-48ad9a74] {\n  background-image: url(\"/images/icons/Red-Notification-Dot.svg\") !important;\n  background-size: 12px 12px;\n  background-repeat: no-repeat;\n  background-position: right top;\n  width: 13px;\n  height: 100%;\n  z-index: 1;\n  position: absolute;\n  left: 66px;\n  top: -5px;\n}\n.btn-has-new-messages[data-v-48ad9a74] {\n  background-image: url(\"/images/icons/blue dot.svg\") !important;\n  background-size: 69% 34%;\n  background-repeat: no-repeat;\n  background-position: left top;\n  color: #ffffff;\n  font-size: 10px;\n  text-align: center;\n}\n.btn-has-new[data-v-48ad9a74]:hover {\n  background-image: url(\"/images/icons/Dot.png\") !important;\n  background-size: 12px 12px;\n  background-repeat: no-repeat;\n  background-position: right top;\n}\n.logout-wrapper[data-v-48ad9a74] {\n  margin-top: 14%;\n}\n#logout[data-v-48ad9a74] {\n  background-image: url(\"/images/icons/Asset 67.svg\") !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n  height: 100px;\n  background-position: center;\n  margin-bottom: 11%;\n}\n#logout[data-v-48ad9a74]:hover {\n  background-image: url(\"/images/icons/Asset 66.svg\") !important;\n}\n.notifications .btn-default[data-v-48ad9a74] {\n  padding: 6px 25px 6px 18px;\n  font-size: 12px;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.notifications .top-section[data-v-48ad9a74] {\n  list-style: none;\n}\n.notifications .card-body-notifications h3[data-v-48ad9a74],\n.notifications .card-body-notifications h3 a[data-v-48ad9a74],\n.caller-name[data-v-48ad9a74] {\n  color: #333333;\n  font-size: 0.7vw;\n  font-weight: 600;\n}\n.caller-time[data-v-48ad9a74] {\n  float: right;\n  font-size: 0.6vw;\n  color: #808080;\n}\n.notifications .card-body-notifications p.call_back_time[data-v-48ad9a74] {\n  color: #808080;\n  font-size: 0.7vw;\n}\n.personal-info .row.mx-0.border-left[data-v-48ad9a74],\n.account-info .row.mx-0.border-left[data-v-48ad9a74] {\n  border-color: #cdccce;\n}\n.settings .title[data-v-48ad9a74] {\n  color: #7f8080;\n  padding-bottom: 16px;\n  font-size: 12px;\n}\n.small-avatar img[data-v-48ad9a74] {\n  width: 30px;\n  border-radius: 50%;\n}\n.update-user[data-v-48ad9a74],\n.update-filter[data-v-48ad9a74],\n.save-filter[data-v-48ad9a74] {\n  margin: 0px 0px 5px 0px;\n}\n.final-modal[data-v-48ad9a74] {\n  padding: 0 0 1rem;\n}\n.final-modal .row-a[data-v-48ad9a74] {\n  width: 100%;\n  border-bottom: 1px solid #cdccce;\n  margin-left: 0;\n}\n.final-modal label button img[data-v-48ad9a74] {\n  width: 20px;\n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-48ad9a74] {\n  font-size: 55px;\n  color: #ff933a;\n}\n.card-header[data-v-48ad9a74] {\n  color: rgba(28, 35, 49, 0.5);\n  border-bottom: 0.5px solid #f4f4f5 !important;\n  background-color: #fff !important;\n  font-size: 10px;\n  font-weight: 600;\n}\n.card-body-notifications[data-v-48ad9a74] {\n  padding: 11px 10px;\n}\n.card-body-notifications img[data-v-48ad9a74] {\n  padding-right: 10px;\n}\n.callback-cal p[data-v-48ad9a74] {\n  font-size: 0.73vw;\n  color: #666666;\n  border-color: #ccc;\n  margin-top: 25px;\n}\n.final-modal .card-header[data-v-48ad9a74] {\n  padding: 0 11px 0;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-48ad9a74] {\n  border-bottom: none;\n  background: #fff;\n  padding: 6px 12px;\n}\n.final-modal .card-header-tabs .left a.active[aria-selected=\"true\"][data-v-48ad9a74] {\n  border-bottom: none;\n  background: #fff;\n  padding: 6px 12px;\n  box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n  -webkit-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n  -moz-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n  -o-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n}\n.final-modal .card-header-tabs .left a[aria-selected=\"false\"][data-v-48ad9a74] {\n  border-bottom: none;\n  background: #fff;\n  padding: 6px 12px;\n  box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n  -webkit-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n  -moz-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n  -o-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n}\n.final-modal .card-header-tabs .right a.active[aria-selected=\"true\"][data-v-48ad9a74] {\n  border-bottom: none;\n  background: #fff;\n  padding: 6px 12px;\n  box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n  -webkit-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n  -moz-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n  -o-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n}\n.final-modal .card-header-tabs .right a[aria-selected=\"false\"][data-v-48ad9a74] {\n  border-bottom: none;\n  background: #fff;\n  padding: 6px 12px;\n  box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n  -webkit-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n  -moz-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n  -o-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74] {\n  padding: 6px 12px;\n  font-size: 0.83vw;\n  color: #818284;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74]:hover {\n  border: none;\n  background: #fff;\n  padding: 6px 12px;\n  font-size: 0.83vw;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74] {\n  background: #fff;\n  padding: 6px 12px;\n  font-size: 0.83vw;\n  color: #818284;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74]:hover {\n  background: #fff;\n  padding: 6px 12px;\n  font-size: 0.83vw;\n}\n.final-modal input[data-v-48ad9a74] {\n  font-size: 9px;\n}\n.form-control[data-v-48ad9a74] {\n  padding: 10px 12px !important;\n  font-size: 12px;\n  box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1) !important;\n  -webkit-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1) !important;\n  -moz-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1) !important;\n  -o-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1) !important;\n  color: #193246;\n  font-weight: 600;\n  margin-top: 6px;\n}\ntextarea.form-control[data-v-48ad9a74] {\n  height: 100px !important;\n  border-radius: 15px;\n}\n.stats-section[data-v-48ad9a74] {\n  margin-top: 25px;\n}\n.stats-section .commission[data-v-48ad9a74] {\n  padding: 25px 0;\n}\n.stats-section .sales[data-v-48ad9a74],\n.stats-section .calls[data-v-48ad9a74],\n.search-input[data-v-48ad9a74],\n.filter-search[data-v-48ad9a74],\n.filter-by[data-v-48ad9a74] {\n  padding: 5px 0;\n}\n.stats-section .calls .col-lg-12 p[data-v-48ad9a74],\n.stats-section .sales .col-lg-12 p[data-v-48ad9a74],\np.badges[data-v-48ad9a74] {\n  border-bottom: 0.5px solid #f4f4f5;\n  margin-bottom: 5px;\n  padding-bottom: 2px;\n}\n.print-btn[data-v-48ad9a74],\n.export-btn[data-v-48ad9a74] {\n  width: 90%;\n}\n.action-btns[data-v-48ad9a74] {\n  margin-top: 17px;\n}\n/* is the notification count being used? */\n.notification-count[data-v-48ad9a74] {\n  position: relative;\n  top: -7px;\n  right: 15px;\n  font-size: 9px;\n  color: #003449;\n}\n.nav-item .nav-link.generalIcon[data-v-48ad9a74]:hover {\n  background-image: url(\"/images/icons/right-sidebar/General_Active.svg\") !important;\n}\n.nav-item .nav-link.filterIcon[data-v-48ad9a74]:hover {\n  background-image: url(\"/images/icons/right-sidebar/Filter_Active.svg\") !important;\n}\n.nav-item .nav-link.notificationsIcon[data-v-48ad9a74]:hover {\n  background-image: url(\"/images/icons/right-sidebar/Notifications_Active.svg\") !important;\n}\n.nav-item .nav-link.settingsIcon[data-v-48ad9a74]:hover {\n  background-image: url(\"/images/icons/right-sidebar/Settings_Active.svg\") !important;\n}\n.nav-item .nav-link.notificationsIcon img.inactive-icon[data-v-48ad9a74]:hover {\n  background-image: url(\"/images/icons/right-sidebar/New_Not_Red_Active.svg\") !important;\n}\n\n/* .menu-toggle {\n  background-image: url(\"/images/icons/right-sidebar/Filter.svg\") !important;\n    background-repeat: no-repeat;\n    height: 43px;\n    width: 43px;\n    top: 2px;\n    position: relative;\n    left: -11px;\n}\n.menu-toggle:hover {\n  background-image: url(\"/images/icons/right-sidebar/Filter_Active.svg\") !important;\n}\n\n.sidebar-collapse .menu-toggle {\n  background-image: url(\"/images/icons/right-sidebar/General.svg\") !important;\n}\n.sidebar-collapse .menu-toggle:hover {\n  background-image: url(\"/images/icons/right-sidebar/General_Active.svg\") !important;\n}\n\n.reminders { \n    box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);\n    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);\n    -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);\n    -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1); \n    border-radius: 25px; \n  }  */\n.reminders .nav-link[aria-posinset=\"2\"][data-v-48ad9a74] {\n  text-align: right;\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  line-height: 1em;\n  justify-content: flex-end;\n}\n.reminders .tabs[data-v-48ad9a74],\n.filter-content .tabs[data-v-48ad9a74] {\n  width: 100%;\n}\n.reminders .col-6[data-v-48ad9a74] {\n  padding-left: 6%;\n  padding-right: 6%;\n}\n.filter-results .custom-control.custom-checkbox .custom-control-label[data-v-48ad9a74]:before,\n.reminders .custom-checkbox .custom-control-label[data-v-48ad9a74]::before {\n  border-radius: 50% !important;\n  border: 1px solid #ededed;\n  box-shadow: none;\n  -webkit-box-shadow: none;\n  -moz-box-shadow: none;\n  -o-box-shadow: none;\n  background-image: url(\"/images/icons/right-sidebar/Task_Check.svg\") !important;\n  background-size: cover;\n}\n.reminders .custom-control-label[data-v-48ad9a74]::after,\n.reminders .custom-control-label[data-v-48ad9a74]::before {\n  width: 20px;\n  height: 20px;\n  top: 19px;\n  left: 0.2rem;\n  cursor: pointer;\n}\n.reminders input.list-input[data-v-48ad9a74] {\n  font-size: 0.83vw;\n  font-family: \"Rubik\", sans-serif;\n  color: #808080;\n  padding-left: 37px !important;\n  width: 100%;\n  text-overflow: ellipsis;\n}\n.reminders input.list-input[data-v-48ad9a74]:focus,\n.nav-link[data-v-48ad9a74]:focus {\n  outline: 0 !important;\n  box-shadow: none !important;\n  -webkit-box-shadow: none !important;\n  -moz-box-shadow: none !important;\n  -o-box-shadow: none !important;\n  border: 0 !important;\n}\n.reminders .btn-primary[data-v-48ad9a74] {\n  padding: 11px 14px 10px;\n  line-height: 1em;\n}\n.reminders .terms-text textarea[data-v-48ad9a74] {\n    border-left: 0;\n    border-top: 0;\n    border-right: 0;\n    border-bottom: 1px solid #f7f7f7;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]:focus {\n   outline: 0 !important;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]::-webkit-input-placeholder {\n  font-style: italic;\n  font-weight: 300;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]::-moz-placeholder {\n  font-style: italic;\n  font-weight: 300;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]:-ms-input-placeholder {\n  font-style: italic;\n  font-weight: 300;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]::-ms-input-placeholder {\n  font-style: italic;\n  font-weight: 300;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]::placeholder {\n  font-style: italic;\n  font-weight: 300;\n}\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label[data-v-48ad9a74]::before {\n  background-image: url(\"/images/icons/right-sidebar/Task_Check.svg\") !important;\n  border-radius: 50% !important;\n  background-size: cover;\n}\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label[data-v-48ad9a74]::after {\n  border-radius: 50% !important;\n  background-color: #ff933a !important;\n}\n.reminders input.list-input[data-v-48ad9a74]:focus {\n  border: 1px solid rgba(28, 35, 49, 0.5);\n}\n.grey-scroll[data-v-48ad9a74]::-webkit-scrollbar-thumb {\n  background: #b3b3b3 !important;\n  border-radius: 5px !important;\n}\n.orange[data-v-48ad9a74] {\n  color: #ff933a;\n}\n.blue[data-v-48ad9a74] {\n  color: #3fa9f5;\n}\n.tasks-date[data-v-48ad9a74] {\n  font-size: 10px;\n  font-family: \"Rubik\", sans-serif !important;\n  color: #808080;\n  margin-left: 35px;\n}\n.reminders-border-bottom[data-v-48ad9a74] {\n  border-bottom: 1px solid #f7f7f7;\n}\nli.row.m-2.pl-0.align-items-center.reminders-border-bottom[data-v-48ad9a74]:first-child {\nborder-top: 1px solid #f7f7f7;\n}\n.nav-tabs .nav-item[data-v-48ad9a74] {\n  width: 50%;\n}\n.btn-default.cancel-user[data-v-48ad9a74] {\n  border-radius: 50rem !important;\n  font-size: 10px;\n  color: #989899;\n  text-transform: uppercase;\n  padding: 10px 20px;\n  font-weight: 600;\n}\n.btn-primary.update-user[data-v-48ad9a74],\n.btn-primary.update-filter[data-v-48ad9a74],\n.btn-primary.save-filter[data-v-48ad9a74] {\n  font-size: 10px;\n  background: linear-gradient(\n    to right,\n    rgb(255, 128, 51, 1) 0%,\n    rgba(255, 147, 58, 1) 100%\n  ) !important;\n  font-weight: 600;\n  text-transform: uppercase;\n  padding: 10px 20px;\n}\n.btn-primary.update-filter[data-v-48ad9a74],\n.btn-primary.save-filter[data-v-48ad9a74] {\n  padding: 6px 12px !important;\n}\n.float-right[data-v-48ad9a74] {\n  float: right;\n}\n.inactive-icon[data-v-48ad9a74] {\n  padding: 6px;\n  border-radius: 50rem;\n  box-shadow: none;\n  -webkit-box-shadow: none;\n  -moz-box-shadow: none;\n  -o-box-shadow: none;\n  transition: box-shadow 0.5s ease;\n}\n\n/* .inactive-icon:hover {\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n  -o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n} */\n.filter-heading[data-v-48ad9a74] {\n  font-size: 0.83vw;\n  color: #171717 !important;\n  font-family: \"Rubik\", sans-serif !important;\n}\n.filterborder[data-v-48ad9a74] {\n  border: 1px solid #fed6d6;\n}\n.show[data-v-48ad9a74] {\n  display: block !important;\n}\n.row.filter-content[data-v-48ad9a74] {\n  margin-left: -27px;\n  margin-right: -27px;\n}\n.row.filter-content .custom-control.custom-checkbox[data-v-48ad9a74],\n.saved-results[data-v-48ad9a74] {\n  border-radius: 14px;\n  box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  margin: 10px 0;\n}\n.row.filter-content .custom-control.custom-checkbox .custom-control-label[data-v-48ad9a74] {\n  font-size: 14px;\n  padding-left: 28px;\n  font-family: \"Rubik\", sans-serif !important;\n}\n.row.filter-content\n  .filter-results\n  .custom-control.custom-checkbox\n  .custom-control-label[data-v-48ad9a74] {\n  font-size: 12px;\n  padding-left: 20px;\n}\n.row.filter-content .filter-results .custom-control[data-v-48ad9a74] {\n  padding-left: 10px !important;\n}\n.row.filter-content .search-criteria[data-v-48ad9a74] {\n  border: 0;\n  box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n  -webkit-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n  -moz-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n  -o-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n  font-size: 12px;\n  border-radius: 14px;\n  padding: 10px;\n  font-family: \"Rubik\", sans-serif !important;\n}\n.row.filter-content .search-text[data-v-48ad9a74],\n.save-text[data-v-48ad9a74] {\n  border: 0;\n  box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  font-size: 12px;\n  font-family: \"Rubik\", sans-serif;\n  font-weight: 300;\n  font-style: italic;\n  border-radius: 15px;\n  padding: 10px;\n}\n.row.filter-content\n  .search-text::-webkit-input-placeholder\n  .save-text[data-v-48ad9a74]::-webkit-input-placeholder {\n  font-size: 12px !important;\n  font-family: \"Rubik\", sans-serif !important;\n  color: rgba(0, 0, 0, 0.65) !important;\n}\n.save-text[data-v-48ad9a74]::-webkit-input-placeholder {\n  font-size: 10px !important;\n  font-family: \"Rubik\", sans-serif !important;\n  color: #b3b3b3 !important;\n  font-style: italic;\n}\n.filter-results[data-v-48ad9a74] {\n  max-height: 200px;\n  overflow: auto;\n  margin-top: 20px;\n}\n.saved-results[data-v-48ad9a74] {\n  font-size: 12px !important;\n  font-family: \"Rubik\", sans-serif;\n}\n.px-6[data-v-48ad9a74] {\n  padding: 0px 8%;\n}\n.px-6-hide[data-v-48ad9a74] {\n  padding: 0px 8%;\n}\n.filter-container[data-v-48ad9a74] {\n  overflow: auto;\n}\n@media screen and (max-width: 1368px) {\n.filter-container[data-v-48ad9a74] {\n    max-height: 450px;\n}\n.px-6-hide[data-v-48ad9a74] {\n  padding:0;\n}\n.small-margin[data-v-48ad9a74] {\n    margin: 10px 10px 0px 9px;\n}\n}\n@media screen and (min-width: 1400px) {\n.filter-container[data-v-48ad9a74] {\n    max-height: 650px;\n}\n}\ninput.search-text[data-v-48ad9a74]:focus,\ninput.save-text[data-v-48ad9a74]:focus {\n  outline: 0 !important;\n  border: 0 !important;\n}\n.custom-filter-name-save[data-v-48ad9a74] {\n  border-color: #cdcdcf;\n}\n/*End Right Component*/\n", ""]);
+exports.push([module.i, "\n.main-sidebar[data-v-48ad9a74] {\n  right: 0 !important;\n  left: auto;\n  overflow: visible;\n  position: absolute;\n  top: 0;\n  right: 0 !important;\n  bottom: 0;\n  z-index: 830;\n  transition: right 0.3s ease-in-out;\n  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -o-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n.main-sidebar[data-v-48ad9a74],\n.main-sidebar[data-v-48ad9a74]:before {\n  transition: margin-right 0.3s ease-in-out, width 0.3s ease-in-out !important;\n  width: 16.718% !important;\n}\n@media (max-width: 991.98px) {\n.main-sidebar[data-v-48ad9a74],\n  .main-sidebar[data-v-48ad9a74]:before {\n    margin-left: -0 !important;\n    margin-left: -10.833% !important;\n}\n.sidebar-open .main-sidebar[data-v-48ad9a74],\n  .sidebar-open .main-sidebar[data-v-48ad9a74]:before {\n    margin-right: 0 !important;\n}\n}\n.sidebar[data-v-48ad9a74] {\n  overflow: visible;\n}\np[data-v-48ad9a74] {\n  color: #9fb3bb;\n  margin: 0;\n}\nh2[data-v-48ad9a74] {\n  color: #003449;\n  font-size: 29px;\n  letter-spacing: 4.2px;\n  font-weight: 600;\n}\nh3[data-v-48ad9a74] {\n  color: #1a1c43;\n  font-size: 0.83vw;\n  font-weight: 700;\n}\nh3 img[data-v-48ad9a74] {\n  float: right;\n  cursor: pointer;\n  margin-top: -7px;\n}\n.main label.custom-control-label[data-v-48ad9a74] {\n  color: inherit;\n  font-weight: 200;\n  padding-top: 3px;\n}\n.navbar[data-v-48ad9a74] {\n  border-color: #cdcdcf;\n  margin-top: 6%;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] {\n  color: rgba(0, 0, 0, 0.5);\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] {\n  font-size: 14px;\n  color: #1e2331;\n  padding-top: 6px;\n  position: relative;\n  top: -4%;\n}\n.help-block[data-v-48ad9a74] {\n  color: red;\n}\n.status[data-v-48ad9a74] {\n  display: none;\n}\n.status.active[data-v-48ad9a74] {\n  width: 76px;\n  text-align: center;\n  border-radius: 8px;\n  display: block;\n  background: #00d68f;\n  padding: 4px 3px;\n  line-height: 20px;\n  color: #fff;\n  text-transform: uppercase;\n  font-size: 12px;\n  float: left;\n  margin: 0;\n}\n.status.offline[data-v-48ad9a74] {\n  width: 76px;\n  text-align: center;\n  border-radius: 8px;\n  display: block;\n  background: orange;\n  padding: 4px 3px;\n  line-height: 20px;\n  color: #fff;\n  text-transform: uppercase;\n  font-size: 12px;\n  float: left;\n  margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover,\n.status.offline[data-v-48ad9a74]:hover {\n  color: #3b3b3b;\n  cursor: pointer;\n}\n.status.show[data-v-48ad9a74] {\n  display: block !important;\n}\n.collapse[data-v-48ad9a74] {\n  border-bottom: 1px solid #cdccce;\n}\n.p-3[data-v-48ad9a74] {\n  padding: 0.8rem 2rem 1.4rem 1.7rem !important;\n}\n.pl-34[data-v-48ad9a74] {\n  padding-left: 34px;\n}\n.ml-12[data-v-48ad9a74] {\n  margin-left: 12px;\n}\n.progress-bar[data-v-48ad9a74] {\n  background: #f7f6fb;\n  border-radius: 5px;\n}\n.tank[data-v-48ad9a74] {\n  background: linear-gradient(\n    to right,\n    rgba(161, 237, 128, 1) 0%,\n    rgba(98, 211, 126, 1) 100%\n  ) !important;\n  border-radius: 5px;\n  background: rgb(114, 218, 126);\n  height: 8px;\n  transition: all 0.5s ease 0s;\n}\n.value[data-v-48ad9a74] {\n  font-weight: 900;\n  font-size: 0.83vw;\n  color: #1a1c43;\n  margin-top: -8px;\n  letter-spacing: 0.1em;\n  font-family: Montserrat !important;\n}\n.description[data-v-48ad9a74] {\n  font-size: 12px;\n  font-family: \"Rubik\", sans-serif;\n  color: #1e2331;\n  padding-bottom: 10px;\n}\n.position[data-v-48ad9a74] {\n  display: block;\n  position: relative;\n  background: #ff8234;\n  color: #fff;\n  height: 62px;\n  text-align: center;\n  font-size: 17px;\n  padding: 18px 9px;\n  width: 62px;\n  transform: rotate(45deg);\n  /* Standard syntax */\n  margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74] {\n  transform: rotate(0deg);\n  /* Standard syntax */\n}\np.heading[data-v-48ad9a74] {\n  border-bottom: 1px solid #cdccce;\n  margin-bottom: 10px;\n  font-weight: 900;\n}\n.navbar ul[data-v-48ad9a74] {\n  margin-bottom: 10px;\n}\n.personal-info[data-v-48ad9a74],\n.general-system-prefs[data-v-48ad9a74],\n.notifications .w-100[data-v-48ad9a74] {\n  margin-top: 20px;\n}\n.personal-info img[data-v-48ad9a74] {\n  border-radius: 50%;\n  width: 27%;\n}\n.personal-info button.btn-info[data-v-48ad9a74] {\n  margin: 5px 0 15px 0;\n  font-size: 9px;\n}\n.btn-info[data-v-48ad9a74] {\n  height: 24px !important;\n  background: #f98b39 !important;\n  border-color: #f98b39 !important;\n  color: #fff !important;\n  padding: 4px 17px 6px !important;\n  border-radius: 24px !important;\n}\n.settings .row.border-bottom[data-v-48ad9a74],\n.notifications .row.border-bottom[data-v-48ad9a74] {\n  border-color: #cdccce;\n  padding: 21px 0px 16px 0;\n}\n.notification-popup[data-v-48ad9a74] {\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\n  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\n  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\n  border-radius: 21px;\n  width: 100% !important;\n}\n.settings .row p.description[data-v-48ad9a74] {\n  font-size: 9px;\n  display: block;\n}\n.custom-checkbox .custom-control-label[data-v-48ad9a74] {\n  padding-top: 5px;\n}\n.themes label[data-v-48ad9a74]:first-child,\n.themes label[data-v-48ad9a74]:nth-child(2),\n.language label[data-v-48ad9a74],\n.notifications label[data-v-48ad9a74],\n.action-btns label[data-v-48ad9a74]:first-child,\n.action-btns label[data-v-48ad9a74]:nth-child(2) {\n  margin-right: 8px;\n  float: left;\n}\n.control-label[data-v-48ad9a74] {\n  color: #989899;\n  font-family: \"Rubik\", sans-serif;\n  font-size: 12px;\n  text-align: left;\n}\n.btn-default[data-v-48ad9a74] {\n  padding: 6px 12px 6px 10px;\n  font-size: 10px;\n  border: transparent !important;\n  border-radius: 5px !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-default[data-v-48ad9a74]:hover {\n  background: #00344a;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 6px 12px 6px 10px;\n  font-size: 10px;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-active[data-v-48ad9a74] {\n  background: #00344a;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 6px 12px 6px 10px;\n  font-size: 0.6vw;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.themes .btn-default[data-v-48ad9a74],\n.language .btn-default[data-v-48ad9a74],\n.language .btn-active[data-v-48ad9a74] {\n  border-radius: 50rem !important;\n  padding: 8px 15px !important;\n}\n.btn-orange[data-v-48ad9a74],\n.btn-orange-active[data-v-48ad9a74] {\n  background: linear-gradient(\n    to right,\n    rgb(255, 128, 51, 1) 0%,\n    rgba(255, 147, 58, 1) 100%\n  ) !important;\n  color: #ffffff;\n  border: transparent !important;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-white[data-v-48ad9a74] {\n  background: #fff;\n  border: transparent !important;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.orange-btn[data-v-48ad9a74]:hover {\n  background: linear-gradient(\n    to right,\n    rgb(255, 128, 51, 1) 0%,\n    rgba(255, 147, 58, 1) 100%\n  ) !important;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 8px 15px;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-blue[data-v-48ad9a74] {\n  background: linear-gradient(\n    to right,\n    rgb(60, 144, 206, 1) 0%,\n    rgba(65, 197, 231, 1) 100%\n  ) !important;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 8px 15px;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.blue-btn[data-v-48ad9a74]:hover {\n  background: linear-gradient(\n    to right,\n    rgb(60, 144, 206, 1) 0%,\n    rgba(65, 197, 231, 1) 100%\n  ) !important;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 8px 15px;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-dark[data-v-48ad9a74] {\n  background: linear-gradient(\n    to right,\n    rgb(25, 25, 26, 1) 0%,\n    rgba(23, 23, 66, 1) 100%\n  ) !important;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 8px 15px;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.dark-btn[data-v-48ad9a74]:hover {\n  background: linear-gradient(\n    to right,\n    rgb(25, 25, 26, 1) 0%,\n    rgba(23, 23, 66, 1) 100%\n  ) !important;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 8px 15px;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.notifications-close img[data-v-48ad9a74] {\n  width: 20px;\n  top: 5px;\n  position: relative;\n}\n.btn-has-new-dot[data-v-48ad9a74] {\n  background-image: url(\"/images/icons/Red-Notification-Dot.svg\") !important;\n  background-size: 12px 12px;\n  background-repeat: no-repeat;\n  background-position: right top;\n  width: 13px;\n  height: 100%;\n  z-index: 1;\n  position: absolute;\n  left: 66px;\n  top: -5px;\n}\n.btn-has-new-messages[data-v-48ad9a74] {\n  background-image: url(\"/images/icons/blue dot.svg\") !important;\n  background-size: 69% 34%;\n  background-repeat: no-repeat;\n  background-position: left top;\n  color: #ffffff;\n  font-size: 10px;\n  text-align: center;\n}\n.btn-has-new[data-v-48ad9a74]:hover {\n  background-image: url(\"/images/icons/Dot.png\") !important;\n  background-size: 12px 12px;\n  background-repeat: no-repeat;\n  background-position: right top;\n}\n.logout-wrapper[data-v-48ad9a74] {\n  margin-top: 14%;\n}\n#logout[data-v-48ad9a74] {\n  background-image: url(\"/images/icons/Asset 67.svg\") !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n  height: 100px;\n  background-position: center;\n  margin-bottom: 11%;\n}\n#logout[data-v-48ad9a74]:hover {\n  background-image: url(\"/images/icons/Asset 66.svg\") !important;\n}\n.notifications .btn-default[data-v-48ad9a74] {\n  padding: 6px 25px 6px 18px;\n  font-size: 12px;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.notifications .top-section[data-v-48ad9a74] {\n  list-style: none;\n}\n.notifications .card-body-notifications h3[data-v-48ad9a74],\n.notifications .card-body-notifications h3 a[data-v-48ad9a74],\n.caller-name[data-v-48ad9a74] {\n  color: #333333;\n  font-size: 0.7vw;\n  font-weight: 600;\n}\n.caller-time[data-v-48ad9a74] {\n  float: right;\n  font-size: 0.6vw;\n  color: #808080;\n}\n.notifications .card-body-notifications p.call_back_time[data-v-48ad9a74] {\n  color: #808080;\n  font-size: 0.7vw;\n}\n.personal-info .row.mx-0.border-left[data-v-48ad9a74],\n.account-info .row.mx-0.border-left[data-v-48ad9a74] {\n  border-color: #cdccce;\n}\n.settings .title[data-v-48ad9a74] {\n  color: #7f8080;\n  padding-bottom: 16px;\n  font-size: 12px;\n}\n.small-avatar img[data-v-48ad9a74] {\n  width: 30px;\n  border-radius: 50%;\n}\n.update-user[data-v-48ad9a74],\n.update-filter[data-v-48ad9a74],\n.save-filter[data-v-48ad9a74] {\n  margin: 0px 0px 5px 0px;\n}\n.final-modal[data-v-48ad9a74] {\n  padding: 0 0 1rem;\n}\n.final-modal .row-a[data-v-48ad9a74] {\n  width: 100%;\n  border-bottom: 1px solid #cdccce;\n  margin-left: 0;\n}\n.final-modal label button img[data-v-48ad9a74] {\n  width: 20px;\n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-48ad9a74] {\n  font-size: 55px;\n  color: #ff933a;\n}\n.card-header[data-v-48ad9a74] {\n  color: rgba(28, 35, 49, 0.5);\n  border-bottom: 0.5px solid #f4f4f5 !important;\n  background-color: #fff !important;\n  font-size: 10px;\n  font-weight: 600;\n}\n.card-body-notifications[data-v-48ad9a74] {\n  padding: 11px 10px;\n}\n.card-body-notifications img[data-v-48ad9a74] {\n  padding-right: 10px;\n}\n.callback-cal p[data-v-48ad9a74] {\n  font-size: 0.73vw;\n  color: #666666;\n  border-color: #ccc;\n  margin-top: 25px;\n}\n.final-modal .card-header[data-v-48ad9a74] {\n  padding: 0 11px 0;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-48ad9a74] {\n  border-bottom: none;\n  background: #fff;\n  padding: 6px 12px;\n}\n.final-modal .card-header-tabs .left a.active[aria-selected=\"true\"][data-v-48ad9a74] {\n  border-bottom: none;\n  background: #fff;\n  padding: 6px 12px;\n  box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n  -webkit-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n  -moz-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n  -o-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n}\n.final-modal .card-header-tabs .left a[aria-selected=\"false\"][data-v-48ad9a74] {\n  border-bottom: none;\n  background: #fff;\n  padding: 6px 12px;\n  box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n  -webkit-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n  -moz-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n  -o-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n}\n.final-modal .card-header-tabs .right a.active[aria-selected=\"true\"][data-v-48ad9a74] {\n  border-bottom: none;\n  background: #fff;\n  padding: 6px 12px;\n  box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n  -webkit-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n  -moz-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n  -o-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n}\n.final-modal .card-header-tabs .right a[aria-selected=\"false\"][data-v-48ad9a74] {\n  border-bottom: none;\n  background: #fff;\n  padding: 6px 12px;\n  box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n  -webkit-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n  -moz-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n  -o-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74] {\n  padding: 6px 12px;\n  font-size: 0.83vw;\n  color: #818284;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74]:hover {\n  background: #fff;\n  padding: 6px 12px;\n  font-size: 0.83vw;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74] {\n  background: #fff;\n  padding: 6px 12px;\n  font-size: 0.83vw;\n  color: #818284;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74]:hover {\n  background: #fff;\n  padding: 6px 12px;\n  font-size: 0.83vw;\n}\n.final-modal input[data-v-48ad9a74] {\n  font-size: 9px;\n}\n.form-control[data-v-48ad9a74] {\n  padding: 10px 12px !important;\n  font-size: 12px;\n  box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1) !important;\n  -webkit-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1) !important;\n  -moz-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1) !important;\n  -o-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1) !important;\n  color: #193246;\n  font-weight: 600;\n  margin-top: 6px;\n}\ntextarea.form-control[data-v-48ad9a74] {\n  height: 100px !important;\n  border-radius: 15px;\n}\n.stats-section[data-v-48ad9a74] {\n  margin-top: 25px;\n}\n.stats-section .commission[data-v-48ad9a74] {\n  padding: 25px 0;\n}\n.stats-section .sales[data-v-48ad9a74],\n.stats-section .calls[data-v-48ad9a74],\n.search-input[data-v-48ad9a74],\n.filter-search[data-v-48ad9a74],\n.filter-by[data-v-48ad9a74] {\n  padding: 5px 0;\n}\n.stats-section .calls .col-lg-12 p[data-v-48ad9a74],\n.stats-section .sales .col-lg-12 p[data-v-48ad9a74],\np.badges[data-v-48ad9a74] {\n  border-bottom: 0.5px solid #f4f4f5;\n  margin-bottom: 5px;\n  padding-bottom: 2px;\n}\n.print-btn[data-v-48ad9a74],\n.export-btn[data-v-48ad9a74] {\n  width: 90%;\n}\n.action-btns[data-v-48ad9a74] {\n  margin-top: 17px;\n}\n/* is the notification count being used? */\n.notification-count[data-v-48ad9a74] {\n  position: relative;\n  top: -7px;\n  right: 15px;\n  font-size: 9px;\n  color: #003449;\n}\n.nav-item .nav-link.generalIcon[data-v-48ad9a74]:hover {\n  background-image: url(\"/images/icons/right-sidebar/General_Active.svg\") !important;\n}\n.nav-item .nav-link.filterIcon[data-v-48ad9a74]:hover {\n  background-image: url(\"/images/icons/right-sidebar/Filter_Active.svg\") !important;\n}\n.nav-item .nav-link.notificationsIcon[data-v-48ad9a74]:hover {\n  background-image: url(\"/images/icons/right-sidebar/Notifications_Active.svg\") !important;\n}\n.nav-item .nav-link.settingsIcon[data-v-48ad9a74]:hover {\n  background-image: url(\"/images/icons/right-sidebar/Settings_Active.svg\") !important;\n}\n.nav-item .nav-link.notificationsIcon img.inactive-icon[data-v-48ad9a74]:hover {\n  background-image: url(\"/images/icons/right-sidebar/New_Not_Red_Active.svg\") !important;\n}\n\n/* .menu-toggle {\n  background-image: url(\"/images/icons/right-sidebar/Filter.svg\") !important;\n    background-repeat: no-repeat;\n    height: 43px;\n    width: 43px;\n    top: 2px;\n    position: relative;\n    left: -11px;\n}\n.menu-toggle:hover {\n  background-image: url(\"/images/icons/right-sidebar/Filter_Active.svg\") !important;\n}\n\n.reminders { \n    box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);\n    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);\n    -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);\n    -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1); \n    border-radius: 25px; \n  }  */\n.reminders .nav-link[aria-posinset=\"2\"][data-v-48ad9a74] {\n  text-align: right;\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  line-height: 1em;\n  justify-content: flex-end;\n}\n.reminders .tabs[data-v-48ad9a74],\n.filter-content .tabs[data-v-48ad9a74] {\n  width: 100%;\n}\n.reminders .col-6[data-v-48ad9a74] {\n  padding-left: 6%;\n  padding-right: 6%;\n}\n.filter-results .custom-control.custom-checkbox .custom-control-label[data-v-48ad9a74]:before,\n.reminders .custom-checkbox .custom-control-label[data-v-48ad9a74]::before {\n  border-radius: 50% !important;\n  border: 1px solid #ededed;\n  box-shadow: none;\n  -webkit-box-shadow: none;\n  -moz-box-shadow: none;\n  -o-box-shadow: none;\n  background-image: url(\"/images/icons/right-sidebar/Task_Check.svg\") !important;\n  background-size: cover;\n}\n.reminders .custom-control-label[data-v-48ad9a74]::after,\n.reminders .custom-control-label[data-v-48ad9a74]::before {\n  width: 20px;\n  height: 20px;\n  top: 19px;\n  left: 0.2rem;\n  cursor: pointer;\n}\n.reminders input.list-input[data-v-48ad9a74] {\n  font-size: 0.83vw;\n  font-family: \"Rubik\", sans-serif;\n  color: #808080;\n  padding-left: 37px !important;\n  width: 100%;\n  text-overflow: ellipsis;\n}\n.reminders input.list-input[data-v-48ad9a74]:focus,\n.nav-link[data-v-48ad9a74]:focus {\n  outline: 0 !important;\n  box-shadow: none !important;\n  -webkit-box-shadow: none !important;\n  -moz-box-shadow: none !important;\n  -o-box-shadow: none !important;\n  border: 0 !important;\n}\n.reminders .btn-primary[data-v-48ad9a74] {\n  padding: 11px 14px 10px;\n  line-height: 1em;\n}\n.reminders .terms-text textarea[data-v-48ad9a74] {\n    border-left: 0;\n    border-top: 0;\n    border-right: 0;\n    border-bottom: 1px solid #f7f7f7;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]:focus {\n   outline: 0 !important;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]::-webkit-input-placeholder {\n  font-style: italic;\n  font-weight: 300;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]::-moz-placeholder {\n  font-style: italic;\n  font-weight: 300;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]:-ms-input-placeholder {\n  font-style: italic;\n  font-weight: 300;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]::-ms-input-placeholder {\n  font-style: italic;\n  font-weight: 300;\n}\n.reminders .terms-text textarea[data-v-48ad9a74]::placeholder {\n  font-style: italic;\n  font-weight: 300;\n}\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label[data-v-48ad9a74]::before {\n  background-image: url(\"/images/icons/right-sidebar/Task_Check.svg\") !important;\n  border-radius: 50% !important;\n  background-size: cover;\n}\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label[data-v-48ad9a74]::after {\n  border-radius: 50% !important;\n  background-color: #ff933a !important;\n}\n.reminders input.list-input[data-v-48ad9a74]:focus {\n  border: 1px solid rgba(28, 35, 49, 0.5);\n}\n.grey-scroll[data-v-48ad9a74]::-webkit-scrollbar-thumb {\n  background: #b3b3b3 !important;\n  border-radius: 5px !important;\n}\n.orange[data-v-48ad9a74] {\n  color: #ff933a;\n}\n.blue[data-v-48ad9a74] {\n  color: #3fa9f5;\n}\n.tasks-date[data-v-48ad9a74] {\n  font-size: 10px;\n  font-family: \"Rubik\", sans-serif !important;\n  color: #808080;\n  margin-left: 35px;\n}\n.reminders-border-bottom[data-v-48ad9a74] {\n  border-bottom: 1px solid #f7f7f7;\n}\nli.row.m-2.pl-0.align-items-center.reminders-border-bottom[data-v-48ad9a74]:first-child {\nborder-top: 1px solid #f7f7f7;\n}\n.nav-tabs .nav-item[data-v-48ad9a74] {\n  width: 50%;\n}\n.btn-default.cancel-user[data-v-48ad9a74] {\n  border-radius: 50rem !important;\n  font-size: 10px;\n  color: #989899;\n  text-transform: uppercase;\n  padding: 10px 20px;\n  font-weight: 600;\n}\n.btn-primary.update-user[data-v-48ad9a74],\n.btn-primary.update-filter[data-v-48ad9a74],\n.btn-primary.save-filter[data-v-48ad9a74] {\n  font-size: 10px;\n  background: linear-gradient(\n    to right,\n    rgb(255, 128, 51, 1) 0%,\n    rgba(255, 147, 58, 1) 100%\n  ) !important;\n  font-weight: 600;\n  text-transform: uppercase;\n  padding: 10px 20px;\n}\n.btn-primary.update-filter[data-v-48ad9a74],\n.btn-primary.save-filter[data-v-48ad9a74] {\n  padding: 6px 12px !important;\n}\n.float-right[data-v-48ad9a74] {\n  float: right;\n}\n.inactive-icon[data-v-48ad9a74] {\n  padding: 6px;\n  border-radius: 50rem;\n  box-shadow: none;\n  -webkit-box-shadow: none;\n  -moz-box-shadow: none;\n  -o-box-shadow: none;\n  transition: box-shadow 0.5s ease;\n}\n\n/* .inactive-icon:hover {\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n  -o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n} */\n.filter-heading[data-v-48ad9a74] {\n  font-size: 0.83vw;\n  color: #171717 !important;\n  font-family: \"Rubik\", sans-serif !important;\n}\n.filterborder[data-v-48ad9a74] {\n  border: 1px solid #fed6d6;\n}\n.show[data-v-48ad9a74] {\n  display: block !important;\n}\n.row.filter-content[data-v-48ad9a74] {\n  margin-left: -27px;\n  margin-right: -27px;\n}\n.row.filter-content .custom-control.custom-checkbox[data-v-48ad9a74],\n.saved-results[data-v-48ad9a74] {\n  border-radius: 14px;\n  box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  margin: 10px 0;\n}\n.row.filter-content .custom-control.custom-checkbox .custom-control-label[data-v-48ad9a74] {\n  font-size: 14px;\n  padding-left: 28px;\n  font-family: \"Rubik\", sans-serif !important;\n}\n.row.filter-content\n  .filter-results\n  .custom-control.custom-checkbox\n  .custom-control-label[data-v-48ad9a74] {\n  font-size: 12px;\n  padding-left: 20px;\n}\n.row.filter-content .filter-results .custom-control[data-v-48ad9a74] {\n  padding-left: 10px !important;\n}\n.row.filter-content .search-criteria[data-v-48ad9a74] {\n  border: 0;\n  box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -moz-box-shadow:0 0 7px rgba(0, 0, 0, 0.05);\n  -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  font-size: 12px;\n  border-radius: 14px;\n  padding: 10px;\n  font-family: \"Rubik\", sans-serif !important;\n}\n.row.filter-content .search-text[data-v-48ad9a74],\n.save-text[data-v-48ad9a74] {\n  border: 0;\n  box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  font-size: 12px;\n  font-family: \"Rubik\", sans-serif;\n  font-weight: 300;\n  font-style: italic;\n  border-radius: 15px;\n  padding: 10px;\n}\n.row.filter-content\n  .search-text::-webkit-input-placeholder\n  .save-text[data-v-48ad9a74]::-webkit-input-placeholder {\n  font-size: 12px !important;\n  font-family: \"Rubik\", sans-serif !important;\n  color: rgba(0, 0, 0, 0.65) !important;\n}\n.save-text[data-v-48ad9a74]::-webkit-input-placeholder {\n  font-size: 10px !important;\n  font-family: \"Rubik\", sans-serif !important;\n  color: #b3b3b3 !important;\n  font-style: italic;\n}\n.filter-results[data-v-48ad9a74] {\n  max-height: 200px;\n  overflow: auto;\n  margin-top: 20px;\n}\n.saved-results[data-v-48ad9a74] {\n  font-size: 12px !important;\n  font-family: \"Rubik\", sans-serif;\n}\n.px-6[data-v-48ad9a74] {\n  padding: 0px 8%;\n}\n.px-6-hide[data-v-48ad9a74] {\n  padding: 0px 8%;\n}\n.filter-container[data-v-48ad9a74] {\n  overflow: auto;\n}\n@media screen and (max-width: 1368px) {\n.filter-container[data-v-48ad9a74] {\n    max-height: 450px;\n}\n.px-6-hide[data-v-48ad9a74] {\n  padding:0;\n}\n.small-margin[data-v-48ad9a74] {\n    margin: 10px 10px 0px 9px;\n}\n}\n@media screen and (min-width: 1400px) {\n.filter-container[data-v-48ad9a74] {\n    max-height: 650px;\n}\n}\ninput.search-text[data-v-48ad9a74]:focus,\ninput.save-text[data-v-48ad9a74]:focus {\n  outline: 0 !important;\n  border: 0 !important;\n}\n.custom-filter-name-save[data-v-48ad9a74] {\n  border-color: #cdcdcf;\n}\n/*End Right Component*/\n", ""]);
 
 // exports
 
@@ -246720,7 +246707,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n\n/*Right Component*/\n.main-header.navbar.navbar-expand[data-v-6ec57eb6] {\n  padding: 13px 4% 1.55%;\n     position: relative;\n    top: 10px;\n}\n.navbar-nav li.title[data-v-6ec57eb6]{\n  line-height: 20px;\n}\n.nav-link.top-link.d-block.text-center[data-v-6ec57eb6] {\n    box-shadow: 0 0 7px rgba(0,0,0,0.1);\n}\n.nav-link.top-link.d-block.text-center[data-v-6ec57eb6]:hover {\n    box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n    background: #ffffff;\n}\na.add-new[data-v-6ec57eb6] {\n\tborder-radius: 50rem !important;\n    box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n    -webkit-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n    -moz-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n    -o-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n    background: #ffffff;\n    font-size: 16px;\n    color: #989899;\n    font-weight: 600;\n}\nli.title a strong[data-v-6ec57eb6]{\n  color: #003549;\n  font-size: 1.68vw;\n  letter-spacing: 0.1em;\n}\na.top-link[data-v-6ec57eb6]{    \n  border-radius: 26px;\n  height: 30px !important;\n  padding: 6px 17px 6px !important;\n  font-family: 'Rubik', sans-serif;\n  letter-spacing: 1px;\n}\na.active[data-v-6ec57eb6]{    \n  border-radius: 26px;\n  height: 30px !important;\n  background: #F98B39 !important;\n  border-color: #F98B39 !important;\n  color: #fff !important;\n  padding: 4px 17px 6px !important;\n}\nselect[data-v-6ec57eb6]{\n  font-family: 'Rubik', sans-serif;\n  border-radius: 26px;\n  border:0;\n  margin: 5px 8px 8px 55px !important;\n  height: 30px !important;\n  background: #fff !important;\n  color: #003549 !important;\n  padding: 0 16px 0 !important;\n  box-shadow: 0 0 5px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 5px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 5px rgba(0,0,0,0.1);\n  letter-spacing: 1px;\n  font-size: 14px;\n}\nselect.month-selector[data-v-6ec57eb6] {\n  margin-left: 0!important;\n  margin-right: 0!important;\n}\n.callIcons li a[data-v-6ec57eb6]{\n  background-repeat: no-repeat;\n  color: black;\n  background-size: 59px !important;\n  background-repeat: no-repeat !important;\n  background-position: center center !important;\n}\n.callIcons .search .col-auto[data-v-6ec57eb6] {\n  padding-right:46% !important;\n}\n.callIcons .search a[data-v-6ec57eb6]{\n  background-color: #fff;\n  background-image: url('/images/icons/top-nav/Search.svg') !important;\n  background-size: 15px!important;\n  background-repeat: no-repeat;\n  border-radius: 50rem;\n\tbox-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n\twidth: 40px;\n  height: 40px;\n}\n.callIcons .search a[data-v-6ec57eb6]:hover{\n  background-image: url('/images/icons/Asset 61.svg') !important;\n  background-size: 170%!important;\n  background-repeat: no-repeat;\n}\n.callIcons .search input[data-v-6ec57eb6] {\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding:14px 0 14px;\n  right: -40px;\n  position: absolute;\n  top: -24px;\n  width:0;\n  transition: width 2s;\n}\n.callIcons .search:hover input[data-v-6ec57eb6] {\n  width:auto;\n  padding:14px 40px 14px 15px;\n}\n.callIcons .search:hover input[data-v-6ec57eb6]:focus {\n  outline: 0 !important;\n}\n.callIcons .search input[data-v-6ec57eb6]::-webkit-input-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-6ec57eb6]::-moz-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-6ec57eb6]:-ms-input-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-6ec57eb6]::-ms-input-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-6ec57eb6]::placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons li.idle .status[data-v-6ec57eb6]{\n  background-image: url('/images/icons/Asset 55.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.callIcons li.on-call .status[data-v-6ec57eb6]{\n  background-image: url('/images/icons/Asset 56.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.callIcons li.offline .status[data-v-6ec57eb6]{\n  background-image: url('/images/icons/Asset 57.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]{\n  background-image: url('/images/icons/top-nav/Start_Call.svg') !important;\n  background-size: 20px;\n  background-position: center;\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]:hover{\n  background-image: url('/images/icons/Call/Start Call Hover.svg') !important;\n  background-size: 170%;\n  background-repeat: no-repeat;\n}\n.callIcons li button.call[data-v-6ec57eb6],\n.callIcons button.status[data-v-6ec57eb6],\n.callIcons button.end-call[data-v-6ec57eb6] {\n    border-radius: 50rem;\n    box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    width: 40px;\n    height: 40px;\n}\n.callIcons li .end-call[data-v-6ec57eb6]{\n  background-image: url('/images/icons/top-nav/End_Call.svg') !important;\n  background-size: 25px;\n  background-position: center;\n  background-repeat: no-repeat;\n}\n.callIcons li .end-call[data-v-6ec57eb6]:hover{\n  background-image: url('/images/icons/Call/End Call Hover.svg') !important;\n  background-size: 170%;\n  background-repeat: no-repeat;\n}\n.callIcons li .add-call-back-btn[data-v-6ec57eb6]{\n  background-image: url('/images/workstation/Asset 28@4x.png') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-color: transparent;\n  border: none;\n  padding: 14px;\n  margin-top: 5px;\n  margin-left: 20px;\n}\n.modal-content[data-v-6ec57eb6]{\n  background: linear-gradient(to right, rgba(255,128,51,1) 0%, rgba(255,147,58,1) 100%);\n}\n/*is error being used?*/\n.error[data-v-6ec57eb6]{\n  color:#F98B39;\n}\n/*End Right Component*/\n", ""]);
+exports.push([module.i, "\n\n/*Right Component*/\n.main-header.navbar.navbar-expand[data-v-6ec57eb6] {\n  padding: 13px 4% 1.55%;\n  position: relative;\n  top: 10px;\n}\n.navbar-nav li.title[data-v-6ec57eb6]{\n  line-height: 20px;\n}\n.nav-link.top-link.d-block.text-center[data-v-6ec57eb6] {\n  box-shadow: 0 0 7px rgba(0,0,0,0.1);\n}\n.nav-link.top-link.d-block.text-center[data-v-6ec57eb6]:hover {\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow:0 0 5px rgba(0, 0, 0, 0.1);\n  -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n  background: #ffffff;\n}\na.add-new[data-v-6ec57eb6] {\n\tborder-radius: 50rem !important;\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n  -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n  background: #ffffff;\n  font-size: 16px;\n  color: #989899;\n  font-weight: 600;\n}\nli.title a strong[data-v-6ec57eb6]{\n  color: #003549;\n  font-size: 1.68vw;\n  letter-spacing: 0.1em;\n}\na.top-link[data-v-6ec57eb6]{    \n  border-radius: 26px;\n  height: 30px !important;\n  padding: 6px 17px 6px !important;\n  font-family: 'Rubik', sans-serif;\n  letter-spacing: 1px;\n}\na.active[data-v-6ec57eb6]{    \n  border-radius: 26px;\n  height: 30px !important;\n  background: #F98B39 !important;\n  border-color: #F98B39 !important;\n  color: #fff !important;\n  padding: 4px 17px 6px !important;\n}\nselect[data-v-6ec57eb6]{\n  font-family: 'Rubik', sans-serif;\n  border-radius: 26px;\n  border:0;\n  margin: 5px 8px 8px 55px !important;\n  height: 30px !important;\n  background: #fff !important;\n  color: #003549 !important;\n  padding: 0 16px 0 !important;\n  box-shadow: 0 0 5px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 5px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 5px rgba(0,0,0,0.1);\n  letter-spacing: 1px;\n  font-size: 14px;\n}\nselect.month-selector[data-v-6ec57eb6] {\n  margin-left: 0!important;\n  margin-right: 0!important;\n}\n.callIcons li a[data-v-6ec57eb6]{\n  background-repeat: no-repeat;\n  color: black;\n  background-size: 59px !important;\n  background-repeat: no-repeat !important;\n  background-position: center center !important;\n}\n.callIcons .search .col-auto[data-v-6ec57eb6] {\n  padding-right:46% !important;\n}\n.callIcons .search a[data-v-6ec57eb6]{\n  background-color: #fff;\n  background-image: url('/images/icons/top-nav/Search.svg') !important;\n  background-size: 15px!important;\n  background-repeat: no-repeat;\n  border-radius: 50rem;\n\tbox-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n\twidth: 40px;\n  height: 40px;\n}\n.callIcons .search a[data-v-6ec57eb6]:hover{\n  background-image: url('/images/icons/Asset 61.svg') !important;\n  background-size: 170%!important;\n  background-repeat: no-repeat;\n}\n.callIcons .search input[data-v-6ec57eb6] {\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding:14px 0 14px;\n  right: -40px;\n  position: absolute;\n  top: -24px;\n  width:0;\n  transition: width 2s;\n}\n.callIcons .search:hover input[data-v-6ec57eb6] {\n  width:auto;\n  padding:14px 40px 14px 15px;\n}\n.callIcons .search:hover input[data-v-6ec57eb6]:focus {\n  outline: 0 !important;\n}\n.callIcons .search input[data-v-6ec57eb6]::-webkit-input-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-6ec57eb6]::-moz-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-6ec57eb6]:-ms-input-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-6ec57eb6]::-ms-input-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-6ec57eb6]::placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons li.idle .status[data-v-6ec57eb6]{\n  background-image: url('/images/icons/Asset 55.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.callIcons li.on-call .status[data-v-6ec57eb6]{\n  background-image: url('/images/icons/Asset 56.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.callIcons li.offline .status[data-v-6ec57eb6]{\n  background-image: url('/images/icons/Asset 57.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]{\n  background-image: url('/images/icons/top-nav/Start_Call.svg') !important;\n  background-size: 20px;\n  background-position: center;\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]:hover{\n  background-image: url('/images/icons/Call/Start Call Hover.svg') !important;\n  background-size: 170%;\n  background-repeat: no-repeat;\n}\n.callIcons li button.call[data-v-6ec57eb6],\n.callIcons button.status[data-v-6ec57eb6],\n.callIcons button.end-call[data-v-6ec57eb6] {\n    border-radius: 50rem;\n    box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    width: 40px;\n    height: 40px;\n}\n.callIcons li .end-call[data-v-6ec57eb6]{\n  background-image: url('/images/icons/top-nav/End_Call.svg') !important;\n  background-size: 25px;\n  background-position: center;\n  background-repeat: no-repeat;\n}\n.callIcons li .end-call[data-v-6ec57eb6]:hover{\n  background-image: url('/images/icons/Call/End Call Hover.svg') !important;\n  background-size: 170%;\n  background-repeat: no-repeat;\n}\n.callIcons li .add-call-back-btn[data-v-6ec57eb6]{\n  background-image: url('/images/workstation/Asset 28@4x.png') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-color: transparent;\n  border: none;\n  padding: 14px;\n  margin-top: 5px;\n  margin-left: 20px;\n}\n.modal-content[data-v-6ec57eb6]{\n  background: linear-gradient(to right, rgba(255,128,51,1) 0%, rgba(255,147,58,1) 100%);\n}\n/*is error being used?*/\n.error[data-v-6ec57eb6]{\n  color:#F98B39;\n}\n/*End Right Component*/\n", ""]);
 
 // exports
 
@@ -362505,7 +362492,7 @@ var staticRenderFns = [
                         staticStyle: { width: "60px" },
                         attrs: {
                           src: "/images/icons/Call-History-Add-Icon.svg",
-                          alt: "Icon"
+                          alt: "Add call history Icon"
                         }
                       })
                     ]
@@ -363986,7 +363973,7 @@ var render = function() {
                                         attrs: {
                                           src:
                                             "/images/icons/workstation/Submit.svg",
-                                          alt: "Icon",
+                                          alt: "submit Icon",
                                           width: "76"
                                         }
                                       })
@@ -364047,7 +364034,7 @@ var render = function() {
                             staticClass: "icon",
                             attrs: {
                               src: "/images/icons/Add_icon.svg",
-                              alt: "Icon",
+                              alt: "Add Icon",
                               width: "26"
                             }
                           })
@@ -364516,7 +364503,11 @@ var staticRenderFns = [
     return _c("p", { staticClass: "card-stat text-center mb-0" }, [
       _c("img", {
         staticClass: "d-inline-block",
-        attrs: { src: "/images/icons/dashboard/Up_icon.svg", width: "10" }
+        attrs: {
+          src: "/images/icons/dashboard/Up_icon.svg",
+          alt: "increased value icon",
+          width: "10"
+        }
       }),
       _vm._v(" "),
       _vm._v("\n              14%\n            ")
@@ -364529,7 +364520,11 @@ var staticRenderFns = [
     return _c("p", { staticClass: "card-stat text-center mb-0" }, [
       _c("img", {
         staticClass: "d-inline-block",
-        attrs: { src: "/images/icons/dashboard/Up_icon.svg", width: "10" }
+        attrs: {
+          src: "/images/icons/dashboard/Up_icon.svg",
+          alt: "increased value icon",
+          width: "10"
+        }
       }),
       _vm._v(" "),
       _vm._v("\n              3%\n            ")
@@ -364542,7 +364537,11 @@ var staticRenderFns = [
     return _c("p", { staticClass: "card-stat text-center mb-0" }, [
       _c("img", {
         staticClass: "d-inline-block",
-        attrs: { src: "/images/icons/dashboard/Up_icon.svg", width: "10" }
+        attrs: {
+          src: "/images/icons/dashboard/Up_icon.svg",
+          alt: "increased value icon",
+          width: "10"
+        }
       }),
       _vm._v(" "),
       _vm._v("\n              11%\n            ")
@@ -364555,7 +364554,11 @@ var staticRenderFns = [
     return _c("p", { staticClass: "card-stat text-center mb-0" }, [
       _c("img", {
         staticClass: "d-inline-block",
-        attrs: { src: "/images/icons/dashboard/Up_icon.svg", width: "10" }
+        attrs: {
+          src: "/images/icons/dashboard/Up_icon.svg",
+          alt: "increased value icon",
+          width: "10"
+        }
       }),
       _vm._v(" "),
       _vm._v("\n              33%\n            ")
@@ -364568,7 +364571,11 @@ var staticRenderFns = [
     return _c("p", { staticClass: "card-stat text-center mb-0" }, [
       _c("img", {
         staticClass: "d-inline-block",
-        attrs: { src: "/images/icons/dashboard/Up_icon.svg", width: "10" }
+        attrs: {
+          src: "/images/icons/dashboard/Up_icon.svg",
+          alt: "increased value icon",
+          width: "10"
+        }
       }),
       _vm._v(" "),
       _vm._v("\n              33%\n            ")
@@ -364612,7 +364619,7 @@ var staticRenderFns = [
                         staticClass: "icon",
                         attrs: {
                           src: "/images/icons/dashboard/Calls vs Sales.svg",
-                          alt: "Icon",
+                          alt: "Tab Icon",
                           width: "31"
                         }
                       }),
@@ -364641,7 +364648,7 @@ var staticRenderFns = [
                         staticClass: "icon",
                         attrs: {
                           src: "/images/icons/dashboard/Monthly Sales.svg",
-                          alt: "Icon",
+                          alt: "Tab Icon",
                           width: "31"
                         }
                       }),
@@ -364682,6 +364689,7 @@ var staticRenderFns = [
                         staticClass: "d-inline-block mr-2",
                         attrs: {
                           src: "images/icons/dashboard/calls.svg",
+                          alt: "legend key icon",
                           width: "9"
                         }
                       }),
@@ -364696,6 +364704,7 @@ var staticRenderFns = [
                         staticClass: "d-inline-block mr-2",
                         attrs: {
                           src: "images/icons/dashboard/sales.svg",
+                          alt: "legend key icon",
                           width: "9"
                         }
                       }),
@@ -364756,7 +364765,7 @@ var staticRenderFns = [
                     staticClass: "icon",
                     attrs: {
                       src: "/images/icons/dashboard/Answers vs Dialing.svg",
-                      alt: "Icon",
+                      alt: "Tab Icon",
                       width: "31"
                     }
                   }),
@@ -364785,7 +364794,7 @@ var staticRenderFns = [
                     staticClass: "icon",
                     attrs: {
                       src: "/images/icons/dashboard/Commissions.svg",
-                      alt: "Icon",
+                      alt: "Tab Icon",
                       width: "31"
                     }
                   }),
@@ -364810,7 +364819,11 @@ var staticRenderFns = [
         _c("div", { staticClass: "col-auto pl-0" }, [
           _c("img", {
             staticClass: "d-inline-block mr-2",
-            attrs: { src: "images/icons/dashboard/answers.svg", width: "9" }
+            attrs: {
+              src: "images/icons/dashboard/answers.svg",
+              alt: "legend key icon",
+              width: "9"
+            }
           }),
           _vm._v(" "),
           _c("p", { staticClass: "d-inline-block mb-0" }, [_vm._v("Answers")])
@@ -364819,7 +364832,11 @@ var staticRenderFns = [
         _c("div", { staticClass: "col-auto pr-0" }, [
           _c("img", {
             staticClass: "d-inline-block mr-2",
-            attrs: { src: "images/icons/dashboard/dialing.svg", width: "9" }
+            attrs: {
+              src: "images/icons/dashboard/dialing.svg",
+              alt: "legend key icon",
+              width: "9"
+            }
           }),
           _vm._v(" "),
           _c("p", { staticClass: "d-inline-block mb-0" }, [_vm._v("Dialling")])
@@ -364848,7 +364865,11 @@ var staticRenderFns = [
             _c("div", { staticClass: "col-auto pl-0" }, [
               _c("img", {
                 staticClass: "d-inline-block mr-2",
-                attrs: { src: "images/icons/dashboard/year-1.svg", width: "9" }
+                attrs: {
+                  src: "images/icons/dashboard/year-1.svg",
+                  alt: "legend key icon",
+                  width: "9"
+                }
               }),
               _vm._v(" "),
               _c("p", { staticClass: "d-inline-block mb-0" }, [_vm._v("2018")])
@@ -364857,7 +364878,11 @@ var staticRenderFns = [
             _c("div", { staticClass: "col-auto pr-0" }, [
               _c("img", {
                 staticClass: "d-inline-block mr-2",
-                attrs: { src: "images/icons/dashboard/year-2.svg", width: "9" }
+                attrs: {
+                  src: "images/icons/dashboard/year-2.svg",
+                  alt: "legend key icon",
+                  width: "9"
+                }
               }),
               _vm._v(" "),
               _c("p", { staticClass: "d-inline-block mb-0" }, [_vm._v("2019")])
@@ -365061,7 +365086,7 @@ var render = function() {
                               staticStyle: { width: "10px" },
                               attrs: {
                                 src: "/images/workstation/Asset 28@4x.png",
-                                alt: "Icon"
+                                alt: "Show column Icon"
                               }
                             })
                           ]
@@ -365220,7 +365245,10 @@ var render = function() {
                   [
                     _c("img", {
                       staticClass: "chevron",
-                      attrs: { src: "/images/DataTables/left arrow.svg" }
+                      attrs: {
+                        src: "/images/DataTables/left arrow.svg",
+                        alt: "Nav left icon"
+                      }
                     })
                   ]
                 )
@@ -365242,7 +365270,10 @@ var render = function() {
                   [
                     _c("img", {
                       staticClass: "chevron",
-                      attrs: { src: "/images/DataTables/right arrow.svg" }
+                      attrs: {
+                        src: "/images/DataTables/right arrow.svg",
+                        alt: "Nav right icon"
+                      }
                     })
                   ]
                 )
@@ -365386,7 +365417,7 @@ var render = function() {
                                         attrs: {
                                           src:
                                             "/images/workstation/Asset 28@4x.png",
-                                          alt: "Icon"
+                                          alt: "Show column Icon"
                                         }
                                       })
                                     ]
@@ -367270,7 +367301,10 @@ var render = function() {
                     [
                       _c("img", {
                         staticClass: "chevron",
-                        attrs: { src: "/images/DataTables/left arrow.svg" }
+                        attrs: {
+                          src: "/images/DataTables/left arrow.svg",
+                          alt: "Nav left icon"
+                        }
                       })
                     ]
                   )
@@ -367292,7 +367326,10 @@ var render = function() {
                     [
                       _c("img", {
                         staticClass: "chevron",
-                        attrs: { src: "/images/DataTables/right arrow.svg" }
+                        attrs: {
+                          src: "/images/DataTables/right arrow.svg",
+                          alt: "Nav right icon"
+                        }
                       })
                     ]
                   )
@@ -367643,7 +367680,10 @@ var render = function() {
                   [
                     _c("img", {
                       staticClass: "chevron",
-                      attrs: { src: "/images/DataTables/left arrow.svg" }
+                      attrs: {
+                        src: "/images/DataTables/left arrow.svg",
+                        alt: "Nav left icon"
+                      }
                     })
                   ]
                 )
@@ -367665,7 +367705,10 @@ var render = function() {
                   [
                     _c("img", {
                       staticClass: "chevron",
-                      attrs: { src: "/images/DataTables/right arrow.svg" }
+                      attrs: {
+                        src: "/images/DataTables/right arrow.svg",
+                        alt: "Nav right icon"
+                      }
                     })
                   ]
                 )
@@ -367750,7 +367793,7 @@ var render = function() {
                               staticStyle: { width: "10px" },
                               attrs: {
                                 src: "/images/workstation/Asset 28@4x.png",
-                                alt: "Icon"
+                                alt: "Show column Icon"
                               }
                             })
                           ]
@@ -367834,10 +367877,16 @@ var render = function() {
                               ? _c("img", {
                                   attrs: {
                                     src:
-                                      _vm.avatarUrl + row.id + "/" + row.avatar
+                                      _vm.avatarUrl + row.id + "/" + row.avatar,
+                                    alt: "Profile icon"
                                   }
                                 })
-                              : _c("img", { attrs: { src: _vm.noImageUrl } }),
+                              : _c("img", {
+                                  attrs: {
+                                    src: _vm.noImageUrl,
+                                    alt: "Profile icon"
+                                  }
+                                }),
                             _vm._v(
                               "  \n                            " +
                                 _vm._s(row.full_name) +
@@ -367994,7 +368043,10 @@ var render = function() {
                   [
                     _c("img", {
                       staticClass: "chevron",
-                      attrs: { src: "/images/DataTables/left arrow.svg" }
+                      attrs: {
+                        src: "/images/DataTables/left arrow.svg",
+                        alt: "Nav left icon"
+                      }
                     })
                   ]
                 )
@@ -368016,7 +368068,10 @@ var render = function() {
                   [
                     _c("img", {
                       staticClass: "chevron",
-                      attrs: { src: "/images/DataTables/right arrow.svg" }
+                      attrs: {
+                        src: "/images/DataTables/right arrow.svg",
+                        alt: "Nav right icon"
+                      }
                     })
                   ]
                 )
@@ -370266,6 +370321,7 @@ var render = function() {
                       attrs: {
                         src:
                           "/images/icons/left-sidebar/no-shadows/Dashboard.svg",
+                        alt: "nav icon",
                         width: "52"
                       }
                     }),
@@ -370292,6 +370348,7 @@ var render = function() {
                       attrs: {
                         src:
                           "/images/icons/left-sidebar/no-shadows/Workstation.svg",
+                        alt: "nav icon",
                         width: "52"
                       }
                     }),
@@ -370318,6 +370375,7 @@ var render = function() {
                       attrs: {
                         src:
                           "/images/icons/left-sidebar/no-shadows/Contacts.svg",
+                        alt: "nav icon",
                         width: "52"
                       }
                     }),
@@ -370342,6 +370400,7 @@ var render = function() {
                     _c("img", {
                       attrs: {
                         src: "/images/icons/left-sidebar/no-shadows/Leads.svg",
+                        alt: "nav icon",
                         width: "52"
                       }
                     }),
@@ -370368,6 +370427,7 @@ var render = function() {
                       attrs: {
                         src:
                           "/images/icons/left-sidebar/no-shadows/Call history.svg",
+                        alt: "nav icon",
                         width: "52"
                       }
                     }),
@@ -370394,6 +370454,7 @@ var render = function() {
                       attrs: {
                         src:
                           "/images/icons/left-sidebar/no-shadows/Inventory.svg",
+                        alt: "nav icon",
                         width: "52"
                       }
                     }),
@@ -370421,6 +370482,7 @@ var render = function() {
                           attrs: {
                             src:
                               "/images/icons/left-sidebar/no-shadows/Transactions.svg",
+                            alt: "nav icon",
                             width: "52"
                           }
                         }),
@@ -370451,6 +370513,7 @@ var render = function() {
                         attrs: {
                           src:
                             "/images/icons/left-sidebar/no-shadows/Leads.svg",
+                          alt: "nav icon",
                           width: "52"
                         }
                       }),
@@ -370479,6 +370542,7 @@ var render = function() {
                           attrs: {
                             src:
                               "/images/icons/left-sidebar/no-shadows/Users.svg",
+                            alt: "nav icon",
                             width: "52"
                           }
                         }),
@@ -370507,6 +370571,7 @@ var render = function() {
                           attrs: {
                             src:
                               "/images/icons/left-sidebar/no-shadows/System Pref.svg",
+                            alt: "nav icon",
                             width: "52"
                           }
                         }),
@@ -370534,7 +370599,11 @@ var staticRenderFns = [
       [
         _c("img", {
           staticClass: "logo",
-          attrs: { src: "/images/SVG_Images/Logo.svg", width: "30" }
+          attrs: {
+            src: "/images/SVG_Images/Logo.svg",
+            alt: "logo",
+            width: "30"
+          }
         })
       ]
     )
@@ -370599,7 +370668,7 @@ var render = function() {
                                 attrs: {
                                   src:
                                     "/images/icons/right-sidebar/General.svg",
-                                  alt: "Settings Cog",
+                                  alt: "Stats icon",
                                   width: "43"
                                 }
                               })
@@ -370607,7 +370676,7 @@ var render = function() {
                                 attrs: {
                                   src:
                                     "/images/icons/right-sidebar/General_Active.svg",
-                                  alt: "Settings Cog",
+                                  alt: "Stats icon",
                                   width: "43"
                                 }
                               })
@@ -370635,7 +370704,7 @@ var render = function() {
                                     attrs: {
                                       src:
                                         "/images/icons/right-sidebar/Filter.svg",
-                                      alt: "Settings Cog",
+                                      alt: "Filters icon",
                                       width: "43"
                                     }
                                   })
@@ -370643,7 +370712,7 @@ var render = function() {
                                     attrs: {
                                       src:
                                         "/images/icons/right-sidebar/Filter_Active.svg",
-                                      alt: "Settings Cog",
+                                      alt: "Filters icon",
                                       width: "43"
                                     }
                                   })
@@ -370768,11 +370837,15 @@ var render = function() {
                                           _vm.avatarUrl +
                                           _vm.user.id +
                                           "/" +
-                                          _vm.user.avatar
+                                          _vm.user.avatar,
+                                        alt: "Profile icon"
                                       }
                                     })
                                   : _c("img", {
-                                      attrs: { src: _vm.noImageUrl }
+                                      attrs: {
+                                        src: _vm.noImageUrl,
+                                        alt: "Profile icon"
+                                      }
                                     })
                               ]
                             )
@@ -370807,7 +370880,7 @@ var render = function() {
                                     attrs: {
                                       src:
                                         "/images/icons/settings edit buttin@4x.png",
-                                      alt: "Profile Edit Off",
+                                      alt: "Profile Edit On",
                                       width: "30"
                                     },
                                     on: {
@@ -370905,12 +370978,14 @@ var render = function() {
                                                             _vm.avatarUrl +
                                                             _vm.user.id +
                                                             "/" +
-                                                            _vm.user.avatar
+                                                            _vm.user.avatar,
+                                                          alt: "Profile icon"
                                                         }
                                                       })
                                                     : _c("img", {
                                                         attrs: {
-                                                          src: _vm.noImageUrl
+                                                          src: _vm.noImageUrl,
+                                                          alt: "Profile icon"
                                                         }
                                                       }),
                                                   _vm._v(" "),
@@ -371703,7 +371778,7 @@ var render = function() {
                                     attrs: {
                                       src:
                                         "/images/icons/settings edit buttin@4x.png",
-                                      alt: "Account Edit Off",
+                                      alt: "Account Edit On",
                                       width: "30"
                                     },
                                     on: {
@@ -372183,7 +372258,7 @@ var render = function() {
                                         attrs: {
                                           src:
                                             "/images/icons/settings edit buttin@4x.png",
-                                          alt: "Account Edit Off",
+                                          alt: "Account Edit On",
                                           width: "30"
                                         },
                                         on: {
@@ -372475,7 +372550,7 @@ var render = function() {
                                     attrs: {
                                       src:
                                         "/images/icons/settings edit buttin@4x.png",
-                                      alt: "Account Edit Off",
+                                      alt: "Account Edit On",
                                       width: "30"
                                     },
                                     on: {
@@ -372867,7 +372942,7 @@ var render = function() {
                                     attrs: {
                                       src:
                                         "/images/icons/settings edit buttin@4x.png",
-                                      alt: "Account Edit Off",
+                                      alt: "Account Edit On",
                                       width: "30"
                                     },
                                     on: {
@@ -375748,7 +375823,10 @@ var staticRenderFns = [
       _c("span", { staticClass: "notifications-close" }, [
         _c("img", {
           staticStyle: { display: "none" },
-          attrs: { src: "/images/icons/close-icon.svg" }
+          attrs: {
+            src: "/images/icons/close-icon.svg",
+            alt: "Notifications off"
+          }
         })
       ])
     ])
@@ -375780,7 +375858,11 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("div", { staticClass: "col-auto p-0" }, [
           _c("img", {
-            attrs: { src: "/images/icons/user_icon@4x.png", width: "50" }
+            attrs: {
+              src: "/images/icons/user_icon@4x.png",
+              alt: "Profile icon",
+              width: "50"
+            }
           })
         ]),
         _vm._v(" "),
@@ -375812,7 +375894,11 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("div", { staticClass: "col-auto p-0" }, [
           _c("img", {
-            attrs: { src: "/images/icons/user_icon@4x.png", width: "50" }
+            attrs: {
+              src: "/images/icons/user_icon@4x.png",
+              alt: "Profile icon",
+              width: "50"
+            }
           })
         ]),
         _vm._v(" "),
@@ -376877,6 +376963,7 @@ var render = function() {
                                     _c("img", {
                                       attrs: {
                                         src: "images/icons/Field_Delete.svg",
+                                        alt: "Delete field icon",
                                         width: "19"
                                       }
                                     })
@@ -376896,6 +376983,7 @@ var render = function() {
                                     _c("img", {
                                       attrs: {
                                         src: "images/icons/Field_Add.svg",
+                                        alt: "Add field icon",
                                         width: "19"
                                       }
                                     })
@@ -377584,6 +377672,7 @@ var render = function() {
                                             attrs: {
                                               src:
                                                 "images/icons/Field_Delete.svg",
+                                              alt: "Delete field icon",
                                               width: "19"
                                             }
                                           })
@@ -377605,6 +377694,7 @@ var render = function() {
                                           _c("img", {
                                             attrs: {
                                               src: "images/icons/Field_Add.svg",
+                                              alt: "Add field icon",
                                               width: "19"
                                             }
                                           })
@@ -377816,6 +377906,7 @@ var render = function() {
                                             attrs: {
                                               src:
                                                 "images/icons/Field_Delete.svg",
+                                              alt: "Delete field icon",
                                               width: "19"
                                             }
                                           })
@@ -377837,6 +377928,7 @@ var render = function() {
                                           _c("img", {
                                             attrs: {
                                               src: "images/icons/Field_Add.svg",
+                                              alt: "Add field icon",
                                               width: "19"
                                             }
                                           })
@@ -377941,6 +378033,7 @@ var render = function() {
                           _c("img", {
                             attrs: {
                               src: "images/icons/delete.svg",
+                              alt: "Delete module icon",
                               width: "16"
                             },
                             on: {
@@ -378380,6 +378473,7 @@ var render = function() {
                                       _c("img", {
                                         attrs: {
                                           src: "images/icons/Field_Delete.svg",
+                                          alt: "Delete field icon",
                                           width: "19"
                                         }
                                       })
@@ -378399,6 +378493,7 @@ var render = function() {
                                       _c("img", {
                                         attrs: {
                                           src: "images/icons/Field_Add.svg",
+                                          alt: "Add field icon",
                                           width: "19"
                                         }
                                       })
@@ -378704,7 +378799,11 @@ var render = function() {
               },
               [
                 _c("img", {
-                  attrs: { src: "images/icons/Module_Add.svg", width: "47" }
+                  attrs: {
+                    src: "images/icons/Module_Add.svg",
+                    alt: "Add module icon",
+                    width: "47"
+                  }
                 })
               ]
             )
@@ -378762,6 +378861,7 @@ var render = function() {
                                             staticClass: "d-none",
                                             attrs: {
                                               src: "images/icons/delete.svg",
+                                              alt: "Delete icon",
                                               width: "16"
                                             },
                                             on: {
@@ -378920,6 +379020,7 @@ var render = function() {
                                                   attrs: {
                                                     src:
                                                       "images/icons/down.svg",
+                                                    alt: "Decreased value icon",
                                                     width: "11"
                                                   }
                                                 })
@@ -379396,6 +379497,8 @@ var render = function() {
                                                         attrs: {
                                                           src:
                                                             "images/icons/down.svg",
+                                                          alt:
+                                                            "Decreased value icon",
                                                           width: "11"
                                                         }
                                                       })
@@ -379632,6 +379735,7 @@ var render = function() {
                                           staticClass: "ml-0",
                                           attrs: {
                                             src: "images/icons/Field_Add.svg",
+                                            alt: "Add field icon",
                                             width: "16"
                                           },
                                           on: { click: _vm.addRole }
@@ -379643,7 +379747,7 @@ var render = function() {
                                 ],
                                 null,
                                 false,
-                                3289111906
+                                1096652357
                               )
                             },
                             [
@@ -381265,6 +381369,7 @@ var render = function() {
                                   staticClass: "d-none",
                                   attrs: {
                                     src: "images/icons/transactions/Paid.svg",
+                                    alt: "Paid icon",
                                     width: "16"
                                   }
                                 })
@@ -381307,6 +381412,7 @@ var render = function() {
                                   attrs: {
                                     src:
                                       "images/icons/transactions/Pending.svg",
+                                    alt: "Pending icon",
                                     width: "16"
                                   }
                                 })
@@ -381349,6 +381455,7 @@ var render = function() {
                                   attrs: {
                                     src:
                                       "images/icons/transactions/Pending.svg",
+                                    alt: "Pending icon",
                                     width: "16"
                                   }
                                 })
@@ -381391,6 +381498,7 @@ var render = function() {
                                   attrs: {
                                     src:
                                       "images/icons/transactions/Rejected.svg",
+                                    alt: "Rejected icon",
                                     width: "16"
                                   }
                                 })
@@ -381431,6 +381539,7 @@ var render = function() {
                                 _c("img", {
                                   attrs: {
                                     src: "images/icons/Field_Add.svg",
+                                    alt: "Add field icon",
                                     width: "16"
                                   }
                                 })
@@ -383118,7 +383227,7 @@ var staticRenderFns = [
                         staticStyle: { width: "60px" },
                         attrs: {
                           src: "/images/icons/Call-History-Add-Icon.svg",
-                          alt: "Icon"
+                          alt: "Add Call history Icon"
                         }
                       })
                     ]
@@ -384274,7 +384383,7 @@ var render = function() {
                                               attrs: {
                                                 src:
                                                   "/images/workstation/Asset 28@4x.png",
-                                                alt: "Icon"
+                                                alt: "Add Icon"
                                               }
                                             })
                                           ]
@@ -384412,7 +384521,7 @@ var render = function() {
                                           attrs: {
                                             src:
                                               "/images/icons/workstation/Submit.svg",
-                                            alt: "Icon",
+                                            alt: "Submit Icon",
                                             width: "76"
                                           }
                                         })
@@ -384615,7 +384724,7 @@ var render = function() {
                                       attrs: {
                                         src:
                                           "/images/icons/workstation/Submit.svg",
-                                        alt: "Icon",
+                                        alt: "Submit Icon",
                                         width: "76"
                                       }
                                     })
@@ -384927,7 +385036,7 @@ var render = function() {
                                     attrs: {
                                       src:
                                         "/images/icons/workstation/Submit.svg",
-                                      alt: "Icon",
+                                      alt: "Submit Icon",
                                       width: "76"
                                     }
                                   })
@@ -384983,7 +385092,7 @@ var render = function() {
                                     attrs: {
                                       src:
                                         "/images/icons/workstation/Open Activities.svg",
-                                      alt: "Icon",
+                                      alt: "Open Activities Icon",
                                       width: "31"
                                     }
                                   }),
@@ -384994,6 +385103,7 @@ var render = function() {
                                     staticClass: "d-none add-activity",
                                     attrs: {
                                       src: "/images/icons/Field_Add.svg",
+                                      alt: "Add field icon",
                                       width: "16"
                                     },
                                     on: {
@@ -386530,7 +386640,7 @@ var render = function() {
                                     staticClass: "icon",
                                     attrs: {
                                       src: "/images/icons/Asset 135.svg",
-                                      alt: "Icon"
+                                      alt: "Add time Icon"
                                     }
                                   }),
                                   _vm._v("More Time    \n                ")
@@ -386552,7 +386662,7 @@ var render = function() {
                                     staticClass: "icon",
                                     attrs: {
                                       src: "/images/icons/Asset 135.svg",
-                                      alt: "Icon"
+                                      alt: "Add time Icon"
                                     }
                                   }),
                                   _vm._v("More Time    \n                ")
@@ -386584,7 +386694,7 @@ var render = function() {
                                 staticClass: "icon",
                                 attrs: {
                                   src: "/images/icons/Asset 136.svg",
-                                  alt: "Icon"
+                                  alt: "Complete Icon"
                                 }
                               }),
                               _vm._v("Complete    \n                ")
@@ -386608,7 +386718,7 @@ var render = function() {
                             },
                             attrs: {
                               src: "/images/icons/Asset 56.svg",
-                              alt: "Icon"
+                              alt: "Unavailable Icon"
                             }
                           })
                         ]
@@ -386647,7 +386757,7 @@ var staticRenderFns = [
     return _c("h5", { staticClass: "card-title" }, [
       _c("img", {
         staticClass: "icon",
-        attrs: { src: "/images/workstation/D_A@4x.png", alt: "Icon" }
+        attrs: { src: "/images/workstation/D_A@4x.png", alt: "Client Icon" }
       }),
       _vm._v(" \n            Client \n          ")
     ])
@@ -386659,7 +386769,10 @@ var staticRenderFns = [
     return _c("h5", { staticClass: "card-title" }, [
       _c("img", {
         staticClass: "icon",
-        attrs: { src: "/images/workstation/Stock_Icon@4x.png", alt: "Icon" }
+        attrs: {
+          src: "/images/workstation/Stock_Icon@4x.png",
+          alt: "Product Icon"
+        }
       }),
       _vm._v(" \n            Product \n          ")
     ])
@@ -386673,7 +386786,10 @@ var staticRenderFns = [
         _c("h5", { staticClass: "card-title" }, [
           _c("img", {
             staticClass: "icon",
-            attrs: { src: "/images/workstation/S_A@4x.png", alt: "Icon" }
+            attrs: {
+              src: "/images/workstation/S_A@4x.png",
+              alt: "Last called Icon"
+            }
           }),
           _vm._v(" \n            Last Called by \n          ")
         ]),
@@ -386691,7 +386807,7 @@ var staticRenderFns = [
     return _c("h5", { staticClass: "card-title" }, [
       _c("img", {
         staticClass: "icon",
-        attrs: { src: "/images/workstation/Time_Icon@4x.png", alt: "Icon" }
+        attrs: { src: "/images/workstation/Time_Icon@4x.png", alt: "Time Icon" }
       }),
       _vm._v(" \n            Time \n          ")
     ])
@@ -386730,7 +386846,7 @@ var staticRenderFns = [
                     staticClass: "icon",
                     attrs: {
                       src: "/images/icons/workstation/Agent Notes.svg",
-                      alt: "Icon",
+                      alt: "Agent notes Icon",
                       width: "31px"
                     }
                   }),
@@ -386759,7 +386875,7 @@ var staticRenderFns = [
                     staticClass: "icon",
                     attrs: {
                       src: "/images/icons/workstation/Schedule Callback.svg",
-                      alt: "Icon",
+                      alt: "Schedule callback Icon",
                       width: "31px"
                     }
                   }),
@@ -386785,7 +386901,7 @@ var staticRenderFns = [
               staticClass: "icon",
               attrs: {
                 src: "/images/icons/circle.svg",
-                alt: "Icon",
+                alt: "Orange Circle Icon",
                 width: "17"
               }
             })
@@ -386803,7 +386919,7 @@ var staticRenderFns = [
               staticStyle: { "vertical-align": "baseline" },
               attrs: {
                 src: "/images/icons/grey dot.svg",
-                alt: "Icon",
+                alt: "Grey Dot Icon",
                 width: "17"
               }
             })
@@ -386828,7 +386944,7 @@ var staticRenderFns = [
                 staticStyle: { "vertical-align": "text-top" },
                 attrs: {
                   src: "/images/icons/blue dot.svg",
-                  alt: "Icon",
+                  alt: "Blue Dot Icon",
                   width: "8"
                 }
               })
@@ -386849,7 +386965,7 @@ var staticRenderFns = [
               staticStyle: { "vertical-align": "text-top" },
               attrs: {
                 src: "/images/icons/Orange Dot_Big.svg",
-                alt: "Icon",
+                alt: "Big Orange Dot Icon",
                 width: "8"
               }
             })
@@ -386896,7 +387012,7 @@ var staticRenderFns = [
                     staticClass: "icon",
                     attrs: {
                       src: "/images/icons/workstation/Feeback Summary.svg",
-                      alt: "Icon",
+                      alt: "Feedback summary Icon",
                       width: "31px"
                     }
                   }),
@@ -386927,7 +387043,7 @@ var staticRenderFns = [
                     staticClass: "icon",
                     attrs: {
                       src: "/images/icons/workstation/Email Client.svg",
-                      alt: "Icon",
+                      alt: "Email client Icon",
                       width: "31px"
                     }
                   }),
@@ -386974,7 +387090,7 @@ var staticRenderFns = [
             staticClass: "icon",
             attrs: {
               src: "/images/icons/workstation/Closed Activities.svg",
-              alt: "Icon",
+              alt: "Closed Activities Icon",
               width: "31"
             }
           }),
@@ -387036,7 +387152,7 @@ var staticRenderFns = [
                     staticClass: "icon",
                     attrs: {
                       src: "/images/icons/workstation/Deals.svg",
-                      alt: "Icon",
+                      alt: "Deals Icon",
                       width: "31"
                     }
                   }),
@@ -387065,7 +387181,7 @@ var staticRenderFns = [
                     staticClass: "icon",
                     attrs: {
                       src: "/images/icons/workstation/Create_a_deal.svg",
-                      alt: "Icon",
+                      alt: "Create a deal Icon",
                       width: "31"
                     }
                   }),
