@@ -152,11 +152,11 @@ span.right {
   text-overflow: ellipsis; 
 } 
 .comments-list { 
-  max-height: 190px; 
+  max-height: 218px; 
   overflow-y: auto; 
 } 
 .stats-bars { 
-  max-height: 290px; 
+  max-height: 319px; 
   overflow-y: auto; 
 } 
 .agent-comments { 
@@ -555,7 +555,7 @@ a.down-scroll:hover {
 .final-modal .card-header { 
   border-top-left-radius: 19px; 
   border-top-right-radius: 19px; 
-  padding: 0 11px 11px; 
+  padding: 0 0 11px 0; 
   border-color: transparent; 
 } 
 .final-modal .card-header a[aria-selected="true"] { 
@@ -682,6 +682,27 @@ a.down-scroll:hover {
 #two .col-lg-8 { 
   padding-left: 7.8%; 
 } 
+@media screen and (max-width: 1771px) {
+  #two .callback-legend {
+    margin-bottom: 0;
+  }
+  #two .callback-legend .col-5{ 
+    padding-left: 0;
+    flex: 0 0 100%;
+    max-width: 100%; 
+  } 
+  #two .callback-legend .col-7 {
+    order:1;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  #two .callback-legend .row {
+    margin-bottom:14px;
+  }
+  #two .callback-legend .calendar-items .col-auto {
+    height: 10px;
+  }
+}
 .vc-reset, 
 .vc-reset * { 
   border-style: none !important; 
@@ -689,14 +710,6 @@ a.down-scroll:hover {
 } 
 .vc-h-full .vc-rounded-full { 
   border-radius: 5px !important; 
-} 
-.scroll-hidden { 
-  overflow-y: scroll; 
-  height: 70vh; 
-  padding-top: 6px; 
-  padding-right: 3%; 
-  padding-bottom: 6px; 
-  padding-left: 3%; 
 } 
 .summary p { 
   font-family: "Rubik", sans-serif; 
@@ -759,12 +772,16 @@ a.down-scroll:hover {
 } 
  
 .scroll-hidden { 
-  overflow-y: scroll; 
-  height: 70vh; 
-  /* padding-top: 6px; */ 
+  overflow: auto; 
   padding-right: 6px; 
   width: 100%; 
+  padding-bottom: 6px; 
 } 
+
+.left-padding-4 {
+    padding-left: 4%;
+}
+
 .dropdown-menu { 
   width: 191px; 
   padding: 17px; 
@@ -1036,7 +1053,7 @@ a.down-scroll:hover {
         <div class="card-deck mx-0 mb-0"> 
           <div class="card mt-3 border-0 shadow-none mr-4 ml-0 tab-card"> 
             <div class="card-header tab-card-header border-bottom-0"> 
-              <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
+              <ul class="nav nav-tabs card-header-tabs mx-0" id="myTab" role="tablist"> 
                 <li class="nav-item left w-50"> 
                   <a 
                     class="nav-link active" 
@@ -1152,11 +1169,17 @@ a.down-scroll:hover {
                         aria-expanded="false" 
                         :class="{ 'choose-comment-type d-block': true, 'pulse' : choose_comment_type }" 
                       > 
+                      <div v-if="comment.comment_type" class="font-weight-bold comment-abbr">
+                        {{comment.comment_type.short}}
+                      </div>
+
+                      <div v-else>
                         <img 
                           src="/images/workstation/Asset 28@4x.png" 
                           alt="Add Icon" 
                           class="icon w-100" 
                         /> 
+                      </div>
                       </b-button> 
                       <div class="dropdown-menu"> 
                         <div class="d-block"> 
@@ -1235,7 +1258,7 @@ a.down-scroll:hover {
                         </div> 
                       </div> 
  
-                      <div class="col-5 pr-0"> 
+                      <div class="col-5 pr-0 calendar-items"> 
                         <div class="row mx-0 align-items-start recommended-call"> 
                           <div class="col-auto px-0"> 
                             <img 
@@ -1344,7 +1367,7 @@ a.down-scroll:hover {
  
           <div class="card shadow-none mt-3 mr-0 ml-4 border-0 tab-card"> 
             <div class="card-header tab-card-header border-bottom-0"> 
-              <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
+              <ul class="nav nav-tabs card-header-tabs mx-0" id="myTab" role="tablist"> 
                 <li class="nav-item left w-50"> 
                   <a 
                     class="nav-link active" 
@@ -1364,7 +1387,7 @@ a.down-scroll:hover {
                     <span class="left w-50">Feedback Summary</span> 
                   </a> 
                 </li> 
-                <li class="nav-item right w-50"> 
+                <!-- <li class="nav-item right w-50"> 
                   <a 
                     class="nav-link" 
                     id="four-tab" 
@@ -1382,7 +1405,7 @@ a.down-scroll:hover {
                     /> 
                     <span class="left">Email Client</span> 
                   </a> 
-                </li> 
+                </li>  -->
               </ul> 
             </div> 
  
@@ -1933,10 +1956,12 @@ a.down-scroll:hover {
   
     <!-- Active calls Section Starts -->  
     <div class="" v-if="active_calls == true">    
-      <div class="row stats scroll-hidden horizontal-scroll w-100 mx-0" style="margin-top: 6%">    
-        <div class="col-lg-12">    
+      <div class="row stats mt-4 w-100 mx-0">    
+        <div class="col-lg-12 left-padding-4">    
+          <div class="scroll-hidden">
           <vcl-table v-if="show_page_loader === true"></vcl-table>    
           <datatable v-if="show_page_loader === false" id="datatable" :rows="conferences" :columns="columns" :role="role_id"></datatable>    
+          </div>
         </div>    
       </div>    
     </div> 
