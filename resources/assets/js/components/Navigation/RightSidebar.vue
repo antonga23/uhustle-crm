@@ -657,9 +657,6 @@ p.heading {
   font-size: 0.83vw;
 }
 
-.final-modal input {
-  font-size: 9px;
-}
 
 .form-control {
   padding: 10px 12px !important;
@@ -720,24 +717,10 @@ p.badges {
   color: #003449;
 }
 
-.nav-item .nav-link.generalIcon:hover {
-  background-image: url("/images/icons/right-sidebar/General_Active.svg") !important;
-}
-
-.nav-item .nav-link.filterIcon:hover {
-  background-image: url("/images/icons/right-sidebar/Filter_Active.svg") !important;
-}
-
-.nav-item .nav-link.notificationsIcon:hover {
-  background-image: url("/images/icons/right-sidebar/Notifications_Active.svg") !important;
-}
-
-.nav-item .nav-link.settingsIcon:hover {
-  background-image: url("/images/icons/right-sidebar/Settings_Active.svg") !important;
-}
-
-.nav-item .nav-link.notificationsIcon img.inactive-icon:hover {
-  background-image: url("/images/icons/right-sidebar/New_Not_Red_Active.svg") !important;
+.nav-item .nav-link.generalIcon:hover,.nav-item .nav-link.filterIcon:hover, .nav-item .nav-link.notificationsIcon:hover, .nav-item .nav-link.settingsIcon:hover,.nav-item .nav-link.notificationsIcon img.inactive-icon:hover {
+  border-radius: 50%;
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);
+  
 }
 
 /* .menu-toggle {
@@ -811,7 +794,6 @@ p.badges {
   font-size: 0.83vw;
   font-family: "Rubik", sans-serif;
   color: #808080;
-  padding-left: 37px !important;
   width: 100%;
   text-overflow: ellipsis;
 }
@@ -830,17 +812,20 @@ p.badges {
   padding: 11px 14px 10px;
   line-height: 1em;
 }
-.reminders .terms-text textarea {
+.reminders .terms-text input {
     border-left: 0;
     border-top: 0;
     border-right: 0;
     border-bottom: 1px solid #f7f7f7;
+    width: 100%;
 }
-
-.reminders .terms-text textarea:focus {
+.terms-text {
+  padding-left: 37px;
+}
+.reminders .terms-text input:focus {
    outline: 0 !important;
 }
-.reminders .terms-text textarea::placeholder {
+.reminders .terms-text input::placeholder {
   font-style: italic;
   font-weight: 300;
 }
@@ -1808,7 +1793,7 @@ input.save-text:focus {
               </div>
             </div>
 
-            <div v-if="notifications_on == true" class="notifications px-6-hide ml-2">
+            <div v-if="notifications_on == true " class="notifications px-6-hide ml-2">
               <div class="row mx-0">
                 <h3 class="w-100 mb-2 mt-0">
                   Notifications
@@ -1897,7 +1882,7 @@ input.save-text:focus {
             </div> 
 
             <div v-if="notifications_on == false && settings_on == false && filters_on == false"> 
-              <div class="row mx-0 py-0 px-2 stats-section"> 
+              <div class="row mx-0 py-0 px-6 stats-section"> 
                 <div class="col-lg-12 px-0"> 
                   <div class="row mx-0 p-0"> 
                     <div class="col-lg-12 px-0"> 
@@ -1952,14 +1937,14 @@ input.save-text:focus {
                 </div> 
               </div> 
 
-              <div class="row mx-0 px-2 callback-cal"> 
+              <div class="row mx-0 px-6-hide callback-cal"> 
                 <div class="col-lg-12 border-0 px-0"> 
-                  <p class="border-bottom">Calendar</p>
+                  <p class="border-bottom small-margin">Calendar</p>
                   <vc-calendar class="border-0" :attributes='attrs' is-expanded :popover="true" />  
                 </div> 
               </div> 
 
-              <div class="row mx-0 px-2"> 
+              <div class="row mx-0"> 
                 <div class="col-lg-12 final-modal border-0"> 
                   <div class="row mx-0 mb-4 reminders"> 
                     <b-tabs class="outer-box-shadow"> 
@@ -2062,7 +2047,7 @@ input.save-text:focus {
                                 >
                                   <div class="col-12 px-0 custom-control custom-checkbox">
                                     <label class="w-100 terms-text" :for="'task' + i">
-                                      <a-textarea
+                                      <input maxlength="35"
                                         v-model="task.description"
                                         placeholder="Description"
                                         autosize
@@ -2072,7 +2057,7 @@ input.save-text:focus {
                                   </div>
 
                                   <div class="col-6 pl-0 custom-control">
-                                    <label class="terms-text" :for="'task' + i">
+                                    <label class="terms-text p-0" :for="'task' + i">
                                       <a-date-picker
                                         v-model="task.deadline"
                                         :defaultValue="moment(task.deadline, 'YYYY-MM-DD')"
@@ -2104,7 +2089,7 @@ input.save-text:focus {
                                 <div class="row mx-0">
                                   <div class="col-12 px-0 custom-control">
                                     <label class="w-100 terms-text" for="task1">
-                                      <input
+                                      <input maxlength="35"
                                         v-model="new_task.title"
                                         placeholder="Title"
                                         type="text"
@@ -2113,7 +2098,7 @@ input.save-text:focus {
                                     </label>
 
                                     <label class="w-100 terms-text" for="task1">
-                                      <a-textarea
+                                      <input maxlength="35"
                                         v-model="new_task.description"
                                         placeholder="Description"
                                         autosize
@@ -2142,6 +2127,11 @@ input.save-text:focus {
                             </transition>
                           </li> 
                         </ul> 
+                        <div class="row m-2 pl-0 align-items-center custom-control custom-checkbox"> 
+                          <a href="#" @click="addTask"> 
+                            <img src="/images/icons/right-sidebar/Add_Task.svg" class="add-task" /> 
+                          </a> 
+                        </div> 
                       </b-tab>  
                     </b-tabs> 
                   </div> 
@@ -2617,6 +2607,7 @@ input.save-text:focus {
         this.notifications_on = !this.notifications_on; 
         this.settings_on = false; 
         this.profile_on = false; 
+        this.filters_on = false; 
       }, 
       filterProperties(field) { 
         field.append_border = !field.append_border 
@@ -2630,6 +2621,7 @@ input.save-text:focus {
         this.settings_on = !this.settings_on; 
         this.notifications_on = false; 
         this.profile_on = false; 
+        this.filters_on = false; 
       }, 
       showGeneralStats() { 
       this.generalStats_on = !this.generalStats_on; 
