@@ -188447,6 +188447,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   mounted: function mounted() {
@@ -376676,6 +376677,7 @@ var render = function() {
                                   expression: "'required'"
                                 }
                               ],
+                              staticClass: "rounded-pill",
                               attrs: {
                                 "data-vv-name":
                                   "Field " + (index + 1) + "'s Name"
@@ -376735,7 +376737,7 @@ var render = function() {
                             _c(
                               "a-select",
                               {
-                                staticClass: "border-0",
+                                staticClass: "border-0 fieldType",
                                 attrs: { placeholder: "Select" },
                                 model: {
                                   value: field.type,
@@ -377251,27 +377253,34 @@ var render = function() {
                                     "div",
                                     [
                                       _c(
-                                        "label",
-                                        { attrs: { for: "input-valid" } },
-                                        [_vm._v(_vm._s(attr.display_name))]
-                                      ),
-                                      _vm._v(" "),
-                                      _c("b-form-checkbox", {
-                                        staticClass: "api-checkbox",
-                                        attrs: {
-                                          id: "checkbox-1",
-                                          name: "checkbox-1",
-                                          value: "1",
-                                          "unchecked-value": "0"
-                                        },
-                                        model: {
-                                          value: attr.value,
-                                          callback: function($$v) {
-                                            _vm.$set(attr, "value", $$v)
+                                        "b-form-checkbox",
+                                        {
+                                          staticClass: "api-checkbox",
+                                          attrs: {
+                                            id: "checkbox-1",
+                                            name: "checkbox-1",
+                                            value: "1",
+                                            "unchecked-value": "0"
                                           },
-                                          expression: "attr.value"
-                                        }
-                                      })
+                                          model: {
+                                            value: attr.value,
+                                            callback: function($$v) {
+                                              _vm.$set(attr, "value", $$v)
+                                            },
+                                            expression: "attr.value"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "label",
+                                            {
+                                              staticClass: "ml-0",
+                                              attrs: { for: "input-valid" }
+                                            },
+                                            [_vm._v(_vm._s(attr.display_name))]
+                                          )
+                                        ]
+                                      )
                                     ],
                                     1
                                   )
@@ -378189,7 +378198,7 @@ var render = function() {
                                     expression: "'required'"
                                   }
                                 ],
-                                staticClass: "border-0",
+                                staticClass: "border-0 rounded-pill",
                                 attrs: {
                                   id: "input-none",
                                   "data-vv-name":
@@ -378249,7 +378258,7 @@ var render = function() {
                               _c(
                                 "a-select",
                                 {
-                                  staticClass: "border-0 min-width-cell",
+                                  staticClass: "border-0 fieldType",
                                   attrs: { placeholder: "Select" },
                                   model: {
                                     value: field.type,
