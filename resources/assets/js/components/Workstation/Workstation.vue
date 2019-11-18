@@ -690,14 +690,6 @@ a.down-scroll:hover {
 .vc-h-full .vc-rounded-full { 
   border-radius: 5px !important; 
 } 
-.scroll-hidden { 
-  overflow-y: scroll; 
-  height: 70vh; 
-  padding-top: 6px; 
-  padding-right: 3%; 
-  padding-bottom: 6px; 
-  padding-left: 3%; 
-} 
 .summary p { 
   font-family: "Rubik", sans-serif; 
   font-size: 0.7vw; 
@@ -759,12 +751,16 @@ a.down-scroll:hover {
 } 
  
 .scroll-hidden { 
-  overflow-y: scroll; 
-  height: 70vh; 
-  /* padding-top: 6px; */ 
+  overflow: auto; 
   padding-right: 6px; 
   width: 100%; 
+  padding-bottom: 6px; 
 } 
+
+.left-padding-4 {
+    padding-left: 4%;
+}
+
 .dropdown-menu { 
   width: 191px; 
   padding: 17px; 
@@ -1933,10 +1929,12 @@ a.down-scroll:hover {
   
     <!-- Active calls Section Starts -->  
     <div class="" v-if="active_calls == true">    
-      <div class="row stats scroll-hidden horizontal-scroll w-100 mx-0" style="margin-top: 6%">    
-        <div class="col-lg-12">    
+      <div class="row stats mt-4 w-100 mx-0">    
+        <div class="col-lg-12 left-padding-4">    
+          <div class="scroll-hidden">
           <vcl-table v-if="show_page_loader === true"></vcl-table>    
           <datatable v-if="show_page_loader === false" id="datatable" :rows="conferences" :columns="columns" :role="role_id"></datatable>    
+          </div>
         </div>    
       </div>    
     </div> 
