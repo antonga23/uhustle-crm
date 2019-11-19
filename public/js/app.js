@@ -191923,6 +191923,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -191958,7 +191963,7 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   created: function created() {},
-  props: ['logged_user'],
+  props: ['active', 'logged_user', 'user_name', 'role_id', 'user_id'],
   data: function data() {
     return {
       transactions: null,
@@ -192254,6 +192259,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   mounted: function mounted() {
@@ -192266,13 +192277,14 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   created: function created() {},
-  props: ['empty_deal', 'lead_id'],
+  props: ['empty_deal', 'lead_id', 'lead_name', 'agent_id', 'agent_name'],
   data: function data() {
     return {
       deal: {
         lead_id: this.lead_id,
-        agent_id: '',
-        agent_name: '',
+        lead_name: '',
+        agent_id: this.agent_id,
+        agent_name: this.agent_name,
         deal_name: '',
         closing_date: '',
         type: '-None-',
@@ -192291,6 +192303,9 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    handleDateChange: function handleDateChange(date, dateString) {
+      this.deal.closing_date = dateString;
+    },
     clearDeal: function clearDeal() {
       this.deal.lead_id = this.lead_id;
       this.deal.agent_id = '';
@@ -192327,11 +192342,12 @@ __webpack_require__.r(__webpack_exports__);
       var vm = this;
 
       if (this.lead_id !== '-None-') {
+        vm.deal.lead_id = this.lead_id;
         axios.get("/modules/get-single-item/" + this.lead_id).then(function (response) {
           vm.leads = response.data.leads.display_items;
         });
       } else {
-        axios.get("/modules/get-all-items").then(function (response) {
+        axios.get("/modules/get-display-items").then(function (response) {
           vm.leads = response.data.leads.display_items;
         });
       }
@@ -195749,6 +195765,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -196046,6 +196067,8 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
         contact_name: '',
         contact_number: ''
       },
+      deal_items: [],
+      dealItems: [],
       perPage: 10,
       currentPage: 1,
       radioStyle: {
@@ -196070,7 +196093,12 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
     getDeals: function getDeals() {
       var vm = this;
       axios.get("/deals/get-all/" + this.item_id).then(function (response) {
-        vm.dealItems = response.data.deals;
+        vm.deal_items = response.data.deals; // ToDo: Push for slots
+        // vm.deal_items.map( (item) => {
+        //   vm.dealItems.push([
+        //     id:
+        //   ]);
+        // });
       });
     },
     getActiveCalls: function getActiveCalls() {
@@ -381059,7 +381087,9 @@ var render = function() {
                               _c("create-deal", {
                                 attrs: {
                                   empty_deal: _vm.deal,
-                                  lead_id: "-None-"
+                                  lead_id: "-None-",
+                                  agent_id: _vm.user_id,
+                                  agent_name: _vm.user_name
                                 }
                               })
                             ],
@@ -381173,7 +381203,12 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-control rounded-pill",
-                attrs: { type: "text", id: "agent-name", name: "AgentName" },
+                attrs: {
+                  type: "text",
+                  id: "agent-name",
+                  name: "AgentName",
+                  disabled: ""
+                },
                 domProps: { value: _vm.deal.agent_name },
                 on: {
                   input: function($event) {
@@ -381191,35 +381226,50 @@ var render = function() {
                 [_vm._v("Lead Name")]
               ),
               _vm._v(" "),
-              _c(
-                "a-select",
-                {
-                  staticClass: "custom-select rounded-pill border-0",
-                  model: {
-                    value: _vm.deal.lead_id,
-                    callback: function($$v) {
-                      _vm.$set(_vm.deal, "lead_id", $$v)
+              _vm.lead_id == "-None-"
+                ? _c(
+                    "a-select",
+                    {
+                      staticClass: "custom-select rounded-pill border-0",
+                      model: {
+                        value: _vm.deal.lead_id,
+                        callback: function($$v) {
+                          _vm.$set(_vm.deal, "lead_id", $$v)
+                        },
+                        expression: "deal.lead_id"
+                      }
                     },
-                    expression: "deal.lead_id"
-                  }
-                },
-                [
-                  _c(
-                    "a-select-option",
-                    { attrs: { value: "-None-", selected: "" } },
-                    [_vm._v("-None-")]
-                  ),
-                  _vm._v(" "),
-                  _vm._l(_vm.leads, function(lead, index) {
-                    return _c(
-                      "a-select-option",
-                      { key: index, attrs: { value: lead.id } },
-                      [_vm._v(_vm._s(lead.name + " " + lead.surname))]
-                    )
+                    [
+                      _c("a-select-option", { attrs: { value: "-None-" } }, [
+                        _vm._v("-None-")
+                      ]),
+                      _vm._v(" "),
+                      _vm._l(_vm.leads, function(lead, index) {
+                        return _c(
+                          "a-select-option",
+                          { key: index, attrs: { value: lead.id } },
+                          [_vm._v(_vm._s(lead.name + " " + lead.surname))]
+                        )
+                      })
+                    ],
+                    2
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.leads.length > 0
+                ? _c("input", {
+                    staticClass: "form-control rounded-pill",
+                    attrs: {
+                      type: "text",
+                      id: "lead-name",
+                      name: "LeadName",
+                      disabled: ""
+                    },
+                    domProps: {
+                      value: this.leads[0].name + " " + this.leads[0].surname
+                    }
                   })
-                ],
-                2
-              ),
+                : _vm._e(),
               _vm._v(" "),
               _c(
                 "label",
@@ -381258,13 +381308,7 @@ var render = function() {
               _c("a-date-picker", {
                 staticClass: "form-control rounded-pill p-0 border-0",
                 attrs: { id: "closing-date", name: "ClosingDate" },
-                model: {
-                  value: _vm.deal.closing_date,
-                  callback: function($$v) {
-                    _vm.$set(_vm.deal, "closing_date", $$v)
-                  },
-                  expression: "deal.closing_date"
-                }
+                on: { change: _vm.handleDateChange }
               })
             ],
             1
@@ -386269,7 +386313,9 @@ var render = function() {
                             _c("create-deal", {
                               attrs: {
                                 empty_deal: _vm.deal,
-                                lead_id: _vm.item_id
+                                lead_id: _vm.item_id,
+                                agent_id: _vm.user_id,
+                                agent_name: _vm.user_name
                               }
                             })
                           ],

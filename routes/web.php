@@ -295,6 +295,7 @@ Route::group(['prefix' => 'comments'], function () {
 Route::group(['prefix' => 'modules'], function () {
   Route::get('/get-all', 'ModuleController@index');
   Route::get('/get-all-items', 'ModuleController@getAllItems');
+  Route::get('/get-display-items', 'ModuleController@getDisplayItems');
   Route::get('/get-single-item/{lead_id}', 'ModuleController@getSingleItem');
   Route::get('/get-items/{module}', 'ModuleController@getItems');
   Route::post('/add', 'ModuleController@store');
