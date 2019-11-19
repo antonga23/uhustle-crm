@@ -276,7 +276,7 @@ textarea {
 }
 
 .card .card-text {
-  font-size: 32px;
+  font-size: 1.6vw;
   line-height: 1em;
 }
 
