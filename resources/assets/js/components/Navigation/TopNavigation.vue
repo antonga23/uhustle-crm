@@ -82,9 +82,7 @@ select.month-selector {
   background-repeat: no-repeat !important;
   background-position: center center !important;
 }
-.callIcons .search .col-auto {
-  padding-right:46% !important;
-}
+
 .callIcons .search a{
   background-color: #fff;
   background-image: url('/images/icons/top-nav/Search.svg') !important;
@@ -296,7 +294,7 @@ select.month-selector {
 
 				<div class="col-auto px-0" v-if="active == 'workstation'">
 					<ul class="navbar-nav callIcons">
-						<li class="nav-item d-sm-inline-block search pr-4">
+						<li class="nav-item d-sm-inline-block search">
               <div class="row mx-0 align-items-center">
                 <div class="col px-0">
                   <input placeholder="Search" class="border-0 rounded-pill"/>

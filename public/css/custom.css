@@ -242,6 +242,10 @@
     font-weight: 300;
   }
 
+  .callIcons .search .col-auto {
+    padding-right: 46% !important;
+  }
+
   #search-panel  .search div.search input{
     color: #8d9198;
     float: left;
