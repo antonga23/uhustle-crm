@@ -12,7 +12,7 @@
                         
                         <div v-if="index == modified_columns.length-1" class="col pl-0">
                             <b-button class="rounded-circle m-0" @click="show_column_select = !show_column_select">
-                                <img src="/images/workstation/Asset 28@4x.png" alt="Icon" class="icon" style="width: 10px;" />
+                                <img src="/images/workstation/Asset 28@4x.png" alt="Show column Icon" class="icon" style="width: 10px;" />
                             </b-button>
                             <div v-if="show_column_select">
 
@@ -34,9 +34,9 @@
                 <tr v-for="(row, index) in paginated" :class="onClick ? 'clickable' : ''" @click="click(row, index)" :key="index">  
                     <td v-for="(column, i) in modified_columns" :class="column.numeric ? 'numeric' : ''" :key="i">  
                         <span v-if="column.field == 'full_name'">  
-                            <a  @click="showEditModal(row, row.leads,row.clients)"  class="small-avatar">  
-                                <img v-if="row.avatar != '' && row.avatar != null" :src="avatarUrl + row.id + '/' + row.avatar">  
-                                <img v-else :src="noImageUrl" >  
+                            <a  @click="showEdit(row, row.leads,row.clients)"  class="small-avatar">  
+                                <img v-if="row.avatar != '' && row.avatar != null" :src="avatarUrl + row.id + '/' + row.avatar" alt="Profile icon">  
+                                <img v-else :src="noImageUrl" alt="Profile icon"/>  
                                 {{ row.full_name }}  
                             </a>  
                         </span>  
@@ -56,7 +56,7 @@
                            {{ row.status }}  
                         </span>  
                         <span v-else-if="column.field == 'actions' && ( role == 1 || role == 2 )" class="actions">  
-                            <a  class="Edit" href="#" @click="showEditModal(row, row.leads,row.clients)" title="Edit"></a>  
+                            <a  class="Edit" href="#" @click="showEdit(row)" title="Edit"></a>  
                             <a  class="Delete" href="#" @click="deleteItem(row.id)" title="Delete"></a>  
                         </span>  
                         <span v-else>{{ collect(row, column.field) }}</span>  
@@ -85,110 +85,17 @@
                 <ul class="material-pagination">  
                     <li>  
                         <a href="javascript:undefined" class="waves-effect btn-flat" @click.prevent="previousPage" tabindex="0">  
-                            <img src="/images/DataTables/left arrow.svg" class="chevron" />  
+                            <img src="/images/DataTables/left arrow.svg" alt="Nav left icon" class="chevron" />  
                         </a>  
                     </li>  
                     <li>  
                         <a href="javascript:undefined" class="waves-effect btn-flat" @click.prevent="nextPage" tabindex="0">  
-                            <img src="/images/DataTables/right arrow.svg" class="chevron" />  
+                            <img src="/images/DataTables/right arrow.svg" alt="Nav right icon" class="chevron" />  
                         </a>  
                     </li>  
                 </ul>  
             </div>  
-        </div>  
-        <!-- Modal Start Summary-->  
-  
-        <div>  
-            <b-modal  
-            id="update-user-modal"  
-            ref="modalUpdateUser"  
-            title="Update User"  
-            size="lg"  
-            header-text-variant="light"  
-            header-bg-variant="warning"  
-            @ok="handleOk"  
-            >  
-                <a-card title="Update User Profile">  
-                    <form ref="form" @submit.stop.prevent="handleSubmit">  
-                        <div :class="{'input': true, 'form-group' :true }">  
-                            <label class="col-lg-12 control-label">Role  
-                                <select type="text" id="role"  name="Role" v-model="user.role_id"  class="form-control">  
-                                    <option value="">- Please Choose Role </option>  
-                                    <option :value="item.id" v-for="(item, index) in users.roles" :key="index">{{ item.display_name }}</option>  
-                                </select>  
-                                <span id="error" v-show="errors.has('Role')" class="help-block">{{ errors.first('Role') }}</span>  
-                            </label>  
-                            <label class="col-lg-4 control-label">Name  
-                                <input type="text" id="email"  name="Name" v-model="user.name"  class="form-control">  
-                                <span id="error" v-show="errors.has('Name')" class="help-block">{{ errors.first('Name') }}</span>  
-                            </label>  
-                            <label class="col-lg-4 control-label">Surname  
-                                <input type="text" id="email"  name="Surname" v-model="user.lastname"  class="form-control">  
-                                <span id="error" v-show="errors.has('Surname')" class="help-block">{{ errors.first('Surname') }}</span>  
-                            </label>  
-                            <label class="col-lg-4 control-label">Nickname  
-                                <input type="text" id="nickname"  name="Nickname" v-model="user.nickname" class="form-control">  
-                            </label>  
-                            <label class="col-lg-4 control-label">Email  
-                                <input type="text" id="email"  name="Email" v-model="user.email" class="form-control">  
-                                <span id="error" v-show="errors.has('Email')" class="help-block">{{ errors.first('Email') }}</span>  
-                            </label>  
-                            <label class="col-lg-4 control-label">Work Telephone  
-                                <input type="text" id="work_number"  name="Work Tel" v-model="user.work_number" class="form-control">  
-                                <span id="error" v-show="errors.has('Work Tel')" class="help-block">{{ errors.first('Work Tel') }}</span>  
-                            </label>  
-                            <label class="col-lg-4 control-label">Cellphone number  
-                                <input type="text" id="personal_number"  name="Cell Number" v-model="user.personal_number" class="form-control">  
-                                <span id="error" v-show="errors.has('Cell Number')" class="help-block">{{ errors.first('Cell Number') }}</span>  
-                            </label>  
-                            <label class="col-lg-12 control-label">Address  
-                                <textarea id="address"  name="Address" v-model="user.address"  class="form-control"></textarea>  
-                                <span id="error" v-show="errors.has('Address')" class="help-block">{{ errors.first('Address') }}</span>  
-                            </label>  
-                            <label class="col-lg-4 control-label">Username  
-                                <input type="text" id="email"  name="Old Password" v-model="user.email" class="form-control" disabled>  
-                                <span id="error" v-show="errors.has('Old Password')" class="help-block">{{ errors.first('Old Password') }}</span>  
-                            </label>  
-                            <label class="col-lg-4 control-label">New Password <em><small>Default: P@ssword</small></em>  
-                                <input type="password" id="password" ref="password" name="New Password" v-model="user.password" v-validate="'min:6'" class="form-control">  
-                                <span id="error" v-show="errors.has('New Password')" class="help-block">{{ errors.first('New Password') }}</span>  
-                            </label>  
-                            <label class="col-lg-4 control-label">Confirm New Password  
-                                <input type="password" id="password_confirm"  name="Password Confirm" v-model="user.password_confirmation" v-validate="'min:6|confirmed:password'" class="form-control">  
-                                <span id="error" v-show="errors.has('Password Confirm')" class="help-block">{{ errors.first('Password Confirm') }}</span>  
-                            </label>  
-                            <label class="col-lg-4 control-label">Status  
-                                <select type="text" id="role"  name="Role" v-model="user.activated"  class="form-control">  
-                                    <option value="">- Please Choose Status </option>  
-                                    <option value="1">Active</option>  
-                                    <option value="0">Disabled</option>  
-                                </select>  
-                            </label>  
-                        </div>  
-                    </form>  
-                </a-card>  
-                <a-card :title="'Assigned Leads: ' + user.leads.length" style="margin-top:20px">  
-                    <a-list itemLayout="horizontal" :dataSource="user.leads">  
-                        <a-list-item slot="renderItem" slot-scope="item, index">  
-                            <a-list-item-meta>  
-                                <a slot="title" :href="'/workstation/' + item.id">{{item.name}}&nbsp;{{item.surname}}</a>  
-                            </a-list-item-meta>  
-                        </a-list-item>  
-                    </a-list>  
-                </a-card>  
-  
-                <a-card :title="'Assigned Clients: ' + user.clients.length" style="margin-top:20px">  
-                    <a-list itemLayout="horizontal" :dataSource="user.clients">  
-                        <a-list-item slot="renderItem" slot-scope="item, index">  
-                            <a-list-item-meta>  
-                                <a slot="title" :href="'/workstation/' + item.id">{{item.name}}&nbsp;{{item.surname}}</a>  
-                            </a-list-item-meta>  
-                        </a-list-item>  
-                    </a-list>  
-                </a-card>  
-            </b-modal>  
-        </div>  
-        <!-- Modal -->  
+        </div>   
     </div>  
 </template>  
 <script>  
@@ -197,7 +104,7 @@ export default {
     props: {  
         role: '',  
         title: {},  
-        users: null,  
+        users: null,   
         columns: {  
             required: true  
         },  
@@ -280,6 +187,7 @@ export default {
                 leads: [],  
                 clients: [],  
             },
+            show_column_select: false, 
             selected_columns: [],
             modified_columns: [],
             colum_select_options: [],  
@@ -316,50 +224,18 @@ export default {
 
             });
 
-          });
-          console.log(vm.modified_columns);
-          
+          });          
         }, 
-        showEditModal(user, leads, clients){  
+        showEdit(user){  
             var vm = this;  
             this.user = user;  
-            this.user.leads = leads;  
-            this.user.clients = clients;  
-            this.$bvModal.show('update-user-modal');  
+            Fire.$emit('ShowUserEdit', { user: this.user  });
         },  
         handleOk(bvModalEvt) {  
             // Prevent modal from closing  
             bvModalEvt.preventDefault()  
             // Trigger submit handler  
             this.handleSubmit()  
-        },  
-        handleSubmit(){  
-            var vm = this;    
-            vm.$Progress.start();  
-            this.$validator.validateAll().then((result) => {  
-                    if(!result){  
-                    }else{  
-                        axios.post('/users/update',vm.user).then(function (response) {  
-                                  
-                            if(response.data.success == true){  
-                                Fire.$emit('ReloadUsers');  
-                                vm.Toast.fire({ type: 'success', title: response.data.message });  
-                                vm.$bvModal.hide('update-user-modal');  
-                                vm.user = {  
-                                    leads: [],  
-                                    clients: [],  
-                                };  
-                                vm.$Progress.finish();  
-                            }else if(response.data.errors.email[0] != ''){  
-                                vm.$Progress.fail();  
-                                vm.$swal('Failed', response.data.errors.email[0] ,'warning');  
-                            }else{  
-                                vm.$Progress.fail();  
-                                vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');  
-                            }  
-                        });  
-                    }  
-            });  
         },  
         deleteItem(id){  
             var vm = this;    

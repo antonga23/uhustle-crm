@@ -176,6 +176,7 @@ class CommissionController extends Controller
 
     public function getCommStructures(){
 
+      $structures = Commission::with('attributes')->get();
       $structure_a = Commission::with('attributes')->where(['commision_structure' => 'structure_a'])->first();
       $structure_b = Commission::with('attributes')->where(['commision_structure' => 'structure_b'])->first();
       $structure_c = Commission::with('attributes')->where(['commision_structure' => 'structure_c'])->first();
@@ -281,20 +282,19 @@ class CommissionController extends Controller
             ];
             array_push($structure_c_data,$structure_c_temp);
       }else{
-        
+
         foreach($structure_c->attributes as $j => $c_attr){
-                  
           $structure_c_temp[$c_attr['key']] = [
             'comm_structure_id' => $attr['comm_structure_id'],
             'field_id' => $c_attr['id'],
             'value' => $c_attr['value'] 
           ];
-
         }
         array_push($structure_c_data,$structure_c_temp);
       }
 
       return [ 
+        'structures' => $structures,
         'structure_a' => $structure_a_data,
         'structure_b' => $structure_b_data,
         'structure_c' => $structure_c_data

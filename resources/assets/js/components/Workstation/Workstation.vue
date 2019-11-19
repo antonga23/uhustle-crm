@@ -152,11 +152,11 @@ span.right {
   text-overflow: ellipsis; 
 } 
 .comments-list { 
-  max-height: 190px; 
+  max-height: 218px; 
   overflow-y: auto; 
 } 
 .stats-bars { 
-  max-height: 290px; 
+  max-height: 319px; 
   overflow-y: auto; 
 } 
 .agent-comments { 
@@ -555,7 +555,7 @@ a.down-scroll:hover {
 .final-modal .card-header { 
   border-top-left-radius: 19px; 
   border-top-right-radius: 19px; 
-  padding: 0 11px 11px; 
+  padding: 0 0 11px 0; 
   border-color: transparent; 
 } 
 .final-modal .card-header a[aria-selected="true"] { 
@@ -682,6 +682,27 @@ a.down-scroll:hover {
 #two .col-lg-8 { 
   padding-left: 7.8%; 
 } 
+@media screen and (max-width: 1771px) {
+  #two .callback-legend {
+    margin-bottom: 0;
+  }
+  #two .callback-legend .col-5{ 
+    padding-left: 0;
+    flex: 0 0 100%;
+    max-width: 100%; 
+  } 
+  #two .callback-legend .col-7 {
+    order:1;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  #two .callback-legend .row {
+    margin-bottom:14px;
+  }
+  #two .callback-legend .calendar-items .col-auto {
+    height: 10px;
+  }
+}
 .vc-reset, 
 .vc-reset * { 
   border-style: none !important; 
@@ -689,14 +710,6 @@ a.down-scroll:hover {
 } 
 .vc-h-full .vc-rounded-full { 
   border-radius: 5px !important; 
-} 
-.scroll-hidden { 
-  overflow-y: scroll; 
-  height: 70vh; 
-  padding-top: 6px; 
-  padding-right: 3%; 
-  padding-bottom: 6px; 
-  padding-left: 3%; 
 } 
 .summary p { 
   font-family: "Rubik", sans-serif; 
@@ -759,12 +772,16 @@ a.down-scroll:hover {
 } 
  
 .scroll-hidden { 
-  overflow-y: scroll; 
-  height: 70vh; 
-  /* padding-top: 6px; */ 
+  overflow: auto; 
   padding-right: 6px; 
   width: 100%; 
+  padding-bottom: 6px; 
 } 
+
+.left-padding-4 {
+    padding-left: 4%;
+}
+
 .dropdown-menu { 
   width: 191px; 
   padding: 17px; 
@@ -959,7 +976,7 @@ a.down-scroll:hover {
         <div class="card border-0 mb-0 ml-0 client"> 
           <div class="card-body"> 
             <h5 class="card-title"> 
-              <img src="/images/workstation/D_A@4x.png" alt="Icon" class="icon" /> 
+              <img src="/images/workstation/D_A@4x.png" alt="Client Icon" class="icon" /> 
               Client 
             </h5> 
             <p 
@@ -986,7 +1003,7 @@ a.down-scroll:hover {
         <div class="card border-0 product mb-0"> 
           <div class="card-body"> 
             <h5 class="card-title"> 
-              <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" /> 
+              <img src="/images/workstation/Stock_Icon@4x.png" alt="Product Icon" class="icon" /> 
               Product 
             </h5> 
             <p 
@@ -1003,7 +1020,7 @@ a.down-scroll:hover {
         <div class="card border-0 mb-0 activity"> 
           <div class="card-body"> 
             <h5 class="card-title"> 
-              <img src="/images/workstation/S_A@4x.png" alt="Icon" class="icon" /> 
+              <img src="/images/workstation/S_A@4x.png" alt="Last called Icon" class="icon" /> 
               Last Called by 
             </h5> 
             <p class="card-text mb-2">John Hill</p> 
@@ -1014,7 +1031,7 @@ a.down-scroll:hover {
         <div class="card border-0 mb-0 mr-0 time"> 
           <div class="card-body"> 
             <h5 class="card-title"> 
-              <img src="/images/workstation/Time_Icon@4x.png" alt="Icon" class="icon" /> 
+              <img src="/images/workstation/Time_Icon@4x.png" alt="Time Icon" class="icon" /> 
               Time 
             </h5> 
             <p class="card-text mb-2">11:20</p> 
@@ -1036,7 +1053,7 @@ a.down-scroll:hover {
         <div class="card-deck mx-0 mb-0"> 
           <div class="card mt-3 border-0 shadow-none mr-4 ml-0 tab-card"> 
             <div class="card-header tab-card-header border-bottom-0"> 
-              <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
+              <ul class="nav nav-tabs card-header-tabs mx-0" id="myTab" role="tablist"> 
                 <li class="nav-item left w-50"> 
                   <a 
                     class="nav-link active" 
@@ -1049,7 +1066,7 @@ a.down-scroll:hover {
                   > 
                     <img 
                       src="/images/icons/workstation/Agent Notes.svg" 
-                      alt="Icon" 
+                      alt="Agent notes Icon" 
                       class="icon" 
                       width="31px" 
                     /> 
@@ -1069,7 +1086,7 @@ a.down-scroll:hover {
                   > 
                     <img 
                       src="/images/icons/workstation/Schedule Callback.svg" 
-                      alt="Icon" 
+                      alt="Schedule callback Icon" 
                       class="icon" 
                       width="31px" 
                     /> 
@@ -1152,11 +1169,17 @@ a.down-scroll:hover {
                         aria-expanded="false" 
                         :class="{ 'choose-comment-type d-block': true, 'pulse' : choose_comment_type }" 
                       > 
+                      <div v-if="comment.comment_type" class="font-weight-bold comment-abbr">
+                        {{comment.comment_type.short}}
+                      </div>
+
+                      <div v-else>
                         <img 
                           src="/images/workstation/Asset 28@4x.png" 
-                          alt="Icon" 
+                          alt="Add Icon" 
                           class="icon w-100" 
                         /> 
+                      </div>
                       </b-button> 
                       <div class="dropdown-menu"> 
                         <div class="d-block"> 
@@ -1194,7 +1217,7 @@ a.down-scroll:hover {
                     > 
                       <img 
                         src="/images/icons/workstation/Submit.svg" 
-                        alt="Icon" 
+                        alt="Submit Icon" 
                         class="icon" 
                         width="76" 
                       /> 
@@ -1210,7 +1233,7 @@ a.down-scroll:hover {
                       <div class="col-7 px-0"> 
                         <div class="row mx-0 align-items-center today"> 
                           <div class="col-auto px-0"> 
-                            <img src="/images/icons/circle.svg" alt="Icon" class="icon" width="17" /> 
+                            <img src="/images/icons/circle.svg" alt="Orange Circle Icon" class="icon" width="17" /> 
                           </div> 
  
                           <div class="col pr-0 pl-2"> 
@@ -1222,7 +1245,7 @@ a.down-scroll:hover {
                           <div class="col-auto px-0"> 
                             <img 
                               src="/images/icons/grey dot.svg" 
-                              alt="Icon" 
+                              alt="Grey Dot Icon" 
                               class="icon" 
                               width="17" 
                               style="vertical-align: baseline;" 
@@ -1235,12 +1258,12 @@ a.down-scroll:hover {
                         </div> 
                       </div> 
  
-                      <div class="col-5 pr-0"> 
+                      <div class="col-5 pr-0 calendar-items"> 
                         <div class="row mx-0 align-items-start recommended-call"> 
                           <div class="col-auto px-0"> 
                             <img 
                               src="/images/icons/blue dot.svg" 
-                              alt="Icon" 
+                              alt="Blue Dot Icon" 
                               class="icon" 
                               width="8" 
                               style="vertical-align: text-top;" 
@@ -1256,7 +1279,7 @@ a.down-scroll:hover {
                           <div class="col-auto px-0"> 
                             <img 
                               src="/images/icons/Orange Dot_Big.svg" 
-                              alt="Icon" 
+                              alt="Big Orange Dot Icon" 
                               class="icon" 
                               width="8" 
                               style="vertical-align: text-top;" 
@@ -1331,7 +1354,7 @@ a.down-scroll:hover {
                     > 
                       <img 
                         src="/images/icons/workstation/Submit.svg" 
-                        alt="Icon" 
+                        alt="Submit Icon" 
                         class="icon" 
                         width="76" 
                       /> 
@@ -1344,7 +1367,7 @@ a.down-scroll:hover {
  
           <div class="card shadow-none mt-3 mr-0 ml-4 border-0 tab-card"> 
             <div class="card-header tab-card-header border-bottom-0"> 
-              <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
+              <ul class="nav nav-tabs card-header-tabs mx-0" id="myTab" role="tablist"> 
                 <li class="nav-item left w-50"> 
                   <a 
                     class="nav-link active" 
@@ -1357,14 +1380,14 @@ a.down-scroll:hover {
                   > 
                     <img 
                       src="/images/icons/workstation/Feeback Summary.svg" 
-                      alt="Icon" 
+                      alt="Feedback summary Icon" 
                       class="icon" 
                       width="31px" 
                     /> 
                     <span class="left w-50">Feedback Summary</span> 
                   </a> 
                 </li> 
-                <li class="nav-item right w-50"> 
+                <!-- <li class="nav-item right w-50"> 
                   <a 
                     class="nav-link" 
                     id="four-tab" 
@@ -1376,13 +1399,13 @@ a.down-scroll:hover {
                   > 
                     <img 
                       src="/images/icons/workstation/Email Client.svg" 
-                      alt="Icon" 
+                      alt="Email client Icon" 
                       class="icon" 
                       width="31px" 
                     /> 
                     <span class="left">Email Client</span> 
                   </a> 
-                </li> 
+                </li>  -->
               </ul> 
             </div> 
  
@@ -1493,7 +1516,7 @@ a.down-scroll:hover {
                   > 
                     <img 
                       src="/images/icons/workstation/Submit.svg" 
-                      alt="Icon" 
+                      alt="Submit Icon" 
                       class="icon" 
                       width="76" 
                     /> 
@@ -1522,12 +1545,12 @@ a.down-scroll:hover {
                     >    
                       <img    
                         src="/images/icons/workstation/Open Activities.svg"    
-                        alt="Icon"    
+                        alt="Open Activities Icon"    
                         class="icon"    
                         width="31"   
                       />    
                       <span>Open Activities</span>
-                      <img src="/images/icons/Field_Add.svg" width="16" class="d-none add-activity" @click="addActivityCollapse()"/>
+                      <img src="/images/icons/Field_Add.svg" alt="Add field icon" width="16" class="d-none add-activity" @click="addActivityCollapse()"/>
                     </a>    
                   </li>    
    
@@ -1543,7 +1566,7 @@ a.down-scroll:hover {
                     >    
                       <img    
                         src="/images/icons/workstation/Closed Activities.svg"    
-                        alt="Icon"    
+                        alt="Closed Activities Icon"    
                         class="icon"    
                         width="31"   
                       />    
@@ -1716,7 +1739,7 @@ a.down-scroll:hover {
                     >    
                       <img    
                         src="/images/icons/workstation/Deals.svg"    
-                        alt="Icon"    
+                        alt="Deals Icon"    
                         class="icon"    
                         width="31"   
                       />    
@@ -1736,7 +1759,7 @@ a.down-scroll:hover {
                     >    
                       <img    
                         src="/images/icons/workstation/Create_a_deal.svg"    
-                        alt="Icon"    
+                        alt="Create a deal Icon"    
                         class="icon"    
                         width="31"  
                       />    
@@ -1933,10 +1956,12 @@ a.down-scroll:hover {
   
     <!-- Active calls Section Starts -->  
     <div class="" v-if="active_calls == true">    
-      <div class="row stats scroll-hidden horizontal-scroll w-100 mx-0" style="margin-top: 6%">    
-        <div class="col-lg-12">    
+      <div class="row stats mt-4 w-100 mx-0">    
+        <div class="col-lg-12 left-padding-4">    
+          <div class="scroll-hidden">
           <vcl-table v-if="show_page_loader === true"></vcl-table>    
           <datatable v-if="show_page_loader === false" id="datatable" :rows="conferences" :columns="columns" :role="role_id"></datatable>    
+          </div>
         </div>    
       </div>    
     </div> 
@@ -1980,7 +2005,7 @@ a.down-scroll:hover {
                     class="w-100 m-0"    
                     disabled   
                   >    
-                    <img src="/images/icons/Asset 135.svg" alt="Icon" class="icon" />More Time    
+                    <img src="/images/icons/Asset 135.svg" alt="Add time Icon" class="icon" />More Time    
                   </button>    
                   <button    
                     v-else @click="addTime"     
@@ -1988,7 +2013,7 @@ a.down-scroll:hover {
                     :class="{'btn' : true, 'btn-active border-0 font-weight-bold' : true}"    
                     class="w-100 m-0"   
                   >    
-                    <img src="/images/icons/Asset 135.svg" alt="Icon" class="icon" />More Time    
+                    <img src="/images/icons/Asset 135.svg" alt="Add time Icon" class="icon" />More Time    
                   </button>    
                 </label>    
                 <label class="col-lg-4 control-label pr-0 text-right" style="margin-right: 8px;float:left;">    
@@ -1998,13 +2023,13 @@ a.down-scroll:hover {
                     :class="{'btn' : true, 'btn-active border-0 font-weight-bold' : true }"    
                     class="w-100 m-0"   
                   >    
-                    <img src="/images/icons/Asset 136.svg" alt="Icon" class="icon" />Complete    
+                    <img src="/images/icons/Asset 136.svg" alt="Complete Icon" class="icon" />Complete    
                   </button>    
                 </label>    
                 <label class="col-lg-3 control-label pr-0 text-right" style="margin-right: 8px;float:left;">    
                   <img    
                     src="/images/icons/Asset 56.svg"    
-                    alt="Icon"    
+                    alt="Unavailable Icon"    
                     class="icon"    
                     style="width: 60px;margin-top: -13px;"   
                   />    

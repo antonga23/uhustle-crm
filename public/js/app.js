@@ -180873,9 +180873,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 
@@ -182621,6 +182618,9 @@ __webpack_require__.r(__webpack_exports__);
       this.user = user;
       this.user.source = user.lead_source;
       this.$bvModal.show('update-user-modal');
+      Fire.$emit('ShowUserEdit', {
+        user: this.user
+      });
     },
     handleOk: function handleOk(bvModalEvt) {
       // Prevent modal from closing
@@ -182927,99 +182927,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -183101,6 +183008,7 @@ __webpack_require__.r(__webpack_exports__);
         leads: [],
         clients: []
       },
+      show_column_select: false,
       selected_columns: [],
       modified_columns: [],
       colum_select_options: [],
@@ -183131,49 +183039,19 @@ __webpack_require__.r(__webpack_exports__);
           }
         });
       });
-      console.log(vm.modified_columns);
     },
-    showEditModal: function showEditModal(user, leads, clients) {
+    showEdit: function showEdit(user) {
       var vm = this;
       this.user = user;
-      this.user.leads = leads;
-      this.user.clients = clients;
-      this.$bvModal.show('update-user-modal');
+      Fire.$emit('ShowUserEdit', {
+        user: this.user
+      });
     },
     handleOk: function handleOk(bvModalEvt) {
       // Prevent modal from closing  
       bvModalEvt.preventDefault(); // Trigger submit handler  
 
       this.handleSubmit();
-    },
-    handleSubmit: function handleSubmit() {
-      var vm = this;
-      vm.$Progress.start();
-      this.$validator.validateAll().then(function (result) {
-        if (!result) {} else {
-          axios.post('/users/update', vm.user).then(function (response) {
-            if (response.data.success == true) {
-              Fire.$emit('ReloadUsers');
-              vm.Toast.fire({
-                type: 'success',
-                title: response.data.message
-              });
-              vm.$bvModal.hide('update-user-modal');
-              vm.user = {
-                leads: [],
-                clients: []
-              };
-              vm.$Progress.finish();
-            } else if (response.data.errors.email[0] != '') {
-              vm.$Progress.fail();
-              vm.$swal('Failed', response.data.errors.email[0], 'warning');
-            } else {
-              vm.$Progress.fail();
-              vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
-            }
-          });
-        }
-      });
     },
     deleteItem: function deleteItem(id) {
       var vm = this;
@@ -184148,13 +184026,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -187673,6 +187544,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['active', 'logged_user'],
@@ -187699,6 +187583,7 @@ __webpack_require__.r(__webpack_exports__);
       top_nav_show_filter: false,
       // Users
       adding_user: false,
+      editing_user: false,
       current_user: [],
       filter_data: [],
       types: ['date', 'text']
@@ -187730,6 +187615,12 @@ __webpack_require__.r(__webpack_exports__);
     });
     Fire.$on('ShowActiveCalls', function () {
       vm.showActiveCalls();
+    });
+    Fire.$on('ShowActiveCalls', function () {
+      vm.showActiveCalls();
+    });
+    Fire.$on('ShowUserEdit', function (data) {
+      vm.editUser();
     });
   },
   mounted: function mounted() {
@@ -187848,6 +187739,10 @@ __webpack_require__.r(__webpack_exports__);
     addNew: function addNew() {
       this.adding_user = !this.adding_user;
       Fire.$emit('AddingUser');
+    },
+    editUser: function editUser() {
+      this.editing_user = !this.editing_user;
+      Fire.$emit('EditingUser');
     },
     getFullYear: function getFullYear() {
       var d = new Date();
@@ -188095,6 +187990,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -189200,6 +189096,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     addBField: function addBField(comm_structure_id) {
+      console.log(comm_structure_id);
       this.structure_b.push({
         min_sales: {
           comm_structure_id: comm_structure_id,
@@ -190366,6 +190263,46 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -190398,6 +190335,7 @@ __webpack_require__.r(__webpack_exports__);
     this.getPermissions();
     this.getDialerPermissions();
     this.getApis();
+    this.getCommissionStructures();
     var vm = this;
     Fire.$on('DoneAddingRole', function () {
       vm.getRoles();
@@ -190435,6 +190373,9 @@ __webpack_require__.r(__webpack_exports__);
         description: '',
         status: ''
       },
+      structure_a: [],
+      structure_b: [],
+      structure_c: [],
       roles: null,
       modules: null,
       apis: null,
@@ -190448,6 +190389,9 @@ __webpack_require__.r(__webpack_exports__);
       show_page_loader: false,
       role_edit: false,
       role_add: false,
+      commission_structure_a: false,
+      commission_structure_b: false,
+      commission_structure_c: false,
       Toast: null,
       dialer_options: ['On', 'Off', 'Can Whisper', 'Can Barge'],
       dialer_selected: [],
@@ -190461,6 +190405,44 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     toggleAll: function toggleAll() {},
+    onChange: function onChange(type) {
+      if (type == 'a') {
+        this.commission_structure_a = true;
+        this.commission_structure_b = false;
+        this.commission_structure_c = false;
+      }
+
+      if (type == 'b') {
+        this.commission_structure_a = false;
+        this.commission_structure_b = true;
+        this.commission_structure_c = false;
+      }
+
+      if (type == 'c') {
+        this.commission_structure_a = false;
+        this.commission_structure_b = false;
+        this.commission_structure_c = true;
+      }
+    },
+    getCommissionStructures: function getCommissionStructures() {
+      var vm = this;
+      axios.get('/settings/get-comm-structures').then(function (response) {
+        if (response.data.structure_a.length > 0) {
+          vm.structure_a = response.data.structure_a;
+          console.log(response.data.structure_a);
+        }
+
+        if (response.data.structure_b.length > 0) {
+          vm.structure_b = response.data.structure_b;
+          console.log(response.data.structure_b);
+        }
+
+        if (response.data.structure_c.length > 0) {
+          vm.structure_c = response.data.structure_c;
+          console.log(response.data.structure_c);
+        }
+      });
+    },
     dialerToggleAll: function dialerToggleAll(checked) {
       this.dialer_selected = checked ? this.dialer_options.slice() : [];
     },
@@ -193095,6 +193077,69 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -193114,7 +193159,17 @@ __webpack_require__.r(__webpack_exports__);
     this.getUsers();
     var vm = this;
     Fire.$on("AddingUser", function (data) {
+      vm.edit_user = false;
       vm.add_user = !vm.add_user;
+    });
+    Fire.$on("EditingUser", function (data) {
+      vm.edit_user = false;
+      vm.add_user = false;
+    });
+    Fire.$on("ShowUserEdit", function (data) {
+      vm.edit_user = true;
+      vm.add_user = false;
+      vm.user = data.user;
     });
     Fire.$on("ReloadUsers", function (data) {
       vm.getUsers();
@@ -193122,6 +193177,7 @@ __webpack_require__.r(__webpack_exports__);
     Fire.$on("FilterData", function (data) {
       vm.applyFilter(data);
     });
+    vm.getCommissionStructures();
     this.Toast = this.$swal.mixin({
       toast: true,
       position: "top-end",
@@ -193144,11 +193200,18 @@ __webpack_require__.r(__webpack_exports__);
         current_user: ""
       },
       user: {
+        activated: "",
+        commission_structure: "",
         leads: [],
         clients: []
       },
       current_user: {},
+      structures: [],
+      structure_a: [],
+      structure_b: [],
+      structure_c: [],
       add_user: false,
+      edit_user: false,
       show_page_loader: false,
       avatarUrl: "/images/avatars/",
       noImageUrl: "/images/icons/user_icon@4x.png",
@@ -193229,6 +193292,30 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    getCommissionStructures: function getCommissionStructures() {
+      var vm = this;
+      axios.get('/settings/get-comm-structures').then(function (response) {
+        if (response.data.structures.length > 0) {
+          vm.structures = response.data.structures;
+          console.log(response.data.structure_a);
+        }
+
+        if (response.data.structure_a.length > 0) {
+          vm.structure_a = response.data.structure_a;
+          console.log(response.data.structure_a);
+        }
+
+        if (response.data.structure_b.length > 0) {
+          vm.structure_b = response.data.structure_b;
+          console.log(response.data.structure_b);
+        }
+
+        if (response.data.structure_c.length > 0) {
+          vm.structure_c = response.data.structure_c;
+          console.log(response.data.structure_c);
+        }
+      });
+    },
     secondsToMinues: function secondsToMinues(time) {
       var minutes = Math.floor(time / 60);
       var seconds = time - minutes * 60;
@@ -193299,6 +193386,34 @@ __webpack_require__.r(__webpack_exports__);
             if (response.data.success == false) {
               vm.$Progress.fail();
               vm.$swal("Failed", "Opps, something went wrong while retrieving lead, please try again", "warning");
+            }
+          });
+        }
+      });
+    },
+    updateUser: function updateUser() {
+      var vm = this;
+      vm.$Progress.start();
+      this.$validator.validateAll().then(function (result) {
+        if (!result) {} else {
+          axios.post('/users/update', vm.user).then(function (response) {
+            if (response.data.success == true) {
+              Fire.$emit('ReloadUsers');
+              vm.Toast.fire({
+                type: 'success',
+                title: response.data.message
+              });
+              vm.$Progress.finish();
+              Fire.$emit('ShowUserEdit', {
+                user: vm.user
+              });
+              vm.edit_user = vm.add_user = false;
+            } else if (response.data.errors.email[0] != '') {
+              vm.$Progress.fail();
+              vm.$swal('Failed', response.data.errors.email[0], 'warning');
+            } else {
+              vm.$Progress.fail();
+              vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
             }
           });
         }
@@ -193555,6 +193670,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-content-loading */ "./node_modules/vue-content-loading/dist/vuecontentloading.js");
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vue_content_loading__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _Transactions_createDeal__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Transactions/createDeal */ "./resources/assets/js/components/Transactions/createDeal.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -246420,7 +246560,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\nh1[data-v-2c246ed2] {\n    font-size: 1.04vw;\n    font-family: 'Rubik', sans-serif;\n    padding-left: 5.2%;\n    padding-right: 5.2%;\n    margin-top:1%;\n}\n#dash-container[data-v-2c246ed2] {\n    padding-left: 5.2%;\n    padding-right: 5.2%;\n    background-color: #F7F7F7;\n}\n#top-section[data-v-2c246ed2] {\n    padding-top:1%;\n    margin-bottom: 5.5%;\n}\nselect.rounded-pill[data-v-2c246ed2]{\n    box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    font-size: 0.84vw;\n    font-family: 'Rubik', sans-serif;\n    padding:9px 17px 7px;\n    color: #333333;\n}\n.divider-line[data-v-2c246ed2] {\n    height: 1px;\n    background-color: #ccc;\n}\n#top-section .agent-stats[data-v-2c246ed2] {\n    margin-top:2.5%;\n}\n#top-section .agent-stats .card[data-v-2c246ed2]{    \n    border-radius: 25px;\n    padding: 1.3%;\n    box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n}\n#top-section .agent-stats .card .card-numeral[data-v-2c246ed2] {\n    font-size: 1.58vw;\n    line-height: 1em;\n    letter-spacing: 0.1em;\n    color: #333333;\n}\n#top-section .agent-stats .card .card-desc[data-v-2c246ed2] {\n    font-size: 0.82vw;\n    font-family: 'Rubik', sans-serif;\n    line-height: 1em;\n    color: #333333;\n    margin-top: 8px;\n}\n#top-section .agent-stats .card .card-stat[data-v-2c246ed2] {\n    font-size: 0.71vw;\n    font-family: 'Rubik', sans-serif;\n    line-height: 1em;\n    letter-spacing: 0.1em;\n    margin-top: 12px;\n}\n.agent-graphs[data-v-2c246ed2] {\n    margin-top:3.4%;\n}\n.agent-graphs .card[data-v-2c246ed2] {\n    margin-left: 1.7%;\n    margin-right: 1.7%;\n    background-color: transparent;\n}\n.agent-graphs .tab-content[data-v-2c246ed2] {\n    padding-top:12px;\n    border-bottom-left-radius: 25px;\n    border-bottom-right-radius: 25px;\n    background-color: #fff;\n    box-shadow: 0 0 20px 10px #e6e6e6;\n    -webkit-box-shadow: 0 0 20px 10px #e6e6e6;\n    -moz-box-shadow: 0 0 20px 10px #e6e6e6;\n    -o-box-shadow: 0 0 20px 10px #e6e6e6;\n}\n.agent-graphs .tab-pane[data-v-2c246ed2] {\n    padding:2.5% 8.5% 5%;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[data-v-2c246ed2] {\n    color: #808080;\n    font-size: 0.73vw;\n    border: none;\n}\n.nav-link[data-v-2c246ed2]:hover { \n    border: none;\n}\n.nav.nav-tabs.card-header-tabs .nav-link .icon[data-v-2c246ed2] {\n    padding-top:18px;\n    padding-bottom:18px;\n    margin-right: 5%;\n}\n@media screen and (max-width: 1643px) {\n.nav.nav-tabs.card-header-tabs .nav-link .icon[data-v-2c246ed2] {\n      width: 27px;\n}\n}\n.agent-graphs .nav-tabs .nav-item[data-v-2c246ed2] {\n    margin-bottom: 3px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"One\"][data-v-2c246ed2], \n  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Two\"][data-v-2c246ed2],\n  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Three\"][data-v-2c246ed2],\n  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Four\"][data-v-2c246ed2]{ \n    box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;\n    -webkit-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;\n    -moz-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;\n    -o-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6; \n    border-top-left-radius: 25px; \n    border-top-right-radius: 25px;\n}\n.card .card-header.tab-card-header[data-v-2c246ed2] {\n    background-color: transparent;\n    border-top-left-radius: 25px;\n    border-top-right-radius: 25px;\n}\n.agent-details[data-v-2c246ed2] {\n    margin-top: 3.1%;\n}\n.agent-details .container-row .col[data-v-2c246ed2], .agent-details .container-row .col-3[data-v-2c246ed2]{\n    padding-left: 1.3%;\n    padding-right: 1.3%;\n}\n.agent-details .top-row .col[data-v-2c246ed2] {\n    padding-left: 1.7%;\n    padding-right: 1.7%;\n}\n.agent-details .bottom-row[data-v-2c246ed2]{\n    margin-top: 3.8%;\n}\n.agent-details .bottom-row .col[data-v-2c246ed2] {\n    padding-left: 1.7%;\n    padding-right: 1.7%;\n}\n.agent-details .card[data-v-2c246ed2] {\n    padding: 5% 7% 5.7%!important;\n    border-radius: 15px!important;\n    box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n}\n.agent-details .card .heading[data-v-2c246ed2] {\n    font-size: 0.94vw;\n    font-family: 'Rubik', sans-serif;\n    color: #B3B3B3;\n    margin-bottom: 3%;\n}\n.agent-details .card .detail[data-v-2c246ed2] {\n    font-size: 1.57vw;\n    color: #1A1C43;\n    line-height: 1em;\n    margin-top:7px;\n}\n#three .col[data-v-2c246ed2] {\n    padding-left:3.6%;\n    padding-right:3.6%;\n}\n#three .col[data-v-2c246ed2]:first-child {\n    padding-left:0;\n}\n#three .col[data-v-2c246ed2]:last-child {\n    padding-right:0;\n}\n#three .col-6[data-v-2c246ed2] {\n    padding-left:5px;\n    padding-right:5px;\n}\n.legend[data-v-2c246ed2] {\n    margin-bottom:3.1%;\n}\n.legend p[data-v-2c246ed2] {\n    font-family: 'Rubik', sans-serif;\n    font-size: 0.7vw;\n    color:#999999;\n}\n.comparison-month[data-v-2c246ed2] {\n    color:#999999;;\n    font-size: 0.7vw;\n    font-family: 'Rubik', sans-serif;\n    margin-top:20%;\n}\n.progress-bar[data-v-2c246ed2]{\n    background: #F2F2F2;\n    min-height:100px;\n    max-width:20px;\n    justify-content: flex-end;\n    margin:0 auto;\n}\n.tank[data-v-2c246ed2]{\n    border-top-left-radius: 50rem;\n    border-top-right-radius: 50rem;\n    transition: all 0.5s ease 0s;\n}\n.tank.answers[data-v-2c246ed2] {\n    background:  linear-gradient(#02D3F4 0%, #0496F0 100%) !important;\n    background: #0496F0;\n}\n.tank.dialing[data-v-2c246ed2] {\n    background:  linear-gradient(#FFA380 0%, #FF8087 100%) !important;\n    background: #0496F0;\n}\n.card.target .card-text[data-v-2c246ed2]{\n    margin: auto;\n}\n.card.target.reached[data-v-2c246ed2] {\n    background:  linear-gradient(to right, rgba(160,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;\n}\n.card.target.not-reached[data-v-2c246ed2] {\n    background:  linear-gradient(to right, rgba(255,163,128,1) 0%, rgba(255,63,61,1) 100%) !important;\n}\n.card.target .heading[data-v-2c246ed2] {\n    font-size: 0.94vw;\n    color: #fff;\n    margin-bottom:8%;\n    font-family: Montserrat, sans-serif;\n}\n#dash-activities[data-v-2c246ed2] {\n    margin-top:5.2%;\n    padding-bottom: 65px;\n}\n#dash-activities .card[data-v-2c246ed2] {\n    border-radius: 25px;\n    box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    padding:2.9% 3.7%;\n}\n#dash-activities .col[data-v-2c246ed2] {\n    padding-left: 3.4%;\n    padding-right: 3.4%;\n}\n#dash-activities .border-right[data-v-2c246ed2] {\n    border-color: #003449;\n}\n#dash-activities h4[data-v-2c246ed2] {\n    font-size: 0.84vw;\n    font-family: 'Rubik', sans-serif;\n}\n#dash-activities .calendar h4[data-v-2c246ed2] {\n    margin-left:4.3%;\n}\n.calendar .card[data-v-2c246ed2] {\n    padding: 6% 5%!important;\n}\n.calendar p[data-v-2c246ed2] {\n    font-size: 16px;\n    font-family: 'Rubik', sans-serif;\n}\n.calendar .card-title[data-v-2c246ed2] {\n    font-family: 'Rubik', sans-serif;\n    font-weight: 600;\n    font-size: 12px;\n}\n.calendar .col-6[data-v-2c246ed2],\n  .reminders .col-6[data-v-2c246ed2] {\n    padding-left: 4.5%;\n    padding-right: 4.5%;\n}\n.calendar p[data-v-2c246ed2] {\n    font-family: 'Rubik', sans-serif;\n    font-size: 10px;\n}\n.reminders p[data-v-2c246ed2] {\n    font-size: 16px;\n    font-family: 'Rubik', sans-serif;\n    color: #333333;\n}\n.reminders ul[data-v-2c246ed2] {\n    max-height:448px;\n    overflow-y: auto;\n    margin-top: 20px;\n    padding-top:20px;\n    border-top: 1px solid #CDCDCF;\n}\n.reminders ul li[data-v-2c246ed2] {\n    box-shadow: 0 0 7px rgba(0,0,0,0.05);\n    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.05);\n    -moz-box-shadow: 0 0 7px rgba(0,0,0,0.05);\n    -o-box-shadow: 0 0 7px rgba(0,0,0,0.05);\n    padding:10px 15px;\n}\n.reminders ul li label[data-v-2c246ed2] {\n    font-size: 16px;\n    font-family: 'Rubik', sans-serif;\n    color: #808080;\n}\n.callback-label[data-v-2c246ed2],\n  .tasks-date[data-v-2c246ed2] {\n    font-size: 10px;\n    font-family: 'Rubik', sans-serif !important;\n    color: #808080;\n}\n.reminders input.list-input[data-v-2c246ed2]{\n    font-size: 0.83vw;\n    font-family: 'Rubik', sans-serif;\n    color: #808080;\n    padding-left: 37px!important;\n    width: 100%;\n    text-overflow: ellipsis;\n}\n.reminders .terms-text textarea[data-v-2c246ed2] {\n    padding: 11px 18px!important;\n    box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    border-color: #ccc;\n}\na.Edit[data-v-2c246ed2]{\n    background-image: url('/images/DataTables/Edit_Icon.svg');\n    background-size: 20px;\n    background-repeat: no-repeat;\n    width:20px;\n    height:20px;\n}\na.Edit[data-v-2c246ed2]:hover,\n  a.Edit[data-v-2c246ed2]:active{\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');\n    background-size: 20px;\n    background-repeat: no-repeat;\n}\n.callback-capture[data-v-2c246ed2] {\n    background: #f4f4f4;\n    border-radius: 50rem;\n    height: 50px;\n}\n.comment-desc[data-v-2c246ed2] {\n    height: 50px;\n    padding: 11px;\n    margin: 0;\n    background: #f4f4f4;\n    cursor: pointer;\n    float: left;\n}\n.comment-desc[data-v-2c246ed2]::-webkit-input-placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n.comment-desc[data-v-2c246ed2]::-moz-placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n.comment-desc[data-v-2c246ed2]:-ms-input-placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n.comment-desc[data-v-2c246ed2]::-ms-input-placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n.comment-desc[data-v-2c246ed2]::placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n#submit-btn img[data-v-2c246ed2] {\n    margin-top: -15px;\n    margin-right: -15px;\n}\n.callbacks-to-dos .border-top[data-v-2c246ed2] {\n    border-color: #CDCDCF;\n}\n.callbacks-to-dos .task-time[data-v-2c246ed2] {\n    font-size: 0.73vw;\n    color: #818284;\n    padding-right:3.5%;\n}\n.callbacks-to-dos .task-description[data-v-2c246ed2] {\n    height:22px;\n    font-size: 11px;\n    font-weight:500;\n    font-family: 'Rubik', sans-serif;\n    color: #6B6B6B;\n    padding-left:3.5%;\n}\n.active-task[data-v-2c246ed2] {\n    background-color:rgba(255,147,58,0.5);\n}\n\n  /* Custom checkbox */\n.main label.custom-control-label[data-v-2c246ed2] { \n    color: inherit; \n    font-weight: 200; \n    padding-top: 3px;\n}\n.custom-checkbox .custom-control-label[data-v-2c246ed2] { \n    padding-top: 5px;\n}\nli.custom-control.custom-checkbox[data-v-2c246ed2] { \n    box-shadow: 0 0 7px rgba(0, 0, 0, 0.05); \n    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n}\n.custom-control.custom-checkbox .custom-control-label[data-v-2c246ed2]:before { \n    border-radius: 50%!important; \n    border: 1px solid #ededed; \n    box-shadow: none; \n    -webkit-box-shadow: none;\n    -moz-box-shadow: none;\n    -o-box-shadow: none;\n    background-image: url('/images/icons/right-sidebar/Task_Check.svg') !important; \n    background-size: cover;\n}\n.custom-control-label[data-v-2c246ed2]::after, \n  .custom-control-label[data-v-2c246ed2]::before { \n    width: 20px; \n    height: 20px; \n    top: 6px; \n    left: 0.2rem;\n}\n.btn-primary[data-v-2c246ed2] {\n    font-size: 10px;\n    background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%, rgba(250, 168, 59, 1) 100%) !important;\n    font-weight: 600;\n    text-transform: uppercase;\n    padding: 10px 20px;\n    letter-spacing: 0.05em;\n}\ninput.search-text[data-v-2c246ed2]:focus, \n  input.save-text[data-v-2c246ed2]:focus,\n  .reminders input.list-input[data-v-2c246ed2]:focus { \n    outline: 0 !important; \n    border: 0 !important;\n} \n", ""]);
+exports.push([module.i, "\nh1[data-v-2c246ed2] {\n    font-size: 1.04vw;\n    font-family: 'Rubik', sans-serif;\n    padding-left: 5.2%;\n    padding-right: 5.2%;\n    margin-top:1%;\n}\n#dash-container[data-v-2c246ed2] {\n    padding-left: 5.2%;\n    padding-right: 5.2%;\n    background-color: #F7F7F7;\n}\n#top-section[data-v-2c246ed2] {\n    padding-top:1%;\n    margin-bottom: 5.5%;\n}\nselect.rounded-pill[data-v-2c246ed2]{\n    box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    font-size: 0.84vw;\n    font-family: 'Rubik', sans-serif;\n    padding:9px 17px 7px;\n    color: #333333;\n}\n.divider-line[data-v-2c246ed2] {\n    height: 1px;\n    background-color: #ccc;\n}\n#top-section .agent-stats[data-v-2c246ed2] {\n    margin-top:2.5%;\n}\n#top-section .agent-stats .card[data-v-2c246ed2]{    \n    border-radius: 25px;\n    padding: 1.3%;\n    box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n}\n#top-section .agent-stats .card .card-numeral[data-v-2c246ed2] {\n    font-size: 1.58vw;\n    line-height: 1em;\n    letter-spacing: 0.1em;\n    color: #333333;\n}\n#top-section .agent-stats .card .card-desc[data-v-2c246ed2] {\n    font-size: 0.82vw;\n    font-family: 'Rubik', sans-serif;\n    line-height: 1em;\n    color: #333333;\n    margin-top: 8px;\n}\n#top-section .agent-stats .card .card-stat[data-v-2c246ed2] {\n    font-size: 0.71vw;\n    font-family: 'Rubik', sans-serif;\n    line-height: 1em;\n    letter-spacing: 0.1em;\n    margin-top: 12px;\n}\n.agent-graphs[data-v-2c246ed2] {\n    margin-top:3.4%;\n}\n.agent-graphs .card[data-v-2c246ed2] {\n    margin-left: 1.7%;\n    margin-right: 1.7%;\n    background-color: transparent;\n}\n.agent-graphs .tab-content[data-v-2c246ed2] {\n    padding-top:12px;\n    border-bottom-left-radius: 25px;\n    border-bottom-right-radius: 25px;\n    background-color: #fff;\n    box-shadow: 0 0 20px 10px #e6e6e6;\n    -webkit-box-shadow: 0 0 20px 10px #e6e6e6;\n    -moz-box-shadow: 0 0 20px 10px #e6e6e6;\n    -o-box-shadow: 0 0 20px 10px #e6e6e6;\n}\n.agent-graphs .tab-pane[data-v-2c246ed2] {\n    padding:2.5% 8.5% 5%;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[data-v-2c246ed2] {\n    color: #808080;\n    font-size: 0.73vw;\n    border: none;\n}\n.nav.nav-tabs.card-header-tabs .nav-link .icon[data-v-2c246ed2] {\n    padding-top:18px;\n    padding-bottom:18px;\n    margin-right: 5%;\n}\n@media screen and (max-width: 1643px) {\n.nav.nav-tabs.card-header-tabs .nav-link .icon[data-v-2c246ed2] {\n      width: 27px;\n}\n}\n.agent-graphs .nav-tabs .nav-item[data-v-2c246ed2] {\n    margin-bottom: 3px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"One\"][data-v-2c246ed2], \n  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Two\"][data-v-2c246ed2],\n  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Three\"][data-v-2c246ed2],\n  .nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][aria-controls=\"Four\"][data-v-2c246ed2]{ \n    box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;\n    -webkit-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;\n    -moz-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6;\n    -o-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6; \n    border-top-left-radius: 25px; \n    border-top-right-radius: 25px;\n}\n.card .card-header.tab-card-header[data-v-2c246ed2] {\n    background-color: transparent;\n    border-top-left-radius: 25px;\n    border-top-right-radius: 25px;\n}\n.agent-details[data-v-2c246ed2] {\n    margin-top: 3.1%;\n}\n.agent-details .container-row .col[data-v-2c246ed2], .agent-details .container-row .col-3[data-v-2c246ed2]{\n    padding-left: 1.3%;\n    padding-right: 1.3%;\n}\n.agent-details .top-row .col[data-v-2c246ed2] {\n    padding-left: 1.7%;\n    padding-right: 1.7%;\n}\n.agent-details .bottom-row[data-v-2c246ed2]{\n    margin-top: 3.8%;\n}\n.agent-details .bottom-row .col[data-v-2c246ed2] {\n    padding-left: 1.7%;\n    padding-right: 1.7%;\n}\n.agent-details .card[data-v-2c246ed2] {\n    padding: 5% 7% 5.7%!important;\n    border-radius: 15px!important;\n    box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n}\n.agent-details .card .heading[data-v-2c246ed2] {\n    font-size: 0.94vw;\n    font-family: 'Rubik', sans-serif;\n    color: #B3B3B3;\n    margin-bottom: 3%;\n}\n.agent-details .card .detail[data-v-2c246ed2] {\n    font-size: 1.57vw;\n    color: #1A1C43;\n    line-height: 1em;\n    margin-top:7px;\n}\n#three .col[data-v-2c246ed2] {\n    padding-left:3.6%;\n    padding-right:3.6%;\n}\n#three .col[data-v-2c246ed2]:first-child {\n    padding-left:0;\n}\n#three .col[data-v-2c246ed2]:last-child {\n    padding-right:0;\n}\n#three .col-6[data-v-2c246ed2] {\n    padding-left:5px;\n    padding-right:5px;\n}\n.legend[data-v-2c246ed2] {\n    margin-bottom:3.1%;\n}\n.legend p[data-v-2c246ed2] {\n    font-family: 'Rubik', sans-serif;\n    font-size: 0.7vw;\n    color:#999999;\n}\n.comparison-month[data-v-2c246ed2] {\n    color:#999999;;\n    font-size: 0.7vw;\n    font-family: 'Rubik', sans-serif;\n    margin-top:20%;\n}\n.progress-bar[data-v-2c246ed2]{\n    background: #F2F2F2;\n    min-height:100px;\n    max-width:20px;\n    justify-content: flex-end;\n    margin:0 auto;\n}\n.tank[data-v-2c246ed2]{\n    border-top-left-radius: 50rem;\n    border-top-right-radius: 50rem;\n    transition: all 0.5s ease 0s;\n}\n.tank.answers[data-v-2c246ed2] {\n    background:  linear-gradient(#02D3F4 0%, #0496F0 100%) !important;\n    background: #0496F0;\n}\n.tank.dialing[data-v-2c246ed2] {\n    background:  linear-gradient(#FFA380 0%, #FF8087 100%) !important;\n    background: #0496F0;\n}\n.card.target .card-text[data-v-2c246ed2]{\n    margin: auto;\n}\n.card.target.reached[data-v-2c246ed2] {\n    background:  linear-gradient(to right, rgba(160,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;\n}\n.card.target.not-reached[data-v-2c246ed2] {\n    background:  linear-gradient(to right, rgba(255,163,128,1) 0%, rgba(255,63,61,1) 100%) !important;\n}\n.card.target .heading[data-v-2c246ed2] {\n    font-size: 0.94vw;\n    color: #fff;\n    margin-bottom:8%;\n    font-family: Montserrat, sans-serif;\n}\n#dash-activities[data-v-2c246ed2] {\n    margin-top:5.2%;\n    padding-bottom: 65px;\n}\n#dash-activities .card[data-v-2c246ed2] {\n    border-radius: 25px;\n    box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    padding:2.9% 3.7%;\n}\n#dash-activities .col[data-v-2c246ed2] {\n    padding-left: 3.4%;\n    padding-right: 3.4%;\n}\n#dash-activities .border-right[data-v-2c246ed2] {\n    border-color: #003449;\n}\n#dash-activities h4[data-v-2c246ed2] {\n    font-size: 0.84vw;\n    font-family: 'Rubik', sans-serif;\n}\n#dash-activities .calendar h4[data-v-2c246ed2] {\n    margin-left:4.3%;\n}\n.calendar .card[data-v-2c246ed2] {\n    padding: 6% 5%!important;\n}\n.calendar p[data-v-2c246ed2] {\n    font-size: 16px;\n    font-family: 'Rubik', sans-serif;\n}\n.calendar .card-title[data-v-2c246ed2] {\n    font-family: 'Rubik', sans-serif;\n    font-weight: 600;\n    font-size: 12px;\n}\n.calendar .col-6[data-v-2c246ed2],\n  .reminders .col-6[data-v-2c246ed2] {\n    padding-left: 4.5%;\n    padding-right: 4.5%;\n}\n.calendar p[data-v-2c246ed2] {\n    font-family: 'Rubik', sans-serif;\n    font-size: 10px;\n}\n.reminders p[data-v-2c246ed2] {\n    font-size: 16px;\n    font-family: 'Rubik', sans-serif;\n    color: #333333;\n}\n.reminders ul[data-v-2c246ed2] {\n    max-height:448px;\n    overflow-y: auto;\n    margin-top: 20px;\n    padding-top:20px;\n    border-top: 1px solid #CDCDCF;\n}\n.reminders ul li[data-v-2c246ed2] {\n    box-shadow: 0 0 7px rgba(0,0,0,0.05);\n    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.05);\n    -moz-box-shadow: 0 0 7px rgba(0,0,0,0.05);\n    -o-box-shadow: 0 0 7px rgba(0,0,0,0.05);\n    padding:10px 15px;\n}\n.reminders ul li label[data-v-2c246ed2] {\n    font-size: 16px;\n    font-family: 'Rubik', sans-serif;\n    color: #808080;\n}\n.callback-label[data-v-2c246ed2],\n  .tasks-date[data-v-2c246ed2] {\n    font-size: 10px;\n    font-family: 'Rubik', sans-serif !important;\n    color: #808080;\n}\n.reminders input.list-input[data-v-2c246ed2]{\n    font-size: 0.83vw;\n    font-family: 'Rubik', sans-serif;\n    color: #808080;\n    padding-left: 37px!important;\n    width: 100%;\n    text-overflow: ellipsis;\n}\n.reminders .terms-text textarea[data-v-2c246ed2] {\n    padding: 11px 18px!important;\n    box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    border-color: #ccc;\n}\na.Edit[data-v-2c246ed2]{\n    background-image: url('/images/DataTables/Edit_Icon.svg');\n    background-size: 20px;\n    background-repeat: no-repeat;\n    width:20px;\n    height:20px;\n}\na.Edit[data-v-2c246ed2]:hover,\n  a.Edit[data-v-2c246ed2]:active{\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');\n    background-size: 20px;\n    background-repeat: no-repeat;\n}\n.callback-capture[data-v-2c246ed2] {\n    background: #f4f4f4;\n    border-radius: 50rem;\n    height: 50px;\n}\n.comment-desc[data-v-2c246ed2] {\n    height: 50px;\n    padding: 11px;\n    margin: 0;\n    background: #f4f4f4;\n    cursor: pointer;\n    float: left;\n}\n.comment-desc[data-v-2c246ed2]::-webkit-input-placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n.comment-desc[data-v-2c246ed2]::-moz-placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n.comment-desc[data-v-2c246ed2]:-ms-input-placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n.comment-desc[data-v-2c246ed2]::-ms-input-placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n.comment-desc[data-v-2c246ed2]::placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n#submit-btn img[data-v-2c246ed2] {\n    margin-top: -15px;\n    margin-right: -15px;\n}\n.callbacks-to-dos .border-top[data-v-2c246ed2] {\n    border-color: #CDCDCF;\n}\n.callbacks-to-dos .task-time[data-v-2c246ed2] {\n    font-size: 0.73vw;\n    color: #818284;\n    padding-right:3.5%;\n}\n.callbacks-to-dos .task-description[data-v-2c246ed2] {\n    height:22px;\n    font-size: 11px;\n    font-weight:500;\n    font-family: 'Rubik', sans-serif;\n    color: #6B6B6B;\n    padding-left:3.5%;\n}\n.active-task[data-v-2c246ed2] {\n    background-color:rgba(255,147,58,0.5);\n}\n\n  /* Custom checkbox */\n.main label.custom-control-label[data-v-2c246ed2] { \n    color: inherit; \n    font-weight: 200; \n    padding-top: 3px;\n}\n.custom-checkbox .custom-control-label[data-v-2c246ed2] { \n    padding-top: 5px;\n}\nli.custom-control.custom-checkbox[data-v-2c246ed2] { \n    box-shadow: 0 0 7px rgba(0, 0, 0, 0.05); \n    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n}\n.custom-control.custom-checkbox .custom-control-label[data-v-2c246ed2]:before { \n    border-radius: 50%!important; \n    border: 1px solid #ededed; \n    box-shadow: none; \n    -webkit-box-shadow: none;\n    -moz-box-shadow: none;\n    -o-box-shadow: none;\n    background-image: url('/images/icons/right-sidebar/Task_Check.svg') !important; \n    background-size: cover;\n}\n.custom-control-label[data-v-2c246ed2]::after, \n  .custom-control-label[data-v-2c246ed2]::before { \n    width: 20px; \n    height: 20px; \n    top: 6px; \n    left: 0.2rem;\n}\n.btn-primary[data-v-2c246ed2] {\n    font-size: 10px;\n    background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%, rgba(250, 168, 59, 1) 100%) !important;\n    font-weight: 600;\n    text-transform: uppercase;\n    padding: 10px 20px;\n    letter-spacing: 0.05em;\n}\ninput.search-text[data-v-2c246ed2]:focus, \n  input.save-text[data-v-2c246ed2]:focus,\n  .reminders input.list-input[data-v-2c246ed2]:focus { \n    outline: 0 !important; \n    border: 0 !important;\n} \n", ""]);
 
 // exports
 
@@ -246572,7 +246712,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\r\n/*Nav starts*/\n.main-sidebar[data-v-57a1bf10], .main-sidebar[data-v-57a1bf10]:before {\r\n  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;\r\n  width: 56px !important;\n}\n.sidebar-dark-primary[data-v-57a1bf10] {\r\n  background-color: #fff;\r\n  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n  -o-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n[class*=\"sidebar-dark\"] .brand-link[data-v-57a1bf10] {\r\n  color: rgba(255, 255, 255, 0.8);\r\n  border-bottom: none;\n}\n.nav-sidebar > .nav-item[data-v-57a1bf10] {\r\n  width: 50px;\r\n  margin-left:6px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link img[data-v-57a1bf10] {\r\n  padding:8px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link[data-v-57a1bf10]:hover {\r\n  background-size: 50px;\r\n  background-image: url('/images/icons/left-sidebar/no-shadows/Orange Icon Background 2.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link[data-v-57a1bf10] {\r\n  background-repeat: no-repeat;\r\n  min-height:56px;\r\n  transition: background-image .3s ease;\n}\n.main-sidebar[data-v-57a1bf10] {\r\n  width: 56px!important;\r\n  overflow:visible;\n}\n#sidebar[data-v-57a1bf10], .nav.nav-pills.nav-sidebar.flex-column[data-v-57a1bf10], .nav.nav-pills a.nav-link[data-v-57a1bf10] {\r\n  overflow: visible!important;\n}\n.nav-link span[data-v-57a1bf10]{\r\n  position: relative;\r\n  left: -16px!important;\r\n  top: 2px;\r\n  background: #fff;\r\n  color: #000;\r\n  font-size: 0px;\r\n  color: #003549;\r\n  border-radius: 0 50rem 50rem 0;\r\n  box-shadow: 0 0 6px rgba(0,0,0,0.1);\r\n  -webkit-box-shadow: 0 0 6px rgba(0,0,0,0.1);\r\n  -moz-box-shadow: 0 0 6px rgba(0,0,0,0.1);\r\n  -o-box-shadow: 0 0 6px rgba(0,0,0,0.1);\r\n  padding: 18px 0;\r\n  width: 0;\r\n  overflow:hidden;\r\n  z-index:-1;\r\n  transition-delay: 2s;\r\n  transition: width .5s ease, padding .5s ease, overflow .5s ease, left .5s ease;\n}\n.nav-link:hover span[data-v-57a1bf10]{\r\n  width: auto; \r\n  overflow:visible;\r\n  padding: 18px 35px 18px 40px;\r\n  left: -20px!important;\r\n  font-size: 12px;\n}\n.sidebar-collapse .nav-link span[data-v-57a1bf10] {\r\n  top: 2px;\n}\n.sidebar-collapse .nav-link:hover span[data-v-57a1bf10] {\r\n  padding: 16px 35px 16px 40px;\n}\r\n/*Nav Ends*/\r\n", ""]);
+exports.push([module.i, "\r\n/*Nav starts*/\n.main-sidebar[data-v-57a1bf10], .main-sidebar[data-v-57a1bf10]:before {\r\n  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;\r\n  width: 51px !important;\n}\n.sidebar-dark-primary[data-v-57a1bf10] {\r\n  background-color: #fff;\r\n  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n  -o-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n[class*=\"sidebar-dark\"] .brand-link[data-v-57a1bf10] {\r\n  color: rgba(255, 255, 255, 0.8);\r\n  border-bottom: none;\n}\n.nav-sidebar > .nav-item[data-v-57a1bf10] {\r\n  width: 50px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link img[data-v-57a1bf10] {\r\n  padding:8px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link[data-v-57a1bf10]:hover {\r\n  background-size: 50px;\r\n  background-image: url('/images/icons/left-sidebar/no-shadows/Orange Icon Background 2.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link[data-v-57a1bf10] {\r\n  background-repeat: no-repeat;\r\n  min-height:56px;\r\n  transition: background-image .3s ease;\n}\n.main-sidebar[data-v-57a1bf10] {\r\n  width: 51px!important;\r\n  overflow:visible;\n}\n#sidebar[data-v-57a1bf10], .nav.nav-pills.nav-sidebar.flex-column[data-v-57a1bf10], .nav.nav-pills a.nav-link[data-v-57a1bf10] {\r\n  overflow: visible!important;\n}\n.nav-link span[data-v-57a1bf10]{\r\n  position: relative;\r\n  left: -16px!important;\r\n  top: 2px;\r\n  background: #fff;\r\n  color: #000;\r\n  font-size: 0px;\r\n  color: #003549;\r\n  border-radius: 0 50rem 50rem 0;\r\n  box-shadow: 0 0 6px rgba(0,0,0,0.1);\r\n  -webkit-box-shadow: 0 0 6px rgba(0,0,0,0.1);\r\n  -moz-box-shadow: 0 0 6px rgba(0,0,0,0.1);\r\n  -o-box-shadow: 0 0 6px rgba(0,0,0,0.1);\r\n  padding: 18px 0;\r\n  width: 0;\r\n  overflow:hidden;\r\n  z-index:-1;\r\n  transition-delay: 2s;\r\n  transition: width .5s ease, padding .5s ease, overflow .5s ease, left .5s ease;\n}\n.nav-link:hover span[data-v-57a1bf10]{\r\n  width: auto; \r\n  overflow:visible;\r\n  padding: 18px 35px 18px 40px;\r\n  left: -20px!important;\r\n  font-size: 12px;\n}\r\n/*Nav Ends*/\r\n", ""]);
 
 // exports
 
@@ -246610,7 +246750,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n\r\n/*Right Component*/\n.main-header.navbar.navbar-expand[data-v-6ec57eb6] {\r\n  padding: 13px 4% 1.55%;\r\n     position: relative;\r\n    top: 10px;\n}\n.navbar-nav li.title[data-v-6ec57eb6]{\r\n  line-height: 20px;\n}\n.nav-link.top-link.d-block.text-center[data-v-6ec57eb6] {\r\n    box-shadow: 0 0 7px rgba(0,0,0,0.1);\n}\n.nav-link.top-link.d-block.text-center[data-v-6ec57eb6]:hover {\r\n    box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\r\n    background: #ffffff;\n}\na.add-new[data-v-6ec57eb6] {\r\n\tborder-radius: 50rem !important;\r\n    box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\r\n    -webkit-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\r\n    -moz-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\r\n    -o-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\r\n    background: #ffffff;\r\n    font-size: 16px;\r\n    color: #989899;\r\n    font-weight: 600;\n}\nli.title a strong[data-v-6ec57eb6]{\r\n  color: #003549;\r\n  font-size: 1.68vw;\r\n  letter-spacing: 0.1em;\n}\na.top-link[data-v-6ec57eb6]{    \r\n  border-radius: 26px;\r\n  height: 30px !important;\r\n  padding: 6px 17px 6px !important;\r\n  font-family: 'Rubik', sans-serif;\r\n  letter-spacing: 1px;\n}\na.active[data-v-6ec57eb6]{    \r\n  border-radius: 26px;\r\n  height: 30px !important;\r\n  background: #F98B39 !important;\r\n  border-color: #F98B39 !important;\r\n  color: #fff !important;\r\n  padding: 4px 17px 6px !important;\n}\nselect[data-v-6ec57eb6]{\r\n  font-family: 'Rubik', sans-serif;\r\n  border-radius: 26px;\r\n  border:0;\r\n  margin: 5px 8px 8px 55px !important;\r\n  height: 30px !important;\r\n  background: #fff !important;\r\n  color: #003549 !important;\r\n  padding: 0 16px 0 !important;\r\n  box-shadow: 0 0 5px rgba(0,0,0,0.1);\r\n  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.1);\r\n  -moz-box-shadow: 0 0 5px rgba(0,0,0,0.1);\r\n  -o-box-shadow: 0 0 5px rgba(0,0,0,0.1);\r\n  letter-spacing: 1px;\r\n  font-size: 14px;\n}\nselect.month-selector[data-v-6ec57eb6] {\r\n  margin-left: 0!important;\r\n  margin-right: 0!important;\n}\n.callIcons li a[data-v-6ec57eb6]{\r\n  background-repeat: no-repeat;\r\n  color: black;\r\n  background-size: 59px !important;\r\n  background-repeat: no-repeat !important;\r\n  background-position: center center !important;\n}\n.callIcons .search .col-auto[data-v-6ec57eb6] {\r\n  padding-right:46% !important;\n}\n.callIcons .search a[data-v-6ec57eb6]{\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/top-nav/Search.svg') !important;\r\n  background-size: 15px!important;\r\n  background-repeat: no-repeat;\r\n  border-radius: 50rem;\r\n\tbox-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n\twidth: 40px;\r\n  height: 40px;\n}\n.callIcons .search a[data-v-6ec57eb6]:hover{\r\n  background-image: url('/images/icons/Asset 61.svg') !important;\r\n  background-size: 170%!important;\r\n  background-repeat: no-repeat;\n}\n.callIcons .search input[data-v-6ec57eb6] {\r\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  padding:14px 0 14px;\r\n  right: -40px;\r\n  position: absolute;\r\n  top: -24px;\r\n  width:0;\r\n  transition: width 2s;\n}\n.callIcons .search:hover input[data-v-6ec57eb6] {\r\n  width:auto;\r\n  padding:14px 40px 14px 15px;\n}\n.callIcons .search:hover input[data-v-6ec57eb6]:focus {\r\n  outline: 0 !important;\n}\n.callIcons .search input[data-v-6ec57eb6]::-webkit-input-placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: 'Rubik', sans-serif;\r\n  font-style: italic;\n}\n.callIcons .search input[data-v-6ec57eb6]::-moz-placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: 'Rubik', sans-serif;\r\n  font-style: italic;\n}\n.callIcons .search input[data-v-6ec57eb6]:-ms-input-placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: 'Rubik', sans-serif;\r\n  font-style: italic;\n}\n.callIcons .search input[data-v-6ec57eb6]::-ms-input-placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: 'Rubik', sans-serif;\r\n  font-style: italic;\n}\n.callIcons .search input[data-v-6ec57eb6]::placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: 'Rubik', sans-serif;\r\n  font-style: italic;\n}\n.callIcons li.idle .status[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 55.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li.on-call .status[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 56.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li.offline .status[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 57.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/top-nav/Start_Call.svg') !important;\r\n  background-size: 20px;\r\n  background-position: center;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]:hover{\r\n  background-image: url('/images/icons/Call/Start Call Hover.svg') !important;\r\n  background-size: 170%;\r\n  background-repeat: no-repeat;\n}\n.callIcons li button.call[data-v-6ec57eb6],\r\n.callIcons button.status[data-v-6ec57eb6],\r\n.callIcons button.end-call[data-v-6ec57eb6] {\r\n    border-radius: 50rem;\r\n    box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n    width: 40px;\r\n    height: 40px;\n}\n.callIcons li .end-call[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/top-nav/End_Call.svg') !important;\r\n  background-size: 25px;\r\n  background-position: center;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .end-call[data-v-6ec57eb6]:hover{\r\n  background-image: url('/images/icons/Call/End Call Hover.svg') !important;\r\n  background-size: 170%;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .add-call-back-btn[data-v-6ec57eb6]{\r\n  background-image: url('/images/workstation/Asset 28@4x.png') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-color: transparent;\r\n  border: none;\r\n  padding: 14px;\r\n  margin-top: 5px;\r\n  margin-left: 20px;\n}\n.modal-content[data-v-6ec57eb6]{\r\n  background: linear-gradient(to right, rgba(255,128,51,1) 0%, rgba(255,147,58,1) 100%);\n}\r\n/*is error being used?*/\n.error[data-v-6ec57eb6]{\r\n  color:#F98B39;\n}\r\n/*End Right Component*/\r\n", ""]);
+exports.push([module.i, "\n\r\n/*Right Component*/\n.main-header.navbar.navbar-expand[data-v-6ec57eb6] {\r\n  padding: 13px 4% 1.55%;\r\n  position: relative;\r\n  top: 10px;\n}\n.navbar-nav li.title[data-v-6ec57eb6]{\r\n  line-height: 20px;\n}\n.nav-link.top-link.d-block.text-center[data-v-6ec57eb6] {\r\n  box-shadow: 0 0 7px rgba(0,0,0,0.1);\r\n  height: auto !important;\r\n  font-size: 0.73vw;\n}\n.nav-link.top-link.d-block.text-center[data-v-6ec57eb6]:hover {\r\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow:0 0 5px rgba(0, 0, 0, 0.1);\r\n  -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  background: #ffffff;\n}\na.add-new[data-v-6ec57eb6] {\r\n\tborder-radius: 50rem !important;\r\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  background: #ffffff;\r\n  font-size: 16px;\r\n  color: #989899;\r\n  font-weight: 600;\n}\nli.title a strong[data-v-6ec57eb6]{\r\n  color: #003549;\r\n  font-size: 1.68vw;\r\n  letter-spacing: 0.1em;\n}\na.top-link[data-v-6ec57eb6]{    \r\n  border-radius: 26px;\r\n  height: 30px !important;\r\n  padding: 6px 17px 6px !important;\r\n  font-family: 'Rubik', sans-serif;\r\n  letter-spacing: 1px;\n}\na.active[data-v-6ec57eb6]{    \r\n  border-radius: 26px;\r\n  background: #F98B39 !important;\r\n  border-color: #F98B39 !important;\r\n  color: #fff !important;\r\n  padding: 6px 17px 6px !important;\n}\nselect[data-v-6ec57eb6]{\r\n  font-family: 'Rubik', sans-serif;\r\n  border-radius: 26px;\r\n  border:0;\r\n  margin: 5px 8px 8px 55px !important;\r\n  height: 30px !important;\r\n  background: #fff !important;\r\n  color: #003549 !important;\r\n  padding: 0 16px 0 !important;\r\n  box-shadow: 0 0 5px rgba(0,0,0,0.1);\r\n  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.1);\r\n  -moz-box-shadow: 0 0 5px rgba(0,0,0,0.1);\r\n  -o-box-shadow: 0 0 5px rgba(0,0,0,0.1);\r\n  letter-spacing: 1px;\r\n  font-size: 14px;\n}\nselect.month-selector[data-v-6ec57eb6] {\r\n  margin-left: 0!important;\r\n  margin-right: 0!important;\n}\n.callIcons li a[data-v-6ec57eb6]{\r\n  background-repeat: no-repeat;\r\n  color: black;\r\n  background-size: 59px !important;\r\n  background-repeat: no-repeat !important;\r\n  background-position: center center !important;\n}\n.callIcons .search .col-auto[data-v-6ec57eb6] {\r\n  padding-right:46% !important;\n}\n.callIcons .search a[data-v-6ec57eb6]{\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/top-nav/Search.svg') !important;\r\n  background-size: 15px!important;\r\n  background-repeat: no-repeat;\r\n  border-radius: 50rem;\r\n\tbox-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n\twidth: 40px;\r\n  height: 40px;\n}\n.callIcons .search a[data-v-6ec57eb6]:hover{\r\n  background-image: url('/images/icons/Asset 61.svg') !important;\r\n  background-size: 170%!important;\r\n  background-repeat: no-repeat;\n}\n.callIcons .search input[data-v-6ec57eb6] {\r\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  padding:14px 0 14px;\r\n  right: -40px;\r\n  position: absolute;\r\n  top: -24px;\r\n  width:0;\r\n  transition: width 2s;\n}\n.callIcons .search:hover input[data-v-6ec57eb6] {\r\n  width:auto;\r\n  padding:14px 40px 14px 15px;\n}\n.callIcons .search:hover input[data-v-6ec57eb6]:focus {\r\n  outline: 0 !important;\n}\n.callIcons .search input[data-v-6ec57eb6]::-webkit-input-placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: 'Rubik', sans-serif;\r\n  font-style: italic;\n}\n.callIcons .search input[data-v-6ec57eb6]::-moz-placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: 'Rubik', sans-serif;\r\n  font-style: italic;\n}\n.callIcons .search input[data-v-6ec57eb6]:-ms-input-placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: 'Rubik', sans-serif;\r\n  font-style: italic;\n}\n.callIcons .search input[data-v-6ec57eb6]::-ms-input-placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: 'Rubik', sans-serif;\r\n  font-style: italic;\n}\n.callIcons .search input[data-v-6ec57eb6]::placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: 'Rubik', sans-serif;\r\n  font-style: italic;\n}\n.callIcons li.idle .status[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 55.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li.on-call .status[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 56.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li.offline .status[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 57.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/top-nav/Start_Call.svg') !important;\r\n  background-size: 20px;\r\n  background-position: center;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]:hover{\r\n  background-image: url('/images/icons/Call/Start Call Hover.svg') !important;\r\n  background-size: 170%;\r\n  background-repeat: no-repeat;\n}\n.callIcons li button.call[data-v-6ec57eb6],\r\n.callIcons button.status[data-v-6ec57eb6],\r\n.callIcons button.end-call[data-v-6ec57eb6] {\r\n    border-radius: 50rem;\r\n    box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n    width: 40px;\r\n    height: 40px;\n}\n.callIcons li .end-call[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/top-nav/End_Call.svg') !important;\r\n  background-size: 25px;\r\n  background-position: center;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .end-call[data-v-6ec57eb6]:hover{\r\n  background-image: url('/images/icons/Call/End Call Hover.svg') !important;\r\n  background-size: 170%;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .add-call-back-btn[data-v-6ec57eb6]{\r\n  background-image: url('/images/workstation/Asset 28@4x.png') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-color: transparent;\r\n  border: none;\r\n  padding: 14px;\r\n  margin-top: 5px;\r\n  margin-left: 20px;\n}\n.modal-content[data-v-6ec57eb6]{\r\n  background: linear-gradient(to right, rgba(255,128,51,1) 0%, rgba(255,147,58,1) 100%);\n}\r\n/*is error being used?*/\n.error[data-v-6ec57eb6]{\r\n  color:#F98B39;\n}\r\n/*End Right Component*/\r\n", ""]);
 
 // exports
 
@@ -246876,7 +247016,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.general-section-stats .agent-stats-1[data-v-f3210f20] {\r\n  padding-left: 5%; \r\n  padding-right: 5%;\n}\n.general-section-stats .agent-stats-2[data-v-f3210f20] { \r\n  padding-left: 5%; \r\n  padding-right: 5%; \r\n  padding-bottom: 30px;\n}\n.scripts[data-v-f3210f20] { \r\n  padding-left: 3%; \r\n  padding-right: 3%;\n}\n.top-section .col[data-v-f3210f20] { \r\n  padding: 0 10px; \r\n  /* border-left: 1px solid rgba(0,52,73,1);   \r\n  min-height: 71px;  \r\n  margin-bottom: 57px; */ \r\n  min-width: 150px;\n}\n.top-section .bottom[data-v-f3210f20] { \r\n  font-size: 12px; \r\n  font-weight: 700; \r\n  letter-spacing: 0.05em; \r\n  color: #1e2253; \r\n  font-family: \"Rubik\", sans-serif;\r\n  padding: 5px 15px;\n}\n.top-section .top[data-v-f3210f20] { \r\n  font-size: 12px; \r\n  color: #747577; \r\n  letter-spacing: 0.05em; \r\n  font-family: \"Rubik\", sans-serif; \r\n  margin-bottom: 0;\n}\n.border-top-grey[data-v-f3210f20] { \r\n  border-top: 1px solid #ededee;\n}\n.border-left-grey[data-v-f3210f20] { \r\n  border-left: 1px solid #ededee;\n}\ndiv.col-6:last-child .inner-div .row[data-v-f3210f20], div.col-6:nth-last-child(2) .inner-div .row[data-v-f3210f20] { \r\n  border-bottom: 1px solid #ededee;\n}\n.p10-25[data-v-f3210f20] { \r\n  padding: 10px 25px;\n}\n.mr-22[data-v-f3210f20] {\r\n  margin-right: 22%;\n}\n.mr-12[data-v-f3210f20] {\r\n  margin-right: 12%;\n}\n.card[data-v-f3210f20] { \r\n  border-radius: 25px;\n}\n.client-details .card-title[data-v-f3210f20] { \r\n  margin-bottom: 0.75rem; \r\n  padding-bottom: 0.5rem; \r\n  border-bottom: 1px solid #fff; \r\n  font-size: 14px; \r\n  font-family: \"Rubik\", sans-serif; \r\n  letter-spacing: 0.05em;\n}\n.client[data-v-f3210f20] { \r\n  background: linear-gradient( \r\n    to right, \r\n    rgba(255, 164, 128, 1) 0%, \r\n    rgba(255, 128, 134, 1) 100% \r\n  );\n}\n.product[data-v-f3210f20] { \r\n  background: linear-gradient( \r\n    to right, \r\n    rgba(159, 204, 226, 1) 0%, \r\n    rgba(4, 149, 240, 1) 100% \r\n  );\n}\n.activity[data-v-f3210f20] { \r\n  background: linear-gradient( \r\n    to right, \r\n    rgba(221, 192, 241, 1) 0%, \r\n    rgba(160, 117, 209, 1) 100% \r\n  );\n}\n.time[data-v-f3210f20] { \r\n  background: linear-gradient( \r\n    to right, \r\n    rgba(101, 215, 207, 1) 0%, \r\n    rgba(111, 148, 211, 1) 100% \r\n  );\n}\nh5[data-v-f3210f20] { \r\n  color: #fff;\n}\nh5 .icon[data-v-f3210f20] { \r\n  width: 15px; \r\n  margin: -5px 15px 0 0;\n}\np.card-text[data-v-f3210f20] { \r\n  font-size: 32px; \r\n  color: #fff; \r\n  font-weight: bolder; \r\n  line-height: 1em;\n}\np.card-link[data-v-f3210f20] { \r\n  font-size: 16px; \r\n  color: #fff;\n}\n.client-details[data-v-f3210f20] { \r\n  background-image: linear-gradient(180deg, #fff 30%, #f6f8f9 30%); \r\n  padding-left: 3%; \r\n  padding-right: 3%; \r\n  padding-bottom: 30px;\n}\n.client-details .card[data-v-f3210f20] { \r\n  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); \r\n  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);\n}\n.client-details .card-body[data-v-f3210f20] { \r\n  padding: 1.25rem;\n}\n.stats.final-modal[data-v-f3210f20] { \r\n  background-color: #f6f8f9; \r\n  padding-left: 3%; \r\n  padding-right: 3%; \r\n  padding-bottom: 3%;\n}\n.stats .card h5[data-v-f3210f20] { \r\n  color: #818284;\n}\n.stats .card h5 .icon[data-v-f3210f20] { \r\n  width: 25px; \r\n  margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-f3210f20] { \r\n  margin-bottom: 0.75rem; \r\n  padding-bottom: 0.75rem; \r\n  border-bottom: 1px solid #cdcdcf;\n}\nspan.right[data-v-f3210f20] { \r\n  float: right;\n}\n.truncate[data-v-f3210f20] { \r\n  white-space: nowrap; \r\n  overflow: hidden; \r\n  text-overflow: ellipsis;\n}\n.comments-list[data-v-f3210f20] { \r\n  max-height: 190px; \r\n  overflow-y: auto;\n}\n.stats-bars[data-v-f3210f20] { \r\n  max-height: 290px; \r\n  overflow-y: auto;\n}\n.agent-comments[data-v-f3210f20] { \r\n  border-color: #cdcdcf; \r\n  padding: 10px 0;\n}\n.comment-abbr[data-v-f3210f20] { \r\n  font-size: 0.95vw; \r\n  color: #003449; \r\n  letter-spacing: 0.1em;\n}\n.comments-length[data-v-f3210f20] { \r\n  font-family: \"Rubik\", sans-serif; \r\n  font-size: 0.7vw; \r\n  color: #999999;\n}\n.comment-notes[data-v-f3210f20] { \r\n  font-size: 0.63vw; \r\n  font-family: \"Rubik\", sans-serif; \r\n  color: #7f99a4;\n}\n.author[data-v-f3210f20] { \r\n  font-size: 10px; \r\n  color: #7f99a4;\n}\n.notes-capture[data-v-f3210f20], \r\n.callback-capture[data-v-f3210f20] { \r\n  background: #f4f4f4; \r\n  border-radius: 50rem; \r\n  height: 50px;\n}\n.notes-capture[data-v-f3210f20] { \r\n  margin-top: 8.7%;\n}\n.choose-comment-type[data-v-f3210f20] { \r\n  height: 50px; \r\n  width: 50px; \r\n  padding: 11px; \r\n  margin: 0 10px 0 0; \r\n  background: #f4f4f4; \r\n  border-radius: 50rem !important; \r\n  cursor: pointer;\n}\n.comment-desc[data-v-f3210f20] { \r\n  height: 50px; \r\n  padding: 11px; \r\n  margin: 0; \r\n  border-radius: 9px; \r\n  background: #f4f4f4; \r\n  cursor: pointer; \r\n  float: left;\n}\n.comment-desc[data-v-f3210f20]::-webkit-input-placeholder { \r\n  font-size: 0.63vw; \r\n  font-family: \"Rubik\", sans-serif; \r\n  color: #999; \r\n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]::-moz-placeholder { \r\n  font-size: 0.63vw; \r\n  font-family: \"Rubik\", sans-serif; \r\n  color: #999; \r\n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]:-ms-input-placeholder { \r\n  font-size: 0.63vw; \r\n  font-family: \"Rubik\", sans-serif; \r\n  color: #999; \r\n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]::-ms-input-placeholder { \r\n  font-size: 0.63vw; \r\n  font-family: \"Rubik\", sans-serif; \r\n  color: #999; \r\n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]::placeholder { \r\n  font-size: 0.63vw; \r\n  font-family: \"Rubik\", sans-serif; \r\n  color: #999; \r\n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]:focus, textarea.form-control[data-v-f3210f20]:focus {\r\n  outline: 0 !important;\r\n  box-shadow: none !important; \r\n  -webkit-box-shadow: none !important; \r\n  -moz-ox-shadow: none !important; \r\n  -o-box-shadow: none !important;\n}\n.keys[data-v-f3210f20] { \r\n  letter-spacing: 0.05em; \r\n  font-family: \"Rubik\", sans-serif; \r\n  font-size: 8px; \r\n  color: #808080;\n}\n.callback-label[data-v-f3210f20] { \r\n  color: #666; \r\n  letter-spacing: 0.05em; \r\n  font-size: 12px; \r\n  font-family: \"Rubik\", sans-serif;\n}\n#submit-btn img[data-v-f3210f20] { \r\n  margin-top: -15px; \r\n  margin-right: -15px;\n}\n.btn-secondary[data-v-f3210f20] { \r\n  color: #fff; \r\n  background-color: #f6f8f9; \r\n  border-color: #f6f8f9;\n}\n.btn-secondary[data-v-f3210f20]:not(:disabled):not(.disabled):active, \r\n.btn-secondary:not(:disabled):not(.disabled).active[data-v-f3210f20], \r\n.show > .btn-secondary.dropdown-toggle[data-v-f3210f20] { \r\n  color: #fff; \r\n  background-color: #f6f8f9; \r\n  border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-f3210f20] { \r\n  height: 318px !important;\n}\n.call-progress-div[data-v-f3210f20] { \r\n  margin-left: -54px; \r\n  margin-right: -65px; \r\n  padding: 3% 34px 0; \r\n  background-image: url(/images/call/Call_Background.svg) !important; \r\n  background-size: cover; \r\n  background-repeat: no-repeat; \r\n  max-height: 120vh; \r\n  transition: all 500ms ease;\n}\n.call-progress-div .top-animation[data-v-f3210f20] { \r\n  padding: 7px; \r\n  background-image: url(/images/call/Call_Logo.svg) !important; \r\n  background-size: 75%; \r\n  background-position: center; \r\n  background-repeat: no-repeat; \r\n  height: 186px;\n}\n.tip[data-v-f3210f20] { \r\n  margin-bottom: 40px; \r\n  background-size: 20%; \r\n  background-repeat: no-repeat; \r\n  background-position: center 1px; \r\n  margin-bottom: 40px; \r\n  padding-top: 30px;\n}\n.tip p.step[data-v-f3210f20] { \r\n  border-bottom: 1px solid #fff; \r\n  margin-bottom: 10px; \r\n  color: #fff; \r\n  margin: 0; \r\n  letter-spacing: 3px;\n}\n.tip p.tip-text[data-v-f3210f20] { \r\n  margin-bottom: 20px;\n}\n.tip h1[data-v-f3210f20] { \r\n  color: #fff; \r\n  font-size: 1.6rem; \r\n  letter-spacing: 6px; \r\n  margin-top: 19px;\n}\n.tip p.tip-text[data-v-f3210f20] { \r\n  margin-bottom: 10px; \r\n  color: #fff; \r\n  margin: 0; \r\n  letter-spacing: 3px;\n}\n.tip-a[data-v-f3210f20] { \r\n  background-image: url(\"/images/call/1@4x.png\") !important; \r\n  background-size: 12% !important;\n}\n.tip-b[data-v-f3210f20] { \r\n  background-image: url(\"/images/call/2@4x.png\") !important;\n}\n.tip-c[data-v-f3210f20] { \r\n  background-image: url(\"/images/call/3@4x.png\") !important;\n}\n.tip-d[data-v-f3210f20] { \r\n  background-image: url(\"/images/call/4@4x.png\") !important;\n}\n.tip-e[data-v-f3210f20] { \r\n  background-image: url(\"/images/call/5@4x.png\") !important;\n}\n.tip-f[data-v-f3210f20] { \r\n  background-image: url(\"/images/call/6@4x.png\") !important;\n}\n.verticalChart[data-v-f3210f20] { \r\n  background-image: url(\"/images/graph_grid.png\") !important; \r\n  background-repeat: repeat-x; \r\n  padding-top: 36px;\n}\n.verticalChart .singleBar[data-v-f3210f20] { \r\n  width: 14%; \r\n  float: left; \r\n  margin-left: 6.5%; \r\n  margin-right: 1.5%;\n}\n.verticalChart .singleBar .bar[data-v-f3210f20] { \r\n  position: relative; \r\n  height: 220px; \r\n  background: rgba(255, 255, 255, 0.2); \r\n  overflow: hidden;\n}\n.verticalChart .singleBar .bar .value[data-v-f3210f20] { \r\n  position: absolute; \r\n  bottom: 0; \r\n  background: #89cff0; \r\n  color: #003449;\n}\n.verticalChart .singleBar .bar .value span[data-v-f3210f20] { \r\n  position: absolute; \r\n  font-size: 12px; \r\n  bottom: 0; \r\n  height: 20px; \r\n  color: #003449; \r\n  display: none; \r\n  text-align: center;\n}\n.verticalChart .singleBar .title[data-v-f3210f20] { \r\n  margin-top: 5px; \r\n  text-align: center; \r\n  color: #003449; \r\n  font-size: 18px; \r\n  font-weight: 900; \r\n  letter-spacing: 2.2px; \r\n  font-family: \"Montserrat\", sans-serif;\n}\ndiv.scripts-div[data-v-f3210f20] { \r\n  max-height: 880.84px; \r\n  transition: all 500ms ease;\n}\ndiv.collapsed[data-v-f3210f20] { \r\n  max-height: 35px; \r\n  overflow: hidden; \r\n  padding: 0px; \r\n  background-color: transparent;\n}\np.minimize[data-v-f3210f20] { \r\n  position: relative; \r\n  text-align: right; \r\n  width: 100%; \r\n  top: -38px; \r\n  right: -62px; \r\n  color: #fff;\n}\ndiv.collapsed p.minimize[data-v-f3210f20] { \r\n  position: relative; \r\n  text-align: right; \r\n  width: 100%; \r\n  top: -1px; \r\n  right: 14px; \r\n  color: #fff;\n}\np.minimize a[data-v-f3210f20], \r\np.maximize a[data-v-f3210f20] { \r\n  color: #fff; \r\n  font-weight: 900;\n}\n.scripts p.heading[data-v-f3210f20] { \r\n  font-size: 17px; \r\n  border-bottom: 1px solid #003449; \r\n  margin-bottom: 18px; \r\n  color: #003449; \r\n  letter-spacing: 1.42px; \r\n  padding-bottom: 9px;\n}\n.scripts .card[data-v-f3210f20] { \r\n  border: 0; \r\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n}\n.scripts .card-body[data-v-f3210f20] { \r\n  flex: 1 1 auto; \r\n  padding: 3.25rem; \r\n  text-align: center;\n}\n.scripts .card-body p[data-v-f3210f20] { \r\n  color: #fff; \r\n  border-bottom: 1px solid #fff; \r\n  padding-bottom: 5px; \r\n  font-size: 32px; \r\n  letter-spacing: 4.42px;\n}\n.idle-div[data-v-f3210f20] { \r\n  margin-left: -54px; \r\n  margin-right: -65px; \r\n  padding: 3% 6%; \r\n  /* background-image: url('/images/call/Call_Background.svg') !important; */ \r\n  background-size: 100%; \r\n  background-repeat: no-repeat; \r\n  transition: all 500ms ease;\n}\n.idle-div .top-animation[data-v-f3210f20] { \r\n  padding: 7px; \r\n  background-image: url(\"/images/Idle_Pages_Assest/Asset 11900.svg\") !important; \r\n  background-size: 100%; \r\n  background-position: center; \r\n  background-repeat: no-repeat; \r\n  height: 600px;\n}\n.top-animation-minimized[data-v-f3210f20] { \r\n  padding: 7px; \r\n  background-image: url(\"/images/Idle_Pages_Assest/Asset 11900.svg\") !important; \r\n  background-size: 33%; \r\n  background-position: center; \r\n  background-repeat: no-repeat; \r\n  height: 133px;\n}\n.idle-footer[data-v-f3210f20] { \r\n  margin: 0 auto; \r\n  text-align: center;\n}\n.idle-footer p[data-v-f3210f20] { \r\n  margin: 0 auto; \r\n  text-align: center; \r\n  font-size: 12px; \r\n  color: #9fb3bb;\n}\na.down-scroll[data-v-f3210f20] { \r\n  transition: all 200ms ease;\n}\na.down-scroll[data-v-f3210f20]:hover { \r\n  margin-top: 5px;\n}\n.btn-active[data-v-f3210f20]:hover { \r\n  background: #00344a; \r\n  color: #ffffff; \r\n  border: none !important; \r\n  padding: 6px 25px 6px 18px; \r\n  font-size: 12px; \r\n  font-weight: 700; \r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-active[data-v-f3210f20] { \r\n  background: #ffffff; \r\n  color: #00344a; \r\n  padding: 6px 25px 6px 18px; \r\n  font-size: 12px; \r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.pulse-round[data-v-f3210f20] { \r\n  border-radius: 50%; \r\n  -webkit-animation: pulse-data-v-f3210f20 2s infinite; \r\n          animation: pulse-data-v-f3210f20 2s infinite;\n}\n.pulse-round[data-v-f3210f20]:hover { \r\n  -webkit-animation: none; \r\n          animation: none;\n}\n.pulse[data-v-f3210f20] { \r\n  -webkit-animation: pulse-data-v-f3210f20 2s infinite; \r\n          animation: pulse-data-v-f3210f20 2s infinite;\n}\n.pulse[data-v-f3210f20]:hover { \r\n  -webkit-animation: none; \r\n          animation: none;\n}\n@-webkit-keyframes pulse-data-v-f3210f20 {\n0% { \r\n    -webkit-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);\n}\n70% { \r\n    -webkit-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);\n}\n100% { \r\n    -webkit-box-shadow: 0 0 0 0 rgba(255, 147, 58, 1);\n}\n}\n@keyframes pulse-data-v-f3210f20 {\n0% { \r\n    box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);\n}\n70% { \r\n    box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);\n}\n100% { \r\n    box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);\n}\n}\n.stats.final-modal .card[data-v-f3210f20] { \r\n  border-radius: 0; \r\n  background: transparent;\n}\n.stats.final-modal .tab-card-header[data-v-f3210f20] { \r\n  background: transparent;\n}\n.stats.final-modal .tab-content[data-v-f3210f20] { \r\n  padding-top: 12px; \r\n  border-bottom-left-radius: 25px; \r\n  border-bottom-right-radius: 25px; \r\n  background-color: #fff; \r\n  box-shadow: 0 0 20px 10px #e6e6e6; \r\n  -webkit-box-shadow: 0 0 20px 10px #e6e6e6; \r\n  -moz-box-shadow: 0 0 20px 10px #e6e6e6; \r\n  -o-box-shadow: 0 0 20px 10px #e6e6e6;\n}\n.stats.final-modal .tab-pane[data-v-f3210f20] { \r\n  padding: 2.5% 8.5% 5%;\n}\n.final-modal .row-a[data-v-f3210f20] { \r\n  border-bottom: 1px solid #e3e3e3;\n}\n.final-modal label button img[data-v-f3210f20] { \r\n  width: 20px; \r\n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-f3210f20] { \r\n  font-size: 55px; \r\n  color: #ff933a;\n}\n.final-modal .card-header[data-v-f3210f20] { \r\n  border-top-left-radius: 19px; \r\n  border-top-right-radius: 19px; \r\n  padding: 0 11px 11px; \r\n  border-color: transparent;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-f3210f20] { \r\n  border-bottom: none;\n}\n.final-modal .nav.nav-tabs.card-header-tabs .nav-link .icon[data-v-f3210f20] { \r\n  padding-top: 18px; \r\n  padding-bottom: 18px;\n}\n.nav.nav-tabs.card-header-tabs li a[data-v-f3210f20] { \r\n  border: 0; \r\n  color: #7f8080; \r\n  letter-spacing: 0.05em; \r\n  text-align: center; \r\n  padding-top: 0; \r\n  padding-bottom: 0;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][data-v-f3210f20] { \r\n  box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6; \r\n  -webkit-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6; \r\n  -moz-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6; \r\n  -o-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6; \r\n  background-color: #fff; \r\n  border-top-left-radius: 25px; \r\n  border-top-right-radius: 25px;\n}\n.nav-link.active img.add-activity[data-v-f3210f20] {\r\n  margin-left:20px;\r\n  display: inline-block!important;\r\n  box-shadow: 0 0 2px rgba(0,0,0,0.15);\r\n  -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);\r\n  -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);\r\n  -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);\r\n  border-radius: 50rem;\r\n  cursor:pointer;\n}\n.activities .card-header[data-v-f3210f20], \r\n.deals .card-header[data-v-f3210f20] { \r\n  background: #fff;\n}\n.activities .card-header-tabs[data-v-f3210f20], \r\n.deals .card-header-tabs[data-v-f3210f20] { \r\n  box-shadow: inset 0 -10px 10px #f5f5f5;\n}\n.activities input[data-v-f3210f20] {\r\n  font-family: 'Rubik', sans-serif;\r\n  font-size: 12px;\r\n  color: #999999;\n}\n.deals #seven input[data-v-f3210f20],\r\n.deals #seven textarea[data-v-f3210f20] {\r\n  font-family: 'Rubik', sans-serif;\r\n  font-size: 12px;\r\n  color: #999999;\r\n  white-space: nowrap;\r\n  padding: 5px 10px !important;\r\n  max-height: 33px;\n}\n.deals #eight p[data-v-f3210f20] { \r\n  font-size: 10px; \r\n  letter-spacing: 0.05em; \r\n  color: 808080;\n}\n.deals #eight label[data-v-f3210f20] { \r\n  font-size: 10px; \r\n  letter-spacing: 0.05em; \r\n  color: #999999; \r\n  font-family: \"Rubik\", sans-serif;\n}\n.deals #eight input[data-v-f3210f20], \r\n.deals #eight textarea[data-v-f3210f20], \r\n.deals #eight select[data-v-f3210f20] { \r\n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); \r\n  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); \r\n  color: #003449; \r\n  letter-spacing: 0.05em; \r\n  font-family: \"Rubik\", sans-serif; \r\n  font-size: 12px; \r\n  padding: 10px 20px !important;\n}\n.deals #eight textarea[data-v-f3210f20] { \r\n  border-radius: 25px; \r\n  height: 94px !important;\n}\n.deals #eight .custom-select[data-v-f3210f20] { \r\n  height: auto;\n}\n.deals #eight .cancel-deal[data-v-f3210f20] { \r\n  border-radius: 50rem !important; \r\n  font-size: 10px; \r\n  text-transform: uppercase; \r\n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.05); \r\n  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.05); \r\n  letter-spacing: 0.05em; \r\n  color: #999999; \r\n  padding: 9px;\n}\n.deals #eight .save-deal[data-v-f3210f20] { \r\n  font-size: 10px; \r\n  text-transform: uppercase; \r\n  letter-spacing: 0.05em; \r\n  font-weight: 700; \r\n  padding: 9px;\n}\n.nav-tabs .nav-link span[data-v-f3210f20] { \r\n  font-size: 0.73vw; \r\n  padding-left: 10px;\n}\n#two .col-lg-4[data-v-f3210f20] { \r\n  margin-top: 6.5%;\n}\n#two .callback-legend[data-v-f3210f20] { \r\n  margin-bottom: 18.5%;\n}\n#two .col-lg-4 .today[data-v-f3210f20], \r\n#two .col-lg-4 .recommended-call[data-v-f3210f20] { \r\n  margin-bottom: 14px;\n}\n#two label[data-v-f3210f20] { \r\n  color: rgb(129, 130, 132); \r\n  font-size: 0.68vw; \r\n  font-weight: 200;\n}\n#two .col-lg-8[data-v-f3210f20] { \r\n  padding-left: 7.8%;\n}\n.vc-reset[data-v-f3210f20], \r\n.vc-reset *[data-v-f3210f20] { \r\n  border-style: none !important; \r\n  border-color: transparent !important;\n}\n.vc-h-full .vc-rounded-full[data-v-f3210f20] { \r\n  border-radius: 5px !important;\n}\n.scroll-hidden[data-v-f3210f20] { \r\n  overflow-y: scroll; \r\n  height: 70vh; \r\n  padding-top: 6px; \r\n  padding-right: 3%; \r\n  padding-bottom: 6px; \r\n  padding-left: 3%;\n}\n.summary p[data-v-f3210f20] { \r\n  font-family: \"Rubik\", sans-serif; \r\n  font-size: 0.7vw; \r\n  color: #999999;\n}\n.stat-perc[data-v-f3210f20] { \r\n  letter-spacing: 0.1em; \r\n  font-size: 0.85vw; \r\n  color: #808080;\n}\n.summary-abr[data-v-f3210f20] { \r\n  letter-spacing: 0.05em; \r\n  color: #333333; \r\n  font-family: \"Rubik\", sans-serif; \r\n  font-size: 0.95vw;\n}\n.progress-bar[data-v-f3210f20] { \r\n  background: #e6e6e6; \r\n  border-radius: 5px; \r\n  height: 12px;\n}\n.tank[data-v-f3210f20] { \r\n  background: linear-gradient(to right, #00ffdd 0%, #5a6ff0 100%) !important; \r\n  border-radius: 5px; \r\n  background: rgb(114, 218, 126); \r\n  height: 12px; \r\n  transition: all 0.5s ease 0s;\n}\n.email-desc[data-v-f3210f20] { \r\n  letter-spacing: 0.05em; \r\n  color: #999999; \r\n  font-size: 0.63vw; \r\n  font-family: \"Rubik\", sans-serif;\n}\n#four .text-uppercase.font-weight-bold[data-v-f3210f20] { \r\n  color: #808080; \r\n  letter-spacing: 0.05em; \r\n  font-size: 0.73vw;\n}\n#four .btn-default[data-v-f3210f20] { \r\n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); \r\n  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); \r\n  font-family: \"Rubik\", sans-serif; \r\n  font-size: 0.63vw; \r\n  letter-spacing: 0.05em; \r\n  border-radius: 50rem !important;\n}\n#four textarea[data-v-f3210f20] { \r\n  background-color: #f9f9f9; \r\n  border-radius: 10px; \r\n  height: 163px !important; \r\n  overflow-y: auto;\n}\n#four textarea[data-v-f3210f20]::-webkit-input-placeholder { \r\n  color: #999999; \r\n  font-size: 0.63vw; \r\n  font-family: \"Rubik\", sans-serif; \r\n  font-style: italic;\n}\n#four textarea[data-v-f3210f20]::-moz-placeholder { \r\n  color: #999999; \r\n  font-size: 0.63vw; \r\n  font-family: \"Rubik\", sans-serif; \r\n  font-style: italic;\n}\n#four textarea[data-v-f3210f20]:-ms-input-placeholder { \r\n  color: #999999; \r\n  font-size: 0.63vw; \r\n  font-family: \"Rubik\", sans-serif; \r\n  font-style: italic;\n}\n#four textarea[data-v-f3210f20]::-ms-input-placeholder { \r\n  color: #999999; \r\n  font-size: 0.63vw; \r\n  font-family: \"Rubik\", sans-serif; \r\n  font-style: italic;\n}\n#four textarea[data-v-f3210f20]::placeholder { \r\n  color: #999999; \r\n  font-size: 0.63vw; \r\n  font-family: \"Rubik\", sans-serif; \r\n  font-style: italic;\n}\n.scroll-hidden[data-v-f3210f20] { \r\n  overflow-y: scroll; \r\n  height: 70vh; \r\n  /* padding-top: 6px; */ \r\n  padding-right: 6px; \r\n  width: 100%;\n}\n.dropdown-menu[data-v-f3210f20] { \r\n  width: 191px; \r\n  padding: 17px; \r\n  font-size: 13px;\n}\n.comment_review p[data-v-f3210f20] { \r\n  width: 100%;\n}\n.calendar-heading[data-v-f3210f20] { \r\n  font-size: 0.73vw; \r\n  letter-spacing: 0.05em; \r\n  color: #666666; \r\n  border-color: #ccc;\n}\n.dropdown-menu.show[data-v-f3210f20] { \r\n  border-radius: 25px; \r\n  border: 0; \r\n  padding: 10px 20px 15px 15px; \r\n  color: #818284; \r\n  font-family: \"Rubik\", sans-serif; \r\n  font-size: 16px;\n}\n.new-activity h5[data-v-f3210f20] {\r\n  font-size: 0.83vw;\r\n  color: #1e2253!important;\n}\n.permissions-divider[data-v-f3210f20] {\r\n  margin-top:3.7%;\r\n  margin-bottom:3.1%;\n}\n.btn-primary[data-v-f3210f20] {\r\n  border-radius: 50rem!important;\r\n  text-transform:uppercase;\r\n  font-size: 10px;\r\n  padding: 11px 14px 10px;\r\n  line-height:1em;\r\n  margin-left: 0.9%;\r\n  margin-right: 0.9%;\n}\n.new-activity label[data-v-f3210f20] {\r\n  font-family: 'Rubik', sans-serif;\r\n  font-size: 0.52vw;;\r\n  color: #999999;\r\n  margin-bottom:7px;\r\n  margin-left: 17px;\n}\n.new-activity .activity-subject[data-v-f3210f20] {\r\n  border-radius: 50rem;\r\n  padding: 11px 18px!important;\r\n  font-size: 0.63vw;\r\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  color: #003449;\r\n  border-color: #ccc;\r\n  margin-bottom: 17px;\r\n  font-family: 'Rubik', sans-serif;\r\n  height:auto!important;\n}\n.activity-status[data-v-f3210f20] {\r\n  width:12px;\r\n  height: 12px;\r\n  border-radius: 50rem;\n}\n.finished-activity[data-v-f3210f20] {\r\n  background-color: #00D58E;\r\n  margin-right: 10px;\n}\n.in-progress-activity[data-v-f3210f20] {\r\n  background-color: #FF933A;\r\n  margin-right: 10px;\n}\n.not-started-activity[data-v-f3210f20] {\r\n  background-color: #F42222; \r\n  margin-right: 10px;\n}\n.activity-status-input[data-v-f3210f20] {\r\n  min-width:134px;\n}\n.type-input[data-v-f3210f20] {\r\n  min-width: 127px;\n}\n.stage-input[data-v-f3210f20] {\r\n  min-width: 135px;\n}\n.lead-source-input[data-v-f3210f20] {\r\n  min-width:146px;\n}\n.status-input[data-v-f3210f20] {\r\n  min-width:69px;\n}\r\n", ""]);
+exports.push([module.i, "\n.general-section-stats .agent-stats-1[data-v-f3210f20] {\r\n  padding-left: 5%; \r\n  padding-right: 5%;\n}\n.general-section-stats .agent-stats-2[data-v-f3210f20] { \r\n  padding-left: 5%; \r\n  padding-right: 5%; \r\n  padding-bottom: 30px;\n}\n.scripts[data-v-f3210f20] { \r\n  padding-left: 3%; \r\n  padding-right: 3%;\n}\n.top-section .col[data-v-f3210f20] { \r\n  padding: 0 10px; \r\n  /* border-left: 1px solid rgba(0,52,73,1);   \r\n  min-height: 71px;  \r\n  margin-bottom: 57px; */ \r\n  min-width: 150px;\n}\n.top-section .bottom[data-v-f3210f20] { \r\n  font-size: 12px; \r\n  font-weight: 700; \r\n  letter-spacing: 0.05em; \r\n  color: #1e2253; \r\n  font-family: \"Rubik\", sans-serif;\r\n  padding: 5px 15px;\n}\n.top-section .top[data-v-f3210f20] { \r\n  font-size: 12px; \r\n  color: #747577; \r\n  letter-spacing: 0.05em; \r\n  font-family: \"Rubik\", sans-serif; \r\n  margin-bottom: 0;\n}\n.border-top-grey[data-v-f3210f20] { \r\n  border-top: 1px solid #ededee;\n}\n.border-left-grey[data-v-f3210f20] { \r\n  border-left: 1px solid #ededee;\n}\ndiv.col-6:last-child .inner-div .row[data-v-f3210f20], div.col-6:nth-last-child(2) .inner-div .row[data-v-f3210f20] { \r\n  border-bottom: 1px solid #ededee;\n}\n.p10-25[data-v-f3210f20] { \r\n  padding: 10px 25px;\n}\n.mr-22[data-v-f3210f20] {\r\n  margin-right: 22%;\n}\n.mr-12[data-v-f3210f20] {\r\n  margin-right: 12%;\n}\n.card[data-v-f3210f20] { \r\n  border-radius: 25px;\n}\n.client-details .card-title[data-v-f3210f20] { \r\n  margin-bottom: 0.75rem; \r\n  padding-bottom: 0.5rem; \r\n  border-bottom: 1px solid #fff; \r\n  font-size: 14px; \r\n  font-family: \"Rubik\", sans-serif; \r\n  letter-spacing: 0.05em;\n}\n.client[data-v-f3210f20] { \r\n  background: linear-gradient( \r\n    to right, \r\n    rgba(255, 164, 128, 1) 0%, \r\n    rgba(255, 128, 134, 1) 100% \r\n  );\n}\n.product[data-v-f3210f20] { \r\n  background: linear-gradient( \r\n    to right, \r\n    rgba(159, 204, 226, 1) 0%, \r\n    rgba(4, 149, 240, 1) 100% \r\n  );\n}\n.activity[data-v-f3210f20] { \r\n  background: linear-gradient( \r\n    to right, \r\n    rgba(221, 192, 241, 1) 0%, \r\n    rgba(160, 117, 209, 1) 100% \r\n  );\n}\n.time[data-v-f3210f20] { \r\n  background: linear-gradient( \r\n    to right, \r\n    rgba(101, 215, 207, 1) 0%, \r\n    rgba(111, 148, 211, 1) 100% \r\n  );\n}\nh5[data-v-f3210f20] { \r\n  color: #fff;\n}\nh5 .icon[data-v-f3210f20] { \r\n  width: 15px; \r\n  margin: -5px 15px 0 0;\n}\np.card-text[data-v-f3210f20] { \r\n  font-size: 32px; \r\n  color: #fff; \r\n  font-weight: bolder; \r\n  line-height: 1em;\n}\np.card-link[data-v-f3210f20] { \r\n  font-size: 16px; \r\n  color: #fff;\n}\n.client-details[data-v-f3210f20] { \r\n  background-image: linear-gradient(180deg, #fff 30%, #f6f8f9 30%); \r\n  padding-left: 3%; \r\n  padding-right: 3%; \r\n  padding-bottom: 30px;\n}\n.client-details .card[data-v-f3210f20] { \r\n  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); \r\n  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);\n}\n.client-details .card-body[data-v-f3210f20] { \r\n  padding: 1.25rem;\n}\n.stats.final-modal[data-v-f3210f20] { \r\n  background-color: #f6f8f9; \r\n  padding-left: 3%; \r\n  padding-right: 3%; \r\n  padding-bottom: 3%;\n}\n.stats .card h5[data-v-f3210f20] { \r\n  color: #818284;\n}\n.stats .card h5 .icon[data-v-f3210f20] { \r\n  width: 25px; \r\n  margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-f3210f20] { \r\n  margin-bottom: 0.75rem; \r\n  padding-bottom: 0.75rem; \r\n  border-bottom: 1px solid #cdcdcf;\n}\nspan.right[data-v-f3210f20] { \r\n  float: right;\n}\n.truncate[data-v-f3210f20] { \r\n  white-space: nowrap; \r\n  overflow: hidden; \r\n  text-overflow: ellipsis;\n}\n.comments-list[data-v-f3210f20] { \r\n  max-height: 218px; \r\n  overflow-y: auto;\n}\n.stats-bars[data-v-f3210f20] { \r\n  max-height: 319px; \r\n  overflow-y: auto;\n}\n.agent-comments[data-v-f3210f20] { \r\n  border-color: #cdcdcf; \r\n  padding: 10px 0;\n}\n.comment-abbr[data-v-f3210f20] { \r\n  font-size: 0.95vw; \r\n  color: #003449; \r\n  letter-spacing: 0.1em;\n}\n.comments-length[data-v-f3210f20] { \r\n  font-family: \"Rubik\", sans-serif; \r\n  font-size: 0.7vw; \r\n  color: #999999;\n}\n.comment-notes[data-v-f3210f20] { \r\n  font-size: 0.63vw; \r\n  font-family: \"Rubik\", sans-serif; \r\n  color: #7f99a4;\n}\n.author[data-v-f3210f20] { \r\n  font-size: 10px; \r\n  color: #7f99a4;\n}\n.notes-capture[data-v-f3210f20], \r\n.callback-capture[data-v-f3210f20] { \r\n  background: #f4f4f4; \r\n  border-radius: 50rem; \r\n  height: 50px;\n}\n.notes-capture[data-v-f3210f20] { \r\n  margin-top: 8.7%;\n}\n.choose-comment-type[data-v-f3210f20] { \r\n  height: 50px; \r\n  width: 50px; \r\n  padding: 11px; \r\n  margin: 0 10px 0 0; \r\n  background: #f4f4f4; \r\n  border-radius: 50rem !important; \r\n  cursor: pointer;\n}\n.comment-desc[data-v-f3210f20] { \r\n  height: 50px; \r\n  padding: 11px; \r\n  margin: 0; \r\n  border-radius: 9px; \r\n  background: #f4f4f4; \r\n  cursor: pointer; \r\n  float: left;\n}\n.comment-desc[data-v-f3210f20]::-webkit-input-placeholder { \r\n  font-size: 0.63vw; \r\n  font-family: \"Rubik\", sans-serif; \r\n  color: #999; \r\n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]::-moz-placeholder { \r\n  font-size: 0.63vw; \r\n  font-family: \"Rubik\", sans-serif; \r\n  color: #999; \r\n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]:-ms-input-placeholder { \r\n  font-size: 0.63vw; \r\n  font-family: \"Rubik\", sans-serif; \r\n  color: #999; \r\n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]::-ms-input-placeholder { \r\n  font-size: 0.63vw; \r\n  font-family: \"Rubik\", sans-serif; \r\n  color: #999; \r\n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]::placeholder { \r\n  font-size: 0.63vw; \r\n  font-family: \"Rubik\", sans-serif; \r\n  color: #999; \r\n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]:focus, textarea.form-control[data-v-f3210f20]:focus {\r\n  outline: 0 !important;\r\n  box-shadow: none !important; \r\n  -webkit-box-shadow: none !important; \r\n  -moz-ox-shadow: none !important; \r\n  -o-box-shadow: none !important;\n}\n.keys[data-v-f3210f20] { \r\n  letter-spacing: 0.05em; \r\n  font-family: \"Rubik\", sans-serif; \r\n  font-size: 8px; \r\n  color: #808080;\n}\n.callback-label[data-v-f3210f20] { \r\n  color: #666; \r\n  letter-spacing: 0.05em; \r\n  font-size: 12px; \r\n  font-family: \"Rubik\", sans-serif;\n}\n#submit-btn img[data-v-f3210f20] { \r\n  margin-top: -15px; \r\n  margin-right: -15px;\n}\n.btn-secondary[data-v-f3210f20] { \r\n  color: #fff; \r\n  background-color: #f6f8f9; \r\n  border-color: #f6f8f9;\n}\n.btn-secondary[data-v-f3210f20]:not(:disabled):not(.disabled):active, \r\n.btn-secondary:not(:disabled):not(.disabled).active[data-v-f3210f20], \r\n.show > .btn-secondary.dropdown-toggle[data-v-f3210f20] { \r\n  color: #fff; \r\n  background-color: #f6f8f9; \r\n  border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-f3210f20] { \r\n  height: 318px !important;\n}\n.call-progress-div[data-v-f3210f20] { \r\n  margin-left: -54px; \r\n  margin-right: -65px; \r\n  padding: 3% 34px 0; \r\n  background-image: url(/images/call/Call_Background.svg) !important; \r\n  background-size: cover; \r\n  background-repeat: no-repeat; \r\n  max-height: 120vh; \r\n  transition: all 500ms ease;\n}\n.call-progress-div .top-animation[data-v-f3210f20] { \r\n  padding: 7px; \r\n  background-image: url(/images/call/Call_Logo.svg) !important; \r\n  background-size: 75%; \r\n  background-position: center; \r\n  background-repeat: no-repeat; \r\n  height: 186px;\n}\n.tip[data-v-f3210f20] { \r\n  margin-bottom: 40px; \r\n  background-size: 20%; \r\n  background-repeat: no-repeat; \r\n  background-position: center 1px; \r\n  margin-bottom: 40px; \r\n  padding-top: 30px;\n}\n.tip p.step[data-v-f3210f20] { \r\n  border-bottom: 1px solid #fff; \r\n  margin-bottom: 10px; \r\n  color: #fff; \r\n  margin: 0; \r\n  letter-spacing: 3px;\n}\n.tip p.tip-text[data-v-f3210f20] { \r\n  margin-bottom: 20px;\n}\n.tip h1[data-v-f3210f20] { \r\n  color: #fff; \r\n  font-size: 1.6rem; \r\n  letter-spacing: 6px; \r\n  margin-top: 19px;\n}\n.tip p.tip-text[data-v-f3210f20] { \r\n  margin-bottom: 10px; \r\n  color: #fff; \r\n  margin: 0; \r\n  letter-spacing: 3px;\n}\n.tip-a[data-v-f3210f20] { \r\n  background-image: url(\"/images/call/1@4x.png\") !important; \r\n  background-size: 12% !important;\n}\n.tip-b[data-v-f3210f20] { \r\n  background-image: url(\"/images/call/2@4x.png\") !important;\n}\n.tip-c[data-v-f3210f20] { \r\n  background-image: url(\"/images/call/3@4x.png\") !important;\n}\n.tip-d[data-v-f3210f20] { \r\n  background-image: url(\"/images/call/4@4x.png\") !important;\n}\n.tip-e[data-v-f3210f20] { \r\n  background-image: url(\"/images/call/5@4x.png\") !important;\n}\n.tip-f[data-v-f3210f20] { \r\n  background-image: url(\"/images/call/6@4x.png\") !important;\n}\n.verticalChart[data-v-f3210f20] { \r\n  background-image: url(\"/images/graph_grid.png\") !important; \r\n  background-repeat: repeat-x; \r\n  padding-top: 36px;\n}\n.verticalChart .singleBar[data-v-f3210f20] { \r\n  width: 14%; \r\n  float: left; \r\n  margin-left: 6.5%; \r\n  margin-right: 1.5%;\n}\n.verticalChart .singleBar .bar[data-v-f3210f20] { \r\n  position: relative; \r\n  height: 220px; \r\n  background: rgba(255, 255, 255, 0.2); \r\n  overflow: hidden;\n}\n.verticalChart .singleBar .bar .value[data-v-f3210f20] { \r\n  position: absolute; \r\n  bottom: 0; \r\n  background: #89cff0; \r\n  color: #003449;\n}\n.verticalChart .singleBar .bar .value span[data-v-f3210f20] { \r\n  position: absolute; \r\n  font-size: 12px; \r\n  bottom: 0; \r\n  height: 20px; \r\n  color: #003449; \r\n  display: none; \r\n  text-align: center;\n}\n.verticalChart .singleBar .title[data-v-f3210f20] { \r\n  margin-top: 5px; \r\n  text-align: center; \r\n  color: #003449; \r\n  font-size: 18px; \r\n  font-weight: 900; \r\n  letter-spacing: 2.2px; \r\n  font-family: \"Montserrat\", sans-serif;\n}\ndiv.scripts-div[data-v-f3210f20] { \r\n  max-height: 880.84px; \r\n  transition: all 500ms ease;\n}\ndiv.collapsed[data-v-f3210f20] { \r\n  max-height: 35px; \r\n  overflow: hidden; \r\n  padding: 0px; \r\n  background-color: transparent;\n}\np.minimize[data-v-f3210f20] { \r\n  position: relative; \r\n  text-align: right; \r\n  width: 100%; \r\n  top: -38px; \r\n  right: -62px; \r\n  color: #fff;\n}\ndiv.collapsed p.minimize[data-v-f3210f20] { \r\n  position: relative; \r\n  text-align: right; \r\n  width: 100%; \r\n  top: -1px; \r\n  right: 14px; \r\n  color: #fff;\n}\np.minimize a[data-v-f3210f20], \r\np.maximize a[data-v-f3210f20] { \r\n  color: #fff; \r\n  font-weight: 900;\n}\n.scripts p.heading[data-v-f3210f20] { \r\n  font-size: 17px; \r\n  border-bottom: 1px solid #003449; \r\n  margin-bottom: 18px; \r\n  color: #003449; \r\n  letter-spacing: 1.42px; \r\n  padding-bottom: 9px;\n}\n.scripts .card[data-v-f3210f20] { \r\n  border: 0; \r\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n}\n.scripts .card-body[data-v-f3210f20] { \r\n  flex: 1 1 auto; \r\n  padding: 3.25rem; \r\n  text-align: center;\n}\n.scripts .card-body p[data-v-f3210f20] { \r\n  color: #fff; \r\n  border-bottom: 1px solid #fff; \r\n  padding-bottom: 5px; \r\n  font-size: 32px; \r\n  letter-spacing: 4.42px;\n}\n.idle-div[data-v-f3210f20] { \r\n  margin-left: -54px; \r\n  margin-right: -65px; \r\n  padding: 3% 6%; \r\n  /* background-image: url('/images/call/Call_Background.svg') !important; */ \r\n  background-size: 100%; \r\n  background-repeat: no-repeat; \r\n  transition: all 500ms ease;\n}\n.idle-div .top-animation[data-v-f3210f20] { \r\n  padding: 7px; \r\n  background-image: url(\"/images/Idle_Pages_Assest/Asset 11900.svg\") !important; \r\n  background-size: 100%; \r\n  background-position: center; \r\n  background-repeat: no-repeat; \r\n  height: 600px;\n}\n.top-animation-minimized[data-v-f3210f20] { \r\n  padding: 7px; \r\n  background-image: url(\"/images/Idle_Pages_Assest/Asset 11900.svg\") !important; \r\n  background-size: 33%; \r\n  background-position: center; \r\n  background-repeat: no-repeat; \r\n  height: 133px;\n}\n.idle-footer[data-v-f3210f20] { \r\n  margin: 0 auto; \r\n  text-align: center;\n}\n.idle-footer p[data-v-f3210f20] { \r\n  margin: 0 auto; \r\n  text-align: center; \r\n  font-size: 12px; \r\n  color: #9fb3bb;\n}\na.down-scroll[data-v-f3210f20] { \r\n  transition: all 200ms ease;\n}\na.down-scroll[data-v-f3210f20]:hover { \r\n  margin-top: 5px;\n}\n.btn-active[data-v-f3210f20]:hover { \r\n  background: #00344a; \r\n  color: #ffffff; \r\n  border: none !important; \r\n  padding: 6px 25px 6px 18px; \r\n  font-size: 12px; \r\n  font-weight: 700; \r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-active[data-v-f3210f20] { \r\n  background: #ffffff; \r\n  color: #00344a; \r\n  padding: 6px 25px 6px 18px; \r\n  font-size: 12px; \r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.pulse-round[data-v-f3210f20] { \r\n  border-radius: 50%; \r\n  -webkit-animation: pulse-data-v-f3210f20 2s infinite; \r\n          animation: pulse-data-v-f3210f20 2s infinite;\n}\n.pulse-round[data-v-f3210f20]:hover { \r\n  -webkit-animation: none; \r\n          animation: none;\n}\n.pulse[data-v-f3210f20] { \r\n  -webkit-animation: pulse-data-v-f3210f20 2s infinite; \r\n          animation: pulse-data-v-f3210f20 2s infinite;\n}\n.pulse[data-v-f3210f20]:hover { \r\n  -webkit-animation: none; \r\n          animation: none;\n}\n@-webkit-keyframes pulse-data-v-f3210f20 {\n0% { \r\n    -webkit-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);\n}\n70% { \r\n    -webkit-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);\n}\n100% { \r\n    -webkit-box-shadow: 0 0 0 0 rgba(255, 147, 58, 1);\n}\n}\n@keyframes pulse-data-v-f3210f20 {\n0% { \r\n    box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);\n}\n70% { \r\n    box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);\n}\n100% { \r\n    box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);\n}\n}\n.stats.final-modal .card[data-v-f3210f20] { \r\n  border-radius: 0; \r\n  background: transparent;\n}\n.stats.final-modal .tab-card-header[data-v-f3210f20] { \r\n  background: transparent;\n}\n.stats.final-modal .tab-content[data-v-f3210f20] { \r\n  padding-top: 12px; \r\n  border-bottom-left-radius: 25px; \r\n  border-bottom-right-radius: 25px; \r\n  background-color: #fff; \r\n  box-shadow: 0 0 20px 10px #e6e6e6; \r\n  -webkit-box-shadow: 0 0 20px 10px #e6e6e6; \r\n  -moz-box-shadow: 0 0 20px 10px #e6e6e6; \r\n  -o-box-shadow: 0 0 20px 10px #e6e6e6;\n}\n.stats.final-modal .tab-pane[data-v-f3210f20] { \r\n  padding: 2.5% 8.5% 5%;\n}\n.final-modal .row-a[data-v-f3210f20] { \r\n  border-bottom: 1px solid #e3e3e3;\n}\n.final-modal label button img[data-v-f3210f20] { \r\n  width: 20px; \r\n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-f3210f20] { \r\n  font-size: 55px; \r\n  color: #ff933a;\n}\n.final-modal .card-header[data-v-f3210f20] { \r\n  border-top-left-radius: 19px; \r\n  border-top-right-radius: 19px; \r\n  padding: 0 0 11px 0; \r\n  border-color: transparent;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-f3210f20] { \r\n  border-bottom: none;\n}\n.final-modal .nav.nav-tabs.card-header-tabs .nav-link .icon[data-v-f3210f20] { \r\n  padding-top: 18px; \r\n  padding-bottom: 18px;\n}\n.nav.nav-tabs.card-header-tabs li a[data-v-f3210f20] { \r\n  border: 0; \r\n  color: #7f8080; \r\n  letter-spacing: 0.05em; \r\n  text-align: center; \r\n  padding-top: 0; \r\n  padding-bottom: 0;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][data-v-f3210f20] { \r\n  box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6; \r\n  -webkit-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6; \r\n  -moz-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6; \r\n  -o-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6; \r\n  background-color: #fff; \r\n  border-top-left-radius: 25px; \r\n  border-top-right-radius: 25px;\n}\n.nav-link.active img.add-activity[data-v-f3210f20] {\r\n  margin-left:20px;\r\n  display: inline-block!important;\r\n  box-shadow: 0 0 2px rgba(0,0,0,0.15);\r\n  -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);\r\n  -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);\r\n  -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);\r\n  border-radius: 50rem;\r\n  cursor:pointer;\n}\n.activities .card-header[data-v-f3210f20], \r\n.deals .card-header[data-v-f3210f20] { \r\n  background: #fff;\n}\n.activities .card-header-tabs[data-v-f3210f20], \r\n.deals .card-header-tabs[data-v-f3210f20] { \r\n  box-shadow: inset 0 -10px 10px #f5f5f5;\n}\n.activities input[data-v-f3210f20] {\r\n  font-family: 'Rubik', sans-serif;\r\n  font-size: 12px;\r\n  color: #999999;\n}\n.deals #seven input[data-v-f3210f20],\r\n.deals #seven textarea[data-v-f3210f20] {\r\n  font-family: 'Rubik', sans-serif;\r\n  font-size: 12px;\r\n  color: #999999;\r\n  white-space: nowrap;\r\n  padding: 5px 10px !important;\r\n  max-height: 33px;\n}\n.deals #eight p[data-v-f3210f20] { \r\n  font-size: 10px; \r\n  letter-spacing: 0.05em; \r\n  color: 808080;\n}\n.deals #eight label[data-v-f3210f20] { \r\n  font-size: 10px; \r\n  letter-spacing: 0.05em; \r\n  color: #999999; \r\n  font-family: \"Rubik\", sans-serif;\n}\n.deals #eight input[data-v-f3210f20], \r\n.deals #eight textarea[data-v-f3210f20], \r\n.deals #eight select[data-v-f3210f20] { \r\n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); \r\n  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); \r\n  color: #003449; \r\n  letter-spacing: 0.05em; \r\n  font-family: \"Rubik\", sans-serif; \r\n  font-size: 12px; \r\n  padding: 10px 20px !important;\n}\n.deals #eight textarea[data-v-f3210f20] { \r\n  border-radius: 25px; \r\n  height: 94px !important;\n}\n.deals #eight .custom-select[data-v-f3210f20] { \r\n  height: auto;\n}\n.deals #eight .cancel-deal[data-v-f3210f20] { \r\n  border-radius: 50rem !important; \r\n  font-size: 10px; \r\n  text-transform: uppercase; \r\n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.05); \r\n  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.05); \r\n  letter-spacing: 0.05em; \r\n  color: #999999; \r\n  padding: 9px;\n}\n.deals #eight .save-deal[data-v-f3210f20] { \r\n  font-size: 10px; \r\n  text-transform: uppercase; \r\n  letter-spacing: 0.05em; \r\n  font-weight: 700; \r\n  padding: 9px;\n}\n.nav-tabs .nav-link span[data-v-f3210f20] { \r\n  font-size: 0.73vw; \r\n  padding-left: 10px;\n}\n#two .col-lg-4[data-v-f3210f20] { \r\n  margin-top: 6.5%;\n}\n#two .callback-legend[data-v-f3210f20] { \r\n  margin-bottom: 18.5%;\n}\n#two .col-lg-4 .today[data-v-f3210f20], \r\n#two .col-lg-4 .recommended-call[data-v-f3210f20] { \r\n  margin-bottom: 14px;\n}\n#two label[data-v-f3210f20] { \r\n  color: rgb(129, 130, 132); \r\n  font-size: 0.68vw; \r\n  font-weight: 200;\n}\n#two .col-lg-8[data-v-f3210f20] { \r\n  padding-left: 7.8%;\n}\n@media screen and (max-width: 1771px) {\n#two .callback-legend[data-v-f3210f20] {\r\n    margin-bottom: 0;\n}\n#two .callback-legend .col-5[data-v-f3210f20]{ \r\n    padding-left: 0;\r\n    flex: 0 0 100%;\r\n    max-width: 100%;\n}\n#two .callback-legend .col-7[data-v-f3210f20] {\r\n    order:1;\r\n    flex: 0 0 100%;\r\n    max-width: 100%;\n}\n#two .callback-legend .row[data-v-f3210f20] {\r\n    margin-bottom:14px;\n}\n#two .callback-legend .calendar-items .col-auto[data-v-f3210f20] {\r\n    height: 10px;\n}\n}\n.vc-reset[data-v-f3210f20], \r\n.vc-reset *[data-v-f3210f20] { \r\n  border-style: none !important; \r\n  border-color: transparent !important;\n}\n.vc-h-full .vc-rounded-full[data-v-f3210f20] { \r\n  border-radius: 5px !important;\n}\n.summary p[data-v-f3210f20] { \r\n  font-family: \"Rubik\", sans-serif; \r\n  font-size: 0.7vw; \r\n  color: #999999;\n}\n.stat-perc[data-v-f3210f20] { \r\n  letter-spacing: 0.1em; \r\n  font-size: 0.85vw; \r\n  color: #808080;\n}\n.summary-abr[data-v-f3210f20] { \r\n  letter-spacing: 0.05em; \r\n  color: #333333; \r\n  font-family: \"Rubik\", sans-serif; \r\n  font-size: 0.95vw;\n}\n.progress-bar[data-v-f3210f20] { \r\n  background: #e6e6e6; \r\n  border-radius: 5px; \r\n  height: 12px;\n}\n.tank[data-v-f3210f20] { \r\n  background: linear-gradient(to right, #00ffdd 0%, #5a6ff0 100%) !important; \r\n  border-radius: 5px; \r\n  background: rgb(114, 218, 126); \r\n  height: 12px; \r\n  transition: all 0.5s ease 0s;\n}\n.email-desc[data-v-f3210f20] { \r\n  letter-spacing: 0.05em; \r\n  color: #999999; \r\n  font-size: 0.63vw; \r\n  font-family: \"Rubik\", sans-serif;\n}\n#four .text-uppercase.font-weight-bold[data-v-f3210f20] { \r\n  color: #808080; \r\n  letter-spacing: 0.05em; \r\n  font-size: 0.73vw;\n}\n#four .btn-default[data-v-f3210f20] { \r\n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); \r\n  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); \r\n  font-family: \"Rubik\", sans-serif; \r\n  font-size: 0.63vw; \r\n  letter-spacing: 0.05em; \r\n  border-radius: 50rem !important;\n}\n#four textarea[data-v-f3210f20] { \r\n  background-color: #f9f9f9; \r\n  border-radius: 10px; \r\n  height: 163px !important; \r\n  overflow-y: auto;\n}\n#four textarea[data-v-f3210f20]::-webkit-input-placeholder { \r\n  color: #999999; \r\n  font-size: 0.63vw; \r\n  font-family: \"Rubik\", sans-serif; \r\n  font-style: italic;\n}\n#four textarea[data-v-f3210f20]::-moz-placeholder { \r\n  color: #999999; \r\n  font-size: 0.63vw; \r\n  font-family: \"Rubik\", sans-serif; \r\n  font-style: italic;\n}\n#four textarea[data-v-f3210f20]:-ms-input-placeholder { \r\n  color: #999999; \r\n  font-size: 0.63vw; \r\n  font-family: \"Rubik\", sans-serif; \r\n  font-style: italic;\n}\n#four textarea[data-v-f3210f20]::-ms-input-placeholder { \r\n  color: #999999; \r\n  font-size: 0.63vw; \r\n  font-family: \"Rubik\", sans-serif; \r\n  font-style: italic;\n}\n#four textarea[data-v-f3210f20]::placeholder { \r\n  color: #999999; \r\n  font-size: 0.63vw; \r\n  font-family: \"Rubik\", sans-serif; \r\n  font-style: italic;\n}\n.scroll-hidden[data-v-f3210f20] { \r\n  overflow: auto; \r\n  padding-right: 6px; \r\n  width: 100%; \r\n  padding-bottom: 6px;\n}\n.left-padding-4[data-v-f3210f20] {\r\n    padding-left: 4%;\n}\n.dropdown-menu[data-v-f3210f20] { \r\n  width: 191px; \r\n  padding: 17px; \r\n  font-size: 13px;\n}\n.comment_review p[data-v-f3210f20] { \r\n  width: 100%;\n}\n.calendar-heading[data-v-f3210f20] { \r\n  font-size: 0.73vw; \r\n  letter-spacing: 0.05em; \r\n  color: #666666; \r\n  border-color: #ccc;\n}\n.dropdown-menu.show[data-v-f3210f20] { \r\n  border-radius: 25px; \r\n  border: 0; \r\n  padding: 10px 20px 15px 15px; \r\n  color: #818284; \r\n  font-family: \"Rubik\", sans-serif; \r\n  font-size: 16px;\n}\n.new-activity h5[data-v-f3210f20] {\r\n  font-size: 0.83vw;\r\n  color: #1e2253!important;\n}\n.permissions-divider[data-v-f3210f20] {\r\n  margin-top:3.7%;\r\n  margin-bottom:3.1%;\n}\n.btn-primary[data-v-f3210f20] {\r\n  border-radius: 50rem!important;\r\n  text-transform:uppercase;\r\n  font-size: 10px;\r\n  padding: 11px 14px 10px;\r\n  line-height:1em;\r\n  margin-left: 0.9%;\r\n  margin-right: 0.9%;\n}\n.new-activity label[data-v-f3210f20] {\r\n  font-family: 'Rubik', sans-serif;\r\n  font-size: 0.52vw;;\r\n  color: #999999;\r\n  margin-bottom:7px;\r\n  margin-left: 17px;\n}\n.new-activity .activity-subject[data-v-f3210f20] {\r\n  border-radius: 50rem;\r\n  padding: 11px 18px!important;\r\n  font-size: 0.63vw;\r\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  color: #003449;\r\n  border-color: #ccc;\r\n  margin-bottom: 17px;\r\n  font-family: 'Rubik', sans-serif;\r\n  height:auto!important;\n}\n.activity-status[data-v-f3210f20] {\r\n  width:12px;\r\n  height: 12px;\r\n  border-radius: 50rem;\n}\n.finished-activity[data-v-f3210f20] {\r\n  background-color: #00D58E;\r\n  margin-right: 10px;\n}\n.in-progress-activity[data-v-f3210f20] {\r\n  background-color: #FF933A;\r\n  margin-right: 10px;\n}\n.not-started-activity[data-v-f3210f20] {\r\n  background-color: #F42222; \r\n  margin-right: 10px;\n}\n.activity-status-input[data-v-f3210f20] {\r\n  min-width:134px;\n}\n.type-input[data-v-f3210f20] {\r\n  min-width: 127px;\n}\n.stage-input[data-v-f3210f20] {\r\n  min-width: 135px;\n}\n.lead-source-input[data-v-f3210f20] {\r\n  min-width:146px;\n}\n.status-input[data-v-f3210f20] {\r\n  min-width:69px;\n}\r\n", ""]);
 
 // exports
 
@@ -362395,7 +362535,7 @@ var staticRenderFns = [
                         staticStyle: { width: "60px" },
                         attrs: {
                           src: "/images/icons/Call-History-Add-Icon.svg",
-                          alt: "Icon"
+                          alt: "Add call history Icon"
                         }
                       })
                     ]
@@ -363876,7 +364016,7 @@ var render = function() {
                                         attrs: {
                                           src:
                                             "/images/icons/workstation/Submit.svg",
-                                          alt: "Icon",
+                                          alt: "submit Icon",
                                           width: "76"
                                         }
                                       })
@@ -363937,7 +364077,7 @@ var render = function() {
                             staticClass: "icon",
                             attrs: {
                               src: "/images/icons/Add_icon.svg",
-                              alt: "Icon",
+                              alt: "Add Icon",
                               width: "26"
                             }
                           })
@@ -364406,7 +364546,11 @@ var staticRenderFns = [
     return _c("p", { staticClass: "card-stat text-center mb-0" }, [
       _c("img", {
         staticClass: "d-inline-block",
-        attrs: { src: "/images/icons/dashboard/Up_icon.svg", width: "10" }
+        attrs: {
+          src: "/images/icons/dashboard/Up_icon.svg",
+          alt: "increased value icon",
+          width: "10"
+        }
       }),
       _vm._v(" "),
       _vm._v("\n              14%\n            ")
@@ -364419,7 +364563,11 @@ var staticRenderFns = [
     return _c("p", { staticClass: "card-stat text-center mb-0" }, [
       _c("img", {
         staticClass: "d-inline-block",
-        attrs: { src: "/images/icons/dashboard/Up_icon.svg", width: "10" }
+        attrs: {
+          src: "/images/icons/dashboard/Up_icon.svg",
+          alt: "increased value icon",
+          width: "10"
+        }
       }),
       _vm._v(" "),
       _vm._v("\n              3%\n            ")
@@ -364432,7 +364580,11 @@ var staticRenderFns = [
     return _c("p", { staticClass: "card-stat text-center mb-0" }, [
       _c("img", {
         staticClass: "d-inline-block",
-        attrs: { src: "/images/icons/dashboard/Up_icon.svg", width: "10" }
+        attrs: {
+          src: "/images/icons/dashboard/Up_icon.svg",
+          alt: "increased value icon",
+          width: "10"
+        }
       }),
       _vm._v(" "),
       _vm._v("\n              11%\n            ")
@@ -364445,7 +364597,11 @@ var staticRenderFns = [
     return _c("p", { staticClass: "card-stat text-center mb-0" }, [
       _c("img", {
         staticClass: "d-inline-block",
-        attrs: { src: "/images/icons/dashboard/Up_icon.svg", width: "10" }
+        attrs: {
+          src: "/images/icons/dashboard/Up_icon.svg",
+          alt: "increased value icon",
+          width: "10"
+        }
       }),
       _vm._v(" "),
       _vm._v("\n              33%\n            ")
@@ -364458,7 +364614,11 @@ var staticRenderFns = [
     return _c("p", { staticClass: "card-stat text-center mb-0" }, [
       _c("img", {
         staticClass: "d-inline-block",
-        attrs: { src: "/images/icons/dashboard/Up_icon.svg", width: "10" }
+        attrs: {
+          src: "/images/icons/dashboard/Up_icon.svg",
+          alt: "increased value icon",
+          width: "10"
+        }
       }),
       _vm._v(" "),
       _vm._v("\n              33%\n            ")
@@ -364502,7 +364662,7 @@ var staticRenderFns = [
                         staticClass: "icon",
                         attrs: {
                           src: "/images/icons/dashboard/Calls vs Sales.svg",
-                          alt: "Icon",
+                          alt: "Tab Icon",
                           width: "31"
                         }
                       }),
@@ -364531,7 +364691,7 @@ var staticRenderFns = [
                         staticClass: "icon",
                         attrs: {
                           src: "/images/icons/dashboard/Monthly Sales.svg",
-                          alt: "Icon",
+                          alt: "Tab Icon",
                           width: "31"
                         }
                       }),
@@ -364572,6 +364732,7 @@ var staticRenderFns = [
                         staticClass: "d-inline-block mr-2",
                         attrs: {
                           src: "images/icons/dashboard/calls.svg",
+                          alt: "legend key icon",
                           width: "9"
                         }
                       }),
@@ -364586,6 +364747,7 @@ var staticRenderFns = [
                         staticClass: "d-inline-block mr-2",
                         attrs: {
                           src: "images/icons/dashboard/sales.svg",
+                          alt: "legend key icon",
                           width: "9"
                         }
                       }),
@@ -364646,7 +364808,7 @@ var staticRenderFns = [
                     staticClass: "icon",
                     attrs: {
                       src: "/images/icons/dashboard/Answers vs Dialing.svg",
-                      alt: "Icon",
+                      alt: "Tab Icon",
                       width: "31"
                     }
                   }),
@@ -364675,7 +364837,7 @@ var staticRenderFns = [
                     staticClass: "icon",
                     attrs: {
                       src: "/images/icons/dashboard/Commissions.svg",
-                      alt: "Icon",
+                      alt: "Tab Icon",
                       width: "31"
                     }
                   }),
@@ -364700,7 +364862,11 @@ var staticRenderFns = [
         _c("div", { staticClass: "col-auto pl-0" }, [
           _c("img", {
             staticClass: "d-inline-block mr-2",
-            attrs: { src: "images/icons/dashboard/answers.svg", width: "9" }
+            attrs: {
+              src: "images/icons/dashboard/answers.svg",
+              alt: "legend key icon",
+              width: "9"
+            }
           }),
           _vm._v(" "),
           _c("p", { staticClass: "d-inline-block mb-0" }, [_vm._v("Answers")])
@@ -364709,7 +364875,11 @@ var staticRenderFns = [
         _c("div", { staticClass: "col-auto pr-0" }, [
           _c("img", {
             staticClass: "d-inline-block mr-2",
-            attrs: { src: "images/icons/dashboard/dialing.svg", width: "9" }
+            attrs: {
+              src: "images/icons/dashboard/dialing.svg",
+              alt: "legend key icon",
+              width: "9"
+            }
           }),
           _vm._v(" "),
           _c("p", { staticClass: "d-inline-block mb-0" }, [_vm._v("Dialling")])
@@ -364738,7 +364908,11 @@ var staticRenderFns = [
             _c("div", { staticClass: "col-auto pl-0" }, [
               _c("img", {
                 staticClass: "d-inline-block mr-2",
-                attrs: { src: "images/icons/dashboard/year-1.svg", width: "9" }
+                attrs: {
+                  src: "images/icons/dashboard/year-1.svg",
+                  alt: "legend key icon",
+                  width: "9"
+                }
               }),
               _vm._v(" "),
               _c("p", { staticClass: "d-inline-block mb-0" }, [_vm._v("2018")])
@@ -364747,7 +364921,11 @@ var staticRenderFns = [
             _c("div", { staticClass: "col-auto pr-0" }, [
               _c("img", {
                 staticClass: "d-inline-block mr-2",
-                attrs: { src: "images/icons/dashboard/year-2.svg", width: "9" }
+                attrs: {
+                  src: "images/icons/dashboard/year-2.svg",
+                  alt: "legend key icon",
+                  width: "9"
+                }
               }),
               _vm._v(" "),
               _c("p", { staticClass: "d-inline-block mb-0" }, [_vm._v("2019")])
@@ -364951,7 +365129,7 @@ var render = function() {
                               staticStyle: { width: "10px" },
                               attrs: {
                                 src: "/images/workstation/Asset 28@4x.png",
-                                alt: "Icon"
+                                alt: "Show column Icon"
                               }
                             })
                           ]
@@ -365110,7 +365288,10 @@ var render = function() {
                   [
                     _c("img", {
                       staticClass: "chevron",
-                      attrs: { src: "/images/DataTables/left arrow.svg" }
+                      attrs: {
+                        src: "/images/DataTables/left arrow.svg",
+                        alt: "Nav left icon"
+                      }
                     })
                   ]
                 )
@@ -365132,7 +365313,10 @@ var render = function() {
                   [
                     _c("img", {
                       staticClass: "chevron",
-                      attrs: { src: "/images/DataTables/right arrow.svg" }
+                      attrs: {
+                        src: "/images/DataTables/right arrow.svg",
+                        alt: "Nav right icon"
+                      }
                     })
                   ]
                 )
@@ -365276,7 +365460,7 @@ var render = function() {
                                         attrs: {
                                           src:
                                             "/images/workstation/Asset 28@4x.png",
-                                          alt: "Icon"
+                                          alt: "Show column Icon"
                                         }
                                       })
                                     ]
@@ -366900,6 +367084,10 @@ var render = function() {
                                                                     ? _c(
                                                                         "span",
                                                                         {
+                                                                          staticStyle: {
+                                                                            cursor:
+                                                                              "pointer"
+                                                                          },
                                                                           on: {
                                                                             click: function(
                                                                               $event
@@ -366938,6 +367126,10 @@ var render = function() {
                                                                     ? _c(
                                                                         "span",
                                                                         {
+                                                                          staticStyle: {
+                                                                            cursor:
+                                                                              "pointer"
+                                                                          },
                                                                           on: {
                                                                             click: function(
                                                                               $event
@@ -367152,7 +367344,10 @@ var render = function() {
                     [
                       _c("img", {
                         staticClass: "chevron",
-                        attrs: { src: "/images/DataTables/left arrow.svg" }
+                        attrs: {
+                          src: "/images/DataTables/left arrow.svg",
+                          alt: "Nav left icon"
+                        }
                       })
                     ]
                   )
@@ -367174,7 +367369,10 @@ var render = function() {
                     [
                       _c("img", {
                         staticClass: "chevron",
-                        attrs: { src: "/images/DataTables/right arrow.svg" }
+                        attrs: {
+                          src: "/images/DataTables/right arrow.svg",
+                          alt: "Nav right icon"
+                        }
                       })
                     ]
                   )
@@ -367525,7 +367723,10 @@ var render = function() {
                   [
                     _c("img", {
                       staticClass: "chevron",
-                      attrs: { src: "/images/DataTables/left arrow.svg" }
+                      attrs: {
+                        src: "/images/DataTables/left arrow.svg",
+                        alt: "Nav left icon"
+                      }
                     })
                   ]
                 )
@@ -367547,7 +367748,10 @@ var render = function() {
                   [
                     _c("img", {
                       staticClass: "chevron",
-                      attrs: { src: "/images/DataTables/right arrow.svg" }
+                      attrs: {
+                        src: "/images/DataTables/right arrow.svg",
+                        alt: "Nav right icon"
+                      }
                     })
                   ]
                 )
@@ -367632,7 +367836,7 @@ var render = function() {
                               staticStyle: { width: "10px" },
                               attrs: {
                                 src: "/images/workstation/Asset 28@4x.png",
-                                alt: "Icon"
+                                alt: "Show column Icon"
                               }
                             })
                           ]
@@ -367703,11 +367907,7 @@ var render = function() {
                             staticClass: "small-avatar",
                             on: {
                               click: function($event) {
-                                return _vm.showEditModal(
-                                  row,
-                                  row.leads,
-                                  row.clients
-                                )
+                                return _vm.showEdit(row, row.leads, row.clients)
                               }
                             }
                           },
@@ -367716,10 +367916,16 @@ var render = function() {
                               ? _c("img", {
                                   attrs: {
                                     src:
-                                      _vm.avatarUrl + row.id + "/" + row.avatar
+                                      _vm.avatarUrl + row.id + "/" + row.avatar,
+                                    alt: "Profile icon"
                                   }
                                 })
-                              : _c("img", { attrs: { src: _vm.noImageUrl } }),
+                              : _c("img", {
+                                  attrs: {
+                                    src: _vm.noImageUrl,
+                                    alt: "Profile icon"
+                                  }
+                                }),
                             _vm._v(
                               "  \n                            " +
                                 _vm._s(row.full_name) +
@@ -367776,11 +367982,7 @@ var render = function() {
                           attrs: { href: "#", title: "Edit" },
                           on: {
                             click: function($event) {
-                              return _vm.showEditModal(
-                                row,
-                                row.leads,
-                                row.clients
-                              )
+                              return _vm.showEdit(row)
                             }
                           }
                         }),
@@ -367876,7 +368078,10 @@ var render = function() {
                   [
                     _c("img", {
                       staticClass: "chevron",
-                      attrs: { src: "/images/DataTables/left arrow.svg" }
+                      attrs: {
+                        src: "/images/DataTables/left arrow.svg",
+                        alt: "Nav left icon"
+                      }
                     })
                   ]
                 )
@@ -367898,7 +368103,10 @@ var render = function() {
                   [
                     _c("img", {
                       staticClass: "chevron",
-                      attrs: { src: "/images/DataTables/right arrow.svg" }
+                      attrs: {
+                        src: "/images/DataTables/right arrow.svg",
+                        alt: "Nav right icon"
+                      }
                     })
                   ]
                 )
@@ -367906,728 +368114,7 @@ var render = function() {
             ])
           ])
         ])
-      : _vm._e(),
-    _vm._v(" "),
-    _c(
-      "div",
-      [
-        _c(
-          "b-modal",
-          {
-            ref: "modalUpdateUser",
-            attrs: {
-              id: "update-user-modal",
-              title: "Update User",
-              size: "lg",
-              "header-text-variant": "light",
-              "header-bg-variant": "warning"
-            },
-            on: { ok: _vm.handleOk }
-          },
-          [
-            _c("a-card", { attrs: { title: "Update User Profile" } }, [
-              _c(
-                "form",
-                {
-                  ref: "form",
-                  on: {
-                    submit: function($event) {
-                      $event.stopPropagation()
-                      $event.preventDefault()
-                      return _vm.handleSubmit($event)
-                    }
-                  }
-                },
-                [
-                  _c("div", { class: { input: true, "form-group": true } }, [
-                    _c("label", { staticClass: "col-lg-12 control-label" }, [
-                      _vm._v("Role  \n                            "),
-                      _c(
-                        "select",
-                        {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.user.role_id,
-                              expression: "user.role_id"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: { type: "text", id: "role", name: "Role" },
-                          on: {
-                            change: function($event) {
-                              var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function(o) {
-                                  return o.selected
-                                })
-                                .map(function(o) {
-                                  var val = "_value" in o ? o._value : o.value
-                                  return val
-                                })
-                              _vm.$set(
-                                _vm.user,
-                                "role_id",
-                                $event.target.multiple
-                                  ? $$selectedVal
-                                  : $$selectedVal[0]
-                              )
-                            }
-                          }
-                        },
-                        [
-                          _c("option", { attrs: { value: "" } }, [
-                            _vm._v("- Please Choose Role ")
-                          ]),
-                          _vm._v(" "),
-                          _vm._l(_vm.users.roles, function(item, index) {
-                            return _c(
-                              "option",
-                              { key: index, domProps: { value: item.id } },
-                              [_vm._v(_vm._s(item.display_name))]
-                            )
-                          })
-                        ],
-                        2
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "span",
-                        {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: _vm.errors.has("Role"),
-                              expression: "errors.has('Role')"
-                            }
-                          ],
-                          staticClass: "help-block",
-                          attrs: { id: "error" }
-                        },
-                        [_vm._v(_vm._s(_vm.errors.first("Role")))]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "col-lg-4 control-label" }, [
-                      _vm._v("Name  \n                            "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.user.name,
-                            expression: "user.name"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "text", id: "email", name: "Name" },
-                        domProps: { value: _vm.user.name },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.user, "name", $event.target.value)
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "span",
-                        {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: _vm.errors.has("Name"),
-                              expression: "errors.has('Name')"
-                            }
-                          ],
-                          staticClass: "help-block",
-                          attrs: { id: "error" }
-                        },
-                        [_vm._v(_vm._s(_vm.errors.first("Name")))]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "col-lg-4 control-label" }, [
-                      _vm._v("Surname  \n                            "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.user.lastname,
-                            expression: "user.lastname"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "text", id: "email", name: "Surname" },
-                        domProps: { value: _vm.user.lastname },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.user, "lastname", $event.target.value)
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "span",
-                        {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: _vm.errors.has("Surname"),
-                              expression: "errors.has('Surname')"
-                            }
-                          ],
-                          staticClass: "help-block",
-                          attrs: { id: "error" }
-                        },
-                        [_vm._v(_vm._s(_vm.errors.first("Surname")))]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "col-lg-4 control-label" }, [
-                      _vm._v("Nickname  \n                            "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.user.nickname,
-                            expression: "user.nickname"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "text",
-                          id: "nickname",
-                          name: "Nickname"
-                        },
-                        domProps: { value: _vm.user.nickname },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.user, "nickname", $event.target.value)
-                          }
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "col-lg-4 control-label" }, [
-                      _vm._v("Email  \n                            "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.user.email,
-                            expression: "user.email"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "text", id: "email", name: "Email" },
-                        domProps: { value: _vm.user.email },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.user, "email", $event.target.value)
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "span",
-                        {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: _vm.errors.has("Email"),
-                              expression: "errors.has('Email')"
-                            }
-                          ],
-                          staticClass: "help-block",
-                          attrs: { id: "error" }
-                        },
-                        [_vm._v(_vm._s(_vm.errors.first("Email")))]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "col-lg-4 control-label" }, [
-                      _vm._v("Work Telephone  \n                            "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.user.work_number,
-                            expression: "user.work_number"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "text",
-                          id: "work_number",
-                          name: "Work Tel"
-                        },
-                        domProps: { value: _vm.user.work_number },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.user,
-                              "work_number",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "span",
-                        {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: _vm.errors.has("Work Tel"),
-                              expression: "errors.has('Work Tel')"
-                            }
-                          ],
-                          staticClass: "help-block",
-                          attrs: { id: "error" }
-                        },
-                        [_vm._v(_vm._s(_vm.errors.first("Work Tel")))]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "col-lg-4 control-label" }, [
-                      _vm._v(
-                        "Cellphone number  \n                            "
-                      ),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.user.personal_number,
-                            expression: "user.personal_number"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "text",
-                          id: "personal_number",
-                          name: "Cell Number"
-                        },
-                        domProps: { value: _vm.user.personal_number },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.user,
-                              "personal_number",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "span",
-                        {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: _vm.errors.has("Cell Number"),
-                              expression: "errors.has('Cell Number')"
-                            }
-                          ],
-                          staticClass: "help-block",
-                          attrs: { id: "error" }
-                        },
-                        [_vm._v(_vm._s(_vm.errors.first("Cell Number")))]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "col-lg-12 control-label" }, [
-                      _vm._v("Address  \n                            "),
-                      _c("textarea", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.user.address,
-                            expression: "user.address"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { id: "address", name: "Address" },
-                        domProps: { value: _vm.user.address },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.user, "address", $event.target.value)
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "span",
-                        {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: _vm.errors.has("Address"),
-                              expression: "errors.has('Address')"
-                            }
-                          ],
-                          staticClass: "help-block",
-                          attrs: { id: "error" }
-                        },
-                        [_vm._v(_vm._s(_vm.errors.first("Address")))]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "col-lg-4 control-label" }, [
-                      _vm._v("Username  \n                            "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.user.email,
-                            expression: "user.email"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "text",
-                          id: "email",
-                          name: "Old Password",
-                          disabled: ""
-                        },
-                        domProps: { value: _vm.user.email },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.user, "email", $event.target.value)
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "span",
-                        {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: _vm.errors.has("Old Password"),
-                              expression: "errors.has('Old Password')"
-                            }
-                          ],
-                          staticClass: "help-block",
-                          attrs: { id: "error" }
-                        },
-                        [_vm._v(_vm._s(_vm.errors.first("Old Password")))]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "col-lg-4 control-label" }, [
-                      _vm._v("New Password "),
-                      _c("em", [_c("small", [_vm._v("Default: P@ssword")])]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.user.password,
-                            expression: "user.password"
-                          },
-                          {
-                            name: "validate",
-                            rawName: "v-validate",
-                            value: "min:6",
-                            expression: "'min:6'"
-                          }
-                        ],
-                        ref: "password",
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "password",
-                          id: "password",
-                          name: "New Password"
-                        },
-                        domProps: { value: _vm.user.password },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.user, "password", $event.target.value)
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "span",
-                        {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: _vm.errors.has("New Password"),
-                              expression: "errors.has('New Password')"
-                            }
-                          ],
-                          staticClass: "help-block",
-                          attrs: { id: "error" }
-                        },
-                        [_vm._v(_vm._s(_vm.errors.first("New Password")))]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "col-lg-4 control-label" }, [
-                      _vm._v(
-                        "Confirm New Password  \n                            "
-                      ),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.user.password_confirmation,
-                            expression: "user.password_confirmation"
-                          },
-                          {
-                            name: "validate",
-                            rawName: "v-validate",
-                            value: "min:6|confirmed:password",
-                            expression: "'min:6|confirmed:password'"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "password",
-                          id: "password_confirm",
-                          name: "Password Confirm"
-                        },
-                        domProps: { value: _vm.user.password_confirmation },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.user,
-                              "password_confirmation",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "span",
-                        {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: _vm.errors.has("Password Confirm"),
-                              expression: "errors.has('Password Confirm')"
-                            }
-                          ],
-                          staticClass: "help-block",
-                          attrs: { id: "error" }
-                        },
-                        [_vm._v(_vm._s(_vm.errors.first("Password Confirm")))]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "col-lg-4 control-label" }, [
-                      _vm._v("Status  \n                            "),
-                      _c(
-                        "select",
-                        {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.user.activated,
-                              expression: "user.activated"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: { type: "text", id: "role", name: "Role" },
-                          on: {
-                            change: function($event) {
-                              var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function(o) {
-                                  return o.selected
-                                })
-                                .map(function(o) {
-                                  var val = "_value" in o ? o._value : o.value
-                                  return val
-                                })
-                              _vm.$set(
-                                _vm.user,
-                                "activated",
-                                $event.target.multiple
-                                  ? $$selectedVal
-                                  : $$selectedVal[0]
-                              )
-                            }
-                          }
-                        },
-                        [
-                          _c("option", { attrs: { value: "" } }, [
-                            _vm._v("- Please Choose Status ")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "1" } }, [
-                            _vm._v("Active")
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "0" } }, [
-                            _vm._v("Disabled")
-                          ])
-                        ]
-                      )
-                    ])
-                  ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c(
-              "a-card",
-              {
-                staticStyle: { "margin-top": "20px" },
-                attrs: { title: "Assigned Leads: " + _vm.user.leads.length }
-              },
-              [
-                _c("a-list", {
-                  attrs: {
-                    itemLayout: "horizontal",
-                    dataSource: _vm.user.leads
-                  },
-                  scopedSlots: _vm._u([
-                    {
-                      key: "renderItem",
-                      fn: function(item, index) {
-                        return _c(
-                          "a-list-item",
-                          {},
-                          [
-                            _c("a-list-item-meta", [
-                              _c(
-                                "a",
-                                {
-                                  attrs: {
-                                    slot: "title",
-                                    href: "/workstation/" + item.id
-                                  },
-                                  slot: "title"
-                                },
-                                [
-                                  _vm._v(
-                                    _vm._s(item.name) +
-                                      " " +
-                                      _vm._s(item.surname)
-                                  )
-                                ]
-                              )
-                            ])
-                          ],
-                          1
-                        )
-                      }
-                    }
-                  ])
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "a-card",
-              {
-                staticStyle: { "margin-top": "20px" },
-                attrs: { title: "Assigned Clients: " + _vm.user.clients.length }
-              },
-              [
-                _c("a-list", {
-                  attrs: {
-                    itemLayout: "horizontal",
-                    dataSource: _vm.user.clients
-                  },
-                  scopedSlots: _vm._u([
-                    {
-                      key: "renderItem",
-                      fn: function(item, index) {
-                        return _c(
-                          "a-list-item",
-                          {},
-                          [
-                            _c("a-list-item-meta", [
-                              _c(
-                                "a",
-                                {
-                                  attrs: {
-                                    slot: "title",
-                                    href: "/workstation/" + item.id
-                                  },
-                                  slot: "title"
-                                },
-                                [
-                                  _vm._v(
-                                    _vm._s(item.name) +
-                                      " " +
-                                      _vm._s(item.surname)
-                                  )
-                                ]
-                              )
-                            ])
-                          ],
-                          1
-                        )
-                      }
-                    }
-                  ])
-                })
-              ],
-              1
-            )
-          ],
-          1
-        )
-      ],
-      1
-    )
+      : _vm._e()
   ])
 }
 var staticRenderFns = []
@@ -370148,6 +369635,7 @@ var render = function() {
                       attrs: {
                         src:
                           "/images/icons/left-sidebar/no-shadows/Dashboard.svg",
+                        alt: "nav icon",
                         width: "52"
                       }
                     }),
@@ -370174,6 +369662,7 @@ var render = function() {
                       attrs: {
                         src:
                           "/images/icons/left-sidebar/no-shadows/Workstation.svg",
+                        alt: "nav icon",
                         width: "52"
                       }
                     }),
@@ -370200,6 +369689,7 @@ var render = function() {
                       attrs: {
                         src:
                           "/images/icons/left-sidebar/no-shadows/Contacts.svg",
+                        alt: "nav icon",
                         width: "52"
                       }
                     }),
@@ -370224,6 +369714,7 @@ var render = function() {
                     _c("img", {
                       attrs: {
                         src: "/images/icons/left-sidebar/no-shadows/Leads.svg",
+                        alt: "nav icon",
                         width: "52"
                       }
                     }),
@@ -370250,6 +369741,7 @@ var render = function() {
                       attrs: {
                         src:
                           "/images/icons/left-sidebar/no-shadows/Call history.svg",
+                        alt: "nav icon",
                         width: "52"
                       }
                     }),
@@ -370276,6 +369768,7 @@ var render = function() {
                       attrs: {
                         src:
                           "/images/icons/left-sidebar/no-shadows/Inventory.svg",
+                        alt: "nav icon",
                         width: "52"
                       }
                     }),
@@ -370303,6 +369796,7 @@ var render = function() {
                           attrs: {
                             src:
                               "/images/icons/left-sidebar/no-shadows/Transactions.svg",
+                            alt: "nav icon",
                             width: "52"
                           }
                         }),
@@ -370333,6 +369827,7 @@ var render = function() {
                         attrs: {
                           src:
                             "/images/icons/left-sidebar/no-shadows/Leads.svg",
+                          alt: "nav icon",
                           width: "52"
                         }
                       }),
@@ -370361,6 +369856,7 @@ var render = function() {
                           attrs: {
                             src:
                               "/images/icons/left-sidebar/no-shadows/Users.svg",
+                            alt: "nav icon",
                             width: "52"
                           }
                         }),
@@ -370389,6 +369885,7 @@ var render = function() {
                           attrs: {
                             src:
                               "/images/icons/left-sidebar/no-shadows/System Pref.svg",
+                            alt: "nav icon",
                             width: "52"
                           }
                         }),
@@ -370416,7 +369913,11 @@ var staticRenderFns = [
       [
         _c("img", {
           staticClass: "logo",
-          attrs: { src: "/images/SVG_Images/Logo.svg", width: "30" }
+          attrs: {
+            src: "/images/SVG_Images/Logo.svg",
+            alt: "logo",
+            width: "30"
+          }
         })
       ]
     )
@@ -376070,23 +375571,45 @@ var render = function() {
                       "li",
                       { staticClass: "nav-item d-none d-sm-inline-block pl-3" },
                       [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "nav-link",
-                            class: {
-                              "nav-link top-link d-block text-center": true,
-                              active: _vm.adding_user
-                            },
-                            attrs: { href: "#" },
-                            on: {
-                              click: function($event) {
-                                return _vm.addNew()
-                              }
-                            }
-                          },
-                          [_vm._v("Add New +")]
-                        )
+                        !_vm.editing_user
+                          ? _c(
+                              "a",
+                              {
+                                staticClass: "nav-link",
+                                class: {
+                                  "nav-link top-link d-block text-center": true,
+                                  active: _vm.adding_user
+                                },
+                                attrs: { href: "#" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.addNew()
+                                  }
+                                }
+                              },
+                              [_vm._v("Add New +")]
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.editing_user
+                          ? _c(
+                              "a",
+                              {
+                                staticClass: "nav-link",
+                                class: {
+                                  "nav-link top-link d-block text-center": true,
+                                  active: _vm.editing_user
+                                },
+                                attrs: { href: "#" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.editUser()
+                                  }
+                                }
+                              },
+                              [_vm._v("Edit User")]
+                            )
+                          : _vm._e()
                       ]
                     )
                   : _vm._e()
@@ -376170,7 +375693,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item d-sm-inline-block search" }, [
+    return _c("li", { staticClass: "nav-item d-sm-inline-block search pr-4" }, [
       _c("div", { staticClass: "row mx-0 align-items-center" }, [
         _c("div", { staticClass: "col px-0" }, [
           _c("input", {
@@ -376179,8 +375702,8 @@ var staticRenderFns = [
           })
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-auto pl-0" }, [
-          _c("a", { staticClass: "nav-link p-0", attrs: { href: "#" } })
+        _c("div", { staticClass: "col-auto" }, [
+          _c("a", { staticClass: "nav-link", attrs: { href: "#" } })
         ])
       ])
     ])
@@ -376487,6 +376010,7 @@ var render = function() {
                                   expression: "'required'"
                                 }
                               ],
+                              staticClass: "rounded-pill",
                               attrs: {
                                 "data-vv-name":
                                   "Field " + (index + 1) + "'s Name"
@@ -376546,7 +376070,7 @@ var render = function() {
                             _c(
                               "a-select",
                               {
-                                staticClass: "border-0",
+                                staticClass: "border-0 fieldType",
                                 attrs: { placeholder: "Select" },
                                 model: {
                                   value: field.type,
@@ -376774,6 +376298,7 @@ var render = function() {
                                     _c("img", {
                                       attrs: {
                                         src: "images/icons/Field_Delete.svg",
+                                        alt: "Delete field icon",
                                         width: "19"
                                       }
                                     })
@@ -376793,6 +376318,7 @@ var render = function() {
                                     _c("img", {
                                       attrs: {
                                         src: "images/icons/Field_Add.svg",
+                                        alt: "Add field icon",
                                         width: "19"
                                       }
                                     })
@@ -377060,27 +376586,34 @@ var render = function() {
                                     "div",
                                     [
                                       _c(
-                                        "label",
-                                        { attrs: { for: "input-valid" } },
-                                        [_vm._v(_vm._s(attr.display_name))]
-                                      ),
-                                      _vm._v(" "),
-                                      _c("b-form-checkbox", {
-                                        staticClass: "api-checkbox",
-                                        attrs: {
-                                          id: "checkbox-1",
-                                          name: "checkbox-1",
-                                          value: "1",
-                                          "unchecked-value": "0"
-                                        },
-                                        model: {
-                                          value: attr.value,
-                                          callback: function($$v) {
-                                            _vm.$set(attr, "value", $$v)
+                                        "b-form-checkbox",
+                                        {
+                                          staticClass: "api-checkbox",
+                                          attrs: {
+                                            id: "checkbox-1",
+                                            name: "checkbox-1",
+                                            value: "1",
+                                            "unchecked-value": "0"
                                           },
-                                          expression: "attr.value"
-                                        }
-                                      })
+                                          model: {
+                                            value: attr.value,
+                                            callback: function($$v) {
+                                              _vm.$set(attr, "value", $$v)
+                                            },
+                                            expression: "attr.value"
+                                          }
+                                        },
+                                        [
+                                          _c(
+                                            "label",
+                                            {
+                                              staticClass: "ml-0",
+                                              attrs: { for: "input-valid" }
+                                            },
+                                            [_vm._v(_vm._s(attr.display_name))]
+                                          )
+                                        ]
+                                      )
                                     ],
                                     1
                                   )
@@ -377481,6 +377014,7 @@ var render = function() {
                                             attrs: {
                                               src:
                                                 "images/icons/Field_Delete.svg",
+                                              alt: "Delete field icon",
                                               width: "19"
                                             }
                                           })
@@ -377493,7 +377027,7 @@ var render = function() {
                                           on: {
                                             click: function($event) {
                                               return _vm.addBField(
-                                                range.comm_structure_id
+                                                range.status.comm_structure_id
                                               )
                                             }
                                           }
@@ -377502,6 +377036,7 @@ var render = function() {
                                           _c("img", {
                                             attrs: {
                                               src: "images/icons/Field_Add.svg",
+                                              alt: "Add field icon",
                                               width: "19"
                                             }
                                           })
@@ -377713,6 +377248,7 @@ var render = function() {
                                             attrs: {
                                               src:
                                                 "images/icons/Field_Delete.svg",
+                                              alt: "Delete field icon",
                                               width: "19"
                                             }
                                           })
@@ -377725,7 +377261,7 @@ var render = function() {
                                           on: {
                                             click: function($event) {
                                               return _vm.addCField(
-                                                item.comm_structure_id
+                                                item.status.comm_structure_id
                                               )
                                             }
                                           }
@@ -377734,6 +377270,7 @@ var render = function() {
                                           _c("img", {
                                             attrs: {
                                               src: "images/icons/Field_Add.svg",
+                                              alt: "Add field icon",
                                               width: "19"
                                             }
                                           })
@@ -377838,6 +377375,7 @@ var render = function() {
                           _c("img", {
                             attrs: {
                               src: "images/icons/delete.svg",
+                              alt: "Delete module icon",
                               width: "16"
                             },
                             on: {
@@ -377993,7 +377531,7 @@ var render = function() {
                                     expression: "'required'"
                                   }
                                 ],
-                                staticClass: "border-0",
+                                staticClass: "border-0 rounded-pill",
                                 attrs: {
                                   id: "input-none",
                                   "data-vv-name":
@@ -378053,7 +377591,7 @@ var render = function() {
                               _c(
                                 "a-select",
                                 {
-                                  staticClass: "border-0 min-width-cell",
+                                  staticClass: "border-0 fieldType",
                                   attrs: { placeholder: "Select" },
                                   model: {
                                     value: field.type,
@@ -378277,6 +377815,7 @@ var render = function() {
                                       _c("img", {
                                         attrs: {
                                           src: "images/icons/Field_Delete.svg",
+                                          alt: "Delete field icon",
                                           width: "19"
                                         }
                                       })
@@ -378296,6 +377835,7 @@ var render = function() {
                                       _c("img", {
                                         attrs: {
                                           src: "images/icons/Field_Add.svg",
+                                          alt: "Add field icon",
                                           width: "19"
                                         }
                                       })
@@ -378601,7 +378141,11 @@ var render = function() {
               },
               [
                 _c("img", {
-                  attrs: { src: "images/icons/Module_Add.svg", width: "47" }
+                  attrs: {
+                    src: "images/icons/Module_Add.svg",
+                    alt: "Add module icon",
+                    width: "47"
+                  }
                 })
               ]
             )
@@ -378659,6 +378203,7 @@ var render = function() {
                                             staticClass: "d-none",
                                             attrs: {
                                               src: "images/icons/delete.svg",
+                                              alt: "Delete icon",
                                               width: "16"
                                             },
                                             on: {
@@ -378817,6 +378362,7 @@ var render = function() {
                                                   attrs: {
                                                     src:
                                                       "images/icons/down.svg",
+                                                    alt: "Decreased value icon",
                                                     width: "11"
                                                   }
                                                 })
@@ -379042,6 +378588,213 @@ var render = function() {
                                               1
                                             ),
                                             _vm._v(" "),
+                                            _c(
+                                              "b-button",
+                                              {
+                                                directives: [
+                                                  {
+                                                    name: "b-toggle",
+                                                    rawName: "v-b-toggle",
+                                                    value: "accordion-00",
+                                                    expression: "'accordion-00'"
+                                                  }
+                                                ],
+                                                staticClass:
+                                                  "w-100 mx-0 py-0 pr-0 expand-toggle",
+                                                attrs: {
+                                                  block: "",
+                                                  href: "#",
+                                                  "aria-controls":
+                                                    "accordion-00"
+                                                }
+                                              },
+                                              [
+                                                _vm._v(
+                                                  "\n                        Commission\n                        "
+                                                ),
+                                                _vm._v(" "),
+                                                _c("img", {
+                                                  attrs: {
+                                                    src:
+                                                      "images/icons/down.svg",
+                                                    width: "11"
+                                                  }
+                                                })
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "b-collapse",
+                                              {
+                                                attrs: {
+                                                  id: "accordion-00",
+                                                  visible: "",
+                                                  accordion: "my-accordion",
+                                                  role: "tabpanel"
+                                                }
+                                              },
+                                              [
+                                                _c("b-card", [
+                                                  _c("div", [
+                                                    _c(
+                                                      "div",
+                                                      [
+                                                        _c(
+                                                          "b-form-group",
+                                                          {
+                                                            staticClass:
+                                                              "mx-2 mb-0 permissions"
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "a-row",
+                                                              [
+                                                                _c(
+                                                                  "a-col",
+                                                                  {
+                                                                    attrs: {
+                                                                      span: 8
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _c(
+                                                                      "a-switch",
+                                                                      {
+                                                                        attrs: {
+                                                                          id:
+                                                                            "structure_a"
+                                                                        },
+                                                                        on: {
+                                                                          change: function(
+                                                                            $event
+                                                                          ) {
+                                                                            return _vm.onChange(
+                                                                              "a"
+                                                                            )
+                                                                          }
+                                                                        },
+                                                                        model: {
+                                                                          value:
+                                                                            _vm.commission_structure_a,
+                                                                          callback: function(
+                                                                            $$v
+                                                                          ) {
+                                                                            _vm.commission_structure_a = $$v
+                                                                          },
+                                                                          expression:
+                                                                            "commission_structure_a"
+                                                                        }
+                                                                      }
+                                                                    ),
+                                                                    _vm._v(
+                                                                      "\n                                    Commission Structure A\n                                  "
+                                                                    )
+                                                                  ],
+                                                                  1
+                                                                ),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "a-col",
+                                                                  {
+                                                                    attrs: {
+                                                                      span: 8
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _c(
+                                                                      "a-switch",
+                                                                      {
+                                                                        attrs: {
+                                                                          id:
+                                                                            "structure_b"
+                                                                        },
+                                                                        on: {
+                                                                          change: function(
+                                                                            $event
+                                                                          ) {
+                                                                            return _vm.onChange(
+                                                                              "b"
+                                                                            )
+                                                                          }
+                                                                        },
+                                                                        model: {
+                                                                          value:
+                                                                            _vm.commission_structure_b,
+                                                                          callback: function(
+                                                                            $$v
+                                                                          ) {
+                                                                            _vm.commission_structure_b = $$v
+                                                                          },
+                                                                          expression:
+                                                                            "commission_structure_b"
+                                                                        }
+                                                                      }
+                                                                    ),
+                                                                    _vm._v(
+                                                                      "\n                                    Commission Structure B\n                                  "
+                                                                    )
+                                                                  ],
+                                                                  1
+                                                                ),
+                                                                _vm._v(" "),
+                                                                _c(
+                                                                  "a-col",
+                                                                  {
+                                                                    attrs: {
+                                                                      span: 8
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _c(
+                                                                      "a-switch",
+                                                                      {
+                                                                        attrs: {
+                                                                          id:
+                                                                            "structure_c"
+                                                                        },
+                                                                        on: {
+                                                                          change: function(
+                                                                            $event
+                                                                          ) {
+                                                                            return _vm.onChange(
+                                                                              "c"
+                                                                            )
+                                                                          }
+                                                                        },
+                                                                        model: {
+                                                                          value:
+                                                                            _vm.commission_structure_c,
+                                                                          callback: function(
+                                                                            $$v
+                                                                          ) {
+                                                                            _vm.commission_structure_c = $$v
+                                                                          },
+                                                                          expression:
+                                                                            "commission_structure_c"
+                                                                        }
+                                                                      }
+                                                                    ),
+                                                                    _vm._v(
+                                                                      "\n                                    Commission Structure C\n                                  "
+                                                                    )
+                                                                  ],
+                                                                  1
+                                                                )
+                                                              ],
+                                                              1
+                                                            )
+                                                          ],
+                                                          1
+                                                        )
+                                                      ],
+                                                      1
+                                                    )
+                                                  ])
+                                                ])
+                                              ],
+                                              1
+                                            ),
+                                            _vm._v(" "),
                                             _vm._l(_vm.modules, function(
                                               a_module,
                                               i
@@ -379086,6 +378839,8 @@ var render = function() {
                                                         attrs: {
                                                           src:
                                                             "images/icons/down.svg",
+                                                          alt:
+                                                            "Decreased value icon",
                                                           width: "11"
                                                         }
                                                       })
@@ -379322,6 +379077,7 @@ var render = function() {
                                           staticClass: "ml-0",
                                           attrs: {
                                             src: "images/icons/Field_Add.svg",
+                                            alt: "Add field icon",
                                             width: "16"
                                           },
                                           on: { click: _vm.addRole }
@@ -379333,7 +379089,7 @@ var render = function() {
                                 ],
                                 null,
                                 false,
-                                3289111906
+                                1096652357
                               )
                             },
                             [
@@ -380955,6 +380711,7 @@ var render = function() {
                                   staticClass: "d-none",
                                   attrs: {
                                     src: "images/icons/transactions/Paid.svg",
+                                    alt: "Paid icon",
                                     width: "16"
                                   }
                                 })
@@ -380997,6 +380754,7 @@ var render = function() {
                                   attrs: {
                                     src:
                                       "images/icons/transactions/Pending.svg",
+                                    alt: "Pending icon",
                                     width: "16"
                                   }
                                 })
@@ -381039,6 +380797,7 @@ var render = function() {
                                   attrs: {
                                     src:
                                       "images/icons/transactions/Pending.svg",
+                                    alt: "Pending icon",
                                     width: "16"
                                   }
                                 })
@@ -381081,6 +380840,7 @@ var render = function() {
                                   attrs: {
                                     src:
                                       "images/icons/transactions/Rejected.svg",
+                                    alt: "Rejected icon",
                                     width: "16"
                                   }
                                 })
@@ -381121,6 +380881,7 @@ var render = function() {
                                 _c("img", {
                                   attrs: {
                                     src: "images/icons/Field_Add.svg",
+                                    alt: "Add field icon",
                                     width: "16"
                                   }
                                 })
@@ -381954,7 +381715,7 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "plr-3" }, [
-      !_vm.add_user
+      !_vm.add_user && !_vm.edit_user
         ? _c("div", [
             _c(
               "div",
@@ -381984,12 +381745,16 @@ var render = function() {
               ]
             )
           ])
-        : _c(
+        : _vm.add_user || _vm.edit_user
+        ? _c(
             "div",
             [
               _c(
                 "a-card",
-                { staticClass: "add-box-shadow", attrs: { title: "Add User" } },
+                {
+                  staticClass: "add-box-shadow",
+                  attrs: { title: _vm.add_user ? "Add User" : "Edit User" }
+                },
                 [
                   _c("div", { staticClass: "divider-line" }),
                   _vm._v(" "),
@@ -382445,6 +382210,231 @@ var render = function() {
                           _vm._v(" "),
                           _c(
                             "label",
+                            { staticClass: "col-lg-4 control-label" },
+                            [
+                              _c("span", { staticClass: "label-text" }, [
+                                _vm._v("Monthly Target")
+                              ]),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.user.monthly_target,
+                                    expression: "user.monthly_target"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: {
+                                  type: "text",
+                                  id: "email",
+                                  name: "Surname"
+                                },
+                                domProps: { value: _vm.user.monthly_target },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.user,
+                                      "monthly_target",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value: _vm.errors.has("Role"),
+                                      expression: "errors.has('Role')"
+                                    }
+                                  ],
+                                  staticClass: "help-block",
+                                  attrs: { id: "error" }
+                                },
+                                [_vm._v(_vm._s(_vm.errors.first("Role")))]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "label",
+                            { staticClass: "col-lg-4 control-label" },
+                            [
+                              _c("span", { staticClass: "label-text" }, [
+                                _vm._v("Commission Structure")
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "select",
+                                {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.user.commission_structure,
+                                      expression: "user.commission_structure"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  attrs: {
+                                    type: "text",
+                                    id: "role",
+                                    name: "Role"
+                                  },
+                                  on: {
+                                    change: function($event) {
+                                      var $$selectedVal = Array.prototype.filter
+                                        .call($event.target.options, function(
+                                          o
+                                        ) {
+                                          return o.selected
+                                        })
+                                        .map(function(o) {
+                                          var val =
+                                            "_value" in o ? o._value : o.value
+                                          return val
+                                        })
+                                      _vm.$set(
+                                        _vm.user,
+                                        "commission_structure",
+                                        $event.target.multiple
+                                          ? $$selectedVal
+                                          : $$selectedVal[0]
+                                      )
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("option", { attrs: { value: "" } }, [
+                                    _vm._v("- Please Choose -")
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm._l(_vm.structures, function(item, index) {
+                                    return _c(
+                                      "option",
+                                      {
+                                        key: index,
+                                        domProps: { value: item.id }
+                                      },
+                                      [_vm._v(_vm._s(item.display_name))]
+                                    )
+                                  })
+                                ],
+                                2
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value: _vm.errors.has("Role"),
+                                      expression: "errors.has('Role')"
+                                    }
+                                  ],
+                                  staticClass: "help-block",
+                                  attrs: { id: "error" }
+                                },
+                                [_vm._v(_vm._s(_vm.errors.first("Role")))]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "label",
+                            { staticClass: "col-lg-4 control-label" },
+                            [
+                              _c("span", { staticClass: "label-text" }, [
+                                _vm._v("Status")
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "select",
+                                {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.user.activated,
+                                      expression: "user.activated"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  attrs: {
+                                    type: "text",
+                                    id: "role",
+                                    name: "Role"
+                                  },
+                                  on: {
+                                    change: function($event) {
+                                      var $$selectedVal = Array.prototype.filter
+                                        .call($event.target.options, function(
+                                          o
+                                        ) {
+                                          return o.selected
+                                        })
+                                        .map(function(o) {
+                                          var val =
+                                            "_value" in o ? o._value : o.value
+                                          return val
+                                        })
+                                      _vm.$set(
+                                        _vm.user,
+                                        "activated",
+                                        $event.target.multiple
+                                          ? $$selectedVal
+                                          : $$selectedVal[0]
+                                      )
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("option", { attrs: { value: "" } }, [
+                                    _vm._v("- Please Choose -")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("option", { attrs: { value: "1" } }, [
+                                    _vm._v("Active")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("option", { attrs: { value: "0" } }, [
+                                    _vm._v("Disabled")
+                                  ])
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value: _vm.errors.has("Role"),
+                                      expression: "errors.has('Role')"
+                                    }
+                                  ],
+                                  staticClass: "help-block",
+                                  attrs: { id: "error" }
+                                },
+                                [_vm._v(_vm._s(_vm.errors.first("Role")))]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "label",
                             { staticClass: "col-lg-8 control-label" },
                             [
                               _c("span", { staticClass: "label-text" }, [
@@ -382704,20 +382694,39 @@ var render = function() {
                             "label",
                             { staticClass: "col-lg-12 control-label right" },
                             [
-                              _c(
-                                "button",
-                                {
-                                  staticClass:
-                                    "btn btn-primary update-user ml-0",
-                                  attrs: { type: "submit" },
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.createUser()
-                                    }
-                                  }
-                                },
-                                [_vm._v("Add")]
-                              )
+                              _vm.add_user
+                                ? _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "btn btn-primary update-user ml-0",
+                                      attrs: { type: "submit" },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.createUser()
+                                        }
+                                      }
+                                    },
+                                    [_vm._v("Add")]
+                                  )
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.edit_user
+                                ? _c(
+                                    "button",
+                                    {
+                                      staticClass:
+                                        "btn btn-primary update-user ml-0",
+                                      attrs: { type: "submit" },
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.updateUser()
+                                        }
+                                      }
+                                    },
+                                    [_vm._v("Update")]
+                                  )
+                                : _vm._e()
                             ]
                           )
                         ]
@@ -382729,6 +382738,7 @@ var render = function() {
             ],
             1
           )
+        : _vm._e()
     ])
   ])
 }
@@ -382808,7 +382818,7 @@ var staticRenderFns = [
                         staticStyle: { width: "60px" },
                         attrs: {
                           src: "/images/icons/Call-History-Add-Icon.svg",
-                          alt: "Icon"
+                          alt: "Add Call history Icon"
                         }
                       })
                     ]
@@ -383959,14 +383969,34 @@ var render = function() {
                                             }
                                           },
                                           [
-                                            _c("img", {
-                                              staticClass: "icon w-100",
-                                              attrs: {
-                                                src:
-                                                  "/images/workstation/Asset 28@4x.png",
-                                                alt: "Icon"
-                                              }
-                                            })
+                                            _vm.comment.comment_type
+                                              ? _c(
+                                                  "div",
+                                                  {
+                                                    staticClass:
+                                                      "font-weight-bold comment-abbr"
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\n                      " +
+                                                        _vm._s(
+                                                          _vm.comment
+                                                            .comment_type.short
+                                                        ) +
+                                                        "\n                    "
+                                                    )
+                                                  ]
+                                                )
+                                              : _c("div", [
+                                                  _c("img", {
+                                                    staticClass: "icon w-100",
+                                                    attrs: {
+                                                      src:
+                                                        "/images/workstation/Asset 28@4x.png",
+                                                      alt: "Add Icon"
+                                                    }
+                                                  })
+                                                ])
                                           ]
                                         ),
                                         _vm._v(" "),
@@ -384102,7 +384132,7 @@ var render = function() {
                                           attrs: {
                                             src:
                                               "/images/icons/workstation/Submit.svg",
-                                            alt: "Icon",
+                                            alt: "Submit Icon",
                                             width: "76"
                                           }
                                         })
@@ -384305,7 +384335,7 @@ var render = function() {
                                       attrs: {
                                         src:
                                           "/images/icons/workstation/Submit.svg",
-                                        alt: "Icon",
+                                        alt: "Submit Icon",
                                         width: "76"
                                       }
                                     })
@@ -384617,7 +384647,7 @@ var render = function() {
                                     attrs: {
                                       src:
                                         "/images/icons/workstation/Submit.svg",
-                                      alt: "Icon",
+                                      alt: "Submit Icon",
                                       width: "76"
                                     }
                                   })
@@ -384673,7 +384703,7 @@ var render = function() {
                                     attrs: {
                                       src:
                                         "/images/icons/workstation/Open Activities.svg",
-                                      alt: "Icon",
+                                      alt: "Open Activities Icon",
                                       width: "31"
                                     }
                                   }),
@@ -384684,6 +384714,7 @@ var render = function() {
                                     staticClass: "d-none add-activity",
                                     attrs: {
                                       src: "/images/icons/Field_Add.svg",
+                                      alt: "Add field icon",
                                       width: "16"
                                     },
                                     on: {
@@ -386094,17 +386125,11 @@ var render = function() {
     _vm._v(" "),
     _vm.active_calls == true
       ? _c("div", {}, [
-          _c(
-            "div",
-            {
-              staticClass:
-                "row stats scroll-hidden horizontal-scroll w-100 mx-0",
-              staticStyle: { "margin-top": "6%" }
-            },
-            [
+          _c("div", { staticClass: "row stats mt-4 w-100 mx-0" }, [
+            _c("div", { staticClass: "col-lg-12 left-padding-4" }, [
               _c(
                 "div",
-                { staticClass: "col-lg-12" },
+                { staticClass: "scroll-hidden" },
                 [
                   _vm.show_page_loader === true ? _c("vcl-table") : _vm._e(),
                   _vm._v(" "),
@@ -386121,8 +386146,8 @@ var render = function() {
                 ],
                 1
               )
-            ]
-          )
+            ])
+          ])
         ])
       : _vm._e(),
     _vm._v(" "),
@@ -386220,7 +386245,7 @@ var render = function() {
                                     staticClass: "icon",
                                     attrs: {
                                       src: "/images/icons/Asset 135.svg",
-                                      alt: "Icon"
+                                      alt: "Add time Icon"
                                     }
                                   }),
                                   _vm._v("More Time    \n                ")
@@ -386242,7 +386267,7 @@ var render = function() {
                                     staticClass: "icon",
                                     attrs: {
                                       src: "/images/icons/Asset 135.svg",
-                                      alt: "Icon"
+                                      alt: "Add time Icon"
                                     }
                                   }),
                                   _vm._v("More Time    \n                ")
@@ -386274,7 +386299,7 @@ var render = function() {
                                 staticClass: "icon",
                                 attrs: {
                                   src: "/images/icons/Asset 136.svg",
-                                  alt: "Icon"
+                                  alt: "Complete Icon"
                                 }
                               }),
                               _vm._v("Complete    \n                ")
@@ -386298,7 +386323,7 @@ var render = function() {
                             },
                             attrs: {
                               src: "/images/icons/Asset 56.svg",
-                              alt: "Icon"
+                              alt: "Unavailable Icon"
                             }
                           })
                         ]
@@ -386337,7 +386362,7 @@ var staticRenderFns = [
     return _c("h5", { staticClass: "card-title" }, [
       _c("img", {
         staticClass: "icon",
-        attrs: { src: "/images/workstation/D_A@4x.png", alt: "Icon" }
+        attrs: { src: "/images/workstation/D_A@4x.png", alt: "Client Icon" }
       }),
       _vm._v(" \n            Client \n          ")
     ])
@@ -386349,7 +386374,10 @@ var staticRenderFns = [
     return _c("h5", { staticClass: "card-title" }, [
       _c("img", {
         staticClass: "icon",
-        attrs: { src: "/images/workstation/Stock_Icon@4x.png", alt: "Icon" }
+        attrs: {
+          src: "/images/workstation/Stock_Icon@4x.png",
+          alt: "Product Icon"
+        }
       }),
       _vm._v(" \n            Product \n          ")
     ])
@@ -386363,7 +386391,10 @@ var staticRenderFns = [
         _c("h5", { staticClass: "card-title" }, [
           _c("img", {
             staticClass: "icon",
-            attrs: { src: "/images/workstation/S_A@4x.png", alt: "Icon" }
+            attrs: {
+              src: "/images/workstation/S_A@4x.png",
+              alt: "Last called Icon"
+            }
           }),
           _vm._v(" \n            Last Called by \n          ")
         ]),
@@ -386381,7 +386412,7 @@ var staticRenderFns = [
     return _c("h5", { staticClass: "card-title" }, [
       _c("img", {
         staticClass: "icon",
-        attrs: { src: "/images/workstation/Time_Icon@4x.png", alt: "Icon" }
+        attrs: { src: "/images/workstation/Time_Icon@4x.png", alt: "Time Icon" }
       }),
       _vm._v(" \n            Time \n          ")
     ])
@@ -386397,7 +386428,7 @@ var staticRenderFns = [
         _c(
           "ul",
           {
-            staticClass: "nav nav-tabs card-header-tabs",
+            staticClass: "nav nav-tabs card-header-tabs mx-0",
             attrs: { id: "myTab", role: "tablist" }
           },
           [
@@ -386420,7 +386451,7 @@ var staticRenderFns = [
                     staticClass: "icon",
                     attrs: {
                       src: "/images/icons/workstation/Agent Notes.svg",
-                      alt: "Icon",
+                      alt: "Agent notes Icon",
                       width: "31px"
                     }
                   }),
@@ -386449,7 +386480,7 @@ var staticRenderFns = [
                     staticClass: "icon",
                     attrs: {
                       src: "/images/icons/workstation/Schedule Callback.svg",
-                      alt: "Icon",
+                      alt: "Schedule callback Icon",
                       width: "31px"
                     }
                   }),
@@ -386475,7 +386506,7 @@ var staticRenderFns = [
               staticClass: "icon",
               attrs: {
                 src: "/images/icons/circle.svg",
-                alt: "Icon",
+                alt: "Orange Circle Icon",
                 width: "17"
               }
             })
@@ -386493,7 +386524,7 @@ var staticRenderFns = [
               staticStyle: { "vertical-align": "baseline" },
               attrs: {
                 src: "/images/icons/grey dot.svg",
-                alt: "Icon",
+                alt: "Grey Dot Icon",
                 width: "17"
               }
             })
@@ -386507,7 +386538,7 @@ var staticRenderFns = [
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-5 pr-0" }, [
+      _c("div", { staticClass: "col-5 pr-0 calendar-items" }, [
         _c(
           "div",
           { staticClass: "row mx-0 align-items-start recommended-call" },
@@ -386518,7 +386549,7 @@ var staticRenderFns = [
                 staticStyle: { "vertical-align": "text-top" },
                 attrs: {
                   src: "/images/icons/blue dot.svg",
-                  alt: "Icon",
+                  alt: "Blue Dot Icon",
                   width: "8"
                 }
               })
@@ -386539,7 +386570,7 @@ var staticRenderFns = [
               staticStyle: { "vertical-align": "text-top" },
               attrs: {
                 src: "/images/icons/Orange Dot_Big.svg",
-                alt: "Icon",
+                alt: "Big Orange Dot Icon",
                 width: "8"
               }
             })
@@ -386563,7 +386594,7 @@ var staticRenderFns = [
         _c(
           "ul",
           {
-            staticClass: "nav nav-tabs card-header-tabs",
+            staticClass: "nav nav-tabs card-header-tabs mx-0",
             attrs: { id: "myTab", role: "tablist" }
           },
           [
@@ -386586,7 +386617,7 @@ var staticRenderFns = [
                     staticClass: "icon",
                     attrs: {
                       src: "/images/icons/workstation/Feeback Summary.svg",
-                      alt: "Icon",
+                      alt: "Feedback summary Icon",
                       width: "31px"
                     }
                   }),
@@ -386594,35 +386625,6 @@ var staticRenderFns = [
                   _c("span", { staticClass: "left w-50" }, [
                     _vm._v("Feedback Summary")
                   ])
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "nav-item right w-50" }, [
-              _c(
-                "a",
-                {
-                  staticClass: "nav-link",
-                  attrs: {
-                    id: "four-tab",
-                    "data-toggle": "tab",
-                    href: "#four",
-                    role: "tab",
-                    "aria-controls": "Four",
-                    "aria-selected": "false"
-                  }
-                },
-                [
-                  _c("img", {
-                    staticClass: "icon",
-                    attrs: {
-                      src: "/images/icons/workstation/Email Client.svg",
-                      alt: "Icon",
-                      width: "31px"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "left" }, [_vm._v("Email Client")])
                 ]
               )
             ])
@@ -386664,7 +386666,7 @@ var staticRenderFns = [
             staticClass: "icon",
             attrs: {
               src: "/images/icons/workstation/Closed Activities.svg",
-              alt: "Icon",
+              alt: "Closed Activities Icon",
               width: "31"
             }
           }),
@@ -386726,7 +386728,7 @@ var staticRenderFns = [
                     staticClass: "icon",
                     attrs: {
                       src: "/images/icons/workstation/Deals.svg",
-                      alt: "Icon",
+                      alt: "Deals Icon",
                       width: "31"
                     }
                   }),
@@ -386755,7 +386757,7 @@ var staticRenderFns = [
                     staticClass: "icon",
                     attrs: {
                       src: "/images/icons/workstation/Create_a_deal.svg",
-                      alt: "Icon",
+                      alt: "Create a deal Icon",
                       width: "31"
                     }
                   }),

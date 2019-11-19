@@ -509,7 +509,7 @@ p.card-text {
               <div class="card-body row right align-items-center justify-content-between mx-0 p-0">
                 <div class="col pl-0 dropdown">
                   <a class="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="/images/icons/Call-History-Add-Icon.svg" alt="Icon" class="icon" style="width: 60px;" />
+                    <img src="/images/icons/Call-History-Add-Icon.svg" alt="Add call history Icon" class="icon" style="width: 60px;" />
                   </a>
 
                   <div class="dropdown-menu">
@@ -537,7 +537,7 @@ p.card-text {
           <div class="padding-bottom-18">
             <div class="col pl-0 dropdown">
               <a class="m-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="/images/icons/add_Button.svg" alt="Icon" class="icon" style="width: 15px;" />
+                <img src="/images/icons/add_Button.svg" alt="Add Icon" class="icon" style="width: 15px;" />
               </a>
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="#">Calls</a>

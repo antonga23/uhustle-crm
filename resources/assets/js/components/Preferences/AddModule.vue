@@ -133,7 +133,8 @@
               <a-input 
                 v-model="field.name" 
                 v-validate="'required'" 
-                :data-vv-name="'Field ' + (index + 1) +'\'s Name'"/>
+                :data-vv-name="'Field ' + (index + 1) +'\'s Name'"
+                class="rounded-pill"/>
               <span 
                 v-show="errors.has('Field ' + (index + 1) +'\'s Name')" 
                 class="help-block"
@@ -145,7 +146,7 @@
               <a-select 
                 v-model="field.type" 
                 placeholder="Select" 
-                class="border-0"
+                class="border-0 fieldType"
               >
                 <a-select-option 
                   :value="type.value" 
@@ -213,7 +214,7 @@
                 @click="removeField(index)"
                 class="icon m-0 p-0"
               >
-                <img src="images/icons/Field_Delete.svg" width="19"/>
+                <img src="images/icons/Field_Delete.svg" alt="Delete field icon" width="19"/>
               </b-button>
 
               <b-button 
@@ -221,7 +222,7 @@
                 @click="addField()" 
                 class="icon m-0 p-0"
               >
-                <img src="images/icons/Field_Add.svg" width="19"/>
+                <img src="images/icons/Field_Add.svg" alt="Add field icon" width="19"/>
               </b-button>
             </b-col>
           </b-row>
@@ -316,7 +317,7 @@
                   @click="removeField(index)"
                   class="icon m-0 p-0"
                 >
-                  <img src="images/icons/Field_Delete.svg" width="19"/>
+                  <img src="images/icons/Field_Delete.svg" alt="Delete field icon" width="19"/>
                 </b-button>
 
                 <b-button 
@@ -324,7 +325,7 @@
                   @click="addField()" 
                   class="icon m-0 p-0"
                 >
-                  <img src="images/icons/Field_Add.svg" width="19"/>
+                  <img src="images/icons/Field_Add.svg" alt="Add field icon" width="19"/>
                 </b-button>
               </td>
             </tr>

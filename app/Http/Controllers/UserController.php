@@ -95,10 +95,6 @@ class UserController extends Controller
 
             $data = new \StdClass();
 
-            $user_leads = Lead::where(['user_assigned' => $user->id])->where(['is_client' => 0])->get();
-
-            $user_lients = Lead::where(['user_assigned' => $user->id])->where(['is_client' => 1])->get();
-
             $data->id = $user->id;
             $data->full_name = $user->name . ' ' . $user->lastname;
             $data->name = $user->name;
@@ -112,10 +108,10 @@ class UserController extends Controller
             $data->address = $user->address;
             $data->updated_at = ( null !== $user->updated_at )? $user->updated_at->toDateString() : '';
             $data->avatar = $user->avatar;
-            $data->status = ( $user->activated == 1 ) ? 'Active' : 'Inactive';
+            $data->status = ( $user->activated == 1 ) ? 'Active' : 'Disabled';
             $data->activated = $user->activated;
-            $data->leads = $user_leads;
-            $data->clients = $user_lients;
+            $data->commission_structure = $user->commission_structure;
+            $data->monthly_target = $user->monthly_target;
 
             array_push($user_data, $data);
         }
@@ -218,6 +214,8 @@ class UserController extends Controller
         $address = $data['address'];
         $role_id = $data['role_id'];
         $notifications = 1;
+        $commission_structure = $data['commission_structure'];
+        $monthly_target = $data['monthly_target'];
         $password_confirmation = $data['password_confirmation'];
 
         $validator = \Validator::make($request->all(), [
@@ -243,6 +241,8 @@ class UserController extends Controller
                     'notifications' => $notifications,
                     'password' => bcrypt($password_confirmation),
                     'activated' => 1,
+                    'commission_structure' => $commission_structure,
+                    'monthly_target' => $monthly_target,
                     'email_verified_at' => date('Y-m-d H:i:s')
                 ]);
 
@@ -271,7 +271,9 @@ class UserController extends Controller
         $address = $data['address'];
         $notifications = (isset($data['notifications'])) ? $data['notifications'] : 1;
         $activated = $data['activated'];
-        $password_confirmation = $data['password_confirmation'];
+        $commission_structure = $data['commission_structure'];
+        $monthly_target = $data['monthly_target'];
+        $password_confirmation = isset($data['password_confirmation']) ? $data['password_confirmation'] : null ;
 
         $validator = \Validator::make($request->all(), [
             'email' => 'required|email|max:255|unique:users,email,'. $id,
@@ -283,21 +285,38 @@ class UserController extends Controller
 
             try{
                 DB::beginTransaction();
-
-                $user = User::where(['id' => $id])->update([
-                    'role_id' => $role_id,
-                    'name' => $name,
-                    'lastname' => $lastname,
-                    'nickname' => $nickname,
-                    'email' => $email,
-                    'work_number' => $work_number,
-                    'personal_number' => $personal_number,
-                    'address' => $address,
-                    'notifications' => $notifications,
-                    'activated' => $activated,
-                    'password' => bcrypt($password_confirmation),
-                ]);
-
+                if(is_null($password_confirmation)){ 
+                  $user = User::where(['id' => $id])->update([
+                      'role_id' => $role_id,
+                      'name' => $name,
+                      'lastname' => $lastname,
+                      'nickname' => $nickname,
+                      'email' => $email,
+                      'work_number' => $work_number,
+                      'personal_number' => $personal_number,
+                      'address' => $address,
+                      'notifications' => $notifications,
+                      'commission_structure' => $commission_structure,
+                      'monthly_target' => $monthly_target,
+                      'activated' => $activated
+                  ]);
+                }else{
+                  $user = User::where(['id' => $id])->update([
+                      'role_id' => $role_id,
+                      'name' => $name,
+                      'lastname' => $lastname,
+                      'nickname' => $nickname,
+                      'email' => $email,
+                      'work_number' => $work_number,
+                      'personal_number' => $personal_number,
+                      'address' => $address,
+                      'notifications' => $notifications,
+                      'activated' => $activated,
+                      'commission_structure' => $commission_structure,
+                      'monthly_target' => $monthly_target,
+                      'password' => bcrypt($password_confirmation),
+                  ]);
+                }
                 $user = User::with('role')->find($id);
 
                 DB::commit();

@@ -3,32 +3,37 @@
 /*Right Component*/
 .main-header.navbar.navbar-expand {
   padding: 13px 4% 1.55%;
-     position: relative;
-    top: 10px;
+  position: relative;
+  top: 10px;
 }
 .navbar-nav li.title{
   line-height: 20px;
 }
 
 .nav-link.top-link.d-block.text-center {
-    box-shadow: 0 0 7px rgba(0,0,0,0.1);
+  box-shadow: 0 0 7px rgba(0,0,0,0.1);
+  height: auto !important;
+  font-size: 0.73vw;
 }
 
 .nav-link.top-link.d-block.text-center:hover {
-    box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
-    background: #ffffff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow:0 0 5px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
 }
 
 a.add-new {
 	border-radius: 50rem !important;
-    box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
-    -webkit-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
-    -moz-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
-    -o-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
-    background: #ffffff;
-    font-size: 16px;
-    color: #989899;
-    font-weight: 600;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  font-size: 16px;
+  color: #989899;
+  font-weight: 600;
 }
 li.title a strong{
   color: #003549;
@@ -44,11 +49,11 @@ a.top-link{
 }
 a.active{    
   border-radius: 26px;
-  height: 30px !important;
   background: #F98B39 !important;
   border-color: #F98B39 !important;
   color: #fff !important;
-  padding: 4px 17px 6px !important;
+  padding: 6px 17px 6px !important;
+  
 }
 select{
   font-family: 'Rubik', sans-serif;
@@ -260,7 +265,15 @@ select.month-selector {
 								@click="addNew();" 
 								:class="{ 'nav-link top-link d-block text-center' : true, 'active' : adding_user }" 
 								class="nav-link"
+                v-if="!editing_user"
 							>Add New +</a>
+              <a 
+								href="#" 
+								@click="editUser();" 
+								:class="{ 'nav-link top-link d-block text-center' : true, 'active' : editing_user }" 
+								class="nav-link"
+                v-if="editing_user"
+							>Edit User</a>
 						</li>
 					</ul>
 				</div>
@@ -283,14 +296,14 @@ select.month-selector {
 
 				<div class="col-auto px-0" v-if="active == 'workstation'">
 					<ul class="navbar-nav callIcons">
-						<li class="nav-item d-sm-inline-block search">
+						<li class="nav-item d-sm-inline-block search pr-4">
               <div class="row mx-0 align-items-center">
                 <div class="col px-0">
                   <input placeholder="Search" class="border-0 rounded-pill"/>
                 </div>
 
-                <div class="col-auto pl-0">
-                  <a href="#" class="nav-link p-0"></a>
+                <div class="col-auto">
+                  <a href="#" class="nav-link"></a>
                 </div>
               </div>
 						</li>
@@ -335,6 +348,7 @@ select.month-selector {
         top_nav_show_filter: false,
         // Users
         adding_user : false,
+        editing_user : false,
         current_user: [],
         filter_data: [],
         types: [
@@ -375,6 +389,14 @@ select.month-selector {
 
       Fire.$on('ShowActiveCalls', function(){
         vm.showActiveCalls();
+      });
+
+      Fire.$on('ShowActiveCalls', function(){
+        vm.showActiveCalls();
+      });
+
+      Fire.$on('ShowUserEdit', function(data){
+        vm.editUser();
       });
     },
 
@@ -516,8 +538,12 @@ select.month-selector {
 			addNew(){
 				this.adding_user = !this.adding_user;
 				Fire.$emit('AddingUser');
+      },      
+			editUser(){
+				this.editing_user = !this.editing_user;
+				Fire.$emit('EditingUser');
       },
-      
+  
 			getFullYear(){
 				var d = new Date();
 				var n = d.getFullYear();

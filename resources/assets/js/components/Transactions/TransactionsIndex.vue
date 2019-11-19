@@ -106,7 +106,7 @@
               <b-tab active>
                 <template v-slot:title>
                   <h5 class="d-inline-block">Paid</h5>
-                  <img src="images/icons/transactions/Paid.svg" width="16" class="d-none"/>
+                  <img src="images/icons/transactions/Paid.svg" alt="Paid icon" width="16" class="d-none"/>
                 </template>
 
                 <transition name="fade">
@@ -117,7 +117,7 @@
               <b-tab>
                 <template v-slot:title>
                   <h5 class="d-inline-block">Pending</h5>
-                  <img src="images/icons/transactions/Pending.svg" width="16" class="d-none"/>
+                  <img src="images/icons/transactions/Pending.svg" alt="Pending icon" width="16" class="d-none"/>
                 </template>
 
                 <transition name="fade">
@@ -128,7 +128,7 @@
               <b-tab>
                 <template v-slot:title>
                   <h5 class="d-inline-block">Due</h5>
-                  <img src="images/icons/transactions/Pending.svg" width="16" class="d-none"/>
+                  <img src="images/icons/transactions/Pending.svg" alt="Pending icon" width="16" class="d-none"/>
                 </template>
 
                 <transition name="fade">
@@ -139,7 +139,7 @@
               <b-tab>
                 <template v-slot:title>
                   <h5 class="d-inline-block">Rejected</h5>
-                  <img src="images/icons/transactions/Rejected.svg" width="16" class="d-none"/>
+                  <img src="images/icons/transactions/Rejected.svg" alt="Rejected icon" width="16" class="d-none"/>
                 </template>
 
                 <transition name="fade">
@@ -150,7 +150,7 @@
               <b-tab>
                 <template v-slot:title>
                   <h5 class="d-inline-block">Create a deal</h5>
-                  <img src="images/icons/Field_Add.svg" width="16"/>
+                  <img src="images/icons/Field_Add.svg" alt="Add field icon" width="16"/>
                 </template>
 
                 <transition name="fade">

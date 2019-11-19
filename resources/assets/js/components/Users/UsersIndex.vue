@@ -500,7 +500,7 @@ table.listing tr th {
                     <a class data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <img
                         src="/images/icons/Call-History-Add-Icon.svg"
-                        alt="Icon"
+                        alt="Add Call history Icon"
                         class="icon"
                         style="width: 60px;"
                       />
@@ -520,7 +520,7 @@ table.listing tr th {
       </div>
     </div>
     <div class="plr-3">
-      <div v-if="!add_user">
+      <div v-if="!add_user && !edit_user">
         <div class="row stats pt-0 scroll-hidden horizontal-scroll">
           <div class="col-lg-12">
             <vcl-table v-if="show_page_loader"></vcl-table>
@@ -536,8 +536,8 @@ table.listing tr th {
           </div>
         </div>
       </div>
-      <div v-else>
-        <a-card title="Add User" class="add-box-shadow">
+      <div v-else-if="add_user || edit_user">
+        <a-card :title=" (add_user) ? 'Add User' : 'Edit User'" class="add-box-shadow">
             <div class="divider-line"></div>
           <div class="w-100" style="margin-top: 20px;">
             <div class="add-user-form" :class="{'input': true, 'form-group' :true }">
@@ -651,6 +651,62 @@ table.listing tr th {
                   class="help-block"
                 >{{ errors.first('Cell Number') }}</span>
               </label>
+              <label class="col-lg-4 control-label">
+               <span class="label-text">Monthly Target</span>
+                <input
+                  type="text"
+                  id="email"
+                  name="Surname"
+                  v-model="user.monthly_target"
+                  class="form-control"
+                />
+                <span
+                  id="error"
+                  v-show="errors.has('Role')"
+                  class="help-block"
+                >{{ errors.first('Role') }}</span>
+              </label>
+              <label class="col-lg-4 control-label">
+               <span class="label-text">Commission Structure</span>
+                <select
+                  type="text"
+                  id="role"
+                  name="Role"
+                  v-model="user.commission_structure"
+                  class="form-control"
+                >
+                  <option value="">- Please Choose -</option>
+                  <option
+                    :value="item.id"
+                    v-for="(item, index) in structures"
+                    :key="index"
+                  >{{ item.display_name }}</option>
+                </select>
+                <span
+                  id="error"
+                  v-show="errors.has('Role')"
+                  class="help-block"
+                >{{ errors.first('Role') }}</span>
+              </label>
+              <label class="col-lg-4 control-label">
+               <span class="label-text">Status</span>
+                <select
+                  type="text"
+                  id="role"
+                  name="Role"
+                  v-model="user.activated"
+                  class="form-control"
+                >
+                  <option value="">- Please Choose -</option>
+                  <option value="1">Active</option>
+                  <option value="0">Disabled</option>
+                </select>
+                <span
+                  id="error"
+                  v-show="errors.has('Role')"
+                  class="help-block"
+                >{{ errors.first('Role') }}</span>
+              </label>
               <label class="col-lg-8 control-label">
                 <span class="label-text">Address </span>
                 <textarea
@@ -722,7 +778,14 @@ table.listing tr th {
                   type="submit"
                   class="btn btn-primary update-user ml-0"
                   @click="createUser()"
+                  v-if="add_user"
                 >Add</button>
+                <button
+                  type="submit"
+                  class="btn btn-primary update-user ml-0"
+                  @click="updateUser()"
+                  v-if="edit_user"
+                >Update</button>
               </label>
             </div>
           </div>
@@ -754,7 +817,19 @@ export default {
     var vm = this;
 
     Fire.$on("AddingUser", function(data) {
+      vm.edit_user = false;
       vm.add_user = !vm.add_user;
+    });
+
+    Fire.$on("EditingUser", function(data) {
+      vm.edit_user = false;
+      vm.add_user = false;
+    });
+
+    Fire.$on("ShowUserEdit", function(data) {
+      vm.edit_user = true;
+      vm.add_user = false;
+      vm.user = data.user;
     });
 
     Fire.$on("ReloadUsers", function(data) {
@@ -764,6 +839,8 @@ export default {
     Fire.$on("FilterData", function(data) {
       vm.applyFilter(data);
     });
+
+    vm.getCommissionStructures();
 
     this.Toast = this.$swal.mixin({
       toast: true,
@@ -787,11 +864,18 @@ export default {
         current_user: ""
       },
       user: {
+        activated: "",
+        commission_structure: "",
         leads: [],
         clients: []
       },
       current_user: {},
+      structures: [],
+      structure_a: [],
+      structure_b: [],
+      structure_c: [],
       add_user: false,
+      edit_user: false,
       show_page_loader: false,
       avatarUrl: "/images/avatars/",
       noImageUrl: "/images/icons/user_icon@4x.png",
@@ -852,6 +936,28 @@ export default {
     };
   },
   methods: {
+    getCommissionStructures(){
+      var vm = this;
+      axios.get('/settings/get-comm-structures',).then(function (response) {
+        if(response.data.structures.length > 0){
+          vm.structures = response.data.structures;
+          console.log(response.data.structure_a);
+        }
+        if(response.data.structure_a.length > 0){
+          vm.structure_a = response.data.structure_a;
+          console.log(response.data.structure_a);
+        }
+        if(response.data.structure_b.length > 0){
+          vm.structure_b = response.data.structure_b;
+          console.log(response.data.structure_b);
+        }
+        if(response.data.structure_c.length > 0){
+          vm.structure_c = response.data.structure_c;
+          console.log(response.data.structure_c);
+        }
+      });
+
+    },
     secondsToMinues(time) {
       var minutes = Math.floor(time / 60);
       var seconds = time - minutes * 60;
@@ -932,6 +1038,31 @@ export default {
           });
         }
       });
+    },  
+    updateUser(){  
+        var vm = this;    
+        vm.$Progress.start();  
+        this.$validator.validateAll().then((result) => {  
+          if(!result){  
+          }else{  
+              axios.post('/users/update',vm.user).then(function (response) {  
+                        
+                  if(response.data.success == true){  
+                      Fire.$emit('ReloadUsers');  
+                      vm.Toast.fire({ type: 'success', title: response.data.message });  
+                      vm.$Progress.finish();  
+                      Fire.$emit('ShowUserEdit', { user: vm.user  });
+                      vm.edit_user = vm.add_user = false;
+                  }else if(response.data.errors.email[0] != ''){  
+                      vm.$Progress.fail();  
+                      vm.$swal('Failed', response.data.errors.email[0] ,'warning');  
+                  }else{  
+                      vm.$Progress.fail();  
+                      vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');  
+                  }  
+              });  
+          }  
+        });  
     },
     showEditModal(user, leads, clients) {
       var vm = this;
