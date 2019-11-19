@@ -121,7 +121,8 @@
     font-size:0.73vw;
     color: #999999;
     margin-top: 4.6%;
-    padding-left:25px;
+    padding-left:0;
+    margin-left: 20px;
   }
   .expand-toggle.btn-secondary:not(:disabled):not(.disabled):active, 
   .expand-toggle.btn-secondary:not(:disabled):not(.disabled).active, 
@@ -132,6 +133,14 @@
   }
   .expand-toggle[aria-expanded="true"] {
     border-bottom: 0;
+  }
+  .expand-toggle[aria-expanded="true"] .toggle-icon {
+    transform: rotate(0deg);
+    transition: transform .5s ease;
+  }
+  .expand-toggle[aria-expanded="false"] .toggle-icon {
+    transform: rotate(180deg);
+    transition: transform .5s ease;
   }
   .custom-control-label {
     color: #999999;
@@ -157,6 +166,10 @@
   }
   .permissions {
     margin-top: 0.5%;
+  }
+  .permissions label{
+    font-size: 12px;
+    margin-left: 17px;
   }
 </style>
 <template>
@@ -271,11 +284,10 @@
                         href="#" 
                         v-b-toggle="'accordion-0'"  
                         :aria-controls="'accordion-0'"
-                        class="w-100 mx-0 py-0 pr-0 expand-toggle"
+                        class="w-100 mr-0 py-0 pr-0 expand-toggle"
                       >
                         Dialer
-                        <!-- <img src="images/icons/up.svg" alt="Increased value icon" width="11"> -->
-                        <img src="images/icons/down.svg" alt="Decreased value icon" width="11">
+                        <img src="images/icons/up.svg" alt="toggle icon" width="11" class="toggle-icon"/>
                       </b-button>
 
                       <b-collapse :id="'accordion-0'" visible accordion="my-accordion" role="tabpanel">
@@ -285,31 +297,37 @@
                               <b-form-group class="mx-2 mb-0 permissions">
                                 <a-row >
                                   <a-col :span="8">
-                                    <b-form-checkbox 
+                                    <a-switch @change="applyDialerPermissions()" v-model="permission.disabled"/>
+                                    <label>{{ (permission.disabled == 1)? 'Enabled' : 'Disabled' }}</label>
+                                    <!-- <b-form-checkbox 
                                       inline value="1" 
-                                      unchecked-value="0" 
+                                      unchecked-value="0"  
                                       v-model="permission.disabled"
                                       @change="applyDialerPermissions()"
-                                    >{{ (permission.disabled == 1)? 'Enabled' : 'Disabled' }}</b-form-checkbox>
+                                    >{{ (permission.disabled == 1)? 'Enabled' : 'Disabled' }}</b-form-checkbox> -->
                                   </a-col>
 
-                                  <a-col :span="8">    
-                                    <b-form-checkbox 
+                                  <a-col :span="8">
+                                    <a-switch @change="applyDialerPermissions()" v-model="permission.whisper"/>
+                                    <label>Whisper</label>    
+                                    <!-- <b-form-checkbox 
                                       inline 
                                       value="1" 
                                       unchecked-value="0" 
                                       v-model="permission.whisper" 
                                       @change="applyDialerPermissions()"
-                                    >Whisper </b-form-checkbox>
+                                    >Whisper </b-form-checkbox> -->
                                   </a-col>
 
-                                  <a-col :span="8">    
-                                    <b-form-checkbox 
+                                  <a-col :span="8">  
+                                    <a-switch @change="applyDialerPermissions()" v-model="permission.barge"/>
+                                    <label>Barge</label>  
+                                    <!-- <b-form-checkbox 
                                       inline value="1" 
                                       unchecked-value="0" 
                                       v-model="permission.barge" 
                                       @change="applyDialerPermissions()"
-                                    >Barge</b-form-checkbox>
+                                    >Barge</b-form-checkbox> -->
                                   </a-col>
                                 </a-row>
                               </b-form-group>
@@ -323,11 +341,10 @@
                         href="#" 
                         v-b-toggle="'accordion-00'"  
                         :aria-controls="'accordion-00'"
-                        class="w-100 mx-0 py-0 pr-0 expand-toggle"
+                        class="w-100 mr-0 py-0 pr-0 expand-toggle"
                       >
                         Commission
-                        <!-- <img src="images/icons/up.svg" width="11"> -->
-                        <img src="images/icons/down.svg" width="11">
+                        <img src="images/icons/up.svg" alt="toggle icon" width="11" class="toggle-icon"/>
                       </b-button>
 
                       <b-collapse :id="'accordion-00'" visible accordion="my-accordion" role="tabpanel">
@@ -338,17 +355,17 @@
                                 <a-row >
                                   <a-col :span="8">
                                     <a-switch v-model="commission_structure_a" :id="'structure_a'" @change="onChange('a')" />
-                                    Commission Structure A
+                                    <label>Commission Structure A</label>
                                   </a-col>
 
                                   <a-col :span="8">    
                                     <a-switch v-model="commission_structure_b" :id="'structure_b'" @change="onChange('b')" />
-                                    Commission Structure B
+                                    <label>Commission Structure B</label>
                                   </a-col>
 
                                   <a-col :span="8">    
                                     <a-switch v-model="commission_structure_c" :id="'structure_c'" @change="onChange('c')" />
-                                    Commission Structure C
+                                    <label>Commission Structure C</label>
                                   </a-col>
                                 </a-row>
                               </b-form-group>
@@ -363,11 +380,10 @@
                           block href="#" 
                           v-b-toggle="'accordion-' + (i+1)"  
                           :aria-controls="'accordion-' + (i+1)"
-                          class="w-100 mx-0 py-0 pr-0 expand-toggle"
+                          class="w-100 mr-0 py-0 pr-0 expand-toggle"
                         >
                           {{ a_module.display_name }}
-                          <!-- <img src="images/icons/up.svg" alt="Increased value icon" width="11"> -->
-                          <img src="images/icons/down.svg" alt="Decreased value icon" width="11">
+                          <img src="images/icons/up.svg" alt="toggle icon" width="11" class="toggle-icon"/>
                         </b-button>
 
                         <b-collapse :id="'accordion-' + (i+1)" accordion="my-accordion" role="tabpanel">
@@ -375,33 +391,39 @@
                             <b-card v-if="permission.module_id == a_module.id && permission.role_id == role.id">
                               <a-row>
                                 <a-col :span="8">
-                                  <b-form-checkbox 
+                                  <a-switch v-model="permission.read" @change="updatePermmissions()"/>
+                                  <label>Read</label>
+                                  <!-- <b-form-checkbox 
                                     inline 
                                     value="1" 
                                     unchecked-value="0" 
                                     v-model="permission.read" 
                                     @change="updatePermmissions()"
-                                  >Read</b-form-checkbox>
+                                  >Read</b-form-checkbox> -->
                                 </a-col>
 
                                 <a-col :span="8">
-                                  <b-form-checkbox 
+                                  <a-switch v-model="permission.write" @change="updatePermmissions()"/>
+                                  <label>Edit</label>
+                                  <!-- <b-form-checkbox 
                                     inline 
                                     value="1" 
                                     unchecked-value="0" 
                                     v-model="permission.write" 
                                     @change="updatePermmissions()"
-                                  >Edit </b-form-checkbox>
+                                  >Edit </b-form-checkbox> -->
                                 </a-col>
 
                                 <a-col :span="8">
-                                  <b-form-checkbox 
+                                  <a-switch v-model="permission.delete" @change="updatePermmissions()"/>
+                                  <label>Delete</label>
+                                  <!-- <b-form-checkbox 
                                     inline 
                                     value="1" 
                                     unchecked-value="0" 
                                     v-model="permission.delete" 
                                     @change="updatePermmissions()"
-                                  >Delete </b-form-checkbox>
+                                  >Delete </b-form-checkbox> -->
                                 </a-col>
                               </a-row>
                             </b-card>

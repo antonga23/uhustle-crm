@@ -49,6 +49,9 @@
     margin-left: 0.9%;
     margin-right: 0.9%;
   }
+  .api-checkbox {
+    margin-left:20px;
+  }
 </style>
 <template>
   <div id="api-integration">
