@@ -312,6 +312,10 @@
       getCommissionStructures(){
         var vm = this;
         axios.get('/settings/get-comm-structures',).then(function (response) {
+          if(response.data.structures.length > 0){
+            vm.structures = response.data.structures;
+            console.log(response.data.structure_a);
+          }
           if(response.data.structure_a.length > 0){
             vm.structure_a = response.data.structure_a;
             console.log(response.data.structure_a);

@@ -1602,8 +1602,12 @@ a.down-scroll:hover {
                         <div class="row mx-0 align-items-end">
                           <div class="col-auto pl-0">
                             <label class="d-block">Due date</label>
-                            <a-date-picker v-model="activity.duedate" name="Due Date" v-validate="'required'" class="ml-2"/>
-                            <span id="error" v-show="errors.has('Due Date')" class="help-block">{{ errors.first('Due Date') }}</span> 
+                            <a-date-picker name="Due Date"  @change="onDateChange" class="ml-2"/> 
+                          </div>
+
+                          <div class="col-auto pl-0">
+                            <label class="d-block">Time</label>
+                            <a-time-picker use24Hours format="HH:mm" @change="onTimeChange"  class="ml-2" /> 
                           </div>
 
                           <div class="col-auto activity-status-col">
@@ -1637,6 +1641,7 @@ a.down-scroll:hover {
 
                     <template slot="subject" slot-scope="data">   
                       <input
+                        @blur="updateActivity(data.item)"
                         v-model="data.item.subject"     
                         type="text"    
                         id="deal-name"     
@@ -1645,7 +1650,7 @@ a.down-scroll:hover {
                     </template> 
 
                     <template slot="status" slot-scope="data">   
-                      <a-select v-model="data.item.status" class="activity-status-input">
+                      <a-select v-model="data.item.status" class="activity-status-input" @change="updateActivity(data.item)">
                         <a-select-option :value="0"><div class="d-inline-block activity-status finished-activity"></div>Finished</a-select-option>
                         <a-select-option :value="1"><div class="d-inline-block activity-status in-progress-activity"></div>In Progress</a-select-option>
                         <a-select-option :value="2"><div class="d-inline-block activity-status not-started-activity"></div>Not Started</a-select-option>
@@ -1653,7 +1658,11 @@ a.down-scroll:hover {
                     </template> 
 
                     <template slot="dueDate" slot-scope="data">   
-                      <a-date-picker v-model="data.item.duedate" name="Due Date"  v-validate="'required'" /> 
+                      <a-date-picker v-model="data.item.dueDate" name="Due Date" @change="updateActivity(data.item)" /> 
+                    </template>
+
+                    <template slot="time" slot-scope="data">   
+                      <a-time-picker v-model="data.item.time" name="Time" format="HH:mm" @change="updateActivity(data.item)" /> 
                     </template>
                   </b-table>   
    
@@ -1675,17 +1684,18 @@ a.down-scroll:hover {
                 >     
                   <b-table 
                     hover 
-                    :items="activityItems" 
+                    :items="closedActivityItems" 
                     sticky-header="190px" 
                     :per-page="perPage"
                     responsive
-                  >   
+                  > 
                     <template slot="statusColor" slot-scope="data">   
                       <div class="activity-status" :style="{backgroundColor: data.item.statusColor}"></div>   
                     </template>
 
                     <template slot="subject" slot-scope="data">   
                       <input
+                        @blur="updateActivity(data.item)"
                         v-model="data.item.subject"     
                         type="text"    
                         id="deal-name"     
@@ -1694,7 +1704,7 @@ a.down-scroll:hover {
                     </template> 
 
                     <template slot="status" slot-scope="data">   
-                      <a-select v-model="data.item.status" class="activity-status-input">
+                      <a-select v-model="data.item.status" class="activity-status-input" @change="updateActivity(data.item)">
                         <a-select-option :value="0"><div class="d-inline-block activity-status finished-activity"></div>Finished</a-select-option>
                         <a-select-option :value="1"><div class="d-inline-block activity-status in-progress-activity"></div>In Progress</a-select-option>
                         <a-select-option :value="2"><div class="d-inline-block activity-status not-started-activity"></div>Not Started</a-select-option>
@@ -1702,8 +1712,13 @@ a.down-scroll:hover {
                     </template> 
 
                     <template slot="dueDate" slot-scope="data">   
-                      <a-date-picker v-model="data.item.duedate" name="Due Date"  v-validate="'required'" /> 
-                    </template> 
+                      <a-date-picker v-model="data.item.dueDate" name="Due Date" @change="updateActivity(data.item)" /> 
+                    </template>
+
+                    <template slot="time" slot-scope="data">   
+                      <a-time-picker v-model="data.item.time" name="Time" format="HH:mm"  @change="updateActivity(data.item)" /> 
+                    </template>
+
                   </b-table>  
 
                   <b-pagination   
@@ -2241,8 +2256,8 @@ export default {
       closed_activities: [],
       activity:{
         title: '',
-        duedate:  moment(),
-        status: 0,
+        duedate:  '',
+        status: 2,
       },
       date_span: "",  
       max_date: "",  
@@ -2357,6 +2372,12 @@ export default {
     }  
   },  
   methods: {
+    onTimeChange(time, timeString) {
+      this.activity.time = timeString;
+    },
+    onDateChange(date, dateString) {
+        this.activity.duedate = dateString;
+    },
     getDeals(){
       var vm = this;
       axios.get("/deals/get-all/" + this.item_id ).then(function(response) {
@@ -2436,40 +2457,42 @@ export default {
     },
     addActivity(){ 
       var vm = this;
-        this.$validator.validateAll().then(result => {  
-          if (!result) {  
-          } else {  
-              axios.post('/tasks/create', { 
-                title: vm.activity.title, 
-                status: vm.activity.status, 
-                date: vm.activity.duedate.format('YYYY-MM-DD') ,
-                lead_id: vm.item_id ,
-              }).then(function(response) { 
 
-                  if (response.data.success == true) { 
-                      vm.Toast.fire({ 
-                          type: 'success', 
-                          title: 'Activity added successfully'
-                      }); 
-                      vm.getActivities(); 
-                      vm.$Progress.finish(); 
-                  } else { 
-                      vm.$Progress.fail(); 
-                      vm.$swal('Failed', 'Opps, something went wrong while update, please try again', 'warning'); 
-                  } 
-              });  
-          }  
-        });  
+      if(!vm.activity.title || !vm.activity.status || !vm.activity.duedate || !vm.activity.time){
+        vm.$swal('Note', 'All fields are required', 'warning');
+      }  
+
+      axios.post('/tasks/create', { 
+        title: vm.activity.title, 
+        status: vm.activity.status, 
+        date: vm.activity.duedate ,
+        time: vm.activity.time ,
+        lead_id: vm.item_id ,
+      }).then(function(response) { 
+
+          if (response.data.success == true) { 
+              vm.Toast.fire({ 
+                  type: 'success', 
+                  title: 'Activity added successfully'
+              }); 
+              vm.getActivities(); 
+              vm.$Progress.finish(); 
+          } else { 
+              vm.$Progress.fail(); 
+              vm.$swal('Failed', 'Opps, something went wrong while update, please try again', 'warning'); 
+          } 
+      });
+
       this.edit_task = false; 
     },
     getActivities(){
       var vm = this; 
       axios.get('/tasks/get-activities/' + vm.item_id).then(function(response) { 
-          vm.activities = response.data.open_activities; 
+          vm.open_activities = response.data.open_activities; 
           vm.closed_activities = response.data.closed_activities; 
           vm.activityItems = [];
           vm.closedActivityItems = [];
-          vm.activities.map( (activity) => {
+          vm.open_activities.map( (activity) => {
 
             var color = '';
             var status = '';
@@ -2489,10 +2512,12 @@ export default {
             }
 
             vm.activityItems.push({  
+              id: activity.id,  
               statusColor: color,  
               subject: activity.title,  
               status: status,  
-              dueDate: activity.duedate,  
+              dueDate:  moment(activity.deadline,  'YYYY-MM-DD'),  
+              time:  moment(activity.time,  'HH:mm'),  
               activityOwner: activity.creator.name + ' ' + activity.creator.lastname,  
               timeModified: activity.updated_at  
             });
@@ -2518,10 +2543,12 @@ export default {
             }
 
             vm.closedActivityItems.push({  
+              id: activity.id,    
               statusColor: color,  
               subject: activity.title,  
               status: status,  
-              dueDate: activity.duedate,  
+              dueDate:  moment(activity.deadline,  'YYYY-MM-DD'),  
+              time:  moment(activity.time,  'HH:mm'),  
               activityOwner: activity.creator.name + ' ' + activity.creator.lastname,  
               timeModified: activity.updated_at  
             });
@@ -2529,6 +2556,44 @@ export default {
           });
 
       }); 
+    },
+    updateActivity(item){
+      console.log(item.status);
+      var vm = this;
+
+      var status = '';
+
+      if(item.status === 'Finished' ){
+        status = 0;
+      }else if(item.status === 'In Progress'){
+        status = 1;
+      }else if(item.status === 'Not Started'){
+        status = 2;
+      }else{
+        status = item.status;
+      }
+      console.log(status)
+      axios.post('/tasks/update', { 
+        id: item.id, 
+        title: item.subject, 
+        status: status, 
+        date: moment(item.dueDate).format('YYYY-MM-DD') ,
+        time: moment(item.time).format('HH:mm') ,
+        lead_id: vm.item_id ,
+      }).then(function(response) { 
+
+          if (response.data.success == true) { 
+              vm.Toast.fire({ 
+                  type: 'success', 
+                  title: 'Activity updated successfully'
+              }); 
+              vm.getActivities(); 
+              vm.$Progress.finish(); 
+          } else { 
+              vm.$Progress.fail(); 
+              vm.$swal('Failed', 'Opps, something went wrong while update, please try again', 'warning'); 
+          } 
+      });
     },
     addActivityCollapse(id){ 
       this.add_client_activity = !this.add_client_activity; 

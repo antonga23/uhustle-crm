@@ -189065,6 +189065,11 @@ __webpack_require__.r(__webpack_exports__);
     getCommissionStructures: function getCommissionStructures() {
       var vm = this;
       axios.get('/settings/get-comm-structures').then(function (response) {
+        if (response.data.structures.length > 0) {
+          vm.structures = response.data.structures;
+          console.log(response.data.structure_a);
+        }
+
         if (response.data.structure_a.length > 0) {
           vm.structure_a = response.data.structure_a;
           console.log(response.data.structure_a);
@@ -195729,6 +195734,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -195896,8 +195916,8 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
       closed_activities: [],
       activity: {
         title: '',
-        duedate: moment(),
-        status: 0
+        duedate: '',
+        status: 2
       },
       date_span: "",
       max_date: "",
@@ -196041,6 +196061,12 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
     }
   },
   methods: {
+    onTimeChange: function onTimeChange(time, timeString) {
+      this.activity.time = timeString;
+    },
+    onDateChange: function onDateChange(date, dateString) {
+      this.activity.duedate = dateString;
+    },
     getDeals: function getDeals() {
       var vm = this;
       axios.get("/deals/get-all/" + this.item_id).then(function (response) {
@@ -196100,26 +196126,28 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
     },
     addActivity: function addActivity() {
       var vm = this;
-      this.$validator.validateAll().then(function (result) {
-        if (!result) {} else {
-          axios.post('/tasks/create', {
-            title: vm.activity.title,
-            status: vm.activity.status,
-            date: vm.activity.duedate.format('YYYY-MM-DD'),
-            lead_id: vm.item_id
-          }).then(function (response) {
-            if (response.data.success == true) {
-              vm.Toast.fire({
-                type: 'success',
-                title: 'Activity added successfully'
-              });
-              vm.getActivities();
-              vm.$Progress.finish();
-            } else {
-              vm.$Progress.fail();
-              vm.$swal('Failed', 'Opps, something went wrong while update, please try again', 'warning');
-            }
+
+      if (!vm.activity.title || !vm.activity.status || !vm.activity.duedate || !vm.activity.time) {
+        vm.$swal('Note', 'All fields are required', 'warning');
+      }
+
+      axios.post('/tasks/create', {
+        title: vm.activity.title,
+        status: vm.activity.status,
+        date: vm.activity.duedate,
+        time: vm.activity.time,
+        lead_id: vm.item_id
+      }).then(function (response) {
+        if (response.data.success == true) {
+          vm.Toast.fire({
+            type: 'success',
+            title: 'Activity added successfully'
           });
+          vm.getActivities();
+          vm.$Progress.finish();
+        } else {
+          vm.$Progress.fail();
+          vm.$swal('Failed', 'Opps, something went wrong while update, please try again', 'warning');
         }
       });
       this.edit_task = false;
@@ -196127,11 +196155,11 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
     getActivities: function getActivities() {
       var vm = this;
       axios.get('/tasks/get-activities/' + vm.item_id).then(function (response) {
-        vm.activities = response.data.open_activities;
+        vm.open_activities = response.data.open_activities;
         vm.closed_activities = response.data.closed_activities;
         vm.activityItems = [];
         vm.closedActivityItems = [];
-        vm.activities.map(function (activity) {
+        vm.open_activities.map(function (activity) {
           var color = '';
           var status = '';
 
@@ -196151,10 +196179,12 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
           }
 
           vm.activityItems.push({
+            id: activity.id,
             statusColor: color,
             subject: activity.title,
             status: status,
-            dueDate: activity.duedate,
+            dueDate: moment(activity.deadline, 'YYYY-MM-DD'),
+            time: moment(activity.time, 'HH:mm'),
             activityOwner: activity.creator.name + ' ' + activity.creator.lastname,
             timeModified: activity.updated_at
           });
@@ -196179,14 +196209,53 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
           }
 
           vm.closedActivityItems.push({
+            id: activity.id,
             statusColor: color,
             subject: activity.title,
             status: status,
-            dueDate: activity.duedate,
+            dueDate: moment(activity.deadline, 'YYYY-MM-DD'),
+            time: moment(activity.time, 'HH:mm'),
             activityOwner: activity.creator.name + ' ' + activity.creator.lastname,
             timeModified: activity.updated_at
           });
         });
+      });
+    },
+    updateActivity: function updateActivity(item) {
+      console.log(item.status);
+      var vm = this;
+      var status = '';
+
+      if (item.status === 'Finished') {
+        status = 0;
+      } else if (item.status === 'In Progress') {
+        status = 1;
+      } else if (item.status === 'Not Started') {
+        status = 2;
+      } else {
+        status = item.status;
+      }
+
+      console.log(status);
+      axios.post('/tasks/update', {
+        id: item.id,
+        title: item.subject,
+        status: status,
+        date: moment(item.dueDate).format('YYYY-MM-DD'),
+        time: moment(item.time).format('HH:mm'),
+        lead_id: vm.item_id
+      }).then(function (response) {
+        if (response.data.success == true) {
+          vm.Toast.fire({
+            type: 'success',
+            title: 'Activity updated successfully'
+          });
+          vm.getActivities();
+          vm.$Progress.finish();
+        } else {
+          vm.$Progress.fail();
+          vm.$swal('Failed', 'Opps, something went wrong while update, please try again', 'warning');
+        }
       });
     },
     addActivityCollapse: function addActivityCollapse(id) {
@@ -384930,58 +384999,38 @@ var render = function() {
                                                   ),
                                                   _vm._v(" "),
                                                   _c("a-date-picker", {
-                                                    directives: [
-                                                      {
-                                                        name: "validate",
-                                                        rawName: "v-validate",
-                                                        value: "required",
-                                                        expression: "'required'"
-                                                      }
-                                                    ],
                                                     staticClass: "ml-2",
                                                     attrs: { name: "Due Date" },
-                                                    model: {
-                                                      value:
-                                                        _vm.activity.duedate,
-                                                      callback: function($$v) {
-                                                        _vm.$set(
-                                                          _vm.activity,
-                                                          "duedate",
-                                                          $$v
-                                                        )
-                                                      },
-                                                      expression:
-                                                        "activity.duedate"
+                                                    on: {
+                                                      change: _vm.onDateChange
                                                     }
-                                                  }),
-                                                  _vm._v(" "),
+                                                  })
+                                                ],
+                                                1
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass: "col-auto pl-0"
+                                                },
+                                                [
                                                   _c(
-                                                    "span",
-                                                    {
-                                                      directives: [
-                                                        {
-                                                          name: "show",
-                                                          rawName: "v-show",
-                                                          value: _vm.errors.has(
-                                                            "Due Date"
-                                                          ),
-                                                          expression:
-                                                            "errors.has('Due Date')"
-                                                        }
-                                                      ],
-                                                      staticClass: "help-block",
-                                                      attrs: { id: "error" }
+                                                    "label",
+                                                    { staticClass: "d-block" },
+                                                    [_vm._v("Time")]
+                                                  ),
+                                                  _vm._v(" "),
+                                                  _c("a-time-picker", {
+                                                    staticClass: "ml-2",
+                                                    attrs: {
+                                                      use24Hours: "",
+                                                      format: "HH:mm"
                                                     },
-                                                    [
-                                                      _vm._v(
-                                                        _vm._s(
-                                                          _vm.errors.first(
-                                                            "Due Date"
-                                                          )
-                                                        )
-                                                      )
-                                                    ]
-                                                  )
+                                                    on: {
+                                                      change: _vm.onTimeChange
+                                                    }
+                                                  })
                                                 ],
                                                 1
                                               ),
@@ -385150,6 +385199,11 @@ var render = function() {
                                             value: data.item.subject
                                           },
                                           on: {
+                                            blur: function($event) {
+                                              return _vm.updateActivity(
+                                                data.item
+                                              )
+                                            },
                                             input: function($event) {
                                               if ($event.target.composing) {
                                                 return
@@ -385174,6 +385228,13 @@ var render = function() {
                                           {
                                             staticClass:
                                               "activity-status-input",
+                                            on: {
+                                              change: function($event) {
+                                                return _vm.updateActivity(
+                                                  data.item
+                                                )
+                                              }
+                                            },
                                             model: {
                                               value: data.item.status,
                                               callback: function($$v) {
@@ -385233,25 +385294,51 @@ var render = function() {
                                     fn: function(data) {
                                       return [
                                         _c("a-date-picker", {
-                                          directives: [
-                                            {
-                                              name: "validate",
-                                              rawName: "v-validate",
-                                              value: "required",
-                                              expression: "'required'"
-                                            }
-                                          ],
                                           attrs: { name: "Due Date" },
+                                          on: {
+                                            change: function($event) {
+                                              return _vm.updateActivity(
+                                                data.item
+                                              )
+                                            }
+                                          },
                                           model: {
-                                            value: data.item.duedate,
+                                            value: data.item.dueDate,
                                             callback: function($$v) {
                                               _vm.$set(
                                                 data.item,
-                                                "duedate",
+                                                "dueDate",
                                                 $$v
                                               )
                                             },
-                                            expression: "data.item.duedate"
+                                            expression: "data.item.dueDate"
+                                          }
+                                        })
+                                      ]
+                                    }
+                                  },
+                                  {
+                                    key: "time",
+                                    fn: function(data) {
+                                      return [
+                                        _c("a-time-picker", {
+                                          attrs: {
+                                            name: "Time",
+                                            format: "HH:mm"
+                                          },
+                                          on: {
+                                            change: function($event) {
+                                              return _vm.updateActivity(
+                                                data.item
+                                              )
+                                            }
+                                          },
+                                          model: {
+                                            value: data.item.time,
+                                            callback: function($$v) {
+                                              _vm.$set(data.item, "time", $$v)
+                                            },
+                                            expression: "data.item.time"
                                           }
                                         })
                                       ]
@@ -385260,7 +385347,7 @@ var render = function() {
                                 ],
                                 null,
                                 false,
-                                1687832035
+                                2014092939
                               )
                             }),
                             _vm._v(" "),
@@ -385298,7 +385385,7 @@ var render = function() {
                             _c("b-table", {
                               attrs: {
                                 hover: "",
-                                items: _vm.activityItems,
+                                items: _vm.closedActivityItems,
                                 "sticky-header": "190px",
                                 "per-page": _vm.perPage,
                                 responsive: ""
@@ -385343,6 +385430,11 @@ var render = function() {
                                             value: data.item.subject
                                           },
                                           on: {
+                                            blur: function($event) {
+                                              return _vm.updateActivity(
+                                                data.item
+                                              )
+                                            },
                                             input: function($event) {
                                               if ($event.target.composing) {
                                                 return
@@ -385367,6 +385459,13 @@ var render = function() {
                                           {
                                             staticClass:
                                               "activity-status-input",
+                                            on: {
+                                              change: function($event) {
+                                                return _vm.updateActivity(
+                                                  data.item
+                                                )
+                                              }
+                                            },
                                             model: {
                                               value: data.item.status,
                                               callback: function($$v) {
@@ -385426,25 +385525,51 @@ var render = function() {
                                     fn: function(data) {
                                       return [
                                         _c("a-date-picker", {
-                                          directives: [
-                                            {
-                                              name: "validate",
-                                              rawName: "v-validate",
-                                              value: "required",
-                                              expression: "'required'"
-                                            }
-                                          ],
                                           attrs: { name: "Due Date" },
+                                          on: {
+                                            change: function($event) {
+                                              return _vm.updateActivity(
+                                                data.item
+                                              )
+                                            }
+                                          },
                                           model: {
-                                            value: data.item.duedate,
+                                            value: data.item.dueDate,
                                             callback: function($$v) {
                                               _vm.$set(
                                                 data.item,
-                                                "duedate",
+                                                "dueDate",
                                                 $$v
                                               )
                                             },
-                                            expression: "data.item.duedate"
+                                            expression: "data.item.dueDate"
+                                          }
+                                        })
+                                      ]
+                                    }
+                                  },
+                                  {
+                                    key: "time",
+                                    fn: function(data) {
+                                      return [
+                                        _c("a-time-picker", {
+                                          attrs: {
+                                            name: "Time",
+                                            format: "HH:mm"
+                                          },
+                                          on: {
+                                            change: function($event) {
+                                              return _vm.updateActivity(
+                                                data.item
+                                              )
+                                            }
+                                          },
+                                          model: {
+                                            value: data.item.time,
+                                            callback: function($$v) {
+                                              _vm.$set(data.item, "time", $$v)
+                                            },
+                                            expression: "data.item.time"
                                           }
                                         })
                                       ]
@@ -385453,7 +385578,7 @@ var render = function() {
                                 ],
                                 null,
                                 false,
-                                1687832035
+                                2014092939
                               )
                             }),
                             _vm._v(" "),
