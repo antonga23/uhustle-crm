@@ -1,5 +1,5 @@
 <template>
-    <div class="no-box-shadow material-table">
+    <div class="no-box-shadow material-table border-0">
         <table ref="table">
             <thead>
                 <tr>
