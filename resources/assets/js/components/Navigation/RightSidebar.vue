@@ -182,10 +182,13 @@ h3 img {
 }
 
 .description {
-  font-size: 12px;
+  font-size: 10px;
   font-family: "Rubik", sans-serif;
   color: #1e2331;
   padding-bottom: 10px;
+}
+.description-text {
+  font-size: 0.73vw !important;
 }
 
 .position {
@@ -676,11 +679,11 @@ textarea.form-control {
 }
 
 .stats-section {
-  margin-top: 25px;
+  margin-top: 22px;
 }
 
 .stats-section .commission {
-  padding: 25px 0;
+  padding: 7% 0;
 }
 
 .stats-section .sales,
@@ -717,7 +720,7 @@ p.badges {
   color: #003449;
 }
 
-.nav-item .nav-link.generalIcon:hover,.nav-item .nav-link.filterIcon:hover, .nav-item .nav-link.notificationsIcon:hover, .nav-item .nav-link.settingsIcon:hover,.nav-item .nav-link.notificationsIcon img.inactive-icon:hover {
+.nav-item .nav-link img.active-icon, .nav-item .nav-link.generalIcon:hover,.nav-item .nav-link.filterIcon:hover, .nav-item .nav-link.notificationsIcon:hover, .nav-item .nav-link.settingsIcon:hover,.nav-item .nav-link.notificationsIcon img.inactive-icon:hover {
   border-radius: 50%;
   box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);
   
@@ -809,7 +812,8 @@ p.badges {
 }
 
 .reminders .btn-primary {
-  padding: 11px 14px 10px;
+  width: auto !important;
+    float: right;
   line-height: 1em;
 }
 .reminders .terms-text input {
@@ -908,7 +912,7 @@ border-top: 1px solid #f7f7f7;
   float: right;
 }
 .inactive-icon {
-  padding: 6px;
+  /* padding: 6px; */
   border-radius: 50rem;
   box-shadow: none;
   -webkit-box-shadow: none;
@@ -1040,7 +1044,7 @@ border-top: 1px solid #f7f7f7;
   .filter-container {
     max-height: 450px;
   }
-  .px-6-hide {
+  .px-6-hide, .description, label.task-deadline.terms-text {
   padding:0;
   }
   .small-margin {
@@ -1072,7 +1076,7 @@ input.save-text:focus {
       <!-- Control sidebar content goes here -->
       <section class="sidebar px-0">
         <div class="sidebar-menu grey-scroll" data-widget="tree">
-          <div class="px-6-hide">
+          <div class="px-6">
           <nav
             class="navbar navbar-expand-md navbar-light bg-white p-0 w-100 row mx-0 justify-content-between align-items-center border-bottom"
           >
@@ -1080,76 +1084,55 @@ input.save-text:focus {
             <ul class="navbar-nav col-auto">
                <li class="nav-item">
                 <a class="nav-link icon p-0 generalIcon" href="#" @click="showGeneralStats()">
-                  <img
-                    v-if="generalStats_on == false"
+                  <img 
                     src="/images/icons/right-sidebar/General.svg"
                     alt="Settings Cog"
-                    width="43"
-                    class="inactive-icon"
-                  />
-                  <img
-                    v-else
-                    src="/images/icons/right-sidebar/General_Active.svg"
-                    alt="Settings Cog"
-                    width="43"
+                    width="30"
+                    :class="[generalStats_on === true ? 'active-icon' : 'inactive-icon' ]"
                   />
                 </a>
               </li>
                <li class="nav-item" v-if="active == 'leads' || active == 'contacts'">
                 <a class="nav-link icon p-0 filterIcon" href="#" @click="showFiltersTab()">
                   <img
-                    v-if="filters_on == false"
                     src="/images/icons/right-sidebar/Filter.svg"
                     alt="Settings Cog"
-                    width="43"
-                    class="inactive-icon"
-                  />
-                  <img
-                    v-else
-                    src="/images/icons/right-sidebar/Filter_Active.svg"
-                    alt="Settings Cog"
-                    width="43"
+                    width="30"
+                   :class="[filters_on === true ? 'active-icon' : 'inactive-icon' ]"
                   />
                 </a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link icon p-0 notificationsIcon" href="#" @click="showNotifications()">
                   <img
                     v-if="notifications_on == true"
                     src="/images/icons/right-sidebar/Notifications_Active.svg"
                     alt="Notification Bell"
-                    width="43"
+                    width="30"
                   />
                   <img
                     v-else-if="notifications_on == false && unread_messages == 0 && call_backs.length == 0"
                     src="/images/icons/right-sidebar/Notification.svg"
                     alt="Notification Bell"
-                    width="43"
+                    width="30"
                     class="inactive-icon"
                   />
                   <img
                     v-else-if="notifications_on == false && unread_messages >= 1 || call_backs.length > 0"
                     src="/images/icons/right-sidebar/Notifications_1.svg"
                     alt="Notification Bell"
-                    width="43"
+                    width="30"
                     class="inactive-icon"
                   />
                 </a>
-              </li>
+              </li> -->
               <li class="nav-item">
                 <a class="nav-link icon p-0 settingsIcon" href="#" @click="showSettings()">
                   <img
-                    v-if="settings_on == false"
                     src="/images/icons/right-sidebar/Setting.svg"
                     alt="Settings Cog"
-                    width="43"
-                    class="inactive-icon"
-                  />
-                  <img
-                    v-else
-                    src="/images/icons/right-sidebar/Settings_Active.svg"
-                    alt="Settings Cog"
-                    width="43"
+                    width="30"
+                    :class="[settings_on === true ? 'active-icon' : 'inactive-icon' ]"
                   />
                 </a>
               </li>
@@ -2051,13 +2034,13 @@ input.save-text:focus {
                                         v-model="task.description"
                                         placeholder="Description"
                                         autosize
-                                        class=""
+                                        class="description-text"
                                       />
                                     </label>
                                   </div>
 
                                   <div class="col-6 pl-0 custom-control">
-                                    <label class="terms-text p-0" :for="'task' + i">
+                                    <label class="task-deadline terms-text" :for="'task' + i">
                                       <a-date-picker
                                         v-model="task.deadline"
                                         :defaultValue="moment(task.deadline, 'YYYY-MM-DD')"
@@ -2102,15 +2085,15 @@ input.save-text:focus {
                                         v-model="new_task.description"
                                         placeholder="Description"
                                         autosize
-                                        class=""
+                                        class="description-text"
                                       />
                                     </label>
                                   </div>
                                 </div>
 
                                 <div class="row mx-0 justify-content-between">
-                                  <div class="col-6 pl-0 custom-control">
-                                    <label class="w-100 terms-text" for="task1">
+                                  <div class="col-6 pl-0 custom-control pl-34">
+                                    <label class="task-deadline terms-text" for="task1">
                                       <a-date-picker v-model="new_task.date" class="w-100" />
                                     </label>
                                   </div>
@@ -2120,7 +2103,7 @@ input.save-text:focus {
                                       type="submit"
                                       class="btn btn-primary update-user w-100 rounded-pill m-0"
                                       @click="submitTask"
-                                    >Add</button>
+                                    >Save</button>
                                   </div>
                                 </div>
                               </div>
@@ -2622,6 +2605,7 @@ input.save-text:focus {
         this.notifications_on = false; 
         this.profile_on = false; 
         this.filters_on = false; 
+        this.generalStats_on = false;
       }, 
       showGeneralStats() { 
       this.generalStats_on = !this.generalStats_on; 
