@@ -180,7 +180,8 @@ export default {
             var vm = this;
             this.user = user;
             this.user.source = user.lead_source;
-            this.$bvModal.show('update-user-modal');
+            this.$bvModal.show('update-user-modal');  
+            Fire.$emit('ShowUserEdit', { user: this.user  });
         },
         handleOk(bvModalEvt) {
             // Prevent modal from closing

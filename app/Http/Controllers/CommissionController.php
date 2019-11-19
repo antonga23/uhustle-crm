@@ -176,6 +176,7 @@ class CommissionController extends Controller
 
     public function getCommStructures(){
 
+      $structures = Commission::with('attributes')->get();
       $structure_a = Commission::with('attributes')->where(['commision_structure' => 'structure_a'])->first();
       $structure_b = Commission::with('attributes')->where(['commision_structure' => 'structure_b'])->first();
       $structure_c = Commission::with('attributes')->where(['commision_structure' => 'structure_c'])->first();
@@ -293,6 +294,7 @@ class CommissionController extends Controller
       }
 
       return [ 
+        'structures' => $structures,
         'structure_a' => $structure_a_data,
         'structure_b' => $structure_b_data,
         'structure_c' => $structure_c_data
