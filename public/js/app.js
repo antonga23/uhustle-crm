@@ -180906,6 +180906,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -364243,7 +364246,7 @@ var render = function() {
                         {
                           key: i,
                           staticClass:
-                            "row m-2 pl-0 align-items-center reminders-border-bottom custom-control custom-checkbox"
+                            "row m-2 pt-0 pl-0 align-items-center reminders-border-bottom custom-control custom-checkbox"
                         },
                         [
                           _c("transition", { attrs: { name: "bounce" } }, [
@@ -364494,7 +364497,10 @@ var render = function() {
                                                 {
                                                   staticClass:
                                                     "btn btn-primary update-user w-100 rounded-pill m-0",
-                                                  attrs: { type: "submit" },
+                                                  attrs: {
+                                                    type: "submit",
+                                                    disabled: task.title == ""
+                                                  },
                                                   on: {
                                                     click: function($event) {
                                                       return _vm.editTask(task)
@@ -364666,7 +364672,10 @@ var render = function() {
                                       {
                                         staticClass:
                                           "btn btn-primary update-user w-100 rounded-pill m-0",
-                                        attrs: { type: "submit" },
+                                        attrs: {
+                                          type: "submit",
+                                          disabled: _vm.new_task.title == ""
+                                        },
                                         on: { click: _vm.submitTask }
                                       },
                                       [_vm._v("Save")]

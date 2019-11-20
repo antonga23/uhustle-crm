@@ -861,7 +861,7 @@ border-top: 1px solid #f7f7f7;
 
               <ul class="border-top pl-0"  v-if="reminders.length > 0 && !add_task"> 
                 <!--When adding a new task, the whole li tag should be added and change input ids --> 
-                <li v-for="(task, i) in reminders" :key="i" class="row m-2 pl-0 align-items-center reminders-border-bottom custom-control custom-checkbox"> 
+                <li v-for="(task, i) in reminders" :key="i" class="row m-2 pt-0 pl-0 align-items-center reminders-border-bottom custom-control custom-checkbox"> 
                   <transition name="bounce">  
                     <div class="col-12 p-2"> 
                       <div class="row mx-0 align-items-center"> 
@@ -908,6 +908,7 @@ border-top: 1px solid #f7f7f7;
                             type="submit" 
                             class="btn btn-primary update-user w-100 rounded-pill m-0" 
                             @click="editTask(task)"
+                            :disabled="task.title==''"
                           >Update</button> 
                         </div>
                       </div> 
@@ -931,6 +932,7 @@ border-top: 1px solid #f7f7f7;
                               type="text" 
                               class="border-0 list-input"
                               required
+                              
                             > 
                           </label> 
 
@@ -952,6 +954,7 @@ border-top: 1px solid #f7f7f7;
                             type="submit" 
                             class="btn btn-primary update-user w-100 rounded-pill m-0" 
                             @click="submitTask"
+                            :disabled="new_task.title==''"
                           >Save</button> 
                         </div> 
                       </div> 
