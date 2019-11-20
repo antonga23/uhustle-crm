@@ -34,7 +34,7 @@
               
               <!-- <div class="row justify-content-center">
                 <div class="col-lg-12 mb-0 p-0 center">
-                  <p class="logo-title mb-0">UHUSTLE</p>
+                  <p class="logo-title mb-0">siarem</p>
                 </div>
               </div> -->
 
@@ -81,7 +81,7 @@
                           </div>
                         </div>
                         <hr class="copyright-divider">
-                        <p class="copyright">@ 2019 UHUSTLE. All rights reserve</p>
+                        <p class="copyright">@ 2019 SIAREM. All rights reserve</p>
                       </form>
                     </div>
                   </div>
