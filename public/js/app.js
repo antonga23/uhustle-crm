@@ -186707,6 +186707,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -373377,7 +373378,10 @@ var render = function() {
                                                                             "btn btn-primary update-user w-100 rounded-pill m-0",
                                                                           attrs: {
                                                                             type:
-                                                                              "submit"
+                                                                              "submit",
+                                                                            disabled:
+                                                                              task.title ==
+                                                                              ""
                                                                           },
                                                                           on: {
                                                                             click: function(
@@ -373482,9 +373486,7 @@ var render = function() {
                                                                           placeholder:
                                                                             "Title",
                                                                           type:
-                                                                            "text",
-                                                                          required:
-                                                                            ""
+                                                                            "text"
                                                                         },
                                                                         domProps: {
                                                                           value:
@@ -373659,7 +373661,12 @@ var render = function() {
                                                                       "btn btn-primary update-user w-100 rounded-pill m-0",
                                                                     attrs: {
                                                                       type:
-                                                                        "submit"
+                                                                        "submit",
+                                                                      disabled:
+                                                                        _vm
+                                                                          .new_task
+                                                                          .title ==
+                                                                        ""
                                                                     },
                                                                     on: {
                                                                       click:

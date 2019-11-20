@@ -2057,6 +2057,7 @@ input.save-text:focus {
                                       type="submit"
                                       class="btn btn-primary update-user w-100 rounded-pill m-0"
                                       @click="editTask(task)"
+                                      :disabled="task.title==''"
                                     >Update</button>
                                   </div>
                                 </div>
@@ -2080,7 +2081,6 @@ input.save-text:focus {
                                         placeholder="Title"
                                         type="text"
                                         class="border-0 pl-0 list-input"
-                                        required
                                       />
                                     </label>
 
@@ -2107,6 +2107,7 @@ input.save-text:focus {
                                       type="submit"
                                       class="btn btn-primary update-user w-100 rounded-pill m-0"
                                       @click="submitTask"
+                                      :disabled="new_task.title ==''"
                                     >Save</button>
                                   </div>
                                 </div>
