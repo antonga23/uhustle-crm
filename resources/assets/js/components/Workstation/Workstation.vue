@@ -1682,7 +1682,7 @@ a.down-scroll:hover {
                   ></b-pagination>                
                 </div>   
    
-                <div    
+                <div
                   class="tab-pane fade"    
                   id="six"    
                   role="tabpanel"    
@@ -1941,7 +1941,12 @@ a.down-scroll:hover {
                   role="tabpanel"    
                   aria-labelledby="two-tab"   
                 >     
-                 <create-deal :empty_deal="deal" :lead_id="item_id" /> 
+                 <create-deal 
+                  :empty_deal="deal" 
+                  :lead_id="item_id" 
+                  :agent_id="user_id" 
+                  :agent_name="user_name" 
+                  /> 
                 </div>    
               </div>    
             </div>    
@@ -2362,7 +2367,9 @@ export default {
         expected_revenue:'' ,
         contact_name:'' ,
         contact_number:'' ,
-      },  
+      }, 
+      deal_items: [],
+      dealItems: [],
       perPage: 10,  
       currentPage: 1,
       radioStyle: {
@@ -2387,7 +2394,17 @@ export default {
     getDeals(){
       var vm = this;
       axios.get("/deals/get-all/" + this.item_id ).then(function(response) {
-        vm.dealItems = response.data.deals;
+        vm.deal_items = response.data.deals;
+
+        // ToDo: Push for slots
+
+        // vm.deal_items.map( (item) => {
+
+        //   vm.dealItems.push([
+        //     id:
+        //   ]);
+        // });
+
       });
     },
     getActiveCalls() {  

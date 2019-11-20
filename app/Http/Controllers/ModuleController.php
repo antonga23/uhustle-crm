@@ -264,6 +264,15 @@ class ModuleController extends Controller
       return ['leads' => $items];
     }
 
+    public function getDisplayItems(){
+
+      $module_items = ModuleItem::with('item_meta')->get();
+
+      $items = $this->compactDisplayModuleItems($module_items);
+
+      return ['leads' => $items];
+    }
+
     public function getSingleItem($id){
 
       $module = Module::with('module_fields')->where(['tag' => 'leads'])->first();
@@ -359,15 +368,19 @@ class ModuleController extends Controller
               
               switch ($meta->custom_field_value) {
                 case 0:
+                    continue;
                     $status = 'Canceled';
                   break;
                 case 1:
                     $status = 'Active';
+                    $display_array[$meta_name->name] = $status;
                   break;
                 case 2:
+                    continue;
                     $status = 'Inactive';
                   break;
                 case 3:
+                    continue;
                     $status = 'Disabled';
                   break;
                 
@@ -375,8 +388,6 @@ class ModuleController extends Controller
                     $status = 'Active';
                   break;
               }
-
-              $display_array[$meta_name->name] = $status;
 
               $fields_array[$meta_name->name] =  [
                 'custom_field_id' => $meta->custom_field_id,
@@ -407,13 +418,10 @@ class ModuleController extends Controller
               $display_array['assigned'] = false;
               $count_unassigned++;
             }
-            
           }
         }
 
         $item_temp->item = $fields_array;
-
-      //  $display_item_temp->item = $display_array;
 
         array_push($data, $item_temp);
 
@@ -428,6 +436,115 @@ class ModuleController extends Controller
             'count_unassigned' => $count_unassigned, 
         ];
   }
+
+
+  public function compactDisplayModuleItems($module_items = null){
+    
+    $data = [];
+
+    $display_data = [];
+
+    $count_assigned = 0;
+
+    $count_unassigned = 0;
+
+    foreach ($module_items as $key => $item) {
+
+        $item_temp = new \StdClass();
+
+        $display_item_temp = new \StdClass();
+
+        $fields_array = [];
+
+        $display_array = [];
+
+        foreach ($item->item_meta as $k => $meta) {
+
+          $meta_name = ModuleCustomFields::where(['id' => $meta->custom_field_id])
+                                          ->select('id','name','display_name', 'can_edit', 'can_read')
+                                          ->first();
+
+          if($meta_name->id == $meta->custom_field_id){
+
+            $display_array['id'] = $item->id;
+
+            if($meta_name->name == 'assignee'){ 
+              
+              $user = User::where(['id' => $meta->custom_field_value])->select('id','name','lastname as surname')->first();
+              
+              $display_array[$meta_name->name] = $user['name'] . ' ' . $user['lastname'];
+
+            }else if ($meta_name->name == 'owner'){
+
+              $user = User::where(['id' => $meta->custom_field_value])->select('id','name','lastname as surname')->first();
+
+              $display_array[$meta_name->name] = $user['name'] . ' ' . $user['lastname'];
+
+            }else if ($meta_name->name == 'product'){
+
+              $product = Product::where(['id' => $meta->custom_field_value])->first();
+
+              $display_array[$meta_name->name] = $product['name'];
+
+            }else if ($meta_name->name == 'source'){
+
+              $lead_source = LeadSource::where(['id' => $meta->custom_field_value])->select('id','name')->first();
+
+              $display_array[$meta_name->name] = $lead_source['name'];
+
+            }else if ($meta_name->name == 'status'){
+              
+              switch ($meta->custom_field_value) {
+                case 0:
+                    continue;
+                    $status = 'Canceled';
+                  break;
+                case 1:
+                    $status = 'Active';
+                    $display_array[$meta_name->name] = $status;
+                  break;
+                case 2:
+                    continue;
+                    $status = 'Inactive';
+                  break;
+                case 3:
+                    continue;
+                    $status = 'Disabled';
+                  break;
+                
+                default:
+                    $status = 'Active';
+                  break;
+              }
+
+              
+            }else{
+              $display_array[$meta_name->name] = $meta->custom_field_value;
+            }
+
+            if($meta_name->name == 'assignee' && $meta->custom_field_value >= 1 && $item->id == $meta->item_id){
+              $display_array['assigned'] = true;
+              $count_assigned++;
+            }else if($meta_name->name == 'assignee' && $meta->custom_field_value == '0' && $item->id == $meta->item_id){
+              $count_unassigned++;
+            }else if($meta_name->name == 'assignee' && is_null($meta->custom_field_value) && $item->id == $meta->item_id){
+              $display_array['assigned'] = false;
+              $count_unassigned++;
+            }
+          }
+        }
+
+        array_push($display_data, $display_array);
+    }
+    
+    return [ 
+            'success' => true,
+            'display_items' => $display_data,  
+            'count_assigned' => $count_assigned, 
+            'count_unassigned' => $count_unassigned, 
+        ];
+  }
+
 
   public function addItem(Request $request){
 

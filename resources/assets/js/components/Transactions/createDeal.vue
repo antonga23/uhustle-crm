@@ -61,13 +61,19 @@ label{
               type="text"    
               id="agent-name"     
               name="AgentName"   
-              class="form-control rounded-pill"/>   
+              class="form-control rounded-pill" disabled/>   
 
             <label class="col-lg-12 control-label w-100 p-0 mb-2">Lead Name</label>   
-            <a-select v-model="deal.lead_id" class="custom-select rounded-pill border-0">   
-              <a-select-option value="-None-" selected>-None-</a-select-option>   
+            <a-select v-model="deal.lead_id" class="custom-select rounded-pill border-0" v-if="lead_id == '-None-'">   
+              <a-select-option :value="'-None-'">-None-</a-select-option>   
               <a-select-option :value="lead.id" v-for="(lead, index) in leads" :key="index">{{ lead.name + " " + lead.surname  }}</a-select-option>  
-            </a-select>  
+            </a-select>
+            <input v-if="leads.length > 0"  
+              :value="this.leads[0].name + ' ' + this.leads[0].surname" 
+              type="text"    
+              id="lead-name"     
+              name="LeadName"   
+              class="form-control rounded-pill" disabled/>   
 
             <label class="col-lg-12 control-label w-100 p-0 mb-2">Deal Name</label>   
             <input
@@ -79,7 +85,7 @@ label{
 
             <label class="col-lg-12 control-label w-100 p-0 mb-2">Closing Date</label>   
             <a-date-picker    
-              v-model="deal.closing_date"    
+              @change="handleDateChange"    
               id="closing-date"     
               name="ClosingDate"   
               class="form-control rounded-pill p-0 border-0"/>   
@@ -212,13 +218,14 @@ export default {
     });
   },
   created: function () {},
-  props: ['empty_deal', 'lead_id'],
+  props: ['empty_deal', 'lead_id', 'lead_name' ,'agent_id', 'agent_name'],
   data: function(){
     return { 
       deal: {
         lead_id: this.lead_id,
-        agent_id:'' ,
-        agent_name:'' ,
+        lead_name: '',
+        agent_id: this.agent_id ,
+        agent_name: this.agent_name ,
         deal_name:'' ,
         closing_date:'' ,
         type:'-None-' ,
@@ -237,6 +244,9 @@ export default {
     }
   },
   methods: {
+    handleDateChange(date, dateString){
+      this.deal.closing_date = dateString;
+    },
     clearDeal(){
       this.deal.lead_id = this.lead_id;
       this.deal.agent_id = '';
@@ -280,11 +290,13 @@ export default {
     getLeads(){
       var vm = this;
       if(this.lead_id !== '-None-'){
+        vm.deal.lead_id = this.lead_id;
         axios.get("/modules/get-single-item/" + this.lead_id).then(function(response) {  
           vm.leads = response.data.leads.display_items;
         });
+      
       }else{
-        axios.get("/modules/get-all-items").then(function(response) {  
+        axios.get("/modules/get-display-items").then(function(response) {  
           vm.leads = response.data.leads.display_items;
         });
       }

@@ -155,7 +155,12 @@
 
                 <transition name="fade">
                   <div>
-                    <create-deal :empty_deal="deal"  :lead_id="'-None-'" />
+                    <create-deal 
+                    :empty_deal="deal"  
+                    :lead_id="'-None-'" 
+                    :agent_id="user_id" 
+                    :agent_name="user_name" 
+                    />
                   </div>
                 </transition>
               </b-tab>
@@ -207,7 +212,13 @@
     },
     created: function () {
     },
-    props: ['logged_user'],
+    props: [
+      'active',
+      'logged_user',
+      'user_name',
+      'role_id',
+      'user_id',
+    ],
     data: function(){
       return {
         transactions: null,
