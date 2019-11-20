@@ -251,9 +251,9 @@ label {
 
 
 @media screen and (max-width: 1400px) {
-.add-box-shadow .small-screen-hide {
-  display: none;
-}
+  .add-box-shadow .small-screen-hide {
+    display: none;
+  }
 }
 
 .add-box-shadow .add-user-form input,
@@ -276,7 +276,7 @@ textarea {
 }
 
 .card .card-text {
-  font-size: 1.6vw;
+  font-size: 32px;
   line-height: 1em;
 }
 
@@ -410,6 +410,7 @@ table.listing tr th {
   }
 }
 </style> 
+
 <template>
   <div>
     <div class="grey-bg-color">
@@ -418,8 +419,7 @@ table.listing tr th {
           <div class="row mb-0 pb-4 horizontal-scroll-thinner">
             <div class="col-auto pl-0" @click="getUsers()">
               <div class="card mb-0 call-backs">
-                <div
-                  class="card-body row align-items-center justify-content-between mx-0 mb-0 py-2"
+                <div class="card-body row align-items-center justify-content-between mx-0 mb-0 py-2"
                 >
                   <div class="col-auto pl-0">
                     <p class="card-text-small text-left">All</p>
