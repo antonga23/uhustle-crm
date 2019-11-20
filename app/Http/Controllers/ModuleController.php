@@ -864,10 +864,10 @@ class ModuleController extends Controller
     foreach ($item_data as $key => $item_id) {
       array_push($item_ids, $item_id->item_id);
     }
-
+    
     $module = Module::with('module_fields')->where(['tag' => $module])->select('id')->first();
 
-    $module_items = ModuleItem::with('item_meta')->where(['module_id' => $module->id])->whereIn('id', $item_ids)->get()->take($preferences['value']);
+    $module_items = ModuleItem::with('item_meta')->where(['module_id' => $module->id])->whereIn('id', $item_ids)->get()->take(50);
 
     $items = $this->compactModuleItems($module_items);
 
