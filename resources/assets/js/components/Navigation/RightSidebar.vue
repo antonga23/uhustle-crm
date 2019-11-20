@@ -833,6 +833,9 @@ p.badges {
   font-style: italic;
   font-weight: 300;
 }
+.reminders input.list-input.red::placeholder {
+  color: red !important;
+}
 
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
   background-image: url("/images/icons/right-sidebar/Task_Check.svg") !important;
@@ -2077,6 +2080,7 @@ input.save-text:focus {
                                         placeholder="Title"
                                         type="text"
                                         class="border-0 pl-0 list-input"
+                                        required
                                       />
                                     </label>
 
