@@ -28,16 +28,16 @@
               <div class="row justify-content-center mx-auto">
                 <div class="col-lg-12 mb-4 p-0 center">
                   <a class="navbar-brand m-0 p-0" href="{{ url('/') }}">
-                    <img id="top-landing-logo" src="/images/SVG_Images/Logo.svg" class=" lp-logo m-0">
+                    <img id="top-landing-logo" src="/images/SVG_Images/siarem-logo.svg" class="lp-logo m-0">
                   </a>
                 </div>
               </div>
 
-              <div class="row justify-content-center">
+              <!-- <div class="row justify-content-center">
                 <div class="col-lg-12 mb-0 p-0 center">
-                  <p class="logo-title mb-0">UHUSTLE</p>
+                  <img id="top-landing-logo" src="/images/SVG_Images/siarem-logo-text.svg" class=" lp-logo m-0">
                 </div>
-              </div>
+              </div> -->
 
               <div class="container login px-0">
                 <div class="row justify-content-center">
@@ -76,7 +76,7 @@
                       </div>
                     </form>
                     <hr class="my-4">
-                    <p class="copyright">@ 2019 UHUSTLE. All rights reserve</p>
+                    <p class="copyright">@ 2019 SIAREM. All rights reserve</p>
                   </div>
                 </div>
               </div>

@@ -73,8 +73,8 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary">
       <!-- Brand Logo -->
-      <a href="/workstation" class="brand-link">
-        <img class="logo" src="/images/SVG_Images/Logo.svg" alt="logo" width="30">
+      <a href="/workstation" class="text-center brand-link">
+        <img class="logo mx-auto" src="/images/SVG_Images/siarem-logo-icon.svg" alt="logo" width="30">
       </a>
 
       <!-- Sidebar -->

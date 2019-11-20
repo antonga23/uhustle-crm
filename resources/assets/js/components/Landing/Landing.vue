@@ -4,7 +4,7 @@
         <div class="col col-6 col-md-4" id="top-landing-1">
                 <img id="top-landing-logo" :src="'/images/SVG_Images/Logo.svg'" >
                 <h2>Welcome to</h2>
-                <h1>UHUSTLE</h1>
+                <h1>SIAREM</h1>
                 <h2>A platform supplying all the tools</h2>
                 <h2>for you to work from home</h2>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt it laoreet dolore magna aliquam.</p>
