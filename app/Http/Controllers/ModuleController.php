@@ -867,7 +867,7 @@ class ModuleController extends Controller
     
     $module = Module::with('module_fields')->where(['tag' => $module])->select('id')->first();
 
-    $module_items = ModuleItem::with('item_meta')->where(['module_id' => $module->id])->whereIn('id', $item_ids)->get()->take(50);
+    $module_items = ModuleItem::with('item_meta')->where(['module_id' => $module->id])->whereIn('id', $item_ids)->get()->take(16);
 
     $items = $this->compactModuleItems($module_items);
 
