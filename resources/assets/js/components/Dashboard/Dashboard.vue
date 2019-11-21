@@ -276,14 +276,10 @@
     max-height:448px;
     overflow-y: auto;
     margin-top: 20px;
-    padding-top:20px;
     border-top: 1px solid #CDCDCF;
   }
   .reminders ul li {
-    box-shadow: 0 0 7px rgba(0,0,0,0.05);
-    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.05);
-    -moz-box-shadow: 0 0 7px rgba(0,0,0,0.05);
-    -o-box-shadow: 0 0 7px rgba(0,0,0,0.05);
+    box-shadow: none !important;
     padding:10px 15px;
   }
   .reminders ul li label {
@@ -293,10 +289,13 @@
   }
   .callback-label,
   .tasks-date {
-    font-size: 10px;
-    font-family: 'Rubik', sans-serif !important;
-    color: #808080;
-  }
+  font-size: 10px;
+  font-family: "Rubik", sans-serif !important;
+  color: #808080;
+}
+.tasks-date {
+margin-left: 35px;
+}
   .reminders input.list-input{
     font-size: 0.83vw;
     font-family: 'Rubik', sans-serif;
@@ -305,13 +304,16 @@
     width: 100%;
     text-overflow: ellipsis;
 }
-  .reminders .terms-text textarea {
-    padding: 11px 18px!important;
-    box-shadow: 0 0 4px rgba(0,0,0,0.1);
-    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
-    -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);
-    -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);
-    border-color: #ccc;
+  .reminders .terms-text input {
+    border-bottom: 1px solid #f7f7f7;
+    width: 100%;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+  }
+  .reminders .terms-text .desc-text::placeholder, input.list-input::placeholder  {
+    font-style: italic !important;
+    font-weight: 300 !important;
   }
   a.Edit{
     background-image: url('/images/DataTables/Edit_Icon.svg');
@@ -365,6 +367,7 @@
     color: #6B6B6B;
     padding-left:3.5%;
   }
+
   .active-task {
     background-color:rgba(255,147,58,0.5);
   }
@@ -398,25 +401,55 @@
     
   .custom-control-label::after, 
   .custom-control-label::before { 
-    width: 20px; 
-    height: 20px; 
-    top: 6px; 
-    left: 0.2rem; 
+    width: 20px;
+    height: 20px;
+    top: 19px;
+    left: 0.2rem;
+    cursor: pointer; 
   }
   .btn-primary {
     font-size: 10px;
-    background: linear-gradient(to right, rgb(246, 139, 31, 1) 0%, rgba(250, 168, 59, 1) 100%) !important;
+    background: linear-gradient( to right, rgb(255, 128, 51, 1) 0%, rgba(255, 147, 58, 1) 100% ) !important;
     font-weight: 600;
     text-transform: uppercase;
     padding: 10px 20px;
     letter-spacing: 0.05em;
   }
+  .reminders .btn-primary {
+    width: auto !important;
+    float: right;
+    line-height: 1em;
+  }
   input.search-text:focus, 
   input.save-text:focus,
-  .reminders input.list-input:focus { 
+  .reminders input.list-input:focus  { 
     outline: 0 !important; 
     border: 0 !important; 
   } 
+  input.desc-text:focus {
+     outline: 0 !important; 
+  }
+  .reminders .terms-text .desc-text {
+    font-size: 0.73vw !important;
+  }
+ label.terms-text.desc-text-label, .ant-calendar-picker {
+    padding-left: 37px;
+  }
+.rounded-circle img.icon {
+  background-color: #fff !important;
+}
+  .reminders-border-bottom {
+  border-bottom: 1px solid #f7f7f7;
+}
+@media screen and (max-width: 1368px) {
+  .ant-calendar-picker {
+  padding-left: 0px;
+  }
+}
+
+/* li.row.m-2.pl-0.align-items-center.reminders-border-bottom:first-child {
+border-top: 1px solid #f7f7f7;
+} */
 </style>
 <template>
   <div id="dashboard">
@@ -728,7 +761,7 @@
                 :popover="true" />
               
               <div class="card border-0" v-if="">
-                <div class="card-title">
+                <div class="card-title mb-0">
                   <p class="mb-0">{{ call_back_name }}</p>
                 </div>
 
@@ -828,7 +861,7 @@
 
               <ul class="border-top pl-0"  v-if="reminders.length > 0 && !add_task"> 
                 <!--When adding a new task, the whole li tag should be added and change input ids --> 
-                <li v-for="(task, i) in reminders" :key="i" class="row m-2 p-0 align-items-center custom-control custom-checkbox"> 
+                <li v-for="(task, i) in reminders" :key="i" class="row m-2 pt-0 pl-0 align-items-center reminders-border-bottom custom-control custom-checkbox"> 
                   <transition name="bounce">  
                     <div class="col-12 p-2"> 
                       <div class="row mx-0 align-items-center"> 
@@ -842,23 +875,21 @@
                           > 
                           <label class="terms-text custom-control-label" :for="'task' + i"> 
                             <input 
+                              maxlength="35"
                               type="text" 
                               v-model="task.title" 
                               class="border-0 list-input" 
                               @focus="editTaskCollapes(task.id)"
                             > 
                           </label> 
-                        </div> 
-
-                        <div class="col-auto pr-0">
-                          <span class="tasks-date">{{ moment(task.deadline).format( 'DD MMM')  }}</span>
-                        </div> 
+                          <br><span class="tasks-date">{{ moment(task.deadline).format( 'DD MMM')  }}</span>
+                        </div>  
                       </div> 
 
                       <div class="row mx-0 justify-content-between" v-if="edit_task && active_task_id == task.id"> 
                         <div class="col-12 px-0 custom-control custom-checkbox"> 
-                          <label class="terms-text w-100" :for="'task' + i"> 
-                            <a-textarea v-model="task.description" placeholder="Description" autosize class="rounded-pill"/> 
+                          <label class="terms-text desc-text-label w-100" :for="'task' + i"> 
+                            <input maxlength="35" v-model="task.description" placeholder="Description" autosize class="desc-text"/> 
                           </label> 
                         </div>
 
@@ -877,6 +908,7 @@
                             type="submit" 
                             class="btn btn-primary update-user w-100 rounded-pill m-0" 
                             @click="editTask(task)"
+                            :disabled="task.title==''"
                           >Update</button> 
                         </div>
                       </div> 
@@ -894,15 +926,19 @@
                         <div class="col-12 px-0 custom-control"> 
                           <label class="terms-text w-100" for="task1"> 
                             <input 
+                              maxlength="35"
                               v-model="new_task.title" 
                               placeholder="Title" 
                               type="text" 
                               class="border-0 list-input"
+                              required
+                               v-validate="'required'"
+                              
                             > 
                           </label> 
 
-                          <label class="terms-text w-100" for="task1"> 
-                            <a-textarea v-model="new_task.description" placeholder="Description" autosize class="rounded-pill"/> 
+                          <label class="terms-text desc-text-label w-100" for="task1"> 
+                            <input maxlength="35" v-model="new_task.description" placeholder="Description" autosize class="desc-text"/> 
                           </label>
                         </div>
                       </div> 
@@ -919,7 +955,8 @@
                             type="submit" 
                             class="btn btn-primary update-user w-100 rounded-pill m-0" 
                             @click="submitTask"
-                          >Add</button> 
+                            :disabled="new_task.title==''"
+                          >Save</button> 
                         </div> 
                       </div> 
                     </div> 
