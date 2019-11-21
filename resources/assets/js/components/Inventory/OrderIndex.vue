@@ -1,0 +1,98 @@
+<style scoped>
+.trans-tabs {
+  padding-left:5.2%;
+  padding-right:5.2%;
+}
+.tab-pane.card-body {
+  padding:4.4% 5.6% 6.8%;
+}
+.nav-link.active img {
+  display:inline-block!important;
+  margin-left: 20px;
+}
+.products .tab-pane .row{
+  margin-right: 0;
+  margin-left: 0;
+}
+h5 {
+  font-size: 0.83vw;
+}
+.nav-link.active img {
+  margin-left:20px;
+  display: inline-block!important;
+  box-shadow: 0 0 2px rgba(0,0,0,0.15);
+  -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);
+  -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);
+  -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);
+  border-radius: 50rem;
+}
+.add-module-btn {
+  box-shadow:none!important;
+  -webkit-box-shadow:none!important;
+  -moz-box-shadow:none!important;
+  -o-box-shadow:none!important;
+}
+.tab-pane.card-body {
+  padding:4.4% 5.6% 6.8%;
+}
+</style>
+
+<template>
+  <div id="branches">
+    <div class="row mx-0 orders-tabs">
+      <div class="col-lg-12 px-0">
+        <b-card no-body>
+          <b-tabs card>
+            <b-tab active>
+              <template v-slot:title>
+                <h5 class="d-inline-block">Create Order</h5>
+                <img src="images/icons/Field_Add.svg" alt="Add field icon" width="16"/>
+              </template>
+
+              <transition name="fade">
+                <create-order/>
+              </transition>
+            </b-tab>
+
+            <b-tab>
+              <template v-slot:title>
+                <h5 class="d-inline-block">Order History</h5>
+              </template>
+
+              <transition name="fade">
+                <OrdersListingTable></OrdersListingTable>
+              </transition>
+            </b-tab>
+          </b-tabs>
+        </b-card>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import OrdersListingTable from "../DataTables/OrdersListingTable";
+ import CreateOrder from './CreateOrder';
+  export default {
+    components: { 
+      OrdersListingTable,
+      CreateOrder
+    },
+    mounted() {
+      
+    },
+    created: function () {
+    },
+    props: [
+      
+    ],
+    data: function(){
+      return {
+        
+      }
+    },
+    methods: {
+      
+    }
+  }
+</script>

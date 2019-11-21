@@ -679,14 +679,22 @@ max-height: 350px;
 }
 
 /* Preferences table styling */
-#preferences .card, #transactions .card{
+#preferences .card, 
+#transactions .card,
+#branches .card, 
+#products .card,
+#order .card {
   border: 0;
   box-shadow: none;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   -o-box-shadow: none;
 }
-#preferences .tab-content, #transactions .tab-content {
+#preferences .tab-content, 
+#transactions .tab-content,
+#branches .tab-content, 
+#products .tab-content,
+#order .tab-content {
   box-shadow: 0 0 20px rgba(0,0,0,0.1);
   -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.1);
   -moz-box-shadow: 0 0 20px rgba(0,0,0,0.1);
@@ -694,26 +702,40 @@ max-height: 350px;
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
 }
-#preferences .card-header, #transactions .card-header {
+#preferences .card-header, 
+#transactions .card-header,
+#branches .card-header, 
+#products .card-header,
+#order .card-header{
   padding-left: 0;
   padding-right: 0;
   padding-bottom:11px;
   border: 0; 
   background-color: transparent;
 }
-#preferences .card-header-tabs, #transactions .card-header-tabs {
+#preferences .card-header-tabs, 
+#transactions .card-header-tabs,
+#branches .card-header-tabs, 
+#products .card-header-tabs,
+#order .card-header-tabs {
   margin-right: 0;
   margin-left: 0;
   /* margin-bottom: -32px; */
 }
 #preferences .nav-tabs .nav-link, 
 #api-integration .nav-link,
-#transactions .trans-tabs .nav-link{
+#transactions .trans-tabs .nav-link,
+#branches .nav-link, 
+#products .nav-link,
+#order .nav-link{
   padding: 23px 23px 16px 30px;
 }
 #preferences .nav-tabs .nav-link, 
 #api-integration .nav-link,
-#transactions .trans-tabs .nav-link h5{
+#transactions .trans-tabs .nav-link h5,
+#branches .nav-link h5, 
+#products .nav-link h5,
+#order .nav-link h5{
   font-weight: 700;
   font-size: 0.94vw;
   color: #999999;
@@ -723,12 +745,18 @@ max-height: 350px;
 }
 #preferences .nav-tabs .nav-link.active, 
 #api-integration .nav-link.active,
-#transactions .nav-tabs .nav-link.active h5{
+#transactions .nav-tabs .nav-link.active h5,
+#branches .nav-link.active h5, 
+#products .nav-link.active h5,
+#order .nav-link.active h5{
   color: #1A1C43;
 }
 #preferences .nav-tabs .nav-link[aria-selected="true"], 
 #api-integration .nav-link[aria-selected="true"],
-#transactions .nav-tabs .nav-link[aria-selected="true"]{
+#transactions .nav-tabs .nav-link[aria-selected="true"],
+#branches .nav-tabs .nav-link[aria-selected="true"], 
+#products .nav-tabs .nav-link[aria-selected="true"],
+#order .nav-tabs .nav-link[aria-selected="true"]{
   box-shadow: -5px -8px 10px #f5f5f5, 5px -8px 10px #f5f5f5;
   -webkit-box-shadow: -5px -8px 10px #f5f5f5, 5px -8px 10px #f5f5f5;
   -moz-box-shadow: -5px -8px 10px #f5f5f5, 5px -8px 10px #f5f5f5;
@@ -1042,3 +1070,98 @@ max-height: 350px;
   font-family: 'Rubik', sans-serif;
   height: auto!important;
 }
+
+/* Inventory Listing Tables Styling  */
+
+.products .productss-tabs .table.b-table.product-listing tbody,
+.branches .branches-tabs .table.b-table.branch-listing tbody,
+.orders .orders-tabs .table.b-table.order-listing tbody,
+.products .productss-tabs .table.b-table.category-listing tbody {
+  background-color: #fbfbfc;
+  
+}
+
+.products .productss-tabs .table.b-table.product-listing thead tr th,
+.branches .branches-tabs .table.b-table.branch-listing thead tr th,
+.orders .orders-tabs .table.b-table.order-listing thead tr th,
+.products .productss-tabs .table.b-table.category-listing thead tr th
+ {
+    font-size: 12px;
+    font-weight: 600;
+    color: #A6A6A6;
+    white-space: nowrap;
+    padding: 0px 10px 0px 0px;
+    vertical-align: middle;
+    outline: none !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background-size: 11px 12px;
+    background-repeat: no-repeat;
+    background-position: left center;
+    font-family: 'Montserrat bold', sans-serif;
+    border: none !important;
+    position: sticky !important;
+    position: -webkit-sticky;
+    top: 0;
+    background: white;
+    z-index: 10;
+}
+
+.products .productss-tabs .table.b-table.product-listing tr, 
+.branches .branches-tabs .table.b-table.branch-listing tr,
+.orders .orders-tabs .table.b-table.order-listing tr,
+.products .productss-tabs .table.b-table.category-listing tr 
+ {
+    font-size: 12px !important;
+    border-bottom: 1px solid #f2f2f2 !important;
+    padding-left: 0 !important;
+    width: auto !important;
+    white-space: nowrap !important;
+}
+
+.products .productss-tabs .table.b-table.product-listing tr:first-child,
+.branches .branches-tabs .table.b-table.branch-listing tr:first-child,
+.orders .orders-tabs .table.b-table.order-listing tr:first-child,
+.products .productss-tabs .table.b-table.category-listing tr:first-child
+ {
+  border-bottom: 0 !important;
+}
+
+.products .productss-tabs .table.b-table.product-listing td,
+.branches .branches-tabs .table.b-table.branch-listing td,
+.orders .orders-tabs .table.b-table.order-listing td,
+.products .productss-tabs .table.b-table.category-listing td {
+    height: 35px !important;
+    font-size: 14px !important;
+    color: #1c2331 !important;
+    display: table-cell !important;
+    font-family: 'Rubik', sans-serif !important;
+    padding: 10px 20px 10px 0px !important;
+    min-width: 150px !important;
+    border-top: 0 !important;
+    border-bottom: 1px solid #f2f2f2 !important;
+}
+
+.products .productss-tabs .table.b-table.product-listing .ant-select-selection.ant-select-selection--single,
+.branches .branches-tabs .table.b-table.branch-listing .ant-select-selection.ant-select-selection--single,
+.orders .orders-tabs .table.b-table.order-listing .ant-select-selection.ant-select-selection--single,
+.products .productss-tabs .table.b-table.category-listing .ant-select-selection.ant-select-selection--single {
+  min-width: 100px !important;
+  width: auto;
+}
+
+.products .productss-tabs .table-container,
+.branches .branches-tabs .table-container,
+.orders .orders-tabs .table-container
+ {
+  overflow: auto;
+  padding-right: 40px;
+}
+
+.products .productss-tabs .tab-pane.active.card-body,
+.branches .branches-tabs .tab-pane.active.card-body,
+.orders .orders-tabs .tab-pane.active.card-body{
+  padding: 25px 0px 20px 40px
+}
+
+
