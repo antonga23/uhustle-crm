@@ -2,7 +2,7 @@
 /*Nav starts*/
 .main-sidebar, .main-sidebar:before {
   transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
-  width: 56px !important;
+  width: 51px !important;
 }
 .sidebar-dark-primary {
   background-color: #fff;
@@ -17,7 +17,6 @@
 }
 .nav-sidebar > .nav-item {
   width: 50px;
-  margin-left:6px;
 }
 .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link img {
   padding:8px;
@@ -33,7 +32,7 @@
   transition: background-image .3s ease;
 }
 .main-sidebar {
-  width: 56px!important;
+  width: 51px!important;
   overflow:visible;
 }
 #sidebar, .nav.nav-pills.nav-sidebar.flex-column, .nav.nav-pills a.nav-link {

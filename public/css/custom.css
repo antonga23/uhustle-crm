@@ -196,6 +196,10 @@
     font-weight: 300;
   }
 
+  .callIcons .search .col-auto {
+    padding-right: 46% !important;
+  }
+
   #search-panel  .search div.search input{
     color: #8d9198;
     float: left;
@@ -837,9 +841,10 @@ max-height: 350px;
   -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);
   border: 0!important;
   font-family: 'Rubik', sans-serif !important;
-  max-width:128px;
+  max-width:100px;
   color: #353C49;
   font-size: 0.73vw !important;
+  width: auto;
 }
 @media screen and (max-width: 1643px) {
   .calendar .ant-calendar-picker-input.ant-input,

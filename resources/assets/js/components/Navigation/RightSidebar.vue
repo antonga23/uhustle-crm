@@ -21,6 +21,12 @@
   width: 16.718% !important;
 }
 
+.sidebar-collapse .main-sidebar,
+.sidebar-collapse .main-sidebar:before {
+  margin-left: 0 !important;
+  /* margin-right: -10.833%!important;  */
+}
+
 @media (max-width: 991.98px) {
   .main-sidebar,
   .main-sidebar:before {
@@ -176,10 +182,13 @@ h3 img {
 }
 
 .description {
-  font-size: 12px;
+  font-size: 10px;
   font-family: "Rubik", sans-serif;
   color: #1e2331;
   padding-bottom: 10px;
+}
+.description-text {
+  font-size: 0.73vw !important;
 }
 
 .position {
@@ -632,6 +641,7 @@ p.heading {
 }
 
 .final-modal .card ul li.left .nav-link:hover {
+  border: none;
   background: #fff;
   padding: 6px 12px;
   font-size: 0.83vw;
@@ -669,11 +679,11 @@ textarea.form-control {
 }
 
 .stats-section {
-  margin-top: 25px;
+  margin-top: 22px;
 }
 
 .stats-section .commission {
-  padding: 25px 0;
+  padding: 7% 0;
 }
 
 .stats-section .sales,
@@ -710,7 +720,7 @@ p.badges {
   color: #003449;
 }
 
-.nav-item .nav-link.generalIcon:hover,.nav-item .nav-link.filterIcon:hover, .nav-item .nav-link.notificationsIcon:hover, .nav-item .nav-link.settingsIcon:hover,.nav-item .nav-link.notificationsIcon img.inactive-icon:hover {
+.nav-item .nav-link img.active-icon, .nav-item .nav-link.generalIcon:hover,.nav-item .nav-link.filterIcon:hover, .nav-item .nav-link.notificationsIcon:hover, .nav-item .nav-link.settingsIcon:hover,.nav-item .nav-link.notificationsIcon img.inactive-icon:hover {
   border-radius: 50%;
   box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);
   
@@ -727,6 +737,13 @@ p.badges {
 }
 .menu-toggle:hover {
   background-image: url("/images/icons/right-sidebar/Filter_Active.svg") !important;
+}
+
+.sidebar-collapse .menu-toggle {
+  background-image: url("/images/icons/right-sidebar/General.svg") !important;
+}
+.sidebar-collapse .menu-toggle:hover {
+  background-image: url("/images/icons/right-sidebar/General_Active.svg") !important;
 }
 
 .reminders { 
@@ -795,7 +812,8 @@ p.badges {
 }
 
 .reminders .btn-primary {
-  padding: 11px 14px 10px;
+  width: auto !important;
+    float: right;
   line-height: 1em;
 }
 .reminders .terms-text input {
@@ -814,6 +832,9 @@ p.badges {
 .reminders .terms-text input::placeholder {
   font-style: italic;
   font-weight: 300;
+}
+.reminders input.list-input.red::placeholder {
+  color: red !important;
 }
 
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
@@ -893,7 +914,7 @@ border-top: 1px solid #f7f7f7;
   float: right;
 }
 .inactive-icon {
-  padding: 6px;
+  /* padding: 6px; */
   border-radius: 50rem;
   box-shadow: none;
   -webkit-box-shadow: none;
@@ -958,10 +979,10 @@ border-top: 1px solid #f7f7f7;
 
 .row.filter-content .search-criteria {
   border: 0;
-  box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);
-  -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);
-  -moz-box-shadow:0 0 7px rgba(0, 0, 0, 0.05);
-  -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);
+  box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
+  -o-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);
   font-size: 12px;
   border-radius: 14px;
   padding: 10px;
@@ -1025,7 +1046,7 @@ border-top: 1px solid #f7f7f7;
   .filter-container {
     max-height: 450px;
   }
-  .px-6-hide {
+  .px-6-hide, .description, label.task-deadline.terms-text {
   padding:0;
   }
   .small-margin {
@@ -1057,7 +1078,7 @@ input.save-text:focus {
       <!-- Control sidebar content goes here -->
       <section class="sidebar px-0">
         <div class="sidebar-menu grey-scroll" data-widget="tree">
-          <div class="px-6-hide">
+          <div class="px-6">
           <nav
             class="navbar navbar-expand-md navbar-light bg-white p-0 w-100 row mx-0 justify-content-between align-items-center border-bottom"
           >
@@ -1065,76 +1086,55 @@ input.save-text:focus {
             <ul class="navbar-nav col-auto">
                <li class="nav-item">
                 <a class="nav-link icon p-0 generalIcon" href="#" @click="showGeneralStats()">
-                  <img
-                    v-if="generalStats_on == false"
+                  <img 
                     src="/images/icons/right-sidebar/General.svg"
-                    alt="Stats icon"
-                    width="43"
-                    class="inactive-icon"
-                  />
-                  <img
-                    v-else
-                    src="/images/icons/right-sidebar/General_Active.svg"
-                    alt="Stats icon"
-                    width="43"
+                    alt="Settings Cog"
+                    width="30"
+                    :class="[generalStats_on === true ? 'active-icon' : 'inactive-icon' ]"
                   />
                 </a>
               </li>
                <li class="nav-item" v-if="active == 'leads' || active == 'contacts'">
                 <a class="nav-link icon p-0 filterIcon" href="#" @click="showFiltersTab()">
                   <img
-                    v-if="filters_on == false"
                     src="/images/icons/right-sidebar/Filter.svg"
-                    alt="Filters icon"
-                    width="43"
-                    class="inactive-icon"
-                  />
-                  <img
-                    v-else
-                    src="/images/icons/right-sidebar/Filter_Active.svg"
-                    alt="Filters icon"
-                    width="43"
+                    alt="Settings Cog"
+                    width="30"
+                   :class="[filters_on === true ? 'active-icon' : 'inactive-icon' ]"
                   />
                 </a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link icon p-0 notificationsIcon" href="#" @click="showNotifications()">
                   <img
                     v-if="notifications_on == true"
                     src="/images/icons/right-sidebar/Notifications_Active.svg"
                     alt="Notification Bell"
-                    width="43"
+                    width="30"
                   />
                   <img
                     v-else-if="notifications_on == false && unread_messages == 0 && call_backs.length == 0"
                     src="/images/icons/right-sidebar/Notification.svg"
                     alt="Notification Bell"
-                    width="43"
+                    width="30"
                     class="inactive-icon"
                   />
                   <img
                     v-else-if="notifications_on == false && unread_messages >= 1 || call_backs.length > 0"
                     src="/images/icons/right-sidebar/Notifications_1.svg"
                     alt="Notification Bell"
-                    width="43"
+                    width="30"
                     class="inactive-icon"
                   />
                 </a>
-              </li>
+              </li> -->
               <li class="nav-item">
                 <a class="nav-link icon p-0 settingsIcon" href="#" @click="showSettings()">
                   <img
-                    v-if="settings_on == false"
                     src="/images/icons/right-sidebar/Setting.svg"
                     alt="Settings Cog"
-                    width="43"
-                    class="inactive-icon"
-                  />
-                  <img
-                    v-else
-                    src="/images/icons/right-sidebar/Settings_Active.svg"
-                    alt="Settings Cog"
-                    width="43"
+                    width="30"
+                    :class="[settings_on === true ? 'active-icon' : 'inactive-icon' ]"
                   />
                 </a>
               </li>
@@ -1156,9 +1156,8 @@ input.save-text:focus {
                     <img
                       v-if="user.avatar != '' && user.avatar != null"
                       :src="avatarUrl + user.id + '/' + user.avatar"
-                      alt="Profile icon"
                     />
-                    <img v-else :src="noImageUrl" alt="Profile icon"/>
+                    <img v-else :src="noImageUrl" />
                   </a>
                 </li>
               </div>
@@ -1179,7 +1178,7 @@ input.save-text:focus {
                       @click="expanded = true;profile_on = true;account_on = false;system_settings_on = false;language_settings_on = false;"
                       v-if="profile_on == false"
                       src="/images/icons/settings edit buttin@4x.png"
-                      alt="Profile Edit On"
+                      alt="Profile Edit Off"
                       width="30"
                     />
                     <img
@@ -1207,9 +1206,8 @@ input.save-text:focus {
                             <img
                               v-if="user.avatar != '' && user.avatar != null"
                               :src="avatarUrl + user.id + '/' + user.avatar"
-                              alt="Profile icon"
                             />
-                            <img v-else :src="noImageUrl" alt="Profile icon"/>
+                            <img v-else :src="noImageUrl" />
                             <button
                               class="btn btn-info"
                               type="button"
@@ -1400,7 +1398,7 @@ input.save-text:focus {
                       @click="expanded = true;account_on = true;profile_on = false;system_settings_on = false;language_settings_on = false;"
                       v-if="account_on == false"
                       src="/images/icons/settings edit buttin@4x.png"
-                      alt="Account Edit On"
+                      alt="Account Edit Off"
                       width="30"
                     />
                     <img
@@ -1532,7 +1530,7 @@ input.save-text:focus {
                       @click="expanded = true;system_settings_on = true; account_on = false;profile_on = false;language_settings_on = false;"
                       v-if="system_settings_on == false"
                       src="/images/icons/settings edit buttin@4x.png"
-                      alt="Account Edit On"
+                      alt="Account Edit Off"
                       width="30"
                     />
                     <img
@@ -1595,7 +1593,7 @@ input.save-text:focus {
                       @click="expanded = true;system_settings_on = true; account_on = false;profile_on = false;language_settings_on = false;"
                       v-if="system_settings_on == false"
                       src="/images/icons/settings edit buttin@4x.png"
-                      alt="Account Edit On"
+                      alt="Account Edit Off"
                       width="30"
                     />
                     <img
@@ -1702,7 +1700,7 @@ input.save-text:focus {
                       @click="expanded = true;language_settings_on = true; account_on = false;profile_on = false;system_settings_on = false;"
                       v-if="system_settings_on == false"
                       src="/images/icons/settings edit buttin@4x.png"
-                      alt="Account Edit On"
+                      alt="Account Edit Off"
                       width="30"
                     />
                     <img
@@ -1785,7 +1783,7 @@ input.save-text:focus {
                 <h3 class="w-100 mb-2 mt-0">
                   Notifications
                   <span class="notifications-close">
-                    <img src="/images/icons/close-icon.svg" alt="Notifications off" style="display:none;" />
+                    <img src="/images/icons/close-icon.svg" style="display:none;" />
                   </span>
                 </h3>
 
@@ -1845,10 +1843,7 @@ input.save-text:focus {
                     <div class="col-auto pl-1 btn-has-new-messages">   
                     </div> 
 
-                    <div class="col-auto p-0">
-                      <img src="/images/icons/user_icon@4x.png" alt="Profile icon" width="50">
-                    </div> 
-
+                    <div class="col-auto p-0"><img src="/images/icons/user_icon@4x.png" width="50"></div> 
                     <div class="col-auto p-0"> 
                       <p class="d-block mb-1"><span class="caller-name">Agnes Dean</span><span class="caller-time">15:46</span></p> 
                       <p title="Personal Information" class="call_back_time d-block w-100 mt-0">Lorem Ipsum dolor sit amet, c...</p> 
@@ -1861,9 +1856,7 @@ input.save-text:focus {
                     <div class="col-auto pl-1 btn-has-new-messages"> 
                     </div> 
 
-                    <div class="col-auto p-0">
-                      <img src="/images/icons/user_icon@4x.png" alt="Profile icon" width="50">
-                    </div> 
+                    <div class="col-auto p-0"><img src="/images/icons/user_icon@4x.png" width="50"></div> 
                     <div class="col-auto p-0"> 
                       <p class="d-block mb-1"><span class="caller-name">Justin Hill</span><span class="caller-time">12:37</span></p> 
                       <p title="Personal Information" class="call_back_time d-block w-100 mt-0">Lorem Ipsum dolor sit amet, c...</p> 
@@ -2043,13 +2036,13 @@ input.save-text:focus {
                                         v-model="task.description"
                                         placeholder="Description"
                                         autosize
-                                        class=""
+                                        class="description-text"
                                       />
                                     </label>
                                   </div>
 
                                   <div class="col-6 pl-0 custom-control">
-                                    <label class="terms-text p-0" :for="'task' + i">
+                                    <label class="task-deadline terms-text" :for="'task' + i">
                                       <a-date-picker
                                         v-model="task.deadline"
                                         :defaultValue="moment(task.deadline, 'YYYY-MM-DD')"
@@ -2063,6 +2056,7 @@ input.save-text:focus {
                                       type="submit"
                                       class="btn btn-primary update-user w-100 rounded-pill m-0"
                                       @click="editTask(task)"
+                                      :disabled="task.title==''"
                                     >Update</button>
                                   </div>
                                 </div>
@@ -2094,15 +2088,15 @@ input.save-text:focus {
                                         v-model="new_task.description"
                                         placeholder="Description"
                                         autosize
-                                        class=""
+                                        class="description-text"
                                       />
                                     </label>
                                   </div>
                                 </div>
 
                                 <div class="row mx-0 justify-content-between">
-                                  <div class="col-6 pl-0 custom-control">
-                                    <label class="w-100 terms-text" for="task1">
+                                  <div class="col-6 pl-0 custom-control pl-34">
+                                    <label class="task-deadline terms-text" for="task1">
                                       <a-date-picker v-model="new_task.date" class="w-100" />
                                     </label>
                                   </div>
@@ -2112,7 +2106,8 @@ input.save-text:focus {
                                       type="submit"
                                       class="btn btn-primary update-user w-100 rounded-pill m-0"
                                       @click="submitTask"
-                                    >Add</button>
+                                      :disabled="new_task.title ==''"
+                                    >Save</button>
                                   </div>
                                 </div>
                               </div>
@@ -2614,6 +2609,7 @@ input.save-text:focus {
         this.notifications_on = false; 
         this.profile_on = false; 
         this.filters_on = false; 
+        this.generalStats_on = false;
       }, 
       showGeneralStats() { 
       this.generalStats_on = !this.generalStats_on; 

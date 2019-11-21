@@ -12,6 +12,8 @@
 
 .nav-link.top-link.d-block.text-center {
   box-shadow: 0 0 7px rgba(0,0,0,0.1);
+  height: auto !important;
+  font-size: 0.73vw;
 }
 
 .nav-link.top-link.d-block.text-center:hover {
@@ -47,11 +49,11 @@ a.top-link{
 }
 a.active{    
   border-radius: 26px;
-  height: 30px !important;
   background: #F98B39 !important;
   border-color: #F98B39 !important;
   color: #fff !important;
-  padding: 4px 17px 6px !important;
+  padding: 6px 17px 6px !important;
+  
 }
 select{
   font-family: 'Rubik', sans-serif;
@@ -80,9 +82,7 @@ select.month-selector {
   background-repeat: no-repeat !important;
   background-position: center center !important;
 }
-.callIcons .search .col-auto {
-  padding-right:46% !important;
-}
+
 .callIcons .search a{
   background-color: #fff;
   background-image: url('/images/icons/top-nav/Search.svg') !important;
@@ -300,8 +300,8 @@ select.month-selector {
                   <input placeholder="Search" class="border-0 rounded-pill"/>
                 </div>
 
-                <div class="col-auto pl-0">
-                  <a href="#" class="nav-link p-0"></a>
+                <div class="col-auto">
+                  <a href="#" class="nav-link"></a>
                 </div>
               </div>
 						</li>
