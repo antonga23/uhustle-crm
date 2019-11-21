@@ -730,6 +730,19 @@ max-height: 350px;
 .ant-switch-checked {
   background-color: #f79340!important;
 }
+.ant-switch {
+  height: 18px!important;
+  min-width: 35px!important;
+  line-height: 18px!important;
+}
+.ant-switch-checked .ant-switch-inner {
+  margin-left: 5px!important;
+  margin-right: 19px!important;
+}
+.ant-switch:after {
+  width: 14px!important;
+  height: 14px!important;
+}
 #api-integration .card-header {
   padding-bottom:0;
 }
@@ -804,10 +817,6 @@ max-height: 350px;
   font-size: 12px;
   color: #333333;
   font-family: 'Rubik', sans-serif;
-}
-#edit-module .ant-select-arrow,
-#add-module .ant-select-arrow {
-  top: 15%;
 }
 #edit-module .ant-select-selection__choice,
 #add-module .ant-select-selection__choice {
@@ -990,8 +999,8 @@ max-height: 350px;
   font-family: 'Rubik', sans-serif;
   font-size:14px;
 }
-.min-width-cell .ant-select-selection-selected-value {
-  min-width:80px;
+.fieldType .ant-select-selection-selected-value {
+  min-width:100px;
 }
 /* create a deal */
 .createDeal .ant-select-selection--single {

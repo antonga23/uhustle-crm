@@ -29,7 +29,11 @@
     margin-left: 0.9%;
     margin-right: 0.9%;
   }
+  .ant-switch {
+    margin-left: 17px;
+  }
 </style>
+
 <template>
   <div class="col-lg-6 px-0">
     <b-container fluid class="px-0">
@@ -42,13 +46,13 @@
           <b-form-input id="input-valid" :state="null" v-model="role.description"></b-form-input>
 
           <label for="input-invalid">Role Status</label>
+          <br/>
           <a-switch v-model="status"/>
           <label v-if="status == 1">Active</label>
-          <label v-if="status == 0">Inactive</label>
-          <b-form-select v-model="status" :options="[{ value: null, text: 'Please Select' },{ value: 1, text: 'Active' },{ value: 0, text: 'Disaled' }]" class="form-control"></b-form-select>
+          <label v-if="status == 0 || status == null">Inactive</label>
 
           <div class="row mx-0 justify-content-end">
-            <b-button variant="primary" class="font-weight-bold m-0" @click="addRole()">Add Role</b-button>
+            <b-button variant="primary" class="font-weight-bold m-0" @click="addRole()">Add</b-button>
           </div>
         </b-col>
       </b-row>
