@@ -574,10 +574,10 @@ a.down-scroll:hover {
   padding-bottom: 0; 
 } 
 .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"] { 
-  box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6; 
-  -webkit-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6; 
-  -moz-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6; 
-  -o-box-shadow: -5px -10px 10px #e6e6e6, 5px -10px 10px #e6e6e6; 
+  box-shadow: -0 -10px 20px rgba(0,0,0,0.05); 
+  -webkit-box-shadow: -0 -10px 20px rgba(0,0,0,0.05); 
+  -moz-box-shadow: -0 -10px 20px rgba(0,0,0,0.05); 
+  -o-box-shadow: -0 -10px 20px rgba(0,0,0,0.05); 
   background-color: #fff; 
   border-top-left-radius: 25px; 
   border-top-right-radius: 25px; 
