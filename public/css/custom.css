@@ -526,14 +526,15 @@ label:not(.form-check-label):not(.custom-file-label) {
   border-radius: 50rem;
   background: #ccc!important;
 }
-.ant-calendar-selected-date .ant-calendar-date, .ant-calendar-date:active {
+.ant-calendar-selected-date .ant-calendar-date, 
+.ant-calendar-date:active {
   background: #ff931e!important;
   color:#fff!important;
   border-radius: 50%;
 }
 .ant-calendar-today .ant-calendar-date {
   border-color: #ff931e!important;
-  /* color: #ff931e!important; */
+  color: #ff931e!important;
   border-radius: 50%;
 }
 .ant-time-picker-icon, .ant-calendar-picker-icon.anticon.anticon-calendar {

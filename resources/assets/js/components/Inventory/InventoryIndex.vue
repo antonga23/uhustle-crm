@@ -158,6 +158,7 @@
   .permissions {
     margin-top: 0.5%;
   }
+  
 </style>
 <template>
   <div id="preferences">
