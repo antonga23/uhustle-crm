@@ -64,7 +64,7 @@ h5 {
               </transition>
             </b-tab>
 
-            <b-tab active>
+            <b-tab>
               <template v-slot:title>
                 <h5 class="d-inline-block">Category</h5>
               </template>
