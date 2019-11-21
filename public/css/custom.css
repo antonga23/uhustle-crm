@@ -679,14 +679,22 @@ max-height: 350px;
 }
 
 /* Preferences table styling */
-#preferences .card, #transactions .card{
+#preferences .card, 
+#transactions .card,
+#branches .card, 
+#products .card,
+#order .card {
   border: 0;
   box-shadow: none;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   -o-box-shadow: none;
 }
-#preferences .tab-content, #transactions .tab-content {
+#preferences .tab-content, 
+#transactions .tab-content,
+#branches .tab-content, 
+#products .tab-content,
+#order .tab-content {
   box-shadow: 0 0 20px rgba(0,0,0,0.1);
   -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.1);
   -moz-box-shadow: 0 0 20px rgba(0,0,0,0.1);
@@ -694,26 +702,40 @@ max-height: 350px;
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
 }
-#preferences .card-header, #transactions .card-header {
+#preferences .card-header, 
+#transactions .card-header,
+#branches .card-header, 
+#products .card-header,
+#order .card-header{
   padding-left: 0;
   padding-right: 0;
   padding-bottom:11px;
   border: 0; 
   background-color: transparent;
 }
-#preferences .card-header-tabs, #transactions .card-header-tabs {
+#preferences .card-header-tabs, 
+#transactions .card-header-tabs,
+#branches .card-header-tabs, 
+#products .card-header-tabs,
+#order .card-header-tabs {
   margin-right: 0;
   margin-left: 0;
   /* margin-bottom: -32px; */
 }
 #preferences .nav-tabs .nav-link, 
 #api-integration .nav-link,
-#transactions .trans-tabs .nav-link{
+#transactions .trans-tabs .nav-link,
+#branches .nav-link, 
+#products .nav-link,
+#order .nav-link{
   padding: 23px 23px 16px 30px;
 }
 #preferences .nav-tabs .nav-link, 
 #api-integration .nav-link,
-#transactions .trans-tabs .nav-link h5{
+#transactions .trans-tabs .nav-link h5,
+#branches .nav-link h5, 
+#products .nav-link h5,
+#order .nav-link h5{
   font-weight: 700;
   font-size: 0.94vw;
   color: #999999;
@@ -723,12 +745,18 @@ max-height: 350px;
 }
 #preferences .nav-tabs .nav-link.active, 
 #api-integration .nav-link.active,
-#transactions .nav-tabs .nav-link.active h5{
+#transactions .nav-tabs .nav-link.active h5,
+#branches .nav-link.active h5, 
+#products .nav-link.active h5,
+#order .nav-link.active h5{
   color: #1A1C43;
 }
 #preferences .nav-tabs .nav-link[aria-selected="true"], 
 #api-integration .nav-link[aria-selected="true"],
-#transactions .nav-tabs .nav-link[aria-selected="true"]{
+#transactions .nav-tabs .nav-link[aria-selected="true"],
+#branches .nav-tabs .nav-link[aria-selected="true"], 
+#products .nav-tabs .nav-link[aria-selected="true"],
+#order .nav-tabs .nav-link[aria-selected="true"]{
   box-shadow: -5px -8px 10px #f5f5f5, 5px -8px 10px #f5f5f5;
   -webkit-box-shadow: -5px -8px 10px #f5f5f5, 5px -8px 10px #f5f5f5;
   -moz-box-shadow: -5px -8px 10px #f5f5f5, 5px -8px 10px #f5f5f5;
