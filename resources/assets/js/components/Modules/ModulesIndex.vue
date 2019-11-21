@@ -1,97 +1,9 @@
 <style scoped>
-.card{
-  border-radius: 27px;
-  border: none;
-}
-.card-body{
-  color: #fff;
-}
-.card-title {
-  margin-bottom: 0.75rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 1px solid #fff;
-}
-.card-body p{
-  color: #fff;
-  width: 100%;
-  margin-right: 0;
-  text-align: left;
-  float: left;
-  margin-bottom: 0;
-  margin-top: 0;
-}
-.card-body p strong{
-  float: right;
-}
-p.card-text{
-  font-size: 16px;
-  color: #fff;
-  font-weight: bolder;
-  margin: 0;
-  width: 100%;
-  float: right;
-}
-p.card-text span{
-  font-size: 19px;
-  color: #333333;
-  font-weight: bolder;
-}
-p.card-link{
-  font-size: 22px;
-  color: #333333;
-}
-.stats .card{
-  border-radius: 10px;
-}
-.stats .card .card-title {
-  margin-bottom: 0.75rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 1px solid #bfccd2;
-}
-span.right{
-  float: right;
-}
 .truncate {
   width: 250px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.list-group-item p{
-  margin: 0;
-}
-.list-group-item p strong{
-  font-size: 25px;
-  margin-right: 30px;
-}
-.choose-comment-type{
-  float: left;
-  display: block;
-  height: 50px;
-  width: 50px;
-  padding: 11px;
-  margin: 10px 10px 10px 0;
-  background: #f6f8f9;
-  border-radius: 9px;
-  cursor: pointer;
-}
-
-.comment-desc{
-  display: block;
-  height: 50px;
-  width: 75%;
-  padding: 11px;
-  margin: 10px 10px 10px 0;
-  background: #f6f8f9;
-  border-radius: 9px;
-  border: none;
-  cursor: pointer;
-  float: left;
-}
-#send-btn{
-  height: 50px;
-  margin: 10px 0px 10px 0;
 }
 .btn-secondary {
   color: #fff;
@@ -114,21 +26,13 @@ span.right{
 #top-section .col-auto {
   padding-left:1.6%;
   padding-right:1.6%;
+  margin-bottom:6px;
 }
 .green{
   color:#00a25a !important;
 }
 .red{
   color:red !important;
-}.card-text-small{
-  margin-top: -7px;
-  color: #3b3b3b;
-}
-.badge{
-  width: 12%;
-}
-.badge img{
-  width: 100%;
 }
 ul.headings{
   list-style: none;
@@ -164,17 +68,17 @@ ul.items li a:hover{
   width: 100%;
 }
 .horizontal-scroll::-webkit-scrollbar-thumb {
-    background: #B3B3B3 !important;
-    border-radius: 5px !important;
-  }
+  background: #B3B3B3 !important;
+  border-radius: 5px !important;
+}
 
-  ::-webkit-scrollbar-thumb {
-    background: #B3B3B3 !important;
-    border-radius: 5px !important;
-  }
+::-webkit-scrollbar-thumb {
+  background: #B3B3B3 !important;
+  border-radius: 5px !important;
+}
 
-  ::-webkit-scrollbar {
-  width: 3px;
+::-webkit-scrollbar {
+width: 3px;
 }
 
 table.listing{
@@ -203,11 +107,6 @@ table.listing tr  th{
 }
 .modal-body {
   background: orange !important;
-}
-.card-head, .ant-card-padding-transition .ant-card-body {
-  transition: padding 0.3s;
-  overflow-y: scroll;
-  height: 380px;
 }
 /* assignees section */
 .grey-bg-color {
@@ -250,59 +149,49 @@ table.listing tr  th{
 </style>
 <template>
   <div>
-    <div id="top-section" class="row pb-4 mb-4 grey-bg-color align-items-center justify-content-between mx-0">
-      <div class="col-7 px-0">
-        <div class="row mx-0 mb-0 horizontal-scroll">
-          <div class="col-12">
-            <div class="row mx-0">
-              <div class="col-4">
-                <span class="ml-3">Assignees:</span>
-                <a-select 
-                  mode="multiple"
-                  v-model="assignees" 
-                  placeholder="Select"
-                  class="border-0 w-100 mass-assign"
-                >
-                  <a-select-option 
-                    :value="user.id" 
-                    v-for="(user, index) in user_options" 
-                    :key="index"
-                  >{{ user.name }}</a-select-option>
-                </a-select>
-              </div>
+    <div id="top-section" class="row pb-4 mb-4 grey-bg-color align-items-end mx-0">
+      <div class="col-3">
+        <span class="ml-3">Assignees:</span>
+        <a-select 
+          mode="multiple"
+          v-model="assignees" 
+          placeholder="Select"
+          class="border-0 w-100 mass-assign"
+        >
+          <a-select-option 
+            :value="user.id" 
+            v-for="(user, index) in user_options" 
+            :key="index"
+          >{{ user.name }}</a-select-option>
+        </a-select>
+      </div>
 
-              <div class="col-4">
-                <span class="ml-3">Owners: </span>
+      <div class="col-3">
+        <span class="ml-3">Owners: </span>
 
-                <a-select 
-                  mode="multiple"
-                  v-model="owners" 
-                  placeholder="Select"
-                  class="border-0 w-100 mass-assign"
-                >
-                  <a-select-option 
-                    :value="user.id" 
-                    v-for="(user, index) in user_options" 
-                    :key="index"
-                  >{{ user.name }}</a-select-option>
-                </a-select>
-              </div>
+        <a-select 
+          mode="multiple"
+          v-model="owners" 
+          placeholder="Select"
+          class="border-0 w-100 mass-assign"
+        >
+          <a-select-option 
+            :value="user.id" 
+            v-for="(user, index) in user_options" 
+            :key="index"
+          >{{ user.name }}</a-select-option>
+        </a-select>
+      </div>
 
-              <div class="col-4">
-                <div class="row mt-4">
-                  <div class="col-auto mr-4">
-                    <button type="submit" class="btn btn-default cancel-assign w-100 m-0">Cancel</button>
-                  </div>
-                  <div class="col-auto">
-                    <button type="submit" class="btn btn-default assign w-100 m-0" @click="assign()">Assign</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> 
+      <div class="col-auto">
+        <button type="submit" class="btn btn-default cancel-assign w-100 m-0">Cancel</button>
+      </div>
+
+      <div class="col-auto">
+        <button type="submit" class="btn btn-default assign w-100 m-0" @click="assign()">Assign</button>
+      </div>
     </div>
+
     <div v-if="!add_user" id="bottom-section" class="pr-0">
       <div class="row stats mx-0 scroll-hidden horizontal-scroll">
         <div class="col-lg-12 pl-0">

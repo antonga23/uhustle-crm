@@ -1,32 +1,89 @@
 <template>
-  <div class="no-box-shadow material-table">
-    <div class="add-columns pl-0"> 
-      <button class="btn btn-secondary dropdown-toggle rounded-circle border-0 m-0" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
-        <img  
-          src="/images/workstation/Asset 28@4x.png"  
-          alt="Show column Icon"  
-          class="icon"  
-          style="width: 10px;" 
-        /> 
-      </button> 
+    <div class="no-box-shadow material-table border-0">
+        <table ref="table">
+            <thead>
+                <tr>
+                    <th v-for="(column, index) in columns" @click="sort(index)" :class="(column.sortable ? 'sorting ' : '')
+                            + (sortColumn === index ? (sortType === 'desc' ? 'sorting-desc' : 'sorting-asc') : '')
+                            + (column.numeric ? ' numeric' : '')" :style="{width: column.width ? column.width : 'auto'}" :key="index"
+                            >
 
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> 
-        <b-form-group class="select-columns-list"> 
-          <b-form-checkbox  
-            v-model="selected_columns" 
-            v-for="option in colum_select_options"  
-            :key="option.value.index" 
-            name="selected-columns" 
-            class="w-100" 
-          >{{option.text}}</b-form-checkbox> 
-        </b-form-group> 
+                        {{column.label}} 
+                        
+                        <div v-if="index == modified_columns.length-1" class="col pl-0">
+                            <b-button class="rounded-circle m-0" @click="show_column_select = !show_column_select">
+                                <img src="/images/workstation/Asset 28@4x.png" alt="Show column Icon" class="icon" style="width: 10px;" />
+                            </b-button>
+                            <div v-if="show_column_select">
 
-        <button  
-          type="submit"  
-          @click="handleChange()"  
-          class="btn btn-primary font-weight-bold rounded-pill mt-2 mb-0 mx-auto d-block" 
-        >Apply</button> 
-      </div> 
+                                <b-form-select 
+                                  v-model="selected_columns" 
+                                  :options="colum_select_options" 
+                                  multiple 
+                                  :select-size="4"
+                                  @change="handleChange()"
+                                  >
+                                  </b-form-select>
+                                  
+                                <!-- <button type="submit" class="btn btn-primary update-user w-100 rounded-pill m-0">Apply</button> -->
+                            </div>
+                        </div> 
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(row, index) in paginated" :class="onClick ? 'clickable' : ''" @click="click(row, index)" :key="index">
+                    <td v-for="(column, i) in columns" :class="column.numeric ? 'numeric' : ''" :key="i" >
+                        <span v-if="column.field == 'full_name'">
+                            {{ collect(row, column.field) }}
+                        </span>
+                        <span v-else-if="column.field == 'status'" :class="collect(row, column.field)">
+                            
+                        </span>
+                        <span v-else-if="column.field == 'actions' && ( role == 1 || role == 2 )" class="actions">
+                            &nbsp;
+                        </span>
+                        <span v-else>{{ collect(row, column.field) }}</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="table-footer" v-if="paginate">
+            <div class="datatable-length">
+                <label>
+                    <span>Rows per page:</span>
+                    <select class="browser-default" @change="onTableLength">
+                        <option value="15">15</option>
+                        <option value="30">30</option>
+                        <option value="40">40</option>
+                        <option value="50">50</option>
+                        <option value="-1">All</option>
+                    </select>
+                </label>
+            </div>
+            <div class="datatable-info">
+                {{(currentPage - 1) * currentPerPage ? (currentPage - 1) * currentPerPage : 1}} -{{Math.min(processedRows.length, currentPerPage * currentPage)}} of {{processedRows.length}}
+            </div>
+            <div>
+                <ul class="material-pagination">
+                    <li>
+                        <a href="javascript:undefined" class="waves-effect btn-flat" @click.prevent="previousPage" tabindex="0">
+                            <img src="/images/DataTables/left arrow.svg" alt="Nav left icon" class="chevron" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:undefined" class="waves-effect btn-flat" @click.prevent="nextPage" tabindex="0">
+                            <img src="/images/DataTables/right arrow.svg" alt="Nav right icon" class="chevron" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Modal Start Summary-->
+        <div>
+             <input type="hidden"  @click="startCall()" ref="callJoinBtn" />
+        </div>
+        <!-- Modal -->
     </div>
 
     <table ref="table">

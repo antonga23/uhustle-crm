@@ -688,13 +688,13 @@ max-height: 350px;
 
 .notifications-checkbox .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after, 
 .leads-table .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after,
-.select-columns-list .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after { 
-  background-color: #ff933a !important; 
-} 
-.select-columns-list .custom-control-label { 
-  font-size: 12px; 
-  padding-top:3px; 
-} 
+.select-columns-list .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after  {
+  background-color: #ff933a !important;
+}
+.select-columns-list .custom-control-label {
+  font-size: 12px;
+  padding-top:3px;
+}
 
 .filter-content .custom-control-label::after {
   width: 10px;
