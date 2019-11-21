@@ -915,4 +915,8 @@ class LeadController extends Controller
         );
     }
 
+    public function getSources(){
+      return ['sources' => LeadSource::get()];
+    }
+
 }

@@ -659,8 +659,6 @@ max-height: 350px;
   background-image: none !important;
 }
 
-<<<<<<< HEAD
-=======
 .notifications-checkbox .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after, 
 .leads-table .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after, 
 .select-columns-list .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after { 
@@ -671,7 +669,6 @@ max-height: 350px;
   padding-top:3px; 
 } 
 
->>>>>>> 5f0d2bf95cdc23568c3634554dd3e25cfefdf35e
 .filter-content .custom-control-label::after {
   width: 10px;
   height: 10px;

@@ -256,6 +256,7 @@ Route::group(['prefix' => 'leads'], function () {
   Route::get('/get-client-counts', 'LeadController@getClientCount');
 	Route::get('/get-client-counts/{type}', 'LeadController@getClientCount');
 	Route::get('/get-select-options', 'LeadController@getSelectOptions');
+	Route::get('/get-sources', 'LeadController@getSources');
 	Route::post('mass-assign', 'ModuleController@massAssign');
 });
 

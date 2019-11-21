@@ -368,7 +368,7 @@ class ModuleController extends Controller
               
               switch ($meta->custom_field_value) {
                 case 0:
-                    continue;
+                    continue 2;
                     $status = 'Canceled';
                   break;
                 case 1:
@@ -376,11 +376,11 @@ class ModuleController extends Controller
                     $display_array[$meta_name->name] = $status;
                   break;
                 case 2:
-                    continue;
+                    continue 2;
                     $status = 'Inactive';
                   break;
                 case 3:
-                    continue;
+                    continue 2;
                     $status = 'Disabled';
                   break;
                 
@@ -496,7 +496,7 @@ class ModuleController extends Controller
               
               switch ($meta->custom_field_value) {
                 case 0:
-                    continue;
+                    continue 2;
                     $status = 'Canceled';
                   break;
                 case 1:
@@ -504,11 +504,11 @@ class ModuleController extends Controller
                     $display_array[$meta_name->name] = $status;
                   break;
                 case 2:
-                    continue;
+                    continue 2;
                     $status = 'Inactive';
                   break;
                 case 3:
-                    continue;
+                    continue 2;
                     $status = 'Disabled';
                   break;
                 

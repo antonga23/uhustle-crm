@@ -181198,63 +181198,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-client/es5/twilio.js").Device;
@@ -181389,8 +181332,8 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
       this.$bvModal.show('update-user-modal');
     },
     handleOk: function handleOk(bvModalEvt) {
-      // Prevent modal from closing
-      bvModalEvt.preventDefault(); // Trigger submit handler
+      // Prevent modal from closing 
+      bvModalEvt.preventDefault(); // Trigger submit handler 
 
       this.handleSubmit();
     },
@@ -181413,7 +181356,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
     createDevice: function createDevice(action, conference) {
       var vm = this;
       axios.get('/calls/token').then(function (response) {
-        console.log('Token', response.data.token); // Setup Twilio.Device
+        console.log('Token', response.data.token); // Setup Twilio.Device 
 
         Device.destroy();
         Device.setup(response.data.token, {
@@ -181438,7 +181381,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
           console.log('Device Error: ' + error.message);
         });
         Device.on('connect', function (conn) {
-          console.log('Successfully established call'); // vm.call_back.call_sid = conn.parameters.CallSid;
+          console.log('Successfully established call'); // vm.call_back.call_sid = conn.parameters.CallSid; 
         });
         Device.on('incoming', function (conn) {
           console.log('Incoming connection from ' + conn.parameters.From);
@@ -181448,7 +181391,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
             conn.reject();
             console.log('It\'s your nemesis. Rejected call.');
           } else {
-            // accept the incoming connection and start two-way audio
+            // accept the incoming connection and start two-way audio 
             conn.accept();
           }
         });
@@ -181474,7 +181417,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
         lead_owner: vm.lead_info.user_created_id,
         lead_assignee: vm.lead_info.user_assigned,
         user_id: vm.user_id,
-        // phone_number : vm.lead_info.contact_number,
+        // phone_number : vm.lead_info.contact_number, 
         phone_number: '+27782013556'
       };
       Device.connect(form_data);
@@ -183652,6 +183595,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       show_page_loader: true,
+      active_module_name: 'branches',
       Toast: null
     };
   },
@@ -183782,8 +183726,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['module', 'active_users', 'active_roles'],
+  props: ['module', 'active_users', 'active_roles', 'sources'],
   data: function data() {
     return {
       active_module: '',
@@ -192653,14 +192605,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   mounted: function mounted() {
     this.getLeads();
+    this.getSources();
     this.Toast = this.$swal.mixin({
       toast: true,
       position: 'top-end',
@@ -192691,6 +192640,7 @@ __webpack_require__.r(__webpack_exports__);
         status: ''
       },
       leads: [],
+      sources: [],
       Toast: null
     };
   },
@@ -192743,6 +192693,12 @@ __webpack_require__.r(__webpack_exports__);
           vm.leads = response.data.leads.display_items;
         });
       }
+    },
+    getSources: function getSources() {
+      var vm = this;
+      axios.get("/leads/get-sources").then(function (response) {
+        vm.sources = response.data.sources;
+      });
     }
   }
 });
@@ -247098,7 +247054,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\nthead th[data-v-ccb78764] {\n  position: sticky;\n  position: -webkit-sticky;\n  top: 0;\n  background: white;\n  z-index: 10;\n}\n.btn-secondary[data-v-ccb78764]{\n  color: #fff;\n  background-color: #f6f8f9;\n  border-color: #f6f8f9;\n  padding: 0px 7px;\n}\n.btn-secondary img[data-v-ccb78764]{\n  width: 11px;\n}\nth .dropdown[data-v-ccb78764]{\n  width: 25%;\n  padding: 0;\n  margin: 0;\n  float: right;\n}\n.dropdown-menu[data-v-ccb78764] {\n  border-radius: 15px;\n  box-shadow: -4px -3px 5px 0px rgba(179, 179, 179, 0.24);\n  border: 0;\n  font-size: 0.63vw;\n  font-family: 'Rubik', sans-serif;\n  letter-spacing: 0.05em;\n  color: #1e2331;\n}\n.no-box-shadow[data-v-ccb78764] {\n  box-shadow: none !important;\n  -webkit-box-shadow: none !important;\n  -moz-box-shadow: none !important;\n  -o-box-shadow: none !important;\n}\ntable tr td a.Canceled[data-v-ccb78764]{\n  color: red;\n}\ntable tr td a.Inactive[data-v-ccb78764]{\n  color: orange;\n}\ntable tr td a.Active[data-v-ccb78764]{\n  color: green;\n}\ntable tr td span.actions a[data-v-ccb78764]{\n  width: 32px;\n  display: block;\n  height: 35px;\n  float: left;\n}\ntable tr td span.in-progress[data-v-ccb78764]{\n  background-image: url('/images/icons/Talking.svg');\n  background-size: 75%;\n  background-repeat: no-repeat;\n  display: block;\n  width: 100%;\n  height: 38px;\n  background-position: center;\n}\ntable tr td span.completed[data-v-ccb78764]{\n  background-image: url('/images/icons/No Talking.svg');\n  background-size: 90%;\n  background-repeat: no-repeat;\n  display: block;\n  width: 100%;\n  height: 38px;\n  background-position: center;\n}\ntable tr td a.View[data-v-ccb78764]{\n  background-image: url('/images/DataTables/View_Icon_Active.svg');\n  background-size: 36px 35px;\n  background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-ccb78764]:hover,\ntable tr td a.View[data-v-ccb78764]:active{\n  background-image: url('/images/DataTables/View_Icon.svg');\n  background-size: 36px 35px;\n  background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-ccb78764]{\n  background-image: url('/images/DataTables/Delete_Icon.svg');\n  background-size: 36px 35px;\n  background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-ccb78764]:hover,\ntable tr td a.Delete[data-v-ccb78764]:active{\n  background-image: url('/images/DataTables/Delete_Icon_Active.svg');\n  background-size: 36px 35px;\n  background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-ccb78764]{\n  background-image: url('/images/DataTables/Edit_Icon.svg');\n  background-size: 36px 35px;\n  background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-ccb78764]:hover,\ntable tr td a.Edit[data-v-ccb78764]:active{\n  background-image: url('/images/DataTables/Edit_Icon_Active.svg');\n  background-size: 36px 35px;\n  background-repeat: no-repeat;\n}\ntable tr td a.Whisper[data-v-ccb78764]{\n  background-image: url('/images/icons/Whisper.svg');\n  background-size: 30px 35px;\n  background-repeat: no-repeat;\n}\ntable tr td a.Whisper[data-v-ccb78764]:hover,\ntable tr td a.Whisper[data-v-ccb78764]:active{\n  background-image: url('/images/icons/Whisper.svg');\n  background-size: 31px 35px;\n  background-repeat: no-repeat;\n}\ntable tr td a.Barge[data-v-ccb78764]{\n  background-image: url('/images/icons/Barge.svg');\n  background-size: 30px 35px;\n  background-repeat: no-repeat;\n}\ntable tr td a.Barge[data-v-ccb78764]:hover,\ntable tr td a.Barge[data-v-ccb78764]:active{\n  background-image: url('/images/icons/Barge.svg');\n  background-size: 31px 35px;\n  background-repeat: no-repeat;\n}\n.control-label[data-v-ccb78764]{\n  float: left;\n}\ndiv.material-table[data-v-ccb78764] {\n  padding: 0;\n}\n#breakdown tr td[data-v-ccb78764]{\n  height: 35px;\n}\n#items tr td[data-v-ccb78764]{\n  padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-ccb78764], #items tr[data-v-ccb78764] {\n  border: 1px solid #dddddd;\n}\ntr.clickable[data-v-ccb78764] {\n  cursor: pointer;\n}\n#search-input[data-v-ccb78764] {\n  margin: 0;\n  border: transparent 0 !important;\n  height: 48px;\n  color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-ccb78764] {\n  padding: 0 14px 0 24px;\n  border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-ccb78764] {\n  /* table-layout: fixed; */\n  border-spacing: 0 6px;\n}\n.table-header[data-v-ccb78764] {\n  height: 64px;\n  padding-left: 24px;\n  padding-right: 14px;\n  align-items: center;\n  display: flex;\n  -webkit-display: flex;\n  border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-ccb78764] {\n  display: -webkit-flex;\n  margin-left: auto;\n}\n.table-header .btn-flat[data-v-ccb78764] {\n  min-width: 36px;\n  padding: 0 8px;\n}\n.table-header input[data-v-ccb78764] {\n  margin: 0;\n  height: auto;\n}\n.table-header i[data-v-ccb78764] {\n  color: rgba(0, 0, 0, 0.54);\n  font-size: 24px;\n}\n.table-footer[data-v-ccb78764] {\n  height: 56px;\n  padding-left: 24px;\n  padding-right: 14px;\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-end;\n  align-items: center;\n  font-size: 12px !important;\n  color: rgba(0, 0, 0, 0.54);\n  position: relative !important;\n  right: -100px !important;\n}\n@media screen and (max-width: 1500px) {\n.table-footer[data-v-ccb78764] {\n    position: relative !important;\n    right: -500px !important;\n}\n}\n.table-footer .datatable-length[data-v-ccb78764] {\n  display: flex;\n}\n.table-footer .datatable-length select[data-v-ccb78764] {\n  outline: none;\n}\n.table-footer img[data-v-ccb78764] {\n  width: 46px;\n}\n.table-footer label[data-v-ccb78764] {\n  font-size: 12px;\n  color: rgba(0, 0, 0, 0.54);\n  display: flex;\n  /* works with row or column */\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n  margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-ccb78764] {\n  display: flex;\n  /* works with row or column */\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n}\n.table-footer .datatable-info[data-v-ccb78764],\n.table-footer .datatable-length[data-v-ccb78764] {\n  margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-ccb78764] {\n  display: flex;\n  -webkit-display: flex;\n  margin: 0;\n  list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-ccb78764] {\n  color: rgba(0, 0, 0, 0.54);\n  padding: 0 8px;\n  font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-ccb78764] {\n  margin: 0;\n  border-bottom: none;\n  height: auto;\n  line-height: normal;\n  font-size: 12px;\n  width: 40px;\n  text-align: right;\n}\n.table-footer select[data-v-ccb78764] {\n  background-color: transparent;\n  width: auto;\n  padding: 0;\n  border: 0;\n  border-radius: 0;\n  height: auto;\n  margin-left: 20px;\n}\n.table-title[data-v-ccb78764] {\n  font-size: 20px;\n  color: #000;\n}\ntable tr td[data-v-ccb78764] {\n  height: 35px;\n  font-size: 14px;\n  color: #1c2331;\n  display: table-cell;\n  font-family: 'Rubik', sans-serif !important;\n  padding: 10px 20px 10px 0px;\n  min-width: 150px;\n}\n@media screen and (max-width: 1500px) {\ntable tr td[data-v-ccb78764] {\n    font-size: 12px;\n    padding: 5px 10px 5px 0px;\n}\n}\ntable tr td a i[data-v-ccb78764] {\n  font-size: 18px;\n  color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-ccb78764] {\n  font-size: 12px;\n  border-bottom: 1px solid #f2f2f2;\n  padding-left: 0;\n  width: auto;\n  white-space: nowrap;\n}\ntable thead tr[data-v-ccb78764]:first-child {\n  border-bottom: 0;\n}\ntable th[data-v-ccb78764] {\n  font-size: 12px;\n  font-weight: 600;\n  color: #A6A6A6;\n  cursor: pointer;\n  white-space: nowrap;\n  padding-right: 20px !important;\n  /* height: 56px; */\n  /* padding-left: 14px; */\n  vertical-align: middle;\n  outline: none !important;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  background-size: 11px 12px;\n\tbackground-repeat: no-repeat;\n\tbackground-position: left center;\n  font-family: 'Montserrat bold', sans-serif;\n}\ntable th[data-v-ccb78764]:hover {\n  overflow: visible;\n  text-overflow: initial;\n}\ntable th.sorting-asc[data-v-ccb78764],\ntable th.sorting-desc[data-v-ccb78764] {\n  color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-ccb78764] {\n  color: rgba(0, 0, 0, 0.87);\n  background-image: url('/images/DataTables/Filter_1.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 77% 7px;\n}\ntable th.sorting-desc[data-v-ccb78764] {\n  color: rgba(0, 0, 0, 0.87);\n  background-image: url('/images/DataTables/Filter_2.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 77% 7px;\n}\ntable tr td a[data-v-ccb78764]{\n  color: #1890ff;\n  background-color: transparent;\n  text-decoration: none;\n  outline: none;\n  cursor: pointer;\n  transition: color 0.3s;\n  -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-ccb78764]:hover:after,\ntable th.sorting-asc[data-v-ccb78764]:after,\ntable th.sorting-desc[data-v-ccb78764]:after {\n  display: inline-block;\n}\ntable tbody tr[data-v-ccb78764]:hover {\n  background-color: #EEE;\n}\ntable th[data-v-ccb78764]:last-child,\ntable td[data-v-ccb78764]:last-child {\n  padding-right: 14px;\n  padding-left: 11px;\n  background-image: none !important;\n}\n\n/* table th:first-child,\ntable td:first-child {\n  padding-left: 25px;\n} */\n.add-columns[data-v-ccb78764] { \n  position: fixed; \n  z-index: 100; \n  background-color: #fff; \n  padding-right: 20px; \n  left:75px;\n}\n.show > .btn-secondary.dropdown-toggle[data-v-ccb78764] { \n  background-color: #f6f8f9;\n}\n#dropdownMenuButton[data-v-ccb78764]:after { \n  display: none;\n}\n.btn-primary[data-v-ccb78764] { \n  border-radius: 50rem!important; \n  text-transform:uppercase; \n  font-size: 10px; \n  padding: 11px 14px 10px; \n  line-height:1em; \n  margin-left: 0.9%; \n  margin-right: 0.9%;\n}\n.dropdown-menu.show[data-v-ccb78764] { \n  padding:10px; \n  border-radius: 10px; \n  border:0; \n  box-shadow: 0 0 10px rgba(0,0,0,0.1); \n  width:225px;\n}\n.form-group.select-columns-list[data-v-ccb78764] { \n  max-height: 150px; \n  overflow-y: auto; \n  overflow-x: hidden; \n  margin-bottom: 0!important;\n} \n", ""]);
+exports.push([module.i, "\nthead th[data-v-ccb78764] { \n  position: sticky; \n  position: -webkit-sticky; \n  top: 0; \n  background: white; \n  z-index: 10;\n}\n.btn-secondary[data-v-ccb78764]{ \n  color: #fff; \n  background-color: #f6f8f9; \n  border-color: #f6f8f9; \n  padding: 0px 7px;\n}\n.btn-secondary img[data-v-ccb78764]{ \n  width: 11px;\n}\nth .dropdown[data-v-ccb78764]{ \n  width: 25%; \n  padding: 0; \n  margin: 0; \n  float: right;\n}\n.dropdown-menu[data-v-ccb78764] { \n  border-radius: 15px; \n  box-shadow: -4px -3px 5px 0px rgba(179, 179, 179, 0.24); \n  border: 0; \n  font-size: 0.63vw; \n  font-family: 'Rubik', sans-serif; \n  letter-spacing: 0.05em; \n  color: #1e2331;\n}\n.no-box-shadow[data-v-ccb78764] { \n  box-shadow: none !important; \n  -webkit-box-shadow: none !important; \n  -moz-box-shadow: none !important; \n  -o-box-shadow: none !important;\n}\ntable tr td a.Canceled[data-v-ccb78764]{ \n  color: red;\n}\ntable tr td a.Inactive[data-v-ccb78764]{ \n  color: orange;\n}\ntable tr td a.Active[data-v-ccb78764]{ \n  color: green;\n}\ntable tr td span.actions a[data-v-ccb78764]{ \n  width: 32px; \n  display: block; \n  height: 35px; \n  float: left;\n}\ntable tr td span.in-progress[data-v-ccb78764]{ \n  background-image: url('/images/icons/Talking.svg'); \n  background-size: 75%; \n  background-repeat: no-repeat; \n  display: block; \n  width: 100%; \n  height: 38px; \n  background-position: center;\n}\ntable tr td span.completed[data-v-ccb78764]{ \n  background-image: url('/images/icons/No Talking.svg'); \n  background-size: 90%; \n  background-repeat: no-repeat; \n  display: block; \n  width: 100%; \n  height: 38px; \n  background-position: center;\n}\ntable tr td a.View[data-v-ccb78764]{ \n  background-image: url('/images/DataTables/View_Icon_Active.svg'); \n  background-size: 36px 35px; \n  background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-ccb78764]:hover, \ntable tr td a.View[data-v-ccb78764]:active{ \n  background-image: url('/images/DataTables/View_Icon.svg'); \n  background-size: 36px 35px; \n  background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-ccb78764]{ \n  background-image: url('/images/DataTables/Delete_Icon.svg'); \n  background-size: 36px 35px; \n  background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-ccb78764]:hover, \ntable tr td a.Delete[data-v-ccb78764]:active{ \n  background-image: url('/images/DataTables/Delete_Icon_Active.svg'); \n  background-size: 36px 35px; \n  background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-ccb78764]{ \n  background-image: url('/images/DataTables/Edit_Icon.svg'); \n  background-size: 36px 35px; \n  background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-ccb78764]:hover, \ntable tr td a.Edit[data-v-ccb78764]:active{ \n  background-image: url('/images/DataTables/Edit_Icon_Active.svg'); \n  background-size: 36px 35px; \n  background-repeat: no-repeat;\n}\ntable tr td a.Whisper[data-v-ccb78764]{ \n  background-image: url('/images/icons/Whisper.svg'); \n  background-size: 30px 35px; \n  background-repeat: no-repeat;\n}\ntable tr td a.Whisper[data-v-ccb78764]:hover, \ntable tr td a.Whisper[data-v-ccb78764]:active{ \n  background-image: url('/images/icons/Whisper.svg'); \n  background-size: 31px 35px; \n  background-repeat: no-repeat;\n}\ntable tr td a.Barge[data-v-ccb78764]{ \n  background-image: url('/images/icons/Barge.svg'); \n  background-size: 30px 35px; \n  background-repeat: no-repeat;\n}\ntable tr td a.Barge[data-v-ccb78764]:hover, \ntable tr td a.Barge[data-v-ccb78764]:active{ \n  background-image: url('/images/icons/Barge.svg'); \n  background-size: 31px 35px; \n  background-repeat: no-repeat;\n}\n.control-label[data-v-ccb78764]{ \n  float: left;\n}\ndiv.material-table[data-v-ccb78764] { \n  padding: 0;\n}\n#breakdown tr td[data-v-ccb78764]{ \n  height: 35px;\n}\n#items tr td[data-v-ccb78764]{ \n  padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-ccb78764], #items tr[data-v-ccb78764] { \n  border: 1px solid #dddddd;\n}\ntr.clickable[data-v-ccb78764] { \n  cursor: pointer;\n}\n#search-input[data-v-ccb78764] { \n  margin: 0; \n  border: transparent 0 !important; \n  height: 48px; \n  color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-ccb78764] { \n  padding: 0 14px 0 24px; \n  border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-ccb78764] { \n  /* table-layout: fixed; */ \n  border-spacing: 0 6px;\n}\n.table-header[data-v-ccb78764] { \n  height: 64px; \n  padding-left: 24px; \n  padding-right: 14px; \n  align-items: center; \n  display: flex; \n  -webkit-display: flex; \n  border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-ccb78764] { \n  display: -webkit-flex; \n  margin-left: auto;\n}\n.table-header .btn-flat[data-v-ccb78764] { \n  min-width: 36px; \n  padding: 0 8px;\n}\n.table-header input[data-v-ccb78764] { \n  margin: 0; \n  height: auto;\n}\n.table-header i[data-v-ccb78764] { \n  color: rgba(0, 0, 0, 0.54); \n  font-size: 24px;\n}\n.table-footer[data-v-ccb78764] { \n  height: 56px; \n  padding-left: 24px; \n  padding-right: 14px; \n  display: flex; \n  flex-direction: row; \n  justify-content: flex-end; \n  align-items: center; \n  font-size: 12px !important; \n  color: rgba(0, 0, 0, 0.54); \n  position: relative !important; \n  right: -100px !important;\n}\n@media screen and (max-width: 1500px) {\n.table-footer[data-v-ccb78764] { \n    position: relative !important; \n    right: -500px !important;\n}\n}\n.table-footer .datatable-length[data-v-ccb78764] { \n  display: flex;\n}\n.table-footer .datatable-length select[data-v-ccb78764] { \n  outline: none;\n}\n.table-footer img[data-v-ccb78764] { \n  width: 46px;\n}\n.table-footer label[data-v-ccb78764] { \n  font-size: 12px; \n  color: rgba(0, 0, 0, 0.54); \n  display: flex; \n  /* works with row or column */ \n  flex-direction: row; \n  align-items: center; \n  justify-content: center; \n  margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-ccb78764] { \n  display: flex; \n  /* works with row or column */ \n  flex-direction: row; \n  align-items: center; \n  justify-content: center;\n}\n.table-footer .datatable-info[data-v-ccb78764], \n.table-footer .datatable-length[data-v-ccb78764] { \n  margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-ccb78764] { \n  display: flex; \n  -webkit-display: flex; \n  margin: 0; \n  list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-ccb78764] { \n  color: rgba(0, 0, 0, 0.54); \n  padding: 0 8px; \n  font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-ccb78764] { \n  margin: 0; \n  border-bottom: none; \n  height: auto; \n  line-height: normal; \n  font-size: 12px; \n  width: 40px; \n  text-align: right;\n}\n.table-footer select[data-v-ccb78764] { \n  background-color: transparent; \n  width: auto; \n  padding: 0; \n  border: 0; \n  border-radius: 0; \n  height: auto; \n  margin-left: 20px;\n}\n.table-title[data-v-ccb78764] { \n  font-size: 20px; \n  color: #000;\n}\ntable tr td[data-v-ccb78764] { \n  height: 35px; \n  font-size: 14px; \n  color: #1c2331; \n  display: table-cell; \n  font-family: 'Rubik', sans-serif !important; \n  padding: 10px 20px 10px 0px; \n  min-width: 150px;\n}\n@media screen and (max-width: 1500px) {\ntable tr td[data-v-ccb78764] { \n    font-size: 12px; \n    padding: 5px 10px 5px 0px;\n}\n}\ntable tr td a i[data-v-ccb78764] { \n  font-size: 18px; \n  color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-ccb78764] { \n  font-size: 12px; \n  border-bottom: 1px solid #f2f2f2; \n  padding-left: 0; \n  width: auto; \n  white-space: nowrap;\n}\ntable thead tr[data-v-ccb78764]:first-child { \n  border-bottom: 0;\n}\ntable th[data-v-ccb78764] { \n  font-size: 12px; \n  font-weight: 600; \n  color: #A6A6A6; \n  cursor: pointer; \n  white-space: nowrap; \n  padding-right: 20px !important; \n  /* height: 56px; */ \n  /* padding-left: 14px; */ \n  vertical-align: middle; \n  outline: none !important; \n  overflow: hidden; \n  text-overflow: ellipsis; \n  background-size: 11px 12px; \n    background-repeat: no-repeat; \n    background-position: left center; \n  font-family: 'Montserrat bold', sans-serif;\n}\ntable th[data-v-ccb78764]:hover { \n  overflow: visible; \n  text-overflow: initial;\n}\ntable th.sorting-asc[data-v-ccb78764], \ntable th.sorting-desc[data-v-ccb78764] { \n  color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-ccb78764] { \n  color: rgba(0, 0, 0, 0.87); \n  background-image: url('/images/DataTables/Filter_1.svg') !important; \n    background-repeat: no-repeat; \n    background-position: 77% 7px;\n}\ntable th.sorting-desc[data-v-ccb78764] { \n  color: rgba(0, 0, 0, 0.87); \n  background-image: url('/images/DataTables/Filter_2.svg') !important; \n    background-repeat: no-repeat; \n    background-position: 77% 7px;\n}\ntable tr td a[data-v-ccb78764]{ \n  color: #1890ff; \n  background-color: transparent; \n  text-decoration: none; \n  outline: none; \n  cursor: pointer; \n  transition: color 0.3s; \n  -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-ccb78764]:hover:after, \ntable th.sorting-asc[data-v-ccb78764]:after, \ntable th.sorting-desc[data-v-ccb78764]:after { \n  display: inline-block;\n}\ntable tbody tr[data-v-ccb78764]:hover { \n  background-color: #EEE;\n}\ntable th[data-v-ccb78764]:last-child, \ntable td[data-v-ccb78764]:last-child { \n  padding-right: 14px; \n  padding-left: 11px; \n  background-image: none !important;\n} \n \n/* table th:first-child, \ntable td:first-child { \n  padding-left: 25px; \n} */\n.add-columns[data-v-ccb78764] {  \n  position: fixed;  \n  z-index: 100;  \n  background-color: #fff;  \n  padding-right: 20px;  \n  left:75px;\n}\n.show > .btn-secondary.dropdown-toggle[data-v-ccb78764] {  \n  background-color: #f6f8f9;\n}\n#dropdownMenuButton[data-v-ccb78764]:after {  \n  display: none;\n}\n.btn-primary[data-v-ccb78764] {  \n  border-radius: 50rem!important;  \n  text-transform:uppercase;  \n  font-size: 10px;  \n  padding: 11px 14px 10px;  \n  line-height:1em;  \n  margin-left: 0.9%;  \n  margin-right: 0.9%;\n}\n.dropdown-menu.show[data-v-ccb78764] {  \n  padding:10px;  \n  border-radius: 10px;  \n  border:0;  \n  box-shadow: 0 0 10px rgba(0,0,0,0.1);  \n  width:225px;\n}\n.form-group.select-columns-list[data-v-ccb78764] {  \n  max-height: 150px;  \n  overflow-y: auto;  \n  overflow-x: hidden;  \n  margin-bottom: 0!important;\n}  \n", ""]);
 
 // exports
 
@@ -365641,8 +365597,291 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {}
-var staticRenderFns = []
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "no-box-shadow material-table" }, [
+    _c("div", { staticClass: "add-columns pl-0" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "dropdown-menu",
+          attrs: { "aria-labelledby": "dropdownMenuButton" }
+        },
+        [
+          _c(
+            "b-form-group",
+            { staticClass: "select-columns-list" },
+            _vm._l(_vm.colum_select_options, function(option) {
+              return _c(
+                "b-form-checkbox",
+                {
+                  key: option.value.index,
+                  staticClass: "w-100",
+                  attrs: { name: "selected-columns" },
+                  model: {
+                    value: _vm.selected_columns,
+                    callback: function($$v) {
+                      _vm.selected_columns = $$v
+                    },
+                    expression: "selected_columns"
+                  }
+                },
+                [_vm._v(_vm._s(option.text))]
+              )
+            }),
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass:
+                "btn btn-primary font-weight-bold rounded-pill mt-2 mb-0 mx-auto d-block",
+              attrs: { type: "submit" },
+              on: {
+                click: function($event) {
+                  return _vm.handleChange()
+                }
+              }
+            },
+            [_vm._v("Apply")]
+          )
+        ],
+        1
+      )
+    ]),
+    _vm._v(" "),
+    _c("table", { ref: "table" }, [
+      _c("thead", [
+        _c(
+          "tr",
+          _vm._l(_vm.columns, function(column, index) {
+            return _c(
+              "th",
+              {
+                key: index,
+                class:
+                  (column.sortable ? "sorting " : "") +
+                  (_vm.sortColumn === index
+                    ? _vm.sortType === "desc"
+                      ? "sorting-desc"
+                      : "sorting-asc"
+                    : "") +
+                  (column.numeric ? " numeric" : ""),
+                style: { width: column.width ? column.width : "auto" },
+                on: {
+                  click: function($event) {
+                    return _vm.sort(index)
+                  }
+                }
+              },
+              [_vm._v(_vm._s(column.label))]
+            )
+          }),
+          0
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.paginated, function(row, index) {
+          return _c(
+            "tr",
+            {
+              key: index,
+              class: _vm.onClick ? "clickable" : "",
+              on: {
+                click: function($event) {
+                  return _vm.click(row, index)
+                }
+              }
+            },
+            _vm._l(_vm.columns, function(column, i) {
+              return _c(
+                "td",
+                { key: i, class: column.numeric ? "numeric" : "" },
+                [
+                  column.field == "full_name"
+                    ? _c("span", [
+                        _vm._v(
+                          " \n            " +
+                            _vm._s(_vm.collect(row, column.field)) +
+                            " \n          "
+                        )
+                      ])
+                    : column.field == "status"
+                    ? _c("span", { class: _vm.collect(row, column.field) })
+                    : column.field == "actions" &&
+                      (_vm.role == 1 || _vm.role == 2)
+                    ? _c("span", { staticClass: "actions" }, [
+                        _vm._v(" \n              \n          ")
+                      ])
+                    : _c("span", [
+                        _vm._v(_vm._s(_vm.collect(row, column.field)))
+                      ])
+                ]
+              )
+            }),
+            0
+          )
+        }),
+        0
+      )
+    ]),
+    _vm._v(" "),
+    _vm.paginate
+      ? _c("div", { staticClass: "table-footer" }, [
+          _c("div", { staticClass: "datatable-length" }, [
+            _c("label", [
+              _c("span", [_vm._v("Rows per page:")]),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  staticClass: "browser-default",
+                  on: { change: _vm.onTableLength }
+                },
+                [
+                  _c("option", { attrs: { value: "15" } }, [_vm._v("15")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "30" } }, [_vm._v("30")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "40" } }, [_vm._v("40")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "50" } }, [_vm._v("50")]),
+                  _vm._v(" "),
+                  _c("option", { attrs: { value: "-1" } }, [_vm._v("All")])
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "datatable-info" }, [
+            _vm._v(
+              " \n      " +
+                _vm._s(
+                  (_vm.currentPage - 1) * _vm.currentPerPage
+                    ? (_vm.currentPage - 1) * _vm.currentPerPage
+                    : 1
+                ) +
+                " -" +
+                _vm._s(
+                  Math.min(
+                    _vm.processedRows.length,
+                    _vm.currentPerPage * _vm.currentPage
+                  )
+                ) +
+                " of " +
+                _vm._s(_vm.processedRows.length) +
+                " \n    "
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("ul", { staticClass: "material-pagination" }, [
+              _c("li", [
+                _c(
+                  "a",
+                  {
+                    staticClass: "waves-effect btn-flat",
+                    attrs: { href: "javascript:undefined", tabindex: "0" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.previousPage($event)
+                      }
+                    }
+                  },
+                  [
+                    _c("img", {
+                      staticClass: "chevron",
+                      attrs: {
+                        src: "/images/DataTables/left arrow.svg",
+                        alt: "Nav left icon"
+                      }
+                    })
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c(
+                  "a",
+                  {
+                    staticClass: "waves-effect btn-flat",
+                    attrs: { href: "javascript:undefined", tabindex: "0" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.nextPage($event)
+                      }
+                    }
+                  },
+                  [
+                    _c("img", {
+                      staticClass: "chevron",
+                      attrs: {
+                        src: "/images/DataTables/right arrow.svg",
+                        alt: "Nav right icon"
+                      }
+                    })
+                  ]
+                )
+              ])
+            ])
+          ])
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _c("div", [
+      _c("input", {
+        ref: "callJoinBtn",
+        attrs: { type: "hidden" },
+        on: {
+          click: function($event) {
+            return _vm.startCall()
+          }
+        }
+      })
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass:
+          "btn btn-secondary dropdown-toggle rounded-circle border-0 m-0",
+        attrs: {
+          type: "button",
+          id: "dropdownMenuButton",
+          "data-toggle": "dropdown",
+          "aria-haspopup": "true",
+          "aria-expanded": "false"
+        }
+      },
+      [
+        _c("img", {
+          staticClass: "icon",
+          staticStyle: { width: "10px" },
+          attrs: {
+            src: "/images/workstation/Asset 28@4x.png",
+            alt: "Show column Icon"
+          }
+        })
+      ]
+    )
+  }
+]
+render._withStripped = true
 
 
 
@@ -368396,7 +368635,7 @@ var render = function() {
             {
               staticClass: "ml-0",
               class: {
-                active: _vm.active_module_name === "roles" ? true : false
+                active: _vm.active_module_name === "branches" ? true : false
               },
               attrs: { href: "#" }
             },
@@ -368409,7 +368648,7 @@ var render = function() {
             "a",
             {
               class: {
-                active: _vm.active_module_name === "commission" ? true : false
+                active: _vm.active_module_name === "products" ? true : false
               },
               attrs: { href: "#" }
             },
@@ -368422,8 +368661,7 @@ var render = function() {
             "a",
             {
               class: {
-                active:
-                  _vm.active_module_name === "api_integration" ? true : false
+                active: _vm.active_module_name === "orders" ? true : false
               },
               attrs: { href: "#" }
             },
@@ -369451,9 +369689,10 @@ var render = function() {
                           field.name !== "owner" &&
                           field.name !== "assignee" &&
                           field.name !== "status" &&
-                          field.name !== "title",
+                          field.name !== "title" &&
+                          field.name !== "source",
                         expression:
-                          "field.name !== 'owner' \n        && field.name !== 'assignee' \n        && field.name !== 'status'\n        && field.name !== 'title'"
+                          "field.name !== 'owner' \n        && field.name !== 'assignee' \n        && field.name !== 'status'\n        && field.name !== 'title'\n        && field.name !== 'source'"
                       }
                     ],
                     staticClass: "m-2",
@@ -369543,6 +369782,53 @@ var render = function() {
                             staticClass: "help-block"
                           },
                           [_vm._v(_vm._s(_vm.errors.first(field.display_name)))]
+                        )
+                      ],
+                      1
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a-col",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: field.name == "source",
+                        expression: "field.name == 'source'"
+                      }
+                    ],
+                    staticClass: "m-2",
+                    attrs: { span: 7 }
+                  },
+                  [
+                    _c(
+                      "label",
+                      [
+                        _vm._v("Source\n            "),
+                        _c(
+                          "a-select",
+                          {
+                            staticStyle: { width: "100%" },
+                            attrs: { defaultValue: "Please Select" },
+                            model: {
+                              value: field.value,
+                              callback: function($$v) {
+                                _vm.$set(field, "value", $$v)
+                              },
+                              expression: "field.value"
+                            }
+                          },
+                          _vm._l(_vm.sources, function(item, i) {
+                            return _c(
+                              "a-select-option",
+                              { key: i, attrs: { value: item.id } },
+                              [_vm._v(_vm._s(item.name))]
+                            )
+                          }),
+                          1
                         )
                       ],
                       1
@@ -381496,27 +381782,15 @@ var render = function() {
                     [_vm._v("-None-")]
                   ),
                   _vm._v(" "),
-                  _c("a-select-option", { attrs: { value: "1" } }, [
-                    _vm._v("Advertising")
-                  ]),
-                  _vm._v(" "),
-                  _c("a-select-option", { attrs: { value: "2" } }, [
-                    _vm._v("Cold Call")
-                  ]),
-                  _vm._v(" "),
-                  _c("a-select-option", { attrs: { value: "3" } }, [
-                    _vm._v("Employee Referral")
-                  ]),
-                  _vm._v(" "),
-                  _c("a-select-option", { attrs: { value: "4" } }, [
-                    _vm._v("External Referral")
-                  ]),
-                  _vm._v(" "),
-                  _c("a-select-option", { attrs: { value: "5" } }, [
-                    _vm._v("Online Store")
-                  ])
+                  _vm._l(_vm.sources, function(item, i) {
+                    return _c(
+                      "a-select-option",
+                      { key: i, attrs: { value: item.id } },
+                      [_vm._v(_vm._s(item.name))]
+                    )
+                  })
                 ],
-                1
+                2
               ),
               _vm._v(" "),
               _c(

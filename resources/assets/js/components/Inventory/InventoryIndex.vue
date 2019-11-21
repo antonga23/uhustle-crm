@@ -176,7 +176,7 @@
         <li class="item ml-0">
           <a 
             href="#" 
-            :class="{ 'active' : ( active_module_name ===  'roles')? true : false }"
+            :class="{ 'active' : ( active_module_name ===  'branches')? true : false }"
             class="ml-0"
           >Branches</a>
         </li>
@@ -184,14 +184,14 @@
         <li class="item" style="display_none">
           <a 
             href="#" 
-            :class="{ 'active' : ( active_module_name ===  'commission')? true : false }"
+            :class="{ 'active' : ( active_module_name ===  'products')? true : false }"
           >Products</a>
         </li>
 
         <li class="item">
           <a 
             href="#" 
-            :class="{ 'active' : ( active_module_name ===  'api_integration')? true : false }"
+            :class="{ 'active' : ( active_module_name ===  'orders')? true : false }"
           >Orders/Requesitions</a>
         </li>
 
@@ -232,6 +232,7 @@
     data: function(){
       return {
         show_page_loader: true,
+        active_module_name: 'branches',
         Toast:null
       }
     },

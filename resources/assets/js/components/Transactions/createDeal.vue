@@ -119,11 +119,7 @@ label{
             <label class="col-lg-12 control-label w-100 p-0 mb-2">Lead Source</label>   
             <a-select v-model="deal.lead_source" class="custom-select rounded-pill border-0">   
               <a-select-option value="-None-" selected>-None-</a-select-option>   
-              <a-select-option value="1">Advertising</a-select-option>   
-              <a-select-option value="2">Cold Call</a-select-option>   
-              <a-select-option value="3">Employee Referral</a-select-option>   
-              <a-select-option value="4">External Referral</a-select-option>   
-              <a-select-option value="5">Online Store</a-select-option>    
+              <a-select-option :value="item.id" v-for="(item,i) in sources" :key="i">{{ item.name }}</a-select-option>   
             </a-select>   
 
             <label class="col-lg-12 control-label w-100 p-0 mb-2">Amount</label>  
@@ -237,6 +233,8 @@ export default {
   mounted() {
     this.getLeads();
 
+    this.getSources();
+
     this.Toast = this.$swal.mixin({
       toast: true,
       position: 'top-end',
@@ -267,6 +265,7 @@ export default {
         status:'' ,
       },
       leads: [],
+      sources: [],
       Toast: null,
     }
   },
@@ -327,6 +326,14 @@ export default {
           vm.leads = response.data.leads.display_items;
         });
       }
+    },
+    getSources(){
+      var vm = this;
+      
+      axios.get("/leads/get-sources").then(function(response) {  
+        vm.sources = response.data.sources;
+      });
+
     },
   }
 }

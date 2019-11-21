@@ -132,7 +132,7 @@
                                 :value="{ id : item.id, name : item.name }" 
                                 v-for="(item,index) in sources" 
                                 :key="index"
-                              >{{ item.name}}</option>
+                              >{{ item.name }}</option>
                             </select>
                           </span>
 

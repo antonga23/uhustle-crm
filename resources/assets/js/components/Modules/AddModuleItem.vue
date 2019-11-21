@@ -65,7 +65,8 @@
           v-show="field.name !== 'owner' 
           && field.name !== 'assignee' 
           && field.name !== 'status'
-          && field.name !== 'title'"
+          && field.name !== 'title'
+          && field.name !== 'source'"
           >
           <label>
               {{ field.display_name }}
@@ -73,6 +74,13 @@
               <a-input :id="field.name" :name="field.display_name" v-model="field.value" v-else-if="field.required == 1" v-validate="'required'" />
               <a-input :id="field.name" :name="field.display_name" v-model="field.value" v-else-if="field.required == 0 || field.required === null" />
               <span v-show="errors.has(field.display_name)" class="help-block">{{ errors.first(field.display_name) }}</span>
+          </label>
+        </a-col>
+        <a-col :span="7" class="m-2" v-show="field.name == 'source'">    
+          <label>Source
+              <a-select defaultValue="Please Select" v-model="field.value" style="width: 100%">
+                <a-select-option :value="item.id" v-for="(item,i) in sources" :key="i">{{ item.name }}</a-select-option>
+              </a-select>
           </label>
         </a-col>
         <a-col :span="7" class="m-2" v-show="field.name == 'owner'">    
@@ -112,7 +120,7 @@
 </template>
 <script>
 export default {
-  props: ['module', 'active_users', 'active_roles'],
+  props: ['module', 'active_users', 'active_roles', 'sources'],
   data: function(){
       return {
         active_module : '',
