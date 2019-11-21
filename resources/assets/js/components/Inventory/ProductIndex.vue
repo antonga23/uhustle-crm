@@ -17,21 +17,6 @@
 h5 {
   font-size: 0.83vw;
 }
-.nav-link.active img {
-  margin-left:20px;
-  display: inline-block!important;
-  box-shadow: 0 0 2px rgba(0,0,0,0.15);
-  -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);
-  -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);
-  -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);
-  border-radius: 50rem;
-}
-.add-module-btn {
-  box-shadow:none!important;
-  -webkit-box-shadow:none!important;
-  -moz-box-shadow:none!important;
-  -o-box-shadow:none!important;
-}
 .tab-pane.card-body {
   padding:4.4% 5.6% 6.8%;
 }
@@ -45,7 +30,7 @@ h5 {
           <b-tabs card>
             <b-tab active>
               <template v-slot:title>
-                <h5 class="d-inline-block">Products</h5>
+                <h5 class="d-inline-block mb-0">Products</h5>
               </template>
 
               <transition name="fade">
@@ -55,7 +40,7 @@ h5 {
 
             <b-tab>
               <template v-slot:title>
-                <h5 class="d-inline-block">Category</h5>
+                <h5 class="d-inline-block mb-0">Category</h5>
               </template>
 
               <transition name="fade">
@@ -65,7 +50,8 @@ h5 {
 
             <b-tab>
               <template v-slot:title>
-                <img src="images/icons/Field_Add.svg" alt="Add field icon" width="16"/>
+                <h5 class="d-inline-block mb-0">Add New</h5>
+                <img src="images/icons/Field_Add.svg" alt="Add field icon" width="16" class="d-none"/>
               </template>
 
               <div class="row mx-0">
@@ -77,6 +63,8 @@ h5 {
                   </a-select>
                 </div>
               </div>
+
+              <div class="divider-line"></div>
 
               <div class="create-category" v-if="create_new === 'category'">
                 <create-category/>

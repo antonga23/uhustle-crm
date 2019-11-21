@@ -6,10 +6,6 @@
 .tab-pane.card-body {
   padding:4.4% 5.6% 6.8%;
 }
-.nav-link.active img {
-  display:inline-block!important;
-  margin-left: 20px;
-}
 .branches .tab-pane .row{
   margin-right: 0;
   margin-left: 0;
@@ -26,12 +22,6 @@ h5 {
   -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);
   border-radius: 50rem;
 }
-.add-module-btn {
-  box-shadow:none!important;
-  -webkit-box-shadow:none!important;
-  -moz-box-shadow:none!important;
-  -o-box-shadow:none!important;
-}
 .tab-pane.card-body {
   padding:4.4% 5.6% 6.8%;
 }
@@ -45,7 +35,7 @@ h5 {
           <b-tabs card>
             <b-tab active>
               <template v-slot:title>
-                <h5 class="d-inline-block">Branches</h5>
+                <h5 class="d-inline-block mb-0">Branches</h5>
               </template>
 
               <transition name="fade">
@@ -55,12 +45,12 @@ h5 {
 
             <b-tab>
               <template v-slot:title>
-                <h5 class="d-inline-block">Create a branch</h5>
-                <img src="images/icons/Field_Add.svg" alt="Add field icon" width="16"/>
+                <h5 class="d-inline-block mb-0">Create a branch</h5>
+                <img src="images/icons/Field_Add.svg" alt="Add field icon" width="16" class="d-none"/>
               </template>
 
               <transition name="fade">
-                hi
+                <create-branch/>
               </transition>
             </b-tab>
           </b-tabs>
@@ -72,10 +62,11 @@ h5 {
 
 <script>
   import BranchesListingTable from "../DataTables/BranchesListingTable";
+  import CreateBranch from './CreateBranch';
   export default {
     components: { 
-      BranchesListingTable
-      
+      BranchesListingTable,
+      CreateBranch
     },
     mounted() {
       

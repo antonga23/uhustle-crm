@@ -6,10 +6,6 @@
 .tab-pane.card-body {
   padding:4.4% 5.6% 6.8%;
 }
-.nav-link.active img {
-  display:inline-block!important;
-  margin-left: 20px;
-}
 .products .tab-pane .row{
   margin-right: 0;
   margin-left: 0;
@@ -45,8 +41,17 @@ h5 {
           <b-tabs card>
             <b-tab active>
               <template v-slot:title>
-                <h5 class="d-inline-block">Create Order</h5>
-                <img src="images/icons/Field_Add.svg" alt="Add field icon" width="16"/>
+                <h5 class="d-inline-block mb-0">Start Order</h5>
+              </template>
+
+              <transition name="fade">
+                
+              </transition>
+            </b-tab>
+
+            <b-tab>
+              <template v-slot:title>
+                <h5 class="d-inline-block mb-0">Complete Order</h5>
               </template>
 
               <transition name="fade">
@@ -56,7 +61,7 @@ h5 {
 
             <b-tab>
               <template v-slot:title>
-                <h5 class="d-inline-block">Order History</h5>
+                <h5 class="d-inline-block mb-0">Order History</h5>
               </template>
 
               <transition name="fade">
