@@ -49,7 +49,7 @@ h5 {
               </template>
 
               <transition name="fade">
-                
+                <ProductListingTable></ProductListingTable>
               </transition>
             </b-tab>
 
@@ -70,7 +70,7 @@ h5 {
               </template>
 
               <transition name="fade">
-                
+                <CategoryListingTable></CategoryListingTable>
               </transition>
             </b-tab>
 
@@ -92,8 +92,12 @@ h5 {
 </template>
 
 <script>
+import ProductListingTable from "../DataTables/ProductListingTable";
+import CategoryListingTable from "../DataTables/CategoryListingTable";
   export default {
     components: { 
+      ProductListingTable,
+      CategoryListingTable
       
     },
     mounted() {

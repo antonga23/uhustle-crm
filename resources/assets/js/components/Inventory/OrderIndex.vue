@@ -60,7 +60,7 @@ h5 {
               </template>
 
               <transition name="fade">
-                
+                <OrdersListingTable></OrdersListingTable>
               </transition>
             </b-tab>
           </b-tabs>
@@ -71,8 +71,10 @@ h5 {
 </template>
 
 <script>
+import OrdersListingTable from "../DataTables/OrdersListingTable";
   export default {
     components: { 
+      OrdersListingTable
       
     },
     mounted() {

@@ -49,7 +49,7 @@ h5 {
               </template>
 
               <transition name="fade">
-                hi
+                <BranchesListingTable></BranchesListingTable>
               </transition>
             </b-tab>
 
@@ -71,8 +71,10 @@ h5 {
 </template>
 
 <script>
+  import BranchesListingTable from "../DataTables/BranchesListingTable";
   export default {
     components: { 
+      BranchesListingTable
       
     },
     mounted() {
