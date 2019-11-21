@@ -55,17 +55,6 @@ h5 {
 
             <b-tab>
               <template v-slot:title>
-                <h5 class="d-inline-block">Create a product</h5>
-                <img src="images/icons/Field_Add.svg" alt="Add field icon" width="16"/>
-              </template>
-
-              <transition name="fade">
-                
-              </transition>
-            </b-tab>
-
-            <b-tab>
-              <template v-slot:title>
                 <h5 class="d-inline-block">Category</h5>
               </template>
 
@@ -76,12 +65,22 @@ h5 {
 
             <b-tab>
               <template v-slot:title>
-                <h5 class="d-inline-block">Create a category</h5>
                 <img src="images/icons/Field_Add.svg" alt="Add field icon" width="16"/>
               </template>
 
               <transition name="fade">
-                
+                <a-select v-model="create_new" class="custom-select rounded-pill border-0">   
+                  <a-select-option value="category" selected>Category</a-select-option>   
+                  <a-select-option value="product">Product</a-select-option> 
+                </a-select>
+
+                <div class="orders" v-if="create_new === 'category'">
+                  <create-category/>
+                </div>
+
+                <div class="orders" v-if="create_new === 'product'">
+                  <create-product/>
+                </div>
               </transition>
             </b-tab>
           </b-tabs>
@@ -92,9 +91,12 @@ h5 {
 </template>
 
 <script>
+  import CreateProduct from './CreateProduct';
+  import CreateCategory from './CreateCategory';
   export default {
     components: { 
-      
+      CreateProduct,
+      CreateCategory
     },
     mounted() {
       
@@ -106,7 +108,7 @@ h5 {
     ],
     data: function(){
       return {
-        
+        create_new: null
       }
     },
     methods: {

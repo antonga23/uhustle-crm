@@ -26,42 +26,14 @@ label{
   margin-bottom: 7px;
   margin-left: 17px;
 }
-.col.align-self-end {
-  margin-bottom:17px;
-}
-.cancel-deal {
+.btn-primary {
   border-radius: 50rem!important;
-  font-size: 10px;
-  text-transform: uppercase;
-  box-shadow: 0 0 4px rgba(0,0,0,0.05);
-  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.05);
-  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.05);
-  -o-box-shadow: 0 0 4px rgba(0,0,0,0.05);
-  color: #999999;
-  padding: 11px 14px 10px;
-  line-height: 1em;
-}
-.save-deal {
-  font-size: 10px;
   text-transform:uppercase;
-  font-weight: 700;
+  font-size: 10px;
   padding: 11px 14px 10px;
-  line-height: 1em;
-}
-
-@media screen and (max-width:1643px) {
-  .col .row {
-    justify-content: flex-end;
-  }
-  .col-7 {
-    flex: 0 0 66.666667%!important;
-    max-width: 66.666667%!important;
-  }
-  .col-3 {
-    flex: 0 0 33.333332%!important;
-    max-width: 33.333332%!important;
-    padding-right: 0!important;
-  }
+  line-height:1em;
+  margin-left: 0.9%;
+  margin-right: 0.9%;
 }
 </style>
 
@@ -71,22 +43,19 @@ label{
     <div class="row mx-0 align-items-end">
       <div class="col-3 pl-0">   
         <label class="col-lg-12 control-label w-100 p-0 mb-2">Type</label>   
-        <input
-          v-model="order.type"    
-          type="text"    
-          id="agent-name"     
-          name="AgentName"   
-          class="form-control rounded-pill"/>   
+        <a-select v-model="order.type" class="custom-select rounded-pill border-0">   
+          <a-select-option :value="'-None-'">-None-</a-select-option>   
+          <a-select-option v-for="(o_type, index) in order.types" :key="index">{{o_type}}</a-select-option>  
+        </a-select>  
 
         <label class="col-lg-12 control-label w-100 p-0 mb-2">Class</label>   
         <a-select v-model="order.order_class" class="custom-select rounded-pill border-0">   
           <a-select-option :value="'-None-'">-None-</a-select-option>   
-          <a-select-option v-for="(order_class, index) in order_classes" :key="index">{{order_class}}</a-select-option>  
+          <a-select-option v-for="(o_class, index) in order.order_classes" :key="index">{{o_class}}</a-select-option>  
         </a-select>
 
         <label class="col-lg-12 control-label w-100 p-0 mb-2">Request Date</label>   
-        <a-date-picker    
-          @change="handleDateChange"    
+        <a-date-picker       
           id="request-date"     
           name="RequestDate"   
           class="form-control rounded-pill p-0 border-0"/> 
@@ -94,7 +63,7 @@ label{
         <label class="control-label w-100 p-0 mb-2">Requestor</label>   
         <a-select v-model="order.requestor" class="custom-select rounded-pill border-0">   
           <a-select-option value="-None-" selected>-None-</a-select-option>   
-          <a-select-option v-for="(requestor, index) in requestors" :key="index">{{requestor}}</a-select-option>   
+          <a-select-option v-for="(o_requestor, index) in order.requestors" :key="index">{{o_requestor}}</a-select-option>   
         </a-select>   
       </div>   
 
@@ -138,7 +107,7 @@ label{
         <label class="col-lg-12 control-label w-100 p-0 mb-2">Origin Type</label> 
         <a-select v-model="order.origin_type" class="custom-select rounded-pill border-0">   
           <a-select-option value="-None-" selected>-None-</a-select-option>   
-          <a-select-option v-for="(origin_type, index) in origin_types" :key="index">{{origin-type}}</a-select-option> 
+          <a-select-option v-for="(o_type, index) in order.origin_types" :key="index">{{o-type}}</a-select-option> 
         </a-select>  
       </div>
 
@@ -161,6 +130,10 @@ label{
           disabled/>    
       </div>   
     </div>  
+
+    <div class="row mx-0 justify-content-end">
+      <b-button variant="primary" class="font-weight-bold m-0">Add</b-button>
+    </div>
   </div>
 </template>
 
@@ -176,6 +149,7 @@ export default {
     return { 
       order: {
         type: '',
+        types: ['Maintenance Requessition', 'New Requisition'],
         order_class: '-None-',
         order_classes: ['Inventory'],
         billing_address: '',

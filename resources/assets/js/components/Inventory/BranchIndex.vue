@@ -49,7 +49,7 @@ h5 {
               </template>
 
               <transition name="fade">
-                hi
+                
               </transition>
             </b-tab>
 
