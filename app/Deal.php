@@ -23,4 +23,10 @@ class Deal extends Model
       'contact_number',
       'status',
     ];
+
+
+    public function lead()
+    {
+        return $this->belongsTo('App\Lead', 'lead_id');
+    }
 }

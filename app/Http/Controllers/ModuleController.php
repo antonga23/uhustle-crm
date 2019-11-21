@@ -821,7 +821,6 @@ class ModuleController extends Controller
                 $lead_id_index++;
               }
             }
-    
           }
           DB::commit();
 
@@ -867,7 +866,7 @@ class ModuleController extends Controller
     
     $module = Module::with('module_fields')->where(['tag' => $module])->select('id')->first();
 
-    $module_items = ModuleItem::with('item_meta')->where(['module_id' => $module->id])->whereIn('id', $item_ids)->get()->take(16);
+    $module_items = ModuleItem::with('item_meta')->where(['module_id' => $module->id])->whereIn('id', $item_ids)->get()->take($preferences['value']);
 
     $items = $this->compactModuleItems($module_items);
 
@@ -892,5 +891,77 @@ class ModuleController extends Controller
       'products' => $products,
       'active_users' => $active_users,
     ];
+  }
+
+
+
+  public function getContactsOrLeads($module = null){
+    
+    $preferences = SystemSettings::where(['user_id' => Auth::user()->id])
+                                  ->where(['setting' => 'max_table_rows'])
+                                  ->select('value')
+                                  ->first();   
+    
+    $module = Module::where(['tag' => $module])->select('id')->first();
+
+    
+
+    if(Auth::user()->role_id == 1){
+
+      if($preferences){
+
+        $module_items = ModuleItem::with('item_meta')
+        ->where(['module_id' => $module->id])
+        ->take($preferences['value'])
+        ->get();
+
+      }else{
+
+        $module_items = ModuleItem::with('item_meta')
+        ->where(['module_id' => $module->id])
+        ->get();
+
+      }
+
+    }else if(Auth::user()->role_id == 2){
+
+      if($preferences){
+        $module_items = ModuleItem::with('item_meta')
+                                    ->where(['module_id' => $module->id])
+                                    ->where(['owner' => Auth::user()->id])
+                                    ->orWhere(['assignee' => Auth::user()->id])
+                                    ->take($preferences['value'])
+                                    ->get();
+
+      }else{
+        $module_items = ModuleItem::with('item_meta')
+                                    ->where(['module_id' => $module->id])
+                                    ->where(['owner' => Auth::user()->id])
+                                    ->orWhere(['assignee' => Auth::user()->id])
+                                    ->get();
+      }
+
+    }else if(Auth::user()->role_id > 2){
+
+      if($preferences){
+        $module_items = ModuleItem::with('item_meta')
+                                    ->where(['module_id' => $module->id])
+                                    ->where(['assignee' => Auth::user()->id])
+                                    ->take($preferences['value'])
+                                    ->get();
+
+      }else{
+        $module_items = ModuleItem::with('item_meta')
+                                    ->where(['module_id' => $module->id])
+                                    ->where(['assignee' => Auth::user()->id])
+                                    ->get();
+      }
+
+    }
+
+    $items = $this->compactModuleItems($module_items);
+
+    return $items;
+
   }
 }

@@ -95,6 +95,11 @@ class PagesController extends Controller
    {
       return view('pages.transactions')->with(['active'=> 'transactions']);
    }
+   
+   public function inventory()
+   {
+      return view('pages.inventory')->with(['active'=> 'inventory']);
+   }
 
    public function loadModulePage($type = null)
    {

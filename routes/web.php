@@ -103,9 +103,19 @@ Route::get('/move-leads',  function(){
             break; 
           case 'assignee':
               $insert = $lead->user_assigned;
+
+              ModuleItem::find($module_item->id)->update([
+                'assignee' => $insert
+              ]);
+
             break;
           case 'owner':
               $insert = $lead->user_created_id;
+
+              ModuleItem::find($module_item->id)->update([
+                'owner' => $insert
+              ]);
+
             break;
           case 'status':
               $insert = $lead->status;
@@ -119,6 +129,7 @@ Route::get('/move-leads',  function(){
         ModuleItemMeta::create([
           'item_id' => $module_item->id,
           'custom_field_id' => $value->id,
+          'custom_field_name' => $value->name,
           'custom_field_value' => $insert,
         ]);
       }
@@ -159,6 +170,7 @@ Route::get('/social-board', 'PagesController@socialBoard')->name('social-board')
 Route::get('/users', 'PagesController@users')->name('users');
 Route::get('/preferences', 'PagesController@preferences')->name('preferences');
 Route::get('/transactions', 'PagesController@transactions')->name('transactions');
+Route::get('/inventory', 'PagesController@inventory')->name('inventory');
 
 // Stripe Routes
 Route::group(['prefix' => 'stripe'], function () {
@@ -311,6 +323,7 @@ Route::group(['prefix' => 'modules'], function () {
   Route::get('/delete-item/{id}', 'ModuleController@deleteItem')->name('add-item-page');
   Route::post('/update-item', 'ModuleController@updateItem')->name('update-item-page');
   Route::get('/get-assigned/{module}', 'ModuleController@getAssigned');
+	Route::get('/get-assigned-items/{module}', 'ModuleController@getContactsOrLeads');
 
   // Pages
   Route::get('/{name}', 'PagesController@loadModulePage')->name('load-module-page');

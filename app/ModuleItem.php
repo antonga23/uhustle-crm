@@ -21,7 +21,9 @@ class ModuleItem extends Model implements Auditable
     }
 
     protected $fillable = [
-        'module_id'
+        'module_id',
+        'assignee',
+        'owner',
     ];   
 
     public function item_meta()

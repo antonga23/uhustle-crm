@@ -94,6 +94,7 @@ Vue.component('modules', require('./components/Modules/ModulesIndex.vue').defaul
 Vue.component('contacts', require('./components/Contacts/ContactsIndex.vue').default);
 Vue.component('preferences', require('./components/Preferences/PreferencesIndex.vue').default);
 Vue.component('transactions', require('./components/Transactions/TransactionsIndex.vue').default);
+Vue.component('inventory', require('./components/Inventory/InventoryIndex.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

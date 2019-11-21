@@ -2392,12 +2392,28 @@ export default {
 
         // ToDo: Push for slots
 
-        // vm.deal_items.map( (item) => {
+        vm.deal_items.map( (item) => {
 
-        //   vm.dealItems.push([
-        //     id:
-        //   ]);
-        // });
+          vm.dealItems.push({ 
+            id: item.id,
+            status: item.status,
+            deal_name: item.deal_name,
+            type: item.type,
+            description: item.description,
+            amount: item.amount,
+            contact_name: item.contact_name,
+            contact_number: item.contact_number,
+            expected_revenue: item.expected_revenue,
+            probability: item.probability,
+            stage: item.stage,
+            lead_id: item.lead_id,
+            lead_source: item.lead_source,
+            agent_name: item.agent_name,
+            closing_date: moment(item.closing_date,  'YYYY-MM-DD'),
+            created_at: item.created_at,
+          });
+          
+        });
 
       });
     },

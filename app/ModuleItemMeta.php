@@ -23,6 +23,7 @@ class ModuleItemMeta extends Model implements Auditable
     protected $fillable = [
         'item_id',
         'custom_field_id',
+        'custom_field_name',
         'custom_field_value'
     ];   
 

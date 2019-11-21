@@ -1523,7 +1523,7 @@ input.save-text:focus {
                 </transition-expand>
               </div>
 
-              <div class="row mx-0 preferences border-bottom" v-if="user.role_id == 1">
+              <div class="row mx-0 preferences border-bottom">
                 <div class="row mx-0 justify-content-between align-items-center w-100 mx-0 p-0">
                   <div class>
                     <h3 class="d-block mb-0">Settings</h3>
@@ -2877,6 +2877,8 @@ input.save-text:focus {
               vm.user_settings.theme = preference.value; 
             } else if (preference.setting == 'language') { 
               vm.user_settings.language = preference.value; 
+            } else if (preference.setting == 'max_table_rows') { 
+              vm.user_settings.max_table_rows = preference.value; 
             } 
           }); 
         }); 

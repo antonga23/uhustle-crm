@@ -323,6 +323,8 @@ table.listing tr  th{
             title=""
             >
             </datatable>
+              
+          <!-- <data-table-editable :active="active"></data-table-editable> -->
         </div>
       </div>
     </div>
@@ -543,7 +545,7 @@ table.listing tr  th{
       getItems(){
         var vm = this;
 
-        var endpoint = '/modules/get-assigned/' + vm.active;
+        var endpoint = '/modules/get-assigned-items/' + vm.active;
 
         vm.show_page_loader = true;
 
