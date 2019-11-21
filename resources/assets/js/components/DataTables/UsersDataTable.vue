@@ -1,102 +1,126 @@
 <template>  
-    <div class="card shadow-none material-table border-0">  
-        <table ref="table">  
-            <thead>  
-                <tr>  
-                    <th v-for="(column, index) in modified_columns" @click="sort(index)" :class="(sortable ? 'sorting ' : '')  
-                            + (sortColumn === index ?  
-                                (sortType === 'desc' ? 'sorting-desc' : 'sorting-asc')  
-                                : '')  
-                            + (column.numeric ? ' numeric' : '')" :style="{width: column.width ? column.width : 'auto'}" :key="index">  
-                        {{column.label}} 
-                        
-                        <div v-if="index == modified_columns.length-1" class="col pl-0">
-                            <b-button class="rounded-circle m-0" @click="show_column_select = !show_column_select">
-                                <img src="/images/workstation/Asset 28@4x.png" alt="Show column Icon" class="icon" style="width: 10px;" />
-                            </b-button>
-                            <div v-if="show_column_select">
+  <div class="card shadow-none material-table">
+    <div class="add-columns pl-0"> 
+      <button 
+        class="btn btn-secondary dropdown-toggle rounded-circle border-0 m-0" 
+        type="button" 
+        id="dropdownMenuButton" 
+        data-toggle="dropdown" 
+        aria-haspopup="true" 
+        aria-expanded="false"
+      > 
+        <img  
+          src="/images/workstation/Asset 28@4x.png"  
+          alt="Show column Icon"  
+          class="icon"  
+          style="width: 10px;" 
+        /> 
+      </button> 
 
-                                <b-form-select 
-                                  v-model="selected_columns" 
-                                  :options="colum_select_options" 
-                                  multiple 
-                                  :select-size="4"
-                                  @change="handleChange()"
-                                  >
-                                  </b-form-select>
-                                <!-- <button type="submit" class="btn btn-primary update-user w-100 rounded-pill m-0">Apply</button> -->
-                            </div>
-                        </div> 
-                    </th>  
-                </tr>  
-            </thead>  
-            <tbody>  
-                <tr v-for="(row, index) in paginated" :class="onClick ? 'clickable' : ''" @click="click(row, index)" :key="index">  
-                    <td v-for="(column, i) in modified_columns" :class="column.numeric ? 'numeric' : ''" :key="i">  
-                        <span v-if="column.field == 'full_name'">  
-                            <a  @click="showEdit(row, row.leads,row.clients)"  class="small-avatar">  
-                                <img v-if="row.avatar != '' && row.avatar != null" :src="avatarUrl + row.id + '/' + row.avatar" alt="Profile icon">  
-                                <img v-else :src="noImageUrl" alt="Profile icon"/>  
-                                {{ row.full_name }}  
-                            </a>  
-                        </span>  
-                        <span v-else-if="column.field == 'role'">  
-                            {{ row.role }}  
-                        </span>  
-                        <span v-else-if="column.field == 'email'">  
-                            {{ row.email }}  
-                        </span>  
-                        <span v-else-if="column.field == 'personal_number'">  
-                            {{ row.personal_number }}  
-                        </span>  
-                        <span v-else-if="column.field == 'updated_at'">  
-                            {{ row.updated_at }}  
-                        </span>  
-                        <span v-else-if="column.field == 'status'">  
-                           {{ row.status }}  
-                        </span>  
-                        <span v-else-if="column.field == 'actions' && ( role == 1 || role == 2 )" class="actions">  
-                            <a  class="Edit" href="#" @click="showEdit(row)" title="Edit"></a>  
-                            <a  class="Delete" href="#" @click="deleteItem(row.id)" title="Delete"></a>  
-                        </span>  
-                        <span v-else>{{ collect(row, column.field) }}</span>  
-                    </td>  
-                </tr>  
-            </tbody>  
-        </table>  
-        <div class="table-footer" v-if="paginate">  
-            <div class="datatable-length">  
-                <label>  
-                    <span>Rows per page:</span>  
-                    <select class="browser-default" @change="onTableLength">  
-                        <option value="11">11</option>  
-                        <option value="20">20</option>  
-                        <option value="30">30</option>  
-                        <option value="40">40</option>  
-                        <option value="50">50</option>  
-                        <option value="-1">All</option>  
-                    </select>  
-                </label>  
-            </div>  
-            <div class="datatable-info">  
-                {{(currentPage - 1) * currentPerPage ? (currentPage - 1) * currentPerPage : 1}} -{{Math.min(processedRows.length, currentPerPage * currentPage)}} of {{processedRows.length}}  
-            </div>  
-            <div>  
-                <ul class="material-pagination">  
-                    <li>  
-                        <a href="javascript:undefined" class="waves-effect btn-flat" @click.prevent="previousPage" tabindex="0">  
-                            <img src="/images/DataTables/left arrow.svg" alt="Nav left icon" class="chevron" />  
-                        </a>  
-                    </li>  
-                    <li>  
-                        <a href="javascript:undefined" class="waves-effect btn-flat" @click.prevent="nextPage" tabindex="0">  
-                            <img src="/images/DataTables/right arrow.svg" alt="Nav right icon" class="chevron" />  
-                        </a>  
-                    </li>  
-                </ul>  
-            </div>  
-        </div>   
-    </div>  
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> 
+        <b-form-group class="select-columns-list"> 
+          <b-form-checkbox  
+            v-model="selected_columns" 
+            v-for="option in colum_select_options"  
+            :key="option.value.index" 
+            name="selected-columns" 
+            class="w-100" 
+          >{{option.text}}</b-form-checkbox> 
+        </b-form-group> 
+        <button  
+          type="submit"  
+          @click="handleChange()"  
+          class="btn btn-primary font-weight-bold rounded-pill mt-2 mb-0 mx-auto d-block" 
+        >Apply</button> 
+      </div> 
+    </div> 
+
+    <table ref="table">  
+      <thead>  
+        <tr>  
+          <th v-for="(column, index) in modified_columns" 
+            @click="sort(index)" 
+            :class="(sortable ? 'sorting ' : '')  
+            + (sortColumn === index ?  
+              (sortType === 'desc' ? 'sorting-desc' : 'sorting-asc')  
+              : '')  
+            + (column.numeric ? ' numeric' : '')" 
+            :style="{width: column.width ? column.width : 'auto'}" 
+            :key="index"
+          >{{column.label}}</th>  
+        </tr>  
+      </thead>
+
+      <tbody>  
+        <tr v-for="(row, index) in paginated" :class="onClick ? 'clickable' : ''" @click="click(row, index)" :key="index">  
+          <td v-for="(column, i) in modified_columns" :class="column.numeric ? 'numeric' : ''" :key="i">  
+            <span v-if="column.field == 'full_name'">  
+              <a  @click="showEdit(row, row.leads,row.clients)"  class="small-avatar">  
+                <img 
+                  v-if="row.avatar != '' && row.avatar != null" 
+                  :src="avatarUrl + row.id + '/' + row.avatar" 
+                  alt="Profile icon"
+                >  
+                <img v-else :src="noImageUrl" alt="Profile icon"/>  
+                {{ row.full_name }}  
+              </a>  
+            </span>  
+            
+            <span v-else-if="column.field == 'role'">{{ row.role }}</span> 
+
+            <span v-else-if="column.field == 'email'">{{ row.email }}</span>  
+
+            <span v-else-if="column.field == 'personal_number'">{{ row.personal_number }}</span>  
+
+            <span v-else-if="column.field == 'updated_at'">{{ row.updated_at }}</span> 
+
+            <span v-else-if="column.field == 'status'">{{ row.status }}</span>  
+
+            <span v-else-if="column.field == 'actions' && ( role == 1 || role == 2 )" class="actions">  
+              <a  class="Edit" href="#" @click="showEdit(row)" title="Edit"></a>  
+              <a  class="Delete" href="#" @click="deleteItem(row.id)" title="Delete"></a>  
+            </span>  
+            <span v-else>{{ collect(row, column.field) }}</span>  
+          </td>  
+        </tr>  
+      </tbody>  
+    </table>  
+    <div class="table-footer" v-if="paginate">  
+      <div class="datatable-length">  
+        <label>  
+          <span>Rows per page:</span>  
+          <select class="browser-default" @change="onTableLength">  
+            <option value="11">11</option>  
+            <option value="20">20</option>  
+            <option value="30">30</option>  
+            <option value="40">40</option>  
+            <option value="50">50</option>  
+            <option value="-1">All</option>  
+          </select>  
+        </label>  
+      </div>  
+
+      <div class="datatable-info">  
+        {{(currentPage - 1) * currentPerPage ? (currentPage - 1) * currentPerPage : 1}} -{{Math.min(processedRows.length, currentPerPage * currentPage)}} of {{processedRows.length}}  
+      </div>  
+
+      <div>  
+        <ul class="material-pagination">  
+          <li>  
+            <a href="javascript:undefined" class="waves-effect btn-flat" @click.prevent="previousPage" tabindex="0">  
+              <img src="/images/DataTables/left arrow.svg" alt="Nav left icon" class="chevron" />  
+            </a>  
+          </li> 
+
+          <li>  
+            <a href="javascript:undefined" class="waves-effect btn-flat" @click.prevent="nextPage" tabindex="0">  
+              <img src="/images/DataTables/right arrow.svg" alt="Nav right icon" class="chevron" />  
+            </a>  
+          </li>  
+        </ul>  
+      </div>  
+    </div>   
+  </div>  
 </template>  
 <script>  
 import Fuse from 'fuse.js';  
@@ -418,6 +442,15 @@ export default {
 }  
 </script>  
 <style scoped>  
+.btn-secondary{ 
+  color: #fff; 
+  background-color: #f6f8f9; 
+  border-color: #f6f8f9; 
+  padding: 0px 7px; 
+} 
+.btn-secondary img{ 
+  width: 11px; 
+} 
 thead th {  
     position: sticky;  
     position: -webkit-sticky;  
@@ -759,4 +792,39 @@ table td:last-child {
 table td:first-child {  
     padding-left: 25px;  
 } */  
+.add-columns { 
+  position: fixed; 
+  z-index: 100; 
+  background-color: #fff; 
+  padding-right: 20px; 
+  left:75px; 
+} 
+.show > .btn-secondary.dropdown-toggle { 
+  background-color: #f6f8f9; 
+} 
+#dropdownMenuButton:after { 
+  display: none; 
+} 
+.btn-primary { 
+  border-radius: 50rem!important; 
+  text-transform:uppercase; 
+  font-size: 10px; 
+  padding: 11px 14px 10px; 
+  line-height:1em; 
+  margin-left: 0.9%; 
+  margin-right: 0.9%; 
+} 
+.dropdown-menu.show { 
+  padding:10px; 
+  border-radius: 10px; 
+  border:0; 
+  box-shadow: 0 0 10px rgba(0,0,0,0.1); 
+  width:225px; 
+} 
+.form-group.select-columns-list { 
+  max-height: 150px; 
+  overflow-y: auto; 
+  overflow-x: hidden; 
+  margin-bottom: 0!important; 
+} 
 </style> 
