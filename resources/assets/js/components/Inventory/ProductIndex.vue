@@ -68,20 +68,23 @@ h5 {
                 <img src="images/icons/Field_Add.svg" alt="Add field icon" width="16"/>
               </template>
 
-              <transition name="fade">
-                <a-select v-model="create_new" class="custom-select rounded-pill border-0">   
-                  <a-select-option value="category" selected>Category</a-select-option>   
-                  <a-select-option value="product">Product</a-select-option> 
-                </a-select>
-
-                <div class="orders" v-if="create_new === 'category'">
-                  <create-category/>
+              <div class="row mx-0">
+                <div class="col-6 px-0 mb-5">
+                  <a-select v-model="create_new" class="custom-select rounded-pill border-0">
+                    <a-select-option value="-Select-">Select</a-select-option>  
+                    <a-select-option value="category">Category</a-select-option>   
+                    <a-select-option value="product">Product</a-select-option> 
+                  </a-select>
                 </div>
+              </div>
 
-                <div class="orders" v-if="create_new === 'product'">
-                  <create-product/>
-                </div>
-              </transition>
+              <div class="create-category" v-if="create_new === 'category'">
+                <create-category/>
+              </div>
+
+              <div class="create-products" v-if="create_new === 'product'">
+                <create-product/>
+              </div>
             </b-tab>
           </b-tabs>
         </b-card>
@@ -110,11 +113,16 @@ import CategoryListingTable from "../DataTables/CategoryListingTable";
     ],
     data: function(){
       return {
-        create_new: null
+        create_new: '-Select-'
       }
     },
     methods: {
-      
+      showModulePreferences(active_module, action, in_module){
+        Fire.$emit(action, { 'module' : in_module });
+        this.editing_module = in_module;
+        this.active_module_name = active_module;
+        this.active_module_action = action;
+      },
     }
   }
 </script>

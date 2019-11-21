@@ -41,7 +41,7 @@ label{
   <div class="createDeal">  
     <div class="row mt-0 mx-0 align-items-center fields-divider">
       <div class="col-auto pl-0">
-        <h5 class="mb-0">Category Information</h5>
+        <h5 class="mb-0">Branch Information</h5>
       </div>
 
       <div class="col px-0">
@@ -53,23 +53,23 @@ label{
       <b-col sm="6" class="px-0">
         <label for="input-none">Name</label>
         <input 
-          v-model="category.name"    
+          v-model="supplier.name"    
           type="text"    
           id="category-name"     
           name="categoryName"   
           class="form-control rounded-pill"/>
 
-        <label for="input-none">Description</label>
+        <label for="input-none">Address</label>
         <textarea 
-          v-model="category.description"   
+          v-model="supplier.address"   
           id="info"     
           name="Info"   
           class="form-control"/>
 
-        <label for="input-none">Status</label>
-        <a-select v-model="category.category_status" class="custom-select rounded-pill border-0">   
+        <label for="input-none">Province</label>
+        <a-select v-model="supplier.province" class="custom-select rounded-pill border-0">   
           <a-select-option value="-None-" selected>-None-</a-select-option>   
-          <a-select-option v-for="(category_status, index) in category_statuses" :key="index">{{category_status}}</a-select-option> 
+          <a-select-option v-for="(province, index) in supplier.provinces" :key="index">{{province}}</a-select-option> 
         </a-select>
 
         <div class="row mx-0 justify-content-end">
