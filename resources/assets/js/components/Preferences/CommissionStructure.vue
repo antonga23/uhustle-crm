@@ -155,7 +155,7 @@
 
                   <b-button 
                     v-else 
-                    @click="addBField(range.comm_structure_id)" 
+                    @click="addBField(range.status.comm_structure_id)" 
                     class="icon m-0 p-0"
                   >
                     <img src="images/icons/Field_Add.svg" alt="Add field icon" width="19"/>
@@ -214,7 +214,7 @@
 
                   <b-button 
                     v-else 
-                    @click="addCField(item.comm_structure_id)" 
+                    @click="addCField(item.status.comm_structure_id)" 
                     class="icon m-0 p-0"
                   >
                     <img src="images/icons/Field_Add.svg" alt="Add field icon" width="19"/>
@@ -312,6 +312,10 @@
       getCommissionStructures(){
         var vm = this;
         axios.get('/settings/get-comm-structures',).then(function (response) {
+          if(response.data.structures.length > 0){
+            vm.structures = response.data.structures;
+            console.log(response.data.structure_a);
+          }
           if(response.data.structure_a.length > 0){
             vm.structure_a = response.data.structure_a;
             console.log(response.data.structure_a);
@@ -353,6 +357,7 @@
         });
       },
       addBField(comm_structure_id){
+        console.log(comm_structure_id);
         this.structure_b.push(
           {
             min_sales : {

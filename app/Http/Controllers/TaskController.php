@@ -48,15 +48,14 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        $request_user = ['user_id' => $request->session_user_id, 'name' => $request->session_user_name];
-
         $data = $request->all();
         
         $title = $data['title'];
         $description = ( isset($data['description']) )? $data['description'] : null;
-        $status = 0;
+        $status = $data['status'];
         $user_created_id = Auth::user()->id;
         $deadline = $data['date'];
+        $time = $data['time'];
 
         try{
             DB::beginTransaction();
@@ -68,7 +67,8 @@ class TaskController extends Controller
                   'status' => $data['status'],
                   'user_created_id' => $user_created_id,
                   'client_id' => $data['lead_id'],
-                  'deadline' => $deadline
+                  'deadline' => $deadline,
+                  'time' => $time
               ]);
 
             }else{
@@ -77,7 +77,8 @@ class TaskController extends Controller
                   'description' => $description,
                   'status' => $status,
                   'user_created_id' => $user_created_id,
-                  'deadline' => $deadline
+                  'deadline' => $deadline,
+                  'time' => $time
               ]);
             }
 
@@ -100,24 +101,22 @@ class TaskController extends Controller
      */
     public function update(Request $request)
     {
-        $request_user = ['user_id' => $request->session_user_id, 'name' => $request->session_user_name];
-
         $data = $request->all();
         $id = $data['id'];
         $title = $data['title'];
-        $description = $data['description'];
         $status = $data['status'];
         $user_created_id = Auth::user()->id;
         $deadline = $data['date'];
+        $time = $data['time'];
         
         try{
             DB::beginTransaction();
 
             $task = Task::where(['id' => $id])->update([
                 'title' => $title,
-                'description' => $description,
                 'status' => $status,
-                'deadline' => date('Y-m-d',strtotime($deadline))
+                'deadline' => date('Y-m-d',strtotime($deadline)),
+                'time' => $time,
             ]);
 
             DB::commit();
@@ -176,11 +175,11 @@ class TaskController extends Controller
     public function getActivities($client_id = null){
 
       $tasks = Task::with('creator')->where( ['client_id' => $client_id ])
-                      ->where('status' ,'<>', 1)
+                      ->whereIn('status', [1,2])
                       ->orderBy('deadline', 'ASC')->get();
 
       $closed_tasks = Task::with('creator')->where( ['client_id' => $client_id ])
-                      ->where(['status' => 1])
+                      ->where(['status' => 0])
                       ->orderBy('deadline', 'ASC')->get();
 
       return array('success' => true, 'open_activities' => $tasks, 'closed_activities' => $closed_tasks);

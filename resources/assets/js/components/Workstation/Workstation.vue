@@ -152,11 +152,11 @@ span.right {
   text-overflow: ellipsis; 
 } 
 .comments-list { 
-  max-height: 190px; 
+  max-height: 218px; 
   overflow-y: auto; 
 } 
 .stats-bars { 
-  max-height: 290px; 
+  max-height: 319px; 
   overflow-y: auto; 
 } 
 .agent-comments { 
@@ -555,7 +555,7 @@ a.down-scroll:hover {
 .final-modal .card-header { 
   border-top-left-radius: 19px; 
   border-top-right-radius: 19px; 
-  padding: 0 11px 11px; 
+  padding: 0 0 11px 0; 
   border-color: transparent; 
 } 
 .final-modal .card-header a[aria-selected="true"] { 
@@ -682,6 +682,27 @@ a.down-scroll:hover {
 #two .col-lg-8 { 
   padding-left: 7.8%; 
 } 
+@media screen and (max-width: 1771px) {
+  #two .callback-legend {
+    margin-bottom: 0;
+  }
+  #two .callback-legend .col-5{ 
+    padding-left: 0;
+    flex: 0 0 100%;
+    max-width: 100%; 
+  } 
+  #two .callback-legend .col-7 {
+    order:1;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  #two .callback-legend .row {
+    margin-bottom:14px;
+  }
+  #two .callback-legend .calendar-items .col-auto {
+    height: 10px;
+  }
+}
 .vc-reset, 
 .vc-reset * { 
   border-style: none !important; 
@@ -689,14 +710,6 @@ a.down-scroll:hover {
 } 
 .vc-h-full .vc-rounded-full { 
   border-radius: 5px !important; 
-} 
-.scroll-hidden { 
-  overflow-y: scroll; 
-  height: 70vh; 
-  padding-top: 6px; 
-  padding-right: 3%; 
-  padding-bottom: 6px; 
-  padding-left: 3%; 
 } 
 .summary p { 
   font-family: "Rubik", sans-serif; 
@@ -759,12 +772,16 @@ a.down-scroll:hover {
 } 
  
 .scroll-hidden { 
-  overflow-y: scroll; 
-  height: 70vh; 
-  /* padding-top: 6px; */ 
+  overflow: auto; 
   padding-right: 6px; 
   width: 100%; 
+  padding-bottom: 6px; 
 } 
+
+.left-padding-4 {
+    padding-left: 4%;
+}
+
 .dropdown-menu { 
   width: 191px; 
   padding: 17px; 
@@ -1036,7 +1053,7 @@ a.down-scroll:hover {
         <div class="card-deck mx-0 mb-0"> 
           <div class="card mt-3 border-0 shadow-none mr-4 ml-0 tab-card"> 
             <div class="card-header tab-card-header border-bottom-0"> 
-              <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
+              <ul class="nav nav-tabs card-header-tabs mx-0" id="myTab" role="tablist"> 
                 <li class="nav-item left w-50"> 
                   <a 
                     class="nav-link active" 
@@ -1152,11 +1169,17 @@ a.down-scroll:hover {
                         aria-expanded="false" 
                         :class="{ 'choose-comment-type d-block': true, 'pulse' : choose_comment_type }" 
                       > 
+                      <div v-if="comment.comment_type" class="font-weight-bold comment-abbr">
+                        {{comment.comment_type.short}}
+                      </div>
+
+                      <div v-else>
                         <img 
                           src="/images/workstation/Asset 28@4x.png" 
                           alt="Add Icon" 
                           class="icon w-100" 
                         /> 
+                      </div>
                       </b-button> 
                       <div class="dropdown-menu"> 
                         <div class="d-block"> 
@@ -1235,7 +1258,7 @@ a.down-scroll:hover {
                         </div> 
                       </div> 
  
-                      <div class="col-5 pr-0"> 
+                      <div class="col-5 pr-0 calendar-items"> 
                         <div class="row mx-0 align-items-start recommended-call"> 
                           <div class="col-auto px-0"> 
                             <img 
@@ -1344,7 +1367,7 @@ a.down-scroll:hover {
  
           <div class="card shadow-none mt-3 mr-0 ml-4 border-0 tab-card"> 
             <div class="card-header tab-card-header border-bottom-0"> 
-              <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist"> 
+              <ul class="nav nav-tabs card-header-tabs mx-0" id="myTab" role="tablist"> 
                 <li class="nav-item left w-50"> 
                   <a 
                     class="nav-link active" 
@@ -1364,7 +1387,7 @@ a.down-scroll:hover {
                     <span class="left w-50">Feedback Summary</span> 
                   </a> 
                 </li> 
-                <li class="nav-item right w-50"> 
+                <!-- <li class="nav-item right w-50"> 
                   <a 
                     class="nav-link" 
                     id="four-tab" 
@@ -1382,7 +1405,7 @@ a.down-scroll:hover {
                     /> 
                     <span class="left">Email Client</span> 
                   </a> 
-                </li> 
+                </li>  -->
               </ul> 
             </div> 
  
@@ -1579,8 +1602,12 @@ a.down-scroll:hover {
                         <div class="row mx-0 align-items-end">
                           <div class="col-auto pl-0">
                             <label class="d-block">Due date</label>
-                            <a-date-picker v-model="activity.duedate" name="Due Date" v-validate="'required'" class="ml-2"/>
-                            <span id="error" v-show="errors.has('Due Date')" class="help-block">{{ errors.first('Due Date') }}</span> 
+                            <a-date-picker name="Due Date"  @change="onDateChange" class="ml-2"/> 
+                          </div>
+
+                          <div class="col-auto pl-0">
+                            <label class="d-block">Time</label>
+                            <a-time-picker use24Hours format="HH:mm" @change="onTimeChange"  class="ml-2" /> 
                           </div>
 
                           <div class="col-auto activity-status-col">
@@ -1614,6 +1641,7 @@ a.down-scroll:hover {
 
                     <template slot="subject" slot-scope="data">   
                       <input
+                        @blur="updateActivity(data.item)"
                         v-model="data.item.subject"     
                         type="text"    
                         id="deal-name"     
@@ -1622,7 +1650,7 @@ a.down-scroll:hover {
                     </template> 
 
                     <template slot="status" slot-scope="data">   
-                      <a-select v-model="data.item.status" class="activity-status-input">
+                      <a-select v-model="data.item.status" class="activity-status-input" @change="updateActivity(data.item)">
                         <a-select-option :value="0"><div class="d-inline-block activity-status finished-activity"></div>Finished</a-select-option>
                         <a-select-option :value="1"><div class="d-inline-block activity-status in-progress-activity"></div>In Progress</a-select-option>
                         <a-select-option :value="2"><div class="d-inline-block activity-status not-started-activity"></div>Not Started</a-select-option>
@@ -1630,7 +1658,11 @@ a.down-scroll:hover {
                     </template> 
 
                     <template slot="dueDate" slot-scope="data">   
-                      <a-date-picker v-model="data.item.duedate" name="Due Date"  v-validate="'required'" /> 
+                      <a-date-picker v-model="data.item.dueDate" name="Due Date" @change="updateActivity(data.item)" /> 
+                    </template>
+
+                    <template slot="time" slot-scope="data">   
+                      <a-time-picker v-model="data.item.time" name="Time" format="HH:mm" @change="updateActivity(data.item)" /> 
                     </template>
                   </b-table>   
    
@@ -1644,7 +1676,7 @@ a.down-scroll:hover {
                   ></b-pagination>                
                 </div>   
    
-                <div    
+                <div
                   class="tab-pane fade"    
                   id="six"    
                   role="tabpanel"    
@@ -1652,17 +1684,18 @@ a.down-scroll:hover {
                 >     
                   <b-table 
                     hover 
-                    :items="activityItems" 
+                    :items="closedActivityItems" 
                     sticky-header="190px" 
                     :per-page="perPage"
                     responsive
-                  >   
+                  > 
                     <template slot="statusColor" slot-scope="data">   
                       <div class="activity-status" :style="{backgroundColor: data.item.statusColor}"></div>   
                     </template>
 
                     <template slot="subject" slot-scope="data">   
                       <input
+                        @blur="updateActivity(data.item)"
                         v-model="data.item.subject"     
                         type="text"    
                         id="deal-name"     
@@ -1671,7 +1704,7 @@ a.down-scroll:hover {
                     </template> 
 
                     <template slot="status" slot-scope="data">   
-                      <a-select v-model="data.item.status" class="activity-status-input">
+                      <a-select v-model="data.item.status" class="activity-status-input" @change="updateActivity(data.item)">
                         <a-select-option :value="0"><div class="d-inline-block activity-status finished-activity"></div>Finished</a-select-option>
                         <a-select-option :value="1"><div class="d-inline-block activity-status in-progress-activity"></div>In Progress</a-select-option>
                         <a-select-option :value="2"><div class="d-inline-block activity-status not-started-activity"></div>Not Started</a-select-option>
@@ -1679,8 +1712,13 @@ a.down-scroll:hover {
                     </template> 
 
                     <template slot="dueDate" slot-scope="data">   
-                      <a-date-picker v-model="data.item.duedate" name="Due Date"  v-validate="'required'" /> 
-                    </template> 
+                      <a-date-picker v-model="data.item.dueDate" name="Due Date" @change="updateActivity(data.item)" /> 
+                    </template>
+
+                    <template slot="time" slot-scope="data">   
+                      <a-time-picker v-model="data.item.time" name="Time" format="HH:mm"  @change="updateActivity(data.item)" /> 
+                    </template>
+
                   </b-table>  
 
                   <b-pagination   
@@ -1897,7 +1935,12 @@ a.down-scroll:hover {
                   role="tabpanel"    
                   aria-labelledby="two-tab"   
                 >     
-                 <create-deal :empty_deal="deal" :lead_id="item_id" /> 
+                 <create-deal 
+                  :empty_deal="deal" 
+                  :lead_id="item_id" 
+                  :agent_id="user_id" 
+                  :agent_name="user_name" 
+                  /> 
                 </div>    
               </div>    
             </div>    
@@ -1933,10 +1976,12 @@ a.down-scroll:hover {
   
     <!-- Active calls Section Starts -->  
     <div class="" v-if="active_calls == true">    
-      <div class="row stats scroll-hidden horizontal-scroll w-100 mx-0" style="margin-top: 6%">    
-        <div class="col-lg-12">    
+      <div class="row stats mt-4 w-100 mx-0">    
+        <div class="col-lg-12 left-padding-4">    
+          <div class="scroll-hidden">
           <vcl-table v-if="show_page_loader === true"></vcl-table>    
           <datatable v-if="show_page_loader === false" id="datatable" :rows="conferences" :columns="columns" :role="role_id"></datatable>    
+          </div>
         </div>    
       </div>    
     </div> 
@@ -2216,8 +2261,8 @@ export default {
       closed_activities: [],
       activity:{
         title: '',
-        duedate:  moment(),
-        status: 0,
+        duedate:  '',
+        status: 2,
       },
       date_span: "",  
       max_date: "",  
@@ -2316,7 +2361,9 @@ export default {
         expected_revenue:'' ,
         contact_name:'' ,
         contact_number:'' ,
-      },  
+      }, 
+      deal_items: [],
+      dealItems: [],
       perPage: 10,  
       currentPage: 1,
       radioStyle: {
@@ -2332,10 +2379,26 @@ export default {
     }  
   },  
   methods: {
+    onTimeChange(time, timeString) {
+      this.activity.time = timeString;
+    },
+    onDateChange(date, dateString) {
+        this.activity.duedate = dateString;
+    },
     getDeals(){
       var vm = this;
       axios.get("/deals/get-all/" + this.item_id ).then(function(response) {
-        vm.dealItems = response.data.deals;
+        vm.deal_items = response.data.deals;
+
+        // ToDo: Push for slots
+
+        // vm.deal_items.map( (item) => {
+
+        //   vm.dealItems.push([
+        //     id:
+        //   ]);
+        // });
+
       });
     },
     getActiveCalls() {  
@@ -2411,40 +2474,42 @@ export default {
     },
     addActivity(){ 
       var vm = this;
-        this.$validator.validateAll().then(result => {  
-          if (!result) {  
-          } else {  
-              axios.post('/tasks/create', { 
-                title: vm.activity.title, 
-                status: vm.activity.status, 
-                date: vm.activity.duedate.format('YYYY-MM-DD') ,
-                lead_id: vm.item_id ,
-              }).then(function(response) { 
 
-                  if (response.data.success == true) { 
-                      vm.Toast.fire({ 
-                          type: 'success', 
-                          title: 'Activity added successfully'
-                      }); 
-                      vm.getActivities(); 
-                      vm.$Progress.finish(); 
-                  } else { 
-                      vm.$Progress.fail(); 
-                      vm.$swal('Failed', 'Opps, something went wrong while update, please try again', 'warning'); 
-                  } 
-              });  
-          }  
-        });  
+      if(!vm.activity.title || !vm.activity.status || !vm.activity.duedate || !vm.activity.time){
+        vm.$swal('Note', 'All fields are required', 'warning');
+      }  
+
+      axios.post('/tasks/create', { 
+        title: vm.activity.title, 
+        status: vm.activity.status, 
+        date: vm.activity.duedate ,
+        time: vm.activity.time ,
+        lead_id: vm.item_id ,
+      }).then(function(response) { 
+
+          if (response.data.success == true) { 
+              vm.Toast.fire({ 
+                  type: 'success', 
+                  title: 'Activity added successfully'
+              }); 
+              vm.getActivities(); 
+              vm.$Progress.finish(); 
+          } else { 
+              vm.$Progress.fail(); 
+              vm.$swal('Failed', 'Opps, something went wrong while update, please try again', 'warning'); 
+          } 
+      });
+
       this.edit_task = false; 
     },
     getActivities(){
       var vm = this; 
       axios.get('/tasks/get-activities/' + vm.item_id).then(function(response) { 
-          vm.activities = response.data.open_activities; 
+          vm.open_activities = response.data.open_activities; 
           vm.closed_activities = response.data.closed_activities; 
           vm.activityItems = [];
           vm.closedActivityItems = [];
-          vm.activities.map( (activity) => {
+          vm.open_activities.map( (activity) => {
 
             var color = '';
             var status = '';
@@ -2464,10 +2529,12 @@ export default {
             }
 
             vm.activityItems.push({  
+              id: activity.id,  
               statusColor: color,  
               subject: activity.title,  
               status: status,  
-              dueDate: activity.duedate,  
+              dueDate:  moment(activity.deadline,  'YYYY-MM-DD'),  
+              time:  moment(activity.time,  'HH:mm'),  
               activityOwner: activity.creator.name + ' ' + activity.creator.lastname,  
               timeModified: activity.updated_at  
             });
@@ -2493,10 +2560,12 @@ export default {
             }
 
             vm.closedActivityItems.push({  
+              id: activity.id,    
               statusColor: color,  
               subject: activity.title,  
               status: status,  
-              dueDate: activity.duedate,  
+              dueDate:  moment(activity.deadline,  'YYYY-MM-DD'),  
+              time:  moment(activity.time,  'HH:mm'),  
               activityOwner: activity.creator.name + ' ' + activity.creator.lastname,  
               timeModified: activity.updated_at  
             });
@@ -2504,6 +2573,44 @@ export default {
           });
 
       }); 
+    },
+    updateActivity(item){
+      console.log(item.status);
+      var vm = this;
+
+      var status = '';
+
+      if(item.status === 'Finished' ){
+        status = 0;
+      }else if(item.status === 'In Progress'){
+        status = 1;
+      }else if(item.status === 'Not Started'){
+        status = 2;
+      }else{
+        status = item.status;
+      }
+      console.log(status)
+      axios.post('/tasks/update', { 
+        id: item.id, 
+        title: item.subject, 
+        status: status, 
+        date: moment(item.dueDate).format('YYYY-MM-DD') ,
+        time: moment(item.time).format('HH:mm') ,
+        lead_id: vm.item_id ,
+      }).then(function(response) { 
+
+          if (response.data.success == true) { 
+              vm.Toast.fire({ 
+                  type: 'success', 
+                  title: 'Activity updated successfully'
+              }); 
+              vm.getActivities(); 
+              vm.$Progress.finish(); 
+          } else { 
+              vm.$Progress.fail(); 
+              vm.$swal('Failed', 'Opps, something went wrong while update, please try again', 'warning'); 
+          } 
+      });
     },
     addActivityCollapse(id){ 
       this.add_client_activity = !this.add_client_activity; 

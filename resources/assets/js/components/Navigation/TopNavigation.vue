@@ -263,7 +263,15 @@ select.month-selector {
 								@click="addNew();" 
 								:class="{ 'nav-link top-link d-block text-center' : true, 'active' : adding_user }" 
 								class="nav-link"
+                v-if="!editing_user"
 							>Add New +</a>
+              <a 
+								href="#" 
+								@click="editUser();" 
+								:class="{ 'nav-link top-link d-block text-center' : true, 'active' : editing_user }" 
+								class="nav-link"
+                v-if="editing_user"
+							>Edit User</a>
 						</li>
 					</ul>
 				</div>
@@ -338,6 +346,7 @@ select.month-selector {
         top_nav_show_filter: false,
         // Users
         adding_user : false,
+        editing_user : false,
         current_user: [],
         filter_data: [],
         types: [
@@ -378,6 +387,14 @@ select.month-selector {
 
       Fire.$on('ShowActiveCalls', function(){
         vm.showActiveCalls();
+      });
+
+      Fire.$on('ShowActiveCalls', function(){
+        vm.showActiveCalls();
+      });
+
+      Fire.$on('ShowUserEdit', function(data){
+        vm.editUser();
       });
     },
 
@@ -519,8 +536,12 @@ select.month-selector {
 			addNew(){
 				this.adding_user = !this.adding_user;
 				Fire.$emit('AddingUser');
+      },      
+			editUser(){
+				this.editing_user = !this.editing_user;
+				Fire.$emit('EditingUser');
       },
-      
+  
 			getFullYear(){
 				var d = new Date();
 				var n = d.getFullYear();

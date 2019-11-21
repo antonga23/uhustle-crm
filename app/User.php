@@ -32,6 +32,8 @@ class User extends Authenticatable
         'password',
         'activated',
         'email_verified_at',
+        'monthly_target',
+        'commission_structure',
     ];
 
     /**

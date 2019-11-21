@@ -15,7 +15,8 @@ class Task extends Model
         'user_assigned_id',
         'user_created_id',
         'client_id',
-        'deadline'
+        'deadline',
+        'time'
     ];
     
     protected $dates = ['deadline'];

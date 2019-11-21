@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>uhustle</title>
+    <title>siarem</title>
     <link rel="stylesheet" href="{{ asset(elixir('css/app.css')) }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <meta name="csrf-token" content="{{ csrf_token() }}"/>

@@ -65,7 +65,7 @@
     width: 30%;
 } */
 .lp-logo {
-  width: 11.31vw!important;
+  width: 19.31vw!important;
 }
 .logo-title {
   color: #F38912;
@@ -533,7 +533,7 @@ label:not(.form-check-label):not(.custom-file-label) {
 }
 .ant-calendar-today .ant-calendar-date {
   border-color: #ff931e!important;
-  color: #ff931e!important;
+  /* color: #ff931e!important; */
   border-radius: 50%;
 }
 .ant-time-picker-icon, .ant-calendar-picker-icon.anticon.anticon-calendar {
@@ -940,19 +940,23 @@ max-height: 350px;
   margin-right: 0.9%;
   background: linear-gradient(to right, rgba(255,128,51,1) 0%,  rgba(255,147,58,1) 100%) !important;
 }
-.notes-roll .ant-btn-primary:hover, .notes-roll .ant-btn-primary:focus {
+.notes-roll .ant-btn-primary:hover, 
+.notes-roll .ant-btn-primary:focus {
   border:0;
 }
 .e-schedule {
   border: 0;
 }
-.e-schedule-toolbar-container, .e-schedule-table.e-outer-table  tr:first-child{
+.e-schedule-toolbar-container, 
+.e-schedule-table.e-outer-table tr:first-child{
   display:none;
 }
 .e-schedule-table:first-child tr:nth-child(2) td:first-child {
   width: 60px;
+}
 /* Activity tables */
-.new-activity .ant-select-selection, .new-activity .ant-select-selection:active {
+.new-activity .ant-select-selection, 
+.new-activity .ant-select-selection:active {
   border: 0;
   box-shadow: none;
 }
@@ -969,7 +973,8 @@ max-height: 350px;
   max-width:30px;
   padding: 0;
 }
-.activities th, .deals th {
+.activities th, 
+.deals th {
   color: #818284;
   font-size: 0.73vw;
   font-weight: 400;
@@ -1000,6 +1005,13 @@ max-height: 350px;
   max-width: 30px;
   padding: 0 0 0 10px;
 }
+.activities .ant-select-selection--single {
+  border: 0;
+  margin-top:0!important;
+}
+.activities .ant-calendar-picker-input.ant-input {
+  box-shadow: none;
+}
 
 /* preferences */
 .ant-col-8 .custom-control-label {
@@ -1009,4 +1021,34 @@ max-height: 350px;
 }
 .min-width-cell .ant-select-selection-selected-value {
   min-width:80px;
+}
+/* create a deal */
+.createDeal .ant-select-selection--single {
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  padding: 5px 10px!important;
+  font-size: 12px;
+  color: #003449;
+  border-color: #ccc;
+  margin-top:0!important;
+  margin-bottom: 17px;
+  font-family: 'Rubik', sans-serif;
+  height: auto!important;
+}
+.createDeal .ant-calendar-picker-input.ant-input {
+  min-width: 100%;
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  padding: 11px 18px!important;
+  font-size: 12px!important;
+  color: #003449;
+  border: 1px solid #ccc!important;
+  margin-top:0!important;
+  margin-bottom: 17px;
+  font-family: 'Rubik', sans-serif;
+  height: auto!important;
 }

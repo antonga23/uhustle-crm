@@ -318,6 +318,46 @@
                         </b-card>
                       </b-collapse>
 
+                      <b-button 
+                        block 
+                        href="#" 
+                        v-b-toggle="'accordion-00'"  
+                        :aria-controls="'accordion-00'"
+                        class="w-100 mx-0 py-0 pr-0 expand-toggle"
+                      >
+                        Commission
+                        <!-- <img src="images/icons/up.svg" width="11"> -->
+                        <img src="images/icons/down.svg" width="11">
+                      </b-button>
+
+                      <b-collapse :id="'accordion-00'" visible accordion="my-accordion" role="tabpanel">
+                        <b-card>
+                          <div>
+                            <div>
+                              <b-form-group class="mx-2 mb-0 permissions">
+                                <a-row >
+                                  <a-col :span="8">
+                                    <a-switch v-model="commission_structure_a" :id="'structure_a'" @change="onChange('a')" />
+                                    Commission Structure A
+                                  </a-col>
+
+                                  <a-col :span="8">    
+                                    <a-switch v-model="commission_structure_b" :id="'structure_b'" @change="onChange('b')" />
+                                    Commission Structure B
+                                  </a-col>
+
+                                  <a-col :span="8">    
+                                    <a-switch v-model="commission_structure_c" :id="'structure_c'" @change="onChange('c')" />
+                                    Commission Structure C
+                                  </a-col>
+                                </a-row>
+                              </b-form-group>
+                            </div> 
+                          </div>
+                        </b-card>
+                      </b-collapse>
+
+
                       <div v-for="(a_module, i) in modules" :key="i">
                         <b-button 
                           block href="#" 
@@ -439,6 +479,7 @@
       this.getPermissions();
       this.getDialerPermissions();
       this.getApis();
+      this.getCommissionStructures();
 
       var vm = this;
 
@@ -484,6 +525,9 @@
           description : '',
           status : '',
         },
+        structure_a: [],
+        structure_b: [],
+        structure_c: [],
         roles: null,
         modules: null,
         apis: null,
@@ -497,6 +541,9 @@
         show_page_loader: false,
         role_edit: false,
         role_add: false,
+        commission_structure_a: false,
+        commission_structure_b: false,
+        commission_structure_c: false,
         Toast: null,
         dialer_options: ['On', 'Off', 'Can Whisper', 'Can Barge'],
         dialer_selected: [],
@@ -510,6 +557,47 @@
     },
     methods: {
       toggleAll(){
+
+      },
+      onChange(type){
+        if(type == 'a'){
+
+          this.commission_structure_a = true;
+          this.commission_structure_b = false;
+          this.commission_structure_c = false;
+
+        }
+        if(type == 'b'){
+
+          this.commission_structure_a = false;
+          this.commission_structure_b = true;
+          this.commission_structure_c = false;
+
+        }
+        if(type == 'c'){
+
+          this.commission_structure_a = false;
+          this.commission_structure_b = false;
+          this.commission_structure_c = true;
+
+        }
+      },
+      getCommissionStructures(){
+        var vm = this;
+        axios.get('/settings/get-comm-structures',).then(function (response) {
+          if(response.data.structure_a.length > 0){
+            vm.structure_a = response.data.structure_a;
+            console.log(response.data.structure_a);
+          }
+          if(response.data.structure_b.length > 0){
+            vm.structure_b = response.data.structure_b;
+            console.log(response.data.structure_b);
+          }
+          if(response.data.structure_c.length > 0){
+            vm.structure_c = response.data.structure_c;
+            console.log(response.data.structure_c);
+          }
+        });
 
       },
       dialerToggleAll(checked) {

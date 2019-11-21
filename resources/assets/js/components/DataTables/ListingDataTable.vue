@@ -183,10 +183,10 @@
 
                                             <span v-else>
                                               <span v-if="item.item[column.field].meta_value !== null">
-                                                <span v-if="editing_row === false && item.item.id == row.id && row_id === null" @click="click(row, index)" >
+                                                <span v-if="editing_row === false && item.item.id == row.id && row_id === null" @click="click(row, index)" style="cursor:pointer;">
                                                   {{ item.item[column.field].meta_value }}
                                                 </span>
-                                                <span v-if="editing_row === true && item.item.id == row.id && row_id != row.id" @click="click(row, index)" >
+                                                <span v-if="editing_row === true && item.item.id == row.id && row_id != row.id" @click="click(row, index)" style="cursor:pointer;">
                                                   {{ item.item[column.field].meta_value  }}
                                                 </span>
                                               </span>
