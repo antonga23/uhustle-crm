@@ -47,13 +47,6 @@
     text-decoration: none;
     font-weight: 500;
   }
-  .user-roles .tab-pane .row{
-    margin-right: 0;
-    margin-left: 0;
-  }
-  h5 {
-    font-size: 0.83vw;
-  }
 
   .btn-default{
     background: #fff;
@@ -161,7 +154,7 @@
   
 </style>
 <template>
-  <div id="preferences">
+  <div id="inventory">
 		<nav class="header navbar navbar-expand navbar-white navbar-light">
 			<!-- Left navbar links -->
       <ul class="navbar-nav left">
@@ -176,6 +169,7 @@
         <li class="item ml-0">
           <a 
             href="#" 
+            @click="showModulePreferences('branches', 'branches', null);"
             :class="{ 'active' : ( active_module_name ===  'branches')? true : false }"
             class="ml-0"
           >Branches</a>
@@ -184,6 +178,7 @@
         <li class="item" style="display_none">
           <a 
             href="#" 
+            @click="showModulePreferences('products', 'products', null);"
             :class="{ 'active' : ( active_module_name ===  'products')? true : false }"
           >Products</a>
         </li>
@@ -191,6 +186,7 @@
         <li class="item">
           <a 
             href="#" 
+            @click="showModulePreferences('orders', 'orders', null);"
             :class="{ 'active' : ( active_module_name ===  'orders')? true : false }"
           >Orders/Requesitions</a>
         </li>
@@ -200,7 +196,19 @@
 
     <div class="row mx-0 stats scroll-hidden">
       <div class="col-lg-12 px-0">
-        <vcl-table v-if="show_page_loader" > </vcl-table>
+        <vcl-table v-if="show_page_loader"> </vcl-table>
+
+        <div class="branches" v-if="!show_page_loader && active_module_name == 'branches'">
+          <branch-index/>
+        </div>
+
+        <div class="products" v-if="!show_page_loader && active_module_name == 'products'">
+          <product-index/>
+        </div>
+
+        <div class="orders" v-if="!show_page_loader && active_module_name == 'orders'">
+          <order-index/>
+        </div>
       </div>
     </div>
   </div>
@@ -208,11 +216,17 @@
 
 <script>
   import { VclFacebook, VclInstagram,VclTable } from 'vue-content-loading';
+  import BranchIndex from './BranchIndex';
+  import ProductIndex from './ProductIndex';
+  import OrderIndex from './OrderIndex';
   export default {
     components: { 
       VclFacebook,
       VclInstagram,
       VclTable,
+      BranchIndex,
+      ProductIndex,
+      OrderIndex
     },
     mounted() {
       console.log('Inventory Component Mounted');
@@ -231,12 +245,18 @@
     props: ['logged_user'],
     data: function(){
       return {
-        show_page_loader: true,
+        show_page_loader: false,
         active_module_name: 'branches',
         Toast:null
       }
     },
     methods: {
+      showModulePreferences(active_module, action, in_module){
+        Fire.$emit(action, { 'module' : in_module });
+        this.editing_module = in_module;
+        this.active_module_name = active_module;
+        this.active_module_action = action;
+      },
     },
     watch: {
     }
