@@ -45,8 +45,17 @@ h5 {
           <b-tabs card>
             <b-tab active>
               <template v-slot:title>
-                <h5 class="d-inline-block">Create Order</h5>
-                <img src="images/icons/Field_Add.svg" alt="Add field icon" width="16"/>
+                <h5 class="d-inline-block">Start Order</h5>
+              </template>
+
+              <transition name="fade">
+                
+              </transition>
+            </b-tab>
+
+            <b-tab>
+              <template v-slot:title>
+                <h5 class="d-inline-block">Complete Order</h5>
               </template>
 
               <transition name="fade">
