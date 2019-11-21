@@ -188845,6 +188845,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   mounted: function mounted() {
@@ -188917,6 +188921,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
 //
 //
 //
@@ -190180,6 +190187,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CommissionStructure__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./CommissionStructure */ "./resources/assets/js/components/Preferences/CommissionStructure.vue");
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! vue-content-loading */ "./node_modules/vue-content-loading/dist/vuecontentloading.js");
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(vue_content_loading__WEBPACK_IMPORTED_MODULE_9__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -247240,7 +247269,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.form-control[data-v-75b41319] {\n  border-radius: 50rem;\n  padding: 11px 18px!important;\n  font-size: 12px;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n}\nlabel[data-v-75b41319] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom:7px;\n  margin-left: 17px;\n}\n.btn-primary[data-v-75b41319] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 10px;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n", ""]);
+exports.push([module.i, "\n.form-control[data-v-75b41319] {\n  border-radius: 50rem;\n  padding: 11px 18px!important;\n  font-size: 12px;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n}\nlabel[data-v-75b41319] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom:7px;\n  margin-left: 17px;\n}\n.btn-primary[data-v-75b41319] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 10px;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n.ant-switch[data-v-75b41319] {\n  margin-left: 17px;\n}\n", ""]);
 
 // exports
 
@@ -247259,7 +247288,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.tab-pane.card-body[data-v-390d5e68]{\n  padding: 4.4% 5.6% 6.8%;\n}\n.form-control[data-v-390d5e68] {\n  border-radius: 50rem;\n  padding: 11px 18px!important;\n  font-size: 12px;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n}\nlabel[data-v-390d5e68] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom:7px;\n  margin-left: 17px;\n}\n.btn-default[data-v-390d5e68]{\n  background: #fff;\n  color: #999999;    \n  border: none!important;\n  padding: 11px 14px 10px;\n  font-size: 10px;\n  text-transform:uppercase;\n  border-radius: 50rem!important;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n  -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-390d5e68] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 10px;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n", ""]);
+exports.push([module.i, "\n.tab-pane.card-body[data-v-390d5e68]{\n  padding: 4.4% 5.6% 6.8%;\n}\n.form-control[data-v-390d5e68] {\n  border-radius: 50rem;\n  padding: 11px 18px!important;\n  font-size: 12px;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n}\nlabel[data-v-390d5e68] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom:7px;\n  margin-left: 17px;\n}\n.btn-default[data-v-390d5e68]{\n  background: #fff;\n  color: #999999;    \n  border: none!important;\n  padding: 11px 14px 10px;\n  font-size: 10px;\n  text-transform:uppercase;\n  border-radius: 50rem!important;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n  -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-390d5e68] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 10px;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n.api-checkbox[data-v-390d5e68] {\n  margin-left:20px;\n}\n", ""]);
 
 // exports
 
@@ -247335,7 +247364,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.header[data-v-d4042370], .top-nav[data-v-d4042370], .row.stats[data-v-d4042370] {\n    padding-left: 5.2%!important;\n    padding-right: 5.2%!important;\n}\n.top-menu[data-v-d4042370] {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n}\n.navbar[data-v-d4042370] {\n    padding: 0;\n}\n\t/*Right Component*/\nli.title h1[data-v-d4042370] {\n\t\tcolor: #003549;\n    font-size: 32px;\n    letter-spacing: 0.1em;\n}\ndiv.top-nav[data-v-d4042370]{\n    margin-top: 15px;\n}\nul.top-menu[data-v-d4042370]{\n    list-style: none;\n    padding: 0;\n}\nul.top-menu li.item[data-v-d4042370]{\n    float: left;\n    margin-left: 1.6%;\n    margin-right: 1.6%;\n    margin-bottom: 8px;\n}\nul.top-menu li.item a[data-v-d4042370]{\n    color: rgba(0, 0, 0, 0.5);\n    border-radius: 20px;\n    padding: 4px 22px;\n    text-decoration: none;\n    box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    font-size:0.73vw;\n}\nul.top-menu li.item a.active[data-v-d4042370]{\n    background: linear-gradient(to right, rgba(255,128,51,1) 0%,  rgba(255,147, 58,1) 100%) !important;\n    color: #fff !important;\n    text-decoration: none;\n    font-weight: 500;\n}\n.user-roles .tab-pane .row[data-v-d4042370]{\n    margin-right: 0;\n    margin-left: 0;\n}\nh5[data-v-d4042370] {\n    font-size: 0.83vw;\n}\n.btn-default[data-v-d4042370]{\n    background: #fff;\n    color: #999999;    \n    border: none!important;\n    padding: 11px 14px 10px;\n    font-size: 10px;\n    text-transform:uppercase;\n    border-radius: 50rem!important;\n    line-height:1em;\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n    -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n    box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-d4042370] {\n    border-radius: 50rem!important;\n    text-transform:uppercase;\n    font-size: 10px;\n    padding: 11px 14px 10px;\n    line-height:1em;\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n}\n.btn-block[data-v-d4042370] {\n    display: block;\n    width: 98%;\n}\n.nav-link.active img[data-v-d4042370] {\n    margin-left:20px;\n    display: inline-block!important;\n    box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    border-radius: 50rem;\n}\n.add-module-btn[data-v-d4042370] {\n    box-shadow:none!important;\n    -webkit-box-shadow:none!important;\n    -moz-box-shadow:none!important;\n    -o-box-shadow:none!important;\n}\n.tab-pane.card-body[data-v-d4042370] {\n    padding:4.4% 5.6% 6.8%;\n}\n.card-body .form-group[data-v-d4042370]{\n    margin-left: 0%;\n}\n.expand-toggle[data-v-d4042370] {\n    background: #fff;\n    box-shadow: none;\n    -webkit-box-shadow: none;\n    -moz-box-shadow: none;\n    -o-box-shadow: none;\n    text-align: left;\n    border-radius: 0!important;\n    border-top: 0;\n    border-left: 0;\n    border-right: 0;\n    border-color: #ccc;\n    font-family: 'Rubik', sans-serif;\n    font-size:0.73vw;\n    color: #999999;\n    margin-top: 4.6%;\n    padding-left:25px;\n}\n.expand-toggle.btn-secondary[data-v-d4042370]:not(:disabled):not(.disabled):active, \n  .expand-toggle.btn-secondary:not(:disabled):not(.disabled).active[data-v-d4042370], \n  .show > .expand-toggle.btn-secondary.dropdown-toggle[data-v-d4042370] {\n    background: #fff;\n    border-color: #fff;\n    color: #999999;\n}\n.expand-toggle[aria-expanded=\"true\"][data-v-d4042370] {\n    border-bottom: 0;\n}\n.custom-control-label[data-v-d4042370] {\n    color: #999999;\n    font-family: 'Rubik', sans-serif;\n    font-size:14px;\n}\n.custom-checkbox .custom-control-label[data-v-d4042370] {\n    font-weight: 0.73vw;\n}\n.collapse.show .card[data-v-d4042370] {\n    border-radius: 25px;\n    border: 1px solid #ccc!important;\n}\n.collapse.show .card-body[data-v-d4042370]{\n    padding: 1.15% 2.5% 1.85%;\n}\n.edit-role[data-v-d4042370] {\n    margin-bottom:1.7%;\n}\n.permissions-divider[data-v-d4042370] {\n    margin-top:3.7%;\n    margin-bottom:3.1%;\n}\n.permissions[data-v-d4042370] {\n    margin-top: 0.5%;\n}\n", ""]);
+exports.push([module.i, "\n.header[data-v-d4042370], .top-nav[data-v-d4042370], .row.stats[data-v-d4042370] {\n    padding-left: 5.2%!important;\n    padding-right: 5.2%!important;\n}\n.top-menu[data-v-d4042370] {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n}\n.navbar[data-v-d4042370] {\n    padding: 0;\n}\n\t/*Right Component*/\nli.title h1[data-v-d4042370] {\n\t\tcolor: #003549;\n    font-size: 32px;\n    letter-spacing: 0.1em;\n}\ndiv.top-nav[data-v-d4042370]{\n    margin-top: 15px;\n}\nul.top-menu[data-v-d4042370]{\n    list-style: none;\n    padding: 0;\n}\nul.top-menu li.item[data-v-d4042370]{\n    float: left;\n    margin-left: 1.6%;\n    margin-right: 1.6%;\n    margin-bottom: 8px;\n}\nul.top-menu li.item a[data-v-d4042370]{\n    color: rgba(0, 0, 0, 0.5);\n    border-radius: 20px;\n    padding: 4px 22px;\n    text-decoration: none;\n    box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    font-size:0.73vw;\n}\nul.top-menu li.item a.active[data-v-d4042370]{\n    background: linear-gradient(to right, rgba(255,128,51,1) 0%,  rgba(255,147, 58,1) 100%) !important;\n    color: #fff !important;\n    text-decoration: none;\n    font-weight: 500;\n}\n.user-roles .tab-pane .row[data-v-d4042370]{\n    margin-right: 0;\n    margin-left: 0;\n}\nh5[data-v-d4042370] {\n    font-size: 0.83vw;\n}\n.btn-default[data-v-d4042370]{\n    background: #fff;\n    color: #999999;    \n    border: none!important;\n    padding: 11px 14px 10px;\n    font-size: 10px;\n    text-transform:uppercase;\n    border-radius: 50rem!important;\n    line-height:1em;\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n    -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n    box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-d4042370] {\n    border-radius: 50rem!important;\n    text-transform:uppercase;\n    font-size: 10px;\n    padding: 11px 14px 10px;\n    line-height:1em;\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n}\n.btn-block[data-v-d4042370] {\n    display: block;\n    width: 98%;\n}\n.nav-link.active img[data-v-d4042370] {\n    margin-left:20px;\n    display: inline-block!important;\n    box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    border-radius: 50rem;\n}\n.add-module-btn[data-v-d4042370] {\n    box-shadow:none!important;\n    -webkit-box-shadow:none!important;\n    -moz-box-shadow:none!important;\n    -o-box-shadow:none!important;\n}\n.tab-pane.card-body[data-v-d4042370] {\n    padding:4.4% 5.6% 6.8%;\n}\n.card-body .form-group[data-v-d4042370]{\n    margin-left: 0%;\n}\n.expand-toggle[data-v-d4042370] {\n    background: #fff;\n    box-shadow: none;\n    -webkit-box-shadow: none;\n    -moz-box-shadow: none;\n    -o-box-shadow: none;\n    text-align: left;\n    border-radius: 0!important;\n    border-top: 0;\n    border-left: 0;\n    border-right: 0;\n    border-color: #ccc;\n    font-family: 'Rubik', sans-serif;\n    font-size:0.73vw;\n    color: #999999;\n    margin-top: 4.6%;\n    padding-left:0;\n    margin-left: 20px;\n}\n.expand-toggle.btn-secondary[data-v-d4042370]:not(:disabled):not(.disabled):active, \n  .expand-toggle.btn-secondary:not(:disabled):not(.disabled).active[data-v-d4042370], \n  .show > .expand-toggle.btn-secondary.dropdown-toggle[data-v-d4042370] {\n    background: #fff;\n    border-color: #fff;\n    color: #999999;\n}\n.expand-toggle[aria-expanded=\"true\"][data-v-d4042370] {\n    border-bottom: 0;\n}\n.expand-toggle[aria-expanded=\"true\"] .toggle-icon[data-v-d4042370] {\n    transform: rotate(0deg);\n    transition: transform .5s ease;\n}\n.expand-toggle[aria-expanded=\"false\"] .toggle-icon[data-v-d4042370] {\n    transform: rotate(180deg);\n    transition: transform .5s ease;\n}\n.custom-control-label[data-v-d4042370] {\n    color: #999999;\n    font-family: 'Rubik', sans-serif;\n    font-size:14px;\n}\n.custom-checkbox .custom-control-label[data-v-d4042370] {\n    font-weight: 0.73vw;\n}\n.collapse.show .card[data-v-d4042370] {\n    border-radius: 25px;\n    border: 1px solid #ccc!important;\n}\n.collapse.show .card-body[data-v-d4042370]{\n    padding: 1.15% 2.5% 1.85%;\n}\n.edit-role[data-v-d4042370] {\n    margin-bottom:1.7%;\n}\n.permissions-divider[data-v-d4042370] {\n    margin-top:3.7%;\n    margin-bottom:3.1%;\n}\n.permissions[data-v-d4042370] {\n    margin-top: 0.5%;\n}\n.permissions label[data-v-d4042370]{\n    font-size: 12px;\n    margin-left: 17px;\n}\n", ""]);
 
 // exports
 
@@ -376688,6 +376717,8 @@ var render = function() {
                     _vm._v("Role Status")
                   ]),
                   _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
                   _c("a-switch", {
                     model: {
                       value: _vm.status,
@@ -376700,27 +376731,9 @@ var render = function() {
                   _vm._v(" "),
                   _vm.status == 1 ? _c("label", [_vm._v("Active")]) : _vm._e(),
                   _vm._v(" "),
-                  _vm.status == 0
+                  _vm.status == 0 || _vm.status == null
                     ? _c("label", [_vm._v("Inactive")])
                     : _vm._e(),
-                  _vm._v(" "),
-                  _c("b-form-select", {
-                    staticClass: "form-control",
-                    attrs: {
-                      options: [
-                        { value: null, text: "Please Select" },
-                        { value: 1, text: "Active" },
-                        { value: 0, text: "Disaled" }
-                      ]
-                    },
-                    model: {
-                      value: _vm.status,
-                      callback: function($$v) {
-                        _vm.status = $$v
-                      },
-                      expression: "status"
-                    }
-                  }),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -376737,7 +376750,7 @@ var render = function() {
                             }
                           }
                         },
-                        [_vm._v("Add Role")]
+                        [_vm._v("Add")]
                       )
                     ],
                     1
@@ -378597,7 +378610,7 @@ var render = function() {
                                                   }
                                                 ],
                                                 staticClass:
-                                                  "w-100 mx-0 py-0 pr-0 expand-toggle",
+                                                  "w-100 mr-0 py-0 pr-0 expand-toggle",
                                                 attrs: {
                                                   block: "",
                                                   href: "#",
@@ -378608,12 +378621,11 @@ var render = function() {
                                                 _vm._v(
                                                   "\n                        Dialer\n                        "
                                                 ),
-                                                _vm._v(" "),
                                                 _c("img", {
+                                                  staticClass: "toggle-icon",
                                                   attrs: {
-                                                    src:
-                                                      "images/icons/down.svg",
-                                                    alt: "Decreased value icon",
+                                                    src: "images/icons/up.svg",
+                                                    alt: "toggle icon",
                                                     width: "11"
                                                   }
                                                 })
@@ -378664,16 +378676,8 @@ var render = function() {
                                                                             },
                                                                             [
                                                                               _c(
-                                                                                "b-form-checkbox",
+                                                                                "a-switch",
                                                                                 {
-                                                                                  attrs: {
-                                                                                    inline:
-                                                                                      "",
-                                                                                    value:
-                                                                                      "1",
-                                                                                    "unchecked-value":
-                                                                                      "0"
-                                                                                  },
                                                                                   on: {
                                                                                     change: function(
                                                                                       $event
@@ -378696,7 +378700,13 @@ var render = function() {
                                                                                     expression:
                                                                                       "permission.disabled"
                                                                                   }
-                                                                                },
+                                                                                }
+                                                                              ),
+                                                                              _vm._v(
+                                                                                " "
+                                                                              ),
+                                                                              _c(
+                                                                                "label",
                                                                                 [
                                                                                   _vm._v(
                                                                                     _vm._s(
@@ -378723,16 +378733,8 @@ var render = function() {
                                                                             },
                                                                             [
                                                                               _c(
-                                                                                "b-form-checkbox",
+                                                                                "a-switch",
                                                                                 {
-                                                                                  attrs: {
-                                                                                    inline:
-                                                                                      "",
-                                                                                    value:
-                                                                                      "1",
-                                                                                    "unchecked-value":
-                                                                                      "0"
-                                                                                  },
                                                                                   on: {
                                                                                     change: function(
                                                                                       $event
@@ -378755,10 +378757,16 @@ var render = function() {
                                                                                     expression:
                                                                                       "permission.whisper"
                                                                                   }
-                                                                                },
+                                                                                }
+                                                                              ),
+                                                                              _vm._v(
+                                                                                " "
+                                                                              ),
+                                                                              _c(
+                                                                                "label",
                                                                                 [
                                                                                   _vm._v(
-                                                                                    "Whisper "
+                                                                                    "Whisper"
                                                                                   )
                                                                                 ]
                                                                               )
@@ -378777,16 +378785,8 @@ var render = function() {
                                                                             },
                                                                             [
                                                                               _c(
-                                                                                "b-form-checkbox",
+                                                                                "a-switch",
                                                                                 {
-                                                                                  attrs: {
-                                                                                    inline:
-                                                                                      "",
-                                                                                    value:
-                                                                                      "1",
-                                                                                    "unchecked-value":
-                                                                                      "0"
-                                                                                  },
                                                                                   on: {
                                                                                     change: function(
                                                                                       $event
@@ -378809,7 +378809,13 @@ var render = function() {
                                                                                     expression:
                                                                                       "permission.barge"
                                                                                   }
-                                                                                },
+                                                                                }
+                                                                              ),
+                                                                              _vm._v(
+                                                                                " "
+                                                                              ),
+                                                                              _c(
+                                                                                "label",
                                                                                 [
                                                                                   _vm._v(
                                                                                     "Barge"
@@ -378851,7 +378857,7 @@ var render = function() {
                                                   }
                                                 ],
                                                 staticClass:
-                                                  "w-100 mx-0 py-0 pr-0 expand-toggle",
+                                                  "w-100 mr-0 py-0 pr-0 expand-toggle",
                                                 attrs: {
                                                   block: "",
                                                   href: "#",
@@ -378863,11 +378869,11 @@ var render = function() {
                                                 _vm._v(
                                                   "\n                        Commission\n                        "
                                                 ),
-                                                _vm._v(" "),
                                                 _c("img", {
+                                                  staticClass: "toggle-icon",
                                                   attrs: {
-                                                    src:
-                                                      "images/icons/down.svg",
+                                                    src: "images/icons/up.svg",
+                                                    alt: "toggle icon",
                                                     width: "11"
                                                   }
                                                 })
@@ -378937,8 +378943,14 @@ var render = function() {
                                                                         }
                                                                       }
                                                                     ),
-                                                                    _vm._v(
-                                                                      "\n                                    Commission Structure A\n                                  "
+                                                                    _vm._v(" "),
+                                                                    _c(
+                                                                      "label",
+                                                                      [
+                                                                        _vm._v(
+                                                                          "Commission Structure A"
+                                                                        )
+                                                                      ]
                                                                     )
                                                                   ],
                                                                   1
@@ -378981,8 +378993,14 @@ var render = function() {
                                                                         }
                                                                       }
                                                                     ),
-                                                                    _vm._v(
-                                                                      "\n                                    Commission Structure B\n                                  "
+                                                                    _vm._v(" "),
+                                                                    _c(
+                                                                      "label",
+                                                                      [
+                                                                        _vm._v(
+                                                                          "Commission Structure B"
+                                                                        )
+                                                                      ]
                                                                     )
                                                                   ],
                                                                   1
@@ -379025,8 +379043,14 @@ var render = function() {
                                                                         }
                                                                       }
                                                                     ),
-                                                                    _vm._v(
-                                                                      "\n                                    Commission Structure C\n                                  "
+                                                                    _vm._v(" "),
+                                                                    _c(
+                                                                      "label",
+                                                                      [
+                                                                        _vm._v(
+                                                                          "Commission Structure C"
+                                                                        )
+                                                                      ]
                                                                     )
                                                                   ],
                                                                   1
@@ -379069,7 +379093,7 @@ var render = function() {
                                                         }
                                                       ],
                                                       staticClass:
-                                                        "w-100 mx-0 py-0 pr-0 expand-toggle",
+                                                        "w-100 mr-0 py-0 pr-0 expand-toggle",
                                                       attrs: {
                                                         block: "",
                                                         href: "#",
@@ -379085,13 +379109,13 @@ var render = function() {
                                                           ) +
                                                           "\n                          "
                                                       ),
-                                                      _vm._v(" "),
                                                       _c("img", {
+                                                        staticClass:
+                                                          "toggle-icon",
                                                         attrs: {
                                                           src:
-                                                            "images/icons/down.svg",
-                                                          alt:
-                                                            "Decreased value icon",
+                                                            "images/icons/up.svg",
+                                                          alt: "toggle icon",
                                                           width: "11"
                                                         }
                                                       })
@@ -379136,16 +379160,8 @@ var render = function() {
                                                                           },
                                                                           [
                                                                             _c(
-                                                                              "b-form-checkbox",
+                                                                              "a-switch",
                                                                               {
-                                                                                attrs: {
-                                                                                  inline:
-                                                                                    "",
-                                                                                  value:
-                                                                                    "1",
-                                                                                  "unchecked-value":
-                                                                                    "0"
-                                                                                },
                                                                                 on: {
                                                                                   change: function(
                                                                                     $event
@@ -379168,7 +379184,13 @@ var render = function() {
                                                                                   expression:
                                                                                     "permission.read"
                                                                                 }
-                                                                              },
+                                                                              }
+                                                                            ),
+                                                                            _vm._v(
+                                                                              " "
+                                                                            ),
+                                                                            _c(
+                                                                              "label",
                                                                               [
                                                                                 _vm._v(
                                                                                   "Read"
@@ -379190,16 +379212,8 @@ var render = function() {
                                                                           },
                                                                           [
                                                                             _c(
-                                                                              "b-form-checkbox",
+                                                                              "a-switch",
                                                                               {
-                                                                                attrs: {
-                                                                                  inline:
-                                                                                    "",
-                                                                                  value:
-                                                                                    "1",
-                                                                                  "unchecked-value":
-                                                                                    "0"
-                                                                                },
                                                                                 on: {
                                                                                   change: function(
                                                                                     $event
@@ -379222,10 +379236,16 @@ var render = function() {
                                                                                   expression:
                                                                                     "permission.write"
                                                                                 }
-                                                                              },
+                                                                              }
+                                                                            ),
+                                                                            _vm._v(
+                                                                              " "
+                                                                            ),
+                                                                            _c(
+                                                                              "label",
                                                                               [
                                                                                 _vm._v(
-                                                                                  "Edit "
+                                                                                  "Edit"
                                                                                 )
                                                                               ]
                                                                             )
@@ -379244,16 +379264,8 @@ var render = function() {
                                                                           },
                                                                           [
                                                                             _c(
-                                                                              "b-form-checkbox",
+                                                                              "a-switch",
                                                                               {
-                                                                                attrs: {
-                                                                                  inline:
-                                                                                    "",
-                                                                                  value:
-                                                                                    "1",
-                                                                                  "unchecked-value":
-                                                                                    "0"
-                                                                                },
                                                                                 on: {
                                                                                   change: function(
                                                                                     $event
@@ -379276,10 +379288,16 @@ var render = function() {
                                                                                   expression:
                                                                                     "permission.delete"
                                                                                 }
-                                                                              },
+                                                                              }
+                                                                            ),
+                                                                            _vm._v(
+                                                                              " "
+                                                                            ),
+                                                                            _c(
+                                                                              "label",
                                                                               [
                                                                                 _vm._v(
-                                                                                  "Delete "
+                                                                                  "Delete"
                                                                                 )
                                                                               ]
                                                                             )
