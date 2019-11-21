@@ -43,13 +43,6 @@
   transform: translate(0px, -10px) scale(1);
   text-decoration: none;
 }
-.main-wrapper {
-  background-image: url('/images/Sign_In/Assests/Background_white.svg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: right top;
-  background-color: #00c3ff;
-}
 
 .container {
   max-width: 100%;
@@ -161,7 +154,6 @@
   outline: 0 !important;
 }
 
-
 /* Transitions */
 .bounce-enter-active {
     animation: bounce-in .5s;
@@ -267,25 +259,8 @@
 .filter-card strong{
   margin-left: 29px;
 }
-/*auth nav styling*/
-#auth .navbar-nav.ml-auto li a{
-  font-weight: 300;
-  color: rgba(1,52,73,0.5)!important;
-}
-/*end auth nav styling*/
+
 /*auth buttons styling*/
-.activeBtn{
-  /* border-bottom: 1px solid #fff!important; */
-  color: #F28821!important;
-  font-size: 26px !important;
-  font-family: 'Rubik', sans-serif !important;
-  background-image: url('/images/Sign_In/Assests/White-space.svg');
-  background-repeat: no-repeat;
-  background-position: 50%;
-  position: relative;
-  left: 31%;
-  height: 84px;
-}
  .btn:focus {
   outline: 0 !important;
   box-shadow: none !important;
@@ -293,17 +268,16 @@
   -moz-box-shadow: none !important;
   -o-box-shadow: none !important;
 }
-.inactiveBtn{
-  color: #F2F2F2!important;
-  font-size: 26px !important;
-  font-family: 'Rubik', sans-serif !important;
-  position: relative;
-  left: 30%;
-  height: 84px;
-}
 /*end auth buttons styling*/
 
-/*login right sidebar*/
+/*login pages*/
+.main-wrapper {
+  background-image: url('/images/Sign_In/Assests/Background_white.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-color: #00c3ff;
+}
 .main-wrapper .row .col-6:first-child {
   padding-left: 10.2%!important;
 }
@@ -311,12 +285,19 @@
   padding-right: 11.4%!important;
   margin-bottom:13%;
 }
+.invalid-feedback {
+  font-style: italic;
+  font-size: 0.73vw!important;
+  color: #F42222!important;
+  padding-left: 35px;
+}
 .login {
   max-width:480px;
 }
 .login h1 {
   color: #fff;
   font-size: 2.9vw;
+  margin-bottom: 12.5%
 }
 .login .btn-primary{
   font-size: 13px;
@@ -367,6 +348,9 @@
   margin-top: 5.5%;
   margin-bottom: 4.7%;
   border-color: #fff;
+}
+.login .col-auto.custom-control.custom-checkbox {
+  margin-left:27px;
 }
 
 /*register right sidebar*/
@@ -421,13 +405,13 @@ label:not(.form-check-label):not(.custom-file-label) {
   background-color: white !important;
   border-radius: 0px !important;
 }
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
+  background-color: #ff933a !important; 
+}
 .vc-arrows-container.title-center {
   width: 90% !important;
 }
 
-.ant-col-8 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after, .api-checkbox .custom-control-input:checked ~ .custom-control-label::after  {
-  background-color: #F28821 !important;
-}
 /*end Register Stepper*/
 /*vc calendar styling*/
 .vc-header {
@@ -668,10 +652,6 @@ max-height: 350px;
 .filter-content .tab-content .custom-checkbox .custom-control-label::after {
   left: 4px;
   background-image: none !important;
-}
-
-.notifications-checkbox .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after, .leads-table .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after  {
-  background-color: #ff933a !important;
 }
 
 .filter-content .custom-control-label::after {
