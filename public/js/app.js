@@ -181091,11 +181091,43 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       branchesListing: [{
+        name: 'CPT Main',
+        address: '9 Dock Rd',
+        province: 'Western Cape',
+        city: 'Cape Town',
+        tell: '021 000 0000',
+        fax: '021 000 0000',
+        tax_number: '0431256',
+        type_id: 'X',
+        code: 'CPT001',
+        status: 'Y'
+      }, {
+        name: 'CPT Main',
+        address: '9 Dock Rd',
+        province: 'Western Cape',
+        city: 'Cape Town',
+        tell: '021 000 0000',
+        fax: '021 000 0000',
+        tax_number: '0431256',
+        type_id: 'X',
+        code: 'CPT001',
+        status: 'Y'
+      }, {
+        name: 'CPT Main',
+        address: '9 Dock Rd',
+        province: 'Western Cape',
+        city: 'Cape Town',
+        tell: '021 000 0000',
+        fax: '021 000 0000',
+        tax_number: '0431256',
+        type_id: 'X',
+        code: 'CPT001',
+        status: 'Y'
+      }, {
         name: 'CPT Main',
         address: '9 Dock Rd',
         province: 'Western Cape',
@@ -181677,7 +181709,6 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -182652,7 +182683,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -182741,41 +182771,56 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       productListing: [{
-        supplier_id: '',
-        category_id: '',
-        origin_id: '',
-        code: 'P001',
-        description: 'Printer',
-        unitCost: 'R1000',
-        status: ''
+        supplier_id: "",
+        category_id: "",
+        origin_id: "",
+        code: "P001",
+        description: "Printer",
+        unitCost: "R1000",
+        status: ""
       }, {
-        supplier_id: '',
-        category_id: '',
-        origin_id: '',
-        code: 'T001',
-        description: 'Toner',
-        unitCost: 'R400',
-        status: ''
+        supplier_id: "",
+        category_id: "",
+        origin_id: "",
+        code: "T001",
+        description: "Toner",
+        unitCost: "R400",
+        status: ""
       }, {
-        supplier_id: '',
-        category_id: '',
-        origin_id: '',
-        code: 'PX001',
-        description: 'Paper',
-        unitCost: 'R200',
-        status: ''
+        supplier_id: "",
+        category_id: "",
+        origin_id: "",
+        code: "PX001",
+        description: "Paper",
+        unitCost: "R200",
+        status: ""
       }, {
-        supplier_id: '',
-        category_id: '',
-        origin_id: '',
-        code: 'I001',
-        description: 'Ink',
-        unitCost: 'R150',
-        status: ''
+        supplier_id: "",
+        category_id: "",
+        origin_id: "",
+        code: "I001",
+        description: "Ink",
+        unitCost: "R150",
+        status: ""
       }]
     };
   }
@@ -366923,11 +366968,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "table-container" },
     [
-      _c("p", [_vm._v("Branches Data table goes here ")]),
-      _vm._v(" "),
       _c("b-table", {
-        attrs: { striped: "", hover: "", items: _vm.branchesListing }
+        staticClass: "branch-listing",
+        attrs: { items: _vm.branchesListing }
       })
     ],
     1
@@ -367258,11 +367303,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "table-container" },
     [
-      _c("p", [_vm._v("Categories Data table goes here ")]),
-      _vm._v(" "),
       _c("b-table", {
-        attrs: { striped: "", hover: "", items: _vm.categoryListing }
+        staticClass: "category-listing",
+        attrs: { items: _vm.categoryListing }
       })
     ],
     1
@@ -369409,11 +369454,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "table-container" },
     [
-      _c("p", [_vm._v("Orders Data table goes here ")]),
-      _vm._v(" "),
       _c("b-table", {
-        attrs: { striped: "", hover: "", items: _vm.orderHistory }
+        staticClass: "order-listing",
+        attrs: { items: _vm.orderHistory }
       })
     ],
     1
@@ -369426,10 +369471,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/ProductListingTable.vue?vue&type=template&id=021dfba0&scoped=true&":
-/*!****************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/DataTables/ProductListingTable.vue?vue&type=template&id=021dfba0&scoped=true& ***!
-  \****************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/ProductListingTable.vue?vue&type=template&id=021dfba0&":
+/*!****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/DataTables/ProductListingTable.vue?vue&type=template&id=021dfba0& ***!
+  \****************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -369443,12 +369488,14 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "table-container" },
     [
-      _c("p", [_vm._v("Product Data table goes here ")]),
-      _vm._v(" "),
       _c(
         "b-table",
-        { attrs: { items: _vm.productListing } },
+        {
+          staticClass: "product-listing",
+          attrs: { items: _vm.productListing }
+        },
         [
           _c(
             "template",
@@ -369460,12 +369507,12 @@ var render = function() {
                 [
                   _c("a-select-option", { attrs: { value: "0" } }, [
                     _c("div", { staticClass: "d-inline-block" }),
-                    _vm._v("CPT001")
+                    _vm._v("CPT001\n        ")
                   ]),
                   _vm._v(" "),
                   _c("a-select-option", { attrs: { value: "1" } }, [
                     _c("div", { staticClass: "d-inline-block" }),
-                    _vm._v("PTA002")
+                    _vm._v("PTA002\n        ")
                   ])
                 ],
                 1
@@ -369484,12 +369531,12 @@ var render = function() {
                 [
                   _c("a-select-option", { attrs: { value: "0" } }, [
                     _c("div", { staticClass: "d-inline-block" }),
-                    _vm._v("Printers001")
+                    _vm._v("Printers001\n        ")
                   ]),
                   _vm._v(" "),
                   _c("a-select-option", { attrs: { value: "1" } }, [
                     _c("div", { staticClass: "d-inline-block" }),
-                    _vm._v("Ink002")
+                    _vm._v("Ink002\n        ")
                   ])
                 ],
                 1
@@ -369508,12 +369555,12 @@ var render = function() {
                 [
                   _c("a-select-option", { attrs: { value: "0" } }, [
                     _c("div", { staticClass: "d-inline-block" }),
-                    _vm._v("CPT Main")
+                    _vm._v("CPT Main\n        ")
                   ]),
                   _vm._v(" "),
                   _c("a-select-option", { attrs: { value: "1" } }, [
                     _c("div", { staticClass: "d-inline-block" }),
-                    _vm._v("PTA Main")
+                    _vm._v("PTA Main\n        ")
                   ])
                 ],
                 1
@@ -369532,12 +369579,12 @@ var render = function() {
                 [
                   _c("a-select-option", { attrs: { value: "0" } }, [
                     _c("div", { staticClass: "d-inline-block" }),
-                    _vm._v("Complete")
+                    _vm._v("Complete\n        ")
                   ]),
                   _vm._v(" "),
                   _c("a-select-option", { attrs: { value: "1" } }, [
                     _c("div", { staticClass: "d-inline-block" }),
-                    _vm._v("Pending")
+                    _vm._v("Pending\n        ")
                   ])
                 ],
                 1
@@ -371191,7 +371238,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "branches" } }, [
-    _c("div", { staticClass: "row mx-0 productss-tabs" }, [
+    _c("div", { staticClass: "row mx-0 orders-tabs" }, [
       _c(
         "div",
         { staticClass: "col-lg-12 px-0" },
@@ -421935,7 +421982,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ProductListingTable_vue_vue_type_template_id_021dfba0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ProductListingTable.vue?vue&type=template&id=021dfba0&scoped=true& */ "./resources/assets/js/components/DataTables/ProductListingTable.vue?vue&type=template&id=021dfba0&scoped=true&");
+/* harmony import */ var _ProductListingTable_vue_vue_type_template_id_021dfba0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ProductListingTable.vue?vue&type=template&id=021dfba0& */ "./resources/assets/js/components/DataTables/ProductListingTable.vue?vue&type=template&id=021dfba0&");
 /* harmony import */ var _ProductListingTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ProductListingTable.vue?vue&type=script&lang=js& */ "./resources/assets/js/components/DataTables/ProductListingTable.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
@@ -421947,11 +421994,11 @@ __webpack_require__.r(__webpack_exports__);
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _ProductListingTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ProductListingTable_vue_vue_type_template_id_021dfba0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _ProductListingTable_vue_vue_type_template_id_021dfba0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _ProductListingTable_vue_vue_type_template_id_021dfba0___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ProductListingTable_vue_vue_type_template_id_021dfba0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  "021dfba0",
+  null,
   null
   
 )
@@ -421977,19 +422024,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/assets/js/components/DataTables/ProductListingTable.vue?vue&type=template&id=021dfba0&scoped=true&":
-/*!**********************************************************************************************************************!*\
-  !*** ./resources/assets/js/components/DataTables/ProductListingTable.vue?vue&type=template&id=021dfba0&scoped=true& ***!
-  \**********************************************************************************************************************/
+/***/ "./resources/assets/js/components/DataTables/ProductListingTable.vue?vue&type=template&id=021dfba0&":
+/*!**********************************************************************************************************!*\
+  !*** ./resources/assets/js/components/DataTables/ProductListingTable.vue?vue&type=template&id=021dfba0& ***!
+  \**********************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductListingTable_vue_vue_type_template_id_021dfba0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ProductListingTable.vue?vue&type=template&id=021dfba0&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/ProductListingTable.vue?vue&type=template&id=021dfba0&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductListingTable_vue_vue_type_template_id_021dfba0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductListingTable_vue_vue_type_template_id_021dfba0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ProductListingTable.vue?vue&type=template&id=021dfba0& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/ProductListingTable.vue?vue&type=template&id=021dfba0&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductListingTable_vue_vue_type_template_id_021dfba0___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductListingTable_vue_vue_type_template_id_021dfba0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductListingTable_vue_vue_type_template_id_021dfba0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

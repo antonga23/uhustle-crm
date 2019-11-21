@@ -39,7 +39,7 @@ h5 {
 
 <template>
   <div id="branches">
-    <div class="row mx-0 productss-tabs">
+    <div class="row mx-0 orders-tabs">
       <div class="col-lg-12 px-0">
         <b-card no-body>
           <b-tabs card>

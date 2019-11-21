@@ -1,7 +1,6 @@
 <template>
-    <div>
-        <p>Orders Data table goes here </p>
-        <b-table striped hover :items="orderHistory"></b-table>
+    <div class='table-container'>
+        <b-table class="order-listing" :items="orderHistory"></b-table>
     </div>
 </template>
 <script>

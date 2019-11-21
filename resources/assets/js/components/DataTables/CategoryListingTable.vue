@@ -1,7 +1,6 @@
 <template>
-    <div>
-        <p>Categories Data table goes here </p>
-        <b-table striped hover :items="categoryListing"></b-table>
+     <div class='table-container'>
+        <b-table class="category-listing" :items="categoryListing"></b-table>
     </div>
 </template>
 <script>
