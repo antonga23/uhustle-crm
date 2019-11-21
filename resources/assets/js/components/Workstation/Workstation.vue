@@ -49,6 +49,12 @@ div.col-6:last-child .inner-div .row, div.col-6:nth-last-child(2) .inner-div .ro
 .p10-25 { 
   padding: 10px 25px; 
 } 
+
+@media screen and (max-width: 1400px) {
+  .p10-25 { 
+  padding: 10px 10px; 
+}
+}
 .mr-22 {
   margin-right: 22%;
 }
