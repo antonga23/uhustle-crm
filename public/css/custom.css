@@ -733,9 +733,9 @@ max-height: 350px;
 #preferences .nav-tabs .nav-link, 
 #api-integration .nav-link,
 #transactions .trans-tabs .nav-link h5,
-#branches .nav-link, 
-#products .nav-link,
-#order .nav-link{
+#branches .nav-link h5, 
+#products .nav-link h5,
+#order .nav-link h5{
   font-weight: 700;
   font-size: 0.94vw;
   color: #999999;
@@ -746,9 +746,9 @@ max-height: 350px;
 #preferences .nav-tabs .nav-link.active, 
 #api-integration .nav-link.active,
 #transactions .nav-tabs .nav-link.active h5,
-#branches .nav-link.active, 
-#products .nav-link.active,
-#order .nav-link.active{
+#branches .nav-link.active h5, 
+#products .nav-link.active h5,
+#order .nav-link.active h5{
   color: #1A1C43;
 }
 #preferences .nav-tabs .nav-link[aria-selected="true"], 
