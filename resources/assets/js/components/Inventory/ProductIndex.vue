@@ -96,6 +96,8 @@ h5 {
 <script>
 import ProductListingTable from "../DataTables/ProductListingTable";
 import CategoryListingTable from "../DataTables/CategoryListingTable";
+import CreateCategory from "./CreateCategory";
+import CreateProduct from "./CreateProduct";
   export default {
     components: { 
       ProductListingTable,
