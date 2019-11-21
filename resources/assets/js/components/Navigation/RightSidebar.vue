@@ -824,7 +824,6 @@ p.badges {
 
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
   border-radius: 50% !important;
-  background-color: #ff933a !important;
 }
 
 .reminders input.list-input:focus {

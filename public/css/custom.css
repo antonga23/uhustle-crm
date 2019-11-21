@@ -47,30 +47,11 @@
 .container {
   max-width: 100%;
 }
-.left-side{
-  background-image: url('/images/Sign_In/Assests/Left-Background.svg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: left top;
-  background-color: #F38912 !important;
-}
-.left-side img {
-  max-width:70%;
-  height:auto;
-  position: absolute;
-  top: 39%;
-  left: 15%;
-}
-/* #top-landing-logo {
-    width: 30%;
-} */
+
 .lp-logo {
   width: 19.31vw!important;
 }
-.logo-title {
-  color: #F38912;
-  font-size: 4.01vw;
-}
+
 #navbarSupportedContent{
   border-bottom: 1px solid #f4f4f4;
   padding-bottom: 6px;
@@ -84,44 +65,18 @@
   margin: 9px;
   border-radius: 5px !important;
 }
-.auth-buttons .col-lg-7{
-  max-width: 374px;
-}
-.auth-buttons a{
-  font-family: 'Cormorant', serif;
-}
+
 .btn-primary {
   color: #fff;
   background: linear-gradient(to right, rgba(255,129,51,1) 0%,  rgba(255,147, 58,1) 100%) !important;
   border-color: transparent !important;
   border-radius: 50rem!important;
 }
-.submit-btn {
-  font-family: 'Lato light', sans-serif !important;
-}
-.outer-login-container {
-  position: relative;
-  height: 100% !important;
-} 
-.inner-login-container {
-  position: absolute;
-  top: 47%;
-  -ms-transform: translateY(-50%);
-  /* transform: translateY(-50%); */
-  right: 0;
-}
+
 .mt-10 {
   margin-top: 10% !important;
 }
 
-@media screen and (max-width: 992px) {
-.outer-login-container {
-  height: 25% !important;
-}
-  .inner-login-container {
-    top: 3% !important;
-  }
-}
 #auth .card{
   border: none !important;
   box-shadow : none !important;
@@ -198,7 +153,6 @@
 .v-select-toggle:focus {
   outline: 0 !important;
 }
-
 
 /* Transitions */
 .bounce-enter-active {
@@ -305,25 +259,8 @@
 .filter-card strong{
   margin-left: 29px;
 }
-/*auth nav styling*/
-#auth .navbar-nav.ml-auto li a{
-  font-weight: 300;
-  color: rgba(1,52,73,0.5)!important;
-}
-/*end auth nav styling*/
+
 /*auth buttons styling*/
-.activeBtn{
-  /* border-bottom: 1px solid #fff!important; */
-  color: #F28821!important;
-  font-size: 26px !important;
-  font-family: 'Rubik', sans-serif !important;
-  background-image: url('/images/Sign_In/Assests/White-space.svg');
-  background-repeat: no-repeat;
-  background-position: 50%;
-  position: relative;
-  left: 31%;
-  height: 84px;
-}
  .btn:focus {
   outline: 0 !important;
   box-shadow: none !important;
@@ -331,61 +268,93 @@
   -moz-box-shadow: none !important;
   -o-box-shadow: none !important;
 }
-.inactiveBtn{
-  color: #F2F2F2!important;
-  font-size: 26px !important;
-  font-family: 'Rubik', sans-serif !important;
-  position: relative;
-  left: 30%;
-  height: 84px;
-}
 /*end auth buttons styling*/
 
-/*login right sidebar*/
-.right-side .col-10 .auth-buttons.login{
-  margin-top:35%;
+/*login pages*/
+.main-wrapper {
+  background-image: url('/images/Sign_In/Assests/Background_white.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right top;
+  background-color: #00c3ff;
 }
-.right-side .form-control {
-  font-size:0.83vw;
+.main-wrapper .row .col-6:first-child {
+  padding-left: 10.2%!important;
 }
-.right-side .terms-text.custom-control-label{
-  font-size:0.73vw;
+.main-wrapper .row .col-6:last-child {
+  padding-right: 11.4%!important;
+  margin-bottom:13%;
+}
+.invalid-feedback {
+  font-style: italic;
+  font-size: 0.73vw!important;
+  color: #F42222!important;
+  padding-left: 35px;
+}
+.login {
+  max-width:480px;
+}
+.login h1 {
+  color: #fff;
+  font-size: 2.9vw;
+  margin-bottom: 12.5%
 }
 .login .btn-primary{
-  font-family: 'Cormorant', serif;
-    text-transform: uppercase;
+  font-size: 13px;
+  padding: 10px 16px;
+  line-height:1em; 
+}
+.login .form-control {
+  padding: 10px 35px 11px!important;
+  height: auto!important;
+}
+.login .form-control::placeholder {
+  font-size: 0.73vw;
+  font-family: 'Rubik', sans-serif !important;
+  font-style: italic;
+  color: #999999;
+}
+.route-btns .col-auto:first-child{
+  padding-left:35px;
+}
+.route-btns .col-auto:last-child{
+  padding-right:35px;
+}
+.auth-btns {
+  font-size: 0.78vw!important;
+  color: #fff!important;
+  text-decoration: underline !important;
+}
+.terms-text {
+  font-size: 0.78vw!important;
+  color: #fff!important;
 }
 .pwd-link {
-  color: #F38912 !important;
+  font-size: 0.78vw!important;
+  color: #ff933a !important;
   text-align: right !important;
   text-decoration: underline !important;
 }
+.submit-btn {
+  margin-top: 46%!important;
+}
 .copyright {
-  font-family: 'Lato Light', sans-serif !important;
-  color: #003B53 !important;
+  color: #fff !important;
   font-size: 0.78vw;
+  padding-left:35px;
+  padding-right:35px;
 }
 .copyright-divider {
-  margin-top: 5%;
-  margin-bottom:5%;
+  margin-top: 5.5%;
+  margin-bottom: 4.7%;
+  border-color: #fff;
 }
-/* @media screen and (min-width: 1440px) {
-  .right-side .col-10 .auth-buttons.login{
-    margin-top:65%;
-  }
-} */
-.right-side .col-10 .login, .right-side .col-10 .register{
-  max-width:50%;
+.login .col-auto.custom-control.custom-checkbox {
+  margin-left:27px;
 }
+
 /*register right sidebar*/
-.right-side .col-10 .auth-buttons.register{
-  margin-top:10%;
-}
-@media screen and (min-width:1440px) {
-  .right-side .col-10 .auth-buttons.register{
-    margin-top:40%;
-  }
-}
+
 .center {
   text-align: center;
 }
@@ -425,9 +394,9 @@ select.form-control:focus, input.form-control:focus {
 }
 
 .terms {
-  color: #F28821 !important;
-  font-family: 'Lato', sans-serif !important;
-  font-size:0.73vw!important;
+  color: #ff933a !important;
+  font-size: 0.78vw!important;
+  text-decoration: underline;
 }
 label:not(.form-check-label):not(.custom-file-label) {
   font-weight: 400 !important;
@@ -436,13 +405,13 @@ label:not(.form-check-label):not(.custom-file-label) {
   background-color: white !important;
   border-radius: 0px !important;
 }
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
+  background-color: #ff933a !important; 
+}
 .vc-arrows-container.title-center {
   width: 90% !important;
 }
 
-.ant-col-8 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after, .api-checkbox .custom-control-input:checked ~ .custom-control-label::after  {
-  background-color: #F28821 !important;
-}
 /*end Register Stepper*/
 /*vc calendar styling*/
 .vc-header {
@@ -684,16 +653,6 @@ max-height: 350px;
 .filter-content .tab-content .custom-checkbox .custom-control-label::after {
   left: 4px;
   background-image: none !important;
-}
-
-.notifications-checkbox .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after, 
-.leads-table .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after,
-.select-columns-list .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after  {
-  background-color: #ff933a !important;
-}
-.select-columns-list .custom-control-label {
-  font-size: 12px;
-  padding-top:3px;
 }
 
 .filter-content .custom-control-label::after {
