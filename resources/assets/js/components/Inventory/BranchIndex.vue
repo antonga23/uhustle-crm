@@ -60,7 +60,7 @@ h5 {
               </template>
 
               <transition name="fade">
-                hi
+                <create-branch/>
               </transition>
             </b-tab>
           </b-tabs>
@@ -71,9 +71,10 @@ h5 {
 </template>
 
 <script>
+  import CreateBranch from './CreateBranch';
   export default {
     components: { 
-      
+      CreateBranch
     },
     mounted() {
       

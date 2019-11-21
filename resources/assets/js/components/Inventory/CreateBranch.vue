@@ -55,8 +55,8 @@ label{
         <input 
           v-model="supplier.name"    
           type="text"    
-          id="category-name"     
-          name="categoryName"   
+          id="supplier-name"     
+          name="supplierName"   
           class="form-control rounded-pill"/>
 
         <label for="input-none">Address</label>
@@ -69,7 +69,57 @@ label{
         <label for="input-none">Province</label>
         <a-select v-model="supplier.province" class="custom-select rounded-pill border-0">   
           <a-select-option value="-None-" selected>-None-</a-select-option>   
-          <a-select-option v-for="(province, index) in supplier.provinces" :key="index">{{province}}</a-select-option> 
+          <a-select-option v-for="(s_province, index) in supplier.provinces" :key="index">{{s_province}}</a-select-option> 
+        </a-select>
+
+        <label for="input-none">City</label>
+        <a-select v-model="supplier.city" class="custom-select rounded-pill border-0">   
+          <a-select-option value="-None-" selected>-None-</a-select-option>   
+          <a-select-option v-for="(s_city, index) in supplier.cities" :key="index">{{s_city}}</a-select-option> 
+        </a-select>
+
+        <label for="input-none">Phone</label>
+        <input 
+          v-model="supplier.tel"    
+          type="tel"    
+          id="supplier-tel"     
+          name="supplierTel"   
+          class="form-control rounded-pill"/>
+
+        <label for="input-none">Fax</label>
+        <input 
+          v-model="supplier.fax"    
+          type="tel"    
+          id="supplier-fax"     
+          name="supplierFax"   
+          class="form-control rounded-pill"/>
+
+        <label for="input-none">Tax Number</label>
+        <input 
+          v-model="supplier.tax_number"    
+          type="number"    
+          id="supplier-tax-number"     
+          name="supplierTaxNumber"   
+          class="form-control rounded-pill"/>
+        
+        <label for="input-none">Type</label>
+        <a-select v-model="supplier.type" class="custom-select rounded-pill border-0">   
+          <a-select-option value="-None-" selected>-None-</a-select-option>   
+          <a-select-option v-for="(s_type, index) in supplier.types" :key="index">{{s_type}}</a-select-option> 
+        </a-select>
+
+        <label for="input-none">Code</label>
+        <input 
+          v-model="supplier.code"    
+          type="text"    
+          id="supplier-code"     
+          name="supplierCode"   
+          class="form-control rounded-pill"/>
+
+        <label for="input-none">Status</label>
+        <a-select v-model="supplier.supplier_status" class="custom-select rounded-pill border-0">   
+          <a-select-option value="-None-" selected>-None-</a-select-option>   
+          <a-select-option v-for="(s_status, index) in supplier.supplier_statuses" :key="index">{{s_status}}</a-select-option> 
         </a-select>
 
         <div class="row mx-0 justify-content-end">

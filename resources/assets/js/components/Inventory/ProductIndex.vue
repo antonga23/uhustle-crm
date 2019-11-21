@@ -65,7 +65,7 @@ h5 {
 
             <b-tab>
               <template v-slot:title>
-                <img src="images/icons/Field_Add.svg" alt="Add field icon" width="16"/>
+                <img src="images/icons/Field_Add.svg" alt="Add field icon" width="16" class="ml-0"/>
               </template>
 
               <div class="row mx-0">
