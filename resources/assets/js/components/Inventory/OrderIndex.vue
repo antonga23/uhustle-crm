@@ -50,7 +50,7 @@ h5 {
               </template>
 
               <transition name="fade">
-                
+                <create-order/>
               </transition>
             </b-tab>
 
@@ -71,9 +71,10 @@ h5 {
 </template>
 
 <script>
+  import CreateOrder from './CreateOrder';
   export default {
     components: { 
-      
+      CreateOrder
     },
     mounted() {
       
