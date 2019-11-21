@@ -932,6 +932,7 @@ border-top: 1px solid #f7f7f7;
                               type="text" 
                               class="border-0 list-input"
                               required
+                               v-validate="'required'"
                               
                             > 
                           </label> 
