@@ -26,7 +26,7 @@ label{
   margin-bottom: 7px;
   margin-left: 17px;
 }
-.col-2.align-self-end {
+.col.align-self-end {
   margin-bottom:17px;
 }
 .cancel-deal {
@@ -38,13 +38,30 @@ label{
   -moz-box-shadow: 0 0 4px rgba(0,0,0,0.05);
   -o-box-shadow: 0 0 4px rgba(0,0,0,0.05);
   color: #999999;
-  padding: 9px;
+  padding: 11px 14px 10px;
+  line-height: 1em;
 }
 .save-deal {
   font-size: 10px;
   text-transform:uppercase;
   font-weight: 700;
-  padding: 9px;
+  padding: 11px 14px 10px;
+  line-height: 1em;
+}
+
+@media screen and (max-width:1643px) {
+  .col .row {
+    justify-content: flex-end;
+  }
+  .col-7 {
+    flex: 0 0 66.666667%!important;
+    max-width: 66.666667%!important;
+  }
+  .col-3 {
+    flex: 0 0 33.333332%!important;
+    max-width: 33.333332%!important;
+    padding-right: 0!important;
+  }
 }
 </style>
 
@@ -156,13 +173,23 @@ label{
           name="Revenue"   
           class="form-control rounded-pill"/> 
 
-        <label class="col-lg-12 control-label w-100 p-0 mb-2">Contact Name</label>   
-        <input  
-          v-model="deal.contact_name"   
-          type="text"    
-          id="contact-name"     
-          name="ContactName"   
-          class="form-control rounded-pill"/>  
+        <label class="col-lg-12 control-label w-100 p-0 mb-2">Expected Revenue</label>   
+        <input
+          v-model="deal.expected_revenue"    
+          type="number"    
+          id="revenue"     
+          name="Revenue"   
+          class="form-control rounded-pill"/> 
+
+        <label class="col-lg-12 control-label w-100 p-0 mb-2">Terms</label>   
+        <a-select class="custom-select rounded-pill border-0">   
+          <a-select-option value="-None-" selected>-None-</a-select-option>   
+          <a-select-option value="1">Daily</a-select-option>   
+          <a-select-option value="2">weekly</a-select-option>   
+          <a-select-option value="3">Fortnightly</a-select-option>   
+          <a-select-option value="4">Monthly</a-select-option>
+          <a-select-option value="4">Yearly</a-select-option>     
+        </a-select>  
 
         <label class="col-lg-12 control-label w-100 p-0 mb-2">Contact Number</label> 
         <input 
@@ -182,16 +209,16 @@ label{
         </a-select>  
       </div>   
 
-      <div class="col-2 align-self-end pr-0">   
+      <div class="col align-self-end pr-0">   
         <div class="row mx-0">   
-          <div class="col-lg-6 pl-0 pr-2">   
+          <div class="col-auto pl-0 pr-2">   
             <button    
               type="submit"    
               class="btn btn-default cancel-deal w-100 m-0"    
               @click="clearDeal()"   
             >Cancel</button>   
           </div>   
-          <div class="col-lg-6 pr-0 pl-2">   
+          <div class="col-auto pr-0 pl-2">   
             <button    
               type="submit"    
               class="btn btn-primary save-deal w-100 rounded-pill m-0"    

@@ -192606,6 +192606,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   mounted: function mounted() {
@@ -247421,7 +247448,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\ninput[data-v-8da0a4ca], textarea[data-v-8da0a4ca], select[data-v-8da0a4ca] {\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding: 11px 18px!important;\n  font-size: 12px;\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height: auto!important;\n}\ntextarea[data-v-8da0a4ca] {\n  border-radius: 10px;\n  height: 124px!important;\n}\n.custom-select[data-v-8da0a4ca] {\n  height: auto;\n}\nlabel[data-v-8da0a4ca]{\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom: 7px;\n  margin-left: 17px;\n}\n.col-2.align-self-end[data-v-8da0a4ca] {\n  margin-bottom:17px;\n}\n.cancel-deal[data-v-8da0a4ca] {\n  border-radius: 50rem!important;\n  font-size: 10px;\n  text-transform: uppercase;\n  box-shadow: 0 0 4px rgba(0,0,0,0.05);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.05);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.05);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.05);\n  color: #999999;\n  padding: 9px;\n}\n.save-deal[data-v-8da0a4ca] {\n  font-size: 10px;\n  text-transform:uppercase;\n  font-weight: 700;\n  padding: 9px;\n}\n", ""]);
+exports.push([module.i, "\ninput[data-v-8da0a4ca], textarea[data-v-8da0a4ca], select[data-v-8da0a4ca] {\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding: 11px 18px!important;\n  font-size: 12px;\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height: auto!important;\n}\ntextarea[data-v-8da0a4ca] {\n  border-radius: 10px;\n  height: 124px!important;\n}\n.custom-select[data-v-8da0a4ca] {\n  height: auto;\n}\nlabel[data-v-8da0a4ca]{\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom: 7px;\n  margin-left: 17px;\n}\n.col.align-self-end[data-v-8da0a4ca] {\n  margin-bottom:17px;\n}\n.cancel-deal[data-v-8da0a4ca] {\n  border-radius: 50rem!important;\n  font-size: 10px;\n  text-transform: uppercase;\n  box-shadow: 0 0 4px rgba(0,0,0,0.05);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.05);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.05);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.05);\n  color: #999999;\n  padding: 11px 14px 10px;\n  line-height: 1em;\n}\n.save-deal[data-v-8da0a4ca] {\n  font-size: 10px;\n  text-transform:uppercase;\n  font-weight: 700;\n  padding: 11px 14px 10px;\n  line-height: 1em;\n}\n@media screen and (max-width:1643px) {\n.col .row[data-v-8da0a4ca] {\n    justify-content: flex-end;\n}\n.col-7[data-v-8da0a4ca] {\n    flex: 0 0 66.666667%!important;\n    max-width: 66.666667%!important;\n}\n.col-3[data-v-8da0a4ca] {\n    flex: 0 0 33.333332%!important;\n    max-width: 33.333332%!important;\n    padding-right: 0!important;\n}\n}\n", ""]);
 
 // exports
 
@@ -381658,7 +381685,7 @@ var render = function() {
           _c(
             "label",
             { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
-            [_vm._v("Contact Name")]
+            [_vm._v("Expected Revenue")]
           ),
           _vm._v(" "),
           _c("input", {
@@ -381666,22 +381693,61 @@ var render = function() {
               {
                 name: "model",
                 rawName: "v-model",
-                value: _vm.deal.contact_name,
-                expression: "deal.contact_name"
+                value: _vm.deal.expected_revenue,
+                expression: "deal.expected_revenue"
               }
             ],
             staticClass: "form-control rounded-pill",
-            attrs: { type: "text", id: "contact-name", name: "ContactName" },
-            domProps: { value: _vm.deal.contact_name },
+            attrs: { type: "number", id: "revenue", name: "Revenue" },
+            domProps: { value: _vm.deal.expected_revenue },
             on: {
               input: function($event) {
                 if ($event.target.composing) {
                   return
                 }
-                _vm.$set(_vm.deal, "contact_name", $event.target.value)
+                _vm.$set(_vm.deal, "expected_revenue", $event.target.value)
               }
             }
           }),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
+            [_vm._v("Terms")]
+          ),
+          _vm._v(" "),
+          _c(
+            "a-select",
+            { staticClass: "custom-select rounded-pill border-0" },
+            [
+              _c(
+                "a-select-option",
+                { attrs: { value: "-None-", selected: "" } },
+                [_vm._v("-None-")]
+              ),
+              _vm._v(" "),
+              _c("a-select-option", { attrs: { value: "1" } }, [
+                _vm._v("Daily")
+              ]),
+              _vm._v(" "),
+              _c("a-select-option", { attrs: { value: "2" } }, [
+                _vm._v("weekly")
+              ]),
+              _vm._v(" "),
+              _c("a-select-option", { attrs: { value: "3" } }, [
+                _vm._v("Fortnightly")
+              ]),
+              _vm._v(" "),
+              _c("a-select-option", { attrs: { value: "4" } }, [
+                _vm._v("Monthly")
+              ]),
+              _vm._v(" "),
+              _c("a-select-option", { attrs: { value: "4" } }, [
+                _vm._v("Yearly")
+              ])
+            ],
+            1
+          ),
           _vm._v(" "),
           _c(
             "label",
@@ -381756,9 +381822,9 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "col-2 align-self-end pr-0" }, [
+      _c("div", { staticClass: "col align-self-end pr-0" }, [
         _c("div", { staticClass: "row mx-0" }, [
-          _c("div", { staticClass: "col-lg-6 pl-0 pr-2" }, [
+          _c("div", { staticClass: "col-auto pl-0 pr-2" }, [
             _c(
               "button",
               {
@@ -381774,7 +381840,7 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-lg-6 pr-0 pl-2" }, [
+          _c("div", { staticClass: "col-auto pr-0 pl-2" }, [
             _c(
               "button",
               {
