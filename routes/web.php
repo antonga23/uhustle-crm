@@ -322,7 +322,7 @@ Route::group(['prefix' => 'modules'], function () {
   Route::get('/get-item/{item_id}', 'ModuleController@getItem')->name('get-item-page');
   Route::post('/add-item', 'ModuleController@addItem')->name('add-item-page');
   Route::get('/delete-item/{id}', 'ModuleController@deleteItem')->name('add-item-page');
-  Route::post('/update-item', 'ModuleController@updateItem')->name('update-item-page');
+  Route::post('/update-item-field', 'ModuleController@updateItem')->name('update-item-page');
   Route::get('/get-assigned/{module}', 'ModuleController@getAssigned');
 	Route::get('/get-assigned-items/{module}', 'ModuleController@getContactsOrLeads');
 

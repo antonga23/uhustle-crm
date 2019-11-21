@@ -371,7 +371,7 @@ class TwillioController extends Controller
 
             if($value->sale){
                 $product = Product::find($value->lead->product_id);
-                $price = $product->price;
+                $price = $product->unit_cost;
                 $sum_sales += $price;
             }
 
@@ -431,7 +431,7 @@ class TwillioController extends Controller
 
         $client = new Client($this->account_sid, $this->auth_token);
 
-        $twilios = Twillio::where(['agent_id' => $request_user['user_id']])
+        $twilios = Twillio::with('lead')->where(['agent_id' => $request_user['user_id']])
                     ->whereYear('created_at', '=' ,$now->year)
                     ->whereMonth('created_at', '=' ,$month)
                     ->orderBy('created_at', 'DESC')
@@ -444,10 +444,19 @@ class TwillioController extends Controller
         $con_ratio = 0;
 
         foreach ($twilios as $key => $value) {
-
+            
             if($value->sale){
-                $product = Product::find($value->lead->product_id);
-                $price = $product->price;
+
+                $lead = ModuleItem::with(['item_meta' => function($query){
+
+                  $query->where('custom_field_name', '=', 'product');
+
+                }])->where(['id' => $value->lead->id])->first();
+
+                $product = Product::where(['id' => $lead->item_meta[0]->custom_field_value])->first();
+
+                $price = $product['unit_cost'];
+
                 $sum_sales += $price;
             }
 

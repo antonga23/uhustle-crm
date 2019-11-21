@@ -20,9 +20,9 @@ class DatabaseSeeder extends Seeder
         // $this->call(ModuleTableSeeder::class);
         // $this->call(PermissionsTableSeeder::class);
         // $this->call(ApiIntegrationTableSeeder::class);
-        $this->call(CompanyTypeSeeder::class);
-        $this->call(ProductCategoryTableSeeder::class);
-        $this->call(OrderTypeTableSeeder::class);
-        $this->call(OrderClassTableSeeder::class);
+        // $this->call(CompanyTypeSeeder::class);
+        // $this->call(ProductCategoryTableSeeder::class);
+        // $this->call(OrderTypeTableSeeder::class);
+        // $this->call(OrderClassTableSeeder::class);
     }
 }

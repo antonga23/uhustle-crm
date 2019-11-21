@@ -200,7 +200,7 @@ table.listing tr  th{
           <datatable 
             v-if="!show_page_loader" 
             id="datatable" 
-            :rows="display_items" 
+            :rows="items" 
             :module_items="items" 
             :columns="columns" 
             :custom_fields="module_custom_fields" 
@@ -340,7 +340,9 @@ table.listing tr  th{
               field: 'all',  // Field name from row
               numeric: false, // Affects sorting
               html: false,    // Escapes output if false.
-              sortable:false
+              sortable:false,
+              can_edit:null,
+              can_read:null,
           }
         ]
       }
@@ -369,7 +371,9 @@ table.listing tr  th{
               field: field.name,  // Field name from row
               numeric: false, // Affects sorting
               html: false,    // Escapes output if false.
-              sortable:true
+              sortable:true,
+              can_edit:field.can_edit,
+              can_read:field.can_edit,
             });
             
         });
@@ -380,7 +384,10 @@ table.listing tr  th{
             field: 'actions',  // Field name from row
             numeric: false, // Affects sorting
             html: false,    // Escapes output if false.
-            sortable:true
+            sortable:true,
+            field_id:null,
+            can_edit:null,
+            can_read:null,
           },
         );
         
@@ -446,11 +453,11 @@ table.listing tr  th{
 
             vm.items = response.data.items;
             
-            vm.cachItems = response.data.items;
+            // vm.cachItems = response.data.items;
 
-            vm.display_items = response.data.display_items;
+            // vm.display_items = response.data.display_items;
             
-            vm.chached_display_items = response.data.display_items;
+            // vm.chached_display_items = response.data.display_items;
 
             vm.count_assigned = response.data.count_assigned;
 

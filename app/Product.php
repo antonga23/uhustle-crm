@@ -21,6 +21,9 @@ class Product extends Model implements Auditable
         'name',
         'description',
         'unit_cost',
+        'current_stock',
+        'reserved_stock',
+        'available_stock',
         'status',
     ];
 

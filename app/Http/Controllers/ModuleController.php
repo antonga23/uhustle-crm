@@ -228,13 +228,10 @@ class ModuleController extends Controller
 
     public function getItem($item_id = null){
 
-      $module_item = ModuleItem::with('item_meta')->where(['id' => $item_id])->get();
+      $module_item = ModuleItem::with('item_meta')->where(['id' => $item_id])->first();
 
-      $compact_item = $this->compactModuleItems($module_item);
+      return ['success' => true, 'item' => $module_item];
 
-      $item = $compact_item['items'][0];
-
-      return ['success' => true, 'item' => $item];
     }
 
     public function getItems($module = null){
@@ -296,7 +293,8 @@ class ModuleController extends Controller
 
     foreach ($module_items as $key => $item) {
 
-        $item_temp = new \StdClass();
+        $compact_item = new \StdClass();
+        $compact_item->id = $item->id;
 
         $display_item_temp = new \StdClass();
 
@@ -594,29 +592,12 @@ class ModuleController extends Controller
 
   public function updateItem(Request $request){
 
-    $item_data = $request->all();
+    $item_field = $request->all();
 
     try{
       DB::beginTransaction();
 
-      foreach($item_data as $key => $item){
-        switch ($key) {
-          case 'source':
-          case 'product':
-          case 'assignee':
-          case 'owner':
-              ModuleItemMeta::where(['id' => $item['meta_id']])->update([
-                'custom_field_value' => $item['meta_value']['id']
-              ]);
-            break;
-          
-          default:
-              ModuleItemMeta::where(['id' => $item['meta_id']])->update([
-                'custom_field_value' => $item['meta_value']
-              ]);
-            break;
-        }
-      }
+      ModuleItemMeta::find($item_field['id'])->update($item_field);
 
       DB::commit();
       return array('success' => true, 'message' => 'Item successfully update.' );
@@ -923,6 +904,19 @@ class ModuleController extends Controller
 
       }
 
+
+      $count_assigned = ModuleItem::with('item_meta')
+        ->where(['module_id' => $module->id])
+        ->where('assignee', '>', 0)
+        ->count();
+
+
+      $count_unassigned = ModuleItem::with('item_meta')
+        ->where(['module_id' => $module->id])
+        ->whereNull('assignee')
+        ->count();
+        
+
     }else if(Auth::user()->role_id == 2){
 
       if($preferences){
@@ -941,6 +935,18 @@ class ModuleController extends Controller
                                     ->get();
       }
 
+      $count_assigned = ModuleItem::with('item_meta')
+          ->where(['module_id' => $module->id])
+          ->where(['owner' => Auth::user()->id])
+          ->orWhere(['assignee' => Auth::user()->id])
+          ->count();
+
+      $count_unassigned = ModuleItem::with('item_meta')
+                        ->where(['module_id' => $module->id])
+                        ->where(['owner' => Auth::user()->id])
+                        ->whereNull('assignee')
+                        ->count();
+
     }else if(Auth::user()->role_id > 2){
 
       if($preferences){
@@ -949,6 +955,8 @@ class ModuleController extends Controller
                                     ->where(['assignee' => Auth::user()->id])
                                     ->take($preferences['value'])
                                     ->get();
+                
+
 
       }else{
         $module_items = ModuleItem::with('item_meta')
@@ -957,11 +965,23 @@ class ModuleController extends Controller
                                     ->get();
       }
 
+      $count_assigned = ModuleItem::with('item_meta')
+              ->where(['module_id' => $module->id])
+              ->where(['assignee' => Auth::user()->id])
+              ->count();
+
+      $count_unassigned = [];
     }
 
-    $items = $this->compactModuleItems($module_items);
 
-    return $items;
+    // $items = $this->compactModuleItems($module_items);
+
+    return [ 
+        'success' => true,
+        'items' => $module_items, 
+        'count_assigned' => $count_assigned, 
+        'count_unassigned' => $count_unassigned, 
+    ];
 
   }
 }

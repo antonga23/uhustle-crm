@@ -33,6 +33,6 @@ class Twillio extends Model
 
     public function lead()
     {
-        return $this->belongsTo('App\Lead', 'lead_id');
+        return $this->hasOne('App\ModuleItem','id', 'lead_id');
     }
 }

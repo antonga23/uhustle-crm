@@ -891,26 +891,35 @@ a.down-scroll:hover {
     <div class="general-section-stats" v-if="general == true"> 
       <div class="row mx-0 pb-5 justify-content-between top-section agent-stats-1"> 
         <div class="col-6" v-for="(custom_field, index) in item_custom_fields" :key="index">  
-          <div class="2" v-for="(item, name, i) in module_item" :key="i">  
+          <div class="2" v-for="(item, name, i) in module_item.item_meta" :key="i">  
             <div class="inner-div" v-if="item.custom_field_id == custom_field.id">  
               <div  
                 class="row mx-0 border-top-grey align-items-center"  
-                v-if="name == 'source' && item.meta_value !== null"  
+                v-if="item.custom_field_name == 'source' && item.custom_field_value !== null"  
               >  
                 <div class="col-4 p10-25 top">  
                   <p class="top">{{ custom_field.display_name }}</p>  
                 </div>  
-                <div class="col-8 bottom truncate border-left-grey">  
-                  <input
-                    v-model="item.meta_value.name"
-                    type="text"
-                    name="itemName"
-                    class="bottom mb-0 form-control border-0"
-                  />
+                <div class="col-8 bottom truncate border-left-grey">    
+                    <select 
+                      @change="submitEdit(item_field)"
+                      type="text" 
+                      id="Source"  
+                      name="Source" 
+                      v-model="item.custom_field_value"  
+                      class="form-control editable border-0"
+                    >
+                      <option :value="null">- None -</option>
+                      <option 
+                        :value="item.id" 
+                        v-for="(item,index) in sources" 
+                        :key="index"
+                      >{{ item.name }}</option>
+                    </select>
                 </div>  
               </div>  
               
-              <div  
+              <!-- Yong <div  
                 class="row mx-0 border-top-grey align-items-center"  
                 v-else-if="name == 'product' && item.meta_value !== null"  
               >  
@@ -972,13 +981,13 @@ a.down-scroll:hover {
                     class="bottom mb-0 form-control border-0"
                   />  
                 </div> 
-              </div> 
+              </div> Yong -->
             </div> 
           </div> 
         </div> 
       </div> 
  
-      <div class="card-deck client-details mx-0"> 
+      <!-- <div class="card-deck client-details mx-0"> 
         <div class="card border-0 mb-0 ml-0 client"> 
           <div class="card-body"> 
             <h5 class="card-title"> 
@@ -1053,7 +1062,7 @@ a.down-scroll:hover {
             </div> 
           </div> 
         </div> 
-      </div> 
+      </div>  -->
  
       <div class="stats final-modal"> 
         <div class="card-deck mx-0 mb-0"> 
@@ -2106,7 +2115,9 @@ export default {
   
     vm.dialer_settings = JSON.parse(vm.auto_dialer_settings);  
   
-    vm.item_custom_fields = JSON.parse(vm.custom_fields);  
+    vm.item_custom_fields = JSON.parse(vm.custom_fields); 
+
+    vm.sources = JSON.parse(vm.lead_sources);  
   
     if (vm.item_id != "") {  
       vm.enqueueLead(vm.item_id);  
@@ -2191,11 +2202,13 @@ export default {
     "user_id",  
     "role_id",  
     "item_id",  
+    "lead_sources",  
     "auto_dialer_settings",  
     "custom_fields"  
   ],  
   data: function() {  
     return {  
+      sources: {},  
       module_item: {},  
       conferences: [],  
       item_custom_fields: {},  
@@ -2714,7 +2727,7 @@ export default {
   
       axios.get(end_point_choice).then(function(response) {  
         if (response.data.success == true) {  
-          vm.module_item = response.data.item.item;  
+          vm.module_item = response.data.item;  
   
           Fire.$emit("AfterLeadEnqueue", {  
             lead_id: vm.module_item.id,  
