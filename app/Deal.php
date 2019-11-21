@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class Deal extends Model
+class Deal extends Model implements Auditable
 {
+  use \OwenIt\Auditing\Auditable;
+  
     protected $fillable = [
       'lead_id',
       'agent_id',
@@ -28,5 +31,12 @@ class Deal extends Model
     public function lead()
     {
         return $this->belongsTo('App\Lead', 'lead_id');
+    }
+    
+    public function generateTags(): array
+    {
+        return [
+            'deals',
+        ];
     }
 }
