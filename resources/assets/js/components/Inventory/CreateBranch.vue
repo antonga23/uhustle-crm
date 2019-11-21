@@ -26,6 +26,11 @@ label{
   margin-bottom: 7px;
   margin-left: 17px;
 }
+h5 {
+  font-family: 'Rubik', sans-serif;
+  font-size: 0.73vw;
+  color: #2D2D2D;
+}
 .btn-default{
   background: #fff;
   color: #999999;    

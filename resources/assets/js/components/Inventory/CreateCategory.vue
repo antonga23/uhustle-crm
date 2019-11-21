@@ -26,6 +26,27 @@ label{
   margin-bottom: 7px;
   margin-left: 17px;
 }
+h5 {
+  font-family: 'Rubik', sans-serif;
+  font-size: 0.73vw;
+  color: #2D2D2D;
+}
+.btn-default{
+  background: #fff;
+  color: #999999;    
+  border: none!important;
+  padding: 11px 14px 10px;
+  font-size: 10px;
+  text-transform:uppercase;
+  border-radius: 50rem!important;
+  line-height:1em;
+  margin-left: 0.9%;
+  margin-right: 0.9%;
+  -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
+  -moz-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
+  -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
+}
 .btn-primary {
   border-radius: 50rem!important;
   text-transform:uppercase;
@@ -39,18 +60,10 @@ label{
 
 <template>
   <div class="createDeal">  
-    <div class="row mt-0 mx-0 align-items-center fields-divider">
-      <div class="col-auto pl-0">
-        <h5 class="mb-0">Category Information</h5>
-      </div>
-
-      <div class="col px-0">
-        <div class="divider-line"></div>
-      </div>
-    </div>
+    <h5 class="mb-0">Add Category</h5>
 
     <b-row class="mx-0">
-      <b-col sm="6" class="px-0">
+      <b-col sm="4" class="px-0">
         <label for="input-none">Name</label>
         <input 
           v-model="category.name"    
@@ -73,7 +86,13 @@ label{
         </a-select>
 
         <div class="row mx-0 justify-content-end">
-          <b-button variant="primary" class="font-weight-bold m-0">Add</b-button>
+          <div class="col-auto pl-0">
+            <b-button class="btn btn-default my-0 ml-0">Cancel</b-button>
+          </div>
+
+          <div class="col-auto pl-0">
+            <b-button class="btn btn-primary font-weight-bold my-0 mr-0">Save</b-button>
+          </div>
         </div>
       </b-col>
     </b-row>  
