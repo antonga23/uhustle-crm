@@ -1,243 +1,248 @@
 <template>
-<div class="row" id="top-landing">
-    <section id="Top-Page">
-        <div class="col col-6 col-md-4" id="top-landing-1">
-                <img id="top-landing-logo" :src="'/images/SVG_Images/Logo.svg'" >
-                <h2>Welcome to</h2>
-                <h1>SIAREM</h1>
-                <h2>A platform supplying all the tools</h2>
-                <h2>for you to work from home</h2>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt it laoreet dolore magna aliquam.</p>
-                <a data-aos="flip-left" href="/login" id="top-landing-btn">GET STARTED</a>
-        </div>
-        <div class="col col-12 col-md-8"  id="top-landing-2">
-            <div id="top-landing-menu">
-                <ul>
-                    <li>
-                        <a href="#offer">How It Works</a>
-                    </li>
-                    <li>
-                        <a href="#offer">About Us</a>
-                    </li>
-                    <li>
-                        <a href="#boxes">Our Services</a>
-                    </li>
-                    <li>
-                        <a href="#offer">Contact Us</a>
-                    </li>
-                </ul>
-                <hr>
-                <img id="top-landing-image-phone" :src="'/images/Asset_5A.png'" >
-            </div>
-        </div>
-    </section>
-    <section id="boxes">
-      <div class="container">
-            <div data-aos="fade-up" data-aos-duration="700" data-aos-offset="700" class="box" id="box-edu">
-            <img :src="'/images/Asset 18.png'">
-            <h3>EDUCATION</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. sed diam nonummy nibh eu-ismod tincidunt ut laoree sit amet, consetetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscript</p>
-                <h2>. . .</h2>
-            </div>
-          <div data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-duration="850" data-aos-offset="720" class="box">
-            <img :src="'/images/Asset 19.png'">
-            <h3>CLIENTS</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. sed diam nonummy nibh eu-ismod tincidunt ut laoree sit amet, consetetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscript</p>
-            <h2>. . .</h2>
-            </div>
-            <div data-aos="fade-up" data-aos-easing="ease-in-sine" data-aos-duration="1000" data-aos-offset="730" class="box">
-            <img :src="'/images/Asset 20.png'">
-            <h3>COMMISSION</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. sed diam nonummy nibh eu-ismod tincidunt ut laoree sit amet, consetetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscript</p>
-            <h2>. . .</h2>
-            </div>
-      </div>
-    </section>
-    <section class="row" id="guide">
-        <div  class="col" id="guide-left">
-             <img data-aos="fade-right" data-aos-easing="linear" data-aos-duration="700" data-aos-offset="600" id="guide-left-img" :src="'/images/Asset 23.png'">
-        </div>
-        <div data-aos="fade-left" data-aos-easing="linear" data-aos-duration="700" data-aos-offset="600" class="col" id="guide-right">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. sed diam nonummy nibh eu-ismod tincidunt ut laoree sit amet, consetetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscript lobortis nist ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hen drerit in vulputate velit esse molestie consequat</p>
-        </div>
-    </section>
-    <section id="offer">
-        <div  id="offer-heading">
-            <h1><span>W</span>hat we offer</h1>
-        </div>
-        <div id="offer-details">
-            <div class="container">
-                <div class="offer-details-box" id="box-sup">
-                    <img :src="'/images/Asset 27.png'" class="offer-details-box-img">
-                    <h3 data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="750" >SUPPORT</h3>
-                    <div class="offer-details-box-inner">
-                                <p data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1050" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. sed diam nonummy nibh eu-ismod tincidunt ut laoree sit amet, consetetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscript</p>
-                                <ul id="offer-details-box-inner-ul1">
-                                    <li data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1050" >
-                                        24h help line
-                                    </li>
-                                    <li data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1050" >
-                                        Technical assistance
-                                    </li>
-                                    <li data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1050">
-                                        Advice on installation
-                                    </li>
-                                </ul>
-                    </div>
-                </div>
-                <div class="offer-details-box">
-                    <img :src="'/images/Asset 28.png'" class="offer-details-box-img">
-                    <h3 data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1050" data-aos-offset="150">GUIDANCE</h3>
-                    <div class="offer-details-box-inner">
-                        <p data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1050" data-aos-offset="200">Lorem ipsum dolor sit amet, consectetur adipiscing elit. sed diam nonummy nibh eu-ismod tincidunt ut laoree sit amet, consetetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscript</p>
-                        <ul id="offer-details-box-inner-ul2">
-                            <li data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1050" data-aos-offset="350">
-                                Guidance through sales
-                            </li>
-                            <li data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1050" data-aos-offset="480">
-                                What to say
-                            </li>
-                            <li data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1050" data-aos-offset="500">
-                                When to say it
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="offer-details-box">
-                    <img :src="'/images/Asset 29.png'" class="offer-details-box-img">
-                    <h3 data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1150" data-aos-offset="150">NETWORK</h3>
-                        <div class="offer-details-box-inner">
-                            <p data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1050" data-aos-offset="200">Lorem ipsum dolor sit amet, consectetur adipiscing elit. sed diam nonummy nibh eu-ismod tincidunt ut laoree sit amet, consetetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscript</p>
-                            <ul id="offer-details-box-inner-ul3">
-                                <li data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1050" data-aos-offset="350">
-                                    Bringing clients to you
-                                </li>
-                                <li data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1050" data-aos-offset="480">
-                                    Bringing clients to you
-                                </li>
-                                <li data-aos="fade-right" data-aos-easing="ease-in-sine" data-aos-duration="1050" data-aos-offset="500">
-                                    Bringing clients to you
-                                </li>
-                            </ul>
-                        </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="row" id="take">
-        <div  class="col" id="take-left">
-            <h2>TAKE CONTROL</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. sed diam nonummy nibh eu-ismod tincidunt ut laoree sit amet, consetetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscript</p>
-        </div>
-        <div id="take-right">
-          <img :src="'/images/Asset 34.png'" class="take-right-img">
-        </div>
-    </section>
-    <section class="row" id="how-it-works">
-        <div  class="col" id="how-it-works-left">
-            <h2>How it works</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. sed diam nonummy nibh eu-ismod tincidunt ut laoree sit amet, consetetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscript</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. sed diam nonummy nibh eu-ismod tincidunt ut laoree sit amet, consetetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscript</p>
-        </div>
-        <div id="how-it-works-right">
-          <img :src="'images/SVG_Images/Numbers.svg'" class="how-it-works-right-img">
-          <ul id="how-it-works-right-ul">
-                                <li data-aos="fade-right" data-aos-easing="ease-in-sine" >
-                                    <h3>Sign up</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. sed diam nonummy nibh eu-ismod tincidunt ut laoree sit amet, consetetuer adipiscing elit, sed diam nonummy.</p>
-                                    </li>
-                                <li data-aos="fade-right" data-aos-easing="ease-in-sine" >
-                                    <h3>Add your bank details</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. sed diam nonummy nibh eu-ismod tincidunt ut laoree sit amet, consetetuer adipiscing elitt.</p>
-                                </li>
-                                <li data-aos="fade-right" data-aos-easing="ease-in-sine" >
-                                    <h3>Start selling</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. sed diam nonummy nibh eu-ismod tincidunt ut laoree sit amet.</p>
-                                </li>
-            </ul>
-        </div>
-        <div class="offer-details-box-inner-video">
-                                    <img :src="'/images/video.png'" id="offer-details-box-inner-video-img">
-        </div>
-    </section>
-    <section  id="subscribers">
-        <div class="row">
-            <div  class="col" id="subscribers-left">
-                <h2>321978</h2>
-            </div>
-            <div class="col" id="subscribers-right">
-                <h2>Subscribers</h2>
-            </div>
-        </div>
-        <div class="row subscribers-ball-div">
-                                <div class="col subscribers-ball" data-aos="fade-up" data-aos-easing="ease-in-sine" >
-                                    <h3>140</h3>
-                                    <p>countries</p>
-                                </div>
-                                <div  class="col subscribers-ball" data-aos="fade-up" data-aos-easing="ease-in-sine" >
-                                    <h3>32</h3>
-                                     <p>nationalities</p>
-                                </div>
-                                <div class="col subscribers-ball" data-aos="fade-up" data-aos-easing="ease-in-sine" >
-                                    <h3>16</h3>
-                                     <p>languages</p>
-                                </div>
-            </div>
-    </section>
-    <section  id="second-last">
-        <div class="row second-last-div">
-            <ul>
-              <li class="col" data-aos="fade-right" data-aos-easing="ease-in-sine" >Innovative.</li>
-              <li class="col" data-aos="fade-right" data-aos-easing="ease-in-sine" >Creative.</li>
-              <li class="col" data-aos="fade-right" data-aos-easing="ease-in-sine" >Responsive.</li>
-            </ul>
-        </div>
-    </section>
-    <section  id="footer">
-        <div class="row">
-            <div class="col footer-header">
-                <h3>Become an agent today.</h3>
-                </div>
+  <div class="row" id="landing"> 
+    <div class="sections-menu">
+      <span
+         class="menu-point"
+         v-bind:class="{active: activeSection == index}"
+         v-on:click="scrollToSection(index)"
+         v-for="(offset, index) in offsets"
+         v-bind:key="index">
+      </span>
+    </div>
 
-            <!-- Force next columns to break to new line -->
-            <div class="w-100"></div>
+    <section class="fullpage blue">
+      <h1>Vue.js Fullpage Scroll</h1>
+      <p>by <a href="https://webdeasy.de/?referer=cp-NVOEBL" target="_blank">WebDEasy</a></p>
+    </section>
 
-            <div class="col footer-btn">
-                <a data-aos="flip-left" href="/login" id="footer-btn">GET STARTED</a>
-            </div>
-        </div>
-        <div class="row footer-menu">
-            <div class="col-6 footer-menu-left">
-                <ul>
-                    <li>Sign up</li>
-                    <li>About</li>
-                    <li>Support</li>
-                    <li>Contact</li>
-                    <li>Privacy Policy</li>
-                    <li>Terms and Conditions</li>
+    <section class="fullpage black">
+      <h1>Section 2</h1>
+      <p>made with <a href="https://vuejs.org/" target="_blank">Vue.js</a></p>
+    </section>
 
-                </ul>
-            </div>
-            <div class="col-6 footer-menu-right">
-                <ul>
-                    <li id="li-one">Login</li>
-                    <li>Blog <img :src="'/images/blog.png'" id="footer-blog-img"></li>
-                    <li>Twitter<img :src="'/images/twitter.png'" id="footer-twit-img"></li>
-                    <li>Facebook<img :src="'/images/facebook.png'" id="footer-fb-img"></li>
-                    <li>Instagram<img :src="'/images/insta.png'" id="footer-insta-img"></li>
-                    <li>LinkedIn<img :src="'/images/linked.png'" id="footer-linked-img"></li>
-                </ul>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col footer-bottom-img">
-                <img :src="'/images/logo.png'" id="footer-logo-img">
-            </div>
-            <div class="col footer-bottom-res">
-               <p>All Rights Reserved</p>
-            </div>
-        </div>
+    <section class="fullpage red">
+      <h1>Section 3</h1>
+      <p>works on <b>desktop & mobile</b></p>
+    </section>
+
+    <section class="fullpage green">
+      <h1>Section 4</h1>
+      <p>Tutorial <a href="https://webdeasy.de/en/programming-vue-js-fullpage-scroll/?referer=cp-NVOEBL" target="_blank">here</a></p>
     </section>
   </div>
 </template>
+
+<script>
+export default {
+  components: {},
+  mounted() {
+
+  },
+  props: [],
+  data: function(){
+    return { 
+      inMove: false,
+      activeSection: 0,
+      offsets: [],
+      touchStartY: 0
+    }
+  },
+  methods: {
+    calculateSectionOffsets() {
+      let sections = document.getElementsByTagName('section');
+      let length = sections.length;
+      
+      for(let i = 0; i < length; i++) {
+        let sectionOffset = sections[i].offsetTop;
+        this.offsets.push(sectionOffset);
+      }
+    },
+
+    handleMouseWheel: function(e) {
+      
+      if (e.wheelDelta < 30 && !this.inMove) {
+        this.moveUp();
+      } else if (e.wheelDelta > 30 && !this.inMove) {
+        this.moveDown();
+      }
+        
+      e.preventDefault();
+      return false;
+    },
+
+    handleMouseWheelDOM: function(e) {
+      
+      if (e.detail > 0 && !this.inMove) {
+        this.moveUp();
+      } else if (e.detail < 0 && !this.inMove) {
+        this.moveDown();
+      }
+      
+      return false;
+    },
+
+    moveDown() {
+      this.inMove = true;
+      this.activeSection--;
+        
+      if(this.activeSection < 0) this.activeSection = this.offsets.length - 1;
+        
+      this.scrollToSection(this.activeSection, true);
+    },
+
+    moveUp() {
+      this.inMove = true;
+      this.activeSection++;
+        
+      if(this.activeSection > this.offsets.length - 1) this.activeSection = 0;
+        
+      this.scrollToSection(this.activeSection, true);
+    },
+
+    scrollToSection(id, force = false) {
+      if(this.inMove && !force) return false;
+      
+      this.activeSection = id;
+      this.inMove = true;
+      
+      document.getElementsByTagName('section')[id].scrollIntoView({behavior: 'smooth'});
+      
+      setTimeout(() => {
+        this.inMove = false;
+      }, 400);
+      
+    },
+
+    touchStart(e) {
+      e.preventDefault();
+      
+      this.touchStartY = e.touches[0].clientY;
+    },
+
+    touchMove(e) {
+      if(this.inMove) return false;
+      e.preventDefault();
+      
+      const currentY = e.touches[0].clientY;
+      
+      if(this.touchStartY < currentY) {
+        this.moveDown();
+      } else {
+        this.moveUp();
+      }
+      
+      this.touchStartY = 0;
+      return false;
+    }
+  },
+  created() {
+    this.calculateSectionOffsets();
+    
+    window.addEventListener('DOMMouseScroll', this.handleMouseWheelDOM);  // Mozilla Firefox
+    window.addEventListener('mousewheel', this.handleMouseWheel, { passive: false }); // Other browsers
+    
+    window.addEventListener('touchstart', this.touchStart, { passive: false }); // mobile devices
+    window.addEventListener('touchmove', this.touchMove, { passive: false }); // mobile devices
+  },
+
+  destroyed() {
+    window.removeEventListener('mousewheel', this.handleMouseWheel, { passive: false });  // Other browsers
+    window.removeEventListener('DOMMouseScroll', this.handleMouseWheelDOM); // Mozilla Firefox
+    
+    window.removeEventListener('touchstart', this.touchStart); // mobile devices
+    window.removeEventListener('touchmove', this.touchMove); // mobile devices
+  }
+}
+</script>
+
+body {
+  margin: 0;
+  color: #FFF;
+  font-family: Helvetica, arial, sans-serif;
+  overflow: hidden;
+}
+
+h2 {
+  position: fixed;
+}
+
+.fullpage {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 6em;
+  margin: 0;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+p {
+  font-size: 1em;
+}
+
+.fullpage a {
+  text-decoration: none;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 5px 10px;
+  color: #FFF;
+  margin-left: 5px;
+}
+
+.red {
+  background-color: #ab4545;
+}
+
+section.black {
+  background-color: #000;
+}
+
+.blue {
+  background-color: #237ad4;
+}
+
+.green {
+  background-color: #68c368;
+}
+
+h1.black {
+  color: #000;
+}
+
+.sections-menu {
+  position: fixed;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.sections-menu .menu-point {
+  width: 10px;
+  height: 10px;
+  background-color: #FFF;
+  display: block;
+  margin: 1rem 0;
+  opacity: .6;
+  transition: .4s ease all;
+  cursor: pointer;
+}
+
+.sections-menu .menu-point.active {
+  opacity: 1;
+  transform: scale(1.5);
+}
+
+@media screen and (max-width: 1200px) {
+  h1 {
+    font-size: 2.5em;
+  }
+}
+<style scoped>
+</style>
 
