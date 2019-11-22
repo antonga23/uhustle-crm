@@ -1,5 +1,63 @@
 <style scoped>
-  .top-nav, .row.stats {
+.main-header.navbar.navbar-expand {
+  padding: 0 4%;
+}
+.navbar .title h1{
+  color: #003549;
+  font-size: 1.67vw;
+  letter-spacing: 0.1em;
+}
+.callIcons li a{
+  background-repeat: no-repeat;
+  color: black;
+  background-size: 59px !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+}
+.callIcons .search .col-auto {
+  padding-right:41%;
+}
+.callIcons .search a{
+  background-color: #fff;
+  background-image: url('/images/icons/top-nav/Search.svg') !important;
+  background-size: 15px!important;
+  background-repeat: no-repeat;
+  border-radius: 50rem;
+	box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+	width: 48px;
+	height: 48px;
+}
+.callIcons .search a:hover{
+  background-image: url('/images/icons/Asset 61.svg') !important;
+  background-size: 170%!important;
+  background-repeat: no-repeat;
+}
+.callIcons .search input {
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  padding:14px 0 14px;
+  right: -40px;
+  position: absolute;
+  top: -24px;
+  width:0;
+  transition: width 2s;
+}
+.callIcons .search:hover input {
+  width:auto;
+  padding:14px 40px 14px 15px;
+}
+.callIcons .search input::placeholder {
+  font-size: 12px;
+  font-weight: 300;
+  font-family: 'Rubik', sans-serif;
+  font-style: italic;
+}
+  .header, .top-nav, .row.stats {
     padding-left: 5.2%!important;
     padding-right: 5.2%!important;
   }
@@ -147,6 +205,25 @@
 </style>
 <template>
   <div id="inventory">
+		<nav class="main-header navbar navbar-expand navbar-white navbar-light row mx-0 align-items-center justify-content-between">
+			<!-- Left navbar links -->
+      <div class="nav-item d-none d-sm-inline-block title col px-0">
+        <h1 class="nav-link font-weight-bold">Inventory</h1>
+      </div>
+
+      <div class="col-auto nav-item pr-0">
+        <ul class="navbar-nav callIcons">
+          <li class="nav-item d-sm-inline-block search">
+            <div class="row mx-0 align-items-center">
+              <div class="col px-0">
+                <input placeholder="Search" class="border-0 rounded-pill"/>
+              </div>
+            </div>
+          </li>
+        </ul>				
+      </div>
+		</nav>
+
     <div class="row mx-0 my-0 top-nav">
       <ul class="top-menu w-100">
         <li class="item ml-0">

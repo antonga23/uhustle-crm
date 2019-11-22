@@ -36,11 +36,28 @@ h5 {
   -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.1)!important;
   -moz-box-shadow: 0 0 20px rgba(0,0,0,0.1)!important;
   -o-box-shadow: 0 0 20px rgba(0,0,0,0.1)!important;
-  border-bottom-left-radius: 25px;
-  border-bottom-right-radius: 25px;
+  border-radius: 25px;
 }
-.nav-item[aria-posinset="2"][aria-selected="true"] ~ .order-summary {
-  display:block!important;
+label{
+  font-family: 'Rubik', sans-serif;
+  font-size: 10px;
+  color: #999999;
+  margin-bottom: 7px;
+  margin-left: 17px;
+}
+textarea {
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  padding: 11px 18px!important;
+  font-size: 12px;
+  color: #003449;
+  border-color: #ccc;
+  margin-bottom: 17px;
+  font-family: 'Rubik', sans-serif;
+  height: auto!important;
+  border-radius: 10px;
 }
 .order-totals {
   min-width: 184px;
@@ -55,7 +72,7 @@ h5 {
           <b-tabs card>
             <b-tab active>
               <template v-slot:title>
-                <h5 class="d-inline-block mb-0">Start Order</h5>
+                <h5 @click="order_summary = false" class="d-inline-block mb-0">Start Order</h5>
               </template>
 
               <transition name="fade">
@@ -75,7 +92,7 @@ h5 {
 
             <b-tab class="order-history-table">
               <template v-slot:title>
-                <h5 class="d-inline-block mb-0">Order History</h5>
+                <h5 @click="order_summary = false" class="d-inline-block mb-0">Order History</h5>
               </template>
 
               <transition name="fade">
@@ -93,7 +110,7 @@ h5 {
                 v-model="requesition_notes"   
                 id="info"     
                 name="Info"   
-                class="form-control"/>
+                class="mb-0 form-control"/>
             </b-col>
 
             <b-col sm="auto" class="pl-0">
