@@ -1,5 +1,5 @@
 <style scoped>
-  .header, .top-nav, .row.stats {
+  .top-nav, .row.stats {
     padding-left: 5.2%!important;
     padding-right: 5.2%!important;
   }
@@ -8,15 +8,7 @@
     flex-wrap: wrap;
     align-items: center;
   }
-  .navbar {
-    padding: 0;
-  }
 	/*Right Component*/
-	li.title h1 {
-		color: #003549;
-    font-size: 32px;
-    letter-spacing: 0.1em;
-  }
   div.top-nav{
     margin-top: 15px;
   }
@@ -155,15 +147,6 @@
 </style>
 <template>
   <div id="inventory">
-		<nav class="header navbar navbar-expand navbar-white navbar-light">
-			<!-- Left navbar links -->
-      <ul class="navbar-nav left">
-        <li class="nav-item d-none d-sm-inline-block title">
-          <h1 class="font-weight-bold p-0">Inventory</h1>
-        </li> 
-      </ul>
-		</nav>
-
     <div class="row mx-0 my-0 top-nav">
       <ul class="top-menu w-100">
         <li class="item ml-0">

@@ -196,10 +196,6 @@
     font-weight: 300;
   }
 
-  .callIcons .search .col-auto {
-    padding-right: 46% !important;
-  }
-
   #search-panel  .search div.search input{
     color: #8d9198;
     float: left;
@@ -545,7 +541,7 @@ label:not(.form-check-label):not(.custom-file-label) {
   .main-footer,
   .main-header {
     transition: margin-right 0.5s ease-in-out;
-    margin-left: 56px!important; 
+    margin-left: 51px!important; 
     margin-right: 16.718%;
   }
 }
@@ -1164,4 +1160,18 @@ max-height: 350px;
   padding: 25px 0px 20px 40px
 }
 
+.inventory-filter .ant-select-selection--single{
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  border: 0!important;
+  min-width:110px;
+}
+.inventory-filter .ant-select-selection__placeholder {
+  font-size: 0.73vw;
+  font-family: 'Rubik', sans-serif !important;
+  font-style: italic;
+  color: #999999;
+}
 

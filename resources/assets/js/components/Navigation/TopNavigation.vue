@@ -76,14 +76,18 @@ select.month-selector {
   margin-right: 0!important;
 }
 .callIcons li a{
-  background-repeat: no-repeat;
   color: black;
   background-size: 59px !important;
   background-repeat: no-repeat !important;
   background-position: center center !important;
 }
-
-.callIcons .search a{
+.searchBar li a{
+  color: black;
+  background-size: 13px !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+}
+.searchBar a{
   background-color: #fff;
   background-image: url('/images/icons/top-nav/Search.svg') !important;
   background-size: 15px!important;
@@ -96,12 +100,12 @@ select.month-selector {
 	width: 40px;
   height: 40px;
 }
-.callIcons .search a:hover{
+.searchBar a:hover{
   background-image: url('/images/icons/Asset 61.svg') !important;
   background-size: 170%!important;
   background-repeat: no-repeat;
 }
-.callIcons .search input {
+.searchBar input {
   box-shadow: 0 0 4px rgba(0,0,0,0.1);
   -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
   -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);
@@ -113,14 +117,14 @@ select.month-selector {
   width:0;
   transition: width 2s;
 }
-.callIcons .search:hover input {
+.searchBar:hover input {
   width:auto;
   padding:14px 40px 14px 15px;
 }
-.callIcons .search:hover input:focus {
+.searchBar:hover input:focus {
   outline: 0 !important;
 }
-.callIcons .search input::placeholder {
+.searchBar input::placeholder {
   font-size: 12px;
   font-weight: 300;
   font-family: 'Rubik', sans-serif;
@@ -199,12 +203,17 @@ select.month-selector {
 					<ul class="navbar-nav left align-items-center">
 						<li class="nav-item d-none d-sm-inline-block title pr-3">
 							<a v-if="active == 'workstation'" href="#" class="nav-link pl-0"><strong>Workstation</strong></a>
+              <!-- <a v-if="active == 'workstation'" href="#" class="nav-link pl-0"><strong>Client Profile</strong></a>
+              <a v-if="active == 'workstation'" href="#" class="nav-link pl-0"><strong>Lead Profile</strong></a> -->
 							<a v-if="active == 'dashboard'" href="#" class="nav-link pl-0"><strong>Dashboard</strong></a>
 							<a v-if="active == 'call-history'" href="#" class="nav-link pl-0"><strong>Call History</strong></a>
 							<a v-if="active == 'social-board'" href="#" class="nav-link pl-0"><strong>Social Board</strong></a>
 							<a v-if="active == 'users'" href="#" class="nav-link pl-0"><strong>Users</strong></a>
 							<a v-if="active == 'leads'" href="#" class="nav-link pl-0"><strong>Leads</strong></a>
 							<a v-if="active == 'contacts'" href="#" class="nav-link pl-0"><strong>Contacts</strong></a>
+              <a v-if="active == 'inventory'" href="#" class="nav-link pl-0"><strong>Inventory</strong></a>
+              <a v-if="active == 'preferences'" href="#" class="nav-link pl-0"><strong>System Preferences</strong></a>
+              <a v-if="active == 'transactions'" href="#" class="nav-link pl-0"><strong>Transactions</strong></a>
 						</li>
 
 						<li v-if="active_calls" class="nav-item d-none d-sm-inline-block px-3">
@@ -276,35 +285,30 @@ select.month-selector {
 					</ul>
 				</div>
 
-				<div class="col-auto px-0" v-if="active == 'call-history'">
-					<ul class="navbar-nav callIcons">
-						<li class="nav-item d-sm-inline-block search">
+				<div class="col-auto px-0">
+          <div v-if="active == 'inventory'" class="d-inline-block mr-4 inventory-filter">
+            <a-select class="custom-select rounded-pill border-0" placeholder="Filter By">
+              <a-select-option value="product">Product</a-select-option>  
+              <a-select-option value="category">Category</a-select-option>   
+              <a-select-option value="warehouse">Warehouse</a-select-option> 
+            </a-select>
+          </div>
+
+					<ul v-if="(active == 'workstation' || active == 'call-history' || active == 'transactions' || active == 'inventory')" class="d-inline-block navbar-nav searchBar">
+						<li class="nav-item d-sm-inline-block">
 							<div class="row mx-0 align-items-center">
                 <div class="col px-0">
                   <input placeholder="Search" class="border-0 rounded-pill"/>
                 </div>
 
-                <div class="col-auto pl-0">
+                <div class="col-auto px-0">
                   <a href="#" class="nav-link p-0"></a>
                 </div>
               </div>
 						</li>
-					</ul>				
-				</div>
+					</ul>		
 
-				<div class="col-auto px-0" v-if="active == 'workstation'">
-					<ul class="navbar-nav callIcons">
-						<li class="nav-item d-sm-inline-block search">
-              <div class="row mx-0 align-items-center">
-                <div class="col px-0">
-                  <input placeholder="Search" class="border-0 rounded-pill"/>
-                </div>
-
-                <div class="col-auto">
-                  <a href="#" class="nav-link"></a>
-                </div>
-              </div>
-						</li>
+          <ul v-if="active == 'workstation'" class="d-inline-block navbar-nav callIcons">
 						<!-- <li :class="{ 'nav-item d-sm-inline-block' : true, 'idle' : is_idle, 'on-call' : is_oncall, 'offline' : is_offline }">
 		    			<button id="toggle-btn" class="nav-link border-0 bg-transparent status"  @click="switchState()"></button>
 						</li> -->
@@ -312,7 +316,7 @@ select.month-selector {
 		    			<button v-if="!is_oncall" id="show-btn" class="nav-link border-0 bg-transparent call" @click="startCall()"></button>
 		    			<button v-if="is_oncall" id="show-btn" class="nav-link border-0 bg-transparent end-call" @click="endCall()"></button>
 						</li>
-					</ul>				
+					</ul>			
 				</div>
 			</div>
 		</nav>
