@@ -1148,14 +1148,15 @@ max-height: 350px;
 .branches .branches-tabs .table.b-table.branch-listing td,
 .orders .orders-tabs .table.b-table.order-listing td,
 .products .productss-tabs .table.b-table.category-listing td {
-    font-size: 12px;
-    padding: 5px 10px 5px 0px; 
+    font-size: 12px !important;
+    padding: 5px 10px 5px 0px !important; 
 }
-.products .productss-tabs .table.b-table.product-listing .ant-select-selection.ant-select-selection--single,
-.branches .branches-tabs .table.b-table.branch-listing .ant-select-selection.ant-select-selection--single,
-.orders .orders-tabs .table.b-table.order-listing .ant-select-selection.ant-select-selection--single,
-.products .productss-tabs .table.b-table.category-listing .ant-select-selection.ant-select-selection--single {
-  height: 15px;
+.products .productss-tabs .table.b-table.product-listing .ant-select-selection.ant-select-selection--single .ant-select-selection-selected-value,
+.branches .branches-tabs .table.b-table.branch-listing .ant-select-selection.ant-select-selection--single .ant-select-selection-selected-value,
+.orders .orders-tabs .table.b-table.order-listing .ant-select-selection.ant-select-selection--single .ant-select-selection-selected-value,
+.products .productss-tabs .table.b-table.category-listing .ant-select-selection.ant-select-selection--single .ant-select-selection-selected-value {
+  margin-top: 0px;
+  font-size: 12px !important;
 }
 
 }
