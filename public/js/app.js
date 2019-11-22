@@ -185066,24 +185066,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -372472,8 +372454,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "inventory" } }, [
-    _vm._m(0),
-    _vm._v(" "),
     _c("div", { staticClass: "row mx-0 my-0 top-nav" }, [
       _c("ul", { staticClass: "top-menu w-100" }, [
         _c("li", { staticClass: "item ml-0" }, [
@@ -372600,46 +372580,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "nav",
-      {
-        staticClass:
-          "main-header navbar navbar-expand navbar-white navbar-light row mx-0 align-items-center justify-content-between"
-      },
-      [
-        _c(
-          "div",
-          { staticClass: "nav-item d-none d-sm-inline-block title col px-0" },
-          [
-            _c("h1", { staticClass: "nav-link font-weight-bold" }, [
-              _vm._v("Inventory")
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-auto nav-item pr-0" }, [
-          _c("ul", { staticClass: "navbar-nav callIcons" }, [
-            _c("li", { staticClass: "nav-item d-sm-inline-block search" }, [
-              _c("div", { staticClass: "row mx-0 align-items-center" }, [
-                _c("div", { staticClass: "col px-0" }, [
-                  _c("input", {
-                    staticClass: "border-0 rounded-pill",
-                    attrs: { placeholder: "Search" }
-                  })
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

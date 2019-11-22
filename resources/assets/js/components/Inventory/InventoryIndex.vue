@@ -205,24 +205,6 @@
 </style>
 <template>
   <div id="inventory">
-		<nav class="main-header navbar navbar-expand navbar-white navbar-light row mx-0 align-items-center justify-content-between">
-			<!-- Left navbar links -->
-      <div class="nav-item d-none d-sm-inline-block title col px-0">
-        <h1 class="nav-link font-weight-bold">Inventory</h1>
-      </div>
-
-      <div class="col-auto nav-item pr-0">
-        <ul class="navbar-nav callIcons">
-          <li class="nav-item d-sm-inline-block search">
-            <div class="row mx-0 align-items-center">
-              <div class="col px-0">
-                <input placeholder="Search" class="border-0 rounded-pill"/>
-              </div>
-            </div>
-          </li>
-        </ul>				
-      </div>
-		</nav>
 
     <div class="row mx-0 my-0 top-nav">
       <ul class="top-menu w-100">
