@@ -59,7 +59,7 @@ h5 {
               </transition>
             </b-tab>
 
-            <b-tab>
+            <b-tab class="order-history-table">
               <template v-slot:title>
                 <h5 class="d-inline-block mb-0">Order History</h5>
               </template>

@@ -28,7 +28,7 @@ h5 {
       <div class="col-lg-12 px-0">
         <b-card no-body>
           <b-tabs card>
-            <b-tab active>
+            <b-tab active class="product-table">
               <template v-slot:title>
                 <h5 class="d-inline-block mb-0">Products</h5>
               </template>
@@ -38,7 +38,7 @@ h5 {
               </transition>
             </b-tab>
 
-            <b-tab>
+            <b-tab class="category-table">
               <template v-slot:title>
                 <h5 class="d-inline-block mb-0">Category</h5>
               </template>

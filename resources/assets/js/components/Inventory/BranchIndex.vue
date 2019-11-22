@@ -33,7 +33,7 @@ h5 {
       <div class="col-lg-12 px-0">
         <b-card no-body>
           <b-tabs card>
-            <b-tab active>
+            <b-tab active class="branch-table">
               <template v-slot:title>
                 <h5 class="d-inline-block mb-0">Branches</h5>
               </template>
