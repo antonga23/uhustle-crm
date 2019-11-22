@@ -49,6 +49,7 @@ class PagesController extends Controller
               ->with(['active'=> 'workstation'])
               ->with(['item_id'=> $item_id])
               ->with(['custom_fields'=> $custom_fields])
+              ->with(['sources'=> LeadSource::get()])
               ->with(['lead_id'=> ''])
               ->with(['auto_dialer_settings' => $auto_dialer_settings]);
 
