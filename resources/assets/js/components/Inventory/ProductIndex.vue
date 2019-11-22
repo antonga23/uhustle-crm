@@ -20,6 +20,17 @@ h5 {
 .tab-pane.card-body {
   padding:4.4% 5.6% 6.8%;
 }
+label{
+  font-family: 'Rubik', sans-serif;
+  font-size: 10px;
+  color: #999999;
+  margin-bottom: 7px;
+  margin-left: 17px;
+}
+.divider-line {
+  margin-top: 25px;
+  margin-bottom: 30px;
+}
 </style>
 
 <template>
@@ -55,7 +66,8 @@ h5 {
               </template>
 
               <div class="row mx-0">
-                <div class="col-6 px-0 mb-5">
+                <div class="col-4 px-0 add-selector">
+                  <label for="input-none">Type</label>
                   <a-select v-model="create_new" class="custom-select rounded-pill border-0">
                     <a-select-option value="-Select-">Select</a-select-option>  
                     <a-select-option value="category">Category</a-select-option>   
@@ -64,13 +76,13 @@ h5 {
                 </div>
               </div>
 
-              <div class="divider-line"></div>
-
               <div class="create-category" v-if="create_new === 'category'">
+                <div class="divider-line"></div>
                 <create-category/>
               </div>
 
               <div class="create-products" v-if="create_new === 'product'">
+                <div class="divider-line"></div>
                 <create-product/>
               </div>
             </b-tab>

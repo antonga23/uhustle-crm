@@ -412,10 +412,9 @@ label:not(.form-check-label):not(.custom-file-label) {
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
   background-color: #ff933a !important; 
 }
-.vc-arrows-container.title-center {
-  width: 90% !important;
+.vc-grid-container.grid {
+  grid-template-columns: auto!important;
 }
-
 /*end Register Stepper*/
 /*vc calendar styling*/
 .vc-header {
@@ -428,8 +427,7 @@ label:not(.form-check-label):not(.custom-file-label) {
   font-size: 0.68vw;
   color: rgba(28, 35, 49, 0.5);
   position: relative;
-    top: 4px;
-    right: 10px;
+  top: 4px;
 }
 .vc-grid-container {
   padding: 0!important;
@@ -1041,19 +1039,30 @@ max-height: 350px;
   min-width:100px;
 }
 /* create a deal */
-.createDeal .ant-select-selection--single {
+.createDeal .ant-select-selection--single,
+.createProduct .ant-select-selection--single,
+.add-selector .ant-select-selection--single,
+.createOrder .ant-select-selection--single,
+.createOrder .ant-time-picker-input{
   box-shadow: 0 0 4px rgba(0,0,0,0.1);
   -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
   -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);
   -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);
   padding: 5px 10px!important;
-  font-size: 12px;
+  font-size: 12px!important;
   color: #003449;
-  border-color: #ccc;
+  border: 1px solid #ccc!important;
   margin-top:0!important;
   margin-bottom: 17px;
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Rubik', sans-serif!important;
   height: auto!important;
+}
+.createOrder .ant-time-picker-input {
+  padding: 12px 18px!important;
+}
+.createOrder .vc-container {
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 0;
 }
 .createDeal .ant-calendar-picker-input.ant-input {
   min-width: 100%;
