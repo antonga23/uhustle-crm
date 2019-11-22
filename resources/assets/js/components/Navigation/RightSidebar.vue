@@ -726,34 +726,6 @@ p.badges {
   
 }
 
-/* .menu-toggle {
-  background-image: url("/images/icons/right-sidebar/Filter.svg") !important;
-    background-repeat: no-repeat;
-    height: 43px;
-    width: 43px;
-    top: 2px;
-    position: relative;
-    left: -11px;
-}
-.menu-toggle:hover {
-  background-image: url("/images/icons/right-sidebar/Filter_Active.svg") !important;
-}
-
-.sidebar-collapse .menu-toggle {
-  background-image: url("/images/icons/right-sidebar/General.svg") !important;
-}
-.sidebar-collapse .menu-toggle:hover {
-  background-image: url("/images/icons/right-sidebar/General_Active.svg") !important;
-}
-
-.reminders { 
-    box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
-    -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1); 
-    border-radius: 25px; 
-  }  */
-
 .reminders .nav-link[aria-posinset="2"] {
   text-align: right;
   display: flex;

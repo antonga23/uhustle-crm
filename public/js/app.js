@@ -185011,23 +185011,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -188731,34 +188714,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -189292,6 +189247,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var v_calendar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! v-calendar */ "./node_modules/v-calendar/lib/v-calendar.umd.min.js");
 /* harmony import */ var v_calendar__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(v_calendar__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
 //
 //
 //
@@ -192376,23 +192335,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -193831,89 +193773,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-content-loading */ "./node_modules/vue-content-loading/dist/vuecontentloading.js");
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_content_loading__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _createDeal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./createDeal */ "./resources/assets/js/components/Transactions/createDeal.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -249017,7 +248876,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.header[data-v-8502ce80], .top-nav[data-v-8502ce80], .row.stats[data-v-8502ce80] {\n    padding-left: 5.2%!important;\n    padding-right: 5.2%!important;\n}\n.top-menu[data-v-8502ce80] {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n}\n.navbar[data-v-8502ce80] {\n    padding: 0;\n}\n\t/*Right Component*/\nli.title h1[data-v-8502ce80] {\n\t\tcolor: #003549;\n    font-size: 32px;\n    letter-spacing: 0.1em;\n}\ndiv.top-nav[data-v-8502ce80]{\n    margin-top: 15px;\n}\nul.top-menu[data-v-8502ce80]{\n    list-style: none;\n    padding: 0;\n}\nul.top-menu li.item[data-v-8502ce80]{\n    float: left;\n    margin-left: 1.6%;\n    margin-right: 1.6%;\n    margin-bottom: 8px;\n}\nul.top-menu li.item a[data-v-8502ce80]{\n    color: rgba(0, 0, 0, 0.5);\n    border-radius: 20px;\n    padding: 4px 22px;\n    text-decoration: none;\n    box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    font-size:0.73vw;\n}\nul.top-menu li.item a.active[data-v-8502ce80]{\n    background: linear-gradient(to right, rgba(255,128,51,1) 0%,  rgba(255,147, 58,1) 100%) !important;\n    color: #fff !important;\n    text-decoration: none;\n    font-weight: 500;\n}\n.btn-default[data-v-8502ce80]{\n    background: #fff;\n    color: #999999;    \n    border: none!important;\n    padding: 11px 14px 10px;\n    font-size: 10px;\n    text-transform:uppercase;\n    border-radius: 50rem!important;\n    line-height:1em;\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n    -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n    box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-8502ce80] {\n    border-radius: 50rem!important;\n    text-transform:uppercase;\n    font-size: 10px;\n    padding: 11px 14px 10px;\n    line-height:1em;\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n}\n.btn-block[data-v-8502ce80] {\n    display: block;\n    width: 98%;\n}\n.nav-link.active img[data-v-8502ce80] {\n    margin-left:20px;\n    display: inline-block!important;\n    box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    border-radius: 50rem;\n}\n.add-module-btn[data-v-8502ce80] {\n    box-shadow:none!important;\n    -webkit-box-shadow:none!important;\n    -moz-box-shadow:none!important;\n    -o-box-shadow:none!important;\n}\n.tab-pane.card-body[data-v-8502ce80] {\n    padding:4.4% 5.6% 6.8%;\n}\n.card-body .form-group[data-v-8502ce80]{\n    margin-left: 0%;\n}\n.expand-toggle[data-v-8502ce80] {\n    background: #fff;\n    box-shadow: none;\n    -webkit-box-shadow: none;\n    -moz-box-shadow: none;\n    -o-box-shadow: none;\n    text-align: left;\n    border-radius: 0!important;\n    border-top: 0;\n    border-left: 0;\n    border-right: 0;\n    border-color: #ccc;\n    font-family: 'Rubik', sans-serif;\n    font-size:0.73vw;\n    color: #999999;\n    margin-top: 4.6%;\n    padding-left:25px;\n}\n.expand-toggle.btn-secondary[data-v-8502ce80]:not(:disabled):not(.disabled):active, \n  .expand-toggle.btn-secondary:not(:disabled):not(.disabled).active[data-v-8502ce80], \n  .show > .expand-toggle.btn-secondary.dropdown-toggle[data-v-8502ce80] {\n    background: #fff;\n    border-color: #fff;\n    color: #999999;\n}\n.expand-toggle[aria-expanded=\"true\"][data-v-8502ce80] {\n    border-bottom: 0;\n}\n.custom-control-label[data-v-8502ce80] {\n    color: #999999;\n    font-family: 'Rubik', sans-serif;\n    font-size:14px;\n}\n.custom-checkbox .custom-control-label[data-v-8502ce80] {\n    font-weight: 0.73vw;\n}\n.collapse.show .card[data-v-8502ce80] {\n    border-radius: 25px;\n    border: 1px solid #ccc!important;\n}\n.collapse.show .card-body[data-v-8502ce80]{\n    padding: 1.15% 2.5% 1.85%;\n}\n.edit-role[data-v-8502ce80] {\n    margin-bottom:1.7%;\n}\n.permissions-divider[data-v-8502ce80] {\n    margin-top:3.7%;\n    margin-bottom:3.1%;\n}\n.permissions[data-v-8502ce80] {\n    margin-top: 0.5%;\n}\n  \n", ""]);
+exports.push([module.i, "\n.top-nav[data-v-8502ce80], .row.stats[data-v-8502ce80] {\n    padding-left: 5.2%!important;\n    padding-right: 5.2%!important;\n}\n.top-menu[data-v-8502ce80] {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n}\n\t/*Right Component*/\ndiv.top-nav[data-v-8502ce80]{\n    margin-top: 15px;\n}\nul.top-menu[data-v-8502ce80]{\n    list-style: none;\n    padding: 0;\n}\nul.top-menu li.item[data-v-8502ce80]{\n    float: left;\n    margin-left: 1.6%;\n    margin-right: 1.6%;\n    margin-bottom: 8px;\n}\nul.top-menu li.item a[data-v-8502ce80]{\n    color: rgba(0, 0, 0, 0.5);\n    border-radius: 20px;\n    padding: 4px 22px;\n    text-decoration: none;\n    box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    font-size:0.73vw;\n}\nul.top-menu li.item a.active[data-v-8502ce80]{\n    background: linear-gradient(to right, rgba(255,128,51,1) 0%,  rgba(255,147, 58,1) 100%) !important;\n    color: #fff !important;\n    text-decoration: none;\n    font-weight: 500;\n}\n.btn-default[data-v-8502ce80]{\n    background: #fff;\n    color: #999999;    \n    border: none!important;\n    padding: 11px 14px 10px;\n    font-size: 10px;\n    text-transform:uppercase;\n    border-radius: 50rem!important;\n    line-height:1em;\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n    -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n    box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-8502ce80] {\n    border-radius: 50rem!important;\n    text-transform:uppercase;\n    font-size: 10px;\n    padding: 11px 14px 10px;\n    line-height:1em;\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n}\n.btn-block[data-v-8502ce80] {\n    display: block;\n    width: 98%;\n}\n.nav-link.active img[data-v-8502ce80] {\n    margin-left:20px;\n    display: inline-block!important;\n    box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    border-radius: 50rem;\n}\n.add-module-btn[data-v-8502ce80] {\n    box-shadow:none!important;\n    -webkit-box-shadow:none!important;\n    -moz-box-shadow:none!important;\n    -o-box-shadow:none!important;\n}\n.tab-pane.card-body[data-v-8502ce80] {\n    padding:4.4% 5.6% 6.8%;\n}\n.card-body .form-group[data-v-8502ce80]{\n    margin-left: 0%;\n}\n.expand-toggle[data-v-8502ce80] {\n    background: #fff;\n    box-shadow: none;\n    -webkit-box-shadow: none;\n    -moz-box-shadow: none;\n    -o-box-shadow: none;\n    text-align: left;\n    border-radius: 0!important;\n    border-top: 0;\n    border-left: 0;\n    border-right: 0;\n    border-color: #ccc;\n    font-family: 'Rubik', sans-serif;\n    font-size:0.73vw;\n    color: #999999;\n    margin-top: 4.6%;\n    padding-left:25px;\n}\n.expand-toggle.btn-secondary[data-v-8502ce80]:not(:disabled):not(.disabled):active, \n  .expand-toggle.btn-secondary:not(:disabled):not(.disabled).active[data-v-8502ce80], \n  .show > .expand-toggle.btn-secondary.dropdown-toggle[data-v-8502ce80] {\n    background: #fff;\n    border-color: #fff;\n    color: #999999;\n}\n.expand-toggle[aria-expanded=\"true\"][data-v-8502ce80] {\n    border-bottom: 0;\n}\n.custom-control-label[data-v-8502ce80] {\n    color: #999999;\n    font-family: 'Rubik', sans-serif;\n    font-size:14px;\n}\n.custom-checkbox .custom-control-label[data-v-8502ce80] {\n    font-weight: 0.73vw;\n}\n.collapse.show .card[data-v-8502ce80] {\n    border-radius: 25px;\n    border: 1px solid #ccc!important;\n}\n.collapse.show .card-body[data-v-8502ce80]{\n    padding: 1.15% 2.5% 1.85%;\n}\n.edit-role[data-v-8502ce80] {\n    margin-bottom:1.7%;\n}\n.permissions-divider[data-v-8502ce80] {\n    margin-top:3.7%;\n    margin-bottom:3.1%;\n}\n.permissions[data-v-8502ce80] {\n    margin-top: 0.5%;\n}\n  \n", ""]);
 
 // exports
 
@@ -249131,7 +248990,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.main-sidebar[data-v-48ad9a74] {\n  right: 0 !important;\n  left: auto;\n  overflow: visible;\n  position: absolute;\n  top: 0;\n  right: 0 !important;\n  bottom: 0;\n  z-index: 830;\n  transition: right 0.3s ease-in-out;\n  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -o-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n.main-sidebar[data-v-48ad9a74],\n.main-sidebar[data-v-48ad9a74]:before {\n  transition: margin-right 0.3s ease-in-out, width 0.3s ease-in-out !important;\n  width: 16.718% !important;\n}\n.sidebar-collapse .main-sidebar[data-v-48ad9a74],\n.sidebar-collapse .main-sidebar[data-v-48ad9a74]:before {\n  margin-left: 0 !important;\n  /* margin-right: -10.833%!important;  */\n}\n@media (max-width: 991.98px) {\n.main-sidebar[data-v-48ad9a74],\n  .main-sidebar[data-v-48ad9a74]:before {\n    margin-left: -0 !important;\n    margin-left: -10.833% !important;\n}\n.sidebar-open .main-sidebar[data-v-48ad9a74],\n  .sidebar-open .main-sidebar[data-v-48ad9a74]:before {\n    margin-right: 0 !important;\n}\n}\n.sidebar[data-v-48ad9a74] {\n  overflow: visible;\n}\np[data-v-48ad9a74] {\n  color: #9fb3bb;\n  margin: 0;\n}\nh2[data-v-48ad9a74] {\n  color: #003449;\n  font-size: 29px;\n  letter-spacing: 4.2px;\n  font-weight: 600;\n}\nh3[data-v-48ad9a74] {\n  color: #1a1c43;\n  font-size: 0.83vw;\n  font-weight: 700;\n}\nh3 img[data-v-48ad9a74] {\n  float: right;\n  cursor: pointer;\n  margin-top: -7px;\n}\n.main label.custom-control-label[data-v-48ad9a74] {\n  color: inherit;\n  font-weight: 200;\n  padding-top: 3px;\n}\n.navbar[data-v-48ad9a74] {\n  border-color: #cdcdcf;\n  margin-top: 6%;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] {\n  color: rgba(0, 0, 0, 0.5);\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] {\n  font-size: 14px;\n  color: #1e2331;\n  padding-top: 6px;\n  position: relative;\n  top: -4%;\n}\n.help-block[data-v-48ad9a74] {\n  color: red;\n}\n.status[data-v-48ad9a74] {\n  display: none;\n}\n.status.active[data-v-48ad9a74] {\n  width: 76px;\n  text-align: center;\n  border-radius: 8px;\n  display: block;\n  background: #00d68f;\n  padding: 4px 3px;\n  line-height: 20px;\n  color: #fff;\n  text-transform: uppercase;\n  font-size: 12px;\n  float: left;\n  margin: 0;\n}\n.status.offline[data-v-48ad9a74] {\n  width: 76px;\n  text-align: center;\n  border-radius: 8px;\n  display: block;\n  background: orange;\n  padding: 4px 3px;\n  line-height: 20px;\n  color: #fff;\n  text-transform: uppercase;\n  font-size: 12px;\n  float: left;\n  margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover,\n.status.offline[data-v-48ad9a74]:hover {\n  color: #3b3b3b;\n  cursor: pointer;\n}\n.status.show[data-v-48ad9a74] {\n  display: block !important;\n}\n.collapse[data-v-48ad9a74] {\n  border-bottom: 1px solid #cdccce;\n}\n.p-3[data-v-48ad9a74] {\n  padding: 0.8rem 2rem 1.4rem 1.7rem !important;\n}\n.pl-34[data-v-48ad9a74] {\n  padding-left: 34px;\n}\n.ml-12[data-v-48ad9a74] {\n  margin-left: 12px;\n}\n.progress-bar[data-v-48ad9a74] {\n  background: #f7f6fb;\n  border-radius: 5px;\n}\n.tank[data-v-48ad9a74] {\n  background: linear-gradient(\n    to right,\n    rgba(161, 237, 128, 1) 0%,\n    rgba(98, 211, 126, 1) 100%\n  ) !important;\n  border-radius: 5px;\n  background: rgb(114, 218, 126);\n  height: 8px;\n  transition: all 0.5s ease 0s;\n}\n.value[data-v-48ad9a74] {\n  font-weight: 900;\n  font-size: 0.83vw;\n  color: #1a1c43;\n  margin-top: -8px;\n  letter-spacing: 0.1em;\n  font-family: Montserrat !important;\n}\n.description[data-v-48ad9a74] {\n  font-size: 10px;\n  font-family: \"Rubik\", sans-serif;\n  color: #1e2331;\n  padding-bottom: 10px;\n}\n.description-text[data-v-48ad9a74] {\n  font-size: 0.73vw !important;\n}\n.position[data-v-48ad9a74] {\n  display: block;\n  position: relative;\n  background: #ff8234;\n  color: #fff;\n  height: 62px;\n  text-align: center;\n  font-size: 17px;\n  padding: 18px 9px;\n  width: 62px;\n  transform: rotate(45deg);\n  /* Standard syntax */\n  margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74] {\n  transform: rotate(0deg);\n  /* Standard syntax */\n}\np.heading[data-v-48ad9a74] {\n  border-bottom: 1px solid #cdccce;\n  margin-bottom: 10px;\n  font-weight: 900;\n}\n.navbar ul[data-v-48ad9a74] {\n  margin-bottom: 10px;\n}\n.personal-info[data-v-48ad9a74],\n.general-system-prefs[data-v-48ad9a74],\n.notifications .w-100[data-v-48ad9a74] {\n  margin-top: 20px;\n}\n.personal-info img[data-v-48ad9a74] {\n  border-radius: 50%;\n  width: 27%;\n}\n.personal-info button.btn-info[data-v-48ad9a74] {\n  margin: 5px 0 15px 0;\n  font-size: 9px;\n}\n.btn-info[data-v-48ad9a74] {\n  height: 24px !important;\n  background: #f98b39 !important;\n  border-color: #f98b39 !important;\n  color: #fff !important;\n  padding: 4px 17px 6px !important;\n  border-radius: 24px !important;\n}\n.settings .row.border-bottom[data-v-48ad9a74],\n.notifications .row.border-bottom[data-v-48ad9a74] {\n  border-color: #cdccce;\n  padding: 21px 0px 16px 0;\n}\n.notification-popup[data-v-48ad9a74] {\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\n  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\n  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\n  border-radius: 21px;\n  width: 100% !important;\n}\n.settings .row p.description[data-v-48ad9a74] {\n  font-size: 9px;\n  display: block;\n}\n.custom-checkbox .custom-control-label[data-v-48ad9a74] {\n  padding-top: 5px;\n}\n.themes label[data-v-48ad9a74]:first-child,\n.themes label[data-v-48ad9a74]:nth-child(2),\n.language label[data-v-48ad9a74],\n.notifications label[data-v-48ad9a74],\n.action-btns label[data-v-48ad9a74]:first-child,\n.action-btns label[data-v-48ad9a74]:nth-child(2) {\n  margin-right: 8px;\n  float: left;\n}\n.control-label[data-v-48ad9a74] {\n  color: #989899;\n  font-family: \"Rubik\", sans-serif;\n  font-size: 12px;\n  text-align: left;\n}\n.btn-default[data-v-48ad9a74] {\n  padding: 6px 12px 6px 10px;\n  font-size: 10px;\n  border: transparent !important;\n  border-radius: 5px !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-default[data-v-48ad9a74]:hover {\n  background: #00344a;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 6px 12px 6px 10px;\n  font-size: 10px;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-active[data-v-48ad9a74] {\n  background: #00344a;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 6px 12px 6px 10px;\n  font-size: 0.6vw;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.themes .btn-default[data-v-48ad9a74],\n.language .btn-default[data-v-48ad9a74],\n.language .btn-active[data-v-48ad9a74] {\n  border-radius: 50rem !important;\n  padding: 8px 15px !important;\n}\n.btn-orange[data-v-48ad9a74],\n.btn-orange-active[data-v-48ad9a74] {\n  background: linear-gradient(\n    to right,\n    rgb(255, 128, 51, 1) 0%,\n    rgba(255, 147, 58, 1) 100%\n  ) !important;\n  color: #ffffff;\n  border: transparent !important;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-white[data-v-48ad9a74] {\n  background: #fff;\n  border: transparent !important;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.orange-btn[data-v-48ad9a74]:hover {\n  background: linear-gradient(\n    to right,\n    rgb(255, 128, 51, 1) 0%,\n    rgba(255, 147, 58, 1) 100%\n  ) !important;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 8px 15px;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-blue[data-v-48ad9a74] {\n  background: linear-gradient(\n    to right,\n    rgb(60, 144, 206, 1) 0%,\n    rgba(65, 197, 231, 1) 100%\n  ) !important;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 8px 15px;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.blue-btn[data-v-48ad9a74]:hover {\n  background: linear-gradient(\n    to right,\n    rgb(60, 144, 206, 1) 0%,\n    rgba(65, 197, 231, 1) 100%\n  ) !important;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 8px 15px;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-dark[data-v-48ad9a74] {\n  background: linear-gradient(\n    to right,\n    rgb(25, 25, 26, 1) 0%,\n    rgba(23, 23, 66, 1) 100%\n  ) !important;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 8px 15px;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.dark-btn[data-v-48ad9a74]:hover {\n  background: linear-gradient(\n    to right,\n    rgb(25, 25, 26, 1) 0%,\n    rgba(23, 23, 66, 1) 100%\n  ) !important;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 8px 15px;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.notifications-close img[data-v-48ad9a74] {\n  width: 20px;\n  top: 5px;\n  position: relative;\n}\n.btn-has-new-dot[data-v-48ad9a74] {\n  background-image: url(\"/images/icons/Red-Notification-Dot.svg\") !important;\n  background-size: 12px 12px;\n  background-repeat: no-repeat;\n  background-position: right top;\n  width: 13px;\n  height: 100%;\n  z-index: 1;\n  position: absolute;\n  left: 66px;\n  top: -5px;\n}\n.btn-has-new-messages[data-v-48ad9a74] {\n  background-image: url(\"/images/icons/blue dot.svg\") !important;\n  background-size: 69% 34%;\n  background-repeat: no-repeat;\n  background-position: left top;\n  color: #ffffff;\n  font-size: 10px;\n  text-align: center;\n}\n.btn-has-new[data-v-48ad9a74]:hover {\n  background-image: url(\"/images/icons/Dot.png\") !important;\n  background-size: 12px 12px;\n  background-repeat: no-repeat;\n  background-position: right top;\n}\n.logout-wrapper[data-v-48ad9a74] {\n  margin-top: 14%;\n}\n#logout[data-v-48ad9a74] {\n  background-image: url(\"/images/icons/Asset 67.svg\") !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n  height: 100px;\n  background-position: center;\n  margin-bottom: 11%;\n}\n#logout[data-v-48ad9a74]:hover {\n  background-image: url(\"/images/icons/Asset 66.svg\") !important;\n}\n.notifications .btn-default[data-v-48ad9a74] {\n  padding: 6px 25px 6px 18px;\n  font-size: 12px;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.notifications .top-section[data-v-48ad9a74] {\n  list-style: none;\n}\n.notifications .card-body-notifications h3[data-v-48ad9a74],\n.notifications .card-body-notifications h3 a[data-v-48ad9a74],\n.caller-name[data-v-48ad9a74] {\n  color: #333333;\n  font-size: 0.7vw;\n  font-weight: 600;\n}\n.caller-time[data-v-48ad9a74] {\n  float: right;\n  font-size: 0.6vw;\n  color: #808080;\n}\n.notifications .card-body-notifications p.call_back_time[data-v-48ad9a74] {\n  color: #808080;\n  font-size: 0.7vw;\n}\n.personal-info .row.mx-0.border-left[data-v-48ad9a74],\n.account-info .row.mx-0.border-left[data-v-48ad9a74] {\n  border-color: #cdccce;\n}\n.settings .title[data-v-48ad9a74] {\n  color: #7f8080;\n  padding-bottom: 16px;\n  font-size: 12px;\n}\n.small-avatar img[data-v-48ad9a74] {\n  width: 30px;\n  border-radius: 50%;\n}\n.update-user[data-v-48ad9a74],\n.update-filter[data-v-48ad9a74],\n.save-filter[data-v-48ad9a74] {\n  margin: 0px 0px 5px 0px;\n}\n.final-modal[data-v-48ad9a74] {\n  padding: 0 0 1rem;\n}\n.final-modal .row-a[data-v-48ad9a74] {\n  width: 100%;\n  border-bottom: 1px solid #cdccce;\n  margin-left: 0;\n}\n.final-modal label button img[data-v-48ad9a74] {\n  width: 20px;\n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-48ad9a74] {\n  font-size: 55px;\n  color: #ff933a;\n}\n.card-header[data-v-48ad9a74] {\n  color: rgba(28, 35, 49, 0.5);\n  border-bottom: 0.5px solid #f4f4f5 !important;\n  background-color: #fff !important;\n  font-size: 10px;\n  font-weight: 600;\n}\n.card-body-notifications[data-v-48ad9a74] {\n  padding: 11px 10px;\n}\n.card-body-notifications img[data-v-48ad9a74] {\n  padding-right: 10px;\n}\n.callback-cal p[data-v-48ad9a74] {\n  font-size: 0.73vw;\n  color: #666666;\n  border-color: #ccc;\n  margin-top: 25px;\n}\n.final-modal .card-header[data-v-48ad9a74] {\n  padding: 0 11px 0;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-48ad9a74] {\n  border-bottom: none;\n  background: #fff;\n  padding: 6px 12px;\n}\n.final-modal .card-header-tabs .left a.active[aria-selected=\"true\"][data-v-48ad9a74] {\n  border-bottom: none;\n  background: #fff;\n  padding: 6px 12px;\n  box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n  -webkit-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n  -moz-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n  -o-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n}\n.final-modal .card-header-tabs .left a[aria-selected=\"false\"][data-v-48ad9a74] {\n  border-bottom: none;\n  background: #fff;\n  padding: 6px 12px;\n  box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n  -webkit-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n  -moz-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n  -o-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n}\n.final-modal .card-header-tabs .right a.active[aria-selected=\"true\"][data-v-48ad9a74] {\n  border-bottom: none;\n  background: #fff;\n  padding: 6px 12px;\n  box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n  -webkit-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n  -moz-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n  -o-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n}\n.final-modal .card-header-tabs .right a[aria-selected=\"false\"][data-v-48ad9a74] {\n  border-bottom: none;\n  background: #fff;\n  padding: 6px 12px;\n  box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n  -webkit-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n  -moz-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n  -o-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74] {\n  padding: 6px 12px;\n  font-size: 0.83vw;\n  color: #818284;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74]:hover {\n  border: none;\n  background: #fff;\n  padding: 6px 12px;\n  font-size: 0.83vw;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74] {\n  background: #fff;\n  padding: 6px 12px;\n  font-size: 0.83vw;\n  color: #818284;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74]:hover {\n  background: #fff;\n  padding: 6px 12px;\n  font-size: 0.83vw;\n}\n.form-control[data-v-48ad9a74] {\n  padding: 10px 12px !important;\n  font-size: 12px;\n  box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1) !important;\n  -webkit-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1) !important;\n  -moz-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1) !important;\n  -o-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1) !important;\n  color: #193246;\n  font-weight: 600;\n  margin-top: 6px;\n}\ntextarea.form-control[data-v-48ad9a74] {\n  height: 100px !important;\n  border-radius: 15px;\n}\n.stats-section[data-v-48ad9a74] {\n  margin-top: 22px;\n}\n.stats-section .commission[data-v-48ad9a74] {\n  padding: 7% 0;\n}\n.stats-section .sales[data-v-48ad9a74],\n.stats-section .calls[data-v-48ad9a74],\n.search-input[data-v-48ad9a74],\n.filter-search[data-v-48ad9a74],\n.filter-by[data-v-48ad9a74] {\n  padding: 5px 0;\n}\n.stats-section .calls .col-lg-12 p[data-v-48ad9a74],\n.stats-section .sales .col-lg-12 p[data-v-48ad9a74],\np.badges[data-v-48ad9a74] {\n  border-bottom: 0.5px solid #f4f4f5;\n  margin-bottom: 5px;\n  padding-bottom: 2px;\n}\n.print-btn[data-v-48ad9a74],\n.export-btn[data-v-48ad9a74] {\n  width: 90%;\n}\n.action-btns[data-v-48ad9a74] {\n  margin-top: 17px;\n}\n/* is the notification count being used? */\n.notification-count[data-v-48ad9a74] {\n  position: relative;\n  top: -7px;\n  right: 15px;\n  font-size: 9px;\n  color: #003449;\n}\n.nav-item .nav-link img.active-icon[data-v-48ad9a74], .nav-item .nav-link.generalIcon[data-v-48ad9a74]:hover,.nav-item .nav-link.filterIcon[data-v-48ad9a74]:hover, .nav-item .nav-link.notificationsIcon[data-v-48ad9a74]:hover, .nav-item .nav-link.settingsIcon[data-v-48ad9a74]:hover,.nav-item .nav-link.notificationsIcon img.inactive-icon[data-v-48ad9a74]:hover {\n  border-radius: 50%;\n  box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n}\n\n/* .menu-toggle {\n  background-image: url(\"/images/icons/right-sidebar/Filter.svg\") !important;\n    background-repeat: no-repeat;\n    height: 43px;\n    width: 43px;\n    top: 2px;\n    position: relative;\n    left: -11px;\n}\n.menu-toggle:hover {\n  background-image: url(\"/images/icons/right-sidebar/Filter_Active.svg\") !important;\n}\n\n.sidebar-collapse .menu-toggle {\n  background-image: url(\"/images/icons/right-sidebar/General.svg\") !important;\n}\n.sidebar-collapse .menu-toggle:hover {\n  background-image: url(\"/images/icons/right-sidebar/General_Active.svg\") !important;\n}\n\n.reminders { \n    box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);\n    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);\n    -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);\n    -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1); \n    border-radius: 25px; \n  }  */\n.reminders .nav-link[aria-posinset=\"2\"][data-v-48ad9a74] {\n  text-align: right;\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  line-height: 1em;\n  justify-content: flex-end;\n}\n.reminders .tabs[data-v-48ad9a74],\n.filter-content .tabs[data-v-48ad9a74] {\n  width: 100%;\n}\n.reminders .col-6[data-v-48ad9a74] {\n  padding-left: 6%;\n  padding-right: 6%;\n}\n.filter-results .custom-control.custom-checkbox .custom-control-label[data-v-48ad9a74]:before,\n.reminders .custom-checkbox .custom-control-label[data-v-48ad9a74]::before {\n  border-radius: 50% !important;\n  border: 1px solid #ededed;\n  box-shadow: none;\n  -webkit-box-shadow: none;\n  -moz-box-shadow: none;\n  -o-box-shadow: none;\n  background-image: url(\"/images/icons/right-sidebar/Task_Check.svg\") !important;\n  background-size: cover;\n}\n.reminders .custom-control-label[data-v-48ad9a74]::after,\n.reminders .custom-control-label[data-v-48ad9a74]::before {\n  width: 20px;\n  height: 20px;\n  top: 19px;\n  left: 0.2rem;\n  cursor: pointer;\n}\n.reminders input.list-input[data-v-48ad9a74] {\n  font-size: 0.83vw;\n  font-family: \"Rubik\", sans-serif;\n  color: #808080;\n  width: 100%;\n  text-overflow: ellipsis;\n}\n.reminders input.list-input[data-v-48ad9a74]:focus,\n.nav-link[data-v-48ad9a74]:focus {\n  outline: 0 !important;\n  box-shadow: none !important;\n  -webkit-box-shadow: none !important;\n  -moz-box-shadow: none !important;\n  -o-box-shadow: none !important;\n  border: 0 !important;\n}\n.reminders .btn-primary[data-v-48ad9a74] {\n  width: auto !important;\n    float: right;\n  line-height: 1em;\n}\n.reminders .terms-text input[data-v-48ad9a74] {\n    border-left: 0;\n    border-top: 0;\n    border-right: 0;\n    border-bottom: 1px solid #f7f7f7;\n    width: 100%;\n}\n.terms-text[data-v-48ad9a74] {\n  padding-left: 37px;\n}\n.reminders .terms-text input[data-v-48ad9a74]:focus {\n   outline: 0 !important;\n}\n.reminders .terms-text input[data-v-48ad9a74]::-webkit-input-placeholder {\n  font-style: italic;\n  font-weight: 300;\n}\n.reminders .terms-text input[data-v-48ad9a74]::-moz-placeholder {\n  font-style: italic;\n  font-weight: 300;\n}\n.reminders .terms-text input[data-v-48ad9a74]:-ms-input-placeholder {\n  font-style: italic;\n  font-weight: 300;\n}\n.reminders .terms-text input[data-v-48ad9a74]::-ms-input-placeholder {\n  font-style: italic;\n  font-weight: 300;\n}\n.reminders .terms-text input[data-v-48ad9a74]::placeholder {\n  font-style: italic;\n  font-weight: 300;\n}\n.reminders input.list-input.red[data-v-48ad9a74]::-webkit-input-placeholder {\n  color: red !important;\n}\n.reminders input.list-input.red[data-v-48ad9a74]::-moz-placeholder {\n  color: red !important;\n}\n.reminders input.list-input.red[data-v-48ad9a74]:-ms-input-placeholder {\n  color: red !important;\n}\n.reminders input.list-input.red[data-v-48ad9a74]::-ms-input-placeholder {\n  color: red !important;\n}\n.reminders input.list-input.red[data-v-48ad9a74]::placeholder {\n  color: red !important;\n}\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label[data-v-48ad9a74]::before {\n  background-image: url(\"/images/icons/right-sidebar/Task_Check.svg\") !important;\n  border-radius: 50% !important;\n  background-size: cover;\n}\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label[data-v-48ad9a74]::after {\n  border-radius: 50% !important;\n}\n.reminders input.list-input[data-v-48ad9a74]:focus {\n  border: 1px solid rgba(28, 35, 49, 0.5);\n}\n.grey-scroll[data-v-48ad9a74]::-webkit-scrollbar-thumb {\n  background: #b3b3b3 !important;\n  border-radius: 5px !important;\n}\n.orange[data-v-48ad9a74] {\n  color: #ff933a;\n}\n.blue[data-v-48ad9a74] {\n  color: #3fa9f5;\n}\n.tasks-date[data-v-48ad9a74] {\n  font-size: 10px;\n  font-family: \"Rubik\", sans-serif !important;\n  color: #808080;\n  margin-left: 35px;\n}\n.reminders-border-bottom[data-v-48ad9a74] {\n  border-bottom: 1px solid #f7f7f7;\n}\nli.row.m-2.pl-0.align-items-center.reminders-border-bottom[data-v-48ad9a74]:first-child {\nborder-top: 1px solid #f7f7f7;\n}\n.nav-tabs .nav-item[data-v-48ad9a74] {\n  width: 50%;\n}\n.btn-default.cancel-user[data-v-48ad9a74] {\n  border-radius: 50rem !important;\n  font-size: 10px;\n  color: #989899;\n  text-transform: uppercase;\n  padding: 10px 20px;\n  font-weight: 600;\n}\n.btn-primary.update-user[data-v-48ad9a74],\n.btn-primary.update-filter[data-v-48ad9a74],\n.btn-primary.save-filter[data-v-48ad9a74] {\n  font-size: 10px;\n  background: linear-gradient(\n    to right,\n    rgb(255, 128, 51, 1) 0%,\n    rgba(255, 147, 58, 1) 100%\n  ) !important;\n  font-weight: 600;\n  text-transform: uppercase;\n  padding: 10px 20px;\n}\n.btn-primary.update-filter[data-v-48ad9a74],\n.btn-primary.save-filter[data-v-48ad9a74] {\n  padding: 6px 12px !important;\n}\n.float-right[data-v-48ad9a74] {\n  float: right;\n}\n.inactive-icon[data-v-48ad9a74] {\n  /* padding: 6px; */\n  border-radius: 50rem;\n  box-shadow: none;\n  -webkit-box-shadow: none;\n  -moz-box-shadow: none;\n  -o-box-shadow: none;\n  transition: box-shadow 0.5s ease;\n}\n\n/* .inactive-icon:hover {\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n  -o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n} */\n.filter-heading[data-v-48ad9a74] {\n  font-size: 0.83vw;\n  color: #171717 !important;\n  font-family: \"Rubik\", sans-serif !important;\n}\n.filterborder[data-v-48ad9a74] {\n  border: 1px solid #fed6d6;\n}\n.show[data-v-48ad9a74] {\n  display: block !important;\n}\n.row.filter-content[data-v-48ad9a74] {\n  margin-left: -27px;\n  margin-right: -27px;\n}\n.row.filter-content .custom-control.custom-checkbox[data-v-48ad9a74],\n.saved-results[data-v-48ad9a74] {\n  border-radius: 14px;\n  box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  margin: 10px 0;\n}\n.row.filter-content .custom-control.custom-checkbox .custom-control-label[data-v-48ad9a74] {\n  font-size: 14px;\n  padding-left: 28px;\n  font-family: \"Rubik\", sans-serif !important;\n}\n.row.filter-content\n  .filter-results\n  .custom-control.custom-checkbox\n  .custom-control-label[data-v-48ad9a74] {\n  font-size: 12px;\n  padding-left: 20px;\n}\n.row.filter-content .filter-results .custom-control[data-v-48ad9a74] {\n  padding-left: 10px !important;\n}\n.row.filter-content .search-criteria[data-v-48ad9a74] {\n  border: 0;\n  box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n  -webkit-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n  -moz-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n  -o-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n  font-size: 12px;\n  border-radius: 14px;\n  padding: 10px;\n  font-family: \"Rubik\", sans-serif !important;\n}\n.row.filter-content .search-text[data-v-48ad9a74],\n.save-text[data-v-48ad9a74] {\n  border: 0;\n  box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  font-size: 12px;\n  font-family: \"Rubik\", sans-serif;\n  font-weight: 300;\n  font-style: italic;\n  border-radius: 15px;\n  padding: 10px;\n}\n.row.filter-content\n  .search-text::-webkit-input-placeholder\n  .save-text[data-v-48ad9a74]::-webkit-input-placeholder {\n  font-size: 12px !important;\n  font-family: \"Rubik\", sans-serif !important;\n  color: rgba(0, 0, 0, 0.65) !important;\n}\n.save-text[data-v-48ad9a74]::-webkit-input-placeholder {\n  font-size: 10px !important;\n  font-family: \"Rubik\", sans-serif !important;\n  color: #b3b3b3 !important;\n  font-style: italic;\n}\n.filter-results[data-v-48ad9a74] {\n  max-height: 200px;\n  overflow: auto;\n  margin-top: 20px;\n}\n.saved-results[data-v-48ad9a74] {\n  font-size: 12px !important;\n  font-family: \"Rubik\", sans-serif;\n}\n.px-6[data-v-48ad9a74] {\n  padding: 0px 8%;\n}\n.px-6-hide[data-v-48ad9a74] {\n  padding: 0px 8%;\n}\n.filter-container[data-v-48ad9a74] {\n  overflow: auto;\n}\n@media screen and (max-width: 1368px) {\n.filter-container[data-v-48ad9a74] {\n    max-height: 450px;\n}\n.px-6-hide[data-v-48ad9a74], .description[data-v-48ad9a74], label.task-deadline.terms-text[data-v-48ad9a74] {\n  padding:0;\n}\n.small-margin[data-v-48ad9a74] {\n    margin: 10px 10px 0px 9px;\n}\n}\n@media screen and (min-width: 1400px) {\n.filter-container[data-v-48ad9a74] {\n    max-height: 650px;\n}\n}\ninput.search-text[data-v-48ad9a74]:focus,\ninput.save-text[data-v-48ad9a74]:focus {\n  outline: 0 !important;\n  border: 0 !important;\n}\n.custom-filter-name-save[data-v-48ad9a74] {\n  border-color: #cdcdcf;\n}\n/*End Right Component*/\n", ""]);
+exports.push([module.i, "\n.main-sidebar[data-v-48ad9a74] {\n  right: 0 !important;\n  left: auto;\n  overflow: visible;\n  position: absolute;\n  top: 0;\n  right: 0 !important;\n  bottom: 0;\n  z-index: 830;\n  transition: right 0.3s ease-in-out;\n  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -o-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n.main-sidebar[data-v-48ad9a74],\n.main-sidebar[data-v-48ad9a74]:before {\n  transition: margin-right 0.3s ease-in-out, width 0.3s ease-in-out !important;\n  width: 16.718% !important;\n}\n.sidebar-collapse .main-sidebar[data-v-48ad9a74],\n.sidebar-collapse .main-sidebar[data-v-48ad9a74]:before {\n  margin-left: 0 !important;\n  /* margin-right: -10.833%!important;  */\n}\n@media (max-width: 991.98px) {\n.main-sidebar[data-v-48ad9a74],\n  .main-sidebar[data-v-48ad9a74]:before {\n    margin-left: -0 !important;\n    margin-left: -10.833% !important;\n}\n.sidebar-open .main-sidebar[data-v-48ad9a74],\n  .sidebar-open .main-sidebar[data-v-48ad9a74]:before {\n    margin-right: 0 !important;\n}\n}\n.sidebar[data-v-48ad9a74] {\n  overflow: visible;\n}\np[data-v-48ad9a74] {\n  color: #9fb3bb;\n  margin: 0;\n}\nh2[data-v-48ad9a74] {\n  color: #003449;\n  font-size: 29px;\n  letter-spacing: 4.2px;\n  font-weight: 600;\n}\nh3[data-v-48ad9a74] {\n  color: #1a1c43;\n  font-size: 0.83vw;\n  font-weight: 700;\n}\nh3 img[data-v-48ad9a74] {\n  float: right;\n  cursor: pointer;\n  margin-top: -7px;\n}\n.main label.custom-control-label[data-v-48ad9a74] {\n  color: inherit;\n  font-weight: 200;\n  padding-top: 3px;\n}\n.navbar[data-v-48ad9a74] {\n  border-color: #cdcdcf;\n  margin-top: 6%;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] {\n  color: rgba(0, 0, 0, 0.5);\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] {\n  font-size: 14px;\n  color: #1e2331;\n  padding-top: 6px;\n  position: relative;\n  top: -4%;\n}\n.help-block[data-v-48ad9a74] {\n  color: red;\n}\n.status[data-v-48ad9a74] {\n  display: none;\n}\n.status.active[data-v-48ad9a74] {\n  width: 76px;\n  text-align: center;\n  border-radius: 8px;\n  display: block;\n  background: #00d68f;\n  padding: 4px 3px;\n  line-height: 20px;\n  color: #fff;\n  text-transform: uppercase;\n  font-size: 12px;\n  float: left;\n  margin: 0;\n}\n.status.offline[data-v-48ad9a74] {\n  width: 76px;\n  text-align: center;\n  border-radius: 8px;\n  display: block;\n  background: orange;\n  padding: 4px 3px;\n  line-height: 20px;\n  color: #fff;\n  text-transform: uppercase;\n  font-size: 12px;\n  float: left;\n  margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover,\n.status.offline[data-v-48ad9a74]:hover {\n  color: #3b3b3b;\n  cursor: pointer;\n}\n.status.show[data-v-48ad9a74] {\n  display: block !important;\n}\n.collapse[data-v-48ad9a74] {\n  border-bottom: 1px solid #cdccce;\n}\n.p-3[data-v-48ad9a74] {\n  padding: 0.8rem 2rem 1.4rem 1.7rem !important;\n}\n.pl-34[data-v-48ad9a74] {\n  padding-left: 34px;\n}\n.ml-12[data-v-48ad9a74] {\n  margin-left: 12px;\n}\n.progress-bar[data-v-48ad9a74] {\n  background: #f7f6fb;\n  border-radius: 5px;\n}\n.tank[data-v-48ad9a74] {\n  background: linear-gradient(\n    to right,\n    rgba(161, 237, 128, 1) 0%,\n    rgba(98, 211, 126, 1) 100%\n  ) !important;\n  border-radius: 5px;\n  background: rgb(114, 218, 126);\n  height: 8px;\n  transition: all 0.5s ease 0s;\n}\n.value[data-v-48ad9a74] {\n  font-weight: 900;\n  font-size: 0.83vw;\n  color: #1a1c43;\n  margin-top: -8px;\n  letter-spacing: 0.1em;\n  font-family: Montserrat !important;\n}\n.description[data-v-48ad9a74] {\n  font-size: 10px;\n  font-family: \"Rubik\", sans-serif;\n  color: #1e2331;\n  padding-bottom: 10px;\n}\n.description-text[data-v-48ad9a74] {\n  font-size: 0.73vw !important;\n}\n.position[data-v-48ad9a74] {\n  display: block;\n  position: relative;\n  background: #ff8234;\n  color: #fff;\n  height: 62px;\n  text-align: center;\n  font-size: 17px;\n  padding: 18px 9px;\n  width: 62px;\n  transform: rotate(45deg);\n  /* Standard syntax */\n  margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74] {\n  transform: rotate(0deg);\n  /* Standard syntax */\n}\np.heading[data-v-48ad9a74] {\n  border-bottom: 1px solid #cdccce;\n  margin-bottom: 10px;\n  font-weight: 900;\n}\n.navbar ul[data-v-48ad9a74] {\n  margin-bottom: 10px;\n}\n.personal-info[data-v-48ad9a74],\n.general-system-prefs[data-v-48ad9a74],\n.notifications .w-100[data-v-48ad9a74] {\n  margin-top: 20px;\n}\n.personal-info img[data-v-48ad9a74] {\n  border-radius: 50%;\n  width: 27%;\n}\n.personal-info button.btn-info[data-v-48ad9a74] {\n  margin: 5px 0 15px 0;\n  font-size: 9px;\n}\n.btn-info[data-v-48ad9a74] {\n  height: 24px !important;\n  background: #f98b39 !important;\n  border-color: #f98b39 !important;\n  color: #fff !important;\n  padding: 4px 17px 6px !important;\n  border-radius: 24px !important;\n}\n.settings .row.border-bottom[data-v-48ad9a74],\n.notifications .row.border-bottom[data-v-48ad9a74] {\n  border-color: #cdccce;\n  padding: 21px 0px 16px 0;\n}\n.notification-popup[data-v-48ad9a74] {\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\n  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\n  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\n  border-radius: 21px;\n  width: 100% !important;\n}\n.settings .row p.description[data-v-48ad9a74] {\n  font-size: 9px;\n  display: block;\n}\n.custom-checkbox .custom-control-label[data-v-48ad9a74] {\n  padding-top: 5px;\n}\n.themes label[data-v-48ad9a74]:first-child,\n.themes label[data-v-48ad9a74]:nth-child(2),\n.language label[data-v-48ad9a74],\n.notifications label[data-v-48ad9a74],\n.action-btns label[data-v-48ad9a74]:first-child,\n.action-btns label[data-v-48ad9a74]:nth-child(2) {\n  margin-right: 8px;\n  float: left;\n}\n.control-label[data-v-48ad9a74] {\n  color: #989899;\n  font-family: \"Rubik\", sans-serif;\n  font-size: 12px;\n  text-align: left;\n}\n.btn-default[data-v-48ad9a74] {\n  padding: 6px 12px 6px 10px;\n  font-size: 10px;\n  border: transparent !important;\n  border-radius: 5px !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-default[data-v-48ad9a74]:hover {\n  background: #00344a;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 6px 12px 6px 10px;\n  font-size: 10px;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-active[data-v-48ad9a74] {\n  background: #00344a;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 6px 12px 6px 10px;\n  font-size: 0.6vw;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.themes .btn-default[data-v-48ad9a74],\n.language .btn-default[data-v-48ad9a74],\n.language .btn-active[data-v-48ad9a74] {\n  border-radius: 50rem !important;\n  padding: 8px 15px !important;\n}\n.btn-orange[data-v-48ad9a74],\n.btn-orange-active[data-v-48ad9a74] {\n  background: linear-gradient(\n    to right,\n    rgb(255, 128, 51, 1) 0%,\n    rgba(255, 147, 58, 1) 100%\n  ) !important;\n  color: #ffffff;\n  border: transparent !important;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-white[data-v-48ad9a74] {\n  background: #fff;\n  border: transparent !important;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.orange-btn[data-v-48ad9a74]:hover {\n  background: linear-gradient(\n    to right,\n    rgb(255, 128, 51, 1) 0%,\n    rgba(255, 147, 58, 1) 100%\n  ) !important;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 8px 15px;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-blue[data-v-48ad9a74] {\n  background: linear-gradient(\n    to right,\n    rgb(60, 144, 206, 1) 0%,\n    rgba(65, 197, 231, 1) 100%\n  ) !important;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 8px 15px;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.blue-btn[data-v-48ad9a74]:hover {\n  background: linear-gradient(\n    to right,\n    rgb(60, 144, 206, 1) 0%,\n    rgba(65, 197, 231, 1) 100%\n  ) !important;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 8px 15px;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-dark[data-v-48ad9a74] {\n  background: linear-gradient(\n    to right,\n    rgb(25, 25, 26, 1) 0%,\n    rgba(23, 23, 66, 1) 100%\n  ) !important;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 8px 15px;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.dark-btn[data-v-48ad9a74]:hover {\n  background: linear-gradient(\n    to right,\n    rgb(25, 25, 26, 1) 0%,\n    rgba(23, 23, 66, 1) 100%\n  ) !important;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 8px 15px;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.notifications-close img[data-v-48ad9a74] {\n  width: 20px;\n  top: 5px;\n  position: relative;\n}\n.btn-has-new-dot[data-v-48ad9a74] {\n  background-image: url(\"/images/icons/Red-Notification-Dot.svg\") !important;\n  background-size: 12px 12px;\n  background-repeat: no-repeat;\n  background-position: right top;\n  width: 13px;\n  height: 100%;\n  z-index: 1;\n  position: absolute;\n  left: 66px;\n  top: -5px;\n}\n.btn-has-new-messages[data-v-48ad9a74] {\n  background-image: url(\"/images/icons/blue dot.svg\") !important;\n  background-size: 69% 34%;\n  background-repeat: no-repeat;\n  background-position: left top;\n  color: #ffffff;\n  font-size: 10px;\n  text-align: center;\n}\n.btn-has-new[data-v-48ad9a74]:hover {\n  background-image: url(\"/images/icons/Dot.png\") !important;\n  background-size: 12px 12px;\n  background-repeat: no-repeat;\n  background-position: right top;\n}\n.logout-wrapper[data-v-48ad9a74] {\n  margin-top: 14%;\n}\n#logout[data-v-48ad9a74] {\n  background-image: url(\"/images/icons/Asset 67.svg\") !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n  height: 100px;\n  background-position: center;\n  margin-bottom: 11%;\n}\n#logout[data-v-48ad9a74]:hover {\n  background-image: url(\"/images/icons/Asset 66.svg\") !important;\n}\n.notifications .btn-default[data-v-48ad9a74] {\n  padding: 6px 25px 6px 18px;\n  font-size: 12px;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.notifications .top-section[data-v-48ad9a74] {\n  list-style: none;\n}\n.notifications .card-body-notifications h3[data-v-48ad9a74],\n.notifications .card-body-notifications h3 a[data-v-48ad9a74],\n.caller-name[data-v-48ad9a74] {\n  color: #333333;\n  font-size: 0.7vw;\n  font-weight: 600;\n}\n.caller-time[data-v-48ad9a74] {\n  float: right;\n  font-size: 0.6vw;\n  color: #808080;\n}\n.notifications .card-body-notifications p.call_back_time[data-v-48ad9a74] {\n  color: #808080;\n  font-size: 0.7vw;\n}\n.personal-info .row.mx-0.border-left[data-v-48ad9a74],\n.account-info .row.mx-0.border-left[data-v-48ad9a74] {\n  border-color: #cdccce;\n}\n.settings .title[data-v-48ad9a74] {\n  color: #7f8080;\n  padding-bottom: 16px;\n  font-size: 12px;\n}\n.small-avatar img[data-v-48ad9a74] {\n  width: 30px;\n  border-radius: 50%;\n}\n.update-user[data-v-48ad9a74],\n.update-filter[data-v-48ad9a74],\n.save-filter[data-v-48ad9a74] {\n  margin: 0px 0px 5px 0px;\n}\n.final-modal[data-v-48ad9a74] {\n  padding: 0 0 1rem;\n}\n.final-modal .row-a[data-v-48ad9a74] {\n  width: 100%;\n  border-bottom: 1px solid #cdccce;\n  margin-left: 0;\n}\n.final-modal label button img[data-v-48ad9a74] {\n  width: 20px;\n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-48ad9a74] {\n  font-size: 55px;\n  color: #ff933a;\n}\n.card-header[data-v-48ad9a74] {\n  color: rgba(28, 35, 49, 0.5);\n  border-bottom: 0.5px solid #f4f4f5 !important;\n  background-color: #fff !important;\n  font-size: 10px;\n  font-weight: 600;\n}\n.card-body-notifications[data-v-48ad9a74] {\n  padding: 11px 10px;\n}\n.card-body-notifications img[data-v-48ad9a74] {\n  padding-right: 10px;\n}\n.callback-cal p[data-v-48ad9a74] {\n  font-size: 0.73vw;\n  color: #666666;\n  border-color: #ccc;\n  margin-top: 25px;\n}\n.final-modal .card-header[data-v-48ad9a74] {\n  padding: 0 11px 0;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-48ad9a74] {\n  border-bottom: none;\n  background: #fff;\n  padding: 6px 12px;\n}\n.final-modal .card-header-tabs .left a.active[aria-selected=\"true\"][data-v-48ad9a74] {\n  border-bottom: none;\n  background: #fff;\n  padding: 6px 12px;\n  box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n  -webkit-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n  -moz-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n  -o-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n}\n.final-modal .card-header-tabs .left a[aria-selected=\"false\"][data-v-48ad9a74] {\n  border-bottom: none;\n  background: #fff;\n  padding: 6px 12px;\n  box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n  -webkit-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n  -moz-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n  -o-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n}\n.final-modal .card-header-tabs .right a.active[aria-selected=\"true\"][data-v-48ad9a74] {\n  border-bottom: none;\n  background: #fff;\n  padding: 6px 12px;\n  box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n  -webkit-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n  -moz-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n  -o-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n}\n.final-modal .card-header-tabs .right a[aria-selected=\"false\"][data-v-48ad9a74] {\n  border-bottom: none;\n  background: #fff;\n  padding: 6px 12px;\n  box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n  -webkit-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n  -moz-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n  -o-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74] {\n  padding: 6px 12px;\n  font-size: 0.83vw;\n  color: #818284;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74]:hover {\n  border: none;\n  background: #fff;\n  padding: 6px 12px;\n  font-size: 0.83vw;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74] {\n  background: #fff;\n  padding: 6px 12px;\n  font-size: 0.83vw;\n  color: #818284;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74]:hover {\n  background: #fff;\n  padding: 6px 12px;\n  font-size: 0.83vw;\n}\n.form-control[data-v-48ad9a74] {\n  padding: 10px 12px !important;\n  font-size: 12px;\n  box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1) !important;\n  -webkit-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1) !important;\n  -moz-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1) !important;\n  -o-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1) !important;\n  color: #193246;\n  font-weight: 600;\n  margin-top: 6px;\n}\ntextarea.form-control[data-v-48ad9a74] {\n  height: 100px !important;\n  border-radius: 15px;\n}\n.stats-section[data-v-48ad9a74] {\n  margin-top: 22px;\n}\n.stats-section .commission[data-v-48ad9a74] {\n  padding: 7% 0;\n}\n.stats-section .sales[data-v-48ad9a74],\n.stats-section .calls[data-v-48ad9a74],\n.search-input[data-v-48ad9a74],\n.filter-search[data-v-48ad9a74],\n.filter-by[data-v-48ad9a74] {\n  padding: 5px 0;\n}\n.stats-section .calls .col-lg-12 p[data-v-48ad9a74],\n.stats-section .sales .col-lg-12 p[data-v-48ad9a74],\np.badges[data-v-48ad9a74] {\n  border-bottom: 0.5px solid #f4f4f5;\n  margin-bottom: 5px;\n  padding-bottom: 2px;\n}\n.print-btn[data-v-48ad9a74],\n.export-btn[data-v-48ad9a74] {\n  width: 90%;\n}\n.action-btns[data-v-48ad9a74] {\n  margin-top: 17px;\n}\n/* is the notification count being used? */\n.notification-count[data-v-48ad9a74] {\n  position: relative;\n  top: -7px;\n  right: 15px;\n  font-size: 9px;\n  color: #003449;\n}\n.nav-item .nav-link img.active-icon[data-v-48ad9a74], .nav-item .nav-link.generalIcon[data-v-48ad9a74]:hover,.nav-item .nav-link.filterIcon[data-v-48ad9a74]:hover, .nav-item .nav-link.notificationsIcon[data-v-48ad9a74]:hover, .nav-item .nav-link.settingsIcon[data-v-48ad9a74]:hover,.nav-item .nav-link.notificationsIcon img.inactive-icon[data-v-48ad9a74]:hover {\n  border-radius: 50%;\n  box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n}\n.reminders .nav-link[aria-posinset=\"2\"][data-v-48ad9a74] {\n  text-align: right;\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  line-height: 1em;\n  justify-content: flex-end;\n}\n.reminders .tabs[data-v-48ad9a74],\n.filter-content .tabs[data-v-48ad9a74] {\n  width: 100%;\n}\n.reminders .col-6[data-v-48ad9a74] {\n  padding-left: 6%;\n  padding-right: 6%;\n}\n.filter-results .custom-control.custom-checkbox .custom-control-label[data-v-48ad9a74]:before,\n.reminders .custom-checkbox .custom-control-label[data-v-48ad9a74]::before {\n  border-radius: 50% !important;\n  border: 1px solid #ededed;\n  box-shadow: none;\n  -webkit-box-shadow: none;\n  -moz-box-shadow: none;\n  -o-box-shadow: none;\n  background-image: url(\"/images/icons/right-sidebar/Task_Check.svg\") !important;\n  background-size: cover;\n}\n.reminders .custom-control-label[data-v-48ad9a74]::after,\n.reminders .custom-control-label[data-v-48ad9a74]::before {\n  width: 20px;\n  height: 20px;\n  top: 19px;\n  left: 0.2rem;\n  cursor: pointer;\n}\n.reminders input.list-input[data-v-48ad9a74] {\n  font-size: 0.83vw;\n  font-family: \"Rubik\", sans-serif;\n  color: #808080;\n  width: 100%;\n  text-overflow: ellipsis;\n}\n.reminders input.list-input[data-v-48ad9a74]:focus,\n.nav-link[data-v-48ad9a74]:focus {\n  outline: 0 !important;\n  box-shadow: none !important;\n  -webkit-box-shadow: none !important;\n  -moz-box-shadow: none !important;\n  -o-box-shadow: none !important;\n  border: 0 !important;\n}\n.reminders .btn-primary[data-v-48ad9a74] {\n  width: auto !important;\n    float: right;\n  line-height: 1em;\n}\n.reminders .terms-text input[data-v-48ad9a74] {\n    border-left: 0;\n    border-top: 0;\n    border-right: 0;\n    border-bottom: 1px solid #f7f7f7;\n    width: 100%;\n}\n.terms-text[data-v-48ad9a74] {\n  padding-left: 37px;\n}\n.reminders .terms-text input[data-v-48ad9a74]:focus {\n   outline: 0 !important;\n}\n.reminders .terms-text input[data-v-48ad9a74]::-webkit-input-placeholder {\n  font-style: italic;\n  font-weight: 300;\n}\n.reminders .terms-text input[data-v-48ad9a74]::-moz-placeholder {\n  font-style: italic;\n  font-weight: 300;\n}\n.reminders .terms-text input[data-v-48ad9a74]:-ms-input-placeholder {\n  font-style: italic;\n  font-weight: 300;\n}\n.reminders .terms-text input[data-v-48ad9a74]::-ms-input-placeholder {\n  font-style: italic;\n  font-weight: 300;\n}\n.reminders .terms-text input[data-v-48ad9a74]::placeholder {\n  font-style: italic;\n  font-weight: 300;\n}\n.reminders input.list-input.red[data-v-48ad9a74]::-webkit-input-placeholder {\n  color: red !important;\n}\n.reminders input.list-input.red[data-v-48ad9a74]::-moz-placeholder {\n  color: red !important;\n}\n.reminders input.list-input.red[data-v-48ad9a74]:-ms-input-placeholder {\n  color: red !important;\n}\n.reminders input.list-input.red[data-v-48ad9a74]::-ms-input-placeholder {\n  color: red !important;\n}\n.reminders input.list-input.red[data-v-48ad9a74]::placeholder {\n  color: red !important;\n}\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label[data-v-48ad9a74]::before {\n  background-image: url(\"/images/icons/right-sidebar/Task_Check.svg\") !important;\n  border-radius: 50% !important;\n  background-size: cover;\n}\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label[data-v-48ad9a74]::after {\n  border-radius: 50% !important;\n}\n.reminders input.list-input[data-v-48ad9a74]:focus {\n  border: 1px solid rgba(28, 35, 49, 0.5);\n}\n.grey-scroll[data-v-48ad9a74]::-webkit-scrollbar-thumb {\n  background: #b3b3b3 !important;\n  border-radius: 5px !important;\n}\n.orange[data-v-48ad9a74] {\n  color: #ff933a;\n}\n.blue[data-v-48ad9a74] {\n  color: #3fa9f5;\n}\n.tasks-date[data-v-48ad9a74] {\n  font-size: 10px;\n  font-family: \"Rubik\", sans-serif !important;\n  color: #808080;\n  margin-left: 35px;\n}\n.reminders-border-bottom[data-v-48ad9a74] {\n  border-bottom: 1px solid #f7f7f7;\n}\nli.row.m-2.pl-0.align-items-center.reminders-border-bottom[data-v-48ad9a74]:first-child {\nborder-top: 1px solid #f7f7f7;\n}\n.nav-tabs .nav-item[data-v-48ad9a74] {\n  width: 50%;\n}\n.btn-default.cancel-user[data-v-48ad9a74] {\n  border-radius: 50rem !important;\n  font-size: 10px;\n  color: #989899;\n  text-transform: uppercase;\n  padding: 10px 20px;\n  font-weight: 600;\n}\n.btn-primary.update-user[data-v-48ad9a74],\n.btn-primary.update-filter[data-v-48ad9a74],\n.btn-primary.save-filter[data-v-48ad9a74] {\n  font-size: 10px;\n  background: linear-gradient(\n    to right,\n    rgb(255, 128, 51, 1) 0%,\n    rgba(255, 147, 58, 1) 100%\n  ) !important;\n  font-weight: 600;\n  text-transform: uppercase;\n  padding: 10px 20px;\n}\n.btn-primary.update-filter[data-v-48ad9a74],\n.btn-primary.save-filter[data-v-48ad9a74] {\n  padding: 6px 12px !important;\n}\n.float-right[data-v-48ad9a74] {\n  float: right;\n}\n.inactive-icon[data-v-48ad9a74] {\n  /* padding: 6px; */\n  border-radius: 50rem;\n  box-shadow: none;\n  -webkit-box-shadow: none;\n  -moz-box-shadow: none;\n  -o-box-shadow: none;\n  transition: box-shadow 0.5s ease;\n}\n\n/* .inactive-icon:hover {\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n  -o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n} */\n.filter-heading[data-v-48ad9a74] {\n  font-size: 0.83vw;\n  color: #171717 !important;\n  font-family: \"Rubik\", sans-serif !important;\n}\n.filterborder[data-v-48ad9a74] {\n  border: 1px solid #fed6d6;\n}\n.show[data-v-48ad9a74] {\n  display: block !important;\n}\n.row.filter-content[data-v-48ad9a74] {\n  margin-left: -27px;\n  margin-right: -27px;\n}\n.row.filter-content .custom-control.custom-checkbox[data-v-48ad9a74],\n.saved-results[data-v-48ad9a74] {\n  border-radius: 14px;\n  box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  margin: 10px 0;\n}\n.row.filter-content .custom-control.custom-checkbox .custom-control-label[data-v-48ad9a74] {\n  font-size: 14px;\n  padding-left: 28px;\n  font-family: \"Rubik\", sans-serif !important;\n}\n.row.filter-content\n  .filter-results\n  .custom-control.custom-checkbox\n  .custom-control-label[data-v-48ad9a74] {\n  font-size: 12px;\n  padding-left: 20px;\n}\n.row.filter-content .filter-results .custom-control[data-v-48ad9a74] {\n  padding-left: 10px !important;\n}\n.row.filter-content .search-criteria[data-v-48ad9a74] {\n  border: 0;\n  box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n  -webkit-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n  -moz-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n  -o-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n  font-size: 12px;\n  border-radius: 14px;\n  padding: 10px;\n  font-family: \"Rubik\", sans-serif !important;\n}\n.row.filter-content .search-text[data-v-48ad9a74],\n.save-text[data-v-48ad9a74] {\n  border: 0;\n  box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  font-size: 12px;\n  font-family: \"Rubik\", sans-serif;\n  font-weight: 300;\n  font-style: italic;\n  border-radius: 15px;\n  padding: 10px;\n}\n.row.filter-content\n  .search-text::-webkit-input-placeholder\n  .save-text[data-v-48ad9a74]::-webkit-input-placeholder {\n  font-size: 12px !important;\n  font-family: \"Rubik\", sans-serif !important;\n  color: rgba(0, 0, 0, 0.65) !important;\n}\n.save-text[data-v-48ad9a74]::-webkit-input-placeholder {\n  font-size: 10px !important;\n  font-family: \"Rubik\", sans-serif !important;\n  color: #b3b3b3 !important;\n  font-style: italic;\n}\n.filter-results[data-v-48ad9a74] {\n  max-height: 200px;\n  overflow: auto;\n  margin-top: 20px;\n}\n.saved-results[data-v-48ad9a74] {\n  font-size: 12px !important;\n  font-family: \"Rubik\", sans-serif;\n}\n.px-6[data-v-48ad9a74] {\n  padding: 0px 8%;\n}\n.px-6-hide[data-v-48ad9a74] {\n  padding: 0px 8%;\n}\n.filter-container[data-v-48ad9a74] {\n  overflow: auto;\n}\n@media screen and (max-width: 1368px) {\n.filter-container[data-v-48ad9a74] {\n    max-height: 450px;\n}\n.px-6-hide[data-v-48ad9a74], .description[data-v-48ad9a74], label.task-deadline.terms-text[data-v-48ad9a74] {\n  padding:0;\n}\n.small-margin[data-v-48ad9a74] {\n    margin: 10px 10px 0px 9px;\n}\n}\n@media screen and (min-width: 1400px) {\n.filter-container[data-v-48ad9a74] {\n    max-height: 650px;\n}\n}\ninput.search-text[data-v-48ad9a74]:focus,\ninput.save-text[data-v-48ad9a74]:focus {\n  outline: 0 !important;\n  border: 0 !important;\n}\n.custom-filter-name-save[data-v-48ad9a74] {\n  border-color: #cdcdcf;\n}\n/*End Right Component*/\n", ""]);
 
 // exports
 
@@ -249150,7 +249009,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n\n/*Right Component*/\n.main-header.navbar.navbar-expand[data-v-6ec57eb6] {\n  padding: 13px 4% 1.55%;\n  position: relative;\n  top: 10px;\n}\n.navbar-nav li.title[data-v-6ec57eb6]{\n  line-height: 20px;\n}\n.nav-link.top-link.d-block.text-center[data-v-6ec57eb6] {\n  box-shadow: 0 0 7px rgba(0,0,0,0.1);\n  height: auto !important;\n  font-size: 0.73vw;\n}\n.nav-link.top-link.d-block.text-center[data-v-6ec57eb6]:hover {\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow:0 0 5px rgba(0, 0, 0, 0.1);\n  -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n  background: #ffffff;\n}\na.add-new[data-v-6ec57eb6] {\n\tborder-radius: 50rem !important;\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n  -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n  background: #ffffff;\n  font-size: 16px;\n  color: #989899;\n  font-weight: 600;\n}\nli.title a strong[data-v-6ec57eb6]{\n  color: #003549;\n  font-size: 1.68vw;\n  letter-spacing: 0.1em;\n}\na.top-link[data-v-6ec57eb6]{    \n  border-radius: 26px;\n  height: 30px !important;\n  padding: 6px 17px 6px !important;\n  font-family: 'Rubik', sans-serif;\n  letter-spacing: 1px;\n}\na.active[data-v-6ec57eb6]{    \n  border-radius: 26px;\n  background: #F98B39 !important;\n  border-color: #F98B39 !important;\n  color: #fff !important;\n  padding: 6px 17px 6px !important;\n}\nselect[data-v-6ec57eb6]{\n  font-family: 'Rubik', sans-serif;\n  border-radius: 26px;\n  border:0;\n  margin: 5px 8px 8px 55px !important;\n  height: 30px !important;\n  background: #fff !important;\n  color: #003549 !important;\n  padding: 0 16px 0 !important;\n  box-shadow: 0 0 5px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 5px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 5px rgba(0,0,0,0.1);\n  letter-spacing: 1px;\n  font-size: 14px;\n}\nselect.month-selector[data-v-6ec57eb6] {\n  margin-left: 0!important;\n  margin-right: 0!important;\n}\n.callIcons li a[data-v-6ec57eb6]{\n  background-repeat: no-repeat;\n  color: black;\n  background-size: 59px !important;\n  background-repeat: no-repeat !important;\n  background-position: center center !important;\n}\n.callIcons .search a[data-v-6ec57eb6]{\n  background-color: #fff;\n  background-image: url('/images/icons/top-nav/Search.svg') !important;\n  background-size: 15px!important;\n  background-repeat: no-repeat;\n  border-radius: 50rem;\n\tbox-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n\twidth: 40px;\n  height: 40px;\n}\n.callIcons .search a[data-v-6ec57eb6]:hover{\n  background-image: url('/images/icons/Asset 61.svg') !important;\n  background-size: 170%!important;\n  background-repeat: no-repeat;\n}\n.callIcons .search input[data-v-6ec57eb6] {\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding:14px 0 14px;\n  right: -40px;\n  position: absolute;\n  top: -24px;\n  width:0;\n  transition: width 2s;\n}\n.callIcons .search:hover input[data-v-6ec57eb6] {\n  width:auto;\n  padding:14px 40px 14px 15px;\n}\n.callIcons .search:hover input[data-v-6ec57eb6]:focus {\n  outline: 0 !important;\n}\n.callIcons .search input[data-v-6ec57eb6]::-webkit-input-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-6ec57eb6]::-moz-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-6ec57eb6]:-ms-input-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-6ec57eb6]::-ms-input-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-6ec57eb6]::placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons li.idle .status[data-v-6ec57eb6]{\n  background-image: url('/images/icons/Asset 55.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.callIcons li.on-call .status[data-v-6ec57eb6]{\n  background-image: url('/images/icons/Asset 56.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.callIcons li.offline .status[data-v-6ec57eb6]{\n  background-image: url('/images/icons/Asset 57.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]{\n  background-image: url('/images/icons/top-nav/Start_Call.svg') !important;\n  background-size: 20px;\n  background-position: center;\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]:hover{\n  background-image: url('/images/icons/Call/Start Call Hover.svg') !important;\n  background-size: 170%;\n  background-repeat: no-repeat;\n}\n.callIcons li button.call[data-v-6ec57eb6],\n.callIcons button.status[data-v-6ec57eb6],\n.callIcons button.end-call[data-v-6ec57eb6] {\n    border-radius: 50rem;\n    box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    width: 40px;\n    height: 40px;\n}\n.callIcons li .end-call[data-v-6ec57eb6]{\n  background-image: url('/images/icons/top-nav/End_Call.svg') !important;\n  background-size: 25px;\n  background-position: center;\n  background-repeat: no-repeat;\n}\n.callIcons li .end-call[data-v-6ec57eb6]:hover{\n  background-image: url('/images/icons/Call/End Call Hover.svg') !important;\n  background-size: 170%;\n  background-repeat: no-repeat;\n}\n.callIcons li .add-call-back-btn[data-v-6ec57eb6]{\n  background-image: url('/images/workstation/Asset 28@4x.png') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-color: transparent;\n  border: none;\n  padding: 14px;\n  margin-top: 5px;\n  margin-left: 20px;\n}\n.modal-content[data-v-6ec57eb6]{\n  background: linear-gradient(to right, rgba(255,128,51,1) 0%, rgba(255,147,58,1) 100%);\n}\n/*is error being used?*/\n.error[data-v-6ec57eb6]{\n  color:#F98B39;\n}\n/*End Right Component*/\n", ""]);
+exports.push([module.i, "\n\n/*Right Component*/\n.main-header.navbar.navbar-expand[data-v-6ec57eb6] {\n  padding: 13px 4% 1.55%;\n  position: relative;\n  top: 10px;\n}\n.navbar-nav li.title[data-v-6ec57eb6]{\n  line-height: 20px;\n}\n.nav-link.top-link.d-block.text-center[data-v-6ec57eb6] {\n  box-shadow: 0 0 7px rgba(0,0,0,0.1);\n  height: auto !important;\n  font-size: 0.73vw;\n}\n.nav-link.top-link.d-block.text-center[data-v-6ec57eb6]:hover {\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow:0 0 5px rgba(0, 0, 0, 0.1);\n  -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n  background: #ffffff;\n}\na.add-new[data-v-6ec57eb6] {\n\tborder-radius: 50rem !important;\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n  -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n  background: #ffffff;\n  font-size: 16px;\n  color: #989899;\n  font-weight: 600;\n}\nli.title a strong[data-v-6ec57eb6]{\n  color: #003549;\n  font-size: 1.68vw;\n  letter-spacing: 0.1em;\n}\na.top-link[data-v-6ec57eb6]{    \n  border-radius: 26px;\n  height: 30px !important;\n  padding: 6px 17px 6px !important;\n  font-family: 'Rubik', sans-serif;\n  letter-spacing: 1px;\n}\na.active[data-v-6ec57eb6]{    \n  border-radius: 26px;\n  background: #F98B39 !important;\n  border-color: #F98B39 !important;\n  color: #fff !important;\n  padding: 6px 17px 6px !important;\n}\nselect[data-v-6ec57eb6]{\n  font-family: 'Rubik', sans-serif;\n  border-radius: 26px;\n  border:0;\n  margin: 5px 8px 8px 55px !important;\n  height: 30px !important;\n  background: #fff !important;\n  color: #003549 !important;\n  padding: 0 16px 0 !important;\n  box-shadow: 0 0 5px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 5px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 5px rgba(0,0,0,0.1);\n  letter-spacing: 1px;\n  font-size: 14px;\n}\nselect.month-selector[data-v-6ec57eb6] {\n  margin-left: 0!important;\n  margin-right: 0!important;\n}\n.callIcons li a[data-v-6ec57eb6]{\n  color: black;\n  background-size: 59px !important;\n  background-repeat: no-repeat !important;\n  background-position: center center !important;\n}\n.searchBar li a[data-v-6ec57eb6]{\n  color: black;\n  background-size: 13px !important;\n  background-repeat: no-repeat !important;\n  background-position: center center !important;\n}\n.searchBar a[data-v-6ec57eb6]{\n  background-color: #fff;\n  background-image: url('/images/icons/top-nav/Search.svg') !important;\n  background-size: 15px!important;\n  background-repeat: no-repeat;\n  border-radius: 50rem;\n\tbox-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n\twidth: 40px;\n  height: 40px;\n}\n.searchBar a[data-v-6ec57eb6]:hover{\n  background-image: url('/images/icons/Asset 61.svg') !important;\n  background-size: 170%!important;\n  background-repeat: no-repeat;\n}\n.searchBar input[data-v-6ec57eb6] {\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding:14px 0 14px;\n  right: -40px;\n  position: absolute;\n  top: -24px;\n  width:0;\n  transition: width 2s;\n}\n.searchBar:hover input[data-v-6ec57eb6] {\n  width:auto;\n  padding:14px 40px 14px 15px;\n}\n.searchBar:hover input[data-v-6ec57eb6]:focus {\n  outline: 0 !important;\n}\n.searchBar input[data-v-6ec57eb6]::-webkit-input-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.searchBar input[data-v-6ec57eb6]::-moz-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.searchBar input[data-v-6ec57eb6]:-ms-input-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.searchBar input[data-v-6ec57eb6]::-ms-input-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.searchBar input[data-v-6ec57eb6]::placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons li.idle .status[data-v-6ec57eb6]{\n  background-image: url('/images/icons/Asset 55.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.callIcons li.on-call .status[data-v-6ec57eb6]{\n  background-image: url('/images/icons/Asset 56.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.callIcons li.offline .status[data-v-6ec57eb6]{\n  background-image: url('/images/icons/Asset 57.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]{\n  background-image: url('/images/icons/top-nav/Start_Call.svg') !important;\n  background-size: 20px;\n  background-position: center;\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]:hover{\n  background-image: url('/images/icons/Call/Start Call Hover.svg') !important;\n  background-size: 170%;\n  background-repeat: no-repeat;\n}\n.callIcons li button.call[data-v-6ec57eb6],\n.callIcons button.status[data-v-6ec57eb6],\n.callIcons button.end-call[data-v-6ec57eb6] {\n    border-radius: 50rem;\n    box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    width: 40px;\n    height: 40px;\n}\n.callIcons li .end-call[data-v-6ec57eb6]{\n  background-image: url('/images/icons/top-nav/End_Call.svg') !important;\n  background-size: 25px;\n  background-position: center;\n  background-repeat: no-repeat;\n}\n.callIcons li .end-call[data-v-6ec57eb6]:hover{\n  background-image: url('/images/icons/Call/End Call Hover.svg') !important;\n  background-size: 170%;\n  background-repeat: no-repeat;\n}\n.callIcons li .add-call-back-btn[data-v-6ec57eb6]{\n  background-image: url('/images/workstation/Asset 28@4x.png') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-color: transparent;\n  border: none;\n  padding: 14px;\n  margin-top: 5px;\n  margin-left: 20px;\n}\n.modal-content[data-v-6ec57eb6]{\n  background: linear-gradient(to right, rgba(255,128,51,1) 0%, rgba(255,147,58,1) 100%);\n}\n/*is error being used?*/\n.error[data-v-6ec57eb6]{\n  color:#F98B39;\n}\n/*End Right Component*/\n", ""]);
 
 // exports
 
@@ -249302,7 +249161,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.header[data-v-d4042370], .top-nav[data-v-d4042370], .row.stats[data-v-d4042370] {\n    padding-left: 5.2%!important;\n    padding-right: 5.2%!important;\n}\n.top-menu[data-v-d4042370] {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n}\n.navbar[data-v-d4042370] {\n    padding: 0;\n}\n\t/*Right Component*/\nli.title h1[data-v-d4042370] {\n\t\tcolor: #003549;\n    font-size: 32px;\n    letter-spacing: 0.1em;\n}\ndiv.top-nav[data-v-d4042370]{\n    margin-top: 15px;\n}\nul.top-menu[data-v-d4042370]{\n    list-style: none;\n    padding: 0;\n}\nul.top-menu li.item[data-v-d4042370]{\n    float: left;\n    margin-left: 1.6%;\n    margin-right: 1.6%;\n    margin-bottom: 8px;\n}\nul.top-menu li.item a[data-v-d4042370]{\n    color: rgba(0, 0, 0, 0.5);\n    border-radius: 20px;\n    padding: 4px 22px;\n    text-decoration: none;\n    box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    font-size:0.73vw;\n}\nul.top-menu li.item a.active[data-v-d4042370]{\n    background: linear-gradient(to right, rgba(255,128,51,1) 0%,  rgba(255,147, 58,1) 100%) !important;\n    color: #fff !important;\n    text-decoration: none;\n    font-weight: 500;\n}\n.user-roles .tab-pane .row[data-v-d4042370]{\n    margin-right: 0;\n    margin-left: 0;\n}\nh5[data-v-d4042370] {\n    font-size: 0.83vw;\n}\n.btn-default[data-v-d4042370]{\n    background: #fff;\n    color: #999999;    \n    border: none!important;\n    padding: 11px 14px 10px;\n    font-size: 10px;\n    text-transform:uppercase;\n    border-radius: 50rem!important;\n    line-height:1em;\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n    -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n    box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-d4042370] {\n    border-radius: 50rem!important;\n    text-transform:uppercase;\n    font-size: 10px;\n    padding: 11px 14px 10px;\n    line-height:1em;\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n}\n.btn-block[data-v-d4042370] {\n    display: block;\n    width: 98%;\n}\n.nav-link.active img[data-v-d4042370] {\n    margin-left:20px;\n    display: inline-block!important;\n    box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    border-radius: 50rem;\n}\n.add-module-btn[data-v-d4042370] {\n    box-shadow:none!important;\n    -webkit-box-shadow:none!important;\n    -moz-box-shadow:none!important;\n    -o-box-shadow:none!important;\n}\n.tab-pane.card-body[data-v-d4042370] {\n    padding:4.4% 5.6% 6.8%;\n}\n.card-body .form-group[data-v-d4042370]{\n    margin-left: 0%;\n}\n.expand-toggle[data-v-d4042370] {\n    background: #fff;\n    box-shadow: none;\n    -webkit-box-shadow: none;\n    -moz-box-shadow: none;\n    -o-box-shadow: none;\n    text-align: left;\n    border-radius: 0!important;\n    border-top: 0;\n    border-left: 0;\n    border-right: 0;\n    border-color: #ccc;\n    font-family: 'Rubik', sans-serif;\n    font-size:0.73vw;\n    color: #999999;\n    margin-top: 4.6%;\n    padding-left:0;\n    margin-left: 20px;\n}\n.expand-toggle.btn-secondary[data-v-d4042370]:not(:disabled):not(.disabled):active, \n  .expand-toggle.btn-secondary:not(:disabled):not(.disabled).active[data-v-d4042370], \n  .show > .expand-toggle.btn-secondary.dropdown-toggle[data-v-d4042370] {\n    background: #fff;\n    border-color: #fff;\n    color: #999999;\n}\n.expand-toggle[aria-expanded=\"true\"][data-v-d4042370] {\n    border-bottom: 0;\n}\n.expand-toggle[aria-expanded=\"true\"] .toggle-icon[data-v-d4042370] {\n    transform: rotate(0deg);\n    transition: transform .5s ease;\n}\n.expand-toggle[aria-expanded=\"false\"] .toggle-icon[data-v-d4042370] {\n    transform: rotate(180deg);\n    transition: transform .5s ease;\n}\n.custom-control-label[data-v-d4042370] {\n    color: #999999;\n    font-family: 'Rubik', sans-serif;\n    font-size:14px;\n}\n.custom-checkbox .custom-control-label[data-v-d4042370] {\n    font-weight: 0.73vw;\n}\n.collapse.show .card[data-v-d4042370] {\n    border-radius: 25px;\n    border: 1px solid #ccc!important;\n}\n.collapse.show .card-body[data-v-d4042370]{\n    padding: 1.15% 2.5% 1.85%;\n}\n.edit-role[data-v-d4042370] {\n    margin-bottom:1.7%;\n}\n.permissions-divider[data-v-d4042370] {\n    margin-top:3.7%;\n    margin-bottom:3.1%;\n}\n.permissions[data-v-d4042370] {\n    margin-top: 0.5%;\n}\n.permissions label[data-v-d4042370]{\n    font-size: 12px;\n    margin-left: 17px;\n}\n", ""]);
+exports.push([module.i, "\n.top-nav[data-v-d4042370], .row.stats[data-v-d4042370] {\n    padding-left: 5.2%!important;\n    padding-right: 5.2%!important;\n}\n.top-menu[data-v-d4042370] {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n}\n\t/*Right Component*/\ndiv.top-nav[data-v-d4042370]{\n    margin-top: 15px;\n}\nul.top-menu[data-v-d4042370]{\n    list-style: none;\n    padding: 0;\n}\nul.top-menu li.item[data-v-d4042370]{\n    float: left;\n    margin-left: 1.6%;\n    margin-right: 1.6%;\n    margin-bottom: 8px;\n}\nul.top-menu li.item a[data-v-d4042370]{\n    color: rgba(0, 0, 0, 0.5);\n    border-radius: 20px;\n    padding: 4px 22px;\n    text-decoration: none;\n    box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    font-size:0.73vw;\n}\nul.top-menu li.item a.active[data-v-d4042370]{\n    background: linear-gradient(to right, rgba(255,128,51,1) 0%,  rgba(255,147, 58,1) 100%) !important;\n    color: #fff !important;\n    text-decoration: none;\n    font-weight: 500;\n}\n.user-roles .tab-pane .row[data-v-d4042370]{\n    margin-right: 0;\n    margin-left: 0;\n}\nh5[data-v-d4042370] {\n    font-size: 0.83vw;\n}\n.btn-default[data-v-d4042370]{\n    background: #fff;\n    color: #999999;    \n    border: none!important;\n    padding: 11px 14px 10px;\n    font-size: 10px;\n    text-transform:uppercase;\n    border-radius: 50rem!important;\n    line-height:1em;\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n    -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n    box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-d4042370] {\n    border-radius: 50rem!important;\n    text-transform:uppercase;\n    font-size: 10px;\n    padding: 11px 14px 10px;\n    line-height:1em;\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n}\n.btn-block[data-v-d4042370] {\n    display: block;\n    width: 98%;\n}\n.nav-link.active img[data-v-d4042370] {\n    margin-left:20px;\n    display: inline-block!important;\n    box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    border-radius: 50rem;\n}\n.add-module-btn[data-v-d4042370] {\n    box-shadow:none!important;\n    -webkit-box-shadow:none!important;\n    -moz-box-shadow:none!important;\n    -o-box-shadow:none!important;\n}\n.tab-pane.card-body[data-v-d4042370] {\n    padding:4.4% 5.6% 6.8%;\n}\n.card-body .form-group[data-v-d4042370]{\n    margin-left: 0%;\n}\n.expand-toggle[data-v-d4042370] {\n    background: #fff;\n    box-shadow: none;\n    -webkit-box-shadow: none;\n    -moz-box-shadow: none;\n    -o-box-shadow: none;\n    text-align: left;\n    border-radius: 0!important;\n    border-top: 0;\n    border-left: 0;\n    border-right: 0;\n    border-color: #ccc;\n    font-family: 'Rubik', sans-serif;\n    font-size:0.73vw;\n    color: #999999;\n    margin-top: 4.6%;\n    padding-left:0;\n    margin-left: 20px;\n}\n.expand-toggle.btn-secondary[data-v-d4042370]:not(:disabled):not(.disabled):active, \n  .expand-toggle.btn-secondary:not(:disabled):not(.disabled).active[data-v-d4042370], \n  .show > .expand-toggle.btn-secondary.dropdown-toggle[data-v-d4042370] {\n    background: #fff;\n    border-color: #fff;\n    color: #999999;\n}\n.expand-toggle[aria-expanded=\"true\"][data-v-d4042370] {\n    border-bottom: 0;\n}\n.expand-toggle[aria-expanded=\"true\"] .toggle-icon[data-v-d4042370] {\n    transform: rotate(0deg);\n    transition: transform .5s ease;\n}\n.expand-toggle[aria-expanded=\"false\"] .toggle-icon[data-v-d4042370] {\n    transform: rotate(180deg);\n    transition: transform .5s ease;\n}\n.custom-control-label[data-v-d4042370] {\n    color: #999999;\n    font-family: 'Rubik', sans-serif;\n    font-size:14px;\n}\n.custom-checkbox .custom-control-label[data-v-d4042370] {\n    font-weight: 0.73vw;\n}\n.collapse.show .card[data-v-d4042370] {\n    border-radius: 25px;\n    border: 1px solid #ccc!important;\n}\n.collapse.show .card-body[data-v-d4042370]{\n    padding: 1.15% 2.5% 1.85%;\n}\n.edit-role[data-v-d4042370] {\n    margin-bottom:1.7%;\n}\n.permissions-divider[data-v-d4042370] {\n    margin-top:3.7%;\n    margin-bottom:3.1%;\n}\n.permissions[data-v-d4042370] {\n    margin-top: 0.5%;\n}\n.permissions label[data-v-d4042370]{\n    font-size: 12px;\n    margin-left: 17px;\n}\n", ""]);
 
 // exports
 
@@ -249340,7 +249199,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.main-header.navbar.navbar-expand[data-v-32a11c9a] {\n  padding: 0 4%;\n}\n.navbar .title h1[data-v-32a11c9a]{\n  color: #003549;\n  font-size: 1.67vw;\n  letter-spacing: 0.1em;\n}\n.callIcons li a[data-v-32a11c9a]{\n  background-repeat: no-repeat;\n  color: black;\n  background-size: 59px !important;\n  background-repeat: no-repeat !important;\n  background-position: center center !important;\n}\n.callIcons .search .col-auto[data-v-32a11c9a] {\n  padding-right:41%;\n}\n.callIcons .search a[data-v-32a11c9a]{\n  background-color: #fff;\n  background-image: url('/images/icons/top-nav/Search.svg') !important;\n  background-size: 15px!important;\n  background-repeat: no-repeat;\n  border-radius: 50rem;\n\tbox-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n\twidth: 48px;\n\theight: 48px;\n}\n.callIcons .search a[data-v-32a11c9a]:hover{\n  background-image: url('/images/icons/Asset 61.svg') !important;\n  background-size: 170%!important;\n  background-repeat: no-repeat;\n}\n.callIcons .search input[data-v-32a11c9a] {\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding:14px 0 14px;\n  right: -40px;\n  position: absolute;\n  top: -24px;\n  width:0;\n  transition: width 2s;\n}\n.callIcons .search:hover input[data-v-32a11c9a] {\n  width:auto;\n  padding:14px 40px 14px 15px;\n}\n.callIcons .search input[data-v-32a11c9a]::-webkit-input-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-32a11c9a]::-moz-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-32a11c9a]:-ms-input-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-32a11c9a]::-ms-input-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-32a11c9a]::placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.trans-tabs[data-v-32a11c9a] {\n  padding-left:5.2%;\n  padding-right:5.2%;\n}\n.tab-pane.card-body[data-v-32a11c9a] {\n  padding:4.4% 5.6% 6.8%;\n}\n.nav-link.active img[data-v-32a11c9a] {\n  display:inline-block!important;\n  margin-left: 20px;\n}\n.deal-name[data-v-32a11c9a] {\n  font-size: 0.83vw;\n  margin-bottom:3.9%;\n}\n", ""]);
+exports.push([module.i, "\n.trans-tabs[data-v-32a11c9a] {\n  padding-left:5.2%;\n  padding-right:5.2%;\n}\n.tab-pane.card-body[data-v-32a11c9a] {\n  padding:4.4% 5.6% 6.8%;\n}\n.nav-link.active img[data-v-32a11c9a] {\n  display:inline-block!important;\n  margin-left: 20px;\n}\n.deal-name[data-v-32a11c9a] {\n  font-size: 0.83vw;\n  margin-bottom:3.9%;\n}\n", ""]);
 
 // exports
 
@@ -372539,8 +372398,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "inventory" } }, [
-    _vm._m(0),
-    _vm._v(" "),
     _c("div", { staticClass: "row mx-0 my-0 top-nav" }, [
       _c("ul", { staticClass: "top-menu w-100" }, [
         _c("li", { staticClass: "item ml-0" }, [
@@ -372667,26 +372524,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "nav",
-      { staticClass: "header navbar navbar-expand navbar-white navbar-light" },
-      [
-        _c("ul", { staticClass: "navbar-nav left" }, [
-          _c("li", { staticClass: "nav-item d-none d-sm-inline-block title" }, [
-            _c("h1", { staticClass: "font-weight-bold p-0" }, [
-              _vm._v("Inventory")
-            ])
-          ])
-        ])
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -380442,6 +380280,39 @@ var render = function() {
                           },
                           [_c("strong", [_vm._v("Contacts")])]
                         )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.active == "inventory"
+                      ? _c(
+                          "a",
+                          {
+                            staticClass: "nav-link pl-0",
+                            attrs: { href: "#" }
+                          },
+                          [_c("strong", [_vm._v("Inventory")])]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.active == "preferences"
+                      ? _c(
+                          "a",
+                          {
+                            staticClass: "nav-link pl-0",
+                            attrs: { href: "#" }
+                          },
+                          [_c("strong", [_vm._v("System Preferences")])]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.active == "transactions"
+                      ? _c(
+                          "a",
+                          {
+                            staticClass: "nav-link pl-0",
+                            attrs: { href: "#" }
+                          },
+                          [_c("strong", [_vm._v("Transactions")])]
+                        )
                       : _vm._e()
                   ]
                 ),
@@ -380668,51 +380539,97 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _vm.active == "call-history"
-              ? _c("div", { staticClass: "col-auto px-0" }, [_vm._m(0)])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.active == "workstation"
-              ? _c("div", { staticClass: "col-auto px-0" }, [
-                  _c("ul", { staticClass: "navbar-nav callIcons" }, [
-                    _vm._m(1),
-                    _vm._v(" "),
-                    _vm.auto_dialer_settings.disabled == 1
-                      ? _c(
-                          "li",
-                          { staticClass: "nav-item d-sm-inline-block" },
-                          [
-                            !_vm.is_oncall
-                              ? _c("button", {
-                                  staticClass:
-                                    "nav-link border-0 bg-transparent call",
-                                  attrs: { id: "show-btn" },
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.startCall()
+            _c("div", { staticClass: "col-auto px-0" }, [
+              _vm.active == "inventory"
+                ? _c(
+                    "div",
+                    { staticClass: "d-inline-block mr-4 inventory-filter" },
+                    [
+                      _c(
+                        "a-select",
+                        {
+                          staticClass: "custom-select rounded-pill border-0",
+                          attrs: { placeholder: "Filter By" }
+                        },
+                        [
+                          _c(
+                            "a-select-option",
+                            { attrs: { value: "product" } },
+                            [_vm._v("Product")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a-select-option",
+                            { attrs: { value: "category" } },
+                            [_vm._v("Category")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a-select-option",
+                            { attrs: { value: "warehouse" } },
+                            [_vm._v("Warehouse")]
+                          )
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.active == "workstation" ||
+              _vm.active == "call-history" ||
+              _vm.active == "transactions" ||
+              _vm.active == "inventory"
+                ? _c(
+                    "ul",
+                    { staticClass: "d-inline-block navbar-nav searchBar" },
+                    [_vm._m(0)]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.active == "workstation"
+                ? _c(
+                    "ul",
+                    { staticClass: "d-inline-block navbar-nav callIcons" },
+                    [
+                      _vm.auto_dialer_settings.disabled == 1
+                        ? _c(
+                            "li",
+                            { staticClass: "nav-item d-sm-inline-block" },
+                            [
+                              !_vm.is_oncall
+                                ? _c("button", {
+                                    staticClass:
+                                      "nav-link border-0 bg-transparent call",
+                                    attrs: { id: "show-btn" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.startCall()
+                                      }
                                     }
-                                  }
-                                })
-                              : _vm._e(),
-                            _vm._v(" "),
-                            _vm.is_oncall
-                              ? _c("button", {
-                                  staticClass:
-                                    "nav-link border-0 bg-transparent end-call",
-                                  attrs: { id: "show-btn" },
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.endCall()
+                                  })
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.is_oncall
+                                ? _c("button", {
+                                    staticClass:
+                                      "nav-link border-0 bg-transparent end-call",
+                                    attrs: { id: "show-btn" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.endCall()
+                                      }
                                     }
-                                  }
-                                })
-                              : _vm._e()
-                          ]
-                        )
-                      : _vm._e()
-                  ])
-                ])
-              : _vm._e()
+                                  })
+                                : _vm._e()
+                            ]
+                          )
+                        : _vm._e()
+                    ]
+                  )
+                : _vm._e()
+            ])
           ]
         )
       ]
@@ -380724,28 +380641,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("ul", { staticClass: "navbar-nav callIcons" }, [
-      _c("li", { staticClass: "nav-item d-sm-inline-block search" }, [
-        _c("div", { staticClass: "row mx-0 align-items-center" }, [
-          _c("div", { staticClass: "col px-0" }, [
-            _c("input", {
-              staticClass: "border-0 rounded-pill",
-              attrs: { placeholder: "Search" }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-auto pl-0" }, [
-            _c("a", { staticClass: "nav-link p-0", attrs: { href: "#" } })
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item d-sm-inline-block search" }, [
+    return _c("li", { staticClass: "nav-item d-sm-inline-block" }, [
       _c("div", { staticClass: "row mx-0 align-items-center" }, [
         _c("div", { staticClass: "col px-0" }, [
           _c("input", {
@@ -380754,8 +380650,8 @@ var staticRenderFns = [
           })
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "col-auto" }, [
-          _c("a", { staticClass: "nav-link", attrs: { href: "#" } })
+        _c("div", { staticClass: "col-auto px-0" }, [
+          _c("a", { staticClass: "nav-link p-0", attrs: { href: "#" } })
         ])
       ])
     ])
@@ -383060,8 +382956,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "preferences" } }, [
-    _vm._m(0),
-    _vm._v(" "),
     _c("div", { staticClass: "row mx-0 my-0 top-nav" }, [
       _c(
         "ul",
@@ -383391,7 +383285,7 @@ var render = function() {
                                               },
                                               [
                                                 _vm._v(
-                                                  "\n                        Dialer\n                        "
+                                                  "\n                      Dialer\n                      "
                                                 ),
                                                 _c("img", {
                                                   staticClass: "toggle-icon",
@@ -383639,7 +383533,7 @@ var render = function() {
                                               },
                                               [
                                                 _vm._v(
-                                                  "\n                        Commission\n                        "
+                                                  "\n                      Commission\n                      "
                                                 ),
                                                 _c("img", {
                                                   staticClass: "toggle-icon",
@@ -383875,11 +383769,11 @@ var render = function() {
                                                     },
                                                     [
                                                       _vm._v(
-                                                        "\n                          " +
+                                                        "\n                        " +
                                                           _vm._s(
                                                             a_module.display_name
                                                           ) +
-                                                          "\n                          "
+                                                          "\n                        "
                                                       ),
                                                       _c("img", {
                                                         staticClass:
@@ -384196,26 +384090,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "nav",
-      { staticClass: "header navbar navbar-expand navbar-white navbar-light" },
-      [
-        _c("ul", { staticClass: "navbar-nav left" }, [
-          _c("li", { staticClass: "nav-item d-none d-sm-inline-block title" }, [
-            _c("h1", { staticClass: "font-weight-bold p-0" }, [
-              _vm._v("System Preferences")
-            ])
-          ])
-        ])
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -385719,297 +385594,247 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "transactions" } }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", [
-      _c("div", { staticClass: "row mx-0 trans-tabs" }, [
-        _c(
-          "div",
-          { staticClass: "col-lg-12 px-0" },
-          [
-            _c(
-              "b-card",
-              { attrs: { "no-body": "" } },
-              [
-                _c(
-                  "b-tabs",
-                  { attrs: { card: "" } },
-                  [
-                    _c(
-                      "b-tab",
-                      {
-                        attrs: { active: "" },
-                        scopedSlots: _vm._u([
-                          {
-                            key: "title",
-                            fn: function() {
-                              return [
-                                _c("h5", { staticClass: "d-inline-block" }, [
-                                  _vm._v("Paid")
-                                ]),
-                                _vm._v(" "),
-                                _c("img", {
-                                  staticClass: "d-none",
-                                  attrs: {
-                                    src: "images/icons/transactions/Paid.svg",
-                                    alt: "Paid icon",
-                                    width: "16"
-                                  }
-                                })
-                              ]
-                            },
-                            proxy: true
-                          }
-                        ])
-                      },
-                      [
-                        _vm._v(" "),
-                        _c(
-                          "transition",
-                          { attrs: { name: "fade" } },
-                          [
-                            _c("b-table", {
-                              attrs: { hover: "", items: _vm.paidItems }
-                            })
-                          ],
-                          1
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "b-tab",
-                      {
-                        scopedSlots: _vm._u([
-                          {
-                            key: "title",
-                            fn: function() {
-                              return [
-                                _c("h5", { staticClass: "d-inline-block" }, [
-                                  _vm._v("Pending")
-                                ]),
-                                _vm._v(" "),
-                                _c("img", {
-                                  staticClass: "d-none",
-                                  attrs: {
-                                    src:
-                                      "images/icons/transactions/Pending.svg",
-                                    alt: "Pending icon",
-                                    width: "16"
-                                  }
-                                })
-                              ]
-                            },
-                            proxy: true
-                          }
-                        ])
-                      },
-                      [
-                        _vm._v(" "),
-                        _c(
-                          "transition",
-                          { attrs: { name: "fade" } },
-                          [
-                            _c("b-table", {
-                              attrs: { hover: "", items: _vm.pendingItems }
-                            })
-                          ],
-                          1
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "b-tab",
-                      {
-                        scopedSlots: _vm._u([
-                          {
-                            key: "title",
-                            fn: function() {
-                              return [
-                                _c("h5", { staticClass: "d-inline-block" }, [
-                                  _vm._v("Due")
-                                ]),
-                                _vm._v(" "),
-                                _c("img", {
-                                  staticClass: "d-none",
-                                  attrs: {
-                                    src:
-                                      "images/icons/transactions/Pending.svg",
-                                    alt: "Pending icon",
-                                    width: "16"
-                                  }
-                                })
-                              ]
-                            },
-                            proxy: true
-                          }
-                        ])
-                      },
-                      [
-                        _vm._v(" "),
-                        _c(
-                          "transition",
-                          { attrs: { name: "fade" } },
-                          [
-                            _c("b-table", {
-                              attrs: { hover: "", items: _vm.dueItems }
-                            })
-                          ],
-                          1
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "b-tab",
-                      {
-                        scopedSlots: _vm._u([
-                          {
-                            key: "title",
-                            fn: function() {
-                              return [
-                                _c("h5", { staticClass: "d-inline-block" }, [
-                                  _vm._v("Rejected")
-                                ]),
-                                _vm._v(" "),
-                                _c("img", {
-                                  staticClass: "d-none",
-                                  attrs: {
-                                    src:
-                                      "images/icons/transactions/Rejected.svg",
-                                    alt: "Rejected icon",
-                                    width: "16"
-                                  }
-                                })
-                              ]
-                            },
-                            proxy: true
-                          }
-                        ])
-                      },
-                      [
-                        _vm._v(" "),
-                        _c(
-                          "transition",
-                          { attrs: { name: "fade" } },
-                          [
-                            _c("b-table", {
-                              attrs: { hover: "", items: _vm.rejectedItems }
-                            })
-                          ],
-                          1
-                        )
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "b-tab",
-                      {
-                        scopedSlots: _vm._u([
-                          {
-                            key: "title",
-                            fn: function() {
-                              return [
-                                _c("h5", { staticClass: "d-inline-block" }, [
-                                  _vm._v("Create a deal")
-                                ]),
-                                _vm._v(" "),
-                                _c("img", {
-                                  attrs: {
-                                    src: "images/icons/Field_Add.svg",
-                                    alt: "Add field icon",
-                                    width: "16"
-                                  }
-                                })
-                              ]
-                            },
-                            proxy: true
-                          }
-                        ])
-                      },
-                      [
-                        _vm._v(" "),
-                        _c("transition", { attrs: { name: "fade" } }, [
-                          _c(
-                            "div",
-                            [
-                              _c("create-deal", {
+    _c("div", { staticClass: "row mx-0 trans-tabs" }, [
+      _c(
+        "div",
+        { staticClass: "col-lg-12 px-0" },
+        [
+          _c(
+            "b-card",
+            { attrs: { "no-body": "" } },
+            [
+              _c(
+                "b-tabs",
+                { attrs: { card: "" } },
+                [
+                  _c(
+                    "b-tab",
+                    {
+                      attrs: { active: "" },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "title",
+                          fn: function() {
+                            return [
+                              _c("h5", { staticClass: "d-inline-block" }, [
+                                _vm._v("Paid")
+                              ]),
+                              _vm._v(" "),
+                              _c("img", {
+                                staticClass: "d-none",
                                 attrs: {
-                                  empty_deal: _vm.deal,
-                                  lead_id: "-None-",
-                                  agent_id: _vm.user_id,
-                                  agent_name: _vm.user_name
+                                  src: "images/icons/transactions/Paid.svg",
+                                  alt: "Paid icon",
+                                  width: "16"
                                 }
                               })
-                            ],
-                            1
-                          )
-                        ])
-                      ],
-                      1
-                    )
-                  ],
-                  1
-                )
-              ],
-              1
-            )
-          ],
-          1
-        )
-      ])
+                            ]
+                          },
+                          proxy: true
+                        }
+                      ])
+                    },
+                    [
+                      _vm._v(" "),
+                      _c(
+                        "transition",
+                        { attrs: { name: "fade" } },
+                        [
+                          _c("b-table", {
+                            attrs: { hover: "", items: _vm.paidItems }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-tab",
+                    {
+                      scopedSlots: _vm._u([
+                        {
+                          key: "title",
+                          fn: function() {
+                            return [
+                              _c("h5", { staticClass: "d-inline-block" }, [
+                                _vm._v("Pending")
+                              ]),
+                              _vm._v(" "),
+                              _c("img", {
+                                staticClass: "d-none",
+                                attrs: {
+                                  src: "images/icons/transactions/Pending.svg",
+                                  alt: "Pending icon",
+                                  width: "16"
+                                }
+                              })
+                            ]
+                          },
+                          proxy: true
+                        }
+                      ])
+                    },
+                    [
+                      _vm._v(" "),
+                      _c(
+                        "transition",
+                        { attrs: { name: "fade" } },
+                        [
+                          _c("b-table", {
+                            attrs: { hover: "", items: _vm.pendingItems }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-tab",
+                    {
+                      scopedSlots: _vm._u([
+                        {
+                          key: "title",
+                          fn: function() {
+                            return [
+                              _c("h5", { staticClass: "d-inline-block" }, [
+                                _vm._v("Due")
+                              ]),
+                              _vm._v(" "),
+                              _c("img", {
+                                staticClass: "d-none",
+                                attrs: {
+                                  src: "images/icons/transactions/Pending.svg",
+                                  alt: "Pending icon",
+                                  width: "16"
+                                }
+                              })
+                            ]
+                          },
+                          proxy: true
+                        }
+                      ])
+                    },
+                    [
+                      _vm._v(" "),
+                      _c(
+                        "transition",
+                        { attrs: { name: "fade" } },
+                        [
+                          _c("b-table", {
+                            attrs: { hover: "", items: _vm.dueItems }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-tab",
+                    {
+                      scopedSlots: _vm._u([
+                        {
+                          key: "title",
+                          fn: function() {
+                            return [
+                              _c("h5", { staticClass: "d-inline-block" }, [
+                                _vm._v("Rejected")
+                              ]),
+                              _vm._v(" "),
+                              _c("img", {
+                                staticClass: "d-none",
+                                attrs: {
+                                  src: "images/icons/transactions/Rejected.svg",
+                                  alt: "Rejected icon",
+                                  width: "16"
+                                }
+                              })
+                            ]
+                          },
+                          proxy: true
+                        }
+                      ])
+                    },
+                    [
+                      _vm._v(" "),
+                      _c(
+                        "transition",
+                        { attrs: { name: "fade" } },
+                        [
+                          _c("b-table", {
+                            attrs: { hover: "", items: _vm.rejectedItems }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-tab",
+                    {
+                      scopedSlots: _vm._u([
+                        {
+                          key: "title",
+                          fn: function() {
+                            return [
+                              _c("h5", { staticClass: "d-inline-block" }, [
+                                _vm._v("Create a deal")
+                              ]),
+                              _vm._v(" "),
+                              _c("img", {
+                                attrs: {
+                                  src: "images/icons/Field_Add.svg",
+                                  alt: "Add field icon",
+                                  width: "16"
+                                }
+                              })
+                            ]
+                          },
+                          proxy: true
+                        }
+                      ])
+                    },
+                    [
+                      _vm._v(" "),
+                      _c("transition", { attrs: { name: "fade" } }, [
+                        _c(
+                          "div",
+                          [
+                            _c("create-deal", {
+                              attrs: {
+                                empty_deal: _vm.deal,
+                                lead_id: "-None-",
+                                agent_id: _vm.user_id,
+                                agent_name: _vm.user_name
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ])
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "nav",
-      {
-        staticClass:
-          "main-header navbar navbar-expand navbar-white navbar-light row mx-0 align-items-center justify-content-between"
-      },
-      [
-        _c(
-          "div",
-          { staticClass: "nav-item d-none d-sm-inline-block title col px-0" },
-          [
-            _c("h1", { staticClass: "nav-link font-weight-bold" }, [
-              _vm._v("Transactions")
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-auto nav-item pr-0" }, [
-          _c("ul", { staticClass: "navbar-nav callIcons" }, [
-            _c("li", { staticClass: "nav-item d-sm-inline-block search" }, [
-              _c("div", { staticClass: "row mx-0 align-items-center" }, [
-                _c("div", { staticClass: "col px-0" }, [
-                  _c("input", {
-                    staticClass: "border-0 rounded-pill",
-                    attrs: { placeholder: "Search" }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-auto pl-0" }, [
-                  _c("a", { staticClass: "nav-link p-0", attrs: { href: "#" } })
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

@@ -1,62 +1,4 @@
 <style scoped>
-.main-header.navbar.navbar-expand {
-  padding: 0 4%;
-}
-.navbar .title h1{
-  color: #003549;
-  font-size: 1.67vw;
-  letter-spacing: 0.1em;
-}
-.callIcons li a{
-  background-repeat: no-repeat;
-  color: black;
-  background-size: 59px !important;
-  background-repeat: no-repeat !important;
-  background-position: center center !important;
-}
-.callIcons .search .col-auto {
-  padding-right:41%;
-}
-.callIcons .search a{
-  background-color: #fff;
-  background-image: url('/images/icons/top-nav/Search.svg') !important;
-  background-size: 15px!important;
-  background-repeat: no-repeat;
-  border-radius: 50rem;
-	box-shadow: 0 0 4px rgba(0,0,0,0.1);
-  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
-  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);
-  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);
-	width: 48px;
-	height: 48px;
-}
-.callIcons .search a:hover{
-  background-image: url('/images/icons/Asset 61.svg') !important;
-  background-size: 170%!important;
-  background-repeat: no-repeat;
-}
-.callIcons .search input {
-  box-shadow: 0 0 4px rgba(0,0,0,0.1);
-  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
-  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);
-  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);
-  padding:14px 0 14px;
-  right: -40px;
-  position: absolute;
-  top: -24px;
-  width:0;
-  transition: width 2s;
-}
-.callIcons .search:hover input {
-  width:auto;
-  padding:14px 40px 14px 15px;
-}
-.callIcons .search input::placeholder {
-  font-size: 12px;
-  font-weight: 300;
-  font-family: 'Rubik', sans-serif;
-  font-style: italic;
-}
 .trans-tabs {
   padding-left:5.2%;
   padding-right:5.2%;
@@ -75,98 +17,73 @@
 </style>
 <template>
   <div id="transactions">
-		<nav class="main-header navbar navbar-expand navbar-white navbar-light row mx-0 align-items-center justify-content-between">
-    <!-- Left navbar links -->
-      <div class="nav-item d-none d-sm-inline-block title col px-0">
-        <h1 class="nav-link font-weight-bold">Transactions</h1>
-      </div>
+    <div class="row mx-0 trans-tabs">
+      <div class="col-lg-12 px-0">
+        <b-card no-body>
+          <b-tabs card>
+            <b-tab active>
+              <template v-slot:title>
+                <h5 class="d-inline-block">Paid</h5>
+                <img src="images/icons/transactions/Paid.svg" alt="Paid icon" width="16" class="d-none"/>
+              </template>
 
-      <div class="col-auto nav-item pr-0">
-        <ul class="navbar-nav callIcons">
-          <li class="nav-item d-sm-inline-block search">
-            <div class="row mx-0 align-items-center">
-              <div class="col px-0">
-                <input placeholder="Search" class="border-0 rounded-pill"/>
-              </div>
+              <transition name="fade">
+                <b-table hover :items="paidItems"></b-table>
+              </transition>
+            </b-tab>
 
-              <div class="col-auto pl-0">
-                <a href="#" class="nav-link p-0"></a>
-              </div>
-            </div>
-          </li>
-        </ul>				
-      </div>
-		</nav>
+            <b-tab>
+              <template v-slot:title>
+                <h5 class="d-inline-block">Pending</h5>
+                <img src="images/icons/transactions/Pending.svg" alt="Pending icon" width="16" class="d-none"/>
+              </template>
 
-    <div>
-      <div class="row mx-0 trans-tabs">
-        <div class="col-lg-12 px-0">
-          <b-card no-body>
-            <b-tabs card>
-              <b-tab active>
-                <template v-slot:title>
-                  <h5 class="d-inline-block">Paid</h5>
-                  <img src="images/icons/transactions/Paid.svg" alt="Paid icon" width="16" class="d-none"/>
-                </template>
+              <transition name="fade">
+                <b-table hover :items="pendingItems"></b-table>
+              </transition>
+            </b-tab>
 
-                <transition name="fade">
-                  <b-table hover :items="paidItems"></b-table>
-                </transition>
-              </b-tab>
+            <b-tab>
+              <template v-slot:title>
+                <h5 class="d-inline-block">Due</h5>
+                <img src="images/icons/transactions/Pending.svg" alt="Pending icon" width="16" class="d-none"/>
+              </template>
 
-              <b-tab>
-                <template v-slot:title>
-                  <h5 class="d-inline-block">Pending</h5>
-                  <img src="images/icons/transactions/Pending.svg" alt="Pending icon" width="16" class="d-none"/>
-                </template>
+              <transition name="fade">
+                <b-table hover :items="dueItems"></b-table>
+              </transition>
+            </b-tab>
 
-                <transition name="fade">
-                  <b-table hover :items="pendingItems"></b-table>
-                </transition>
-              </b-tab>
+            <b-tab>
+              <template v-slot:title>
+                <h5 class="d-inline-block">Rejected</h5>
+                <img src="images/icons/transactions/Rejected.svg" alt="Rejected icon" width="16" class="d-none"/>
+              </template>
 
-              <b-tab>
-                <template v-slot:title>
-                  <h5 class="d-inline-block">Due</h5>
-                  <img src="images/icons/transactions/Pending.svg" alt="Pending icon" width="16" class="d-none"/>
-                </template>
+              <transition name="fade">
+                <b-table hover :items="rejectedItems"></b-table>
+              </transition>
+            </b-tab>
 
-                <transition name="fade">
-                  <b-table hover :items="dueItems"></b-table>
-                </transition>
-              </b-tab>
+            <b-tab>
+              <template v-slot:title>
+                <h5 class="d-inline-block">Create a deal</h5>
+                <img src="images/icons/Field_Add.svg" alt="Add field icon" width="16"/>
+              </template>
 
-              <b-tab>
-                <template v-slot:title>
-                  <h5 class="d-inline-block">Rejected</h5>
-                  <img src="images/icons/transactions/Rejected.svg" alt="Rejected icon" width="16" class="d-none"/>
-                </template>
-
-                <transition name="fade">
-                  <b-table hover :items="rejectedItems"></b-table>
-                </transition>
-              </b-tab>
-
-              <b-tab>
-                <template v-slot:title>
-                  <h5 class="d-inline-block">Create a deal</h5>
-                  <img src="images/icons/Field_Add.svg" alt="Add field icon" width="16"/>
-                </template>
-
-                <transition name="fade">
-                  <div>
-                    <create-deal 
-                    :empty_deal="deal"  
-                    :lead_id="'-None-'" 
-                    :agent_id="user_id" 
-                    :agent_name="user_name" 
-                    />
-                  </div>
-                </transition>
-              </b-tab>
-            </b-tabs>
-          </b-card>
-        </div>
+              <transition name="fade">
+                <div>
+                  <create-deal 
+                  :empty_deal="deal"  
+                  :lead_id="'-None-'" 
+                  :agent_id="user_id" 
+                  :agent_name="user_name" 
+                  />
+                </div>
+              </transition>
+            </b-tab>
+          </b-tabs>
+        </b-card>
       </div>
     </div>
   </div>
