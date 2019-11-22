@@ -162,10 +162,6 @@ label{
         </div> 
       </div>   
     </div>  
-
-    <div class="row mx-0 justify-content-end">
-      <b-button variant="primary" class="font-weight-bold m-0">Add</b-button>
-    </div>
   </div>
 </template>
 
