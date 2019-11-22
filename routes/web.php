@@ -291,9 +291,14 @@ Route::group(['prefix' => 'roles'], function () {
 Route::group(['prefix' => 'products'], function () {
 	Route::get('/get/{role_id}', 'ProductController@getById');
 	Route::get('/get-all', 'ProductController@index');
+	Route::get('/get-active-categories', 'ProductController@getActiveCategories');
 	Route::get('/get-active', 'ProductController@getActive');
 	Route::post('/create', 'ProductController@store');
-	Route::post('/update', 'ProductController@update');
+  Route::post('/update', 'ProductController@update');
+
+	Route::get('/get-categories', 'ProductController@getCategories');
+	Route::post('/update-category', 'ProductController@updateCategory');
+	Route::post('/create-category', 'ProductController@createCategory');
 });
 
 // Comments Routes

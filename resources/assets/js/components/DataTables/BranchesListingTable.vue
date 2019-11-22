@@ -194,7 +194,6 @@
         }
       },
       updateCompany(item){
-        console.log(item);
         var vm = this;
         axios.post('/company/update', { 
             company: item,

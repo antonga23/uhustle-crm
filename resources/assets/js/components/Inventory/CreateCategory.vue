@@ -66,11 +66,13 @@ h5 {
       <b-col sm="4" class="px-0">
         <label for="input-none">Name</label>
         <input 
+           v-validate="'required'"
           v-model="category.name"    
           type="text"    
           id="category-name"     
-          name="categoryName"   
+          name="Name"   
           class="form-control rounded-pill"/>
+          <span id="error" v-show="errors.has('Name')" class="help-block">{{ errors.first('Name') }}</span>
 
         <label for="input-none">Description</label>
         <textarea 
@@ -80,18 +82,19 @@ h5 {
           class="form-control"/>
 
         <label for="input-none">Status</label>
-        <a-select v-model="category.category_status" class="custom-select rounded-pill border-0">   
-          <a-select-option value="-None-" selected>-None-</a-select-option>   
-          <a-select-option v-for="(c_status, index) in category.category_statuses" :key="index">{{c_status}}</a-select-option> 
+        <a-select v-validate="'required'" v-model="category.status" name="Status" class="custom-select rounded-pill border-0">   
+          <a-select-option value="" selected>-None-</a-select-option>   
+          <a-select-option :value="c_status.value" v-for="(c_status, index) in category_statuses" :key="index">{{c_status.text}}</a-select-option> 
         </a-select>
+         <span id="error" v-show="errors.has('Status')" class="help-block">{{ errors.first('Status') }}</span>
 
         <div class="row mx-0 justify-content-end">
           <div class="col-auto pl-0">
-            <b-button class="btn btn-default my-0 ml-0">Cancel</b-button>
+            <b-button class="btn btn-default my-0 ml-0" @click="clearCategory()">Cancel</b-button>
           </div>
 
           <div class="col-auto pl-0">
-            <b-button class="btn btn-primary font-weight-bold my-0 mr-0">Save</b-button>
+            <b-button class="btn btn-primary font-weight-bold my-0 mr-0" @click="createCategory">Save</b-button>
           </div>
         </div>
       </b-col>
@@ -103,7 +106,13 @@ h5 {
 export default {
   components: {},
   mounted() {
-    
+
+    this.Toast = this.$swal.mixin({ 
+      toast: true, 
+      position: 'top-end', 
+      showConfirmButton: false, 
+      timer: 3000 
+    });
   },
   created: function () {},
   props: [],
@@ -112,13 +121,54 @@ export default {
       category: {
         name: '',
         description: '',
-        category_status:'-None-',
-        category_statuses: ['In stock', 'Out of Stock']
+        status:'',
       },
+      category_statuses:[
+        {
+          value: 1,
+          text: 'Active',
+        },
+        {
+          value: 0,
+          text: 'Disabled',
+        }
+      ],
       Toast: null,
     }
   },
   methods: {
+    clearCategory(){
+      this.category.name = '';
+      this.category.description = '';
+      this.category.status = '';
+    },
+    createCategory(){
+      var vm = this; 
+      vm.$validator.validateAll().then((result) => { 
+        if (!result) {} else { 
+          axios.post('/products/create-category', { 
+            category: vm.category,
+          }).then(function(response) { 
+
+            if (response.data.success === true) { 
+              vm.Toast.fire({ 
+                type: 'success', 
+                title: response.data.message 
+              }); 
+
+              Fire.$emit('CategoryCreated', {
+                category : response.data.category
+              }); 
+              vm.clearCategory();
+              vm.$Progress.finish(); 
+            } else { 
+              vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning'); 
+              vm.$Progress.fail(); 
+            } 
+          }); 
+        } 
+      });
+    }
   }
 }
 </script>

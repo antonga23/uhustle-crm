@@ -181265,7 +181265,6 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     updateCompany: function updateCompany(item) {
-      console.log(item);
       var vm = this;
       axios.post('/company/update', {
         company: item
@@ -181838,23 +181837,109 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    var vm = this;
+    Fire.$on('CategoryCreated', function (data) {
+      vm.categoryListing = [];
+      vm.categories.push(data.category);
+      vm.categories.map(function (category) {
+        vm.categoryListing.push({
+          id: category.id,
+          name: category.name,
+          description: category.description,
+          status: category.status
+        });
+      });
+    });
+    this.Toast = this.$swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
+    });
+  },
   data: function data() {
     return {
-      categoryListing: [{
-        name: 'xxx',
-        description: 'printer',
-        status: 'available'
+      categories: [],
+      categoryListing: [],
+      category_statuses: [{
+        value: 1,
+        text: 'Active'
       }, {
-        name: 'xxx',
-        description: 'printer',
-        status: 'available'
-      }, {
-        name: 'xxx',
-        description: 'printer',
-        status: 'available'
-      }]
+        value: 0,
+        text: 'Disabled'
+      }],
+      Toas: null
     };
+  },
+  methods: {
+    getCategories: function getCategories() {
+      var companies = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+      var vm = this;
+      axios.get('/products/get-categories').then(function (response) {
+        vm.categories = response.data.categories;
+        vm.categories.map(function (category) {
+          vm.categoryListing.push({
+            id: category.id,
+            name: category.name,
+            description: category.description,
+            status: category.status
+          });
+        });
+      });
+    },
+    updateCat: function updateCat(item) {
+      var vm = this;
+      axios.post('/products/update-category', {
+        category: item
+      }).then(function (response) {
+        if (response.data.success === true) {
+          vm.Toast.fire({
+            type: 'success',
+            title: response.data.message
+          });
+          vm.categories = response.data.categories;
+          vm.$Progress.finish();
+        } else {
+          vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
+          vm.$Progress.fail();
+        }
+      });
+    }
+  },
+  created: function created() {
+    this.getCategories();
   }
 });
 
@@ -184010,6 +184095,7 @@ __webpack_require__.r(__webpack_exports__);
               Fire.$emit('CompanyCreated', {
                 company: response.data.company
               });
+              vm.cancelCreate();
               vm.$Progress.finish();
             } else {
               vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
@@ -184146,9 +184232,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
-  mounted: function mounted() {},
+  mounted: function mounted() {
+    this.Toast = this.$swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
+    });
+  },
   created: function created() {},
   props: [],
   data: function data() {
@@ -184156,13 +184252,50 @@ __webpack_require__.r(__webpack_exports__);
       category: {
         name: '',
         description: '',
-        category_status: '-None-',
-        category_statuses: ['In stock', 'Out of Stock']
+        status: ''
       },
+      category_statuses: [{
+        value: 1,
+        text: 'Active'
+      }, {
+        value: 0,
+        text: 'Disabled'
+      }],
       Toast: null
     };
   },
-  methods: {}
+  methods: {
+    clearCategory: function clearCategory() {
+      this.category.name = '';
+      this.category.description = '';
+      this.category.status = '';
+    },
+    createCategory: function createCategory() {
+      var vm = this;
+      vm.$validator.validateAll().then(function (result) {
+        if (!result) {} else {
+          axios.post('/products/create-category', {
+            category: vm.category
+          }).then(function (response) {
+            if (response.data.success === true) {
+              vm.Toast.fire({
+                type: 'success',
+                title: response.data.message
+              });
+              Fire.$emit('CategoryCreated', {
+                category: response.data.category
+              });
+              vm.clearCategory();
+              vm.$Progress.finish();
+            } else {
+              vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
+              vm.$Progress.fail();
+            }
+          });
+        }
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -185058,16 +185191,7 @@ __webpack_require__.r(__webpack_exports__);
       create_new: '-Select-'
     };
   },
-  methods: {
-    showModulePreferences: function showModulePreferences(active_module, action, in_module) {
-      Fire.$emit(action, {
-        'module': in_module
-      });
-      this.editing_module = in_module;
-      this.active_module_name = active_module;
-      this.active_module_action = action;
-    }
-  }
+  methods: {}
 });
 
 /***/ }),
@@ -368192,7 +368316,121 @@ var render = function() {
     [
       _c("b-table", {
         staticClass: "category-listing",
-        attrs: { items: _vm.categoryListing }
+        attrs: { items: _vm.categoryListing },
+        scopedSlots: _vm._u([
+          {
+            key: "name",
+            fn: function(data) {
+              return [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: data.item.name,
+                      expression: "data.item.name"
+                    }
+                  ],
+                  staticClass: "form-control border-0 rounded-pill",
+                  attrs: { type: "text", id: "deal-name", name: "DealName" },
+                  domProps: { value: data.item.name },
+                  on: {
+                    blur: function($event) {
+                      return _vm.updateCat(data.item)
+                    },
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(data.item, "name", $event.target.value)
+                    }
+                  }
+                })
+              ]
+            }
+          },
+          {
+            key: "description",
+            fn: function(data) {
+              return [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: data.item.description,
+                      expression: "data.item.description"
+                    }
+                  ],
+                  staticClass: "form-control border-0 rounded-pill",
+                  attrs: { type: "text", id: "deal-name", name: "DealName" },
+                  domProps: { value: data.item.description },
+                  on: {
+                    blur: function($event) {
+                      return _vm.updateCat(data.item)
+                    },
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(data.item, "description", $event.target.value)
+                    }
+                  }
+                })
+              ]
+            }
+          },
+          {
+            key: "status",
+            fn: function(data) {
+              return [
+                _c(
+                  "a-select",
+                  {
+                    directives: [
+                      {
+                        name: "validate",
+                        rawName: "v-validate",
+                        value: "required",
+                        expression: "'required'"
+                      }
+                    ],
+                    staticClass: "custom-select rounded-pill border-0",
+                    attrs: { name: "Province" },
+                    on: {
+                      change: function($event) {
+                        return _vm.updateCat(data.item)
+                      }
+                    },
+                    model: {
+                      value: data.item.status,
+                      callback: function($$v) {
+                        _vm.$set(data.item, "status", $$v)
+                      },
+                      expression: "data.item.status"
+                    }
+                  },
+                  [
+                    _c(
+                      "a-select-option",
+                      { attrs: { value: "", selected: "" } },
+                      [_vm._v("-None-")]
+                    ),
+                    _vm._v(" "),
+                    _vm._l(_vm.category_statuses, function(s_status, index) {
+                      return _c(
+                        "a-select-option",
+                        { key: index, attrs: { value: s_status.value } },
+                        [_vm._v(_vm._s(s_status.text))]
+                      )
+                    })
+                  ],
+                  2
+                )
+              ]
+            }
+          }
+        ])
       })
     ],
     1
@@ -370873,6 +371111,12 @@ var render = function() {
               _c("input", {
                 directives: [
                   {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: "required",
+                    expression: "'required'"
+                  },
+                  {
                     name: "model",
                     rawName: "v-model",
                     value: _vm.category.name,
@@ -370880,11 +371124,7 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-control rounded-pill",
-                attrs: {
-                  type: "text",
-                  id: "category-name",
-                  name: "categoryName"
-                },
+                attrs: { type: "text", id: "category-name", name: "Name" },
                 domProps: { value: _vm.category.name },
                 on: {
                   input: function($event) {
@@ -370895,6 +371135,23 @@ var render = function() {
                   }
                 }
               }),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.errors.has("Name"),
+                      expression: "errors.has('Name')"
+                    }
+                  ],
+                  staticClass: "help-block",
+                  attrs: { id: "error" }
+                },
+                [_vm._v(_vm._s(_vm.errors.first("Name")))]
+              ),
               _vm._v(" "),
               _c("label", { attrs: { for: "input-none" } }, [
                 _vm._v("Description")
@@ -370927,32 +371184,57 @@ var render = function() {
               _c(
                 "a-select",
                 {
+                  directives: [
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required",
+                      expression: "'required'"
+                    }
+                  ],
                   staticClass: "custom-select rounded-pill border-0",
+                  attrs: { name: "Status" },
                   model: {
-                    value: _vm.category.category_status,
+                    value: _vm.category.status,
                     callback: function($$v) {
-                      _vm.$set(_vm.category, "category_status", $$v)
+                      _vm.$set(_vm.category, "status", $$v)
                     },
-                    expression: "category.category_status"
+                    expression: "category.status"
                   }
                 },
                 [
                   _c(
                     "a-select-option",
-                    { attrs: { value: "-None-", selected: "" } },
+                    { attrs: { value: "", selected: "" } },
                     [_vm._v("-None-")]
                   ),
                   _vm._v(" "),
-                  _vm._l(_vm.category.category_statuses, function(
-                    c_status,
-                    index
-                  ) {
-                    return _c("a-select-option", { key: index }, [
-                      _vm._v(_vm._s(c_status))
-                    ])
+                  _vm._l(_vm.category_statuses, function(c_status, index) {
+                    return _c(
+                      "a-select-option",
+                      { key: index, attrs: { value: c_status.value } },
+                      [_vm._v(_vm._s(c_status.text))]
+                    )
                   })
                 ],
                 2
+              ),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.errors.has("Status"),
+                      expression: "errors.has('Status')"
+                    }
+                  ],
+                  staticClass: "help-block",
+                  attrs: { id: "error" }
+                },
+                [_vm._v(_vm._s(_vm.errors.first("Status")))]
               ),
               _vm._v(" "),
               _c("div", { staticClass: "row mx-0 justify-content-end" }, [
@@ -370962,7 +371244,14 @@ var render = function() {
                   [
                     _c(
                       "b-button",
-                      { staticClass: "btn btn-default my-0 ml-0" },
+                      {
+                        staticClass: "btn btn-default my-0 ml-0",
+                        on: {
+                          click: function($event) {
+                            return _vm.clearCategory()
+                          }
+                        }
+                      },
                       [_vm._v("Cancel")]
                     )
                   ],
@@ -370977,7 +371266,8 @@ var render = function() {
                       "b-button",
                       {
                         staticClass:
-                          "btn btn-primary font-weight-bold my-0 mr-0"
+                          "btn btn-primary font-weight-bold my-0 mr-0",
+                        on: { click: _vm.createCategory }
                       },
                       [_vm._v("Save")]
                     )

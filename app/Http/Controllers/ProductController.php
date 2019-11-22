@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use DB;
 use App\Product;
+use App\ProductCategory;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -15,7 +16,7 @@ class ProductController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api');
+        $this->middleware('auth');
     }
     
     /**
@@ -119,5 +120,48 @@ class ProductController extends Controller
     {
          $product = Product::where(['id' => $id])->delete();
          return array('success' => true, 'product' => $product);
+    }
+
+    public function getCategories(){
+        return ['categories' => ProductCategory::get() ];
+    }
+
+    public function getActiveCategories(){
+      return ['categories' => ProductCategory::where(['status' => 1])->get() ];
+    }
+
+    public function updateCategory(Request $request){
+
+      $data = $request->all();
+
+      try{
+          DB::beginTransaction();
+
+          $category = ProductCategory::where([ 'id' => $data['category']['id'] ])->update($data['category']);
+
+          DB::commit();
+          return array('success' => true, 'message' => 'Product category updated successfully' ,'categories' => ProductCategory::get());
+
+      }catch(\QueryException $e){
+          DB::rollback();
+          return array('success' =>false, 'message' => $e->getMessage());
+      }
+    }
+
+    public function createCategory(Request $request){
+      $data = $request->all();
+      try{
+          DB::beginTransaction();
+
+          $category = ProductCategory::create($data['category']);
+
+          DB::commit();
+
+          return array('success' => true, 'message' => 'Product category has been created.', 'category' => $category );
+
+      }catch(\QueryException $e){
+          DB::rollback();
+          return array('success' =>false, 'message' => $e->getMessage());
+      }
     }
 }

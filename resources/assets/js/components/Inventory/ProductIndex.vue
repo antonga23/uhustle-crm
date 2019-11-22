@@ -107,12 +107,7 @@ import CreateProduct from "./CreateProduct";
       }
     },
     methods: {
-      showModulePreferences(active_module, action, in_module){
-        Fire.$emit(action, { 'module' : in_module });
-        this.editing_module = in_module;
-        this.active_module_name = active_module;
-        this.active_module_action = action;
-      },
+      
     }
   }
 </script>
