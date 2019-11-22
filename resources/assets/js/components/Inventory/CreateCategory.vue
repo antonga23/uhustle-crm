@@ -30,6 +30,7 @@ h5 {
   font-family: 'Rubik', sans-serif;
   font-size: 0.73vw;
   color: #2D2D2D;
+  margin-bottom: 20px;
 }
 .btn-default{
   background: #fff;
@@ -60,7 +61,7 @@ h5 {
 
 <template>
   <div class="createDeal">  
-    <h5 class="mb-0">Add Category</h5>
+    <h5>Add Category</h5>
 
     <b-row class="mx-0">
       <b-col sm="4" class="px-0">
@@ -90,7 +91,7 @@ h5 {
             <b-button class="btn btn-default my-0 ml-0">Cancel</b-button>
           </div>
 
-          <div class="col-auto pl-0">
+          <div class="col-auto pr-0">
             <b-button class="btn btn-primary font-weight-bold my-0 mr-0">Save</b-button>
           </div>
         </div>

@@ -23,6 +23,7 @@ h5 {
   font-family: 'Rubik', sans-serif;
   font-size: 0.73vw;
   color: #2D2D2D;
+  margin-bottom: 20px;
 }
 label{
   font-family: 'Rubik', sans-serif;
@@ -59,8 +60,8 @@ label{
 </style>
 
 <template>
-  <div class="createDeal">  
-    <h5 class="mb-0">Add Product</h5>
+  <div class="createProduct">  
+    <h5>Add Product</h5>
 
     <b-row class="mx-0">
       <b-col sm="9" class="px-0">
@@ -142,7 +143,7 @@ label{
 
               <b-col sm="6">
                 <label for="input-none">Warehouse</label>
-                <a-select v-model="product.supplier" class="custom-select rounded-pill border-0">   
+                <a-select v-model="product.product_supplier" class="custom-select rounded-pill border-0">   
                   <a-select-option value="-None-" selected>-None-</a-select-option>   
                   <a-select-option v-for="(p_supplier, index) in product.product_suppliers" :key="index">{{p_supplier}}</a-select-option> 
                 </a-select>
@@ -166,7 +167,7 @@ label{
             <b-button class="btn btn-default my-0 ml-0">Cancel</b-button>
           </div>
 
-          <div class="col-auto pl-0">
+          <div class="col-auto pr-0">
             <b-button class="btn btn-primary font-weight-bold my-0 mr-0">Save</b-button>
           </div>
         </div>
@@ -191,7 +192,7 @@ export default {
         model_number: '',
         stock: '',
         unit_cost: '',
-        supplier: '-None',
+        product_supplier: '-None',
         product_suppliers: [],
         reserved_stock: '',
         product_category: '-None-',
