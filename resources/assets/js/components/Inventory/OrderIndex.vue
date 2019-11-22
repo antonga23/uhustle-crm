@@ -31,6 +31,20 @@ h5 {
 .tab-pane.card-body {
   padding:4.4% 5.6% 6.8%;
 }
+.order-summary {
+  box-shadow: 0 0 20px rgba(0,0,0,0.1)!important;
+  -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.1)!important;
+  -moz-box-shadow: 0 0 20px rgba(0,0,0,0.1)!important;
+  -o-box-shadow: 0 0 20px rgba(0,0,0,0.1)!important;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+.nav-item[aria-posinset="2"][aria-selected="true"] ~ .order-summary {
+  display:block!important;
+}
+.order-totals {
+  min-width: 184px;
+}
 </style>
 
 <template>
@@ -51,7 +65,7 @@ h5 {
 
             <b-tab>
               <template v-slot:title>
-                <h5 class="d-inline-block mb-0">Complete Order</h5>
+                <h5 @click="order_summary = true" class="d-inline-block mb-0">Complete Order</h5>
               </template>
 
               <transition name="fade">
@@ -59,7 +73,7 @@ h5 {
               </transition>
             </b-tab>
 
-            <b-tab>
+            <b-tab class="order-history-table">
               <template v-slot:title>
                 <h5 class="d-inline-block mb-0">Order History</h5>
               </template>
@@ -69,6 +83,35 @@ h5 {
               </transition>
             </b-tab>
           </b-tabs>
+        </b-card>
+
+        <b-card v-if="order_summary" class="order-summary">
+          <b-row class="mx-0 justify-content-between align-items-end">
+            <b-col sm="4" class="pl-0">
+              <label class="control-label w-100 p-0 mb-2">Requesition Notes</label>   
+              <textarea 
+                v-model="requesition_notes"   
+                id="info"     
+                name="Info"   
+                class="form-control"/>
+            </b-col>
+
+            <b-col sm="auto" class="pl-0">
+              <b-row class="mx-0">
+                <b-col sm="auto border-right pl-0">
+                  <p class="font-weight-bold mb-0">Sub Total</p>
+                  <p class="font-weight-bold mb-0">VAT</p>
+                  <p class="font-weight-bold mb-0">Grand Total</p>
+                </b-col>
+
+                <b-col sm="auto" class="pr-0 order-totals">
+                  <p class="text-right mb-0">0,00</p>
+                  <p class="text-right mb-0">0,00</p>
+                  <p class="font-weight-bold text-right mb-0">0,00</p>
+                </b-col>
+              </b-row>
+            </b-col>
+          </b-row>
         </b-card>
       </div>
     </div>
@@ -93,7 +136,8 @@ import OrdersListingTable from "../DataTables/OrdersListingTable";
     ],
     data: function(){
       return {
-        
+        order_summary: false,
+        requesition_notes: ''
       }
     },
     methods: {

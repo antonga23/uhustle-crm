@@ -412,10 +412,9 @@ label:not(.form-check-label):not(.custom-file-label) {
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
   background-color: #ff933a !important; 
 }
-.vc-arrows-container.title-center {
-  width: 90% !important;
+.vc-grid-container.grid {
+  grid-template-columns: auto!important;
 }
-
 /*end Register Stepper*/
 /*vc calendar styling*/
 .vc-header {
@@ -428,8 +427,7 @@ label:not(.form-check-label):not(.custom-file-label) {
   font-size: 0.68vw;
   color: rgba(28, 35, 49, 0.5);
   position: relative;
-    top: 4px;
-    right: 10px;
+  top: 4px;
 }
 .vc-grid-container {
   padding: 0!important;
@@ -523,8 +521,8 @@ label:not(.form-check-label):not(.custom-file-label) {
 }
 
 ::-webkit-scrollbar {
-  width: 3px;
-  height:3px;
+  width: 5px;
+  height:5px;
 }
 ::-webkit-scrollbar:hover {
   width: 5px;
@@ -1041,19 +1039,30 @@ max-height: 350px;
   min-width:100px;
 }
 /* create a deal */
-.createDeal .ant-select-selection--single {
+.createDeal .ant-select-selection--single,
+.createProduct .ant-select-selection--single,
+.add-selector .ant-select-selection--single,
+.createOrder .ant-select-selection--single,
+.createOrder .ant-time-picker-input{
   box-shadow: 0 0 4px rgba(0,0,0,0.1);
   -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
   -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);
   -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);
   padding: 5px 10px!important;
-  font-size: 12px;
+  font-size: 12px!important;
   color: #003449;
-  border-color: #ccc;
+  border: 1px solid #ccc!important;
   margin-top:0!important;
   margin-bottom: 17px;
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Rubik', sans-serif!important;
   height: auto!important;
+}
+.createOrder .ant-time-picker-input {
+  padding: 12px 18px!important;
+}
+.createOrder .vc-container {
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 0;
 }
 .createDeal .ant-calendar-picker-input.ant-input {
   min-width: 100%;
@@ -1073,13 +1082,13 @@ max-height: 350px;
 
 /* Inventory Listing Tables Styling  */
 
-.products .productss-tabs .table.b-table.product-listing tbody,
+/* .products .productss-tabs .table.b-table.product-listing tbody,
 .branches .branches-tabs .table.b-table.branch-listing tbody,
 .orders .orders-tabs .table.b-table.order-listing tbody,
 .products .productss-tabs .table.b-table.category-listing tbody {
   background-color: #fbfbfc;
   
-}
+} */
 
 .products .productss-tabs .table.b-table.product-listing thead tr th,
 .branches .branches-tabs .table.b-table.branch-listing thead tr th,
@@ -1140,6 +1149,25 @@ max-height: 350px;
     min-width: 150px !important;
     border-top: 0 !important;
     border-bottom: 1px solid #f2f2f2 !important;
+    vertical-align: middle;
+}
+
+@media screen and (max-width: 1400px) {
+  .products .productss-tabs .table.b-table.product-listing td,
+.branches .branches-tabs .table.b-table.branch-listing td,
+.orders .orders-tabs .table.b-table.order-listing td,
+.products .productss-tabs .table.b-table.category-listing td {
+    font-size: 12px !important;
+    padding: 5px 10px 5px 0px !important; 
+}
+.products .productss-tabs .table.b-table.product-listing .ant-select-selection.ant-select-selection--single .ant-select-selection-selected-value,
+.branches .branches-tabs .table.b-table.branch-listing .ant-select-selection.ant-select-selection--single .ant-select-selection-selected-value,
+.orders .orders-tabs .table.b-table.order-listing .ant-select-selection.ant-select-selection--single .ant-select-selection-selected-value,
+.products .productss-tabs .table.b-table.category-listing .ant-select-selection.ant-select-selection--single .ant-select-selection-selected-value {
+  margin-top: 0px;
+  font-size: 12px !important;
+}
+
 }
 
 .products .productss-tabs .table.b-table.product-listing .ant-select-selection.ant-select-selection--single,
@@ -1148,6 +1176,14 @@ max-height: 350px;
 .products .productss-tabs .table.b-table.category-listing .ant-select-selection.ant-select-selection--single {
   min-width: 100px !important;
   width: auto;
+  margin-top: 0px !important; 
+}
+
+.products .productss-tabs .table.b-table.product-listing .ant-select-selection.ant-select-selection--single .ant-select-selection-selected-value,
+.branches .branches-tabs .table.b-table.branch-listing .ant-select-selection.ant-select-selection--single .ant-select-selection-selected-value,
+.orders .orders-tabs .table.b-table.order-listing .ant-select-selection.ant-select-selection--single .ant-select-selection-selected-value,
+.products .productss-tabs .table.b-table.category-listing .ant-select-selection.ant-select-selection--single .ant-select-selection-selected-value {
+  margin-top: 0px;
 }
 
 .products .productss-tabs .table-container,
@@ -1156,12 +1192,136 @@ max-height: 350px;
  {
   overflow: auto;
   padding-right: 40px;
+  height: 70vh;
 }
 
-.products .productss-tabs .tab-pane.active.card-body,
-.branches .branches-tabs .tab-pane.active.card-body,
-.orders .orders-tabs .tab-pane.active.card-body{
+.products .productss-tabs .tab-pane.product-table.card-body,
+.products .productss-tabs .tab-pane.category-table.card-body,
+.branches .branches-tabs .tab-pane.branch-table.card-body,
+.orders .orders-tabs .tab-pane.order-history-table.card-body{
   padding: 25px 0px 20px 40px
 }
+
+.products .productss-tabs .table.b-table.product-listing tr td span.actions a.Edit,
+.products .productss-tabs .table.b-table.product-listing tr td span.actions a.Delete,
+.branches .branches-tabs .table.b-table.branch-listing tr td span.actions a.Edit,
+.branches .branches-tabs .table.b-table.branch-listing tr td span.actions a.Delete,
+.orders .orders-tabs .table.b-table.order-listing tr td span.actions a.Edit,
+.orders .orders-tabs .table.b-table.order-listing tr td span.actions a.Delete,
+.products .productss-tabs .table.b-table.category-listing tr td span.actions a.Edit,
+.products .productss-tabs .table.b-table.category-listing tr td span.actions a.Delete {  
+  padding: 0px 7px;  
+  width: 20px;  
+  display: block;  
+  height: 20px;  
+  float: left;  
+}  
+
+.products .productss-tabs .table.b-table.product-listing tr td a.Delete,
+.branches .branches-tabs .table.b-table.branch-listing tr td a.Delete,
+.products .productss-tabs .table.b-table.category-listing tr td a.Delete,
+.orders .orders-tabs .table.b-table.order-listing tr td a.Delete {  
+  background-image: url('/images/icons/Bin_nodrop.svg');  
+  background-size: cover;  
+  background-repeat: no-repeat;  
+}  
+.products .productss-tabs .table.b-table.product-listing tr td a.Delete:hover,  
+.products .productss-tabs .table.b-table.product-listing tr td a.Delete:active,
+.branches .branches-tabs .table.b-table.branch-listing tr td a.Delete:active,
+.products .productss-tabs .table.b-table.category-listing tr td a.Delete:active,
+.orders .orders-tabs .table.b-table.order-listing tr td a.Delete:active,
+.branches .branches-tabs .table.b-table.branch-listing tr td a.Delete:hover,
+.products .productss-tabs .table.b-table.category-listing tr td a.Delete:hover,
+.orders .orders-tabs .table.b-table.order-listing tr td a.Delete:hover
+{  
+  background-image: url('/images/icons/Bin_hover.svg');  
+  background-size: cover;  
+  background-repeat: no-repeat;  
+}  
+.products .productss-tabs .table.b-table.product-listing tr td a.Edit,
+.products .productss-tabs .table.b-table.category-listing tr td a.Edit,
+.branches .branches-tabs .table.b-table.branch-listing tr td a.Edit,
+.orders .orders-tabs .table.b-table.order-listing tr td a.Edit{  
+  background-image: url('/images/icons/No_Shadow.svg');  
+  background-size: cover;  
+  background-repeat: no-repeat;  
+}  
+.products .productss-tabs .table.b-table.product-listing tr td a.Edit:hover,  
+.products .productss-tabs .table.b-table.product-listing tr td a.Edit:active,
+.products .productss-tabs .table.b-table.category-listing tr td a.Edit:hover,
+.branches .branches-tabs .table.b-table.branch-listing tr td a.Edit:hover,
+.orders .orders-tabs .table.b-table.order-listing tr td a.Edit:hover,
+.products .productss-tabs .table.b-table.category-listing tr td a.Edit:active,
+.branches .branches-tabs .table.b-table.branch-listing tr td a.Edit:active,
+.orders .orders-tabs .table.b-table.order-listing tr td a.Edit.active {  
+  background-image: url('/images/icons/_Hover_nodrop.svg');  
+  background-size: cover;  
+  background-repeat: no-repeat;  
+} 
+
+.products .productss-tabs .table.b-table.product-listing tr td a.Order-button {
+  color: #9f9f9f;
+    text-decoration: none;
+    font-weight: 500;
+    width: auto;
+    border-radius: 50rem !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 6px 12px;
+    font-size: 10px;
+    box-shadow: 0 0 7px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 0 7px rgba(0,0,0,0.1);
+    -o-box-shadow: 0 0 7px rgba(0,0,0,0.1);
+    margin-left: 16px;
+}
+
+.products .productss-tabs .table.b-table.product-listing tr td a.Order-button.active,
+.products .productss-tabs .table.b-table.product-listing tr td a.Order-button:hover {
+    background: linear-gradient(to right, rgba(255,128,51,1) 0%, rgba(255,147, 58,1) 100%) !important;
+    color: #fff !important;
+    text-decoration: none;
+    font-weight: 500;
+    width: auto;
+    border-radius: 50rem !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 6px 12px;
+    font-size: 10px;
+    margin-left: 16px;
+
+}
+.branches .branches-tabs ul.pagination.b-pagination.pagination-sm .page-item span.page-link,
+.branches .branches-tabs .pagination.b-pagination.pagination-sm .page-item .page-link,
+.products .productss-tabs ul.pagination.b-pagination.pagination-sm .page-item span.page-link,
+.products .productss-tabs .pagination.b-pagination.pagination-sm .page-item .page-link,
+.orders .orders-tabs ul.pagination.b-pagination.pagination-sm .page-item span.page-link,
+.orders .orders-tabs .pagination.b-pagination.pagination-sm .page-item .page-link
+ {
+  border: 0 !important;
+  color: #AAAAAA;
+  margin: 10px;
+}
+
+.branches .branches-tabs .pagination.b-pagination.pagination-sm .page-item.active .page-link,
+.products .productss-tabs .pagination.b-pagination.pagination-sm .page-item.active .page-link,
+.orders .orders-tabs .pagination.b-pagination.pagination-sm .page-item.active .page-link {
+  color: #444444 !important ;
+  background-color: #fff;
+  border: 1px solid #444444 !important;
+  border-radius: 50% !important;
+  padding: 4px 9px;
+  font-size: 10px;
+}
+.branches .branches-tabs .pagination.b-pagination.pagination-sm .page-item .page-link:focus,
+.products .productss-tabs .pagination.b-pagination.pagination-sm .page-item .page-link:focus,
+.orders .orders-tabs .pagination.b-pagination.pagination-sm .page-item .page-link:focus { 
+ box-shadow: none !important;
+}
+
+
+
 
 

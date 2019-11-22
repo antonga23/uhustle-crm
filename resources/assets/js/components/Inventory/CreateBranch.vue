@@ -30,6 +30,7 @@ h5 {
   font-family: 'Rubik', sans-serif;
   font-size: 0.73vw;
   color: #2D2D2D;
+  margin-bottom: 20px;
 }
 .btn-default{
   background: #fff;
@@ -60,7 +61,7 @@ h5 {
 
 <template>
   <div class="createDeal">  
-    <h5 class="mb-0">Add Company</h5>
+    <h5>Add Company</h5>
 
     <b-row class="mx-0">
       <b-col sm="7" class="px-0">
