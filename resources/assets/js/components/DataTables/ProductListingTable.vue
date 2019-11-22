@@ -1,6 +1,7 @@
 <template>
   <div class="table-container">
-    <b-table class="product-listing" :items="productListing">
+    <b-table class="product-listing" :items="productListing" :per-page="perPage"   
+                    :current-page="currentPage">
       <template slot="supplier_id">
         <a-select class>
           <a-select-option value="0">
@@ -38,11 +39,12 @@
       </template>
     </b-table>
     <b-pagination
-      :current-page="currentPage"
-      :per-page="20"
-      aria-controls="my-table"
+    class="products-pagination"
+       v-model="currentPage"
+      :per-page="perPage"
       align="center"
       size="sm"
+      :total-rows="rows"
     ></b-pagination>
   </div>
 </template>
@@ -50,6 +52,8 @@
 export default {
   data() {
     return {
+      perPage: 20, 
+      currentPage: 1,
       productListing: [
         {
           supplier_id: "",
@@ -93,7 +97,12 @@ export default {
         }
       ]
     };
-  }
+  },
+   computed: {
+      rows() {
+        return this.productListing.length
+      }
+    }
 };
 </script>
  

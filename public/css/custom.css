@@ -522,7 +522,7 @@ label:not(.form-check-label):not(.custom-file-label) {
 
 ::-webkit-scrollbar {
   width: 5px;
-  height:3px;
+  height:5px;
 }
 ::-webkit-scrollbar:hover {
   width: 5px;
@@ -533,7 +533,7 @@ label:not(.form-check-label):not(.custom-file-label) {
 }
 ::-webkit-scrollbar-thumb {
   background: #B3B3B3 !important;
-  border-radius:20px; 
+  border-radius:10px; 
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #333; 
@@ -1176,6 +1176,7 @@ max-height: 350px;
 .products .productss-tabs .table.b-table.category-listing .ant-select-selection.ant-select-selection--single {
   min-width: 100px !important;
   width: auto;
+  margin-top: 0px !important; 
 }
 
 .products .productss-tabs .table.b-table.product-listing .ant-select-selection.ant-select-selection--single .ant-select-selection-selected-value,
@@ -1292,6 +1293,35 @@ max-height: 350px;
     margin-left: 16px;
 
 }
+.branches .branches-tabs ul.pagination.b-pagination.pagination-sm .page-item span.page-link,
+.branches .branches-tabs .pagination.b-pagination.pagination-sm .page-item .page-link,
+.products .productss-tabs ul.pagination.b-pagination.pagination-sm .page-item span.page-link,
+.products .productss-tabs .pagination.b-pagination.pagination-sm .page-item .page-link,
+.orders .orders-tabs ul.pagination.b-pagination.pagination-sm .page-item span.page-link,
+.orders .orders-tabs .pagination.b-pagination.pagination-sm .page-item .page-link
+ {
+  border: 0 !important;
+  color: #AAAAAA;
+  margin: 10px;
+}
+
+.branches .branches-tabs .pagination.b-pagination.pagination-sm .page-item.active .page-link,
+.products .productss-tabs .pagination.b-pagination.pagination-sm .page-item.active .page-link,
+.orders .orders-tabs .pagination.b-pagination.pagination-sm .page-item.active .page-link {
+  color: #444444 !important ;
+  background-color: #fff;
+  border: 1px solid #444444 !important;
+  border-radius: 50% !important;
+  padding: 4px 9px;
+  font-size: 10px;
+}
+.branches .branches-tabs .pagination.b-pagination.pagination-sm .page-item .page-link:focus,
+.products .productss-tabs .pagination.b-pagination.pagination-sm .page-item .page-link:focus,
+.orders .orders-tabs .pagination.b-pagination.pagination-sm .page-item .page-link:focus { 
+ box-shadow: none !important;
+}
+
+
 
 
 

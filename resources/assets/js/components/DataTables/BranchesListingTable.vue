@@ -24,6 +24,7 @@
       </template>
     </b-table>
     <b-pagination
+    class="branch-pagination"
       v-model="currentPage"
       :per-page="perPage"
       align="center"
@@ -83,7 +84,7 @@ actions: ""
           address: "9 Dock Rd",
           province: "Western Cape",
           city: "Cape Town",
-          tell: "021 000 0000",
+          tell: "021 000 0089",
           fax: "021 000 0000",
           tax_number: "0431256",
           type_id: "",
@@ -148,7 +149,7 @@ actions: ""
           address: "9 Dock Rd",
           province: "Western Cape",
           city: "Cape Town",
-          tell: "021 000 0000",
+          tell: "021 000 0660",
           fax: "021 000 0000",
           tax_number: "0431256",
           type_id: "",

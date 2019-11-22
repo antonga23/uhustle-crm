@@ -1,6 +1,7 @@
 <template>
      <div class='table-container'>
-        <b-table class="category-listing" :items="categoryListing">
+        <b-table class="category-listing" :items="categoryListing" :per-page="perPage"   
+                    :current-page="currentPage">
           <template slot="status">
         <a-select class>
           <a-select-option value="0">
@@ -16,11 +17,11 @@
       </template>
         </b-table>
         <b-pagination  
-      v-model="currentPage"
-      :per-page="10"
-      aria-controls="category-listing"
-      align="center"
-      size="sm"
+          v-model="currentPage"
+          :per-page="perPage"
+          align="center"
+          size="sm"
+          :total-rows="rows"
     ></b-pagination>
     </div>
 </template>
@@ -28,12 +29,19 @@
   export default {
     data() {
       return {
+         perPage: 20, 
+      currentPage: 1,
         categoryListing: [
           { name: 'xxx', description: 'printer', status: "", actions: ""},
          { name: 'xxx', description: 'printer', status: "", actions: ""},
          { name: 'xxx', description: 'printer', status: "", actions: ""}
         ]
+      } 
+    },
+     computed: {
+      rows() {
+        return this.categoryListing.length
       }
-    }
+    },
   }
 </script>
