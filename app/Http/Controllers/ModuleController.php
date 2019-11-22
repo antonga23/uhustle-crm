@@ -274,166 +274,164 @@ class ModuleController extends Controller
 
       $module = Module::with('module_fields')->where(['tag' => 'leads'])->first();
 
-      $module_items = ModuleItem::with('item_meta')->where(['id' => $id])->get();
+      $module_items = ModuleItem::with('item_meta')->with('comments')->where(['id' => $id])->get();
 
-      $items = $this->compactModuleItems($module_items);
-
-      return ['leads' => $items];
+      return ['leads' => $module_items];
     }
 
-  public function compactModuleItems($module_items = null){
+  // public function compactModuleItems($module_items = null){
     
-    $data = [];
+  //   $data = [];
 
-    $display_data = [];
+  //   $display_data = [];
 
-    $count_assigned = 0;
+  //   $count_assigned = 0;
 
-    $count_unassigned = 0;
+  //   $count_unassigned = 0;
 
-    foreach ($module_items as $key => $item) {
+  //   foreach ($module_items as $key => $item) {
 
-        $compact_item = new \StdClass();
-        $compact_item->id = $item->id;
+  //       $compact_item = new \StdClass();
+  //       $compact_item->id = $item->id;
 
-        $display_item_temp = new \StdClass();
+  //       $display_item_temp = new \StdClass();
 
-        $fields_array = [];
+  //       $fields_array = [];
 
-        $display_array = [];
+  //       $display_array = [];
 
-        foreach ($item->item_meta as $k => $meta) {
+  //       foreach ($item->item_meta as $k => $meta) {
 
-          $meta_name = ModuleCustomFields::where(['id' => $meta->custom_field_id])
-                                          ->select('id','name','display_name', 'can_edit', 'can_read')
-                                          ->first();
+  //         $meta_name = ModuleCustomFields::where(['id' => $meta->custom_field_id])
+  //                                         ->select('id','name','display_name', 'can_edit', 'can_read')
+  //                                         ->first();
 
-          if($meta_name->id == $meta->custom_field_id){
+  //         if($meta_name->id == $meta->custom_field_id){
 
 
-            $fields_array['id'] = $item->id;
+  //           $fields_array['id'] = $item->id;
 
-            $display_array['id'] = $item->id;
+  //           $display_array['id'] = $item->id;
 
-            if($meta_name->name == 'assignee'){ 
+  //           if($meta_name->name == 'assignee'){ 
               
-              $user = User::where(['id' => $meta->custom_field_value])->select('id','name','lastname as surname')->first();
+  //             $user = User::where(['id' => $meta->custom_field_value])->select('id','name','lastname as surname')->first();
               
-              $display_array[$meta_name->name] = $user['name'] . ' ' . $user['lastname'];
+  //             $display_array[$meta_name->name] = $user['name'] . ' ' . $user['lastname'];
 
-              $fields_array[$meta_name->name] = [
-                  'custom_field_id' => $meta->custom_field_id,
-                  'meta_id' => $meta->id,
-                  'meta_value' => $user
-                ];
+  //             $fields_array[$meta_name->name] = [
+  //                 'custom_field_id' => $meta->custom_field_id,
+  //                 'meta_id' => $meta->id,
+  //                 'meta_value' => $user
+  //               ];
 
-            }else if ($meta_name->name == 'owner'){
+  //           }else if ($meta_name->name == 'owner'){
 
-              $user = User::where(['id' => $meta->custom_field_value])->select('id','name','lastname as surname')->first();
+  //             $user = User::where(['id' => $meta->custom_field_value])->select('id','name','lastname as surname')->first();
 
-              $display_array[$meta_name->name] = $user['name'] . ' ' . $user['lastname'];
+  //             $display_array[$meta_name->name] = $user['name'] . ' ' . $user['lastname'];
 
-              $fields_array[$meta_name->name] = [
-                  'custom_field_id' => $meta->custom_field_id,
-                  'meta_id' => $meta->id,
-                  'meta_value' =>  $user
-                ];
-            }else if ($meta_name->name == 'product'){
+  //             $fields_array[$meta_name->name] = [
+  //                 'custom_field_id' => $meta->custom_field_id,
+  //                 'meta_id' => $meta->id,
+  //                 'meta_value' =>  $user
+  //               ];
+  //           }else if ($meta_name->name == 'product'){
 
-              $product = Product::where(['id' => $meta->custom_field_value])->first();
+  //             $product = Product::where(['id' => $meta->custom_field_value])->first();
 
-              $display_array[$meta_name->name] = $product['name'];
+  //             $display_array[$meta_name->name] = $product['name'];
 
-              $fields_array[$meta_name->name] = [
-                  'custom_field_id' => $meta->custom_field_id,
-                  'meta_id' => $meta->id,
-                  'meta_value' => $product
-                ];
+  //             $fields_array[$meta_name->name] = [
+  //                 'custom_field_id' => $meta->custom_field_id,
+  //                 'meta_id' => $meta->id,
+  //                 'meta_value' => $product
+  //               ];
 
-            }else if ($meta_name->name == 'source'){
+  //           }else if ($meta_name->name == 'source'){
 
-              $lead_source = LeadSource::where(['id' => $meta->custom_field_value])->select('id','name')->first();
+  //             $lead_source = LeadSource::where(['id' => $meta->custom_field_value])->select('id','name')->first();
 
-              $display_array[$meta_name->name] = $lead_source['name'];
+  //             $display_array[$meta_name->name] = $lead_source['name'];
 
-              $fields_array[$meta_name->name] = [
-                  'custom_field_id' => $meta->custom_field_id,
-                  'meta_id' => $meta->id,
-                  'meta_value' => $lead_source
-                ];
+  //             $fields_array[$meta_name->name] = [
+  //                 'custom_field_id' => $meta->custom_field_id,
+  //                 'meta_id' => $meta->id,
+  //                 'meta_value' => $lead_source
+  //               ];
 
-            }else if ($meta_name->name == 'status'){
+  //           }else if ($meta_name->name == 'status'){
               
-              switch ($meta->custom_field_value) {
-                case 0:
-                    continue 2;
-                    $status = 'Canceled';
-                  break;
-                case 1:
-                    $status = 'Active';
-                    $display_array[$meta_name->name] = $status;
-                  break;
-                case 2:
-                    continue 2;
-                    $status = 'Inactive';
-                  break;
-                case 3:
-                    continue 2;
-                    $status = 'Disabled';
-                  break;
+  //             switch ($meta->custom_field_value) {
+  //               case 0:
+  //                   continue 2;
+  //                   $status = 'Canceled';
+  //                 break;
+  //               case 1:
+  //                   $status = 'Active';
+  //                   $display_array[$meta_name->name] = $status;
+  //                 break;
+  //               case 2:
+  //                   continue 2;
+  //                   $status = 'Inactive';
+  //                 break;
+  //               case 3:
+  //                   continue 2;
+  //                   $status = 'Disabled';
+  //                 break;
                 
-                default:
-                    $status = 'Active';
-                  break;
-              }
+  //               default:
+  //                   $status = 'Active';
+  //                 break;
+  //             }
 
-              $fields_array[$meta_name->name] =  [
-                'custom_field_id' => $meta->custom_field_id,
-                'meta_id' => $meta->id,
-                'meta_value' => $meta->custom_field_value
-              ];
+  //             $fields_array[$meta_name->name] =  [
+  //               'custom_field_id' => $meta->custom_field_id,
+  //               'meta_id' => $meta->id,
+  //               'meta_value' => $meta->custom_field_value
+  //             ];
               
-            }else{
+  //           }else{
 
-              $display_array[$meta_name->name] = $meta->custom_field_value;
+  //             $display_array[$meta_name->name] = $meta->custom_field_value;
 
-              $fields_array[$meta_name->name] = [
-                'custom_field_id' => $meta->custom_field_id,
-                'meta_id' => $meta->id,
-                'meta_value' =>$meta->custom_field_value
-              ];
-            }
+  //             $fields_array[$meta_name->name] = [
+  //               'custom_field_id' => $meta->custom_field_id,
+  //               'meta_id' => $meta->id,
+  //               'meta_value' =>$meta->custom_field_value
+  //             ];
+  //           }
 
-            if($meta_name->name == 'assignee' && $meta->custom_field_value >= 1 && $item->id == $meta->item_id){
-              $fields_array['assigned'] = true;
-              $display_array['assigned'] = true;
-              $count_assigned++;
-            }else if($meta_name->name == 'assignee' && $meta->custom_field_value == '0' && $item->id == $meta->item_id){
-              $fields_array['assigned'] = false;
-              $count_unassigned++;
-            }else if($meta_name->name == 'assignee' && is_null($meta->custom_field_value) && $item->id == $meta->item_id){
-              $fields_array['assigned'] = false;
-              $display_array['assigned'] = false;
-              $count_unassigned++;
-            }
-          }
-        }
+  //           if($meta_name->name == 'assignee' && $meta->custom_field_value >= 1 && $item->id == $meta->item_id){
+  //             $fields_array['assigned'] = true;
+  //             $display_array['assigned'] = true;
+  //             $count_assigned++;
+  //           }else if($meta_name->name == 'assignee' && $meta->custom_field_value == '0' && $item->id == $meta->item_id){
+  //             $fields_array['assigned'] = false;
+  //             $count_unassigned++;
+  //           }else if($meta_name->name == 'assignee' && is_null($meta->custom_field_value) && $item->id == $meta->item_id){
+  //             $fields_array['assigned'] = false;
+  //             $display_array['assigned'] = false;
+  //             $count_unassigned++;
+  //           }
+  //         }
+  //       }
 
-        $item_temp->item = $fields_array;
+  //       $item_temp->item = $fields_array;
 
-        array_push($data, $item_temp);
+  //       array_push($data, $item_temp);
 
-        array_push($display_data, $display_array);
-    }
+  //       array_push($display_data, $display_array);
+  //   }
     
-    return [ 
-            'success' => true,
-            'items' => $data, 
-            'display_items' => $display_data,  
-            'count_assigned' => $count_assigned, 
-            'count_unassigned' => $count_unassigned, 
-        ];
-  }
+  //   return [ 
+  //           'success' => true,
+  //           'items' => $data, 
+  //           'display_items' => $display_data,  
+  //           'count_assigned' => $count_assigned, 
+  //           'count_unassigned' => $count_unassigned, 
+  //       ];
+  // }
 
 
   public function compactDisplayModuleItems($module_items = null){

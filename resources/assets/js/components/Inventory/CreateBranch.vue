@@ -66,32 +66,46 @@ h5 {
       <b-col sm="7" class="px-0">
         <b-row class="mx-0">
           <b-col sm="7" class="pl-0">
+            <label for="input-none">Company Type</label>
+            <a-select  v-validate="'required'" name="Type" v-model="branch.type_id" class="custom-select rounded-pill border-0">   
+              <a-select-option value="">-None-</a-select-option>   
+              <a-select-option :value="s_type.id" v-for="(s_type, index) in company_types" :key="index">{{s_type.name}}</a-select-option> 
+            </a-select>
+            <span id="error" v-show="errors.has('Type')" class="help-block">{{ errors.first('Type') }}</span>
+          </b-col>
+          <b-col sm="7" class="pl-0">
             <label for="input-none">Name</label>
             <input 
-              v-model="supplier.name"    
+              v-validate="'required'"
+              v-model="branch.name"    
               type="text"    
-              id="supplier-name"     
-              name="supplierName"   
+              id="name"     
+              name="Name"   
               class="form-control rounded-pill"/>
+              <span id="error" v-show="errors.has('Name')" class="help-block">{{ errors.first('Name') }}</span>
 
             <label for="input-none">Select Province</label>
-            <a-select v-model="supplier.province" class="custom-select rounded-pill border-0">   
-              <a-select-option value="-None-" selected>-None-</a-select-option>   
-              <a-select-option v-for="(s_province, index) in supplier.provinces" :key="index">{{s_province}}</a-select-option> 
+            <a-select @change="changeProvince()" name="Province" v-validate="'required'" v-model="branch.province" class="custom-select rounded-pill border-0">   
+              <a-select-option value="" selected>-None-</a-select-option>   
+              <a-select-option :value="s_province.id" v-for="(s_province, index) in provinces" :key="index">{{s_province.name}}</a-select-option> 
             </a-select>
+            <span id="error" v-show="errors.has('Province')" class="help-block" >{{ errors.first('Province') }}</span>
 
             <label for="input-none">Select City</label>
-            <a-select v-model="supplier.city" class="custom-select rounded-pill border-0">   
-              <a-select-option value="-None-" selected>-None-</a-select-option>   
-              <a-select-option v-for="(s_city, index) in supplier.cities" :key="index">{{s_city}}</a-select-option> 
+            <a-select name="City" v-validate="'required'" v-model="branch.city" class="custom-select rounded-pill border-0">   
+              <a-select-option value="" selected>-None-</a-select-option>   
+              <a-select-option :value="s_city.id" v-for="(s_city, index) in filtered_cities" :key="index">{{s_city.name}}</a-select-option> 
             </a-select>
+            <span id="error" v-show="errors.has('City')" class="help-block">{{ errors.first('City') }}</span>
 
             <label for="input-none">Address</label>
-            <textarea 
-              v-model="supplier.address"   
+            <textarea
+              name="Address" 
+              v-validate="'required'"  
+              v-model="branch.address"   
               id="info"     
-              name="Info"   
               class="form-control"/>
+            <span id="error" v-show="errors.has('Address')" class="help-block">{{ errors.first('Address') }}</span>
           </b-col>
 
           <b-col sm="5">
@@ -99,51 +113,51 @@ h5 {
               <b-col sm="7" class="pl-0">
                 <label for="input-none">Telephone no.</label>
                 <input 
-                  v-model="supplier.tel"    
-                  type="tel"    
-                  id="supplier-tel"     
-                  name="supplierTel"   
+                  v-validate="'required|numeric'" 
+                  v-model="branch.tell"    
+                  type="tell"    
+                  id="branch-tell"     
+                  name="Tel"   
                   class="form-control rounded-pill"/>
+                  <span id="error" v-show="errors.has('Tel')" class="help-block">{{ errors.first('Tel') }}</span>
 
                 <label for="input-none">Fax No.</label>
                 <input 
-                  v-model="supplier.fax"    
-                  type="tel"    
-                  id="supplier-fax"     
-                  name="supplierFax"   
+                  v-model="branch.fax"    
+                  type="tell"    
+                  id="branch-fax"     
+                  name="branchFax"   
                   class="form-control rounded-pill"/>
-              </b-col>
+            </b-col>
 
-              <b-col sm="5" class="pr-0">
+              <b-col sm="7" class="pr-0">
                 <label for="input-none">Tax Number</label>
-                <input 
-                  v-model="supplier.tax_number"    
-                  type="number"    
-                  id="supplier-tax-number"     
-                  name="supplierTaxNumber"   
+                <input
+                  v-validate="'required|numeric'"  
+                  v-model="branch.tax_number"    
+                  type="text"    
+                  id="branch-tax-number"     
+                  name="Tax Number"   
                   class="form-control rounded-pill"/>
-        
-                <label for="input-none">Type</label>
-                <a-select v-model="supplier.type" class="custom-select rounded-pill border-0">   
-                  <a-select-option value="-None-" selected>-None-</a-select-option>   
-                  <a-select-option v-for="(s_type, index) in supplier.types" :key="index">{{s_type}}</a-select-option> 
-                </a-select>
+                  <span id="error" v-show="errors.has('Tax Number')" class="help-block">{{ errors.first('Tax Number') }}</span>
+
               </b-col>
 
               <b-col sm="12" class="px-0">
                 <label for="input-none">Code</label>
                 <input 
-                  v-model="supplier.code"    
+                  v-model="branch.code"    
                   type="text"    
-                  id="supplier-code"     
-                  name="supplierCode"   
+                  id="branch-code"     
+                  name="branchCode"   
                   class="form-control rounded-pill"/>
 
                 <label for="input-none">Status</label>
-                <a-select v-model="supplier.supplier_status" class="custom-select rounded-pill border-0">   
-                  <a-select-option value="-None-" selected>-None-</a-select-option>   
-                  <a-select-option v-for="(s_status, index) in supplier.supplier_statuses" :key="index">{{s_status}}</a-select-option> 
+                <a-select v-validate="'required'" name="Status" v-model="branch.status" class="custom-select rounded-pill border-0">   
+                  <a-select-option value="" selected>-None-</a-select-option>   
+                  <a-select-option :value="s_status.id" v-for="(s_status, index) in branch_statuses" :key="index">{{s_status.value}}</a-select-option> 
                 </a-select>
+                <span id="error" v-show="errors.has('Status')" class="help-block">{{ errors.first('Status') }}</span>
               </b-col>
             </b-row>
           </b-col>
@@ -151,11 +165,11 @@ h5 {
 
         <div class="row mx-0 justify-content-end">
           <div class="col-auto pl-0">
-            <b-button class="btn btn-default my-0 ml-0">Cancel</b-button>
+            <b-button class="btn btn-default my-0 ml-0" @click="cancelCreate">Cancel</b-button>
           </div>
 
           <div class="col-auto pl-0">
-            <b-button class="btn btn-primary font-weight-bold my-0 mr-0">Save</b-button>
+            <b-button class="btn btn-primary font-weight-bold my-0 mr-0" @click="createCompany">Save</b-button>
           </div>
         </div>
       </b-col>
@@ -167,32 +181,100 @@ h5 {
 export default {
   components: {},
   mounted() {
-    
+    this.company_types = JSON.parse(this.prop_company_types);
+    this.provinces = JSON.parse(this.prop_provinces);
+    this.cities = JSON.parse(this.prop_cities);
+    this.filtered_cities = this.cities;
+
+    this.Toast = this.$swal.mixin({ 
+      toast: true, 
+      position: 'top-end', 
+      showConfirmButton: false, 
+      timer: 3000 
+    }); 
   },
   created: function () {},
-  props: [],
+  props: [
+    'prop_company_types',
+    'prop_provinces',
+    'prop_cities',
+  ],
   data: function(){
     return { 
-      supplier: {
+      branch: {
         name: '',
         address: '',
-        province:'-None-',
-        provinces: ['Eastern Cape', 'Free State', 'Gauteng', 'Kwa-Zulu Natal', 'Limpopo', 'Mpumalanga', 'Northern Cape', 'North West', 'Western Cape'],
+        province_id:'',
         city: '',
-        cities: [],
-        tel: '',
+        tell: '',
         fax: '',
         tax_number: '',
-        type: '-None-',
-        types: [],
+        type_id: '',
         code: '',
-        supplier_status:'-None-',
-        supplier_statuses: ['In stock', 'Out of Stock']
+        status:'',
       },
+      branch_statuses: [{
+          id:1,
+          value: 'Active'
+        },
+        {
+          id:0,
+          value: 'Disabled'
+        }
+      ],
+      company_types: [],
+      provinces: [],
+      filtered_cities: [],
+      cities: [],
       Toast: null,
     }
   },
   methods: {
+    changeProvince(){
+      var vm = this;
+      vm.filtered_cities = vm.cities.filter( (city) => {
+        return city.province_id == vm.branch.province;
+      });
+    },
+    createCompany(){ 
+        var vm = this; 
+        vm.$validator.validateAll().then((result) => { 
+          if (!result) {} else { 
+            axios.post('/company/create', { 
+              company: vm.branch,
+            }).then(function(response) { 
+
+              if (response.data.success === true) { 
+                vm.Toast.fire({ 
+                  type: 'success', 
+                  title: response.data.message 
+                }); 
+
+                Fire.$emit('CompanyCreated', {
+                  company : response.data.company
+                }); 
+
+                vm.$Progress.finish(); 
+              } else { 
+                vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning'); 
+                vm.$Progress.fail(); 
+              } 
+            }); 
+          } 
+        });
+    },
+    cancelCreate(){
+      this.branch.name = '';
+      this.branch.address = '';
+      this.branch.province_id = '';
+      this.branch.city = '';
+      this.branch.tell = '';
+      this.branch.fax = '';
+      this.branch.tax_number = '';
+      this.branch.type_id = '';
+      this.branch.code = '';
+      this.branch.status = '';
+    }
   }
 }
 </script>

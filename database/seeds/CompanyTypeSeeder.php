@@ -25,8 +25,14 @@ class CompanyTypeSeeder extends Seeder
       $type->save();
 
       $type = new CompanyType;
-      $type->name = 'Destributor';
-      $type->description = 'Destributor';
+      $type->name = 'Distributor';
+      $type->description = 'Distributor';
+      $type->status = 1;
+      $type->save();
+
+      $type = new CompanyType;
+      $type->name = 'Supplier';
+      $type->description = 'Supplier';
       $type->status = 1;
       $type->save();
     }

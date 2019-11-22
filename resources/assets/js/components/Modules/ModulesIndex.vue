@@ -343,6 +343,16 @@ table.listing tr  th{
               sortable:false,
               can_edit:null,
               can_read:null,
+          },
+          {
+            label: 'ACTIONS',  // Column name
+            field: 'actions',  // Field name from row
+            numeric: false, // Affects sorting
+            html: false,    // Escapes output if false.
+            sortable:true,
+            field_id:null,
+            can_edit:null,
+            can_read:null,
           }
         ]
       }
@@ -377,19 +387,6 @@ table.listing tr  th{
             });
             
         });
-
-        this.columns.push(
-          {
-            label: 'ACTIONS',  // Column name
-            field: 'actions',  // Field name from row
-            numeric: false, // Affects sorting
-            html: false,    // Escapes output if false.
-            sortable:true,
-            field_id:null,
-            can_edit:null,
-            can_read:null,
-          },
-        );
         
       },
       filterItems(type){

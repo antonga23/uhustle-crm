@@ -181088,77 +181088,204 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    var vm = this;
+    vm.company_types = JSON.parse(vm.prop_company_types);
+    vm.provinces = JSON.parse(vm.prop_provinces);
+    vm.cities = JSON.parse(vm.prop_cities);
+    vm.filtered_cities = vm.cities;
+    Fire.$on('CompanyCreated', function (data) {
+      vm.companiesListing = [];
+      vm.companies.push(data.company);
+      vm.companies.map(function (company) {
+        vm.companiesListing.push({
+          id: company.id,
+          name: company.name,
+          address: company.address,
+          province: company.province,
+          city: company.city,
+          tell: company.tell,
+          fax: company.fax,
+          tax_number: company.tax_number,
+          type_id: company.type_id,
+          code: company.code,
+          status: company.status
+        });
+      });
+    });
+    this.Toast = this.$swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
+    });
+  },
+  props: ['prop_company_types', 'prop_provinces', 'prop_cities'],
   data: function data() {
     return {
-      branchesListing: [{
-        name: 'CPT Main',
-        address: '9 Dock Rd',
-        province: 'Western Cape',
-        city: 'Cape Town',
-        tell: '021 000 0000',
-        fax: '021 000 0000',
-        tax_number: '0431256',
-        type_id: 'X',
-        code: 'CPT001',
-        status: 'Y'
+      company_types: [],
+      provinces: [],
+      filtered_cities: [],
+      cities: [],
+      companies: [],
+      companiesListing: [],
+      branch_statuses: [{
+        id: 1,
+        value: 'Active'
       }, {
-        name: 'CPT Main',
-        address: '9 Dock Rd',
-        province: 'Western Cape',
-        city: 'Cape Town',
-        tell: '021 000 0000',
-        fax: '021 000 0000',
-        tax_number: '0431256',
-        type_id: 'X',
-        code: 'CPT001',
-        status: 'Y'
-      }, {
-        name: 'CPT Main',
-        address: '9 Dock Rd',
-        province: 'Western Cape',
-        city: 'Cape Town',
-        tell: '021 000 0000',
-        fax: '021 000 0000',
-        tax_number: '0431256',
-        type_id: 'X',
-        code: 'CPT001',
-        status: 'Y'
-      }, {
-        name: 'CPT Main',
-        address: '9 Dock Rd',
-        province: 'Western Cape',
-        city: 'Cape Town',
-        tell: '021 000 0000',
-        fax: '021 000 0000',
-        tax_number: '0431256',
-        type_id: 'X',
-        code: 'CPT001',
-        status: 'Y'
-      }, {
-        name: 'CPT Main',
-        address: '9 Dock Rd',
-        province: 'Western Cape',
-        city: 'Cape Town',
-        tell: '021 000 0000',
-        fax: '021 000 0000',
-        tax_number: '0431256',
-        type_id: 'X',
-        code: 'CPT001',
-        status: 'Y'
-      }, {
-        name: 'CPT Main',
-        address: '9 Dock Rd',
-        province: 'Western Cape',
-        city: 'Cape Town',
-        tell: '021 000 0000',
-        fax: '021 000 0000',
-        tax_number: '0431256',
-        type_id: 'X',
-        code: 'CPT001',
-        status: 'Y'
-      }]
+        id: 0,
+        value: 'Disabled'
+      }],
+      Toast: null
     };
+  },
+  methods: {
+    changeProvince: function changeProvince(province_id) {
+      var vm = this;
+      vm.filtered_cities = vm.cities.filter(function (city) {
+        return city.province_id == province_id;
+      });
+    },
+    getCompanies: function getCompanies() {
+      var companies = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+      var vm = this;
+
+      if (companies !== null) {
+        vm.companies = companies;
+      } else {
+        axios.get('/company/get-all').then(function (response) {
+          vm.companies = response.data.companies;
+          vm.companies.map(function (company) {
+            vm.companiesListing.push({
+              id: company.id,
+              name: company.name,
+              address: company.address,
+              province: company.province,
+              city: company.city,
+              tell: company.tell,
+              fax: company.fax,
+              tax_number: company.tax_number,
+              type_id: company.type_id,
+              code: company.code,
+              status: company.status
+            });
+          });
+        });
+      }
+    },
+    updateCompany: function updateCompany(item) {
+      console.log(item);
+      var vm = this;
+      axios.post('/company/update', {
+        company: item
+      }).then(function (response) {
+        if (response.data.success === true) {
+          vm.Toast.fire({
+            type: 'success',
+            title: response.data.message
+          });
+          vm.companies = response.data.companies;
+          vm.$Progress.finish();
+        } else {
+          vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
+          vm.$Progress.fail();
+        }
+      });
+    }
+  },
+  created: function created() {
+    this.getCompanies();
   }
 });
 
@@ -182262,7 +182389,6 @@ __webpack_require__.r(__webpack_exports__);
             type: 'success',
             title: response.data.message
           });
-          vm.showEdit(row_id);
           vm.$Progress.finish();
         } else {
           vm.$Progress.fail();
@@ -183619,11 +183745,13 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {},
   created: function created() {},
-  props: [],
+  props: ['company_types', 'provinces', 'cities'],
   data: function data() {
     return {};
   },
-  methods: {}
+  methods: {
+    listCompanies: function listCompanies() {}
+  }
 });
 
 /***/ }),
@@ -183802,33 +183930,108 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
-  mounted: function mounted() {},
+  mounted: function mounted() {
+    this.company_types = JSON.parse(this.prop_company_types);
+    this.provinces = JSON.parse(this.prop_provinces);
+    this.cities = JSON.parse(this.prop_cities);
+    this.filtered_cities = this.cities;
+    this.Toast = this.$swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
+    });
+  },
   created: function created() {},
-  props: [],
+  props: ['prop_company_types', 'prop_provinces', 'prop_cities'],
   data: function data() {
     return {
-      supplier: {
+      branch: {
         name: '',
         address: '',
-        province: '-None-',
-        provinces: ['Eastern Cape', 'Free State', 'Gauteng', 'Kwa-Zulu Natal', 'Limpopo', 'Mpumalanga', 'Northern Cape', 'North West', 'Western Cape'],
+        province_id: '',
         city: '',
-        cities: [],
-        tel: '',
+        tell: '',
         fax: '',
         tax_number: '',
-        type: '-None-',
-        types: [],
+        type_id: '',
         code: '',
-        supplier_status: '-None-',
-        supplier_statuses: ['In stock', 'Out of Stock']
+        status: ''
       },
+      branch_statuses: [{
+        id: 1,
+        value: 'Active'
+      }, {
+        id: 0,
+        value: 'Disabled'
+      }],
+      company_types: [],
+      provinces: [],
+      filtered_cities: [],
+      cities: [],
       Toast: null
     };
   },
-  methods: {}
+  methods: {
+    changeProvince: function changeProvince() {
+      var vm = this;
+      vm.filtered_cities = vm.cities.filter(function (city) {
+        return city.province_id == vm.branch.province;
+      });
+    },
+    createCompany: function createCompany() {
+      var vm = this;
+      vm.$validator.validateAll().then(function (result) {
+        if (!result) {} else {
+          axios.post('/company/create', {
+            company: vm.branch
+          }).then(function (response) {
+            if (response.data.success === true) {
+              vm.Toast.fire({
+                type: 'success',
+                title: response.data.message
+              });
+              Fire.$emit('CompanyCreated', {
+                company: response.data.company
+              });
+              vm.$Progress.finish();
+            } else {
+              vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
+              vm.$Progress.fail();
+            }
+          });
+        }
+      });
+    },
+    cancelCreate: function cancelCreate() {
+      this.branch.name = '';
+      this.branch.address = '';
+      this.branch.province_id = '';
+      this.branch.city = '';
+      this.branch.tell = '';
+      this.branch.fax = '';
+      this.branch.tax_number = '';
+      this.branch.type_id = '';
+      this.branch.code = '';
+      this.branch.status = '';
+    }
+  }
 });
 
 /***/ }),
@@ -184611,7 +184814,7 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   computed: {},
-  props: ['logged_user'],
+  props: ['active', 'logged_user', 'company_types', 'provinces', 'cities'],
   data: function data() {
     return {
       show_page_loader: false,
@@ -185396,6 +185599,19 @@ __webpack_require__.r(__webpack_exports__);
         sortable: false,
         can_edit: null,
         can_read: null
+      }, {
+        label: 'ACTIONS',
+        // Column name
+        field: 'actions',
+        // Field name from row
+        numeric: false,
+        // Affects sorting
+        html: false,
+        // Escapes output if false.
+        sortable: true,
+        field_id: null,
+        can_edit: null,
+        can_read: null
       }]
     };
   },
@@ -185432,20 +185648,6 @@ __webpack_require__.r(__webpack_exports__);
           can_edit: field.can_edit,
           can_read: field.can_edit
         });
-      });
-      this.columns.push({
-        label: 'ACTIONS',
-        // Column name
-        field: 'actions',
-        // Field name from row
-        numeric: false,
-        // Affects sorting
-        html: false,
-        // Escapes output if false.
-        sortable: true,
-        field_id: null,
-        can_edit: null,
-        can_read: null
       });
     },
     filterItems: function filterItems(type) {
@@ -197404,6 +197606,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -197436,6 +197640,8 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
     vm.dialer_settings = JSON.parse(vm.auto_dialer_settings);
     vm.item_custom_fields = JSON.parse(vm.custom_fields);
     vm.sources = JSON.parse(vm.lead_sources);
+    vm.packages = JSON.parse(vm.lead_packages);
+    vm.active_users = JSON.parse(vm.current_users);
 
     if (vm.item_id != "") {
       vm.enqueueLead(vm.item_id);
@@ -197506,10 +197712,12 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
   created: function created() {
     if (this.item_id) this.getComments(this.item_id);
   },
-  props: ["user_name", "user_id", "role_id", "item_id", "lead_sources", "auto_dialer_settings", "custom_fields"],
+  props: ["user_name", "user_id", "role_id", "item_id", "lead_sources", "lead_packages", "current_users", "auto_dialer_settings", "custom_fields"],
   data: function data() {
     return {
       sources: {},
+      active_users: {},
+      packages: {},
       module_item: {},
       conferences: [],
       item_custom_fields: {},
@@ -197715,8 +197923,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
     };
   },
   computed: {
-    rows: function rows() {
-      return this.activityItems.length;
+    rows: function rows() {// return this.activityItems.length;  
     }
   },
   methods: {
@@ -198026,6 +198233,22 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
         } else {
           vm.$Progress.fail();
           vm.$swal("Failed", "Opps, something went wrong while retrieving lead, please try again", "warning");
+        }
+      });
+    },
+    submitEdit: function submitEdit(item_field) {
+      var vm = this;
+      vm.$Progress.start();
+      axios.post('/modules/update-item-field', item_field).then(function (response) {
+        if (response.data.success == true) {
+          vm.Toast.fire({
+            type: 'success',
+            title: response.data.message
+          });
+          vm.$Progress.finish();
+        } else {
+          vm.$Progress.fail();
+          vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
         }
       });
     },
@@ -367230,10 +367453,412 @@ var render = function() {
     "div",
     { staticClass: "table-container" },
     [
-      _c("b-table", {
-        staticClass: "branch-listing",
-        attrs: { items: _vm.branchesListing }
-      })
+      _c(
+        "b-table",
+        {
+          staticClass: "branch-listing",
+          attrs: { items: _vm.companiesListing },
+          scopedSlots: _vm._u([
+            {
+              key: "name",
+              fn: function(data) {
+                return [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: data.item.name,
+                        expression: "data.item.name"
+                      }
+                    ],
+                    staticClass: "form-control border-0 rounded-pill",
+                    attrs: { type: "text", id: "deal-name", name: "DealName" },
+                    domProps: { value: data.item.name },
+                    on: {
+                      blur: function($event) {
+                        return _vm.updateCompany(data.item)
+                      },
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(data.item, "name", $event.target.value)
+                      }
+                    }
+                  })
+                ]
+              }
+            },
+            {
+              key: "address",
+              fn: function(data) {
+                return [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: data.item.address,
+                        expression: "data.item.address"
+                      }
+                    ],
+                    staticClass: "form-control border-0 rounded-pill",
+                    attrs: { type: "text", id: "deal-name", name: "DealName" },
+                    domProps: { value: data.item.address },
+                    on: {
+                      blur: function($event) {
+                        return _vm.updateCompany(data.item)
+                      },
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(data.item, "address", $event.target.value)
+                      }
+                    }
+                  })
+                ]
+              }
+            },
+            {
+              key: "province",
+              fn: function(data) {
+                return [
+                  _c(
+                    "a-select",
+                    {
+                      directives: [
+                        {
+                          name: "validate",
+                          rawName: "v-validate",
+                          value: "required",
+                          expression: "'required'"
+                        }
+                      ],
+                      staticClass: "custom-select rounded-pill border-0",
+                      attrs: { name: "Province" },
+                      on: {
+                        change: function($event) {
+                          return _vm.changeProvince(data.item.province)
+                        }
+                      },
+                      model: {
+                        value: data.item.province,
+                        callback: function($$v) {
+                          _vm.$set(data.item, "province", $$v)
+                        },
+                        expression: "data.item.province"
+                      }
+                    },
+                    [
+                      _c(
+                        "a-select-option",
+                        { attrs: { value: "", selected: "" } },
+                        [_vm._v("-None-")]
+                      ),
+                      _vm._v(" "),
+                      _vm._l(_vm.provinces, function(s_province, index) {
+                        return _c(
+                          "a-select-option",
+                          { key: index, attrs: { value: s_province.id } },
+                          [_vm._v(_vm._s(s_province.name))]
+                        )
+                      })
+                    ],
+                    2
+                  )
+                ]
+              }
+            },
+            {
+              key: "city",
+              fn: function(data) {
+                return [
+                  _c(
+                    "a-select",
+                    {
+                      directives: [
+                        {
+                          name: "validate",
+                          rawName: "v-validate",
+                          value: "required",
+                          expression: "'required'"
+                        }
+                      ],
+                      staticClass: "custom-select rounded-pill border-0",
+                      attrs: { name: "City" },
+                      on: {
+                        change: function($event) {
+                          return _vm.updateCompany(data.item)
+                        }
+                      },
+                      model: {
+                        value: data.item.city,
+                        callback: function($$v) {
+                          _vm.$set(data.item, "city", $$v)
+                        },
+                        expression: "data.item.city"
+                      }
+                    },
+                    [
+                      _c(
+                        "a-select-option",
+                        { attrs: { value: "", selected: "" } },
+                        [_vm._v("-None-")]
+                      ),
+                      _vm._v(" "),
+                      _vm._l(_vm.filtered_cities, function(s_city, index) {
+                        return _c(
+                          "a-select-option",
+                          { key: index, attrs: { value: s_city.id } },
+                          [_vm._v(_vm._s(s_city.name))]
+                        )
+                      })
+                    ],
+                    2
+                  )
+                ]
+              }
+            },
+            {
+              key: "type_id",
+              fn: function(data) {
+                return [
+                  _c(
+                    "a-select",
+                    {
+                      directives: [
+                        {
+                          name: "validate",
+                          rawName: "v-validate",
+                          value: "required",
+                          expression: "'required'"
+                        }
+                      ],
+                      staticClass: "custom-select rounded-pill border-0",
+                      attrs: { name: "Type" },
+                      on: {
+                        change: function($event) {
+                          return _vm.updateCompany(data.item)
+                        }
+                      },
+                      model: {
+                        value: data.item.type_id,
+                        callback: function($$v) {
+                          _vm.$set(data.item, "type_id", $$v)
+                        },
+                        expression: "data.item.type_id"
+                      }
+                    },
+                    [
+                      _c(
+                        "a-select-option",
+                        { attrs: { value: "", selected: "" } },
+                        [_vm._v("-None-")]
+                      ),
+                      _vm._v(" "),
+                      _vm._l(_vm.company_types, function(s_type, index) {
+                        return _c(
+                          "a-select-option",
+                          { key: index, attrs: { value: s_type.id } },
+                          [_vm._v(_vm._s(s_type.name))]
+                        )
+                      })
+                    ],
+                    2
+                  )
+                ]
+              }
+            },
+            {
+              key: "status",
+              fn: function(data) {
+                return [
+                  _c(
+                    "a-select",
+                    {
+                      directives: [
+                        {
+                          name: "validate",
+                          rawName: "v-validate",
+                          value: "required",
+                          expression: "'required'"
+                        }
+                      ],
+                      staticClass: "custom-select rounded-pill border-0",
+                      attrs: { name: "Province" },
+                      on: {
+                        change: function($event) {
+                          return _vm.updateCompany(data.item)
+                        }
+                      },
+                      model: {
+                        value: data.item.status,
+                        callback: function($$v) {
+                          _vm.$set(data.item, "status", $$v)
+                        },
+                        expression: "data.item.status"
+                      }
+                    },
+                    [
+                      _c(
+                        "a-select-option",
+                        { attrs: { value: "", selected: "" } },
+                        [_vm._v("-None-")]
+                      ),
+                      _vm._v(" "),
+                      _vm._l(_vm.branch_statuses, function(s_status, index) {
+                        return _c(
+                          "a-select-option",
+                          { key: index, attrs: { value: s_status.id } },
+                          [_vm._v(_vm._s(s_status.value))]
+                        )
+                      })
+                    ],
+                    2
+                  )
+                ]
+              }
+            },
+            {
+              key: "tell",
+              fn: function(data) {
+                return [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: data.item.tell,
+                        expression: "data.item.tell"
+                      }
+                    ],
+                    staticClass: "form-control border-0 rounded-pill",
+                    attrs: { type: "text", id: "fax", name: "fax" },
+                    domProps: { value: data.item.tell },
+                    on: {
+                      blur: function($event) {
+                        return _vm.updateCompany(data.item)
+                      },
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(data.item, "tell", $event.target.value)
+                      }
+                    }
+                  })
+                ]
+              }
+            },
+            {
+              key: "fax",
+              fn: function(data) {
+                return [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: data.item.fax,
+                        expression: "data.item.fax"
+                      }
+                    ],
+                    staticClass: "form-control border-0 rounded-pill",
+                    attrs: { type: "text", id: "fax", name: "fax" },
+                    domProps: { value: data.item.fax },
+                    on: {
+                      blur: function($event) {
+                        return _vm.updateCompany(data.item)
+                      },
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(data.item, "fax", $event.target.value)
+                      }
+                    }
+                  })
+                ]
+              }
+            },
+            {
+              key: "tax_number",
+              fn: function(data) {
+                return [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: data.item.fax,
+                        expression: "data.item.fax"
+                      }
+                    ],
+                    staticClass: "form-control border-0 rounded-pill",
+                    attrs: {
+                      type: "text",
+                      id: "tax_number",
+                      name: "tax number"
+                    },
+                    domProps: { value: data.item.fax },
+                    on: {
+                      blur: function($event) {
+                        return _vm.updateCompany(data.item)
+                      },
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(data.item, "fax", $event.target.value)
+                      }
+                    }
+                  })
+                ]
+              }
+            },
+            {
+              key: "code",
+              fn: function(data) {
+                return [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: data.item.code,
+                        expression: "data.item.code"
+                      }
+                    ],
+                    staticClass: "form-control border-0 rounded-pill",
+                    attrs: { type: "text", id: "code", name: "code" },
+                    domProps: { value: data.item.code },
+                    on: {
+                      blur: function($event) {
+                        return _vm.updateCompany(data.item)
+                      },
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(data.item, "code", $event.target.value)
+                      }
+                    }
+                  })
+                ]
+              }
+            }
+          ])
+        },
+        [
+          _vm._v(" "),
+          _vm._v(" "),
+          _vm._v(" "),
+          _vm._v(" "),
+          _vm._v(">\n\n      ")
+        ]
+      )
     ],
     1
   )
@@ -369458,7 +370083,7 @@ var render = function() {
                           fn: function() {
                             return [
                               _c("h5", { staticClass: "d-inline-block mb-0" }, [
-                                _vm._v("Branches")
+                                _vm._v("Companies")
                               ])
                             ]
                           },
@@ -369471,7 +370096,15 @@ var render = function() {
                       _c(
                         "transition",
                         { attrs: { name: "fade" } },
-                        [_c("BranchesListingTable")],
+                        [
+                          _c("BranchesListingTable", {
+                            attrs: {
+                              prop_provinces: _vm.provinces,
+                              prop_cities: _vm.cities,
+                              prop_company_types: _vm.company_types
+                            }
+                          })
+                        ],
                         1
                       )
                     ],
@@ -369487,7 +370120,7 @@ var render = function() {
                           fn: function() {
                             return [
                               _c("h5", { staticClass: "d-inline-block mb-0" }, [
-                                _vm._v("Create a branch")
+                                _vm._v("Create a Company")
                               ]),
                               _vm._v(" "),
                               _c("img", {
@@ -369509,7 +370142,15 @@ var render = function() {
                       _c(
                         "transition",
                         { attrs: { name: "fade" } },
-                        [_c("create-branch")],
+                        [
+                          _c("create-branch", {
+                            attrs: {
+                              prop_provinces: _vm.provinces,
+                              prop_cities: _vm.cities,
+                              prop_company_types: _vm.company_types
+                            }
+                          })
+                        ],
                         1
                       )
                     ],
@@ -369572,34 +370213,118 @@ var render = function() {
                     { staticClass: "pl-0", attrs: { sm: "7" } },
                     [
                       _c("label", { attrs: { for: "input-none" } }, [
+                        _vm._v("Company Type")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "a-select",
+                        {
+                          directives: [
+                            {
+                              name: "validate",
+                              rawName: "v-validate",
+                              value: "required",
+                              expression: "'required'"
+                            }
+                          ],
+                          staticClass: "custom-select rounded-pill border-0",
+                          attrs: { name: "Type" },
+                          model: {
+                            value: _vm.branch.type_id,
+                            callback: function($$v) {
+                              _vm.$set(_vm.branch, "type_id", $$v)
+                            },
+                            expression: "branch.type_id"
+                          }
+                        },
+                        [
+                          _c("a-select-option", { attrs: { value: "" } }, [
+                            _vm._v("-None-")
+                          ]),
+                          _vm._v(" "),
+                          _vm._l(_vm.company_types, function(s_type, index) {
+                            return _c(
+                              "a-select-option",
+                              { key: index, attrs: { value: s_type.id } },
+                              [_vm._v(_vm._s(s_type.name))]
+                            )
+                          })
+                        ],
+                        2
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.errors.has("Type"),
+                              expression: "errors.has('Type')"
+                            }
+                          ],
+                          staticClass: "help-block",
+                          attrs: { id: "error" }
+                        },
+                        [_vm._v(_vm._s(_vm.errors.first("Type")))]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-col",
+                    { staticClass: "pl-0", attrs: { sm: "7" } },
+                    [
+                      _c("label", { attrs: { for: "input-none" } }, [
                         _vm._v("Name")
                       ]),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
                           {
+                            name: "validate",
+                            rawName: "v-validate",
+                            value: "required",
+                            expression: "'required'"
+                          },
+                          {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.supplier.name,
-                            expression: "supplier.name"
+                            value: _vm.branch.name,
+                            expression: "branch.name"
                           }
                         ],
                         staticClass: "form-control rounded-pill",
-                        attrs: {
-                          type: "text",
-                          id: "supplier-name",
-                          name: "supplierName"
-                        },
-                        domProps: { value: _vm.supplier.name },
+                        attrs: { type: "text", id: "name", name: "Name" },
+                        domProps: { value: _vm.branch.name },
                         on: {
                           input: function($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.$set(_vm.supplier, "name", $event.target.value)
+                            _vm.$set(_vm.branch, "name", $event.target.value)
                           }
                         }
                       }),
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.errors.has("Name"),
+                              expression: "errors.has('Name')"
+                            }
+                          ],
+                          staticClass: "help-block",
+                          attrs: { id: "error" }
+                        },
+                        [_vm._v(_vm._s(_vm.errors.first("Name")))]
+                      ),
                       _vm._v(" "),
                       _c("label", { attrs: { for: "input-none" } }, [
                         _vm._v("Select Province")
@@ -369608,32 +370333,62 @@ var render = function() {
                       _c(
                         "a-select",
                         {
+                          directives: [
+                            {
+                              name: "validate",
+                              rawName: "v-validate",
+                              value: "required",
+                              expression: "'required'"
+                            }
+                          ],
                           staticClass: "custom-select rounded-pill border-0",
+                          attrs: { name: "Province" },
+                          on: {
+                            change: function($event) {
+                              return _vm.changeProvince()
+                            }
+                          },
                           model: {
-                            value: _vm.supplier.province,
+                            value: _vm.branch.province,
                             callback: function($$v) {
-                              _vm.$set(_vm.supplier, "province", $$v)
+                              _vm.$set(_vm.branch, "province", $$v)
                             },
-                            expression: "supplier.province"
+                            expression: "branch.province"
                           }
                         },
                         [
                           _c(
                             "a-select-option",
-                            { attrs: { value: "-None-", selected: "" } },
+                            { attrs: { value: "", selected: "" } },
                             [_vm._v("-None-")]
                           ),
                           _vm._v(" "),
-                          _vm._l(_vm.supplier.provinces, function(
-                            s_province,
-                            index
-                          ) {
-                            return _c("a-select-option", { key: index }, [
-                              _vm._v(_vm._s(s_province))
-                            ])
+                          _vm._l(_vm.provinces, function(s_province, index) {
+                            return _c(
+                              "a-select-option",
+                              { key: index, attrs: { value: s_province.id } },
+                              [_vm._v(_vm._s(s_province.name))]
+                            )
                           })
                         ],
                         2
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.errors.has("Province"),
+                              expression: "errors.has('Province')"
+                            }
+                          ],
+                          staticClass: "help-block",
+                          attrs: { id: "error" }
+                        },
+                        [_vm._v(_vm._s(_vm.errors.first("Province")))]
                       ),
                       _vm._v(" "),
                       _c("label", { attrs: { for: "input-none" } }, [
@@ -369643,29 +370398,57 @@ var render = function() {
                       _c(
                         "a-select",
                         {
+                          directives: [
+                            {
+                              name: "validate",
+                              rawName: "v-validate",
+                              value: "required",
+                              expression: "'required'"
+                            }
+                          ],
                           staticClass: "custom-select rounded-pill border-0",
+                          attrs: { name: "City" },
                           model: {
-                            value: _vm.supplier.city,
+                            value: _vm.branch.city,
                             callback: function($$v) {
-                              _vm.$set(_vm.supplier, "city", $$v)
+                              _vm.$set(_vm.branch, "city", $$v)
                             },
-                            expression: "supplier.city"
+                            expression: "branch.city"
                           }
                         },
                         [
                           _c(
                             "a-select-option",
-                            { attrs: { value: "-None-", selected: "" } },
+                            { attrs: { value: "", selected: "" } },
                             [_vm._v("-None-")]
                           ),
                           _vm._v(" "),
-                          _vm._l(_vm.supplier.cities, function(s_city, index) {
-                            return _c("a-select-option", { key: index }, [
-                              _vm._v(_vm._s(s_city))
-                            ])
+                          _vm._l(_vm.filtered_cities, function(s_city, index) {
+                            return _c(
+                              "a-select-option",
+                              { key: index, attrs: { value: s_city.id } },
+                              [_vm._v(_vm._s(s_city.name))]
+                            )
                           })
                         ],
                         2
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.errors.has("City"),
+                              expression: "errors.has('City')"
+                            }
+                          ],
+                          staticClass: "help-block",
+                          attrs: { id: "error" }
+                        },
+                        [_vm._v(_vm._s(_vm.errors.first("City")))]
                       ),
                       _vm._v(" "),
                       _c("label", { attrs: { for: "input-none" } }, [
@@ -369675,28 +370458,47 @@ var render = function() {
                       _c("textarea", {
                         directives: [
                           {
+                            name: "validate",
+                            rawName: "v-validate",
+                            value: "required",
+                            expression: "'required'"
+                          },
+                          {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.supplier.address,
-                            expression: "supplier.address"
+                            value: _vm.branch.address,
+                            expression: "branch.address"
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { id: "info", name: "Info" },
-                        domProps: { value: _vm.supplier.address },
+                        attrs: { name: "Address", id: "info" },
+                        domProps: { value: _vm.branch.address },
                         on: {
                           input: function($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.$set(
-                              _vm.supplier,
-                              "address",
-                              $event.target.value
-                            )
+                            _vm.$set(_vm.branch, "address", $event.target.value)
                           }
                         }
-                      })
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.errors.has("Address"),
+                              expression: "errors.has('Address')"
+                            }
+                          ],
+                          staticClass: "help-block",
+                          attrs: { id: "error" }
+                        },
+                        [_vm._v(_vm._s(_vm.errors.first("Address")))]
+                      )
                     ],
                     1
                   ),
@@ -369720,32 +370522,55 @@ var render = function() {
                               _c("input", {
                                 directives: [
                                   {
+                                    name: "validate",
+                                    rawName: "v-validate",
+                                    value: "required|numeric",
+                                    expression: "'required|numeric'"
+                                  },
+                                  {
                                     name: "model",
                                     rawName: "v-model",
-                                    value: _vm.supplier.tel,
-                                    expression: "supplier.tel"
+                                    value: _vm.branch.tell,
+                                    expression: "branch.tell"
                                   }
                                 ],
                                 staticClass: "form-control rounded-pill",
                                 attrs: {
-                                  type: "tel",
-                                  id: "supplier-tel",
-                                  name: "supplierTel"
+                                  type: "tell",
+                                  id: "branch-tell",
+                                  name: "Tel"
                                 },
-                                domProps: { value: _vm.supplier.tel },
+                                domProps: { value: _vm.branch.tell },
                                 on: {
                                   input: function($event) {
                                     if ($event.target.composing) {
                                       return
                                     }
                                     _vm.$set(
-                                      _vm.supplier,
-                                      "tel",
+                                      _vm.branch,
+                                      "tell",
                                       $event.target.value
                                     )
                                   }
                                 }
                               }),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value: _vm.errors.has("Tel"),
+                                      expression: "errors.has('Tel')"
+                                    }
+                                  ],
+                                  staticClass: "help-block",
+                                  attrs: { id: "error" }
+                                },
+                                [_vm._v(_vm._s(_vm.errors.first("Tel")))]
+                              ),
                               _vm._v(" "),
                               _c("label", { attrs: { for: "input-none" } }, [
                                 _vm._v("Fax No.")
@@ -369756,24 +370581,24 @@ var render = function() {
                                   {
                                     name: "model",
                                     rawName: "v-model",
-                                    value: _vm.supplier.fax,
-                                    expression: "supplier.fax"
+                                    value: _vm.branch.fax,
+                                    expression: "branch.fax"
                                   }
                                 ],
                                 staticClass: "form-control rounded-pill",
                                 attrs: {
-                                  type: "tel",
-                                  id: "supplier-fax",
-                                  name: "supplierFax"
+                                  type: "tell",
+                                  id: "branch-fax",
+                                  name: "branchFax"
                                 },
-                                domProps: { value: _vm.supplier.fax },
+                                domProps: { value: _vm.branch.fax },
                                 on: {
                                   input: function($event) {
                                     if ($event.target.composing) {
                                       return
                                     }
                                     _vm.$set(
-                                      _vm.supplier,
+                                      _vm.branch,
                                       "fax",
                                       $event.target.value
                                     )
@@ -369785,7 +370610,7 @@ var render = function() {
                           _vm._v(" "),
                           _c(
                             "b-col",
-                            { staticClass: "pr-0", attrs: { sm: "5" } },
+                            { staticClass: "pr-0", attrs: { sm: "7" } },
                             [
                               _c("label", { attrs: { for: "input-none" } }, [
                                 _vm._v("Tax Number")
@@ -369794,26 +370619,32 @@ var render = function() {
                               _c("input", {
                                 directives: [
                                   {
+                                    name: "validate",
+                                    rawName: "v-validate",
+                                    value: "required|numeric",
+                                    expression: "'required|numeric'"
+                                  },
+                                  {
                                     name: "model",
                                     rawName: "v-model",
-                                    value: _vm.supplier.tax_number,
-                                    expression: "supplier.tax_number"
+                                    value: _vm.branch.tax_number,
+                                    expression: "branch.tax_number"
                                   }
                                 ],
                                 staticClass: "form-control rounded-pill",
                                 attrs: {
-                                  type: "number",
-                                  id: "supplier-tax-number",
-                                  name: "supplierTaxNumber"
+                                  type: "text",
+                                  id: "branch-tax-number",
+                                  name: "Tax Number"
                                 },
-                                domProps: { value: _vm.supplier.tax_number },
+                                domProps: { value: _vm.branch.tax_number },
                                 on: {
                                   input: function($event) {
                                     if ($event.target.composing) {
                                       return
                                     }
                                     _vm.$set(
-                                      _vm.supplier,
+                                      _vm.branch,
                                       "tax_number",
                                       $event.target.value
                                     )
@@ -369821,47 +370652,23 @@ var render = function() {
                                 }
                               }),
                               _vm._v(" "),
-                              _c("label", { attrs: { for: "input-none" } }, [
-                                _vm._v("Type")
-                              ]),
-                              _vm._v(" "),
                               _c(
-                                "a-select",
+                                "span",
                                 {
-                                  staticClass:
-                                    "custom-select rounded-pill border-0",
-                                  model: {
-                                    value: _vm.supplier.type,
-                                    callback: function($$v) {
-                                      _vm.$set(_vm.supplier, "type", $$v)
-                                    },
-                                    expression: "supplier.type"
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "a-select-option",
+                                  directives: [
                                     {
-                                      attrs: { value: "-None-", selected: "" }
-                                    },
-                                    [_vm._v("-None-")]
-                                  ),
-                                  _vm._v(" "),
-                                  _vm._l(_vm.supplier.types, function(
-                                    s_type,
-                                    index
-                                  ) {
-                                    return _c(
-                                      "a-select-option",
-                                      { key: index },
-                                      [_vm._v(_vm._s(s_type))]
-                                    )
-                                  })
-                                ],
-                                2
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value: _vm.errors.has("Tax Number"),
+                                      expression: "errors.has('Tax Number')"
+                                    }
+                                  ],
+                                  staticClass: "help-block",
+                                  attrs: { id: "error" }
+                                },
+                                [_vm._v(_vm._s(_vm.errors.first("Tax Number")))]
                               )
-                            ],
-                            1
+                            ]
                           ),
                           _vm._v(" "),
                           _c(
@@ -369877,24 +370684,24 @@ var render = function() {
                                   {
                                     name: "model",
                                     rawName: "v-model",
-                                    value: _vm.supplier.code,
-                                    expression: "supplier.code"
+                                    value: _vm.branch.code,
+                                    expression: "branch.code"
                                   }
                                 ],
                                 staticClass: "form-control rounded-pill",
                                 attrs: {
                                   type: "text",
-                                  id: "supplier-code",
-                                  name: "supplierCode"
+                                  id: "branch-code",
+                                  name: "branchCode"
                                 },
-                                domProps: { value: _vm.supplier.code },
+                                domProps: { value: _vm.branch.code },
                                 on: {
                                   input: function($event) {
                                     if ($event.target.composing) {
                                       return
                                     }
                                     _vm.$set(
-                                      _vm.supplier,
+                                      _vm.branch,
                                       "code",
                                       $event.target.value
                                     )
@@ -369909,41 +370716,64 @@ var render = function() {
                               _c(
                                 "a-select",
                                 {
+                                  directives: [
+                                    {
+                                      name: "validate",
+                                      rawName: "v-validate",
+                                      value: "required",
+                                      expression: "'required'"
+                                    }
+                                  ],
                                   staticClass:
                                     "custom-select rounded-pill border-0",
+                                  attrs: { name: "Status" },
                                   model: {
-                                    value: _vm.supplier.supplier_status,
+                                    value: _vm.branch.status,
                                     callback: function($$v) {
-                                      _vm.$set(
-                                        _vm.supplier,
-                                        "supplier_status",
-                                        $$v
-                                      )
+                                      _vm.$set(_vm.branch, "status", $$v)
                                     },
-                                    expression: "supplier.supplier_status"
+                                    expression: "branch.status"
                                   }
                                 },
                                 [
                                   _c(
                                     "a-select-option",
-                                    {
-                                      attrs: { value: "-None-", selected: "" }
-                                    },
+                                    { attrs: { value: "", selected: "" } },
                                     [_vm._v("-None-")]
                                   ),
                                   _vm._v(" "),
-                                  _vm._l(
-                                    _vm.supplier.supplier_statuses,
-                                    function(s_status, index) {
-                                      return _c(
-                                        "a-select-option",
-                                        { key: index },
-                                        [_vm._v(_vm._s(s_status))]
-                                      )
-                                    }
-                                  )
+                                  _vm._l(_vm.branch_statuses, function(
+                                    s_status,
+                                    index
+                                  ) {
+                                    return _c(
+                                      "a-select-option",
+                                      {
+                                        key: index,
+                                        attrs: { value: s_status.id }
+                                      },
+                                      [_vm._v(_vm._s(s_status.value))]
+                                    )
+                                  })
                                 ],
                                 2
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value: _vm.errors.has("Status"),
+                                      expression: "errors.has('Status')"
+                                    }
+                                  ],
+                                  staticClass: "help-block",
+                                  attrs: { id: "error" }
+                                },
+                                [_vm._v(_vm._s(_vm.errors.first("Status")))]
                               )
                             ],
                             1
@@ -369965,7 +370795,10 @@ var render = function() {
                   [
                     _c(
                       "b-button",
-                      { staticClass: "btn btn-default my-0 ml-0" },
+                      {
+                        staticClass: "btn btn-default my-0 ml-0",
+                        on: { click: _vm.cancelCreate }
+                      },
                       [_vm._v("Cancel")]
                     )
                   ],
@@ -369980,7 +370813,8 @@ var render = function() {
                       "b-button",
                       {
                         staticClass:
-                          "btn btn-primary font-weight-bold my-0 mr-0"
+                          "btn btn-primary font-weight-bold my-0 mr-0",
+                        on: { click: _vm.createCompany }
                       },
                       [_vm._v("Save")]
                     )
@@ -371064,20 +371898,24 @@ var render = function() {
             {
               staticClass: "ml-0",
               class: {
-                active: _vm.active_module_name === "branches" ? true : false
+                active: _vm.active_module_name === "companies" ? true : false
               },
               attrs: { href: "#" },
               on: {
                 click: function($event) {
-                  return _vm.showModulePreferences("branches", "branches", null)
+                  return _vm.showModulePreferences(
+                    "companies",
+                    "companies",
+                    null
+                  )
                 }
               }
             },
-            [_vm._v("Branches")]
+            [_vm._v("Companies")]
           )
         ]),
         _vm._v(" "),
-        _c("li", { staticClass: "item", staticStyle: {} }, [
+        _c("li", { staticClass: "item" }, [
           _c(
             "a",
             {
@@ -371123,15 +371961,54 @@ var render = function() {
           _vm.show_page_loader ? _c("vcl-table") : _vm._e(),
           _vm._v(" "),
           !_vm.show_page_loader && _vm.active_module_name == "branches"
-            ? _c("div", { staticClass: "branches" }, [_c("branch-index")], 1)
+            ? _c(
+                "div",
+                { staticClass: "branches" },
+                [
+                  _c("branch-index", {
+                    attrs: {
+                      provinces: _vm.provinces,
+                      cities: _vm.cities,
+                      company_types: _vm.company_types
+                    }
+                  })
+                ],
+                1
+              )
             : _vm._e(),
           _vm._v(" "),
           !_vm.show_page_loader && _vm.active_module_name == "products"
-            ? _c("div", { staticClass: "products" }, [_c("product-index")], 1)
+            ? _c(
+                "div",
+                { staticClass: "products" },
+                [
+                  _c("product-index", {
+                    attrs: {
+                      provinces: _vm.provinces,
+                      cities: _vm.cities,
+                      company_types: _vm.company_types
+                    }
+                  })
+                ],
+                1
+              )
             : _vm._e(),
           _vm._v(" "),
           !_vm.show_page_loader && _vm.active_module_name == "orders"
-            ? _c("div", { staticClass: "orders" }, [_c("order-index")], 1)
+            ? _c(
+                "div",
+                { staticClass: "orders" },
+                [
+                  _c("order-index", {
+                    attrs: {
+                      provinces: _vm.provinces,
+                      cities: _vm.cities,
+                      company_types: _vm.company_types
+                    }
+                  })
+                ],
+                1
+              )
             : _vm._e()
         ],
         1
@@ -386627,125 +387504,767 @@ var render = function() {
               staticClass:
                 "row mx-0 pb-5 justify-content-between top-section agent-stats-1"
             },
-            _vm._l(_vm.item_custom_fields, function(custom_field, index) {
+            _vm._l(_vm.module_item.item_meta, function(item, name, i) {
               return _c(
                 "div",
-                { key: index, staticClass: "col-6" },
-                _vm._l(_vm.module_item.item_meta, function(item, name, i) {
-                  return _c("div", { key: i, staticClass: "2" }, [
-                    item.custom_field_id == custom_field.id
-                      ? _c("div", { staticClass: "inner-div" }, [
-                          item.custom_field_name == "source" &&
-                          item.custom_field_value !== null
-                            ? _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "row mx-0 border-top-grey align-items-center"
-                                },
-                                [
-                                  _c(
-                                    "div",
-                                    { staticClass: "col-4 p10-25 top" },
-                                    [
-                                      _c("p", { staticClass: "top" }, [
-                                        _vm._v(
-                                          _vm._s(custom_field.display_name)
-                                        )
-                                      ])
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
+                { key: i, staticClass: "col-6" },
+                _vm._l(_vm.item_custom_fields, function(custom_field, index) {
+                  return item.custom_field_id == custom_field.id
+                    ? _c("div", { key: index, staticClass: "2" }, [
+                        item.custom_field_id == custom_field.id &&
+                        item.custom_field_value !== null
+                          ? _c("div", { staticClass: "inner-div" }, [
+                              item.custom_field_name == "source"
+                                ? _c(
                                     "div",
                                     {
                                       staticClass:
-                                        "col-8 bottom truncate border-left-grey"
+                                        "row mx-0 border-top-grey align-items-center"
                                     },
                                     [
                                       _c(
-                                        "select",
+                                        "div",
+                                        { staticClass: "col-4 p10-25 top" },
+                                        [
+                                          _c("p", { staticClass: "top" }, [
+                                            _vm._v(
+                                              _vm._s(custom_field.display_name)
+                                            )
+                                          ])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
                                         {
-                                          directives: [
-                                            {
-                                              name: "model",
-                                              rawName: "v-model",
-                                              value: item.custom_field_value,
-                                              expression:
-                                                "item.custom_field_value"
-                                            }
-                                          ],
                                           staticClass:
-                                            "form-control editable border-0",
-                                          attrs: {
-                                            type: "text",
-                                            id: "Source",
-                                            name: "Source"
-                                          },
-                                          on: {
-                                            change: [
-                                              function($event) {
-                                                var $$selectedVal = Array.prototype.filter
-                                                  .call(
-                                                    $event.target.options,
-                                                    function(o) {
-                                                      return o.selected
-                                                    }
-                                                  )
-                                                  .map(function(o) {
-                                                    var val =
-                                                      "_value" in o
-                                                        ? o._value
-                                                        : o.value
-                                                    return val
-                                                  })
-                                                _vm.$set(
-                                                  item,
-                                                  "custom_field_value",
-                                                  $event.target.multiple
-                                                    ? $$selectedVal
-                                                    : $$selectedVal[0]
-                                                )
-                                              },
-                                              function($event) {
-                                                return _vm.submitEdit(
-                                                  _vm.item_field
-                                                )
-                                              }
-                                            ]
-                                          }
+                                            "col-8 bottom truncate border-left-grey"
                                         },
                                         [
                                           _c(
-                                            "option",
-                                            { domProps: { value: null } },
-                                            [_vm._v("- None -")]
-                                          ),
-                                          _vm._v(" "),
-                                          _vm._l(_vm.sources, function(
-                                            item,
-                                            index
-                                          ) {
-                                            return _c(
-                                              "option",
-                                              {
-                                                key: index,
-                                                domProps: { value: item.id }
+                                            "select",
+                                            {
+                                              directives: [
+                                                {
+                                                  name: "model",
+                                                  rawName: "v-model",
+                                                  value:
+                                                    item.custom_field_value,
+                                                  expression:
+                                                    "item.custom_field_value"
+                                                }
+                                              ],
+                                              staticClass:
+                                                "form-control editable border-0",
+                                              attrs: {
+                                                type: "text",
+                                                id: "Source",
+                                                name: "Source"
                                               },
-                                              [_vm._v(_vm._s(item.name))]
-                                            )
-                                          })
-                                        ],
-                                        2
+                                              on: {
+                                                change: [
+                                                  function($event) {
+                                                    var $$selectedVal = Array.prototype.filter
+                                                      .call(
+                                                        $event.target.options,
+                                                        function(o) {
+                                                          return o.selected
+                                                        }
+                                                      )
+                                                      .map(function(o) {
+                                                        var val =
+                                                          "_value" in o
+                                                            ? o._value
+                                                            : o.value
+                                                        return val
+                                                      })
+                                                    _vm.$set(
+                                                      item,
+                                                      "custom_field_value",
+                                                      $event.target.multiple
+                                                        ? $$selectedVal
+                                                        : $$selectedVal[0]
+                                                    )
+                                                  },
+                                                  function($event) {
+                                                    return _vm.submitEdit(
+                                                      _vm.item_field
+                                                    )
+                                                  }
+                                                ]
+                                              }
+                                            },
+                                            [
+                                              _c(
+                                                "option",
+                                                { domProps: { value: null } },
+                                                [_vm._v("- None -")]
+                                              ),
+                                              _vm._v(" "),
+                                              _vm._l(_vm.sources, function(
+                                                item,
+                                                index
+                                              ) {
+                                                return _c(
+                                                  "option",
+                                                  {
+                                                    key: index,
+                                                    domProps: { value: item.id }
+                                                  },
+                                                  [_vm._v(_vm._s(item.name))]
+                                                )
+                                              })
+                                            ],
+                                            2
+                                          )
+                                        ]
                                       )
                                     ]
                                   )
-                                ]
-                              )
-                            : _vm._e()
-                        ])
-                      : _vm._e()
-                  ])
+                                : item.custom_field_name == "product" &&
+                                  item.custom_field_value !== null
+                                ? _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "row mx-0 border-top-grey align-items-center"
+                                    },
+                                    [
+                                      _c(
+                                        "div",
+                                        { staticClass: "col-4 p10-25 top" },
+                                        [
+                                          _c("p", { staticClass: "top" }, [
+                                            _vm._v(
+                                              _vm._s(custom_field.display_name)
+                                            )
+                                          ])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "col-8 bottom truncate border-left-grey"
+                                        },
+                                        [
+                                          _c(
+                                            "select",
+                                            {
+                                              directives: [
+                                                {
+                                                  name: "model",
+                                                  rawName: "v-model",
+                                                  value:
+                                                    item.custom_field_value,
+                                                  expression:
+                                                    "item.custom_field_value"
+                                                }
+                                              ],
+                                              staticClass:
+                                                "form-control editable border-0",
+                                              attrs: {
+                                                type: "text",
+                                                id: "Source",
+                                                name: "Source"
+                                              },
+                                              on: {
+                                                change: [
+                                                  function($event) {
+                                                    var $$selectedVal = Array.prototype.filter
+                                                      .call(
+                                                        $event.target.options,
+                                                        function(o) {
+                                                          return o.selected
+                                                        }
+                                                      )
+                                                      .map(function(o) {
+                                                        var val =
+                                                          "_value" in o
+                                                            ? o._value
+                                                            : o.value
+                                                        return val
+                                                      })
+                                                    _vm.$set(
+                                                      item,
+                                                      "custom_field_value",
+                                                      $event.target.multiple
+                                                        ? $$selectedVal
+                                                        : $$selectedVal[0]
+                                                    )
+                                                  },
+                                                  function($event) {
+                                                    return _vm.submitEdit(
+                                                      _vm.item_field
+                                                    )
+                                                  }
+                                                ]
+                                              }
+                                            },
+                                            [
+                                              _c(
+                                                "option",
+                                                { domProps: { value: null } },
+                                                [_vm._v("- None -")]
+                                              ),
+                                              _vm._v(" "),
+                                              _vm._l(_vm.packages, function(
+                                                item,
+                                                index
+                                              ) {
+                                                return _c(
+                                                  "option",
+                                                  {
+                                                    key: index,
+                                                    domProps: { value: item.id }
+                                                  },
+                                                  [_vm._v(_vm._s(item.name))]
+                                                )
+                                              })
+                                            ],
+                                            2
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : item.custom_field_name == "owner" ||
+                                  (item.custom_field_name == "assignee" &&
+                                    item.custom_field_value !== null)
+                                ? _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "row mx-0 border-let-grey align-items-center"
+                                    },
+                                    [
+                                      _c(
+                                        "div",
+                                        { staticClass: "col-4 p10-25 top" },
+                                        [
+                                          _c("p", { staticClass: "top" }, [
+                                            _vm._v(
+                                              _vm._s(custom_field.display_name)
+                                            )
+                                          ])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "col-8 bottom truncate border-left-grey"
+                                        },
+                                        [
+                                          _c(
+                                            "select",
+                                            {
+                                              directives: [
+                                                {
+                                                  name: "model",
+                                                  rawName: "v-model",
+                                                  value:
+                                                    item.custom_field_value,
+                                                  expression:
+                                                    "item.custom_field_value"
+                                                }
+                                              ],
+                                              staticClass:
+                                                "form-control editable border-0",
+                                              attrs: {
+                                                type: "text",
+                                                id: "Source",
+                                                name: "Source"
+                                              },
+                                              on: {
+                                                change: [
+                                                  function($event) {
+                                                    var $$selectedVal = Array.prototype.filter
+                                                      .call(
+                                                        $event.target.options,
+                                                        function(o) {
+                                                          return o.selected
+                                                        }
+                                                      )
+                                                      .map(function(o) {
+                                                        var val =
+                                                          "_value" in o
+                                                            ? o._value
+                                                            : o.value
+                                                        return val
+                                                      })
+                                                    _vm.$set(
+                                                      item,
+                                                      "custom_field_value",
+                                                      $event.target.multiple
+                                                        ? $$selectedVal
+                                                        : $$selectedVal[0]
+                                                    )
+                                                  },
+                                                  function($event) {
+                                                    return _vm.submitEdit(
+                                                      _vm.item_field
+                                                    )
+                                                  }
+                                                ]
+                                              }
+                                            },
+                                            [
+                                              _c(
+                                                "option",
+                                                { domProps: { value: null } },
+                                                [_vm._v("- None -")]
+                                              ),
+                                              _vm._v(" "),
+                                              _vm._l(_vm.active_users, function(
+                                                item,
+                                                index
+                                              ) {
+                                                return _c(
+                                                  "option",
+                                                  {
+                                                    key: index,
+                                                    domProps: { value: item.id }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      _vm._s(
+                                                        item.name +
+                                                          " " +
+                                                          item.lastname
+                                                      )
+                                                    )
+                                                  ]
+                                                )
+                                              })
+                                            ],
+                                            2
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : item.custom_field_name == "status" &&
+                                  item.custom_field_value !== null
+                                ? _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "row mx-0 border-let-grey align-items-center"
+                                    },
+                                    [
+                                      _c(
+                                        "div",
+                                        { staticClass: "col-4 p10-25 top" },
+                                        [
+                                          _c("p", { staticClass: "top" }, [
+                                            _vm._v(
+                                              _vm._s(custom_field.display_name)
+                                            )
+                                          ])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "col-8 bottom truncate border-left-grey"
+                                        },
+                                        [
+                                          _c(
+                                            "select",
+                                            {
+                                              directives: [
+                                                {
+                                                  name: "model",
+                                                  rawName: "v-model",
+                                                  value:
+                                                    item.custom_field_value,
+                                                  expression:
+                                                    "item.custom_field_value"
+                                                }
+                                              ],
+                                              staticClass:
+                                                "form-control editable border-0",
+                                              attrs: {
+                                                type: "text",
+                                                id: "Source",
+                                                name: "Source"
+                                              },
+                                              on: {
+                                                change: [
+                                                  function($event) {
+                                                    var $$selectedVal = Array.prototype.filter
+                                                      .call(
+                                                        $event.target.options,
+                                                        function(o) {
+                                                          return o.selected
+                                                        }
+                                                      )
+                                                      .map(function(o) {
+                                                        var val =
+                                                          "_value" in o
+                                                            ? o._value
+                                                            : o.value
+                                                        return val
+                                                      })
+                                                    _vm.$set(
+                                                      item,
+                                                      "custom_field_value",
+                                                      $event.target.multiple
+                                                        ? $$selectedVal
+                                                        : $$selectedVal[0]
+                                                    )
+                                                  },
+                                                  function($event) {
+                                                    return _vm.submitEdit(
+                                                      _vm.item_field
+                                                    )
+                                                  }
+                                                ]
+                                              }
+                                            },
+                                            [
+                                              _c(
+                                                "option",
+                                                { domProps: { value: null } },
+                                                [_vm._v("- None -")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "1" } },
+                                                [_vm._v("Active")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "2" } },
+                                                [_vm._v("Inactive")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "3" } },
+                                                [_vm._v("Canceled")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "0" } },
+                                                [_vm._v("Disabled")]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : item.custom_field_name == "title" &&
+                                  item.custom_field_value !== null
+                                ? _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "row mx-0 border-let-grey align-items-center"
+                                    },
+                                    [
+                                      _c(
+                                        "div",
+                                        { staticClass: "col-4 p10-25 top" },
+                                        [
+                                          _c("p", { staticClass: "top" }, [
+                                            _vm._v(
+                                              _vm._s(custom_field.display_name)
+                                            )
+                                          ])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "col-8 bottom truncate border-left-grey"
+                                        },
+                                        [
+                                          _c(
+                                            "select",
+                                            {
+                                              directives: [
+                                                {
+                                                  name: "model",
+                                                  rawName: "v-model",
+                                                  value:
+                                                    item.custom_field_value,
+                                                  expression:
+                                                    "item.custom_field_value"
+                                                }
+                                              ],
+                                              staticClass:
+                                                "form-control editable border-0",
+                                              attrs: {
+                                                type: "text",
+                                                id: "Source",
+                                                name: "Source"
+                                              },
+                                              on: {
+                                                change: [
+                                                  function($event) {
+                                                    var $$selectedVal = Array.prototype.filter
+                                                      .call(
+                                                        $event.target.options,
+                                                        function(o) {
+                                                          return o.selected
+                                                        }
+                                                      )
+                                                      .map(function(o) {
+                                                        var val =
+                                                          "_value" in o
+                                                            ? o._value
+                                                            : o.value
+                                                        return val
+                                                      })
+                                                    _vm.$set(
+                                                      item,
+                                                      "custom_field_value",
+                                                      $event.target.multiple
+                                                        ? $$selectedVal
+                                                        : $$selectedVal[0]
+                                                    )
+                                                  },
+                                                  function($event) {
+                                                    return _vm.submitEdit(
+                                                      _vm.item_field
+                                                    )
+                                                  }
+                                                ]
+                                              }
+                                            },
+                                            [
+                                              _c(
+                                                "option",
+                                                { domProps: { value: null } },
+                                                [_vm._v("- None -")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "Dr" } },
+                                                [_vm._v("Dr")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "Mr" } },
+                                                [_vm._v("Mr")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "Mrs" } },
+                                                [_vm._v("Mrs")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "Miss" } },
+                                                [_vm._v("Miss")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "Prof" } },
+                                                [_vm._v("Prof")]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : item.custom_field_name == "gender" &&
+                                  item.custom_field_value !== null
+                                ? _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "row mx-0 border-let-grey align-items-center"
+                                    },
+                                    [
+                                      _c(
+                                        "div",
+                                        { staticClass: "col-4 p10-25 top" },
+                                        [
+                                          _c("p", { staticClass: "top" }, [
+                                            _vm._v(
+                                              _vm._s(custom_field.display_name)
+                                            )
+                                          ])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "col-8 bottom truncate border-left-grey"
+                                        },
+                                        [
+                                          _c(
+                                            "select",
+                                            {
+                                              directives: [
+                                                {
+                                                  name: "model",
+                                                  rawName: "v-model",
+                                                  value:
+                                                    item.custom_field_value,
+                                                  expression:
+                                                    "item.custom_field_value"
+                                                }
+                                              ],
+                                              staticClass:
+                                                "form-control editable border-0",
+                                              attrs: {
+                                                type: "text",
+                                                id: "Source",
+                                                name: "Source"
+                                              },
+                                              on: {
+                                                change: [
+                                                  function($event) {
+                                                    var $$selectedVal = Array.prototype.filter
+                                                      .call(
+                                                        $event.target.options,
+                                                        function(o) {
+                                                          return o.selected
+                                                        }
+                                                      )
+                                                      .map(function(o) {
+                                                        var val =
+                                                          "_value" in o
+                                                            ? o._value
+                                                            : o.value
+                                                        return val
+                                                      })
+                                                    _vm.$set(
+                                                      item,
+                                                      "custom_field_value",
+                                                      $event.target.multiple
+                                                        ? $$selectedVal
+                                                        : $$selectedVal[0]
+                                                    )
+                                                  },
+                                                  function($event) {
+                                                    return _vm.submitEdit(
+                                                      _vm.item_field
+                                                    )
+                                                  }
+                                                ]
+                                              }
+                                            },
+                                            [
+                                              _c(
+                                                "option",
+                                                { domProps: { value: null } },
+                                                [_vm._v("- None -")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "Male" } },
+                                                [_vm._v("Male")]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "option",
+                                                { attrs: { value: "Female" } },
+                                                [_vm._v("Female")]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : item.custom_field_name != "source" &&
+                                  item.custom_field_name != "product" &&
+                                  item.custom_field_name != "owner" &&
+                                  item.custom_field_name != "assignee" &&
+                                  item.custom_field_name != "status" &&
+                                  item.custom_field_name != "title" &&
+                                  item.custom_field_name != "gender"
+                                ? _c(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "row mx-0 border-let-grey align-items-center"
+                                    },
+                                    [
+                                      _c(
+                                        "div",
+                                        { staticClass: "col-4 p10-25 top" },
+                                        [
+                                          _c("p", { staticClass: "top" }, [
+                                            _vm._v(
+                                              _vm._s(custom_field.display_name)
+                                            )
+                                          ])
+                                        ]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "col-8 bottom truncate border-left-grey"
+                                        },
+                                        [
+                                          _c("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: item.custom_field_value,
+                                                expression:
+                                                  "item.custom_field_value"
+                                              }
+                                            ],
+                                            staticClass:
+                                              "bottom mb-0 form-control border-0",
+                                            attrs: {
+                                              type: "text",
+                                              name: "itemName"
+                                            },
+                                            domProps: {
+                                              value: item.custom_field_value
+                                            },
+                                            on: {
+                                              input: function($event) {
+                                                if ($event.target.composing) {
+                                                  return
+                                                }
+                                                _vm.$set(
+                                                  item,
+                                                  "custom_field_value",
+                                                  $event.target.value
+                                                )
+                                              }
+                                            }
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : _vm._e()
+                            ])
+                          : _vm._e()
+                      ])
+                    : _vm._e()
                 }),
                 0
               )

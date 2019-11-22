@@ -890,12 +890,13 @@ a.down-scroll:hover {
     <!-- General Section Starts --> 
     <div class="general-section-stats" v-if="general == true"> 
       <div class="row mx-0 pb-5 justify-content-between top-section agent-stats-1"> 
-        <div class="col-6" v-for="(custom_field, index) in item_custom_fields" :key="index">  
-          <div class="2" v-for="(item, name, i) in module_item.item_meta" :key="i">  
-            <div class="inner-div" v-if="item.custom_field_id == custom_field.id">  
+        <div class="col-6" v-for="(item, name, i) in module_item.item_meta" :key="i">  
+          <div class="2" v-for="(custom_field, index) in item_custom_fields" :key="index"  v-if="item.custom_field_id == custom_field.id">  
+            <div class="inner-div" v-if="item.custom_field_id == custom_field.id && item.custom_field_value !== null">  
+              
               <div  
                 class="row mx-0 border-top-grey align-items-center"  
-                v-if="item.custom_field_name == 'source' && item.custom_field_value !== null"  
+                v-if="item.custom_field_name == 'source' "  
               >  
                 <div class="col-4 p10-25 top">  
                   <p class="top">{{ custom_field.display_name }}</p>  
@@ -918,152 +919,153 @@ a.down-scroll:hover {
                     </select>
                 </div>  
               </div>  
-              
-              <!-- Yong <div  
+              <div  
                 class="row mx-0 border-top-grey align-items-center"  
-                v-else-if="name == 'product' && item.meta_value !== null"  
+                v-else-if="item.custom_field_name == 'product' && item.custom_field_value !== null"  
               >  
                 <div class="col-4 p10-25 top">  
                   <p class="top">{{ custom_field.display_name }}</p>  
                 </div>  
-                <div class="col-8 border-left-grey bottom truncate">  
-                  <input
-                    v-model="item.meta_value.name"
-                    type="text"
-                    name="itemName"
-                    class="bottom mb-0 form-control border-0"
-                  />
+                <div class="col-8 bottom truncate border-left-grey">    
+                    <select 
+                      @change="submitEdit(item_field)"
+                      type="text" 
+                      id="Source"  
+                      name="Source" 
+                      v-model="item.custom_field_value"  
+                      class="form-control editable border-0"
+                    >
+                      <option :value="null">- None -</option>
+                      <option :value="item.id" v-for="(item,index) in packages" :key="index">{{ item.name }}</option>
+                    </select>
+                </div>  
+              </div>
+              <div  
+                class="row mx-0 border-let-grey align-items-center"  
+                v-else-if="item.custom_field_name == 'owner' || item.custom_field_name == 'assignee' && item.custom_field_value !== null"  
+              >  
+                <div class="col-4 p10-25 top">  
+                  <p class="top">{{ custom_field.display_name }}</p>  
+                </div>  
+                <div class="col-8 bottom truncate border-left-grey">    
+                    <select 
+                      @change="submitEdit(item_field)"
+                      type="text" 
+                      id="Source"  
+                      name="Source" 
+                      v-model="item.custom_field_value"  
+                      class="form-control editable border-0"
+                    >
+                      <option :value="null">- None -</option>
+                      <option 
+                        :value="item.id" 
+                        v-for="(item,index) in active_users" 
+                        :key="index"
+                      >{{ item.name + ' ' + item.lastname }}</option>
+                    </select>
                 </div>  
               </div> 
-
               <div  
-                class="row mx-0 border-top-grey align-items-center"  
-                v-else-if="(name == 'assignee' || name == 'owner') && item.meta_value !== null"  
+                class="row mx-0 border-let-grey align-items-center"  
+                v-else-if="item.custom_field_name == 'status' && item.custom_field_value !== null"  
               >  
-                <div class="col-4 border-right-grey p10-25 top">  
+                <div class="col-4 p10-25 top">  
                   <p class="top">{{ custom_field.display_name }}</p>  
                 </div>  
-                <div class="col-8 border-left-grey bottom truncate">  
-                  <input
-                    v-model="item.meta_value.name + ' ' + item.meta_value.surname"
-                    type="text"
-                    name="itemName"
-                    class="bottom mb-0 form-control border-0"
-                  />
+                <div class="col-8 bottom truncate border-left-grey">    
+                    <select 
+                      @change="submitEdit(item_field)"
+                      type="text" 
+                      id="Source"  
+                      name="Source" 
+                      v-model="item.custom_field_value"  
+                      class="form-control editable border-0"
+                    >
+                      <option :value="null">- None -</option>
+                      <option value="1">Active</option>
+                      <option value="2">Inactive</option>
+                      <option value="3">Canceled</option>
+                      <option value="0">Disabled</option>
+                    </select>
                 </div>  
-              </div>  
+              </div>    
+              
               <div  
-                class="row mx-0 border-top-grey truncate align-items-center"  
-                v-else-if="name == 'email' && item.meta_value !== null"  
+                class="row mx-0 border-let-grey align-items-center"  
+                v-else-if="item.custom_field_name == 'title' && item.custom_field_value !== null"  
               >  
-                <div class="col-4 border-right-grey p10-25 top">  
+                <div class="col-4 p10-25 top">  
                   <p class="top">{{ custom_field.display_name }}</p>  
                 </div>  
-                <div class="col-8 bottom truncate border-left-grey">  
+                <div class="col-8 bottom truncate border-left-grey">    
+                    <select 
+                      @change="submitEdit(item_field)"
+                      type="text" 
+                      id="Source"  
+                      name="Source" 
+                      v-model="item.custom_field_value"  
+                      class="form-control editable border-0"
+                    >
+                      <option :value="null">- None -</option>
+                      <option value="Dr">Dr</option>
+                      <option value="Mr">Mr</option>
+                      <option value="Mrs">Mrs</option>
+                      <option value="Miss">Miss</option>
+                      <option value="Prof">Prof</option>
+                    </select>
+                </div>  
+              </div>    
+              
+              <div  
+                class="row mx-0 border-let-grey align-items-center"  
+                v-else-if="item.custom_field_name == 'gender' && item.custom_field_value !== null"  
+              >  
+                <div class="col-4 p10-25 top">  
+                  <p class="top">{{ custom_field.display_name }}</p>  
+                </div>  
+                <div class="col-8 bottom truncate border-left-grey">    
+                    <select 
+                      @change="submitEdit(item_field)"
+                      type="text" 
+                      id="Source"  
+                      name="Source" 
+                      v-model="item.custom_field_value"  
+                      class="form-control editable border-0"
+                    >
+                      <option :value="null">- None -</option>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                    </select>
+                </div>  
+              </div>    
+              
+              <div  
+                class="row mx-0 border-let-grey align-items-center"  
+                v-else-if="item.custom_field_name != 'source'
+                          && item.custom_field_name != 'product'
+                          && item.custom_field_name != 'owner'
+                          && item.custom_field_name != 'assignee'
+                          && item.custom_field_name != 'status'
+                          && item.custom_field_name != 'title'
+                          && item.custom_field_name != 'gender'"
+              >  
+                <div class="col-4 p10-25 top">  
+                  <p class="top">{{ custom_field.display_name }}</p>  
+                </div>  
+                <div class="col-8 bottom truncate border-left-grey"> 
                   <input
-                    v-model="item.meta_value"
+                    v-model="item.custom_field_value"
                     type="text"
                     name="itemName"
                     class="bottom mb-0 form-control border-0"
-                  /> 
+                  />     
                 </div>  
-              </div>  
-
-              <div class="row mx-0 border-top-grey align-items-center" v-else>  
-                <div class="col-4 border-right-grey p10-25 top">  
-                  <p class="top">{{ custom_field.display_name }}</p>  
-                </div>  
-                <div class="col-8 bottom truncate border-left-grey">  
-                  <input
-                    v-model="item.meta_value"
-                    type="text"
-                    name="itemName"
-                    class="bottom mb-0 form-control border-0"
-                  />  
-                </div> 
-              </div> Yong -->
+              </div>    
             </div> 
           </div> 
         </div> 
       </div> 
- 
-      <!-- <div class="card-deck client-details mx-0"> 
-        <div class="card border-0 mb-0 ml-0 client"> 
-          <div class="card-body"> 
-            <h5 class="card-title"> 
-              <img src="/images/workstation/D_A@4x.png" alt="Client Icon" class="icon" /> 
-              Client 
-            </h5> 
-            <p 
-              class="card-text truncate mb-2" 
-              :title="module_item.name.meta_value + ' ' + module_item.surname.meta_value" 
-            >{{ module_item.name.meta_value + ' ' + module_item.surname.meta_value }}</p> 
-            <div class="truncate w-100"> 
-              <p 
-                v-if="module_item.age.meta_value" 
-                class="card-link d-inline border-right border-white pb-3 pr-3" 
-              >{{ module_item.age.meta_value }}</p> 
-              <p 
-                v-if="module_item.country.meta_value" 
-                class="card-link d-inline border-right border-white ml-0 pb-3 px-3" 
-              >{{ module_item.country.meta_value }}</p> 
-              <p 
-                v-if="module_item.city.meta_value" 
-                class="card-link d-inline ml-0 pb-3 pl-3" 
-              >{{ module_item.city.meta_value }}</p> 
-            </div> 
-          </div> 
-        </div> 
- 
-        <div class="card border-0 product mb-0"> 
-          <div class="card-body"> 
-            <h5 class="card-title"> 
-              <img src="/images/workstation/Stock_Icon@4x.png" alt="Product Icon" class="icon" /> 
-              Product 
-            </h5> 
-            <p 
-              class="card-text truncate mb-2" 
-              :title="module_item.product.meta_value.description + '. ' + module_item.product.meta_value.price " 
-            >{{ module_item.product.meta_value.name }}</p> 
-            <p 
-              class="card-link truncate w-100 mb-0" 
-              :title="module_item.product.meta_value.description + '. ' + module_item.product.meta_value.currency + module_item.product.meta_value.price" 
-            >{{ module_item.product.meta_value.description + '. ' + module_item.product.meta_value.currency + module_item.product.meta_value.price }}</p> 
-          </div> 
-        </div> 
- 
-        <div class="card border-0 mb-0 activity"> 
-          <div class="card-body"> 
-            <h5 class="card-title"> 
-              <img src="/images/workstation/S_A@4x.png" alt="Last called Icon" class="icon" /> 
-              Last Called by 
-            </h5> 
-            <p class="card-text mb-2">John Hill</p> 
-            <p class="card-link mb-0">21-05-2019</p> 
-          </div> 
-        </div> 
- 
-        <div class="card border-0 mb-0 mr-0 time"> 
-          <div class="card-body"> 
-            <h5 class="card-title"> 
-              <img src="/images/workstation/Time_Icon@4x.png" alt="Time Icon" class="icon" /> 
-              Time 
-            </h5> 
-            <p class="card-text mb-2">11:20</p> 
-            <div class="truncate"> 
-              <p 
-                v-if="module_item.city.meta_value" 
-                class="card-link d-inline border-right border-white pb-3 pr-3" 
-              >{{ module_item.city.meta_value }}</p> 
-              <p 
-                v-if="module_item.country.meta_value" 
-                class="card-link d-inline ml-0 pb-3 pl-3" 
-              >{{ module_item.country.meta_value }}</p> 
-            </div> 
-          </div> 
-        </div> 
-      </div>  -->
- 
+
       <div class="stats final-modal"> 
         <div class="card-deck mx-0 mb-0"> 
           <div class="card mt-3 border-0 shadow-none mr-4 ml-0 tab-card"> 
@@ -2118,6 +2120,10 @@ export default {
     vm.item_custom_fields = JSON.parse(vm.custom_fields); 
 
     vm.sources = JSON.parse(vm.lead_sources);  
+
+    vm.packages = JSON.parse(vm.lead_packages);
+
+    vm.active_users = JSON.parse(vm.current_users);  
   
     if (vm.item_id != "") {  
       vm.enqueueLead(vm.item_id);  
@@ -2203,12 +2209,16 @@ export default {
     "role_id",  
     "item_id",  
     "lead_sources",  
+    "lead_packages",  
+    "current_users",  
     "auto_dialer_settings",  
     "custom_fields"  
   ],  
   data: function() {  
     return {  
       sources: {},  
+      active_users: {},  
+      packages: {},  
       module_item: {},  
       conferences: [],  
       item_custom_fields: {},  
@@ -2394,7 +2404,7 @@ export default {
   },  
   computed: {  
     rows() {  
-      return this.activityItems.length;  
+      // return this.activityItems.length;  
     }  
   },  
   methods: {
@@ -2727,8 +2737,8 @@ export default {
   
       axios.get(end_point_choice).then(function(response) {  
         if (response.data.success == true) {  
-          vm.module_item = response.data.item;  
-  
+          vm.module_item = response.data.item; 
+
           Fire.$emit("AfterLeadEnqueue", {  
             lead_id: vm.module_item.id,  
             contact_number: vm.module_item.phone_number  
@@ -2753,7 +2763,23 @@ export default {
           );  
         }  
       });  
-    },  
+    },
+    submitEdit(item_field){
+      var vm = this;
+      
+      vm.$Progress.start();
+
+      axios.post('/modules/update-item-field',item_field).then(function (response) {
+              
+          if(response.data.success == true){
+              vm.Toast.fire({ type: 'success', title: response.data.message });
+              vm.$Progress.finish();
+          }else{ 
+              vm.$Progress.fail();
+              vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again','warning');
+          }
+      });
+    },
     createDevice() {  
       var vm = this;  
       axios  

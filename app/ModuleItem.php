@@ -30,4 +30,9 @@ class ModuleItem extends Model implements Auditable
     {
         return $this->hasMany(ModuleItemMeta::class, 'item_id');
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'source_id');
+    }
 }

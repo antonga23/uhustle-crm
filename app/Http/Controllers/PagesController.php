@@ -16,6 +16,9 @@ use App\User;
 use App\Role;
 use App\Product;
 use App\LeadSource;
+use App\Province;
+use App\City;
+use App\CompanyType;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -50,6 +53,8 @@ class PagesController extends Controller
               ->with(['item_id'=> $item_id])
               ->with(['custom_fields'=> $custom_fields])
               ->with(['sources'=> LeadSource::get()])
+              ->with(['packages'=> Product::get()])
+              ->with(['current_users'=> User::get()])
               ->with(['lead_id'=> ''])
               ->with(['auto_dialer_settings' => $auto_dialer_settings]);
 
@@ -64,6 +69,8 @@ class PagesController extends Controller
             ->with(['item_id'=> $item_id])
             ->with(['custom_fields'=> $custom_fields])
             ->with(['sources'=> LeadSource::get()])
+            ->with(['packages'=> Product::get()])
+            ->with(['current_users'=> User::get()])
             ->with(['auto_dialer_settings' => $auto_dialer_settings]);
       }
    }
@@ -100,7 +107,11 @@ class PagesController extends Controller
    
    public function inventory()
    {
-      return view('pages.inventory')->with(['active'=> 'inventory']);
+      return view('pages.inventory')
+                  ->with(['company_types' => CompanyType::get() ])
+                  ->with(['provinces' => Province::get() ])
+                  ->with(['cities' => City::get() ])
+                  ->with(['active'=> 'inventory']);
    }
 
    public function loadModulePage($type = null)

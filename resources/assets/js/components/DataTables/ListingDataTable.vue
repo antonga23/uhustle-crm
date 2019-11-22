@@ -529,7 +529,6 @@ export default {
                   
               if(response.data.success == true){
                   vm.Toast.fire({ type: 'success', title: response.data.message });
-                  vm.showEdit(row_id);
                   vm.$Progress.finish();
               }else{ 
                   vm.$Progress.fail();

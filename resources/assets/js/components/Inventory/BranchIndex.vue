@@ -35,22 +35,22 @@ h5 {
           <b-tabs card>
             <b-tab active>
               <template v-slot:title>
-                <h5 class="d-inline-block mb-0">Branches</h5>
+                <h5 class="d-inline-block mb-0">Companies</h5>
               </template>
 
               <transition name="fade">
-                <BranchesListingTable></BranchesListingTable>
+                <BranchesListingTable :prop_provinces="provinces" :prop_cities="cities" :prop_company_types="company_types"></BranchesListingTable>
               </transition>
             </b-tab>
 
             <b-tab>
               <template v-slot:title>
-                <h5 class="d-inline-block mb-0">Create a branch</h5>
+                <h5 class="d-inline-block mb-0">Create a Company</h5>
                 <img src="images/icons/Field_Add.svg" alt="Add field icon" width="16" class="d-none"/>
               </template>
 
               <transition name="fade">
-                <create-branch/>
+                <create-branch :prop_provinces="provinces" :prop_cities="cities" :prop_company_types="company_types"/>
               </transition>
             </b-tab>
           </b-tabs>
@@ -74,7 +74,9 @@ h5 {
     created: function () {
     },
     props: [
-      
+      'company_types',
+      'provinces',
+      'cities',
     ],
     data: function(){
       return {
@@ -82,7 +84,9 @@ h5 {
       }
     },
     methods: {
-      
+      listCompanies(){
+
+      }
     }
   }
 </script>

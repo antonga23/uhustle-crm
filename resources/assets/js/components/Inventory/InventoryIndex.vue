@@ -169,13 +169,13 @@
         <li class="item ml-0">
           <a 
             href="#" 
-            @click="showModulePreferences('branches', 'branches', null);"
-            :class="{ 'active' : ( active_module_name ===  'branches')? true : false }"
+            @click="showModulePreferences('companies', 'companies', null);"
+            :class="{ 'active' : ( active_module_name ===  'companies')? true : false }"
             class="ml-0"
-          >Branches</a>
+          >Companies</a>
         </li>
 
-        <li class="item" style="display_none">
+        <li class="item">
           <a 
             href="#" 
             @click="showModulePreferences('products', 'products', null);"
@@ -199,15 +199,15 @@
         <vcl-table v-if="show_page_loader"> </vcl-table>
 
         <div class="branches" v-if="!show_page_loader && active_module_name == 'branches'">
-          <branch-index/>
+          <branch-index :provinces="provinces" :cities="cities" :company_types="company_types" />
         </div>
 
         <div class="products" v-if="!show_page_loader && active_module_name == 'products'">
-          <product-index/>
+          <product-index :provinces="provinces" :cities="cities" :company_types="company_types"/>
         </div>
 
         <div class="orders" v-if="!show_page_loader && active_module_name == 'orders'">
-          <order-index/>
+          <order-index :provinces="provinces" :cities="cities" :company_types="company_types"/>
         </div>
       </div>
     </div>
@@ -242,7 +242,13 @@
     },
     computed: {
     },
-    props: ['logged_user'],
+    props: [
+      'active',
+      'logged_user', 
+      'company_types', 
+      'provinces',
+      'cities'
+    ],
     data: function(){
       return {
         show_page_loader: false,

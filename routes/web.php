@@ -345,5 +345,12 @@ Route::group(['prefix' => 'settings'], function () {
     Route::post('/update', 'SystemSettingsController@update');
 });
 
+// Company Routes
+Route::group(['prefix' => 'company'], function () {
+  Route::post('/create', 'CompanyController@store');
+  Route::post('/update', 'CompanyController@update');
+  Route::get('/get-all', 'CompanyController@index');
+});
+
 
 

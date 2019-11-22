@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use DB;
+use Auth;
 use App\Company;
 use Illuminate\Http\Request;
 
@@ -14,17 +16,7 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+      return ['companies' => Company::get()];
     }
 
     /**
@@ -35,31 +27,21 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+      $data = $request->all();
+      try{
+          DB::beginTransaction();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Company  $company
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Company $company)
-    {
-        //
-    }
+          $company = Company::create($data['company']);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Company  $company
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Company $company)
-    {
-        //
-    }
+          DB::commit();
 
+          return array('success' => true, 'message' => 'Company has been created.', 'company' => $company );
+
+      }catch(\QueryException $e){
+          DB::rollback();
+          return array('success' =>false, 'message' => $e->getMessage());
+      }
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -69,7 +51,21 @@ class CompanyController extends Controller
      */
     public function update(Request $request, Company $company)
     {
-        //
+      $data = $request->all();
+      
+      try{
+          DB::beginTransaction();
+
+          $role = Company::find($data['company']['id'])->update($data['company']);
+
+          DB::commit();
+
+          return array('success' => true, 'message' => 'Company has been update.', 'companies' => Company::get() );
+
+      }catch(\QueryException $e){
+          DB::rollback();
+          return array('success' =>false, 'message' => $e->getMessage());
+      }
     }
 
     /**
