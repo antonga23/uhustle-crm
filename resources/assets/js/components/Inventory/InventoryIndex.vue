@@ -205,7 +205,6 @@
 </style>
 <template>
   <div id="inventory">
-
     <div class="row mx-0 my-0 top-nav">
       <ul class="top-menu w-100">
         <li class="item ml-0">
@@ -240,7 +239,7 @@
       <div class="col-lg-12 px-0">
         <vcl-table v-if="show_page_loader"> </vcl-table>
 
-        <div class="branches" v-if="!show_page_loader && active_module_name == 'branches'">
+        <div class="branches" v-if="!show_page_loader && active_module_name == 'companies'">
           <branch-index :provinces="provinces" :cities="cities" :company_types="company_types" />
         </div>
 
@@ -294,7 +293,7 @@
     data: function(){
       return {
         show_page_loader: false,
-        active_module_name: 'branches',
+        active_module_name: 'companies',
         Toast:null
       }
     },

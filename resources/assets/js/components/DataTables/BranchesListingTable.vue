@@ -1,97 +1,145 @@
 <template>
-    <div class='table-container'>
-        <b-table class="branch-listing" :items="companiesListing">
+  <div class='table-container'>
+    <b-table 
+      class="companies-listing" 
+      sticky-header="190px" 
+      responsive 
+      :items="companiesListing"
+      :per-page="perPage"
+      :current-page="currentPage"
+    >
+      <template slot="name" slot-scope="data">   
+        <input
+          @blur="updateCompany(data.item)"
+          v-model="data.item.name"     
+          type="text"    
+          id="deal-name"     
+          name="DealName"   
+          class="form-control border-0 rounded-pill"/> 
+      </template> 
 
-          <template slot="name" slot-scope="data">   
-            <input
-              @blur="updateCompany(data.item)"
-              v-model="data.item.name"     
-              type="text"    
-              id="deal-name"     
-              name="DealName"   
-              class="form-control border-0 rounded-pill"/> 
-          </template> 
+      <template slot="address" slot-scope="data">   
+        <input
+          @blur="updateCompany(data.item)"
+          v-model="data.item.address"     
+          type="text"    
+          id="deal-name"     
+          name="DealName"   
+          class="form-control border-0 rounded-pill"/> 
+      </template>
 
-          <template slot="address" slot-scope="data">   
-            <input
-              @blur="updateCompany(data.item)"
-              v-model="data.item.address"     
-              type="text"    
-              id="deal-name"     
-              name="DealName"   
-              class="form-control border-0 rounded-pill"/> 
-          </template>
+      <template slot="province" slot-scope="data">   
+        <a-select 
+          @change="changeProvince(data.item.province)" 
+          name="Province" 
+          v-validate="'required'"
+          v-model="data.item.province" 
+          class="custom-select rounded-pill border-0"
+        >   
+          <a-select-option value="" selected>-None-</a-select-option>   
+          <a-select-option 
+            :value="s_province.id" 
+            v-for="(s_province, index) in provinces" 
+            :key="index"
+          >{{s_province.name}}</a-select-option> 
+        </a-select>
+      </template>
 
-          <template slot="province" slot-scope="data">   
-            <a-select @change="changeProvince(data.item.province)" name="Province" v-validate="'required'" v-model="data.item.province" class="custom-select rounded-pill border-0">   
-              <a-select-option value="" selected>-None-</a-select-option>   
-              <a-select-option :value="s_province.id" v-for="(s_province, index) in provinces" :key="index">{{s_province.name}}</a-select-option> 
-            </a-select>
-          </template>
+      <template slot="city" slot-scope="data">   
+        <a-select 
+          @change="updateCompany(data.item)" 
+          name="City" 
+          v-validate="'required'" 
+          v-model="data.item.city" 
+          class="custom-select rounded-pill border-0"
+        >   
+          <a-select-option value="" selected>-None-</a-select-option>   
+          <a-select-option 
+            :value="s_city.id" 
+            v-for="(s_city, index) in filtered_cities" 
+            :key="index"
+          >{{s_city.name}}</a-select-option>
+        </a-select>
+      </template>
 
-          <template slot="city" slot-scope="data">   
-            <a-select @change="updateCompany(data.item)" name="City" v-validate="'required'" v-model="data.item.city" class="custom-select rounded-pill border-0">   
-              <a-select-option value="" selected>-None-</a-select-option>   
-              <a-select-option :value="s_city.id" v-for="(s_city, index) in filtered_cities" :key="index">{{s_city.name}}</a-select-option>
-            </a-select>
-          </template>
+      <template slot="type_id" slot-scope="data">   
+        <a-select 
+          @change="updateCompany(data.item)" 
+          name="Type" 
+          v-validate="'required'" 
+          v-model="data.item.type_id" 
+          class="custom-select rounded-pill border-0"
+        >   
+          <a-select-option value="" selected>-None-</a-select-option>   
+          <a-select-option 
+            :value="s_type.id" 
+            v-for="(s_type, index) in company_types" 
+            :key="index"
+          >{{s_type.name}}</a-select-option> 
+        </a-select>
+      </template>>
 
-          <template slot="type_id" slot-scope="data">   
-            <a-select @change="updateCompany(data.item)" name="Type" v-validate="'required'" v-model="data.item.type_id" class="custom-select rounded-pill border-0">   
-              <a-select-option value="" selected>-None-</a-select-option>   
-              <a-select-option :value="s_type.id" v-for="(s_type, index) in company_types" :key="index">{{s_type.name}}</a-select-option> 
-            </a-select>
-          </template>>
+      <template slot="status" slot-scope="data">  
+        <a-switch 
+          @change="updateCompany(data.item)" 
+          v-model="data.item.status" 
+          v-validate="'required'" 
+          name="Status" 
+          class="ml-3 mr-2"/>
+        <label v-if="data.item.status == 1">Active</label>
+        <label v-if="data.item.status == 0">Inactive</label>
+      </template>     
 
-          <template slot="status" slot-scope="data">   
-            <a-select @change="updateCompany(data.item)" name="Province" v-validate="'required'" v-model="data.item.status" class="custom-select rounded-pill border-0">   
-              <a-select-option value="" selected>-None-</a-select-option>   
-              <a-select-option :value="s_status.id" v-for="(s_status, index) in branch_statuses" :key="index">{{s_status.value}}</a-select-option> 
-            </a-select>
-          </template>     
+      <template slot="tell" slot-scope="data">   
+        <input
+          @blur="updateCompany(data.item)"
+          v-model="data.item.tell"     
+          type="text"    
+          id="fax"     
+          name="fax"   
+          class="form-control border-0 rounded-pill"/> 
+      </template>
 
-          <template slot="tell" slot-scope="data">   
-            <input
-              @blur="updateCompany(data.item)"
-              v-model="data.item.tell"     
-              type="text"    
-              id="fax"     
-              name="fax"   
-              class="form-control border-0 rounded-pill"/> 
-          </template>
+      <template slot="fax" slot-scope="data">   
+        <input
+          @blur="updateCompany(data.item)"
+          v-model="data.item.fax"     
+          type="text"    
+          id="fax"     
+          name="fax"   
+          class="form-control border-0 rounded-pill"/> 
+      </template> 
 
-          <template slot="fax" slot-scope="data">   
-            <input
-              @blur="updateCompany(data.item)"
-              v-model="data.item.fax"     
-              type="text"    
-              id="fax"     
-              name="fax"   
-              class="form-control border-0 rounded-pill"/> 
-          </template> 
+      <template slot="tax_number" slot-scope="data">   
+        <input
+          @blur="updateCompany(data.item)"
+          v-model="data.item.fax"     
+          type="text"    
+          id="tax_number"     
+          name="tax number"   
+          class="form-control border-0 rounded-pill"/> 
+      </template> 
+      
+      <template slot="code" slot-scope="data">   
+        <input
+          @blur="updateCompany(data.item)"
+          v-model="data.item.code"     
+          type="text"    
+          id="code"     
+          name="code"   
+          class="form-control border-0 rounded-pill"/> 
+      </template> 
+    </b-table>
 
-          <template slot="tax_number" slot-scope="data">   
-            <input
-              @blur="updateCompany(data.item)"
-              v-model="data.item.fax"     
-              type="text"    
-              id="tax_number"     
-              name="tax number"   
-              class="form-control border-0 rounded-pill"/> 
-          </template> 
-          
-          <template slot="code" slot-scope="data">   
-            <input
-              @blur="updateCompany(data.item)"
-              v-model="data.item.code"     
-              type="text"    
-              id="code"     
-              name="code"   
-              class="form-control border-0 rounded-pill"/> 
-          </template> 
-
-        </b-table>
-    </div>
+    <b-pagination
+      class="companies-pagination"
+      v-model="currentPage"
+      :per-page="perPage"
+      align="center"
+      size="sm"
+      :total-rows="rows"
+    ></b-pagination>
+  </div>
 </template>
 <script>
   export default {
@@ -144,18 +192,18 @@
         cities: [],
         companies:[],
         companiesListing: [],
-        branch_statuses: [{
-            id:1,
-            value: 'Active'
-          },
-          {
-            id:0,
-            value: 'Disabled'
-          }
-        ],
-        Toast: null
+        Toast: null,
+        perPage: 20, 
+        currentPage: 1,
       }
     },
+
+    computed: {
+      rows() {
+        return this.companiesListing.length
+      }
+    },
+
     methods: {
       changeProvince(province_id){
         var vm = this;
@@ -216,7 +264,7 @@
         } 
       },
       created(){
-          this.getCompanies();
+        this.getCompanies();
       }
   }
 </script>

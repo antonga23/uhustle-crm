@@ -1,7 +1,13 @@
 <template>
   <div class="table-container">
-    <b-table class="product-listing" :items="productListing" :per-page="perPage"   
-                    :current-page="currentPage">
+    <b-table 
+      class="product-listing" 
+      :items="productListing" 
+      :per-page="perPage" 
+      sticky-header="190px" 
+      responsive 
+      :current-page="currentPage"
+    >
       <template slot="supplier_id">
         <a-select class>
           <a-select-option value="0">
@@ -9,6 +15,7 @@
           </a-select-option>
         </a-select>
       </template>
+
       <template slot="category_id">
         <a-select class>
           <a-select-option value="0">
@@ -16,6 +23,7 @@
           </a-select-option>
         </a-select>
       </template>
+
       <template slot="origin_id">
         <a-select class>
           <a-select-option value="0">
@@ -23,6 +31,7 @@
           </a-select-option>
         </a-select>
       </template>
+
       <template slot="status">
         <a-select class>
           <a-select-option value="0">
@@ -30,6 +39,7 @@
           </a-select-option>
         </a-select>
       </template>
+
       <template slot="actions">
         <span class="actions">
           <a class="Edit" href="#" title="Edit"></a>
@@ -38,9 +48,10 @@
         </span>
       </template>
     </b-table>
+
     <b-pagination
-    class="products-pagination"
-       v-model="currentPage"
+      class="products-pagination"
+      v-model="currentPage"
       :per-page="perPage"
       align="center"
       size="sm"

@@ -57,25 +57,27 @@ h5 {
   margin-left: 0.9%;
   margin-right: 0.9%;
 }
+.ant-switch {
+  margin-left: 17px;
+}
 </style>
 
 <template>
   <div class="createDeal">  
     <h5>Add Company</h5>
-
     <b-row class="mx-0">
       <b-col sm="7" class="px-0">
         <b-row class="mx-0">
           <b-col sm="7" class="pl-0">
             <label for="input-none">Company Type</label>
+            <span id="error" v-show="errors.has('Type')" class="help-block">{{ errors.first('Type') }}</span>
             <a-select  v-validate="'required'" name="Type" v-model="branch.type_id" class="custom-select rounded-pill border-0">   
               <a-select-option value="">-None-</a-select-option>   
               <a-select-option :value="s_type.id" v-for="(s_type, index) in company_types" :key="index">{{s_type.name}}</a-select-option> 
             </a-select>
-            <span id="error" v-show="errors.has('Type')" class="help-block">{{ errors.first('Type') }}</span>
-          </b-col>
-          <b-col sm="7" class="pl-0">
+          
             <label for="input-none">Name</label>
+            <span id="error" v-show="errors.has('Name')" class="help-block">{{ errors.first('Name') }}</span>
             <input 
               v-validate="'required'"
               v-model="branch.name"    
@@ -83,84 +85,73 @@ h5 {
               id="name"     
               name="Name"   
               class="form-control rounded-pill"/>
-              <span id="error" v-show="errors.has('Name')" class="help-block">{{ errors.first('Name') }}</span>
 
             <label for="input-none">Select Province</label>
+            <span id="error" v-show="errors.has('Province')" class="help-block" >{{ errors.first('Province') }}</span>
             <a-select @change="changeProvince()" name="Province" v-validate="'required'" v-model="branch.province" class="custom-select rounded-pill border-0">   
               <a-select-option value="" selected>-None-</a-select-option>   
               <a-select-option :value="s_province.id" v-for="(s_province, index) in provinces" :key="index">{{s_province.name}}</a-select-option> 
             </a-select>
-            <span id="error" v-show="errors.has('Province')" class="help-block" >{{ errors.first('Province') }}</span>
 
+            <span id="error" v-show="errors.has('City')" class="help-block">{{ errors.first('City') }}</span>
             <label for="input-none">Select City</label>
             <a-select name="City" v-validate="'required'" v-model="branch.city" class="custom-select rounded-pill border-0">   
               <a-select-option value="" selected>-None-</a-select-option>   
               <a-select-option :value="s_city.id" v-for="(s_city, index) in filtered_cities" :key="index">{{s_city.name}}</a-select-option> 
             </a-select>
-            <span id="error" v-show="errors.has('City')" class="help-block">{{ errors.first('City') }}</span>
 
             <label for="input-none">Address</label>
+            <span id="error" v-show="errors.has('Address')" class="help-block">{{ errors.first('Address') }}</span>
             <textarea
               name="Address" 
               v-validate="'required'"  
               v-model="branch.address"   
               id="info"     
               class="form-control"/>
-            <span id="error" v-show="errors.has('Address')" class="help-block">{{ errors.first('Address') }}</span>
           </b-col>
 
           <b-col sm="5">
-            <b-row class="mx-0">
-              <b-col sm="7" class="pl-0">
-                <label for="input-none">Telephone no.</label>
-                <input 
-                  v-validate="'required|numeric'" 
-                  v-model="branch.tell"    
-                  type="tell"    
-                  id="branch-tell"     
-                  name="Tel"   
-                  class="form-control rounded-pill"/>
-                  <span id="error" v-show="errors.has('Tel')" class="help-block">{{ errors.first('Tel') }}</span>
+            <label for="input-none">Telephone no.</label>
+            <span id="error" v-show="errors.has('Tel')" class="help-block">{{ errors.first('Tel') }}</span>
+            <input 
+              v-validate="'required|numeric'" 
+              v-model="branch.tell"    
+              type="tell"    
+              id="branch-tell"     
+              name="Tel"   
+              class="form-control rounded-pill"/>
 
-                <label for="input-none">Fax No.</label>
-                <input 
-                  v-model="branch.fax"    
-                  type="tell"    
-                  id="branch-fax"     
-                  name="branchFax"   
-                  class="form-control rounded-pill"/>
-            </b-col>
+            <label for="input-none">Fax No.</label>
+            <input 
+              v-model="branch.fax"    
+              type="tell"    
+              id="branch-fax"     
+              name="branchFax"   
+              class="form-control rounded-pill"/>
 
-              <b-col sm="7" class="pr-0">
-                <label for="input-none">Tax Number</label>
-                <input
-                  v-validate="'required|numeric'"  
-                  v-model="branch.tax_number"    
-                  type="text"    
-                  id="branch-tax-number"     
-                  name="Tax Number"   
-                  class="form-control rounded-pill"/>
-                  <span id="error" v-show="errors.has('Tax Number')" class="help-block">{{ errors.first('Tax Number') }}</span>
+            <label for="input-none">Tax Number</label>
+            <span id="error" v-show="errors.has('Tax Number')" class="help-block">{{ errors.first('Tax Number') }}</span>
+            <input
+              v-validate="'required|numeric'"  
+              v-model="branch.tax_number"    
+              type="text"    
+              id="branch-tax-number"     
+              name="Tax Number"   
+              class="form-control rounded-pill"/>
+              
+            <label for="input-none">Code</label>
+            <input 
+              v-model="branch.code"    
+              type="text"    
+              id="branch-code"     
+              name="branchCode"   
+              class="form-control rounded-pill"/>
 
-              </b-col>
-
-              <b-col sm="12" class="px-0">
-                <label for="input-none">Code</label>
-                <input 
-                  v-model="branch.code"    
-                  type="text"    
-                  id="branch-code"     
-                  name="branchCode"   
-                  class="form-control rounded-pill"/>
-
-                <label for="input-none">Status</label>
-                <a-select v-validate="'required'" name="Status" v-model="branch.status" class="custom-select rounded-pill border-0">   
-                  <a-select-option value="" selected>-None-</a-select-option>   
-                  <a-select-option :value="s_status.id" v-for="(s_status, index) in branch_statuses" :key="index">{{s_status.value}}</a-select-option> 
-                </a-select>
-                <span id="error" v-show="errors.has('Status')" class="help-block">{{ errors.first('Status') }}</span>
-              </b-col>
-            </b-row>
+            <label for="input-none" class="w-100">Status</label>
+            <span id="error" v-show="errors.has('Status')" class="help-block">{{ errors.first('Status') }}</span>
+            <a-switch v-model="branch.status" v-validate="'required'" name="Status"/>
+            <label v-if="branch.status == 1">Active</label>
+            <label v-if="branch.status == 0">Inactive</label>
           </b-col>
         </b-row>
 
@@ -214,15 +205,6 @@ export default {
         code: '',
         status:'',
       },
-      branch_statuses: [{
-          id:1,
-          value: 'Active'
-        },
-        {
-          id:0,
-          value: 'Disabled'
-        }
-      ],
       company_types: [],
       provinces: [],
       filtered_cities: [],

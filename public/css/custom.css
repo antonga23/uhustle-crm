@@ -1079,113 +1079,89 @@ max-height: 350px;
 /* Inventory Listing Tables Styling  */
 
 /* .products .productss-tabs .table.b-table.product-listing tbody,
-.branches .branches-tabs .table.b-table.branch-listing tbody,
+.branches .branches-tabs .table.b-table.companies-listing tbody,
 .orders .orders-tabs .table.b-table.order-listing tbody,
 .products .productss-tabs .table.b-table.category-listing tbody {
   background-color: #fbfbfc;
   
 } */
 
-.products .productss-tabs .table.b-table.product-listing thead tr th,
-.branches .branches-tabs .table.b-table.branch-listing thead tr th,
-.orders .orders-tabs .table.b-table.order-listing thead tr th,
-.products .productss-tabs .table.b-table.category-listing thead tr th
- {
-    font-size: 12px;
-    font-weight: 600;
-    color: #A6A6A6;
-    white-space: nowrap;
-    padding: 0px 10px 0px 0px;
-    vertical-align: middle;
-    outline: none !important;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    background-size: 11px 12px;
-    background-repeat: no-repeat;
-    background-position: left center;
-    font-family: 'Montserrat bold', sans-serif;
-    border: none !important;
-    position: sticky !important;
-    position: -webkit-sticky;
-    top: 0;
-    background: white;
-    z-index: 10;
+.products .product-listing thead tr th,
+.branches .companies-listing thead tr th,
+.orders .order-listing thead tr th,
+.orders .product-listing thead tr th,
+.products .category-listing thead tr th {
+  font-size: 12px;
+  font-weight: 600;
+  color: #A6A6A6;
+  white-space: nowrap;
+  padding-top: 0;
+  padding-bottom: 0;
+  vertical-align: middle;
+  outline: none !important;
+  border: none !important;
+  background: white;
 }
 
-.products .productss-tabs .table.b-table.product-listing tr, 
-.branches .branches-tabs .table.b-table.branch-listing tr,
-.orders .orders-tabs .table.b-table.order-listing tr,
-.products .productss-tabs .table.b-table.category-listing tr 
- {
-    font-size: 12px !important;
-    border-bottom: 1px solid #f2f2f2 !important;
-    padding-left: 0 !important;
-    width: auto !important;
-    white-space: nowrap !important;
-}
-
-.products .productss-tabs .table.b-table.product-listing tr:first-child,
-.branches .branches-tabs .table.b-table.branch-listing tr:first-child,
-.orders .orders-tabs .table.b-table.order-listing tr:first-child,
-.products .productss-tabs .table.b-table.category-listing tr:first-child
- {
-  border-bottom: 0 !important;
-}
-
-.products .productss-tabs .table.b-table.product-listing td,
-.branches .branches-tabs .table.b-table.branch-listing td,
-.orders .orders-tabs .table.b-table.order-listing td,
-.products .productss-tabs .table.b-table.category-listing td {
-    height: 35px !important;
-    font-size: 14px !important;
-    color: #1c2331 !important;
-    display: table-cell !important;
-    font-family: 'Rubik', sans-serif !important;
-    padding: 10px 20px 10px 0px !important;
-    min-width: 150px !important;
-    border-top: 0 !important;
-    border-bottom: 1px solid #f2f2f2 !important;
-    vertical-align: middle;
+.products .product-listing td,
+.branches .companies-listing td,
+.orders .product-listing td,
+.orders .order-listing td,
+.products .category-listing td {
+  height: 35px !important;
+  font-size: 0.73vw !important;
+  color: #1c2331 !important;
+  display: table-cell !important;
+  font-family: 'Rubik', sans-serif !important;
+  padding-left: 0!important;
+  min-width: 150px !important;
+  border-top: 0 !important;
+  border-bottom: 1px solid #f2f2f2 !important;
+  vertical-align: middle;
 }
 
 @media screen and (max-width: 1400px) {
-  .products .productss-tabs .table.b-table.product-listing td,
-.branches .branches-tabs .table.b-table.branch-listing td,
-.orders .orders-tabs .table.b-table.order-listing td,
-.products .productss-tabs .table.b-table.category-listing td {
-    font-size: 12px !important;
+  .products .product-listing td,
+  .branches .companies-listing td,
+  .orders .product-listing td,
+  .orders .order-listing td,
+  .products .category-listing td {
     padding: 5px 10px 5px 0px !important; 
-}
-.products .productss-tabs .table.b-table.product-listing .ant-select-selection.ant-select-selection--single .ant-select-selection-selected-value,
-.branches .branches-tabs .table.b-table.branch-listing .ant-select-selection.ant-select-selection--single .ant-select-selection-selected-value,
-.orders .orders-tabs .table.b-table.order-listing .ant-select-selection.ant-select-selection--single .ant-select-selection-selected-value,
-.products .productss-tabs .table.b-table.category-listing .ant-select-selection.ant-select-selection--single .ant-select-selection-selected-value {
-  margin-top: 0px;
-  font-size: 12px !important;
+  }
+  .products .product-listing .ant-select-selection.ant-select-selection--single .ant-select-selection-selected-value,
+  .branches .companies-listing .ant-select-selection.ant-select-selection--single .ant-select-selection-selected-value,
+  .orders .product-listing .ant-select-selection.ant-select-selection--single .ant-select-selection-selected-value,
+  .orders .order-listing .ant-select-selection.ant-select-selection--single .ant-select-selection-selected-value,
+  .products .category-listing .ant-select-selection.ant-select-selection--single .ant-select-selection-selected-value {
+    margin-top: 0px;
+    font-size: 12px !important;
+  }
 }
 
-}
-
-.products .productss-tabs .table.b-table.product-listing .ant-select-selection.ant-select-selection--single,
-.branches .branches-tabs .table.b-table.branch-listing .ant-select-selection.ant-select-selection--single,
-.orders .orders-tabs .table.b-table.order-listing .ant-select-selection.ant-select-selection--single,
-.products .productss-tabs .table.b-table.category-listing .ant-select-selection.ant-select-selection--single {
+.products .product-listing .ant-select-selection.ant-select-selection--single,
+.branches .companies-listing .ant-select-selection.ant-select-selection--single,
+.orders .product-listing .ant-select-selection.ant-select-selection--single,
+.orders .order-listing .ant-select-selection.ant-select-selection--single,
+.products .category-listing .ant-select-selection.ant-select-selection--single {
   min-width: 100px !important;
   width: auto;
   margin-top: 0px !important; 
+  border:0;
 }
 
-.products .productss-tabs .table.b-table.product-listing .ant-select-selection.ant-select-selection--single .ant-select-selection-selected-value,
-.branches .branches-tabs .table.b-table.branch-listing .ant-select-selection.ant-select-selection--single .ant-select-selection-selected-value,
-.orders .orders-tabs .table.b-table.order-listing .ant-select-selection.ant-select-selection--single .ant-select-selection-selected-value,
-.products .productss-tabs .table.b-table.category-listing .ant-select-selection.ant-select-selection--single .ant-select-selection-selected-value {
-  margin-top: 0px;
+.products .product-listing .ant-select-selection.ant-select-selection--single .ant-select-selection-selected-value,
+.branches .companies-listing .ant-select-selection.ant-select-selection--single .ant-select-selection-selected-value,
+.orders .product-listing .ant-select-selection.ant-select-selection--single .ant-select-selection-selected-value,
+.orders .order-listing .ant-select-selection.ant-select-selection--single .ant-select-selection-selected-value,
+.products .category-listing .ant-select-selection.ant-select-selection--single .ant-select-selection-selected-value {
+  font-size: 14px !important;
+  color: #1c2331 !important;
+  font-family: 'Rubik', sans-serif !important;
 }
 
 .products .productss-tabs .table-container,
 .branches .branches-tabs .table-container,
-.orders .orders-tabs .table-container
- {
+.orders .orders-tabs .table-container {
   overflow: auto;
   padding-right: 40px;
   height: 70vh;
@@ -1194,18 +1170,19 @@ max-height: 350px;
 .products .productss-tabs .tab-pane.product-table.card-body,
 .products .productss-tabs .tab-pane.category-table.card-body,
 .branches .branches-tabs .tab-pane.branch-table.card-body,
+.orders .orders-tabs .tab-pane.start-order-table.card-body,
 .orders .orders-tabs .tab-pane.order-history-table.card-body{
   padding: 25px 0px 20px 40px
 }
 
-.products .productss-tabs .table.b-table.product-listing tr td span.actions a.Edit,
-.products .productss-tabs .table.b-table.product-listing tr td span.actions a.Delete,
-.branches .branches-tabs .table.b-table.branch-listing tr td span.actions a.Edit,
-.branches .branches-tabs .table.b-table.branch-listing tr td span.actions a.Delete,
-.orders .orders-tabs .table.b-table.order-listing tr td span.actions a.Edit,
-.orders .orders-tabs .table.b-table.order-listing tr td span.actions a.Delete,
-.products .productss-tabs .table.b-table.category-listing tr td span.actions a.Edit,
-.products .productss-tabs .table.b-table.category-listing tr td span.actions a.Delete {  
+.products .product-listing tr td span.actions a.Edit,
+.products .product-listing tr td span.actions a.Delete,
+.branches .companies-listing tr td span.actions a.Edit,
+.branches .companies-listing tr td span.actions a.Delete,
+.orders .order-listing tr td span.actions a.Edit,
+.orders .order-listing tr td span.actions a.Delete,
+.products .category-listing tr td span.actions a.Edit,
+.products .category-listing tr td span.actions a.Delete {  
   padding: 0px 7px;  
   width: 20px;  
   display: block;  
@@ -1213,112 +1190,101 @@ max-height: 350px;
   float: left;  
 }  
 
-.products .productss-tabs .table.b-table.product-listing tr td a.Delete,
-.branches .branches-tabs .table.b-table.branch-listing tr td a.Delete,
-.products .productss-tabs .table.b-table.category-listing tr td a.Delete,
-.orders .orders-tabs .table.b-table.order-listing tr td a.Delete {  
+.products .product-listing tr td a.Delete,
+.branches .companies-listing tr td a.Delete,
+.products .category-listing tr td a.Delete,
+.orders .order-listing tr td a.Delete {  
   background-image: url('/images/icons/Bin_nodrop.svg');  
   background-size: cover;  
   background-repeat: no-repeat;  
 }  
-.products .productss-tabs .table.b-table.product-listing tr td a.Delete:hover,  
-.products .productss-tabs .table.b-table.product-listing tr td a.Delete:active,
-.branches .branches-tabs .table.b-table.branch-listing tr td a.Delete:active,
-.products .productss-tabs .table.b-table.category-listing tr td a.Delete:active,
-.orders .orders-tabs .table.b-table.order-listing tr td a.Delete:active,
-.branches .branches-tabs .table.b-table.branch-listing tr td a.Delete:hover,
-.products .productss-tabs .table.b-table.category-listing tr td a.Delete:hover,
-.orders .orders-tabs .table.b-table.order-listing tr td a.Delete:hover
+.products .product-listing tr td a.Delete:hover,  
+.products .product-listing tr td a.Delete:active,
+.branches .companies-listing tr td a.Delete:active,
+.products .category-listing tr td a.Delete:active,
+.orders .order-listing tr td a.Delete:active,
+.branches .companies-listing tr td a.Delete:hover,
+.products .category-listing tr td a.Delete:hover,
+.orders .order-listing tr td a.Delete:hover
 {  
   background-image: url('/images/icons/Bin_hover.svg');  
   background-size: cover;  
   background-repeat: no-repeat;  
 }  
-.products .productss-tabs .table.b-table.product-listing tr td a.Edit,
-.products .productss-tabs .table.b-table.category-listing tr td a.Edit,
-.branches .branches-tabs .table.b-table.branch-listing tr td a.Edit,
-.orders .orders-tabs .table.b-table.order-listing tr td a.Edit{  
+.products .product-listing tr td a.Edit,
+.products .category-listing tr td a.Edit,
+.branches .companies-listing tr td a.Edit,
+.orders .order-listing tr td a.Edit{  
   background-image: url('/images/icons/No_Shadow.svg');  
   background-size: cover;  
   background-repeat: no-repeat;  
 }  
-.products .productss-tabs .table.b-table.product-listing tr td a.Edit:hover,  
-.products .productss-tabs .table.b-table.product-listing tr td a.Edit:active,
-.products .productss-tabs .table.b-table.category-listing tr td a.Edit:hover,
-.branches .branches-tabs .table.b-table.branch-listing tr td a.Edit:hover,
-.orders .orders-tabs .table.b-table.order-listing tr td a.Edit:hover,
-.products .productss-tabs .table.b-table.category-listing tr td a.Edit:active,
-.branches .branches-tabs .table.b-table.branch-listing tr td a.Edit:active,
-.orders .orders-tabs .table.b-table.order-listing tr td a.Edit.active {  
+.products .product-listing tr td a.Edit:hover,  
+.products .product-listing tr td a.Edit:active,
+.products .category-listing tr td a.Edit:hover,
+.branches .companies-listing tr td a.Edit:hover,
+.orders .order-listing tr td a.Edit:hover,
+.products .category-listing tr td a.Edit:active,
+.branches .companies-listing tr td a.Edit:active,
+.orders .order-listing tr td a.Edit.active {  
   background-image: url('/images/icons/_Hover_nodrop.svg');  
   background-size: cover;  
   background-repeat: no-repeat;  
 } 
 
-.products .productss-tabs .table.b-table.product-listing tr td a.Order-button {
+.products .product-listing tr td a.Order-button {
   color: #9f9f9f;
-    text-decoration: none;
-    font-weight: 500;
-    width: auto;
-    border-radius: 50rem !important;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 6px 12px;
-    font-size: 10px;
-    box-shadow: 0 0 7px rgba(0,0,0,0.1);
-    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.1);
-    -moz-box-shadow: 0 0 7px rgba(0,0,0,0.1);
-    -o-box-shadow: 0 0 7px rgba(0,0,0,0.1);
-    margin-left: 16px;
+  text-decoration: none;
+  font-weight: 500;
+  width: auto;
+  border-radius: 50rem !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  font-size: 10px;
+  box-shadow: 0 0 7px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0 0 7px rgba(0,0,0,0.1);
+  -o-box-shadow: 0 0 7px rgba(0,0,0,0.1);
+  margin-left: 16px;
 }
 
-.products .productss-tabs .table.b-table.product-listing tr td a.Order-button.active,
-.products .productss-tabs .table.b-table.product-listing tr td a.Order-button:hover {
-    background: linear-gradient(to right, rgba(255,128,51,1) 0%, rgba(255,147, 58,1) 100%) !important;
-    color: #fff !important;
-    text-decoration: none;
-    font-weight: 500;
-    width: auto;
-    border-radius: 50rem !important;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 6px 12px;
-    font-size: 10px;
-    margin-left: 16px;
+.products .product-listing tr td a.Order-button.active,
+.products .product-listing tr td a.Order-button:hover {
+  background: linear-gradient(to right, rgba(255,128,51,1) 0%, rgba(255,147, 58,1) 100%) !important;
+  color: #fff !important;
+  text-decoration: none;
+  font-weight: 500;
+  width: auto;
+  border-radius: 50rem !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 6px 12px;
+  font-size: 10px;
+  margin-left: 16px;
 
 }
-.branches .branches-tabs ul.pagination.b-pagination.pagination-sm .page-item span.page-link,
-.branches .branches-tabs .pagination.b-pagination.pagination-sm .page-item .page-link,
-.products .productss-tabs ul.pagination.b-pagination.pagination-sm .page-item span.page-link,
-.products .productss-tabs .pagination.b-pagination.pagination-sm .page-item .page-link,
-.orders .orders-tabs ul.pagination.b-pagination.pagination-sm .page-item span.page-link,
-.orders .orders-tabs .pagination.b-pagination.pagination-sm .page-item .page-link
- {
-  border: 0 !important;
+.pagination.b-pagination.pagination-sm .page-item {
+  margin: auto 5px;
+}
+.pagination.b-pagination.pagination-sm .page-item span.page-link {
+  border: 0;
   color: #AAAAAA;
-  margin: 10px;
 }
 
-.branches .branches-tabs .pagination.b-pagination.pagination-sm .page-item.active .page-link,
-.products .productss-tabs .pagination.b-pagination.pagination-sm .page-item.active .page-link,
-.orders .orders-tabs .pagination.b-pagination.pagination-sm .page-item.active .page-link {
+.pagination.b-pagination.pagination-sm .page-item.active .page-link {
   color: #444444 !important ;
   background-color: #fff;
   border: 1px solid #444444 !important;
   border-radius: 50% !important;
-  padding: 4px 9px;
+  padding: 4px 5px 4px 6px;
   font-size: 10px;
+  line-height:1em;
 }
-.branches .branches-tabs .pagination.b-pagination.pagination-sm .page-item .page-link:focus,
-.products .productss-tabs .pagination.b-pagination.pagination-sm .page-item .page-link:focus,
-.orders .orders-tabs .pagination.b-pagination.pagination-sm .page-item .page-link:focus { 
+.pagination.b-pagination.pagination-sm .page-item .page-link:focus { 
  box-shadow: none !important;
 }
-
-
-
 
 .inventory-filter .ant-select-selection--single{
   box-shadow: 0 0 4px rgba(0,0,0,0.1);
@@ -1334,4 +1300,9 @@ max-height: 350px;
   font-style: italic;
   color: #999999;
 }
-
+.help-block {
+  font-size: 10px;
+  font-family: 'Rubik', sans-serif !important;
+  margin-left: 17px;
+  color: #f42222;
+}

@@ -70,13 +70,13 @@ textarea {
       <div class="col-lg-12 px-0">
         <b-card no-body>
           <b-tabs card>
-            <b-tab active>
+            <b-tab active class="start-order-table">
               <template v-slot:title>
                 <h5 @click="order_summary = false" class="d-inline-block mb-0">Start Order</h5>
               </template>
 
               <transition name="fade">
-                
+                <ProductListingTable></ProductListingTable>
               </transition>
             </b-tab>
 
@@ -136,10 +136,12 @@ textarea {
 </template>
 
 <script>
+import ProductListingTable from "../DataTables/ProductListingTable";
 import OrdersListingTable from "../DataTables/OrdersListingTable";
- import CreateOrder from './CreateOrder';
+import CreateOrder from './CreateOrder';
   export default {
     components: { 
+      ProductListingTable,
       OrdersListingTable,
       CreateOrder
     },
