@@ -45,7 +45,7 @@ label{
               </template>
 
               <transition name="fade">
-                <ProductListingTable :role="role"></ProductListingTable>
+                <ProductListingTable :role="role" :mode="'edit'"></ProductListingTable>
               </transition>
             </b-tab>
 

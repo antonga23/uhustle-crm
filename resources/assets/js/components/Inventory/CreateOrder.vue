@@ -61,26 +61,35 @@ label{
           <div class="col-7 pl-0">
             <div class="row mx-0">
               <div class="col-8 pl-0">
-                <label class="control-label w-100 p-0 mb-2">Requestor</label>   
-                <a-select v-model="order.requestor" class="custom-select rounded-pill border-0">   
-                  <a-select-option value="-None-" selected>-None-</a-select-option>   
-                  <a-select-option v-for="(o_requestor, index) in order.requestors" :key="index">{{o_requestor}}</a-select-option>   
-                </a-select> 
+                <label class="control-label w-100 p-0 mb-2">Requestor</label>  
+                <input
+                  disabled 
+                  v-model="order.requestor"
+                  type="text"   
+                  id="requestor"     
+                  name="requestor"   
+                  class="rounded-pill form-control"/>
               </div>
 
               <div class="col-4 pr-0">
-                <label class="col-lg-12 control-label w-100 p-0 mb-2">Request Time</label>   
-                <a-time-picker 
-                  v-model='request_time' 
-                  :allowEmpty="false" 
-                  use24Hours 
-                  format="hh:mm"/>
+                <label class="col-lg-12 control-label w-100 p-0 mb-2">Priority</label>
+                <a-select v-model="order.priority" class="custom-select rounded-pill border-0">   
+                  <a-select-option value="Low">Low</a-select-option>   
+                  <a-select-option value="Mid">Mid</a-select-option>   
+                  <a-select-option value="High">High</a-select-option>     
+                </a-select>  
               </div>
 
-              <div class="col-12 px-0">
+              <div class="col-12 pl-0">
                 <label class="col-lg-12 control-label w-100 p-0 mb-2">Request Date</label>  
                 <div class="calendar-container"> 
-                  <vc-calendar class="border-0" is-expanded color="orange"/>
+                  <input
+                    disabled 
+                    v-model="order.request_date"
+                    type="text"   
+                    id="request_date"     
+                    name="request_date"   
+                    class="rounded-pill form-control"/>
                 </div>
               </div>
             </div>
@@ -89,29 +98,35 @@ label{
           <div class="col-5 pr-0">
             <label class="col-lg-12 control-label w-100 p-0 mb-2">Type</label>   
             <a-select v-model="order.type" class="custom-select rounded-pill border-0">   
-              <a-select-option :value="'-None-'">-None-</a-select-option>   
-              <a-select-option v-for="(o_type, index) in order.types" :key="index">{{o_type}}</a-select-option>  
+              <a-select-option :value="'-None-'">- Please Select -</a-select-option>   
+              <a-select-option :value="o_type.id" v-for="(o_type, index) in order_types" :key="index">{{o_type.name}}</a-select-option>  
             </a-select>  
 
             <label class="col-lg-12 control-label w-100 p-0 mb-2">Class</label>   
-            <a-select v-model="order.order_class" class="custom-select rounded-pill border-0">   
-              <a-select-option :value="'-None-'">-None-</a-select-option>   
-              <a-select-option v-for="(o_class, index) in order.order_classes" :key="index">{{o_class}}</a-select-option>  
+            <a-select v-validate="'required'" name="Class" v-model="order.order_class" class="custom-select rounded-pill border-0">   
+              <a-select-option :value="'-None-'">- Please Select -</a-select-option>   
+              <a-select-option :value="o_class.id" v-for="(o_class, index) in order_clases" :key="index">{{o_class.name}}</a-select-option>  
             </a-select>
+            <span id="error" v-show="errors.has('Class')" class="help-block">{{ errors.first('Class') }}</span>
 
-            <label class="col-lg-12 control-label w-100 p-0 mb-2">Origin</label>   
+            <label class="col-lg-12 control-label w-100 p-0 mb-2">Origin Type</label> 
             <input 
-              v-model="order.origin"
+              disabled
+              v-model="order.origin_type_name"
               type="text"   
               id="origin"     
               name="origin"   
               class="rounded-pill form-control"/>
 
-            <label class="col-lg-12 control-label w-100 p-0 mb-2">Origin Type</label> 
-            <a-select v-model="order.origin_type" class="custom-select rounded-pill border-0">   
-              <a-select-option value="-None-" selected>-None-</a-select-option>   
-              <a-select-option v-for="(o_type, index) in order.origin_types" :key="index">{{o-type}}</a-select-option> 
-            </a-select>  
+            <label class="col-lg-12 control-label w-100 p-0 mb-2">Origin</label>   
+            <input
+              disabled 
+              v-model="order.origin_name"
+              type="text"   
+              id="origin"     
+              name="origin"   
+              class="rounded-pill form-control"/>
+
           </div>
         </div>
       </div>
@@ -119,12 +134,12 @@ label{
       <div class="col-6 pr-0">   
         <div class="row mx-0">
           <div class="col-6 pl-0">
-            <label class="control-label w-100 p-0 mb-2">Related Item</label>   
+            <label class="control-label w-100 p-0 mb-2">Billing Address</label>   
             <textarea 
-              v-model="order.related_item"   
+              v-model="order.billing_address"   
               id="info"     
               name="Info"   
-              class="form-control"/>
+              class="form-control "/>
 
             <label class="col-lg-12 control-label w-100 p-0 mb-2">Contact Name</label>   
             <input
@@ -152,12 +167,13 @@ label{
               name="ContactNumber"   
               class="form-control rounded-pill"/> 
 
-            <label class="col-lg-12 control-label w-100 p-0 mb-2">Billing Address</label>   
+            <label class="col-lg-12 control-label w-100 p-0 mb-2">Related Item</label>   
             <textarea 
-              v-model="order.billing_address"   
+              v-model="order.related_item"   
               id="info"     
               name="Info"   
-              class="form-control "/>
+              class="form-control"/>
+
           </div>
         </div> 
       </div>   
@@ -169,32 +185,58 @@ label{
 export default {
   components: {},
   mounted() {
-    
+    var vm = this;
+    Fire.$on('StartOrder', function(data){
+        vm.item = data.product;
+        vm.getProductInfo(vm.item.id);
+    });
   },
   created: function () {},
-  props: [],
+  props: ['user_name','order_clases','order_types'],
   data: function(){
     return { 
+      item: {},
+      product: { 
+        origin: [],
+        origin_type: [],
+      },
       order: {
         type: '',
-        types: ['Maintenance Requessition', 'New Requisition'],
         order_class: '-None-',
-        order_classes: ['Inventory'],
         billing_address: '',
         contact_number: '',
         contact_email:'' ,
         contact_name:'' ,
-        origin_type:'-None-' ,
-        origin_types: ['Warehouse'],
         origin:'' ,
         related_item:'' ,
-        requestor:'-None-',
-        requestors: ['Ilan Brooks']
+        requestor:'',
+        requestors: this.user_name
       },
+      types: ['Maintenance Requessition', 'New Requisition'],
       Toast: null,
     }
   },
   methods: {
+    getProductInfo(id){
+      var vm = this;
+      axios.get('/products/get/'+id).then( (response) => {
+        vm.product = response.data.product;
+        vm.order.requestor = vm.user_name;
+        vm.order.request_date = vm.getDate();
+        vm.order.priority = 'Low';
+        vm.order.origin_id = vm.product.origin_id;
+        vm.order.origin_name = vm.product.origin.name;
+        vm.order.origin_type_id = vm.origin_type_id;
+        vm.order.origin_type_name = vm.product.origin_type.name;
+      });
+    },
+    getDate(){
+      var today = new Date();
+      var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+      var time = today.getHours() + ":" + today.getMinutes();
+      var dateTime = date+' '+time;
+      return dateTime;
+    }
   }
 }
 </script>

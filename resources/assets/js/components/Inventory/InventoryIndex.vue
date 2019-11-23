@@ -213,15 +213,15 @@
             @click="showModulePreferences('companies', 'companies', null);"
             :class="{ 'active' : ( active_module_name ===  'companies')? true : false }"
             class="ml-0"
-          >Companies</a>
+          >Manage Companies</a>
         </li>
 
-        <li class="item">
+        <li class="item" v-if="current_user.role_id == 1">
           <a 
             href="#" 
             @click="showModulePreferences('products', 'products', null);"
             :class="{ 'active' : ( active_module_name ===  'products')? true : false }"
-          >Products</a>
+          >Manage Products</a>
         </li>
 
         <li class="item">
@@ -248,7 +248,13 @@
         </div>
 
         <div class="orders" v-if="!show_page_loader && active_module_name == 'orders'">
-          <order-index :role="current_user.role_id"  :provinces="provinces" :cities="cities" :company_types="company_types"/>
+          <order-index 
+            :role="current_user.role_id"
+            :user_name="current_user.name + ' ' + current_user.lastname"
+            :provinces="provinces" 
+            :cities="cities" 
+            :company_types="company_types"
+            />
         </div>
       </div>
     </div>
@@ -277,7 +283,7 @@
       if(this.current_user.role_id == 1){
         this.active_module_name = 'companies';
       }else{
-        this.active_module_name = 'products';
+        this.active_module_name = 'orders';
       }
       
       this.Toast = this.$swal.mixin({

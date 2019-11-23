@@ -48,6 +48,11 @@ class Product extends Model implements Auditable
         return $this->hasOne('App\Company','id', 'origin_id');
     }
 
+    public function origin_type()
+    {
+        return $this->hasOne('App\CompanyType','id', 'origin_type_id');
+    }
+
     public function supplier()
     {
         return $this->hasOne('App\Supplier','id', 'supplier_id');

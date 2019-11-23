@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use App\OrderItem;
+use App\OrderClass;
+use App\OrderType;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -18,16 +21,6 @@ class OrderController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -38,27 +31,6 @@ class OrderController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Order $order)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Order $order)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -82,4 +54,15 @@ class OrderController extends Controller
     {
         //
     }
+
+    public function getTypes(){
+      $order_clases = OrderClass::get();
+      $order_types = OrderType::get();
+      return [
+        'order_clases' => $order_clases,
+        'order_types' => $order_types
+      ];
+    }
 }
+
+

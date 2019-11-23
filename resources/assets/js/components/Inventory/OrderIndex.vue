@@ -94,14 +94,14 @@ textarea {
     <div class="row mx-0 orders-tabs">
       <div class="col-lg-12 px-0">
         <b-card no-body>
-          <b-tabs card>
+          <b-tabs v-model="tabIndex" card>
             <b-tab active class="start-order-table">
               <template v-slot:title>
                 <h5 @click="order_summary = false" class="d-inline-block mb-0">Start Order</h5>
               </template>
 
               <transition name="fade">
-                <ProductListingTable></ProductListingTable>
+                <ProductListingTable :role="role" :mode="'view'"></ProductListingTable>
               </transition>
             </b-tab>
 
@@ -111,7 +111,7 @@ textarea {
               </template>
 
               <transition name="fade">
-                <create-order/>
+                <create-order :user_name="user_name" :order_clases="order_clases" :order_types="order_types"/>
               </transition>
             </b-tab>
 
@@ -181,21 +181,42 @@ import CreateOrder from './CreateOrder';
       CreateOrder
     },
     mounted() {
-      
+      var vm = this;
+
+      vm.getSelectOPtions();
+
+      Fire.$on('StartOrder', function(data){
+
+        vm.tabIndex = 1;
+
+      });
     },
     created: function () {
     },
     props: [
-      
+      'role',
+      'user_name',
+      'provinces',
+      'cities',
+      'company_types'
     ],
     data: function(){
       return {
+        tabIndex: 0,
+        order_types: [],
+        order_clases: [],
         order_summary: false,
         requesition_notes: ''
       }
     },
     methods: {
-      
+      getSelectOPtions(){
+        var vm = this;
+        axios.get('/orders/get-types').then( (response) => {
+          vm.order_clases = response.data.order_clases;
+          vm.order_types = response.data.order_types;
+        });
+      }
     }
   }
 </script>

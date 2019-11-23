@@ -338,7 +338,7 @@ Route::group(['prefix' => 'settings'], function () {
 
 // Products Routes
 Route::group(['prefix' => 'products'], function () {
-	Route::get('/get/{role_id}', 'ProductController@getById');
+	Route::get('/get/{id}', 'ProductController@getById');
 	Route::get('/get-all', 'ProductController@index');
 	Route::get('/get-active-categories', 'ProductController@getActiveCategories');
 	Route::get('/get-active', 'ProductController@getActive');
@@ -356,6 +356,15 @@ Route::group(['prefix' => 'company'], function () {
   Route::post('/update', 'CompanyController@update');
   Route::get('/get-all', 'CompanyController@index');
   Route::get('/get-types', 'CompanyController@getTypes');
+});
+
+// Company Routes
+Route::group(['prefix' => 'orders'], function () {
+  Route::post('/create', 'OrderController@store');
+  Route::post('/update', 'OrderController@update');
+  Route::get('/get-all', 'OrderController@index');
+  Route::get('/get-types', 'OrderController@getTypes');
+  Route::get('/get-order-product', 'OrderController@getProductInfo');
 });
 
 

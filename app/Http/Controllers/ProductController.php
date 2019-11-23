@@ -26,14 +26,20 @@ class ProductController extends Controller
      */
     public function index()
     {
-         $products = Product::with(['category','origin','supplier'])->get();
+         $products = Product::with(['category','origin', 'origin_type','supplier'])->get();
          return array('success' => true, 'products' => $products);
     }
 
     public function getActive()
     {
-         $products = Product::where(['status' => 0])->get();
+         $products = Product::with(['category','origin', 'origin_type','supplier'])->where(['status' => 0])->get();
          return array('success' => true, 'products' => $products);
+    }
+
+    public function getById($id = null){
+
+      $product = Product::with(['category','origin', 'origin_type','supplier'])->find($id);
+      return array('success' => true, 'product' => $product);
     }
 
     /**
@@ -80,7 +86,7 @@ class ProductController extends Controller
 
             $product = Product::where(['id' =>$data['product']['id']])->update($data['product']);
 
-            $products = Product::with(['category','origin','supplier'])->get();
+            $products = Product::with(['category','origin', 'origin_type','supplier'])->get();
 
             DB::commit();
             return array('success' => true, 'message' => 'Product update successfully', 'products' => $products);
