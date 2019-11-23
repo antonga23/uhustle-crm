@@ -190,7 +190,6 @@
               })
             });
           });
-
         }
       },
       updateCompany(item){
@@ -205,7 +204,7 @@
                 title: response.data.message 
               }); 
 
-              vm.companies = response.data.companies
+              vm.getCompanies();
 
               vm.$Progress.finish(); 
             } else { 

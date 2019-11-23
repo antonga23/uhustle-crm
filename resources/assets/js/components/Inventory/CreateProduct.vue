@@ -154,8 +154,8 @@ label{
                   v-validate="'required'"
                   v-model="product.unit_cost"    
                   type="number"    
-                  id="unit-cost"     
-                  name="unitCost"   
+                  id="unit_cost"     
+                  name="Unit Cost"   
                   class="form-control rounded-pill"/>
                   <span id="error" v-show="errors.has('Unit Cost')" class="help-block">{{ errors.first('Unit Cost') }}</span>
               </b-col>
@@ -164,8 +164,8 @@ label{
                 <input 
                   v-model="product.unit_cost"    
                   type="number"    
-                  id="unit-cost"     
-                  name="unitCost"   
+                  id="unit_cost"     
+                  name="Unit Cost"   
                   class="form-control rounded-pill"/>
               </b-col>
 
@@ -175,8 +175,8 @@ label{
                   v-validate="'required'"
                   v-model="product.rate"    
                   type="number"    
-                  id="unit-cost"     
-                  name="unitCost"   
+                  id="rate"     
+                  name="Rate"   
                   class="form-control rounded-pill"/>
                   <span id="error" v-show="errors.has('Rate')" class="help-block">{{ errors.first('Rate') }}</span>
               </b-col>
@@ -185,8 +185,8 @@ label{
                 <input 
                   v-model="product.rate"    
                   type="number"    
-                  id="unit-cost"     
-                  name="unitCost"   
+                  id="rate"     
+                  name="Rate"   
                   class="form-control rounded-pill"/>
               </b-col>
 
@@ -207,8 +207,8 @@ label{
                   @blur="calculateStock"
                   v-model="product.reserved_stock"    
                   type="number"    
-                  id="unit-cost"     
-                  name="unitCost"   
+                  id="reserved_stock"     
+                  name="Reserved Stock"   
                   class="form-control rounded-pill"/>
               </b-col>
 
@@ -218,8 +218,8 @@ label{
                   disabled
                   v-model="product.available_stock"    
                   type="number"    
-                  id="unit-cost"     
-                  name="unitCost"   
+                  id="available_stock"     
+                  name="Available Stock"   
                   class="form-control rounded-pill"/>
               </b-col>
 
@@ -264,8 +264,11 @@ export default {
   components: {},
   mounted() {
     console.log('Create Product Component Mounted');
+
     var vm = this;
+
     vm.getSelectOptions();
+
     vm.filtered_companies = vm.companies;
 
     this.Toast = this.$swal.mixin({ 
@@ -276,7 +279,7 @@ export default {
     });
   },
   created: function () {},
-  props: [],
+  props: ['role'],
   data: function(){
     return { 
       product: {
@@ -285,12 +288,13 @@ export default {
         origin_type_id: '',
         origin_id: '',
         part_code: 'MIT-12535455654GNL',
+        model_number: 'Z12535455654GNL',
         name: '',
         description: 'ECOSYS M3645dn 222-2464545/64HZ',
         unit_cost: '7259.40',
         rate: '',
         current_stock: '500',
-        reserved_stock: '',
+        reserved_stock: 0,
         available_stock: '',
         tax_type: '',
         status: '',
@@ -316,7 +320,7 @@ export default {
       this.product.unit_cost = '';
       this.product.rate = '';
       this.product.current_stock = '';
-      this.product.reserved_stock = '';
+      this.product.reserved_stock = 0;
       this.product.available_stock = '';
       this.product.tax_type = '';
       this.product.status = '';
@@ -353,6 +357,7 @@ export default {
               Fire.$emit('ProductCreated', {
                 product : response.data.product
               }); 
+              vm.clearProduct();
               vm.$Progress.finish(); 
             } else { 
               vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning'); 

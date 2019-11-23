@@ -45,13 +45,13 @@ label{
               </template>
 
               <transition name="fade">
-                <ProductListingTable></ProductListingTable>
+                <ProductListingTable :role="role"></ProductListingTable>
               </transition>
             </b-tab>
 
-            <b-tab class="category-table">
+            <b-tab class="category-table" v-if="role == 1">
               <template v-slot:title>
-                <h5 class="d-inline-block mb-0">Category</h5>
+                <h5 class="d-inline-block mb-0">Categories</h5>
               </template>
 
               <transition name="fade">
@@ -59,7 +59,7 @@ label{
               </transition>
             </b-tab>
 
-            <b-tab>
+            <b-tab v-if="role == 1">
               <template v-slot:title>
                 <h5 class="d-inline-block mb-0">Add New</h5>
                 <img src="images/icons/Field_Add.svg" alt="Add field icon" width="16" class="d-none"/>
@@ -78,12 +78,12 @@ label{
 
               <div class="create-category" v-if="create_new === 'category'">
                 <div class="divider-line"></div>
-                <create-category/>
+                <create-category :role="role"/>
               </div>
 
               <div class="create-products" v-if="create_new === 'product'">
                 <div class="divider-line"></div>
-                <create-product/>
+                <create-product :role="role"/>
               </div>
             </b-tab>
           </b-tabs>
@@ -107,14 +107,18 @@ import CreateProduct from "./CreateProduct";
     },
     mounted() {
       var vm = this;
-      Fire.$on('ProductCreated', function($data){
+      Fire.$on('ProductCreated', function(data){
         vm.tabIndex = 0;
+      });
+
+      Fire.$on('CategoryCreated', function(data){
+        vm.tabIndex = 1;
       });
     },
     created: function () {
     },
     props: [
-      
+      'role'
     ],
     data: function(){
       return {

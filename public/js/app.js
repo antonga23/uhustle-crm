@@ -181274,7 +181274,7 @@ __webpack_require__.r(__webpack_exports__);
             type: 'success',
             title: response.data.message
           });
-          vm.companies = response.data.companies;
+          vm.getCompanies();
           vm.$Progress.finish();
         } else {
           vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
@@ -181930,6 +181930,15 @@ __webpack_require__.r(__webpack_exports__);
             title: response.data.message
           });
           vm.categories = response.data.categories;
+          vm.categoryListing = [];
+          vm.categories.map(function (category) {
+            vm.categoryListing.push({
+              id: category.id,
+              name: category.name,
+              description: category.description,
+              status: category.status
+            });
+          });
           vm.$Progress.finish();
         } else {
           vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
@@ -182904,6 +182913,106 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -182955,13 +183064,70 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['role'],
   mounted: function mounted() {
     var vm = this;
-    Fire.$on('ProductCreated', function ($data) {
+    vm.getSelectOptions();
+    vm.getProducts();
+    Fire.$on('ProductCreated', function (data) {
       vm.productListing = [];
       vm.products.push(data.product);
+      vm.mapProducts(vm.products);
+    });
+    this.Toast = this.$swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
+    });
+  },
+  data: function data() {
+    return {
+      products: [],
+      perPage: 20,
+      currentPage: 1,
+      productListing: [],
+      suppliers: [],
+      companies: [],
+      filtered_companies: [],
+      categories: [],
+      company_types: [],
+      tax_types: ['VAT', 'Other'],
+      Toas: null
+    };
+  },
+  methods: {
+    getSelectOptions: function getSelectOptions() {
+      var vm = this;
+      axios.get('/products/get-categories').then(function (response) {
+        vm.categories = response.data.categories;
+      });
+      axios.get('/company/get-types').then(function (response) {
+        vm.company_types = response.data.company_types;
+      });
+      axios.get('/company/get-all').then(function (response) {
+        vm.companies = response.data.companies;
+        vm.filtered_companies = vm.companies;
+        vm.suppliers = vm.companies.filter(function (item) {
+          return item.type_id == 4;
+        });
+      });
+    },
+    getProducts: function getProducts() {
+      var companies = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+      var vm = this;
+      axios.get('/products/get-all').then(function (response) {
+        vm.products = response.data.products;
+        vm.mapProducts(vm.products);
+      });
+    },
+    mapProducts: function mapProducts(products) {
+      var vm = this;
+      vm.products = products;
       vm.products.map(function (product) {
-        vm.productListing.push({
+        var _vm$productListing$pu;
+
+        vm.productListing.push((_vm$productListing$pu = {
           id: product.id,
           name: product.name,
           description: product.description,
@@ -182970,89 +183136,41 @@ __webpack_require__.r(__webpack_exports__);
           origin_type_id: product.origin_type_id,
           origin_id: product.origin_id,
           part_code: product.part_code,
+          model_number: product.model_number,
           unit_cost: product.unit_cost,
           rate: product.rate,
           current_stock: product.current_stock,
           reserved_stock: product.reserved_stock,
-          available_stock: product.available_stock,
+          available_stock: product.current_stock - product.reserved_stock,
           tax_type: product.tax_type,
-          status: product.status,
-          actions: ""
-        });
+          status: product.status
+        }, _defineProperty(_vm$productListing$pu, "model_number", product.model_number), _defineProperty(_vm$productListing$pu, "actions", ""), _vm$productListing$pu));
       });
-      vm.tabIndex = 0;
-    });
-  },
-  data: function data() {
-    return {
-      products: [],
-      perPage: 20,
-      currentPage: 1,
-      productListing: [{
-        supplier_id: "",
-        category_id: "",
-        origin_id: "",
-        code: "P001",
-        description: "Printer",
-        unitCost: "R1000",
-        status: "",
-        actions: ""
-      }, {
-        supplier_id: "",
-        category_id: "",
-        origin_id: "",
-        code: "T001",
-        description: "Toner",
-        unitCost: "R400",
-        status: "",
-        actions: ""
-      }, {
-        supplier_id: "",
-        category_id: "",
-        origin_id: "",
-        code: "PX001",
-        description: "Paper",
-        unitCost: "R200",
-        status: "",
-        actions: ""
-      }, {
-        supplier_id: "",
-        category_id: "",
-        origin_id: "",
-        code: "I001",
-        description: "Ink",
-        unitCost: "R150",
-        status: "",
-        actions: ""
-      }]
-    };
-  },
-  methods: {
-    getProducts: function getProducts() {
-      var companies = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+    },
+    updateProduct: function updateProduct(product) {
       var vm = this;
-      axios.get('/products/get-all').then(function (response) {
-        vm.products = response.data.products;
-        vm.products.map(function (product) {
-          vm.productListing.push({
-            id: product.id,
-            name: product.name,
-            description: product.description,
-            supplier_id: product.supplier_id,
-            category_id: product.category_id,
-            origin_type_id: product.origin_type_id,
-            origin_id: product.origin_id,
-            part_code: product.part_code,
-            unit_cost: product.unit_cost,
-            rate: product.rate,
-            current_stock: product.current_stock,
-            reserved_stock: product.reserved_stock,
-            available_stock: product.available_stock,
-            tax_type: product.tax_type,
-            status: product.status,
-            actions: ""
+      axios.post('/products/update', {
+        product: product
+      }).then(function (response) {
+        if (response.data.success === true) {
+          vm.Toast.fire({
+            type: 'success',
+            title: response.data.message
           });
-        });
+          vm.products = response.data.products;
+          vm.productListing = [];
+          vm.mapProducts(vm.products);
+          vm.$Progress.finish();
+        } else {
+          vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
+          vm.$Progress.fail();
+        }
+      });
+    },
+    filterCompaniesByType: function filterCompaniesByType(origin_type_id) {
+      var vm = this;
+      vm.filtered_companies = vm.companies.filter(function (item) {
+        return item.type_id == origin_type_id;
       });
     }
   },
@@ -183060,9 +183178,6 @@ __webpack_require__.r(__webpack_exports__);
     rows: function rows() {
       return this.productListing.length;
     }
-  },
-  created: function created() {
-    this.getProducts();
   }
 });
 
@@ -183959,11 +184074,17 @@ __webpack_require__.r(__webpack_exports__);
     BranchesListingTable: _DataTables_BranchesListingTable__WEBPACK_IMPORTED_MODULE_0__["default"],
     CreateBranch: _CreateBranch__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
-  mounted: function mounted() {},
+  mounted: function mounted() {
+    Fire.$on('CompanyCreated', function (data) {
+      vm.tabIndex = 0;
+    });
+  },
   created: function created() {},
   props: ['company_types', 'provinces', 'cities'],
   data: function data() {
-    return {};
+    return {
+      tabIndex: 0
+    };
   },
   methods: {
     listCompanies: function listCompanies() {}
@@ -184925,7 +185046,7 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   created: function created() {},
-  props: [],
+  props: ['role'],
   data: function data() {
     return {
       product: {
@@ -184934,12 +185055,13 @@ __webpack_require__.r(__webpack_exports__);
         origin_type_id: '',
         origin_id: '',
         part_code: 'MIT-12535455654GNL',
+        model_number: 'Z12535455654GNL',
         name: '',
         description: 'ECOSYS M3645dn 222-2464545/64HZ',
         unit_cost: '7259.40',
         rate: '',
         current_stock: '500',
-        reserved_stock: '',
+        reserved_stock: 0,
         available_stock: '',
         tax_type: '',
         status: ''
@@ -184965,7 +185087,7 @@ __webpack_require__.r(__webpack_exports__);
       this.product.unit_cost = '';
       this.product.rate = '';
       this.product.current_stock = '';
-      this.product.reserved_stock = '';
+      this.product.reserved_stock = 0;
       this.product.available_stock = '';
       this.product.tax_type = '';
       this.product.status = '';
@@ -185000,6 +185122,7 @@ __webpack_require__.r(__webpack_exports__);
               Fire.$emit('ProductCreated', {
                 product: response.data.product
               });
+              vm.clearProduct();
               vm.$Progress.finish();
             } else {
               vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
@@ -185295,9 +185418,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 
@@ -185314,6 +185434,13 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     console.log('Inventory Component Mounted');
     this.current_user = JSON.parse(this.logged_user);
+
+    if (this.current_user.role_id == 1) {
+      this.active_module_name = 'companies';
+    } else {
+      this.active_module_name = 'products';
+    }
+
     this.Toast = this.$swal.mixin({
       toast: true,
       position: 'top-end',
@@ -185325,8 +185452,9 @@ __webpack_require__.r(__webpack_exports__);
   props: ['active', 'logged_user', 'company_types', 'provinces', 'cities'],
   data: function data() {
     return {
+      current_user: [],
       show_page_loader: false,
-      active_module_name: 'branches',
+      active_module_name: 'companies',
       Toast: null
     };
   },
@@ -185635,12 +185763,15 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     var vm = this;
-    Fire.$on('ProductCreated', function ($data) {
+    Fire.$on('ProductCreated', function (data) {
       vm.tabIndex = 0;
+    });
+    Fire.$on('CategoryCreated', function (data) {
+      vm.tabIndex = 1;
     });
   },
   created: function created() {},
-  props: [],
+  props: ['role'],
   data: function data() {
     return {
       create_new: '-Select-',
@@ -370013,118 +370144,586 @@ var render = function() {
     "div",
     { staticClass: "table-container" },
     [
-      _c(
-        "b-table",
-        {
-          staticClass: "product-listing",
-          attrs: {
-            items: _vm.productListing,
-            "per-page": _vm.perPage,
-            "current-page": _vm.currentPage
-          }
+      _c("b-table", {
+        staticClass: "product-listing",
+        attrs: {
+          items: _vm.productListing,
+          "per-page": _vm.perPage,
+          "current-page": _vm.currentPage
         },
-        [
-          _c(
-            "template",
-            { slot: "supplier_id" },
-            [
-              _c(
-                "a-select",
-                {},
-                [
-                  _c("a-select-option", { attrs: { value: "0" } }, [
-                    _c("div", { staticClass: "d-inline-block" }),
-                    _vm._v("CPT001\n        ")
-                  ])
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "template",
-            { slot: "category_id" },
-            [
-              _c(
-                "a-select",
-                {},
-                [
-                  _c("a-select-option", { attrs: { value: "0" } }, [
-                    _c("div", { staticClass: "d-inline-block" }),
-                    _vm._v("Printers001\n        ")
-                  ])
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "template",
-            { slot: "origin_id" },
-            [
-              _c(
-                "a-select",
-                {},
-                [
-                  _c("a-select-option", { attrs: { value: "0" } }, [
-                    _c("div", { staticClass: "d-inline-block" }),
-                    _vm._v("CPT Main\n        ")
-                  ])
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "template",
-            { slot: "status" },
-            [
-              _c(
-                "a-select",
-                {},
-                [
-                  _c("a-select-option", { attrs: { value: "0" } }, [
-                    _c("div", { staticClass: "d-inline-block" }),
-                    _vm._v("Complete\n        ")
-                  ])
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("template", { slot: "actions" }, [
-            _c("span", { staticClass: "actions" }, [
-              _c("a", {
-                staticClass: "Edit",
-                attrs: { href: "#", title: "Edit" }
-              }),
-              _vm._v(" "),
-              _c("a", {
-                staticClass: "Delete",
-                attrs: { href: "#", title: "Delete" }
-              }),
-              _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "Order-button",
-                  attrs: { href: "#", title: "Order" }
-                },
-                [_vm._v("Order")]
-              )
-            ])
-          ])
-        ],
-        2
-      ),
+        scopedSlots: _vm._u([
+          {
+            key: "name",
+            fn: function(data) {
+              return [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: data.item.name,
+                      expression: "data.item.name"
+                    }
+                  ],
+                  staticClass: "form-control rounded-pill",
+                  attrs: { type: "text", id: "name", name: "Name" },
+                  domProps: { value: data.item.name },
+                  on: {
+                    blur: function($event) {
+                      return _vm.updateProduct(data.item)
+                    },
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(data.item, "name", $event.target.value)
+                    }
+                  }
+                })
+              ]
+            }
+          },
+          {
+            key: "description",
+            fn: function(data) {
+              return [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: data.item.description,
+                      expression: "data.item.description"
+                    }
+                  ],
+                  staticClass: "form-control rounded-pill",
+                  attrs: { id: "description", name: "description" },
+                  domProps: { value: data.item.description },
+                  on: {
+                    blur: function($event) {
+                      return _vm.updateProduct(data.item)
+                    },
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(data.item, "description", $event.target.value)
+                    }
+                  }
+                })
+              ]
+            }
+          },
+          {
+            key: "category_id",
+            fn: function(data) {
+              return [
+                _c(
+                  "a-select",
+                  {
+                    staticClass: "custom-select rounded-pill border-0",
+                    attrs: { name: "Part Type" },
+                    on: {
+                      change: function($event) {
+                        return _vm.updateProduct(data.item)
+                      }
+                    },
+                    model: {
+                      value: data.item.category_id,
+                      callback: function($$v) {
+                        _vm.$set(data.item, "category_id", $$v)
+                      },
+                      expression: "data.item.category_id"
+                    }
+                  },
+                  [
+                    _c(
+                      "a-select-option",
+                      { attrs: { value: "", selected: "" } },
+                      [_vm._v("-None-")]
+                    ),
+                    _vm._v(" "),
+                    _vm._l(_vm.categories, function(cat, index) {
+                      return _c(
+                        "a-select-option",
+                        { key: index, attrs: { value: cat.id } },
+                        [_vm._v(_vm._s(cat.name))]
+                      )
+                    })
+                  ],
+                  2
+                )
+              ]
+            }
+          },
+          {
+            key: "origin_type_id",
+            fn: function(data) {
+              return [
+                _c(
+                  "a-select",
+                  {
+                    staticClass: "custom-select rounded-pill border-0",
+                    attrs: { name: "Origin Type" },
+                    on: {
+                      change: function($event) {
+                        return _vm.filterCompaniesByType(
+                          data.item.origin_type_id
+                        )
+                      }
+                    },
+                    model: {
+                      value: data.item.origin_type_id,
+                      callback: function($$v) {
+                        _vm.$set(data.item, "origin_type_id", $$v)
+                      },
+                      expression: "data.item.origin_type_id"
+                    }
+                  },
+                  [
+                    _c(
+                      "a-select-option",
+                      { attrs: { value: "", selected: "" } },
+                      [_vm._v("-None-")]
+                    ),
+                    _vm._v(" "),
+                    _vm._l(_vm.company_types, function(type, index) {
+                      return _c(
+                        "a-select-option",
+                        { key: index, attrs: { value: type.id } },
+                        [_vm._v(_vm._s(type.name))]
+                      )
+                    })
+                  ],
+                  2
+                )
+              ]
+            }
+          },
+          {
+            key: "origin_id",
+            fn: function(data) {
+              return [
+                _c(
+                  "a-select",
+                  {
+                    staticClass: "custom-select rounded-pill border-0",
+                    attrs: { name: "Origin" },
+                    on: {
+                      change: function($event) {
+                        return _vm.updateProduct(data.item)
+                      }
+                    },
+                    model: {
+                      value: data.item.origin_id,
+                      callback: function($$v) {
+                        _vm.$set(data.item, "origin_id", $$v)
+                      },
+                      expression: "data.item.origin_id"
+                    }
+                  },
+                  [
+                    _c(
+                      "a-select-option",
+                      { attrs: { value: "", selected: "" } },
+                      [_vm._v("-None-")]
+                    ),
+                    _vm._v(" "),
+                    _vm._l(_vm.filtered_companies, function(company, index) {
+                      return _c(
+                        "a-select-option",
+                        { key: index, attrs: { value: company.id } },
+                        [_vm._v(_vm._s(company.name))]
+                      )
+                    })
+                  ],
+                  2
+                )
+              ]
+            }
+          },
+          {
+            key: "supplier_id",
+            fn: function(data) {
+              return [
+                _c(
+                  "a-select",
+                  {
+                    staticClass: "custom-select rounded-pill border-0",
+                    attrs: { name: "Supplier" },
+                    on: {
+                      change: function($event) {
+                        return _vm.updateProduct(data.item)
+                      }
+                    },
+                    model: {
+                      value: data.item.supplier_id,
+                      callback: function($$v) {
+                        _vm.$set(data.item, "supplier_id", $$v)
+                      },
+                      expression: "data.item.supplier_id"
+                    }
+                  },
+                  [
+                    _c(
+                      "a-select-option",
+                      { attrs: { value: "", selected: "" } },
+                      [_vm._v("-None-")]
+                    ),
+                    _vm._v(" "),
+                    _vm._l(_vm.suppliers, function(supplier, index) {
+                      return _c(
+                        "a-select-option",
+                        { key: index, attrs: { value: supplier.id } },
+                        [_vm._v(_vm._s(supplier.name))]
+                      )
+                    })
+                  ],
+                  2
+                )
+              ]
+            }
+          },
+          {
+            key: "model_number",
+            fn: function(data) {
+              return [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required",
+                      expression: "'required'"
+                    },
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: data.item.model_number,
+                      expression: "data.item.model_number"
+                    }
+                  ],
+                  staticClass: "form-control rounded-pill",
+                  attrs: {
+                    name: "Model Number",
+                    type: "text",
+                    id: "model-number"
+                  },
+                  domProps: { value: data.item.model_number },
+                  on: {
+                    blur: function($event) {
+                      return _vm.updateProduct(data.item)
+                    },
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(data.item, "model_number", $event.target.value)
+                    }
+                  }
+                })
+              ]
+            }
+          },
+          {
+            key: "part_code",
+            fn: function(data) {
+              return [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: data.item.part_code,
+                      expression: "data.item.part_code"
+                    }
+                  ],
+                  staticClass: "form-control rounded-pill",
+                  attrs: { type: "text", id: "part-code", name: "partCode" },
+                  domProps: { value: data.item.part_code },
+                  on: {
+                    blur: function($event) {
+                      return _vm.updateProduct(data.item)
+                    },
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(data.item, "part_code", $event.target.value)
+                    }
+                  }
+                })
+              ]
+            }
+          },
+          {
+            key: "unit_cost",
+            fn: function(data) {
+              return [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required",
+                      expression: "'required'"
+                    },
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: data.item.unit_cost,
+                      expression: "data.item.unit_cost"
+                    }
+                  ],
+                  staticClass: "form-control rounded-pill",
+                  attrs: { type: "number", id: "unit-cost", name: "unitCost" },
+                  domProps: { value: data.item.unit_cost },
+                  on: {
+                    blur: function($event) {
+                      return _vm.updateProduct(data.item)
+                    },
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(data.item, "unit_cost", $event.target.value)
+                    }
+                  }
+                })
+              ]
+            }
+          },
+          {
+            key: "rate",
+            fn: function(data) {
+              return [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required",
+                      expression: "'required'"
+                    },
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: data.item.rate,
+                      expression: "data.item.rate"
+                    }
+                  ],
+                  staticClass: "form-control rounded-pill",
+                  attrs: { type: "number", id: "unit-cost", name: "unitCost" },
+                  domProps: { value: data.item.rate },
+                  on: {
+                    blur: function($event) {
+                      return _vm.updateProduct(data.item)
+                    },
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(data.item, "rate", $event.target.value)
+                    }
+                  }
+                })
+              ]
+            }
+          },
+          {
+            key: "current_stock",
+            fn: function(data) {
+              return [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required",
+                      expression: "'required'"
+                    },
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: data.item.current_stock,
+                      expression: "data.item.current_stock"
+                    }
+                  ],
+                  staticClass: "form-control rounded-pill",
+                  attrs: { type: "number", id: "stock", name: "Current Stock" },
+                  domProps: { value: data.item.current_stock },
+                  on: {
+                    blur: function($event) {
+                      return _vm.updateProduct(data.item)
+                    },
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(data.item, "current_stock", $event.target.value)
+                    }
+                  }
+                })
+              ]
+            }
+          },
+          {
+            key: "reserved_stock",
+            fn: function(data) {
+              return [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required",
+                      expression: "'required'"
+                    },
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: data.item.reserved_stock,
+                      expression: "data.item.reserved_stock"
+                    }
+                  ],
+                  staticClass: "form-control rounded-pill",
+                  attrs: { type: "number", id: "stock", name: "Current Stock" },
+                  domProps: { value: data.item.reserved_stock },
+                  on: {
+                    blur: function($event) {
+                      return _vm.updateProduct(data.item)
+                    },
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(data.item, "reserved_stock", $event.target.value)
+                    }
+                  }
+                })
+              ]
+            }
+          },
+          {
+            key: "tax_type",
+            fn: function(data) {
+              return [
+                _c(
+                  "a-select",
+                  {
+                    directives: [
+                      {
+                        name: "validate",
+                        rawName: "v-validate",
+                        value: "required",
+                        expression: "'required'"
+                      }
+                    ],
+                    staticClass: "custom-select rounded-pill border-0",
+                    attrs: { name: "Tax Type" },
+                    on: {
+                      change: function($event) {
+                        return _vm.updateProduct(data.item)
+                      }
+                    },
+                    model: {
+                      value: data.item.tax_type,
+                      callback: function($$v) {
+                        _vm.$set(data.item, "tax_type", $$v)
+                      },
+                      expression: "data.item.tax_type"
+                    }
+                  },
+                  [
+                    _c("a-select-option", { attrs: { value: "" } }, [
+                      _vm._v("-None-")
+                    ]),
+                    _vm._v(" "),
+                    _vm._l(_vm.tax_types, function(type, index) {
+                      return _c(
+                        "a-select-option",
+                        { key: index, attrs: { value: type } },
+                        [_vm._v(_vm._s(type))]
+                      )
+                    })
+                  ],
+                  2
+                )
+              ]
+            }
+          },
+          {
+            key: "status",
+            fn: function(data) {
+              return [
+                _c(
+                  "a-select",
+                  {
+                    directives: [
+                      {
+                        name: "validate",
+                        rawName: "v-validate",
+                        value: "required",
+                        expression: "'required'"
+                      }
+                    ],
+                    staticClass: "custom-select rounded-pill border-0",
+                    attrs: { name: "Status" },
+                    on: {
+                      change: function($event) {
+                        return _vm.updateProduct(data.item)
+                      }
+                    },
+                    model: {
+                      value: data.item.status,
+                      callback: function($$v) {
+                        _vm.$set(data.item, "status", $$v)
+                      },
+                      expression: "data.item.status"
+                    }
+                  },
+                  [
+                    _c("a-select-option", { attrs: { value: "" } }, [
+                      _vm._v("-None-")
+                    ]),
+                    _vm._v(" "),
+                    _c("a-select-option", { attrs: { value: 1 } }, [
+                      _vm._v("Active")
+                    ]),
+                    _vm._v(" "),
+                    _c("a-select-option", { attrs: { value: 0 } }, [
+                      _vm._v("Disabled")
+                    ])
+                  ],
+                  1
+                )
+              ]
+            }
+          },
+          {
+            key: "actions",
+            fn: function(data) {
+              return [
+                _c("span", { staticClass: "actions" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "Order-button",
+                      attrs: { href: "#", title: "Order" },
+                      on: {
+                        click: function($event) {
+                          return _vm.startOrder(data.item)
+                        }
+                      }
+                    },
+                    [_vm._v("Order")]
+                  )
+                ])
+              ]
+            }
+          }
+        ])
+      }),
       _vm._v(" "),
       _c("b-pagination", {
         staticClass: "products-pagination",
@@ -370785,7 +371384,16 @@ var render = function() {
             [
               _c(
                 "b-tabs",
-                { attrs: { card: "" } },
+                {
+                  attrs: { card: "" },
+                  model: {
+                    value: _vm.tabIndex,
+                    callback: function($$v) {
+                      _vm.tabIndex = $$v
+                    },
+                    expression: "tabIndex"
+                  }
+                },
                 [
                   _c(
                     "b-tab",
@@ -372752,8 +373360,8 @@ var render = function() {
                                     staticClass: "form-control rounded-pill",
                                     attrs: {
                                       type: "number",
-                                      id: "unit-cost",
-                                      name: "unitCost"
+                                      id: "unit_cost",
+                                      name: "Unit Cost"
                                     },
                                     domProps: { value: _vm.product.unit_cost },
                                     on: {
@@ -372814,8 +373422,8 @@ var render = function() {
                                     staticClass: "form-control rounded-pill",
                                     attrs: {
                                       type: "number",
-                                      id: "unit-cost",
-                                      name: "unitCost"
+                                      id: "unit_cost",
+                                      name: "Unit Cost"
                                     },
                                     domProps: { value: _vm.product.unit_cost },
                                     on: {
@@ -372863,8 +373471,8 @@ var render = function() {
                                     staticClass: "form-control rounded-pill",
                                     attrs: {
                                       type: "number",
-                                      id: "unit-cost",
-                                      name: "unitCost"
+                                      id: "rate",
+                                      name: "Rate"
                                     },
                                     domProps: { value: _vm.product.rate },
                                     on: {
@@ -372921,8 +373529,8 @@ var render = function() {
                                     staticClass: "form-control rounded-pill",
                                     attrs: {
                                       type: "number",
-                                      id: "unit-cost",
-                                      name: "unitCost"
+                                      id: "rate",
+                                      name: "Rate"
                                     },
                                     domProps: { value: _vm.product.rate },
                                     on: {
@@ -373007,8 +373615,8 @@ var render = function() {
                                 staticClass: "form-control rounded-pill",
                                 attrs: {
                                   type: "number",
-                                  id: "unit-cost",
-                                  name: "unitCost"
+                                  id: "reserved_stock",
+                                  name: "Reserved Stock"
                                 },
                                 domProps: { value: _vm.product.reserved_stock },
                                 on: {
@@ -373049,8 +373657,8 @@ var render = function() {
                                 attrs: {
                                   disabled: "",
                                   type: "number",
-                                  id: "unit-cost",
-                                  name: "unitCost"
+                                  id: "available_stock",
+                                  name: "Available Stock"
                                 },
                                 domProps: {
                                   value: _vm.product.available_stock
@@ -373272,28 +373880,31 @@ var render = function() {
   return _c("div", { attrs: { id: "inventory" } }, [
     _c("div", { staticClass: "row mx-0 my-0 top-nav" }, [
       _c("ul", { staticClass: "top-menu w-100" }, [
-        _c("li", { staticClass: "item ml-0" }, [
-          _c(
-            "a",
-            {
-              staticClass: "ml-0",
-              class: {
-                active: _vm.active_module_name === "companies" ? true : false
-              },
-              attrs: { href: "#" },
-              on: {
-                click: function($event) {
-                  return _vm.showModulePreferences(
-                    "companies",
-                    "companies",
-                    null
-                  )
-                }
-              }
-            },
-            [_vm._v("Companies")]
-          )
-        ]),
+        _vm.current_user.role_id == 1
+          ? _c("li", { staticClass: "item ml-0" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "ml-0",
+                  class: {
+                    active:
+                      _vm.active_module_name === "companies" ? true : false
+                  },
+                  attrs: { href: "#" },
+                  on: {
+                    click: function($event) {
+                      return _vm.showModulePreferences(
+                        "companies",
+                        "companies",
+                        null
+                      )
+                    }
+                  }
+                },
+                [_vm._v("Companies")]
+              )
+            ])
+          : _vm._e(),
         _vm._v(" "),
         _c("li", { staticClass: "item" }, [
           _c(
@@ -373340,13 +373951,16 @@ var render = function() {
         [
           _vm.show_page_loader ? _c("vcl-table") : _vm._e(),
           _vm._v(" "),
-          !_vm.show_page_loader && _vm.active_module_name == "branches"
+          !_vm.show_page_loader &&
+          _vm.active_module_name == "companies" &&
+          _vm.current_user.role_id == 1
             ? _c(
                 "div",
                 { staticClass: "branches" },
                 [
                   _c("branch-index", {
                     attrs: {
+                      role: _vm.current_user.role_id,
                       provinces: _vm.provinces,
                       cities: _vm.cities,
                       company_types: _vm.company_types
@@ -373364,6 +373978,7 @@ var render = function() {
                 [
                   _c("product-index", {
                     attrs: {
+                      role: _vm.current_user.role_id,
                       provinces: _vm.provinces,
                       cities: _vm.cities,
                       company_types: _vm.company_types
@@ -373381,6 +373996,7 @@ var render = function() {
                 [
                   _c("order-index", {
                     attrs: {
+                      role: _vm.current_user.role_id,
                       provinces: _vm.provinces,
                       cities: _vm.cities,
                       company_types: _vm.company_types
@@ -373736,146 +374352,172 @@ var render = function() {
                       _c(
                         "transition",
                         { attrs: { name: "fade" } },
-                        [_c("ProductListingTable")],
+                        [
+                          _c("ProductListingTable", {
+                            attrs: { role: _vm.role }
+                          })
+                        ],
                         1
                       )
                     ],
                     1
                   ),
                   _vm._v(" "),
-                  _c(
-                    "b-tab",
-                    {
-                      staticClass: "category-table",
-                      scopedSlots: _vm._u([
+                  _vm.role == 1
+                    ? _c(
+                        "b-tab",
                         {
-                          key: "title",
-                          fn: function() {
-                            return [
-                              _c("h5", { staticClass: "d-inline-block mb-0" }, [
-                                _vm._v("Category")
-                              ])
-                            ]
-                          },
-                          proxy: true
-                        }
-                      ])
-                    },
-                    [
-                      _vm._v(" "),
-                      _c(
-                        "transition",
-                        { attrs: { name: "fade" } },
-                        [_c("CategoryListingTable")],
-                        1
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "b-tab",
-                    {
-                      scopedSlots: _vm._u([
-                        {
-                          key: "title",
-                          fn: function() {
-                            return [
-                              _c("h5", { staticClass: "d-inline-block mb-0" }, [
-                                _vm._v("Add New")
-                              ]),
-                              _vm._v(" "),
-                              _c("img", {
-                                staticClass: "d-none",
-                                attrs: {
-                                  src: "images/icons/Field_Add.svg",
-                                  alt: "Add field icon",
-                                  width: "16"
-                                }
-                              })
-                            ]
-                          },
-                          proxy: true
-                        }
-                      ])
-                    },
-                    [
-                      _vm._v(" "),
-                      _c("div", { staticClass: "row mx-0" }, [
-                        _c(
-                          "div",
-                          { staticClass: "col-4 px-0 add-selector" },
-                          [
-                            _c("label", { attrs: { for: "input-none" } }, [
-                              _vm._v("Type")
-                            ]),
-                            _vm._v(" "),
-                            _c(
-                              "a-select",
+                          staticClass: "category-table",
+                          scopedSlots: _vm._u(
+                            [
                               {
-                                staticClass:
-                                  "custom-select rounded-pill border-0",
-                                model: {
-                                  value: _vm.create_new,
-                                  callback: function($$v) {
-                                    _vm.create_new = $$v
-                                  },
-                                  expression: "create_new"
-                                }
-                              },
+                                key: "title",
+                                fn: function() {
+                                  return [
+                                    _c(
+                                      "h5",
+                                      { staticClass: "d-inline-block mb-0" },
+                                      [_vm._v("Categories")]
+                                    )
+                                  ]
+                                },
+                                proxy: true
+                              }
+                            ],
+                            null,
+                            false,
+                            1723517105
+                          )
+                        },
+                        [
+                          _vm._v(" "),
+                          _c(
+                            "transition",
+                            { attrs: { name: "fade" } },
+                            [_c("CategoryListingTable")],
+                            1
+                          )
+                        ],
+                        1
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.role == 1
+                    ? _c(
+                        "b-tab",
+                        {
+                          scopedSlots: _vm._u(
+                            [
+                              {
+                                key: "title",
+                                fn: function() {
+                                  return [
+                                    _c(
+                                      "h5",
+                                      { staticClass: "d-inline-block mb-0" },
+                                      [_vm._v("Add New")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("img", {
+                                      staticClass: "d-none",
+                                      attrs: {
+                                        src: "images/icons/Field_Add.svg",
+                                        alt: "Add field icon",
+                                        width: "16"
+                                      }
+                                    })
+                                  ]
+                                },
+                                proxy: true
+                              }
+                            ],
+                            null,
+                            false,
+                            510575629
+                          )
+                        },
+                        [
+                          _vm._v(" "),
+                          _c("div", { staticClass: "row mx-0" }, [
+                            _c(
+                              "div",
+                              { staticClass: "col-4 px-0 add-selector" },
                               [
-                                _c(
-                                  "a-select-option",
-                                  { attrs: { value: "-Select-" } },
-                                  [_vm._v("Select")]
-                                ),
+                                _c("label", { attrs: { for: "input-none" } }, [
+                                  _vm._v("Type")
+                                ]),
                                 _vm._v(" "),
                                 _c(
-                                  "a-select-option",
-                                  { attrs: { value: "category" } },
-                                  [_vm._v("Category")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "a-select-option",
-                                  { attrs: { value: "product" } },
-                                  [_vm._v("Product")]
+                                  "a-select",
+                                  {
+                                    staticClass:
+                                      "custom-select rounded-pill border-0",
+                                    model: {
+                                      value: _vm.create_new,
+                                      callback: function($$v) {
+                                        _vm.create_new = $$v
+                                      },
+                                      expression: "create_new"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "a-select-option",
+                                      { attrs: { value: "-Select-" } },
+                                      [_vm._v("Select")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "a-select-option",
+                                      { attrs: { value: "category" } },
+                                      [_vm._v("Category")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "a-select-option",
+                                      { attrs: { value: "product" } },
+                                      [_vm._v("Product")]
+                                    )
+                                  ],
+                                  1
                                 )
                               ],
                               1
                             )
-                          ],
-                          1
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _vm.create_new === "category"
-                        ? _c(
-                            "div",
-                            { staticClass: "create-category" },
-                            [
-                              _c("div", { staticClass: "divider-line" }),
-                              _vm._v(" "),
-                              _c("create-category")
-                            ],
-                            1
-                          )
-                        : _vm._e(),
-                      _vm._v(" "),
-                      _vm.create_new === "product"
-                        ? _c(
-                            "div",
-                            { staticClass: "create-products" },
-                            [
-                              _c("div", { staticClass: "divider-line" }),
-                              _vm._v(" "),
-                              _c("create-product")
-                            ],
-                            1
-                          )
-                        : _vm._e()
-                    ]
-                  )
+                          ]),
+                          _vm._v(" "),
+                          _vm.create_new === "category"
+                            ? _c(
+                                "div",
+                                { staticClass: "create-category" },
+                                [
+                                  _c("div", { staticClass: "divider-line" }),
+                                  _vm._v(" "),
+                                  _c("create-category", {
+                                    attrs: { role: _vm.role }
+                                  })
+                                ],
+                                1
+                              )
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm.create_new === "product"
+                            ? _c(
+                                "div",
+                                { staticClass: "create-products" },
+                                [
+                                  _c("div", { staticClass: "divider-line" }),
+                                  _vm._v(" "),
+                                  _c("create-product", {
+                                    attrs: { role: _vm.role }
+                                  })
+                                ],
+                                1
+                              )
+                            : _vm._e()
+                        ]
+                      )
+                    : _vm._e()
                 ],
                 1
               )

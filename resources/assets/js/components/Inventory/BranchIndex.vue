@@ -32,7 +32,7 @@ h5 {
     <div class="row mx-0 branches-tabs">
       <div class="col-lg-12 px-0">
         <b-card no-body>
-          <b-tabs card>
+          <b-tabs v-model="tabIndex" card>
             <b-tab active class="branch-table">
               <template v-slot:title>
                 <h5 class="d-inline-block mb-0">Companies</h5>
@@ -69,7 +69,9 @@ h5 {
       CreateBranch
     },
     mounted() {
-      
+      Fire.$on('CompanyCreated', function(data){
+        vm.tabIndex = 0;
+      });
     },
     created: function () {
     },
@@ -80,7 +82,7 @@ h5 {
     ],
     data: function(){
       return {
-        
+        tabIndex: 0
       }
     },
     methods: {

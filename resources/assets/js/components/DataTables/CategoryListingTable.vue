@@ -110,6 +110,15 @@
               }); 
 
               vm.categories = response.data.categories;
+              vm.categoryListing = [];
+              vm.categories.map( (category)=> {
+                vm.categoryListing.push({
+                  id: category.id,
+                  name: category.name,
+                  description: category.description,
+                  status: category.status,
+                })
+              });
 
               vm.$Progress.finish(); 
             } else { 

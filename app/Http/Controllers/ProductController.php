@@ -26,7 +26,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-         $products = Product::get();
+         $products = Product::with(['category','origin','supplier'])->get();
          return array('success' => true, 'products' => $products);
     }
 
@@ -70,29 +70,20 @@ class ProductController extends Controller
      */
     public function update(Request $request)
     {
-        $request_user = ['user_id' => $request->session_user_id, 'name' => $request->session_user_name];
-
         $data = $request->all();
-        $id = $data['id'];
-        $name = $data['name'];
-        $description = $data['description'];
-        $price = $data['price'];
-        $status = $data['status'];
+        
+        unset($data['product']['available_stock']);
+        unset($data['product']['actions']);
 
         try{
             DB::beginTransaction();
 
-            $product = Product::where(['id' => $id])->update([
-                'name' => $name,
-                'description' => $description,
-                'price' => $price,
-                'status' => $status,
-            ]);
+            $product = Product::where(['id' =>$data['product']['id']])->update($data['product']);
 
-            $product = Product::where(['id' => $id])->get();
+            $products = Product::with(['category','origin','supplier'])->get();
 
             DB::commit();
-            return array('success' => true, 'product' => Product::find($id));
+            return array('success' => true, 'message' => 'Product update successfully', 'products' => $products);
 
         }catch(\QueryException $e){
             DB::rollback();

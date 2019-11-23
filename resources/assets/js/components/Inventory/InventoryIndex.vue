@@ -208,7 +208,7 @@
 
     <div class="row mx-0 my-0 top-nav">
       <ul class="top-menu w-100">
-        <li class="item ml-0">
+        <li class="item ml-0" v-if="current_user.role_id == 1">
           <a 
             href="#" 
             @click="showModulePreferences('companies', 'companies', null);"
@@ -240,19 +240,16 @@
       <div class="col-lg-12 px-0">
         <vcl-table v-if="show_page_loader"> </vcl-table>
 
-        <div class="branches" v-if="!show_page_loader && active_module_name == 'branches'">
-          <branch-index :provinces="provinces" :cities="cities" :company_types="company_types" />
+        <div  class="branches" v-if="!show_page_loader && active_module_name == 'companies' && current_user.role_id == 1">
+          <branch-index :role="current_user.role_id"  :provinces="provinces" :cities="cities" :company_types="company_types" />
         </div>
 
         <div class="products" v-if="!show_page_loader && active_module_name == 'products'">
-          <product-index 
-            :provinces="provinces" 
-            :cities="cities" 
-            :company_types="company_types"/>
+          <product-index :role="current_user.role_id" :provinces="provinces" :cities="cities" :company_types="company_types"/>
         </div>
 
         <div class="orders" v-if="!show_page_loader && active_module_name == 'orders'">
-          <order-index :provinces="provinces" :cities="cities" :company_types="company_types"/>
+          <order-index :role="current_user.role_id"  :provinces="provinces" :cities="cities" :company_types="company_types"/>
         </div>
       </div>
     </div>
@@ -277,6 +274,12 @@
       console.log('Inventory Component Mounted');
 
       this.current_user = JSON.parse(this.logged_user);
+
+      if(this.current_user.role_id == 1){
+        this.active_module_name = 'companies';
+      }else{
+        this.active_module_name = 'products';
+      }
       
       this.Toast = this.$swal.mixin({
         toast: true,
@@ -296,8 +299,9 @@
     ],
     data: function(){
       return {
+        current_user: [],
         show_page_loader: false,
-        active_module_name: 'branches',
+        active_module_name: 'companies',
         Toast:null
       }
     },
