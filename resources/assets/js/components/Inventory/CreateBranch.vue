@@ -150,8 +150,8 @@ h5 {
             <label for="input-none" class="w-100">Status</label>
             <span id="error" v-show="errors.has('Status')" class="help-block">{{ errors.first('Status') }}</span>
             <a-switch v-model="branch.status" v-validate="'required'" name="Status"/>
-            <label v-if="branch.status == 1">Active</label>
-            <label v-if="branch.status == 0">Inactive</label>
+            <label v-if="branch.status == 1 || branch.status == true">Active</label>
+            <label v-if="branch.status == 0 || branch.status == false">Inactive</label>
           </b-col>
         </b-row>
 
@@ -203,7 +203,7 @@ export default {
         tax_number: '',
         type_id: '',
         code: '',
-        status:'',
+        status: true,
       },
       company_types: [],
       provinces: [],

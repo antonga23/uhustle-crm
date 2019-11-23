@@ -57,6 +57,9 @@ label{
   margin-left: 0.9%;
   margin-right: 0.9%;
 }
+.ant-switch {
+  margin-left: 17px;
+}
 </style>
 
 <template>
@@ -64,198 +67,190 @@ label{
     <h5>Add Product</h5>
 
     <b-row class="mx-0">
-      <b-col sm="9" class="px-0">
-        <b-row class="mx-0">
-          <b-col sm="6" class="pl-0">
-            <b-row class="mx-0">
+      <b-col sm="3" class="pl-0">
+        <label for="input-none">Name</label>
+        <span id="error" v-show="errors.has('Name')" class="help-block">{{ errors.first('Name') }}</span>
+        <input 
+          v-validate="'required'"
+          v-model="product.name"    
+          type="text"    
+          id="name"     
+          name="Name"   
+          class="form-control rounded-pill"/>
+      </b-col>
 
-              <b-col sm="7" class="pl-0">
-                <label for="input-none">Name</label>
-                <input 
-                  v-validate="'required'"
-                  v-model="product.name"    
-                  type="text"    
-                  id="name"     
-                  name="Name"   
-                  class="form-control rounded-pill"/>
-                  <span id="error" v-show="errors.has('Name')" class="help-block">{{ errors.first('Name') }}</span>
-              </b-col>
+      <b-col sm="6">
+        <label for="input-none">Description</label>
+        <span id="error" v-show="errors.has('Description')" class="help-block">{{ errors.first('Description') }}</span>
+        <input 
+          v-model="product.description"   
+          id="info"     
+          name="Info"   
+          class="form-control rounded-pill"/>
+      </b-col>
 
-              <b-col sm="7" class="px-0">
-                <label for="input-none">Description</label>
-                <input 
-                  v-model="product.description"   
-                  id="info"     
-                  name="Info"   
-                  class="form-control rounded-pill"/>
-                  <span id="error" v-show="errors.has('Description')" class="help-block">{{ errors.first('Description') }}</span>
-              </b-col>
+      <b-col sm="3" class="pr-0">
+        <label for="input-none">Part Type</label>
+        <span id="error" v-show="errors.has('Part Type')" class="help-block">{{ errors.first('Part Type') }}</span>
+        <a-select v-validate="'required'" name="Part Type" v-model="product.category_id" class="custom-select rounded-pill border-0">   
+          <a-select-option value="" selected>-None-</a-select-option>   
+          <a-select-option :value="cat.id" v-for="(cat, index) in categories" :key="index">{{cat.name}}</a-select-option> 
+        </a-select>
+      </b-col>
 
-              <b-col sm="7" class="pl-0">
-                <label for="input-none">Part Type</label>
-                <a-select v-validate="'required'" name="Part Type" v-model="product.category_id" class="custom-select rounded-pill border-0">   
-                  <a-select-option value="" selected>-None-</a-select-option>   
-                  <a-select-option :value="cat.id" v-for="(cat, index) in categories" :key="index">{{cat.name}}</a-select-option> 
-                </a-select>
-                  <span id="error" v-show="errors.has('Part Type')" class="help-block">{{ errors.first('Part Type') }}</span>
-              </b-col>
+      <b-col sm="3" class="pl-0">
+        <label for="input-none">Origin Type</label>
+        <span id="error" v-show="errors.has('Origin Type')" class="help-block">{{ errors.first('Origin Type') }}</span>
+        <a-select v-validate="'required'" name="Origin Type" @change="filterCompaniesByType" v-model="product.origin_type_id" class="custom-select rounded-pill border-0">   
+          <a-select-option value="" selected>-None-</a-select-option>   
+          <a-select-option :value="type.id" v-for="(type, index) in company_types" :key="index">{{type.name}}</a-select-option> 
+        </a-select>
+      </b-col>
 
-              <b-col sm="7" class="pl-0">
-                <label for="input-none">Origin Type</label>
-                <a-select v-validate="'required'" name="Origin Type" @change="filterCompaniesByType" v-model="product.origin_type_id" class="custom-select rounded-pill border-0">   
-                  <a-select-option value="" selected>-None-</a-select-option>   
-                  <a-select-option :value="type.id" v-for="(type, index) in company_types" :key="index">{{type.name}}</a-select-option> 
-                </a-select>
-                  <span id="error" v-show="errors.has('Origin Type')" class="help-block">{{ errors.first('Origin Type') }}</span>
-              </b-col>
+      <b-col sm="3">
+        <label for="input-none">Origin</label>
+        <span id="error" v-show="errors.has('Origin')" class="help-block">{{ errors.first('Origin') }}</span>
+        <a-select v-validate="'required'" name="Origin" v-model="product.origin_id" class="custom-select rounded-pill border-0" :disabled="!product.origin_type_id">   
+          <a-select-option value="" selected>-None-</a-select-option>   
+          <a-select-option :value="company.id" v-for="(company, index) in filtered_companies" :key="index">{{company.name}}</a-select-option> 
+        </a-select>
+      </b-col>
 
-              <b-col sm="7" class="pl-0">
-                <label for="input-none">Origin</label>
-                <a-select v-validate="'required'" name="Origin" v-model="product.origin_id" class="custom-select rounded-pill border-0">   
-                  <a-select-option value="" selected>-None-</a-select-option>   
-                  <a-select-option :value="company.id" v-for="(company, index) in filtered_companies" :key="index">{{company.name}}</a-select-option> 
-                </a-select>
-                  <span id="error" v-show="errors.has('Origin')" class="help-block">{{ errors.first('Origin') }}</span>
-              </b-col>
+      <b-col sm="3">
+        <label for="input-none">Supplier</label>
+        <span id="error" v-show="errors.has('Supplier')" class="help-block">{{ errors.first('Supplier') }}</span>
+        <a-select v-validate="'required'" name="Supplier" v-model="product.supplier_id" class="custom-select rounded-pill border-0">   
+          <a-select-option value="" selected>-None-</a-select-option>   
+          <a-select-option :value="supplier.id" v-for="(supplier, index) in suppliers" :key="index">{{supplier.name}}</a-select-option> 
+        </a-select>
+      </b-col>
 
-              <b-col sm="7" class="pl-0">
-                <label for="input-none">Supplier</label>
-                <a-select v-validate="'required'" name="Supplier" v-model="product.supplier_id" class="custom-select rounded-pill border-0">   
-                  <a-select-option value="" selected>-None-</a-select-option>   
-                  <a-select-option :value="supplier.id" v-for="(supplier, index) in suppliers" :key="index">{{supplier.name}}</a-select-option> 
-                </a-select>
-                  <span id="error" v-show="errors.has('Supplier')" class="help-block">{{ errors.first('Supplier') }}</span>
-              </b-col>
+      <b-col sm="3" class="pr-0">
+        <label for="input-none">Model Number</label>
+        <input
+          v-validate="'required'" 
+          name="Model Number" 
+          v-model="product.model_number"    
+          type="text"    
+          id="model-number" 
+          class="form-control rounded-pill"/>
+      </b-col>
 
-              <b-col sm="7" class="pl-0">
-                <label for="input-none">Model Number</label>
-                <input
-                  v-validate="'required'" 
-                  name="Model Number" 
-                  v-model="product.model_number"    
-                  type="text"    
-                  id="model-number" 
-                  class="form-control rounded-pill"/>
-              </b-col>
+      <b-col sm="3" class="pl-0">
+        <label for="input-none">Part Code</label>
+        <input 
+          v-model="product.part_code"    
+          type="text"    
+          id="part-code"     
+          name="partCode"   
+          class="form-control rounded-pill"/>
+      </b-col>
 
-              <b-col sm="7" class="pl-0">
-                <label for="input-none">Part Code</label>
-                <input 
-                  v-model="product.part_code"    
-                  type="text"    
-                  id="part-code"     
-                  name="partCode"   
-                  class="form-control rounded-pill"/>
-              </b-col>
+      <b-col sm="6" v-if="product.rate == ''">
+        <label for="input-none">Unit Cost</label>
+        <span id="error" v-show="errors.has('Unit Cost')" class="help-block">{{ errors.first('Unit Cost') }}</span>
+        <input 
+          v-validate="'required'"
+          v-model="product.unit_cost"    
+          type="number"    
+          id="unit_cost"     
+          name="Unit Cost"   
+          class="form-control rounded-pill"/>
+      </b-col>
 
-              <b-col sm="7" class="pl-0" v-if="product.rate == ''">
-                <label for="input-none">Unit Cost</label>
-                <input 
-                  v-validate="'required'"
-                  v-model="product.unit_cost"    
-                  type="number"    
-                  id="unit_cost"     
-                  name="Unit Cost"   
-                  class="form-control rounded-pill"/>
-                  <span id="error" v-show="errors.has('Unit Cost')" class="help-block">{{ errors.first('Unit Cost') }}</span>
-              </b-col>
-              <b-col sm="7" class="pl-0" v-else>
-                <label for="input-none">Unit Cost</label>
-                <input 
-                  v-model="product.unit_cost"    
-                  type="number"    
-                  id="unit_cost"     
-                  name="Unit Cost"   
-                  class="form-control rounded-pill"/>
-              </b-col>
+      <b-col sm="6" v-else>
+        <label for="input-none">Unit Cost</label>
+        <input 
+          v-model="product.unit_cost"    
+          type="number"    
+          id="unit_cost"     
+          name="Unit Cost"   
+          class="form-control rounded-pill"/>
+      </b-col>
 
-              <b-col sm="7" class="pl-0" v-if="product.unit_cost == ''">
-                <label for="input-none">Rate</label>
-                <input 
-                  v-validate="'required'"
-                  v-model="product.rate"    
-                  type="number"    
-                  id="rate"     
-                  name="Rate"   
-                  class="form-control rounded-pill"/>
-                  <span id="error" v-show="errors.has('Rate')" class="help-block">{{ errors.first('Rate') }}</span>
-              </b-col>
-              <b-col sm="7" class="pl-0" v-else>
-                <label for="input-none">Rate</label>
-                <input 
-                  v-model="product.rate"    
-                  type="number"    
-                  id="rate"     
-                  name="Rate"   
-                  class="form-control rounded-pill"/>
-              </b-col>
+      <b-col sm="3" class="pr-0" v-if="product.unit_cost == ''">
+        <label for="input-none">Rate</label>
+        <span id="error" v-show="errors.has('Rate')" class="help-block">{{ errors.first('Rate') }}</span>
+        <input 
+          v-validate="'required'"
+          v-model="product.rate"    
+          type="number"    
+          id="rate"     
+          name="Rate"   
+          class="form-control rounded-pill"/>
+      </b-col>
 
-              <b-col sm="7" class="pl-0">
-                <label for="input-none">Current Stock</label>
-                <input 
-                  v-validate="'required'"
-                  v-model="product.current_stock"    
-                  type="number"    
-                  id="stock"     
-                  name="Current Stock"   
-                  class="form-control rounded-pill"/>
-              </b-col>
+      <b-col sm="3" class="pr-0" v-else>
+        <label for="input-none">Rate</label>
+        <input 
+          v-model="product.rate"    
+          type="number"    
+          id="rate"     
+          name="Rate"   
+          class="form-control rounded-pill"/>
+      </b-col>
 
-              <b-col sm="7" class="pl-0">
-                <label for="input-none">Reserved Stock</label>
-                <input 
-                  @blur="calculateStock"
-                  v-model="product.reserved_stock"    
-                  type="number"    
-                  id="reserved_stock"     
-                  name="Reserved Stock"   
-                  class="form-control rounded-pill"/>
-              </b-col>
+      <b-col sm="3" class="pl-0">
+        <label for="input-none">Current Stock</label>
+        <input 
+          v-validate="'required'"
+          v-model="product.current_stock"    
+          type="number"    
+          id="stock"     
+          name="Current Stock"   
+          class="form-control rounded-pill"/>
+      </b-col>
 
-              <b-col sm="7" class="pl-0">
-                <label for="input-none">Available Stock</label>
-                <input 
-                  disabled
-                  v-model="product.available_stock"    
-                  type="number"    
-                  id="available_stock"     
-                  name="Available Stock"   
-                  class="form-control rounded-pill"/>
-              </b-col>
+      <b-col sm="3">
+        <label for="input-none">Reserved Stock</label>
+        <input 
+          @blur="calculateStock"
+          v-model="product.reserved_stock"    
+          type="number"    
+          id="reserved_stock"     
+          name="Reserved Stock"   
+          class="form-control rounded-pill"/>
+      </b-col>
 
-              <b-col sm="7" class="pl-0">
-                <label for="input-none">Tax Type</label>
-                <a-select v-validate="'required'" name="Tax Type" v-model="product.tax_type" class="custom-select rounded-pill border-0">   
-                  <a-select-option value="" selected>-None-</a-select-option>   
-                  <a-select-option :value="type" v-for="(type, index) in tax_types" :key="index">{{type}}</a-select-option> 
-                </a-select>
-              </b-col>
+      <b-col sm="3">
+        <label for="input-none">Available Stock</label>
+        <input 
+          disabled
+          v-model="product.available_stock"    
+          type="number"    
+          id="available_stock"     
+          name="Available Stock"   
+          class="form-control rounded-pill"/>
+      </b-col>
 
-              <b-col sm="7" class="pl-0">
-                <label for="input-none">Status</label>
-                <a-select v-validate="'required'" name="Status" v-model="product.status" class="custom-select rounded-pill border-0">   
-                  <a-select-option value="">-None-</a-select-option>   
-                  <a-select-option value="1">Active</a-select-option> 
-                  <a-select-option value="0">Disabled</a-select-option> 
-                </a-select>
-                <span id="error" v-show="errors.has('Status')" class="help-block">{{ errors.first('Status') }}</span>
-              </b-col>
+      <b-col sm="3" class="pr-0">
+        <label for="input-none">Tax Type</label>
+        <a-select v-validate="'required'" name="Tax Type" v-model="product.tax_type" class="custom-select rounded-pill border-0">   
+          <a-select-option value="" selected>-None-</a-select-option>   
+          <a-select-option :value="type" v-for="(type, index) in tax_types" :key="index">{{type}}</a-select-option> 
+        </a-select>
+      </b-col>
+    </b-row>
 
-             </b-row>
-          </b-col>
-        </b-row>
-
-        <div class="row mx-0 justify-content-end">
-          <div class="col-auto pl-0">
-            <b-button class="btn btn-default my-0 ml-0" @click="clearProduct">Cancel</b-button>
-          </div>
-
-          <div class="col-auto pr-0">
-            <b-button class="btn btn-primary font-weight-bold my-0 mr-0" @click="createProduct">Save</b-button>
-          </div>
-        </div>
+    <b-row class="mx-0">
+      <b-col sm="auto" class="px-0">
+        <label for="input-none" class="d-block">Status</label>
+        <span id="error" v-show="errors.has('Status')" class="help-block">{{ errors.first('Status') }}</span>
+        <a-switch v-model="product.status" v-validate="'required'" name="Status"/>
+        <label v-if="product.status == 1 || product.status == true">Active</label>
+        <label v-if="product.status == 0 || product.status == false">Inactive</label>
       </b-col>
     </b-row>  
+
+    <div class="row mx-0 justify-content-end">
+      <div class="col-auto pl-0">
+        <b-button class="btn btn-default my-0 ml-0" @click="clearProduct">Cancel</b-button>
+      </div>
+
+      <div class="col-auto pr-0">
+        <b-button class="btn btn-primary font-weight-bold my-0 mr-0" @click="createProduct">Save</b-button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -297,7 +292,7 @@ export default {
         reserved_stock: 0,
         available_stock: '',
         tax_type: '',
-        status: '',
+        status: 1,
       },
       suppliers: [],
       companies: [],

@@ -86,8 +86,8 @@
           v-validate="'required'" 
           name="Status" 
           class="ml-3 mr-2"/>
-        <label v-if="data.item.status == 1">Active</label>
-        <label v-if="data.item.status == 0">Inactive</label>
+        <label v-if="data.item.status == 1 || data.item.status == true">Active</label>
+        <label v-if="data.item.status == 0 || data.item.status == false">Inactive</label>
       </template>     
 
       <template slot="tell" slot-scope="data">   

@@ -48,8 +48,8 @@
           <label for="input-invalid">Role Status</label>
           <br/>
           <a-switch v-model="status"/>
-          <label v-if="status == 1">Active</label>
-          <label v-if="status == 0 || status == null">Inactive</label>
+          <label v-if="status == 1 || status == true">Active</label>
+          <label v-if="status == 0 || status == false">Inactive</label>
 
           <div class="row mx-0 justify-content-end">
             <b-button variant="primary" class="font-weight-bold m-0" @click="addRole()">Add</b-button>
@@ -83,7 +83,7 @@
         role: {
           display_name : '',
           description : '',
-          status : null,
+          status : true,
         },
         Toast: null,
       }
