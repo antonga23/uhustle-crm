@@ -20,6 +20,6 @@ sudo composer install --no-ansi --no-suggest --no-interaction --no-progress --pr
 # # Run artisan commands
 
 php /var/www/html/artisan migrate
-# php /var/www/html/artisan db:seed
+php /var/www/html/artisan db:seed
 php /var/www/html/artisan config:clear
 
