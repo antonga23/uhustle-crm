@@ -43,27 +43,17 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $request_user = ['user_id' => $request->session_user_id, 'name' => $request->session_user_name];
-
         $data = $request->all();
-        $name = $data['name'];
-        $description = $data['description'];
-        $price = $data['price'];
-        $status = $data['status'];
 
-        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        unset($data['product']['available_stock']);
+
         try{
             DB::beginTransaction();
 
-            $product = Product::create([
-                'name' => $name,
-                'description' => $description,
-                'price' => $price,
-                'status' => $status,
-            ]);
+            $product = Product::create($data['product']);
 
             DB::commit();
-            return array('success' => true, 'product' => $product);
+            return array('success' => true, 'message' => 'Product created successfully','product' => $product);
 
         }catch(\QueryException $e){
             DB::rollback();

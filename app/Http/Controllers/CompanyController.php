@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DB;
 use Auth;
 use App\Company;
+use App\CompanyType;
 use Illuminate\Http\Request;
 
 class CompanyController extends Controller
@@ -77,5 +78,9 @@ class CompanyController extends Controller
     public function destroy(Company $company)
     {
         //
+    }
+
+    public function getTypes(){
+      return ['company_types' => CompanyType::where(['status' => 1])->get()];
     }
 }

@@ -50,8 +50,43 @@
 </template>
 <script>
 export default {
+  mounted(){
+    var vm = this;
+    
+    Fire.$on('ProductCreated', function($data){
+     
+      vm.productListing = [];
+
+      vm.products.push(data.product);
+
+      vm.products.map( (product)=> {
+        vm.productListing.push({
+            id: product.id,
+            name: product.name,
+            description: product.description,
+            supplier_id: product.supplier_id,
+            category_id: product.category_id,
+            origin_type_id: product.origin_type_id,
+            origin_id: product.origin_id,
+            part_code: product.part_code,
+            unit_cost: product.unit_cost,
+            rate: product.rate,
+            current_stock: product.current_stock,
+            reserved_stock: product.reserved_stock,
+            available_stock: product.available_stock,
+            tax_type: product.tax_type,
+            status: product.status,
+            actions: ""
+          })
+      });
+
+      vm.tabIndex = 0;
+
+    });
+  },
   data() {
     return {
+      products: [],
       perPage: 20, 
       currentPage: 1,
       productListing: [
@@ -98,11 +133,44 @@ export default {
       ]
     };
   },
-   computed: {
-      rows() {
-        return this.productListing.length
-      }
+  methods:{
+    getProducts(companies = null){
+      var vm = this;
+        axios.get('/products/get-all').then(function (response) {
+
+        vm.products = response.data.products;
+
+        vm.products.map( (product)=> {
+          vm.productListing.push({
+              id: product.id,
+              name: product.name,
+              description: product.description,
+              supplier_id: product.supplier_id,
+              category_id: product.category_id,
+              origin_type_id: product.origin_type_id,
+              origin_id: product.origin_id,
+              part_code: product.part_code,
+              unit_cost: product.unit_cost,
+              rate: product.rate,
+              current_stock: product.current_stock,
+              reserved_stock: product.reserved_stock,
+              available_stock: product.available_stock,
+              tax_type: product.tax_type,
+              status: product.status,
+              actions: ""
+            })
+        });
+      });
     }
+  },
+  computed: {
+    rows() {
+      return this.productListing.length
+    }
+  },
+  created() {
+    this.getProducts();
+  }
 };
 </script>
  

@@ -17,13 +17,15 @@ class Product extends Model implements Auditable
         'supplier_id',
         'category_id',
         'origin_id',
-        'code',
+        'part_code',
         'name',
         'description',
         'unit_cost',
+        'rate',
         'current_stock',
         'reserved_stock',
         'available_stock',
+        'tax_type',
         'status',
     ];
 

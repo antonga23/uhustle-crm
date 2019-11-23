@@ -182955,8 +182955,37 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    var vm = this;
+    Fire.$on('ProductCreated', function ($data) {
+      vm.productListing = [];
+      vm.products.push(data.product);
+      vm.products.map(function (product) {
+        vm.productListing.push({
+          id: product.id,
+          name: product.name,
+          description: product.description,
+          supplier_id: product.supplier_id,
+          category_id: product.category_id,
+          origin_type_id: product.origin_type_id,
+          origin_id: product.origin_id,
+          part_code: product.part_code,
+          unit_cost: product.unit_cost,
+          rate: product.rate,
+          current_stock: product.current_stock,
+          reserved_stock: product.reserved_stock,
+          available_stock: product.available_stock,
+          tax_type: product.tax_type,
+          status: product.status,
+          actions: ""
+        });
+      });
+      vm.tabIndex = 0;
+    });
+  },
   data: function data() {
     return {
+      products: [],
       perPage: 20,
       currentPage: 1,
       productListing: [{
@@ -182998,10 +183027,42 @@ __webpack_require__.r(__webpack_exports__);
       }]
     };
   },
+  methods: {
+    getProducts: function getProducts() {
+      var companies = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+      var vm = this;
+      axios.get('/products/get-all').then(function (response) {
+        vm.products = response.data.products;
+        vm.products.map(function (product) {
+          vm.productListing.push({
+            id: product.id,
+            name: product.name,
+            description: product.description,
+            supplier_id: product.supplier_id,
+            category_id: product.category_id,
+            origin_type_id: product.origin_type_id,
+            origin_id: product.origin_id,
+            part_code: product.part_code,
+            unit_cost: product.unit_cost,
+            rate: product.rate,
+            current_stock: product.current_stock,
+            reserved_stock: product.reserved_stock,
+            available_stock: product.available_stock,
+            tax_type: product.tax_type,
+            status: product.status,
+            actions: ""
+          });
+        });
+      });
+    }
+  },
   computed: {
     rows: function rows() {
       return this.productListing.length;
     }
+  },
+  created: function created() {
+    this.getProducts();
   }
 });
 
@@ -184766,30 +184827,198 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
-  mounted: function mounted() {},
+  mounted: function mounted() {
+    console.log('Create Product Component Mounted');
+    var vm = this;
+    vm.getSelectOptions();
+    vm.filtered_companies = vm.companies;
+    this.Toast = this.$swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
+    });
+  },
   created: function created() {},
   props: [],
   data: function data() {
     return {
       product: {
-        part_type: '',
-        part_code: '',
-        model_number: '',
-        stock: '',
-        unit_cost: '',
-        product_supplier: '-None',
-        product_suppliers: [],
+        supplier_id: '',
+        category_id: '',
+        origin_type_id: '',
+        origin_id: '',
+        part_code: 'MIT-12535455654GNL',
+        name: '',
+        description: 'ECOSYS M3645dn 222-2464545/64HZ',
+        unit_cost: '7259.40',
+        rate: '',
+        current_stock: '500',
         reserved_stock: '',
-        product_category: '-None-',
-        product_categories: ['Printers, Toners, Cellphones'],
-        description: ''
+        available_stock: '',
+        tax_type: '',
+        status: ''
       },
+      suppliers: [],
+      companies: [],
+      filtered_companies: [],
+      categories: [],
+      company_types: [],
+      tax_types: ['VAT', 'Other'],
       Toast: null
     };
   },
-  methods: {}
+  methods: {
+    clearProduct: function clearProduct() {
+      this.product.supplier_id = '';
+      this.product.category_id = '';
+      this.product.origin_type_id = '';
+      this.product.origin_id = '';
+      this.product.part_code = '';
+      this.product.name = '';
+      this.product.description = '';
+      this.product.unit_cost = '';
+      this.product.rate = '';
+      this.product.current_stock = '';
+      this.product.reserved_stock = '';
+      this.product.available_stock = '';
+      this.product.tax_type = '';
+      this.product.status = '';
+    },
+    getSelectOptions: function getSelectOptions() {
+      var vm = this;
+      axios.get('/products/get-categories').then(function (response) {
+        vm.categories = response.data.categories;
+      });
+      axios.get('/company/get-types').then(function (response) {
+        vm.company_types = response.data.company_types;
+      });
+      axios.get('/company/get-all').then(function (response) {
+        vm.companies = response.data.companies;
+        vm.suppliers = vm.companies.filter(function (item) {
+          return item.type_id == 4;
+        });
+      });
+    },
+    createProduct: function createProduct() {
+      var vm = this;
+      vm.$validator.validateAll().then(function (result) {
+        if (!result) {} else {
+          axios.post('/products/create', {
+            product: vm.product
+          }).then(function (response) {
+            if (response.data.success === true) {
+              vm.Toast.fire({
+                type: 'success',
+                title: response.data.message
+              });
+              Fire.$emit('ProductCreated', {
+                product: response.data.product
+              });
+              vm.$Progress.finish();
+            } else {
+              vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
+              vm.$Progress.fail();
+            }
+          });
+        }
+      });
+    },
+    filterCompaniesByType: function filterCompaniesByType() {
+      var vm = this;
+      vm.filtered_companies = vm.companies.filter(function (item) {
+        return item.type_id == vm.product.origin_type_id;
+      });
+    },
+    calculateStock: function calculateStock() {
+      vm.product.available_stock = vm.product.current_stock - vm.product.reserved_stock;
+    }
+  }
 });
 
 /***/ }),
@@ -184808,6 +185037,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _BranchIndex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BranchIndex */ "./resources/assets/js/components/Inventory/BranchIndex.vue");
 /* harmony import */ var _ProductIndex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProductIndex */ "./resources/assets/js/components/Inventory/ProductIndex.vue");
 /* harmony import */ var _OrderIndex__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./OrderIndex */ "./resources/assets/js/components/Inventory/OrderIndex.vue");
+//
+//
+//
 //
 //
 //
@@ -185401,12 +185633,18 @@ __webpack_require__.r(__webpack_exports__);
     CreateProduct: _CreateProduct__WEBPACK_IMPORTED_MODULE_3__["default"],
     CreateCategory: _CreateCategory__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
-  mounted: function mounted() {},
+  mounted: function mounted() {
+    var vm = this;
+    Fire.$on('ProductCreated', function ($data) {
+      vm.tabIndex = 0;
+    });
+  },
   created: function created() {},
   props: [],
   data: function data() {
     return {
-      create_new: '-Select-'
+      create_new: '-Select-',
+      tabIndex: 0
     };
   },
   methods: {}
@@ -371988,25 +372226,31 @@ var render = function() {
                             { staticClass: "pl-0", attrs: { sm: "7" } },
                             [
                               _c("label", { attrs: { for: "input-none" } }, [
-                                _vm._v("Part Type")
+                                _vm._v("Name")
                               ]),
                               _vm._v(" "),
                               _c("input", {
                                 directives: [
                                   {
+                                    name: "validate",
+                                    rawName: "v-validate",
+                                    value: "required",
+                                    expression: "'required'"
+                                  },
+                                  {
                                     name: "model",
                                     rawName: "v-model",
-                                    value: _vm.product.part_type,
-                                    expression: "product.part_type"
+                                    value: _vm.product.name,
+                                    expression: "product.name"
                                   }
                                 ],
                                 staticClass: "form-control rounded-pill",
                                 attrs: {
                                   type: "text",
-                                  id: "part-type",
-                                  name: "partType"
+                                  id: "name",
+                                  name: "Name"
                                 },
-                                domProps: { value: _vm.product.part_type },
+                                domProps: { value: _vm.product.name },
                                 on: {
                                   input: function($event) {
                                     if ($event.target.composing) {
@@ -372014,7 +372258,423 @@ var render = function() {
                                     }
                                     _vm.$set(
                                       _vm.product,
-                                      "part_type",
+                                      "name",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value: _vm.errors.has("Name"),
+                                      expression: "errors.has('Name')"
+                                    }
+                                  ],
+                                  staticClass: "help-block",
+                                  attrs: { id: "error" }
+                                },
+                                [_vm._v(_vm._s(_vm.errors.first("Name")))]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "b-col",
+                            { staticClass: "px-0", attrs: { sm: "7" } },
+                            [
+                              _c("label", { attrs: { for: "input-none" } }, [
+                                _vm._v("Description")
+                              ]),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.product.description,
+                                    expression: "product.description"
+                                  }
+                                ],
+                                staticClass: "form-control rounded-pill",
+                                attrs: { id: "info", name: "Info" },
+                                domProps: { value: _vm.product.description },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.product,
+                                      "description",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value: _vm.errors.has("Description"),
+                                      expression: "errors.has('Description')"
+                                    }
+                                  ],
+                                  staticClass: "help-block",
+                                  attrs: { id: "error" }
+                                },
+                                [
+                                  _vm._v(
+                                    _vm._s(_vm.errors.first("Description"))
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "b-col",
+                            { staticClass: "pl-0", attrs: { sm: "7" } },
+                            [
+                              _c("label", { attrs: { for: "input-none" } }, [
+                                _vm._v("Part Type")
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "a-select",
+                                {
+                                  directives: [
+                                    {
+                                      name: "validate",
+                                      rawName: "v-validate",
+                                      value: "required",
+                                      expression: "'required'"
+                                    }
+                                  ],
+                                  staticClass:
+                                    "custom-select rounded-pill border-0",
+                                  attrs: { name: "Part Type" },
+                                  model: {
+                                    value: _vm.product.category_id,
+                                    callback: function($$v) {
+                                      _vm.$set(_vm.product, "category_id", $$v)
+                                    },
+                                    expression: "product.category_id"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "a-select-option",
+                                    { attrs: { value: "", selected: "" } },
+                                    [_vm._v("-None-")]
+                                  ),
+                                  _vm._v(" "),
+                                  _vm._l(_vm.categories, function(cat, index) {
+                                    return _c(
+                                      "a-select-option",
+                                      { key: index, attrs: { value: cat.id } },
+                                      [_vm._v(_vm._s(cat.name))]
+                                    )
+                                  })
+                                ],
+                                2
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value: _vm.errors.has("Part Type"),
+                                      expression: "errors.has('Part Type')"
+                                    }
+                                  ],
+                                  staticClass: "help-block",
+                                  attrs: { id: "error" }
+                                },
+                                [_vm._v(_vm._s(_vm.errors.first("Part Type")))]
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "b-col",
+                            { staticClass: "pl-0", attrs: { sm: "7" } },
+                            [
+                              _c("label", { attrs: { for: "input-none" } }, [
+                                _vm._v("Origin Type")
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "a-select",
+                                {
+                                  directives: [
+                                    {
+                                      name: "validate",
+                                      rawName: "v-validate",
+                                      value: "required",
+                                      expression: "'required'"
+                                    }
+                                  ],
+                                  staticClass:
+                                    "custom-select rounded-pill border-0",
+                                  attrs: { name: "Origin Type" },
+                                  on: { change: _vm.filterCompaniesByType },
+                                  model: {
+                                    value: _vm.product.origin_type_id,
+                                    callback: function($$v) {
+                                      _vm.$set(
+                                        _vm.product,
+                                        "origin_type_id",
+                                        $$v
+                                      )
+                                    },
+                                    expression: "product.origin_type_id"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "a-select-option",
+                                    { attrs: { value: "", selected: "" } },
+                                    [_vm._v("-None-")]
+                                  ),
+                                  _vm._v(" "),
+                                  _vm._l(_vm.company_types, function(
+                                    type,
+                                    index
+                                  ) {
+                                    return _c(
+                                      "a-select-option",
+                                      { key: index, attrs: { value: type.id } },
+                                      [_vm._v(_vm._s(type.name))]
+                                    )
+                                  })
+                                ],
+                                2
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value: _vm.errors.has("Origin Type"),
+                                      expression: "errors.has('Origin Type')"
+                                    }
+                                  ],
+                                  staticClass: "help-block",
+                                  attrs: { id: "error" }
+                                },
+                                [
+                                  _vm._v(
+                                    _vm._s(_vm.errors.first("Origin Type"))
+                                  )
+                                ]
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "b-col",
+                            { staticClass: "pl-0", attrs: { sm: "7" } },
+                            [
+                              _c("label", { attrs: { for: "input-none" } }, [
+                                _vm._v("Origin")
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "a-select",
+                                {
+                                  directives: [
+                                    {
+                                      name: "validate",
+                                      rawName: "v-validate",
+                                      value: "required",
+                                      expression: "'required'"
+                                    }
+                                  ],
+                                  staticClass:
+                                    "custom-select rounded-pill border-0",
+                                  attrs: { name: "Origin" },
+                                  model: {
+                                    value: _vm.product.origin_id,
+                                    callback: function($$v) {
+                                      _vm.$set(_vm.product, "origin_id", $$v)
+                                    },
+                                    expression: "product.origin_id"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "a-select-option",
+                                    { attrs: { value: "", selected: "" } },
+                                    [_vm._v("-None-")]
+                                  ),
+                                  _vm._v(" "),
+                                  _vm._l(_vm.filtered_companies, function(
+                                    company,
+                                    index
+                                  ) {
+                                    return _c(
+                                      "a-select-option",
+                                      {
+                                        key: index,
+                                        attrs: { value: company.id }
+                                      },
+                                      [_vm._v(_vm._s(company.name))]
+                                    )
+                                  })
+                                ],
+                                2
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value: _vm.errors.has("Origin"),
+                                      expression: "errors.has('Origin')"
+                                    }
+                                  ],
+                                  staticClass: "help-block",
+                                  attrs: { id: "error" }
+                                },
+                                [_vm._v(_vm._s(_vm.errors.first("Origin")))]
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "b-col",
+                            { staticClass: "pl-0", attrs: { sm: "7" } },
+                            [
+                              _c("label", { attrs: { for: "input-none" } }, [
+                                _vm._v("Supplier")
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "a-select",
+                                {
+                                  directives: [
+                                    {
+                                      name: "validate",
+                                      rawName: "v-validate",
+                                      value: "required",
+                                      expression: "'required'"
+                                    }
+                                  ],
+                                  staticClass:
+                                    "custom-select rounded-pill border-0",
+                                  attrs: { name: "Supplier" },
+                                  model: {
+                                    value: _vm.product.supplier_id,
+                                    callback: function($$v) {
+                                      _vm.$set(_vm.product, "supplier_id", $$v)
+                                    },
+                                    expression: "product.supplier_id"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "a-select-option",
+                                    { attrs: { value: "", selected: "" } },
+                                    [_vm._v("-None-")]
+                                  ),
+                                  _vm._v(" "),
+                                  _vm._l(_vm.suppliers, function(
+                                    supplier,
+                                    index
+                                  ) {
+                                    return _c(
+                                      "a-select-option",
+                                      {
+                                        key: index,
+                                        attrs: { value: supplier.id }
+                                      },
+                                      [_vm._v(_vm._s(supplier.name))]
+                                    )
+                                  })
+                                ],
+                                2
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value: _vm.errors.has("Supplier"),
+                                      expression: "errors.has('Supplier')"
+                                    }
+                                  ],
+                                  staticClass: "help-block",
+                                  attrs: { id: "error" }
+                                },
+                                [_vm._v(_vm._s(_vm.errors.first("Supplier")))]
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "b-col",
+                            { staticClass: "pl-0", attrs: { sm: "7" } },
+                            [
+                              _c("label", { attrs: { for: "input-none" } }, [
+                                _vm._v("Model Number")
+                              ]),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "validate",
+                                    rawName: "v-validate",
+                                    value: "required",
+                                    expression: "'required'"
+                                  },
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.product.model_number,
+                                    expression: "product.model_number"
+                                  }
+                                ],
+                                staticClass: "form-control rounded-pill",
+                                attrs: {
+                                  name: "Model Number",
+                                  type: "text",
+                                  id: "model-number"
+                                },
+                                domProps: { value: _vm.product.model_number },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.product,
+                                      "model_number",
                                       $event.target.value
                                     )
                                   }
@@ -372025,7 +372685,7 @@ var render = function() {
                           _vm._v(" "),
                           _c(
                             "b-col",
-                            { staticClass: "pr-0", attrs: { sm: "5" } },
+                            { staticClass: "pl-0", attrs: { sm: "7" } },
                             [
                               _c("label", { attrs: { for: "input-none" } }, [
                                 _vm._v("Part Code")
@@ -372063,150 +372723,227 @@ var render = function() {
                             ]
                           ),
                           _vm._v(" "),
-                          _c(
-                            "b-col",
-                            { staticClass: "px-0", attrs: { sm: "12" } },
-                            [
-                              _c("label", { attrs: { for: "input-none" } }, [
-                                _vm._v("Description")
-                              ]),
-                              _vm._v(" "),
-                              _c("textarea", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.product.description,
-                                    expression: "product.description"
-                                  }
-                                ],
-                                staticClass: "form-control",
-                                attrs: { id: "info", name: "Info" },
-                                domProps: { value: _vm.product.description },
-                                on: {
-                                  input: function($event) {
-                                    if ($event.target.composing) {
-                                      return
-                                    }
-                                    _vm.$set(
-                                      _vm.product,
-                                      "description",
-                                      $event.target.value
-                                    )
-                                  }
-                                }
-                              })
-                            ]
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "b-col",
-                    { staticClass: "pr-0", attrs: { sm: "6" } },
-                    [
-                      _c(
-                        "b-row",
-                        { staticClass: "mx-0" },
-                        [
-                          _c(
-                            "b-col",
-                            { staticClass: "pl-0", attrs: { sm: "3" } },
-                            [
-                              _c("label", { attrs: { for: "input-none" } }, [
-                                _vm._v("Model Number")
-                              ]),
-                              _vm._v(" "),
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.product.model_number,
-                                    expression: "product.model_number"
-                                  }
-                                ],
-                                staticClass: "form-control rounded-pill",
-                                attrs: {
-                                  type: "text",
-                                  id: "model-number",
-                                  name: "modelNumber"
-                                },
-                                domProps: { value: _vm.product.model_number },
-                                on: {
-                                  input: function($event) {
-                                    if ($event.target.composing) {
-                                      return
-                                    }
-                                    _vm.$set(
-                                      _vm.product,
-                                      "model_number",
-                                      $event.target.value
-                                    )
-                                  }
-                                }
-                              })
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "b-col",
-                            { attrs: { sm: "6" } },
-                            [
-                              _c("label", { attrs: { for: "input-none" } }, [
-                                _vm._v("Select Category")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "a-select",
-                                {
-                                  staticClass:
-                                    "custom-select rounded-pill border-0",
-                                  model: {
-                                    value: _vm.product.product_category,
-                                    callback: function($$v) {
-                                      _vm.$set(
-                                        _vm.product,
-                                        "product_category",
-                                        $$v
-                                      )
-                                    },
-                                    expression: "product.product_category"
-                                  }
-                                },
+                          _vm.product.rate == ""
+                            ? _c(
+                                "b-col",
+                                { staticClass: "pl-0", attrs: { sm: "7" } },
                                 [
                                   _c(
-                                    "a-select-option",
-                                    {
-                                      attrs: { value: "-None-", selected: "" }
-                                    },
-                                    [_vm._v("-None-")]
+                                    "label",
+                                    { attrs: { for: "input-none" } },
+                                    [_vm._v("Unit Cost")]
                                   ),
                                   _vm._v(" "),
-                                  _vm._l(
-                                    _vm.product.product_categories,
-                                    function(p_category, index) {
-                                      return _c(
-                                        "a-select-option",
-                                        { key: index },
-                                        [_vm._v(_vm._s(p_category))]
-                                      )
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "validate",
+                                        rawName: "v-validate",
+                                        value: "required",
+                                        expression: "'required'"
+                                      },
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.product.unit_cost,
+                                        expression: "product.unit_cost"
+                                      }
+                                    ],
+                                    staticClass: "form-control rounded-pill",
+                                    attrs: {
+                                      type: "number",
+                                      id: "unit-cost",
+                                      name: "unitCost"
+                                    },
+                                    domProps: { value: _vm.product.unit_cost },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.product,
+                                          "unit_cost",
+                                          $event.target.value
+                                        )
+                                      }
                                     }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    {
+                                      directives: [
+                                        {
+                                          name: "show",
+                                          rawName: "v-show",
+                                          value: _vm.errors.has("Unit Cost"),
+                                          expression: "errors.has('Unit Cost')"
+                                        }
+                                      ],
+                                      staticClass: "help-block",
+                                      attrs: { id: "error" }
+                                    },
+                                    [
+                                      _vm._v(
+                                        _vm._s(_vm.errors.first("Unit Cost"))
+                                      )
+                                    ]
                                   )
-                                ],
-                                2
+                                ]
                               )
-                            ],
-                            1
-                          ),
+                            : _c(
+                                "b-col",
+                                { staticClass: "pl-0", attrs: { sm: "7" } },
+                                [
+                                  _c(
+                                    "label",
+                                    { attrs: { for: "input-none" } },
+                                    [_vm._v("Unit Cost")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.product.unit_cost,
+                                        expression: "product.unit_cost"
+                                      }
+                                    ],
+                                    staticClass: "form-control rounded-pill",
+                                    attrs: {
+                                      type: "number",
+                                      id: "unit-cost",
+                                      name: "unitCost"
+                                    },
+                                    domProps: { value: _vm.product.unit_cost },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.product,
+                                          "unit_cost",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  })
+                                ]
+                              ),
+                          _vm._v(" "),
+                          _vm.product.unit_cost == ""
+                            ? _c(
+                                "b-col",
+                                { staticClass: "pl-0", attrs: { sm: "7" } },
+                                [
+                                  _c(
+                                    "label",
+                                    { attrs: { for: "input-none" } },
+                                    [_vm._v("Rate")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "validate",
+                                        rawName: "v-validate",
+                                        value: "required",
+                                        expression: "'required'"
+                                      },
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.product.rate,
+                                        expression: "product.rate"
+                                      }
+                                    ],
+                                    staticClass: "form-control rounded-pill",
+                                    attrs: {
+                                      type: "number",
+                                      id: "unit-cost",
+                                      name: "unitCost"
+                                    },
+                                    domProps: { value: _vm.product.rate },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.product,
+                                          "rate",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "span",
+                                    {
+                                      directives: [
+                                        {
+                                          name: "show",
+                                          rawName: "v-show",
+                                          value: _vm.errors.has("Rate"),
+                                          expression: "errors.has('Rate')"
+                                        }
+                                      ],
+                                      staticClass: "help-block",
+                                      attrs: { id: "error" }
+                                    },
+                                    [_vm._v(_vm._s(_vm.errors.first("Rate")))]
+                                  )
+                                ]
+                              )
+                            : _c(
+                                "b-col",
+                                { staticClass: "pl-0", attrs: { sm: "7" } },
+                                [
+                                  _c(
+                                    "label",
+                                    { attrs: { for: "input-none" } },
+                                    [_vm._v("Rate")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.product.rate,
+                                        expression: "product.rate"
+                                      }
+                                    ],
+                                    staticClass: "form-control rounded-pill",
+                                    attrs: {
+                                      type: "number",
+                                      id: "unit-cost",
+                                      name: "unitCost"
+                                    },
+                                    domProps: { value: _vm.product.rate },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.product,
+                                          "rate",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  })
+                                ]
+                              ),
                           _vm._v(" "),
                           _c(
                             "b-col",
-                            { staticClass: "pl-0", attrs: { sm: "3" } },
+                            { staticClass: "pl-0", attrs: { sm: "7" } },
                             [
                               _c("label", { attrs: { for: "input-none" } }, [
                                 _vm._v("Current Stock")
@@ -372215,66 +372952,25 @@ var render = function() {
                               _c("input", {
                                 directives: [
                                   {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.product.stock,
-                                    expression: "product.stock"
-                                  }
-                                ],
-                                staticClass: "form-control rounded-pill",
-                                attrs: {
-                                  type: "text",
-                                  id: "stock",
-                                  name: "stock"
-                                },
-                                domProps: { value: _vm.product.stock },
-                                on: {
-                                  input: function($event) {
-                                    if ($event.target.composing) {
-                                      return
-                                    }
-                                    _vm.$set(
-                                      _vm.product,
-                                      "stock",
-                                      $event.target.value
-                                    )
-                                  }
-                                }
-                              })
-                            ]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "b-row",
-                        { staticClass: "mx-0" },
-                        [
-                          _c(
-                            "b-col",
-                            { staticClass: "pl-0", attrs: { sm: "3" } },
-                            [
-                              _c("label", { attrs: { for: "input-none" } }, [
-                                _vm._v("Unit Cost")
-                              ]),
-                              _vm._v(" "),
-                              _c("input", {
-                                directives: [
+                                    name: "validate",
+                                    rawName: "v-validate",
+                                    value: "required",
+                                    expression: "'required'"
+                                  },
                                   {
                                     name: "model",
                                     rawName: "v-model",
-                                    value: _vm.product.unit_cost,
-                                    expression: "product.unit_cost"
+                                    value: _vm.product.current_stock,
+                                    expression: "product.current_stock"
                                   }
                                 ],
                                 staticClass: "form-control rounded-pill",
                                 attrs: {
                                   type: "number",
-                                  id: "unit-cost",
-                                  name: "unitCost"
+                                  id: "stock",
+                                  name: "Current Stock"
                                 },
-                                domProps: { value: _vm.product.unit_cost },
+                                domProps: { value: _vm.product.current_stock },
                                 on: {
                                   input: function($event) {
                                     if ($event.target.composing) {
@@ -372282,7 +372978,7 @@ var render = function() {
                                     }
                                     _vm.$set(
                                       _vm.product,
-                                      "unit_cost",
+                                      "current_stock",
                                       $event.target.value
                                     )
                                   }
@@ -372293,58 +372989,7 @@ var render = function() {
                           _vm._v(" "),
                           _c(
                             "b-col",
-                            { attrs: { sm: "6" } },
-                            [
-                              _c("label", { attrs: { for: "input-none" } }, [
-                                _vm._v("Warehouse")
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "a-select",
-                                {
-                                  staticClass:
-                                    "custom-select rounded-pill border-0",
-                                  model: {
-                                    value: _vm.product.product_supplier,
-                                    callback: function($$v) {
-                                      _vm.$set(
-                                        _vm.product,
-                                        "product_supplier",
-                                        $$v
-                                      )
-                                    },
-                                    expression: "product.product_supplier"
-                                  }
-                                },
-                                [
-                                  _c(
-                                    "a-select-option",
-                                    {
-                                      attrs: { value: "-None-", selected: "" }
-                                    },
-                                    [_vm._v("-None-")]
-                                  ),
-                                  _vm._v(" "),
-                                  _vm._l(
-                                    _vm.product.product_suppliers,
-                                    function(p_supplier, index) {
-                                      return _c(
-                                        "a-select-option",
-                                        { key: index },
-                                        [_vm._v(_vm._s(p_supplier))]
-                                      )
-                                    }
-                                  )
-                                ],
-                                2
-                              )
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "b-col",
-                            { staticClass: "pl-0", attrs: { sm: "3" } },
+                            { staticClass: "pl-0", attrs: { sm: "7" } },
                             [
                               _c("label", { attrs: { for: "input-none" } }, [
                                 _vm._v("Reserved Stock")
@@ -372367,6 +373012,7 @@ var render = function() {
                                 },
                                 domProps: { value: _vm.product.reserved_stock },
                                 on: {
+                                  blur: _vm.calculateStock,
                                   input: function($event) {
                                     if ($event.target.composing) {
                                       return
@@ -372380,6 +373026,172 @@ var render = function() {
                                 }
                               })
                             ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "b-col",
+                            { staticClass: "pl-0", attrs: { sm: "7" } },
+                            [
+                              _c("label", { attrs: { for: "input-none" } }, [
+                                _vm._v("Available Stock")
+                              ]),
+                              _vm._v(" "),
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.product.available_stock,
+                                    expression: "product.available_stock"
+                                  }
+                                ],
+                                staticClass: "form-control rounded-pill",
+                                attrs: {
+                                  disabled: "",
+                                  type: "number",
+                                  id: "unit-cost",
+                                  name: "unitCost"
+                                },
+                                domProps: {
+                                  value: _vm.product.available_stock
+                                },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(
+                                      _vm.product,
+                                      "available_stock",
+                                      $event.target.value
+                                    )
+                                  }
+                                }
+                              })
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "b-col",
+                            { staticClass: "pl-0", attrs: { sm: "7" } },
+                            [
+                              _c("label", { attrs: { for: "input-none" } }, [
+                                _vm._v("Tax Type")
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "a-select",
+                                {
+                                  directives: [
+                                    {
+                                      name: "validate",
+                                      rawName: "v-validate",
+                                      value: "required",
+                                      expression: "'required'"
+                                    }
+                                  ],
+                                  staticClass:
+                                    "custom-select rounded-pill border-0",
+                                  attrs: { name: "Tax Type" },
+                                  model: {
+                                    value: _vm.product.tax_type,
+                                    callback: function($$v) {
+                                      _vm.$set(_vm.product, "tax_type", $$v)
+                                    },
+                                    expression: "product.tax_type"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "a-select-option",
+                                    { attrs: { value: "", selected: "" } },
+                                    [_vm._v("-None-")]
+                                  ),
+                                  _vm._v(" "),
+                                  _vm._l(_vm.tax_types, function(type, index) {
+                                    return _c(
+                                      "a-select-option",
+                                      { key: index, attrs: { value: type } },
+                                      [_vm._v(_vm._s(type))]
+                                    )
+                                  })
+                                ],
+                                2
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "b-col",
+                            { staticClass: "pl-0", attrs: { sm: "7" } },
+                            [
+                              _c("label", { attrs: { for: "input-none" } }, [
+                                _vm._v("Status")
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "a-select",
+                                {
+                                  directives: [
+                                    {
+                                      name: "validate",
+                                      rawName: "v-validate",
+                                      value: "required",
+                                      expression: "'required'"
+                                    }
+                                  ],
+                                  staticClass:
+                                    "custom-select rounded-pill border-0",
+                                  attrs: { name: "Status" },
+                                  model: {
+                                    value: _vm.product.status,
+                                    callback: function($$v) {
+                                      _vm.$set(_vm.product, "status", $$v)
+                                    },
+                                    expression: "product.status"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "a-select-option",
+                                    { attrs: { value: "" } },
+                                    [_vm._v("-None-")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "a-select-option",
+                                    { attrs: { value: "1" } },
+                                    [_vm._v("Active")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "a-select-option",
+                                    { attrs: { value: "0" } },
+                                    [_vm._v("Disabled")]
+                                  )
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value: _vm.errors.has("Status"),
+                                      expression: "errors.has('Status')"
+                                    }
+                                  ],
+                                  staticClass: "help-block",
+                                  attrs: { id: "error" }
+                                },
+                                [_vm._v(_vm._s(_vm.errors.first("Status")))]
+                              )
+                            ],
+                            1
                           )
                         ],
                         1
@@ -372398,7 +373210,10 @@ var render = function() {
                   [
                     _c(
                       "b-button",
-                      { staticClass: "btn btn-default my-0 ml-0" },
+                      {
+                        staticClass: "btn btn-default my-0 ml-0",
+                        on: { click: _vm.clearProduct }
+                      },
                       [_vm._v("Cancel")]
                     )
                   ],
@@ -372413,7 +373228,8 @@ var render = function() {
                       "b-button",
                       {
                         staticClass:
-                          "btn btn-primary font-weight-bold my-0 mr-0"
+                          "btn btn-primary font-weight-bold my-0 mr-0",
+                        on: { click: _vm.createProduct }
                       },
                       [_vm._v("Save")]
                     )
@@ -372885,7 +373701,16 @@ var render = function() {
             [
               _c(
                 "b-tabs",
-                { attrs: { card: "" } },
+                {
+                  attrs: { card: "" },
+                  model: {
+                    value: _vm.tabIndex,
+                    callback: function($$v) {
+                      _vm.tabIndex = $$v
+                    },
+                    expression: "tabIndex"
+                  }
+                },
                 [
                   _c(
                     "b-tab",

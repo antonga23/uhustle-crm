@@ -287,20 +287,6 @@ Route::group(['prefix' => 'roles'], function () {
 	Route::put('/apply-dialer-permissions', 'RoleController@applyDialerPermissions');
 });
 
-// Products Routes
-Route::group(['prefix' => 'products'], function () {
-	Route::get('/get/{role_id}', 'ProductController@getById');
-	Route::get('/get-all', 'ProductController@index');
-	Route::get('/get-active-categories', 'ProductController@getActiveCategories');
-	Route::get('/get-active', 'ProductController@getActive');
-	Route::post('/create', 'ProductController@store');
-  Route::post('/update', 'ProductController@update');
-
-	Route::get('/get-categories', 'ProductController@getCategories');
-	Route::post('/update-category', 'ProductController@updateCategory');
-	Route::post('/create-category', 'ProductController@createCategory');
-});
-
 // Comments Routes
 Route::group(['prefix' => 'comments'], function () {
     Route::post('/add', 'CommentController@store');
@@ -350,11 +336,26 @@ Route::group(['prefix' => 'settings'], function () {
     Route::post('/update', 'SystemSettingsController@update');
 });
 
+// Products Routes
+Route::group(['prefix' => 'products'], function () {
+	Route::get('/get/{role_id}', 'ProductController@getById');
+	Route::get('/get-all', 'ProductController@index');
+	Route::get('/get-active-categories', 'ProductController@getActiveCategories');
+	Route::get('/get-active', 'ProductController@getActive');
+	Route::post('/create', 'ProductController@store');
+  Route::post('/update', 'ProductController@update');
+
+	Route::get('/get-categories', 'ProductController@getCategories');
+	Route::post('/update-category', 'ProductController@updateCategory');
+	Route::post('/create-category', 'ProductController@createCategory');
+});
+
 // Company Routes
 Route::group(['prefix' => 'company'], function () {
   Route::post('/create', 'CompanyController@store');
   Route::post('/update', 'CompanyController@update');
   Route::get('/get-all', 'CompanyController@index');
+  Route::get('/get-types', 'CompanyController@getTypes');
 });
 
 

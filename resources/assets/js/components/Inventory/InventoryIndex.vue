@@ -245,7 +245,10 @@
         </div>
 
         <div class="products" v-if="!show_page_loader && active_module_name == 'products'">
-          <product-index :provinces="provinces" :cities="cities" :company_types="company_types"/>
+          <product-index 
+            :provinces="provinces" 
+            :cities="cities" 
+            :company_types="company_types"/>
         </div>
 
         <div class="orders" v-if="!show_page_loader && active_module_name == 'orders'">

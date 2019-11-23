@@ -38,7 +38,7 @@ label{
     <div class="row mx-0 productss-tabs">
       <div class="col-lg-12 px-0">
         <b-card no-body>
-          <b-tabs card>
+          <b-tabs v-model="tabIndex" card>
             <b-tab active class="product-table">
               <template v-slot:title>
                 <h5 class="d-inline-block mb-0">Products</h5>
@@ -106,7 +106,10 @@ import CreateProduct from "./CreateProduct";
       CreateCategory
     },
     mounted() {
-      
+      var vm = this;
+      Fire.$on('ProductCreated', function($data){
+        vm.tabIndex = 0;
+      });
     },
     created: function () {
     },
@@ -115,11 +118,12 @@ import CreateProduct from "./CreateProduct";
     ],
     data: function(){
       return {
-        create_new: '-Select-'
+        create_new: '-Select-',
+        tabIndex: 0,
       }
     },
     methods: {
-      
+
     }
   }
 </script>
