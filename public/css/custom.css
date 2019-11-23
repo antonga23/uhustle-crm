@@ -1232,7 +1232,8 @@ max-height: 350px;
   background-repeat: no-repeat;  
 } 
 
-.products .product-listing tr td a.Order-button {
+.products .product-listing tr td a.Order-button,
+.orders .product-listing tr td a.Order-button {
   color: #9f9f9f;
   text-decoration: none;
   font-weight: 500;
@@ -1250,7 +1251,9 @@ max-height: 350px;
 }
 
 .products .product-listing tr td a.Order-button.active,
-.products .product-listing tr td a.Order-button:hover {
+.orders .product-listing tr td a.Order-button.active,
+.products .product-listing tr td a.Order-button:hover,
+.orders .product-listing tr td a.Order-button:hover {
   background: linear-gradient(to right, rgba(255,128,51,1) 0%, rgba(255,147, 58,1) 100%) !important;
   color: #fff !important;
   text-decoration: none;
