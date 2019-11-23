@@ -172,6 +172,19 @@ Route::get('/preferences', 'PagesController@preferences')->name('preferences');
 Route::get('/transactions', 'PagesController@transactions')->name('transactions');
 Route::get('/inventory', 'PagesController@inventory')->name('inventory');
 
+
+Route::get('/purchase-order', function(){
+  return view('pdf.purchase-order');
+});
+
+Route::get('/invoice', function(){
+  return view('pdf.invoice');
+});
+
+Route::get('/delivery-note',function(){
+  return view('pdf.delivery-note');
+});
+
 // Stripe Routes
 Route::group(['prefix' => 'stripe'], function () {
 	Route::get('/balance-transactions', 'StripeController@index');
