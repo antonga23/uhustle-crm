@@ -58,5 +58,8 @@ class Product extends Model implements Auditable
         return $this->hasOne('App\Supplier','id', 'supplier_id');
     }
 
-
+    public function tax()
+    {
+        return $this->hasOne('App\Tax','id', 'tax_type');
+    }
 }

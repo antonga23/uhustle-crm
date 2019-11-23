@@ -227,7 +227,7 @@ label{
                 <label for="input-none">Tax Type</label>
                 <a-select v-validate="'required'" name="Tax Type" v-model="product.tax_type" class="custom-select rounded-pill border-0">   
                   <a-select-option value="" selected>-None-</a-select-option>   
-                  <a-select-option :value="type" v-for="(type, index) in tax_types" :key="index">{{type}}</a-select-option> 
+                  <a-select-option :value="type.id" v-for="(type, index) in tax_types" :key="index">{{type.tax_type}}</a-select-option> 
                 </a-select>
               </b-col>
 
@@ -304,7 +304,7 @@ export default {
       filtered_companies: [],
       categories: [],
       company_types: [],
-      tax_types:['VAT','Other'],
+      tax_types:1,
       Toast: null,
     }
   },
@@ -329,6 +329,7 @@ export default {
       var vm = this;
       axios.get('/products/get-categories').then(function (response) {
         vm.categories = response.data.categories;
+        vm.tax_types = response.data.tax_types;
       });
       axios.get('/company/get-types').then(function (response) {
         vm.company_types = response.data.company_types;

@@ -25,8 +25,18 @@ input, textarea, select {
   height: auto!important;
 }
 textarea {
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  padding: 11px 18px!important;
+  font-size: 12px;
+  color: #003449;
+  border-color: #ccc;
+  margin-bottom: 17px;
+  font-family: 'Rubik', sans-serif;
+  height: auto!important;
   border-radius: 10px;
-  height: 124px!important;
 }
 .custom-select {
   height: auto;
@@ -37,6 +47,22 @@ label{
   color: #999999;
   margin-bottom: 7px;
   margin-left: 17px;
+}
+.btn-default{
+  background: #fff;
+  color: #999999;    
+  border: none!important;
+  padding: 11px 14px 10px;
+  font-size: 10px;
+  text-transform:uppercase;
+  border-radius: 50rem!important;
+  line-height:1em;
+  margin-left: 0.9%;
+  margin-right: 0.9%;
+  -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
+  -moz-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
+  -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
 }
 .btn-primary {
   border-radius: 50rem!important;
@@ -54,130 +80,171 @@ label{
 </style>
 
 <template>
-  <div class="createOrder">      
-    <div class="row mx-0">
-      <div class="col-6 border-right pl-0">  
-        <div class="row mx-0"> 
-          <div class="col-7 pl-0">
-            <div class="row mx-0">
-              <div class="col-8 pl-0">
-                <label class="control-label w-100 p-0 mb-2">Requestor</label>  
-                <input
-                  disabled 
-                  v-model="order.requestor"
-                  type="text"   
-                  id="requestor"     
-                  name="requestor"   
-                  class="rounded-pill form-control"/>
-              </div>
-
-              <div class="col-4 pr-0">
-                <label class="col-lg-12 control-label w-100 p-0 mb-2">Priority</label>
-                <a-select v-model="order.priority" class="custom-select rounded-pill border-0">   
-                  <a-select-option value="Low">Low</a-select-option>   
-                  <a-select-option value="Mid">Mid</a-select-option>   
-                  <a-select-option value="High">High</a-select-option>     
-                </a-select>  
-              </div>
-
-              <div class="col-12 pl-0">
-                <label class="col-lg-12 control-label w-100 p-0 mb-2">Request Date</label>  
-                <div class="calendar-container"> 
+  <div class="createOrder">  
+    <b-card no-body>    
+      <div class="row mx-0">
+        <div class="col-6 border-right pl-0">  
+          <div class="row mx-0"> 
+            <div class="col-7 pl-0">
+              <div class="row mx-0">
+                <div class="col-8 pl-0">
+                  <label class="control-label w-100 p-0 mb-2">Requestor</label>  
                   <input
                     disabled 
-                    v-model="order.request_date"
+                    v-model="order.requestor"
                     type="text"   
-                    id="request_date"     
-                    name="request_date"   
+                    id="requestor"     
+                    name="requestor"   
                     class="rounded-pill form-control"/>
+                </div>
+
+                <div class="col-4 pr-0">
+                  <label class="col-lg-12 control-label w-100 p-0 mb-2">Priority</label>
+                  <a-select v-model="order.priority" class="custom-select rounded-pill border-0">   
+                    <a-select-option value="Low">Low</a-select-option>   
+                    <a-select-option value="Mid">Mid</a-select-option>   
+                    <a-select-option value="High">High</a-select-option>     
+                  </a-select>  
+                </div>
+
+                <div class="col-12 pl-0">
+                  <label class="col-lg-12 control-label w-100 p-0 mb-2">Request Date</label>  
+                  <div class="calendar-container"> 
+                    <input
+                      disabled 
+                      v-model="order.request_date"
+                      type="text"   
+                      id="request_date"     
+                      name="request_date"   
+                      class="rounded-pill form-control"/>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div class="col-5 pr-0">
-            <label class="col-lg-12 control-label w-100 p-0 mb-2">Type</label>   
-            <a-select v-model="order.type" class="custom-select rounded-pill border-0">   
-              <a-select-option :value="'-None-'">- Please Select -</a-select-option>   
-              <a-select-option :value="o_type.id" v-for="(o_type, index) in order_types" :key="index">{{o_type.name}}</a-select-option>  
-            </a-select>  
+            <div class="col-5 pr-0">
+              <label class="col-lg-12 control-label w-100 p-0 mb-2">Type</label>   
+              <a-select v-model="order.type" class="custom-select rounded-pill border-0">   
+                <a-select-option :value="'-None-'">- Please Select -</a-select-option>   
+                <a-select-option :value="o_type.id" v-for="(o_type, index) in order_types" :key="index">{{o_type.name}}</a-select-option>  
+              </a-select>  
 
-            <label class="col-lg-12 control-label w-100 p-0 mb-2">Class</label>   
-            <a-select v-validate="'required'" name="Class" v-model="order.order_class" class="custom-select rounded-pill border-0">   
-              <a-select-option :value="'-None-'">- Please Select -</a-select-option>   
-              <a-select-option :value="o_class.id" v-for="(o_class, index) in order_clases" :key="index">{{o_class.name}}</a-select-option>  
-            </a-select>
-            <span id="error" v-show="errors.has('Class')" class="help-block">{{ errors.first('Class') }}</span>
+              <label class="col-lg-12 control-label w-100 p-0 mb-2">Class</label>   
+              <a-select v-validate="'required'" name="Class" v-model="order.order_class" class="custom-select rounded-pill border-0">   
+                <a-select-option :value="'-None-'">- Please Select -</a-select-option>   
+                <a-select-option :value="o_class.id" v-for="(o_class, index) in order_clases" :key="index">{{o_class.name}}</a-select-option>  
+              </a-select>
+              <span id="error" v-show="errors.has('Class')" class="help-block">{{ errors.first('Class') }}</span>
 
-            <label class="col-lg-12 control-label w-100 p-0 mb-2">Origin Type</label> 
-            <input 
-              disabled
-              v-model="order.origin_type_name"
-              type="text"   
-              id="origin"     
-              name="origin"   
-              class="rounded-pill form-control"/>
+              <label class="col-lg-12 control-label w-100 p-0 mb-2">Origin Type</label> 
+              <input 
+                disabled
+                v-model="order.origin_type_name"
+                type="text"   
+                id="origin"     
+                name="origin"   
+                class="rounded-pill form-control"/>
 
-            <label class="col-lg-12 control-label w-100 p-0 mb-2">Origin</label>   
-            <input
-              disabled 
-              v-model="order.origin_name"
-              type="text"   
-              id="origin"     
-              name="origin"   
-              class="rounded-pill form-control"/>
+              <label class="col-lg-12 control-label w-100 p-0 mb-2">Origin</label>   
+              <input
+                disabled 
+                v-model="order.origin_name"
+                type="text"   
+                id="origin"     
+                name="origin"   
+                class="rounded-pill form-control"/>
 
+            </div>
           </div>
         </div>
+
+        <div class="col-6 pr-0">   
+          <div class="row mx-0">
+            <div class="col-6 pl-0">
+              <label class="control-label w-100 p-0 mb-2">Billing Address</label>   
+              <textarea 
+                v-model="order.billing_address"   
+                id="info"     
+                name="Info"   
+                class="form-control "/>
+
+              <label class="col-lg-12 control-label w-100 p-0 mb-2">Contact Name</label>   
+              <input
+                v-model="order.contact_name"    
+                type="text"    
+                id="contact-name"     
+                name="contactName"   
+                class="form-control rounded-pill"/>    
+      
+              <label class="col-lg-12 control-label w-100 p-0 mb-2">Email</label> 
+              <input 
+                v-model="order.contact_email"    
+                type="tel"    
+                id="contact-number"     
+                name="ContactNumber"   
+                class="form-control rounded-pill"/>
+            </div>
+
+            <div class="col-6 pr-0">
+              <label class="col-lg-12 control-label w-100 p-0 mb-2">Phone</label> 
+              <input 
+                v-model="order.contact_number"    
+                type="tel"    
+                id="contact-number"     
+                name="ContactNumber"   
+                class="form-control rounded-pill"/> 
+
+              <label class="col-lg-12 control-label w-100 p-0 mb-2">Related Item</label>   
+              <textarea 
+                v-model="order.related_item"   
+                id="info"     
+                name="Info"   
+                class="form-control"/>
+
+            </div>
+          </div> 
+        </div>   
       </div>
+    </b-card> 
+    <b-card class="order-summary">
 
-      <div class="col-6 pr-0">   
-        <div class="row mx-0">
-          <div class="col-6 pl-0">
-            <label class="control-label w-100 p-0 mb-2">Billing Address</label>   
-            <textarea 
-              v-model="order.billing_address"   
-              id="info"     
-              name="Info"   
-              class="form-control "/>
+      <b-row class="mx-0 justify-content-between align-items-end">
+        <b-col sm="4" class="pl-0">
+          <label class="control-label w-100 p-0 mb-2">Requesition Notes</label>   
+          <textarea 
+            v-model="order.requesition_notes"   
+            id="info"     
+            name="Info"   
+            class="mb-0 form-control"/>
+        </b-col>
 
-            <label class="col-lg-12 control-label w-100 p-0 mb-2">Contact Name</label>   
-            <input
-              v-model="order.contact_name"    
-              type="text"    
-              id="contact-name"     
-              name="contactName"   
-              class="form-control rounded-pill"/>    
-     
-            <label class="col-lg-12 control-label w-100 p-0 mb-2">Email</label> 
-            <input 
-              v-model="order.contact_email"    
-              type="tel"    
-              id="contact-number"     
-              name="ContactNumber"   
-              class="form-control rounded-pill"/>
-          </div>
+        <b-col sm="auto" class="pl-0">
+          <b-row class="mx-0">
+            <b-col sm="auto border-right pl-0">
+              <p class="font-weight-bold mb-0">Sub Total</p>
+              <p class="font-weight-bold mb-0">{{ order.tax }} ({{ parseInt(order.tax_percent) }}%)</p>
+              <p class="font-weight-bold mb-0">Grand Total</p>
+            </b-col>
 
-          <div class="col-6 pr-0">
-            <label class="col-lg-12 control-label w-100 p-0 mb-2">Phone</label> 
-            <input 
-              v-model="order.contact_number"    
-              type="tel"    
-              id="contact-number"     
-              name="ContactNumber"   
-              class="form-control rounded-pill"/> 
+            <b-col sm="auto" class="pr-0 order-totals">
+              <p class="text-right mb-0">{{ order.amount }}</p>
+              <p class="text-right mb-0">{{ calculateTAxAmount() }}</p>
+              <p class="font-weight-bold text-right mb-0">{{ calculateGrandTotal() }}</p>
+            </b-col>
+          </b-row>
+        </b-col>
+      </b-row>
 
-            <label class="col-lg-12 control-label w-100 p-0 mb-2">Related Item</label>   
-            <textarea 
-              v-model="order.related_item"   
-              id="info"     
-              name="Info"   
-              class="form-control"/>
+      <div class="row mt-5 mx-0 justify-content-end">
+        <div class="col-auto pl-0">
+          <b-button class="btn btn-default my-0 ml-0">Cancel</b-button>
+        </div>
 
-          </div>
-        </div> 
-      </div>   
-    </div>  
+        <div class="col-auto pl-0">
+          <b-button class="btn btn-primary font-weight-bold my-0 mr-0">Save</b-button>
+        </div>
+      </div>
+    </b-card> 
   </div>
 </template>
 
@@ -207,12 +274,13 @@ export default {
         contact_number: '',
         contact_email:'' ,
         contact_name:'' ,
-        origin:'' ,
         related_item:'' ,
         requestor:'',
-        requestors: this.user_name
+        requesition_notes: '',
+        amount: 100.00,
+
       },
-      types: ['Maintenance Requessition', 'New Requisition'],
+      tableRow: [],
       Toast: null,
     }
   },
@@ -228,6 +296,13 @@ export default {
         vm.order.origin_name = vm.product.origin.name;
         vm.order.origin_type_id = vm.origin_type_id;
         vm.order.origin_type_name = vm.product.origin_type.name;
+        vm.order.tax = vm.product.tax.tax_type;
+        vm.order.tax_percent = vm.product.tax.percentage;
+        vm.order.tax_type = vm.product.tax_type;
+
+        vm.tableRow = {
+
+        };
       });
     },
     getDate(){
@@ -236,6 +311,15 @@ export default {
       var time = today.getHours() + ":" + today.getMinutes();
       var dateTime = date+' '+time;
       return dateTime;
+    },
+    calculateTAxAmount(){
+      var amount = (this.order.tax_percent/100) * this.order.amount;
+      return amount.toFixed(2);
+    },
+    calculateGrandTotal(){
+      var tax_amount = this.calculateTAxAmount();
+      var grand_total = parseFloat(this.order.amount) + parseFloat(tax_amount);
+      return parseFloat(grand_total);
     }
   }
 }

@@ -62,38 +62,13 @@ textarea {
 .order-totals {
   min-width: 184px;
 }
-.btn-default{
-  background: #fff;
-  color: #999999;    
-  border: none!important;
-  padding: 11px 14px 10px;
-  font-size: 10px;
-  text-transform:uppercase;
-  border-radius: 50rem!important;
-  line-height:1em;
-  margin-left: 0.9%;
-  margin-right: 0.9%;
-  -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
-  -moz-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
-  -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
-  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
-}
-.btn-primary {
-  border-radius: 50rem!important;
-  text-transform:uppercase;
-  font-size: 10px;
-  padding: 11px 14px 10px;
-  line-height:1em;
-  margin-left: 0.9%;
-  margin-right: 0.9%;
-}
+
 </style>
 
 <template>
   <div id="branches">
     <div class="row mx-0 orders-tabs">
       <div class="col-lg-12 px-0">
-        <b-card no-body>
           <b-tabs v-model="tabIndex" card>
             <b-tab active class="start-order-table">
               <template v-slot:title>
@@ -125,46 +100,6 @@ textarea {
               </transition>
             </b-tab>
           </b-tabs>
-        </b-card>
-
-        <b-card v-if="order_summary" class="order-summary">
-          <b-row class="mx-0 justify-content-between align-items-end">
-            <b-col sm="4" class="pl-0">
-              <label class="control-label w-100 p-0 mb-2">Requesition Notes</label>   
-              <textarea 
-                v-model="requesition_notes"   
-                id="info"     
-                name="Info"   
-                class="mb-0 form-control"/>
-            </b-col>
-
-            <b-col sm="auto" class="pl-0">
-              <b-row class="mx-0">
-                <b-col sm="auto border-right pl-0">
-                  <p class="font-weight-bold mb-0">Sub Total</p>
-                  <p class="font-weight-bold mb-0">VAT</p>
-                  <p class="font-weight-bold mb-0">Grand Total</p>
-                </b-col>
-
-                <b-col sm="auto" class="pr-0 order-totals">
-                  <p class="text-right mb-0">0,00</p>
-                  <p class="text-right mb-0">0,00</p>
-                  <p class="font-weight-bold text-right mb-0">0,00</p>
-                </b-col>
-              </b-row>
-            </b-col>
-          </b-row>
-
-          <div class="row mt-5 mx-0 justify-content-end">
-          <div class="col-auto pl-0">
-            <b-button class="btn btn-default my-0 ml-0">Cancel</b-button>
-          </div>
-
-          <div class="col-auto pl-0">
-            <b-button class="btn btn-primary font-weight-bold my-0 mr-0">Checkout</b-button>
-          </div>
-        </div>
-        </b-card>
       </div>
     </div>
   </div>
@@ -189,6 +124,8 @@ import CreateOrder from './CreateOrder';
 
         vm.tabIndex = 1;
 
+        vm.order_summary = true;
+
       });
     },
     created: function () {
@@ -203,6 +140,7 @@ import CreateOrder from './CreateOrder';
     data: function(){
       return {
         tabIndex: 0,
+        product: [],
         order_types: [],
         order_clases: [],
         order_summary: false,

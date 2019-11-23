@@ -184827,6 +184827,73 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   mounted: function mounted() {
@@ -184852,12 +184919,12 @@ __webpack_require__.r(__webpack_exports__);
         contact_number: '',
         contact_email: '',
         contact_name: '',
-        origin: '',
         related_item: '',
         requestor: '',
-        requestors: this.user_name
+        requesition_notes: '',
+        amount: 100.00
       },
-      types: ['Maintenance Requessition', 'New Requisition'],
+      tableRow: [],
       Toast: null
     };
   },
@@ -184873,6 +184940,10 @@ __webpack_require__.r(__webpack_exports__);
         vm.order.origin_name = vm.product.origin.name;
         vm.order.origin_type_id = vm.origin_type_id;
         vm.order.origin_type_name = vm.product.origin_type.name;
+        vm.order.tax = vm.product.tax.tax_type;
+        vm.order.tax_percent = vm.product.tax.percentage;
+        vm.order.tax_type = vm.product.tax_type;
+        vm.tableRow = {};
       });
     },
     getDate: function getDate() {
@@ -184881,6 +184952,15 @@ __webpack_require__.r(__webpack_exports__);
       var time = today.getHours() + ":" + today.getMinutes();
       var dateTime = date + ' ' + time;
       return dateTime;
+    },
+    calculateTAxAmount: function calculateTAxAmount() {
+      var amount = this.order.tax_percent / 100 * this.order.amount;
+      return amount.toFixed(2);
+    },
+    calculateGrandTotal: function calculateGrandTotal() {
+      var tax_amount = this.calculateTAxAmount();
+      var grand_total = parseFloat(this.order.amount) + parseFloat(tax_amount);
+      return parseFloat(grand_total);
     }
   }
 });
@@ -185197,7 +185277,7 @@ __webpack_require__.r(__webpack_exports__);
       filtered_companies: [],
       categories: [],
       company_types: [],
-      tax_types: ['VAT', 'Other'],
+      tax_types: 1,
       Toast: null
     };
   },
@@ -185222,6 +185302,7 @@ __webpack_require__.r(__webpack_exports__);
       var vm = this;
       axios.get('/products/get-categories').then(function (response) {
         vm.categories = response.data.categories;
+        vm.tax_types = response.data.tax_types;
       });
       axios.get('/company/get-types').then(function (response) {
         vm.company_types = response.data.company_types;
@@ -185723,71 +185804,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -185802,6 +185818,7 @@ __webpack_require__.r(__webpack_exports__);
     vm.getSelectOPtions();
     Fire.$on('StartOrder', function (data) {
       vm.tabIndex = 1;
+      vm.order_summary = true;
     });
   },
   created: function created() {},
@@ -185809,6 +185826,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       tabIndex: 0,
+      product: [],
       order_types: [],
       order_clases: [],
       order_summary: false,
@@ -249465,7 +249483,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.col-6[data-v-c3b77390] {\n  padding-left: 3.3%;\n  padding-right: 3.3%;\n}\n.col-6.border-right[data-v-c3b77390] {\n  border-color: #8D8D8D;\n}\n.col-6 .col-7 .col-8[data-v-c3b77390],\n.col-6 .col-7 .col-4[data-v-c3b77390] {\n  padding-left: 10px;\n  padding-right:10px;\n}\ninput[data-v-c3b77390], textarea[data-v-c3b77390], select[data-v-c3b77390] {\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding: 11px 18px!important;\n  font-size: 12px;\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height: auto!important;\n}\ntextarea[data-v-c3b77390] {\n  border-radius: 10px;\n  height: 124px!important;\n}\n.custom-select[data-v-c3b77390] {\n  height: auto;\n}\nlabel[data-v-c3b77390]{\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom: 7px;\n  margin-left: 17px;\n}\n.btn-primary[data-v-c3b77390] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 10px;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n.calendar-container[data-v-c3b77390] {\n  margin-left: 17px;\n  margin-right: 17px;\n}\n", ""]);
+exports.push([module.i, "\n.col-6[data-v-c3b77390] {\n  padding-left: 3.3%;\n  padding-right: 3.3%;\n}\n.col-6.border-right[data-v-c3b77390] {\n  border-color: #8D8D8D;\n}\n.col-6 .col-7 .col-8[data-v-c3b77390],\n.col-6 .col-7 .col-4[data-v-c3b77390] {\n  padding-left: 10px;\n  padding-right:10px;\n}\ninput[data-v-c3b77390], textarea[data-v-c3b77390], select[data-v-c3b77390] {\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding: 11px 18px!important;\n  font-size: 12px;\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height: auto!important;\n}\ntextarea[data-v-c3b77390] {\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding: 11px 18px!important;\n  font-size: 12px;\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height: auto!important;\n  border-radius: 10px;\n}\n.custom-select[data-v-c3b77390] {\n  height: auto;\n}\nlabel[data-v-c3b77390]{\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom: 7px;\n  margin-left: 17px;\n}\n.btn-default[data-v-c3b77390]{\n  background: #fff;\n  color: #999999;    \n  border: none!important;\n  padding: 11px 14px 10px;\n  font-size: 10px;\n  text-transform:uppercase;\n  border-radius: 50rem!important;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n  -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-c3b77390] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 10px;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n.calendar-container[data-v-c3b77390] {\n  margin-left: 17px;\n  margin-right: 17px;\n}\n", ""]);
 
 // exports
 
@@ -249522,7 +249540,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.trans-tabs[data-v-caac97e4] {\n  padding-left:5.2%;\n  padding-right:5.2%;\n}\n.tab-pane.card-body[data-v-caac97e4] {\n  padding:4.4% 5.6% 6.8%;\n}\n.products .tab-pane .row[data-v-caac97e4]{\n  margin-right: 0;\n  margin-left: 0;\n}\nh5[data-v-caac97e4] {\n  font-size: 0.83vw;\n}\n.nav-link.active img[data-v-caac97e4] {\n  margin-left:20px;\n  display: inline-block!important;\n  box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  border-radius: 50rem;\n}\n.add-module-btn[data-v-caac97e4] {\n  box-shadow:none!important;\n  -webkit-box-shadow:none!important;\n  -moz-box-shadow:none!important;\n  -o-box-shadow:none!important;\n}\n.tab-pane.card-body[data-v-caac97e4] {\n  padding:4.4% 5.6% 6.8%;\n}\n.order-summary[data-v-caac97e4] {\n  box-shadow: 0 0 20px rgba(0,0,0,0.1)!important;\n  -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.1)!important;\n  -moz-box-shadow: 0 0 20px rgba(0,0,0,0.1)!important;\n  -o-box-shadow: 0 0 20px rgba(0,0,0,0.1)!important;\n  border-radius: 25px;\n}\nlabel[data-v-caac97e4]{\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom: 7px;\n  margin-left: 17px;\n}\ntextarea[data-v-caac97e4] {\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding: 11px 18px!important;\n  font-size: 12px;\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height: auto!important;\n  border-radius: 10px;\n}\n.order-totals[data-v-caac97e4] {\n  min-width: 184px;\n}\n.btn-default[data-v-caac97e4]{\n  background: #fff;\n  color: #999999;    \n  border: none!important;\n  padding: 11px 14px 10px;\n  font-size: 10px;\n  text-transform:uppercase;\n  border-radius: 50rem!important;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n  -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-caac97e4] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 10px;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n", ""]);
+exports.push([module.i, "\n.trans-tabs[data-v-caac97e4] {\n  padding-left:5.2%;\n  padding-right:5.2%;\n}\n.tab-pane.card-body[data-v-caac97e4] {\n  padding:4.4% 5.6% 6.8%;\n}\n.products .tab-pane .row[data-v-caac97e4]{\n  margin-right: 0;\n  margin-left: 0;\n}\nh5[data-v-caac97e4] {\n  font-size: 0.83vw;\n}\n.nav-link.active img[data-v-caac97e4] {\n  margin-left:20px;\n  display: inline-block!important;\n  box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  border-radius: 50rem;\n}\n.add-module-btn[data-v-caac97e4] {\n  box-shadow:none!important;\n  -webkit-box-shadow:none!important;\n  -moz-box-shadow:none!important;\n  -o-box-shadow:none!important;\n}\n.tab-pane.card-body[data-v-caac97e4] {\n  padding:4.4% 5.6% 6.8%;\n}\n.order-summary[data-v-caac97e4] {\n  box-shadow: 0 0 20px rgba(0,0,0,0.1)!important;\n  -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.1)!important;\n  -moz-box-shadow: 0 0 20px rgba(0,0,0,0.1)!important;\n  -o-box-shadow: 0 0 20px rgba(0,0,0,0.1)!important;\n  border-radius: 25px;\n}\nlabel[data-v-caac97e4]{\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom: 7px;\n  margin-left: 17px;\n}\ntextarea[data-v-caac97e4] {\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding: 11px 18px!important;\n  font-size: 12px;\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height: auto!important;\n  border-radius: 10px;\n}\n.order-totals[data-v-caac97e4] {\n  min-width: 184px;\n}\n\n", ""]);
 
 // exports
 
@@ -372593,53 +372611,145 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "createOrder" }, [
-    _c("div", { staticClass: "row mx-0" }, [
-      _c("div", { staticClass: "col-6 border-right pl-0" }, [
+  return _c(
+    "div",
+    { staticClass: "createOrder" },
+    [
+      _c("b-card", { attrs: { "no-body": "" } }, [
         _c("div", { staticClass: "row mx-0" }, [
-          _c("div", { staticClass: "col-7 pl-0" }, [
+          _c("div", { staticClass: "col-6 border-right pl-0" }, [
             _c("div", { staticClass: "row mx-0" }, [
-              _c("div", { staticClass: "col-8 pl-0" }, [
-                _c("label", { staticClass: "control-label w-100 p-0 mb-2" }, [
-                  _vm._v("Requestor")
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.order.requestor,
-                      expression: "order.requestor"
-                    }
-                  ],
-                  staticClass: "rounded-pill form-control",
-                  attrs: {
-                    disabled: "",
-                    type: "text",
-                    id: "requestor",
-                    name: "requestor"
-                  },
-                  domProps: { value: _vm.order.requestor },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+              _c("div", { staticClass: "col-7 pl-0" }, [
+                _c("div", { staticClass: "row mx-0" }, [
+                  _c("div", { staticClass: "col-8 pl-0" }, [
+                    _c(
+                      "label",
+                      { staticClass: "control-label w-100 p-0 mb-2" },
+                      [_vm._v("Requestor")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.order.requestor,
+                          expression: "order.requestor"
+                        }
+                      ],
+                      staticClass: "rounded-pill form-control",
+                      attrs: {
+                        disabled: "",
+                        type: "text",
+                        id: "requestor",
+                        name: "requestor"
+                      },
+                      domProps: { value: _vm.order.requestor },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.order, "requestor", $event.target.value)
+                        }
                       }
-                      _vm.$set(_vm.order, "requestor", $event.target.value)
-                    }
-                  }
-                })
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "col-4 pr-0" },
+                    [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-lg-12 control-label w-100 p-0 mb-2"
+                        },
+                        [_vm._v("Priority")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a-select",
+                        {
+                          staticClass: "custom-select rounded-pill border-0",
+                          model: {
+                            value: _vm.order.priority,
+                            callback: function($$v) {
+                              _vm.$set(_vm.order, "priority", $$v)
+                            },
+                            expression: "order.priority"
+                          }
+                        },
+                        [
+                          _c("a-select-option", { attrs: { value: "Low" } }, [
+                            _vm._v("Low")
+                          ]),
+                          _vm._v(" "),
+                          _c("a-select-option", { attrs: { value: "Mid" } }, [
+                            _vm._v("Mid")
+                          ]),
+                          _vm._v(" "),
+                          _c("a-select-option", { attrs: { value: "High" } }, [
+                            _vm._v("High")
+                          ])
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-12 pl-0" }, [
+                    _c(
+                      "label",
+                      { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
+                      [_vm._v("Request Date")]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "calendar-container" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.order.request_date,
+                            expression: "order.request_date"
+                          }
+                        ],
+                        staticClass: "rounded-pill form-control",
+                        attrs: {
+                          disabled: "",
+                          type: "text",
+                          id: "request_date",
+                          name: "request_date"
+                        },
+                        domProps: { value: _vm.order.request_date },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.order,
+                              "request_date",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ])
+                  ])
+                ])
               ]),
               _vm._v(" "),
               _c(
                 "div",
-                { staticClass: "col-4 pr-0" },
+                { staticClass: "col-5 pr-0" },
                 [
                   _c(
                     "label",
                     { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
-                    [_vm._v("Priority")]
+                    [_vm._v("Type")]
                   ),
                   _vm._v(" "),
                   _c(
@@ -372647,395 +372757,458 @@ var render = function() {
                     {
                       staticClass: "custom-select rounded-pill border-0",
                       model: {
-                        value: _vm.order.priority,
+                        value: _vm.order.type,
                         callback: function($$v) {
-                          _vm.$set(_vm.order, "priority", $$v)
+                          _vm.$set(_vm.order, "type", $$v)
                         },
-                        expression: "order.priority"
+                        expression: "order.type"
                       }
                     },
                     [
-                      _c("a-select-option", { attrs: { value: "Low" } }, [
-                        _vm._v("Low")
+                      _c("a-select-option", { attrs: { value: "-None-" } }, [
+                        _vm._v("- Please Select -")
                       ]),
                       _vm._v(" "),
-                      _c("a-select-option", { attrs: { value: "Mid" } }, [
-                        _vm._v("Mid")
-                      ]),
-                      _vm._v(" "),
-                      _c("a-select-option", { attrs: { value: "High" } }, [
-                        _vm._v("High")
-                      ])
+                      _vm._l(_vm.order_types, function(o_type, index) {
+                        return _c(
+                          "a-select-option",
+                          { key: index, attrs: { value: o_type.id } },
+                          [_vm._v(_vm._s(o_type.name))]
+                        )
+                      })
                     ],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-12 pl-0" }, [
-                _c(
-                  "label",
-                  { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
-                  [_vm._v("Request Date")]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "calendar-container" }, [
+                    2
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "label",
+                    { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
+                    [_vm._v("Class")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "a-select",
+                    {
+                      directives: [
+                        {
+                          name: "validate",
+                          rawName: "v-validate",
+                          value: "required",
+                          expression: "'required'"
+                        }
+                      ],
+                      staticClass: "custom-select rounded-pill border-0",
+                      attrs: { name: "Class" },
+                      model: {
+                        value: _vm.order.order_class,
+                        callback: function($$v) {
+                          _vm.$set(_vm.order, "order_class", $$v)
+                        },
+                        expression: "order.order_class"
+                      }
+                    },
+                    [
+                      _c("a-select-option", { attrs: { value: "-None-" } }, [
+                        _vm._v("- Please Select -")
+                      ]),
+                      _vm._v(" "),
+                      _vm._l(_vm.order_clases, function(o_class, index) {
+                        return _c(
+                          "a-select-option",
+                          { key: index, attrs: { value: o_class.id } },
+                          [_vm._v(_vm._s(o_class.name))]
+                        )
+                      })
+                    ],
+                    2
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "span",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: _vm.errors.has("Class"),
+                          expression: "errors.has('Class')"
+                        }
+                      ],
+                      staticClass: "help-block",
+                      attrs: { id: "error" }
+                    },
+                    [_vm._v(_vm._s(_vm.errors.first("Class")))]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "label",
+                    { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
+                    [_vm._v("Origin Type")]
+                  ),
+                  _vm._v(" "),
                   _c("input", {
                     directives: [
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.order.request_date,
-                        expression: "order.request_date"
+                        value: _vm.order.origin_type_name,
+                        expression: "order.origin_type_name"
                       }
                     ],
                     staticClass: "rounded-pill form-control",
                     attrs: {
                       disabled: "",
                       type: "text",
-                      id: "request_date",
-                      name: "request_date"
+                      id: "origin",
+                      name: "origin"
                     },
-                    domProps: { value: _vm.order.request_date },
+                    domProps: { value: _vm.order.origin_type_name },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.$set(_vm.order, "request_date", $event.target.value)
+                        _vm.$set(
+                          _vm.order,
+                          "origin_type_name",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "label",
+                    { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
+                    [_vm._v("Origin")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.order.origin_name,
+                        expression: "order.origin_name"
+                      }
+                    ],
+                    staticClass: "rounded-pill form-control",
+                    attrs: {
+                      disabled: "",
+                      type: "text",
+                      id: "origin",
+                      name: "origin"
+                    },
+                    domProps: { value: _vm.order.origin_name },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.order, "origin_name", $event.target.value)
                       }
                     }
                   })
-                ])
-              ])
+                ],
+                1
+              )
             ])
           ]),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "col-5 pr-0" },
-            [
-              _c(
-                "label",
-                { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
-                [_vm._v("Type")]
-              ),
-              _vm._v(" "),
-              _c(
-                "a-select",
-                {
-                  staticClass: "custom-select rounded-pill border-0",
-                  model: {
-                    value: _vm.order.type,
-                    callback: function($$v) {
-                      _vm.$set(_vm.order, "type", $$v)
-                    },
-                    expression: "order.type"
-                  }
-                },
-                [
-                  _c("a-select-option", { attrs: { value: "-None-" } }, [
-                    _vm._v("- Please Select -")
-                  ]),
-                  _vm._v(" "),
-                  _vm._l(_vm.order_types, function(o_type, index) {
-                    return _c(
-                      "a-select-option",
-                      { key: index, attrs: { value: o_type.id } },
-                      [_vm._v(_vm._s(o_type.name))]
-                    )
-                  })
-                ],
-                2
-              ),
-              _vm._v(" "),
-              _c(
-                "label",
-                { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
-                [_vm._v("Class")]
-              ),
-              _vm._v(" "),
-              _c(
-                "a-select",
-                {
+          _c("div", { staticClass: "col-6 pr-0" }, [
+            _c("div", { staticClass: "row mx-0" }, [
+              _c("div", { staticClass: "col-6 pl-0" }, [
+                _c("label", { staticClass: "control-label w-100 p-0 mb-2" }, [
+                  _vm._v("Billing Address")
+                ]),
+                _vm._v(" "),
+                _c("textarea", {
                   directives: [
                     {
-                      name: "validate",
-                      rawName: "v-validate",
-                      value: "required",
-                      expression: "'required'"
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.order.billing_address,
+                      expression: "order.billing_address"
                     }
                   ],
-                  staticClass: "custom-select rounded-pill border-0",
-                  attrs: { name: "Class" },
-                  model: {
-                    value: _vm.order.order_class,
-                    callback: function($$v) {
-                      _vm.$set(_vm.order, "order_class", $$v)
-                    },
-                    expression: "order.order_class"
+                  staticClass: "form-control ",
+                  attrs: { id: "info", name: "Info" },
+                  domProps: { value: _vm.order.billing_address },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.order,
+                        "billing_address",
+                        $event.target.value
+                      )
+                    }
                   }
-                },
-                [
-                  _c("a-select-option", { attrs: { value: "-None-" } }, [
-                    _vm._v("- Please Select -")
-                  ]),
-                  _vm._v(" "),
-                  _vm._l(_vm.order_clases, function(o_class, index) {
-                    return _c(
-                      "a-select-option",
-                      { key: index, attrs: { value: o_class.id } },
-                      [_vm._v(_vm._s(o_class.name))]
-                    )
-                  })
-                ],
-                2
-              ),
-              _vm._v(" "),
-              _c(
-                "span",
-                {
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
+                  [_vm._v("Contact Name")]
+                ),
+                _vm._v(" "),
+                _c("input", {
                   directives: [
                     {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm.errors.has("Class"),
-                      expression: "errors.has('Class')"
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.order.contact_name,
+                      expression: "order.contact_name"
                     }
                   ],
-                  staticClass: "help-block",
-                  attrs: { id: "error" }
-                },
-                [_vm._v(_vm._s(_vm.errors.first("Class")))]
-              ),
-              _vm._v(" "),
-              _c(
-                "label",
-                { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
-                [_vm._v("Origin Type")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.order.origin_type_name,
-                    expression: "order.origin_type_name"
-                  }
-                ],
-                staticClass: "rounded-pill form-control",
-                attrs: {
-                  disabled: "",
-                  type: "text",
-                  id: "origin",
-                  name: "origin"
-                },
-                domProps: { value: _vm.order.origin_type_name },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+                  staticClass: "form-control rounded-pill",
+                  attrs: {
+                    type: "text",
+                    id: "contact-name",
+                    name: "contactName"
+                  },
+                  domProps: { value: _vm.order.contact_name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.order, "contact_name", $event.target.value)
                     }
-                    _vm.$set(_vm.order, "origin_type_name", $event.target.value)
                   }
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "label",
-                { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
-                [_vm._v("Origin")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.order.origin_name,
-                    expression: "order.origin_name"
-                  }
-                ],
-                staticClass: "rounded-pill form-control",
-                attrs: {
-                  disabled: "",
-                  type: "text",
-                  id: "origin",
-                  name: "origin"
-                },
-                domProps: { value: _vm.order.origin_name },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
+                  [_vm._v("Email")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.order.contact_email,
+                      expression: "order.contact_email"
                     }
-                    _vm.$set(_vm.order, "origin_name", $event.target.value)
+                  ],
+                  staticClass: "form-control rounded-pill",
+                  attrs: {
+                    type: "tel",
+                    id: "contact-number",
+                    name: "ContactNumber"
+                  },
+                  domProps: { value: _vm.order.contact_email },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.order, "contact_email", $event.target.value)
+                    }
                   }
-                }
-              })
-            ],
-            1
-          )
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-6 pr-0" }, [
+                _c(
+                  "label",
+                  { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
+                  [_vm._v("Phone")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.order.contact_number,
+                      expression: "order.contact_number"
+                    }
+                  ],
+                  staticClass: "form-control rounded-pill",
+                  attrs: {
+                    type: "tel",
+                    id: "contact-number",
+                    name: "ContactNumber"
+                  },
+                  domProps: { value: _vm.order.contact_number },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.order, "contact_number", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
+                  [_vm._v("Related Item")]
+                ),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.order.related_item,
+                      expression: "order.related_item"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { id: "info", name: "Info" },
+                  domProps: { value: _vm.order.related_item },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.order, "related_item", $event.target.value)
+                    }
+                  }
+                })
+              ])
+            ])
+          ])
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-6 pr-0" }, [
-        _c("div", { staticClass: "row mx-0" }, [
-          _c("div", { staticClass: "col-6 pl-0" }, [
-            _c("label", { staticClass: "control-label w-100 p-0 mb-2" }, [
-              _vm._v("Billing Address")
-            ]),
-            _vm._v(" "),
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.order.billing_address,
-                  expression: "order.billing_address"
-                }
-              ],
-              staticClass: "form-control ",
-              attrs: { id: "info", name: "Info" },
-              domProps: { value: _vm.order.billing_address },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+      _c(
+        "b-card",
+        { staticClass: "order-summary" },
+        [
+          _c(
+            "b-row",
+            { staticClass: "mx-0 justify-content-between align-items-end" },
+            [
+              _c("b-col", { staticClass: "pl-0", attrs: { sm: "4" } }, [
+                _c("label", { staticClass: "control-label w-100 p-0 mb-2" }, [
+                  _vm._v("Requesition Notes")
+                ]),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.order.requesition_notes,
+                      expression: "order.requesition_notes"
+                    }
+                  ],
+                  staticClass: "mb-0 form-control",
+                  attrs: { id: "info", name: "Info" },
+                  domProps: { value: _vm.order.requesition_notes },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.order,
+                        "requesition_notes",
+                        $event.target.value
+                      )
+                    }
                   }
-                  _vm.$set(_vm.order, "billing_address", $event.target.value)
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "label",
-              { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
-              [_vm._v("Contact Name")]
-            ),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.order.contact_name,
-                  expression: "order.contact_name"
-                }
-              ],
-              staticClass: "form-control rounded-pill",
-              attrs: { type: "text", id: "contact-name", name: "contactName" },
-              domProps: { value: _vm.order.contact_name },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.order, "contact_name", $event.target.value)
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "label",
-              { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
-              [_vm._v("Email")]
-            ),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.order.contact_email,
-                  expression: "order.contact_email"
-                }
-              ],
-              staticClass: "form-control rounded-pill",
-              attrs: {
-                type: "tel",
-                id: "contact-number",
-                name: "ContactNumber"
-              },
-              domProps: { value: _vm.order.contact_email },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.order, "contact_email", $event.target.value)
-                }
-              }
-            })
-          ]),
+                })
+              ]),
+              _vm._v(" "),
+              _c(
+                "b-col",
+                { staticClass: "pl-0", attrs: { sm: "auto" } },
+                [
+                  _c(
+                    "b-row",
+                    { staticClass: "mx-0" },
+                    [
+                      _c("b-col", { attrs: { sm: "auto border-right pl-0" } }, [
+                        _c("p", { staticClass: "font-weight-bold mb-0" }, [
+                          _vm._v("Sub Total")
+                        ]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "font-weight-bold mb-0" }, [
+                          _vm._v(
+                            _vm._s(_vm.order.tax) +
+                              " (" +
+                              _vm._s(parseInt(_vm.order.tax_percent)) +
+                              "%)"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("p", { staticClass: "font-weight-bold mb-0" }, [
+                          _vm._v("Grand Total")
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "b-col",
+                        {
+                          staticClass: "pr-0 order-totals",
+                          attrs: { sm: "auto" }
+                        },
+                        [
+                          _c("p", { staticClass: "text-right mb-0" }, [
+                            _vm._v(_vm._s(_vm.order.amount))
+                          ]),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "text-right mb-0" }, [
+                            _vm._v(_vm._s(_vm.calculateTAxAmount()))
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "p",
+                            { staticClass: "font-weight-bold text-right mb-0" },
+                            [_vm._v(_vm._s(_vm.calculateGrandTotal()))]
+                          )
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          ),
           _vm._v(" "),
-          _c("div", { staticClass: "col-6 pr-0" }, [
+          _c("div", { staticClass: "row mt-5 mx-0 justify-content-end" }, [
             _c(
-              "label",
-              { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
-              [_vm._v("Phone")]
+              "div",
+              { staticClass: "col-auto pl-0" },
+              [
+                _c("b-button", { staticClass: "btn btn-default my-0 ml-0" }, [
+                  _vm._v("Cancel")
+                ])
+              ],
+              1
             ),
             _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.order.contact_number,
-                  expression: "order.contact_number"
-                }
-              ],
-              staticClass: "form-control rounded-pill",
-              attrs: {
-                type: "tel",
-                id: "contact-number",
-                name: "ContactNumber"
-              },
-              domProps: { value: _vm.order.contact_number },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.order, "contact_number", $event.target.value)
-                }
-              }
-            }),
-            _vm._v(" "),
             _c(
-              "label",
-              { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
-              [_vm._v("Related Item")]
-            ),
-            _vm._v(" "),
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.order.related_item,
-                  expression: "order.related_item"
-                }
+              "div",
+              { staticClass: "col-auto pl-0" },
+              [
+                _c(
+                  "b-button",
+                  { staticClass: "btn btn-primary font-weight-bold my-0 mr-0" },
+                  [_vm._v("Save")]
+                )
               ],
-              staticClass: "form-control",
-              attrs: { id: "info", name: "Info" },
-              domProps: { value: _vm.order.related_item },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.order, "related_item", $event.target.value)
-                }
-              }
-            })
+              1
+            )
           ])
-        ])
-      ])
-    ])
-  ])
+        ],
+        1
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -373975,8 +374148,8 @@ var render = function() {
                                   _vm._l(_vm.tax_types, function(type, index) {
                                     return _c(
                                       "a-select-option",
-                                      { key: index, attrs: { value: type } },
-                                      [_vm._v(_vm._s(type))]
+                                      { key: index, attrs: { value: type.id } },
+                                      [_vm._v(_vm._s(type.tax_type))]
                                     )
                                   })
                                 ],
@@ -374305,148 +374478,141 @@ var render = function() {
         { staticClass: "col-lg-12 px-0" },
         [
           _c(
-            "b-card",
-            { attrs: { "no-body": "" } },
+            "b-tabs",
+            {
+              attrs: { card: "" },
+              model: {
+                value: _vm.tabIndex,
+                callback: function($$v) {
+                  _vm.tabIndex = $$v
+                },
+                expression: "tabIndex"
+              }
+            },
             [
               _c(
-                "b-tabs",
+                "b-tab",
                 {
-                  attrs: { card: "" },
-                  model: {
-                    value: _vm.tabIndex,
-                    callback: function($$v) {
-                      _vm.tabIndex = $$v
-                    },
-                    expression: "tabIndex"
-                  }
+                  staticClass: "start-order-table",
+                  attrs: { active: "" },
+                  scopedSlots: _vm._u([
+                    {
+                      key: "title",
+                      fn: function() {
+                        return [
+                          _c(
+                            "h5",
+                            {
+                              staticClass: "d-inline-block mb-0",
+                              on: {
+                                click: function($event) {
+                                  _vm.order_summary = false
+                                }
+                              }
+                            },
+                            [_vm._v("Start Order")]
+                          )
+                        ]
+                      },
+                      proxy: true
+                    }
+                  ])
                 },
                 [
-                  _c(
-                    "b-tab",
-                    {
-                      staticClass: "start-order-table",
-                      attrs: { active: "" },
-                      scopedSlots: _vm._u([
-                        {
-                          key: "title",
-                          fn: function() {
-                            return [
-                              _c(
-                                "h5",
-                                {
-                                  staticClass: "d-inline-block mb-0",
-                                  on: {
-                                    click: function($event) {
-                                      _vm.order_summary = false
-                                    }
-                                  }
-                                },
-                                [_vm._v("Start Order")]
-                              )
-                            ]
-                          },
-                          proxy: true
-                        }
-                      ])
-                    },
-                    [
-                      _vm._v(" "),
-                      _c(
-                        "transition",
-                        { attrs: { name: "fade" } },
-                        [
-                          _c("ProductListingTable", {
-                            attrs: { role: _vm.role, mode: "view" }
-                          })
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  ),
                   _vm._v(" "),
                   _c(
-                    "b-tab",
-                    {
-                      scopedSlots: _vm._u([
-                        {
-                          key: "title",
-                          fn: function() {
-                            return [
-                              _c(
-                                "h5",
-                                {
-                                  staticClass: "d-inline-block mb-0",
-                                  on: {
-                                    click: function($event) {
-                                      _vm.order_summary = true
-                                    }
-                                  }
-                                },
-                                [_vm._v("Complete Order")]
-                              )
-                            ]
-                          },
-                          proxy: true
-                        }
-                      ])
-                    },
+                    "transition",
+                    { attrs: { name: "fade" } },
                     [
-                      _vm._v(" "),
-                      _c(
-                        "transition",
-                        { attrs: { name: "fade" } },
-                        [
-                          _c("create-order", {
-                            attrs: {
-                              user_name: _vm.user_name,
-                              order_clases: _vm.order_clases,
-                              order_types: _vm.order_types
-                            }
-                          })
-                        ],
-                        1
-                      )
+                      _c("ProductListingTable", {
+                        attrs: { role: _vm.role, mode: "view" }
+                      })
                     ],
                     1
-                  ),
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "b-tab",
+                {
+                  scopedSlots: _vm._u([
+                    {
+                      key: "title",
+                      fn: function() {
+                        return [
+                          _c(
+                            "h5",
+                            {
+                              staticClass: "d-inline-block mb-0",
+                              on: {
+                                click: function($event) {
+                                  _vm.order_summary = true
+                                }
+                              }
+                            },
+                            [_vm._v("Complete Order")]
+                          )
+                        ]
+                      },
+                      proxy: true
+                    }
+                  ])
+                },
+                [
                   _vm._v(" "),
                   _c(
-                    "b-tab",
-                    {
-                      staticClass: "order-history-table",
-                      scopedSlots: _vm._u([
-                        {
-                          key: "title",
-                          fn: function() {
-                            return [
-                              _c(
-                                "h5",
-                                {
-                                  staticClass: "d-inline-block mb-0",
-                                  on: {
-                                    click: function($event) {
-                                      _vm.order_summary = false
-                                    }
-                                  }
-                                },
-                                [_vm._v("Order History")]
-                              )
-                            ]
-                          },
-                          proxy: true
-                        }
-                      ])
-                    },
+                    "transition",
+                    { attrs: { name: "fade" } },
                     [
-                      _vm._v(" "),
-                      _c(
-                        "transition",
-                        { attrs: { name: "fade" } },
-                        [_c("OrdersListingTable")],
-                        1
-                      )
+                      _c("create-order", {
+                        attrs: {
+                          user_name: _vm.user_name,
+                          order_clases: _vm.order_clases,
+                          order_types: _vm.order_types
+                        }
+                      })
                     ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "b-tab",
+                {
+                  staticClass: "order-history-table",
+                  scopedSlots: _vm._u([
+                    {
+                      key: "title",
+                      fn: function() {
+                        return [
+                          _c(
+                            "h5",
+                            {
+                              staticClass: "d-inline-block mb-0",
+                              on: {
+                                click: function($event) {
+                                  _vm.order_summary = false
+                                }
+                              }
+                            },
+                            [_vm._v("Order History")]
+                          )
+                        ]
+                      },
+                      proxy: true
+                    }
+                  ])
+                },
+                [
+                  _vm._v(" "),
+                  _c(
+                    "transition",
+                    { attrs: { name: "fade" } },
+                    [_c("OrdersListingTable")],
                     1
                   )
                 ],
@@ -374454,155 +374620,7 @@ var render = function() {
               )
             ],
             1
-          ),
-          _vm._v(" "),
-          _vm.order_summary
-            ? _c(
-                "b-card",
-                { staticClass: "order-summary" },
-                [
-                  _c(
-                    "b-row",
-                    {
-                      staticClass:
-                        "mx-0 justify-content-between align-items-end"
-                    },
-                    [
-                      _c("b-col", { staticClass: "pl-0", attrs: { sm: "4" } }, [
-                        _c(
-                          "label",
-                          { staticClass: "control-label w-100 p-0 mb-2" },
-                          [_vm._v("Requesition Notes")]
-                        ),
-                        _vm._v(" "),
-                        _c("textarea", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.requesition_notes,
-                              expression: "requesition_notes"
-                            }
-                          ],
-                          staticClass: "mb-0 form-control",
-                          attrs: { id: "info", name: "Info" },
-                          domProps: { value: _vm.requesition_notes },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.requesition_notes = $event.target.value
-                            }
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "b-col",
-                        { staticClass: "pl-0", attrs: { sm: "auto" } },
-                        [
-                          _c(
-                            "b-row",
-                            { staticClass: "mx-0" },
-                            [
-                              _c(
-                                "b-col",
-                                { attrs: { sm: "auto border-right pl-0" } },
-                                [
-                                  _c(
-                                    "p",
-                                    { staticClass: "font-weight-bold mb-0" },
-                                    [_vm._v("Sub Total")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "p",
-                                    { staticClass: "font-weight-bold mb-0" },
-                                    [_vm._v("VAT")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "p",
-                                    { staticClass: "font-weight-bold mb-0" },
-                                    [_vm._v("Grand Total")]
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "b-col",
-                                {
-                                  staticClass: "pr-0 order-totals",
-                                  attrs: { sm: "auto" }
-                                },
-                                [
-                                  _c("p", { staticClass: "text-right mb-0" }, [
-                                    _vm._v("0,00")
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("p", { staticClass: "text-right mb-0" }, [
-                                    _vm._v("0,00")
-                                  ]),
-                                  _vm._v(" "),
-                                  _c(
-                                    "p",
-                                    {
-                                      staticClass:
-                                        "font-weight-bold text-right mb-0"
-                                    },
-                                    [_vm._v("0,00")]
-                                  )
-                                ]
-                              )
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "row mt-5 mx-0 justify-content-end" },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "col-auto pl-0" },
-                        [
-                          _c(
-                            "b-button",
-                            { staticClass: "btn btn-default my-0 ml-0" },
-                            [_vm._v("Cancel")]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "col-auto pl-0" },
-                        [
-                          _c(
-                            "b-button",
-                            {
-                              staticClass:
-                                "btn btn-primary font-weight-bold my-0 mr-0"
-                            },
-                            [_vm._v("Checkout")]
-                          )
-                        ],
-                        1
-                      )
-                    ]
-                  )
-                ],
-                1
-              )
-            : _vm._e()
+          )
         ],
         1
       )
