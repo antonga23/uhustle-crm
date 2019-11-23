@@ -136,9 +136,10 @@
         </span>
       </template>
     </b-table>
+
     <b-pagination
-    class="products-pagination"
-       v-model="currentPage"
+      class="products-pagination"
+      v-model="currentPage"
       :per-page="perPage"
       align="center"
       size="sm"

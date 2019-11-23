@@ -62,6 +62,31 @@ textarea {
 .order-totals {
   min-width: 184px;
 }
+.btn-default{
+  background: #fff;
+  color: #999999;    
+  border: none!important;
+  padding: 11px 14px 10px;
+  font-size: 10px;
+  text-transform:uppercase;
+  border-radius: 50rem!important;
+  line-height:1em;
+  margin-left: 0.9%;
+  margin-right: 0.9%;
+  -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
+  -moz-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
+  -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
+}
+.btn-primary {
+  border-radius: 50rem!important;
+  text-transform:uppercase;
+  font-size: 10px;
+  padding: 11px 14px 10px;
+  line-height:1em;
+  margin-left: 0.9%;
+  margin-right: 0.9%;
+}
 </style>
 
 <template>
@@ -70,13 +95,13 @@ textarea {
       <div class="col-lg-12 px-0">
         <b-card no-body>
           <b-tabs card>
-            <b-tab active>
+            <b-tab active class="start-order-table">
               <template v-slot:title>
                 <h5 @click="order_summary = false" class="d-inline-block mb-0">Start Order</h5>
               </template>
 
               <transition name="fade">
-                
+                <ProductListingTable></ProductListingTable>
               </transition>
             </b-tab>
 
@@ -129,6 +154,16 @@ textarea {
               </b-row>
             </b-col>
           </b-row>
+
+          <div class="row mt-5 mx-0 justify-content-end">
+          <div class="col-auto pl-0">
+            <b-button class="btn btn-default my-0 ml-0">Cancel</b-button>
+          </div>
+
+          <div class="col-auto pl-0">
+            <b-button class="btn btn-primary font-weight-bold my-0 mr-0">Checkout</b-button>
+          </div>
+        </div>
         </b-card>
       </div>
     </div>
@@ -136,10 +171,12 @@ textarea {
 </template>
 
 <script>
+import ProductListingTable from "../DataTables/ProductListingTable";
 import OrdersListingTable from "../DataTables/OrdersListingTable";
- import CreateOrder from './CreateOrder';
+import CreateOrder from './CreateOrder';
   export default {
     components: { 
+      ProductListingTable,
       OrdersListingTable,
       CreateOrder
     },

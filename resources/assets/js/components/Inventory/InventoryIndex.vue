@@ -205,7 +205,6 @@
 </style>
 <template>
   <div id="inventory">
-
     <div class="row mx-0 my-0 top-nav">
       <ul class="top-menu w-100">
         <li class="item ml-0" v-if="current_user.role_id == 1">
