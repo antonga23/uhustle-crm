@@ -57,6 +57,9 @@ h5 {
   margin-left: 0.9%;
   margin-right: 0.9%;
 }
+.ant-switch {
+  margin-left: 17px;
+}
 </style>
 
 <template>
@@ -82,12 +85,11 @@ h5 {
           name="Info"   
           class="form-control"/>
 
-        <label for="input-none">Status</label>
-        <a-select v-validate="'required'" v-model="category.status" name="Status" class="custom-select rounded-pill border-0">   
-          <a-select-option value="" selected>-None-</a-select-option>   
-          <a-select-option :value="c_status.value" v-for="(c_status, index) in category_statuses" :key="index">{{c_status.text}}</a-select-option> 
-        </a-select>
-         <span id="error" v-show="errors.has('Status')" class="help-block">{{ errors.first('Status') }}</span>
+        <label for="input-none" class="d-block">Status</label>
+        <span id="error" v-show="errors.has('Status')" class="help-block">{{ errors.first('Status') }}</span>
+        <a-switch v-model="category.status" v-validate="'required'" name="Status"/>
+        <label v-if="category.status == 1 || category.status == true">Active</label>
+        <label v-if="category.status == 0 || category.status == false">Inactive</label>
 
         <div class="row mx-0 justify-content-end">
           <div class="col-auto pl-0">
@@ -122,18 +124,8 @@ export default {
       category: {
         name: '',
         description: '',
-        status:'',
+        status: true,
       },
-      category_statuses:[
-        {
-          value: 1,
-          text: 'Active',
-        },
-        {
-          value: 0,
-          text: 'Disabled',
-        }
-      ],
       Toast: null,
     }
   },
