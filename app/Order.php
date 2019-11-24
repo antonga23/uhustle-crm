@@ -65,9 +65,13 @@ class Order extends Model implements Auditable
       return $this->hasOne('App\OrderClass','id', 'order_class');
     }
 
-
     public function requesting_company()
     {
       return $this->hasOne('App\Company','id', 'requestor_company_id');
+    }
+
+    public function recieving_company()
+    {
+      return $this->hasOne('App\Company','id', 'origin_id');
     }
 }

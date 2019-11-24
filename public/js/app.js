@@ -182914,8 +182914,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     var vm = this;
@@ -185070,6 +185068,7 @@ __webpack_require__.r(__webpack_exports__);
       },
       order_items: [],
       tableRow: [],
+      loading: false,
       Toast: null
     };
   },
@@ -185142,6 +185141,8 @@ __webpack_require__.r(__webpack_exports__);
     },
     saveOrder: function saveOrder() {
       var vm = this;
+      vm.$Progress.start();
+      vm.loading = true;
       vm.$validator.validateAll().then(function (result) {
         if (!result) {} else {
           axios.post('/orders/create', {
@@ -185158,6 +185159,7 @@ __webpack_require__.r(__webpack_exports__);
               });
               vm.clearOrder();
               vm.$Progress.finish();
+              vm.loading;
             } else {
               vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
               vm.$Progress.fail();
@@ -370468,7 +370470,43 @@ var render = function() {
             "sticky-header": "190px",
             responsive: "",
             "current-page": _vm.currentPage
-          }
+          },
+          scopedSlots: _vm._u([
+            {
+              key: "Actions",
+              fn: function(data) {
+                return [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "btn btn-primary",
+                      attrs: { href: "/orders/download-po/" + data.item.ID }
+                    },
+                    [_vm._v("Download Purchase Order")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "btn btn-primary",
+                      staticStyle: { display: "none" },
+                      attrs: { href: "/orders/download-inv/" + data.item.ID }
+                    },
+                    [_vm._v("Download Invoice")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "btn btn-primary",
+                      attrs: { href: "/orders/download-dn/" + data.item.ID }
+                    },
+                    [_vm._v("Download Delivery Note")]
+                  )
+                ]
+              }
+            }
+          ])
         },
         [
           _c(
@@ -370539,25 +370577,6 @@ var render = function() {
                   _c("a-select-option", { attrs: { value: "0" } }, [
                     _c("div", { staticClass: "d-inline-block" }),
                     _vm._v("CPT001\n        ")
-                  ])
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "template",
-            { slot: "status" },
-            [
-              _c(
-                "a-select",
-                {},
-                [
-                  _c("a-select-option", { attrs: { value: "0" } }, [
-                    _c("div", { staticClass: "d-inline-block" }),
-                    _vm._v("Complete\n        ")
                   ])
                 ],
                 1
@@ -373970,7 +373989,13 @@ var render = function() {
                     staticClass: "btn btn-primary font-weight-bold my-0 mr-0",
                     on: { click: _vm.saveOrder }
                   },
-                  [_vm._v("Save")]
+                  [
+                    _vm.loading
+                      ? _c("a-icon", { attrs: { type: "loading" } })
+                      : _vm._e(),
+                    _vm._v(" Save")
+                  ],
+                  1
                 )
               ],
               1

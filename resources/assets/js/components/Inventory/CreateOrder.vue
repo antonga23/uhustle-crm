@@ -356,7 +356,7 @@ label{
         </div>
 
         <div class="col-auto pl-0">
-          <b-button class="btn btn-primary font-weight-bold my-0 mr-0" @click="saveOrder">Save</b-button>
+          <b-button class="btn btn-primary font-weight-bold my-0 mr-0" @click="saveOrder"> <a-icon type="loading" v-if="loading" /> Save</b-button>
         </div>
       </div>
     </b-card> 
@@ -405,6 +405,7 @@ export default {
       },
       order_items: [],
       tableRow: [],
+      loading: false,
       Toast: null,
     }
   },
@@ -479,6 +480,8 @@ export default {
     },
     saveOrder(){
       var vm = this; 
+      vm.$Progress.start();
+      vm.loading = true;
       vm.$validator.validateAll().then((result) => { 
         if (!result) {} else { 
           axios.post('/orders/create', { 
@@ -497,6 +500,7 @@ export default {
               }); 
               vm.clearOrder();
               vm.$Progress.finish(); 
+              vm.loading
             } else { 
               vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning'); 
               vm.$Progress.fail(); 

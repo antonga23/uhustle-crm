@@ -40,12 +40,10 @@
         </a-select>
       </template>
 
-       <template slot="status">
-        <a-select class>
-          <a-select-option value="0">
-            <div class="d-inline-block"></div>Complete
-          </a-select-option>
-        </a-select>
+       <template slot="Actions"  slot-scope="data">
+        <a :href="'/orders/download-po/' + data.item.ID" class="btn btn-primary">Download Purchase Order</a>
+        <a :href="'/orders/download-inv/' + data.item.ID" class="btn btn-primary" style="display:none;">Download Invoice</a>
+        <a :href="'/orders/download-dn/' + data.item.ID" class="btn btn-primary">Download Delivery Note</a>
       </template>
     </b-table>
 

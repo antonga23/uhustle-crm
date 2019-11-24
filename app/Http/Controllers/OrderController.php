@@ -12,6 +12,8 @@ use App\OrderClass;
 use App\OrderType;
 use App\Product;
 use Illuminate\Http\Request;
+use App\Mail\OrderCreated;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -75,11 +77,11 @@ class OrderController extends Controller
   
             DB::commit();
 
-            $order = Order::with(['items', 'type', 'class'])->find($order->id);
+            $order = Order::with(['items', 'type', 'class','recieving_company','requesting_company'])->find($order->id);
 
             $this->createInvoice($order);
 
-            $this->sendInvoice($order->id);
+            $this->sendInvoice($order);
   
             return array('success' => true, 'message' => 'Order has been saved.', 'order' => $order );
   
@@ -113,21 +115,28 @@ class OrderController extends Controller
       return $pdf->download($file_name);
     }
 
-    public function sendInvoice($order_id){
-
+    public function sendInvoice(Order $order){
+      Mail::to($order->recieving_company->email)->send(new OrderCreated($order));
     }
 
-    public function printPDF()
+    public function getPurchaseOrder($id)
     {
-       // This  $data array will be passed to our PDF blade
-       $data = [
-          'title' => 'First PDF for Medium',
-          'heading' => 'Hello from 99Points.info',
-          'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.'        
-        ];
+      $order = Order::with(['items', 'type', 'class'])->find($id);
 
-      $pdf = PDF::loadView('pdf.purchase-order', $data);  
-      return $pdf->download('medium.pdf');
+      $time = time();
+
+      $file_name = 'order_' . $order->id . '_' . $time . '.pdf';
+
+      $data = [
+        'order' => $order,
+        'items' => $order->items,
+        'requesting_company' => $order->requesting_company,
+        'doc_ref' => $order->id . '_' . $time
+      ];
+      
+      $pdf = PDF::loadView('pdf.purchase-order', $data);
+      
+      return $pdf->download($file_name);
 
     }
 
