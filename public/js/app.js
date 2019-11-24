@@ -184669,9 +184669,498 @@ __webpack_require__.r(__webpack_exports__);
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/Inventory/CreateOrder.vue?vue&type=script&lang=js& ***!
   \***************************************************************************************************************************************************************************************/
 /*! exports provided: default */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /var/www/uhustle-app/resources/assets/js/components/Inventory/CreateOrder.vue: Unexpected token (443:0)\n\n\u001b[0m \u001b[90m 441 | \u001b[39m    }\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 442 | \u001b[39m    saveOrder(){\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 443 | \u001b[39m\u001b[33m===\u001b[39m\u001b[33m===\u001b[39m\u001b[33m=\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m     | \u001b[39m\u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 444 | \u001b[39m              min\u001b[33m=\u001b[39m\u001b[32m\"1\"\u001b[39m    \u001b[0m\n\u001b[0m \u001b[90m 445 | \u001b[39m              id\u001b[33m=\u001b[39m\u001b[32m\"quantity\"\u001b[39m      \u001b[0m\n\u001b[0m \u001b[90m 446 | \u001b[39m              name\u001b[33m=\u001b[39m\u001b[32m\"description\"\u001b[39m    \u001b[0m\n    at Parser.raise (/var/www/uhustle-app/node_modules/@babel/parser/lib/index.js:6344:17)\n    at Parser.unexpected (/var/www/uhustle-app/node_modules/@babel/parser/lib/index.js:7659:16)\n    at Parser.parseExprAtom (/var/www/uhustle-app/node_modules/@babel/parser/lib/index.js:8828:20)\n    at Parser.parseExprSubscripts (/var/www/uhustle-app/node_modules/@babel/parser/lib/index.js:8413:23)\n    at Parser.parseMaybeUnary (/var/www/uhustle-app/node_modules/@babel/parser/lib/index.js:8393:21)\n    at Parser.parseExprOps (/var/www/uhustle-app/node_modules/@babel/parser/lib/index.js:8280:23)\n    at Parser.parseMaybeConditional (/var/www/uhustle-app/node_modules/@babel/parser/lib/index.js:8253:23)\n    at Parser.parseMaybeAssign (/var/www/uhustle-app/node_modules/@babel/parser/lib/index.js:8200:21)\n    at Parser.parseExpression (/var/www/uhustle-app/node_modules/@babel/parser/lib/index.js:8148:23)\n    at Parser.parseStatementContent (/var/www/uhustle-app/node_modules/@babel/parser/lib/index.js:9917:23)\n    at Parser.parseStatement (/var/www/uhustle-app/node_modules/@babel/parser/lib/index.js:9788:17)\n    at Parser.parseBlockOrModuleBlockBody (/var/www/uhustle-app/node_modules/@babel/parser/lib/index.js:10364:25)\n    at Parser.parseBlockBody (/var/www/uhustle-app/node_modules/@babel/parser/lib/index.js:10351:10)\n    at Parser.parseBlock (/var/www/uhustle-app/node_modules/@babel/parser/lib/index.js:10335:10)\n    at Parser.parseFunctionBody (/var/www/uhustle-app/node_modules/@babel/parser/lib/index.js:9408:24)\n    at Parser.parseFunctionBodyAndFinish (/var/www/uhustle-app/node_modules/@babel/parser/lib/index.js:9378:10)\n    at Parser.parseMethod (/var/www/uhustle-app/node_modules/@babel/parser/lib/index.js:9332:10)\n    at Parser.parseObjectMethod (/var/www/uhustle-app/node_modules/@babel/parser/lib/index.js:9248:19)\n    at Parser.parseObjPropValue (/var/www/uhustle-app/node_modules/@babel/parser/lib/index.js:9290:23)\n    at Parser.parseObjectMember (/var/www/uhustle-app/node_modules/@babel/parser/lib/index.js:9214:10)\n    at Parser.parseObj (/var/www/uhustle-app/node_modules/@babel/parser/lib/index.js:9138:25)\n    at Parser.parseExprAtom (/var/www/uhustle-app/node_modules/@babel/parser/lib/index.js:8774:21)\n    at Parser.parseExprSubscripts (/var/www/uhustle-app/node_modules/@babel/parser/lib/index.js:8413:23)\n    at Parser.parseMaybeUnary (/var/www/uhustle-app/node_modules/@babel/parser/lib/index.js:8393:21)\n    at Parser.parseExprOps (/var/www/uhustle-app/node_modules/@babel/parser/lib/index.js:8280:23)\n    at Parser.parseMaybeConditional (/var/www/uhustle-app/node_modules/@babel/parser/lib/index.js:8253:23)\n    at Parser.parseMaybeAssign (/var/www/uhustle-app/node_modules/@babel/parser/lib/index.js:8200:21)\n    at Parser.parseObjectProperty (/var/www/uhustle-app/node_modules/@babel/parser/lib/index.js:9265:101)\n    at Parser.parseObjPropValue (/var/www/uhustle-app/node_modules/@babel/parser/lib/index.js:9290:101)\n    at Parser.parseObjectMember (/var/www/uhustle-app/node_modules/@babel/parser/lib/index.js:9214:10)\n    at Parser.parseObj (/var/www/uhustle-app/node_modules/@babel/parser/lib/index.js:9138:25)\n    at Parser.parseExprAtom (/var/www/uhustle-app/node_modules/@babel/parser/lib/index.js:8774:21)\n    at Parser.parseExprSubscripts (/var/www/uhustle-app/node_modules/@babel/parser/lib/index.js:8413:23)\n    at Parser.parseMaybeUnary (/var/www/uhustle-app/node_modules/@babel/parser/lib/index.js:8393:21)\n    at Parser.parseExprOps (/var/www/uhustle-app/node_modules/@babel/parser/lib/index.js:8280:23)\n    at Parser.parseMaybeConditional (/var/www/uhustle-app/node_modules/@babel/parser/lib/index.js:8253:23)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {},
+  mounted: function mounted() {
+    var vm = this;
+    Fire.$on('StartOrder', function (data) {
+      vm.item = data.product;
+      vm.getProductInfo(vm.item.id);
+    });
+    this.Toast = this.$swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
+    });
+  },
+  created: function created() {},
+  props: ['user_id', 'user_name', 'order_clases', 'order_types'],
+  data: function data() {
+    return {
+      item: {},
+      product: {
+        origin: [],
+        origin_type: []
+      },
+      order: {
+        type: '',
+        order_class: '',
+        billing_address: '',
+        contact_number: '',
+        contact_email: '',
+        contact_name: '',
+        related_item: '',
+        requestor: '',
+        requesition_notes: '',
+        vat: 0.00,
+        sub_amount: 0.00,
+        amount: 0.00
+      },
+      order_items: [],
+      tableRow: [],
+      loading: false,
+      Toast: null
+    };
+  },
+  methods: {
+    getProductInfo: function getProductInfo(id) {
+      var vm = this;
+      axios.get('/products/get/' + id).then(function (response) {
+        vm.product = response.data.product;
+        vm.order.requestor = vm.user_name;
+        vm.order.request_date = vm.getDate();
+        vm.order.priority = 'Low';
+        vm.order.origin_id = vm.product.origin_id;
+        vm.order.origin_name = vm.product.origin.name;
+        vm.order.origin_type_id = vm.origin_type_id;
+        vm.order.origin_type_name = vm.product.origin_type.name;
+        vm.order.tax = vm.product.tax.tax_type;
+        vm.order.tax_percent = vm.product.tax.percentage;
+        vm.order.tax_type = vm.product.tax_type;
+        vm.order_items.push({
+          ProductId: vm.product.id,
+          PartType: vm.product.category.name,
+          PartCode: vm.product.part_code,
+          Description: vm.product.description,
+          Priority: 1,
+          WarehouseName: vm.product.origin.name,
+          Quantity: 1,
+          UnitCost: vm.product.unit_cost,
+          TaxRate: vm.product.tax.percentage,
+          Vat: vm.calculateProductTAxAmount(vm.product.tax.percentage, vm.product.unit_cost),
+          Total: vm.calculateProductTotal(vm.calculateProductTAxAmount(vm.product.tax.percentage, vm.product.unit_cost), vm.product.unit_cost)
+        });
+      });
+    },
+    updateRow: function updateRow(row) {
+      var vm = this;
+      row.Vat = vm.calculateProductTAxAmount(row.TaxRate, parseFloat(row.UnitCost) * parseFloat(row.Quantity));
+      row.Total = vm.calculateProductTotal(row.Vat, parseFloat(row.UnitCost) * parseFloat(row.Quantity));
+    },
+    getDate: function getDate() {
+      var today = new Date();
+      var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+      var time = today.getHours() + ":" + today.getMinutes();
+      var dateTime = date + ' ' + time;
+      return dateTime;
+    },
+    calculateProductTAxAmount: function calculateProductTAxAmount(rate, unit_cost) {
+      var amount = rate / 100 * unit_cost;
+      return amount.toFixed(2);
+    },
+    calculateProductTotal: function calculateProductTotal(vat_amout, unit_cost) {
+      return parseFloat(vat_amout) + parseFloat(unit_cost);
+    },
+    clearOrder: function clearOrder() {
+      this.order.type = '';
+      this.order.order_class = '';
+      this.order.billing_address = '';
+      this.order.contact_number = '';
+      this.order.contact_email = '';
+      this.order.contact_name = '';
+      this.order.related_item = '';
+      this.order.requestor = '';
+      this.order.requesition_notes = '';
+      this.order.vat = 0.00;
+      this.order.amount = 0.00;
+      this.order_items = [];
+    },
+    cancelOrder: function cancelOrder() {
+      this.clearOrder();
+      Fire.$emit('CancelOrder');
+    },
+    saveOrder: function saveOrder() {
+      var vm = this;
+      vm.$Progress.start();
+      vm.loading = true;
+      vm.$validator.validateAll().then(function (result) {
+        if (!result) {} else {
+          axios.post('/orders/create', {
+            order: vm.order,
+            order_items: vm.order_items
+          }).then(function (response) {
+            if (response.data.success === true) {
+              vm.Toast.fire({
+                type: 'success',
+                title: response.data.message
+              });
+              Fire.$emit('OrderCreated', {
+                order: response.data.order
+              });
+              vm.clearOrder();
+              vm.$Progress.finish();
+              vm.loading;
+            } else {
+              vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
+              vm.$Progress.fail();
+            }
+          });
+        }
+      });
+    }
+  },
+  computed: {
+    calculateGrandTotal: function calculateGrandTotal() {
+      var vm = this;
+      vm.order.amount = 0;
+      var tax_amount = 0;
+      var sub_total = 0;
+      var grand_total = 0;
+      vm.order_items.forEach(function (item) {
+        vm.order.amount += item.Total;
+        tax_amount += item.Vat;
+        sub_total += item.UnitCost * item.Quantity;
+      });
+      vm.order.vat = parseFloat(tax_amount);
+      vm.order.sub_amount = parseFloat(sub_total);
+      return {
+        sub_total: parseFloat(sub_total).toFixed(2),
+        tax_amount: parseFloat(tax_amount).toFixed(2),
+        grand_total: parseFloat(vm.order.amount).toFixed(2)
+      };
+    }
+  }
+});
 
 /***/ }),
 
@@ -372979,9 +373468,58 @@ var render = function() {
                     key: "Quantity",
                     fn: function(data) {
                       return [
-                        _vm._v(
-                          ' \n<<<<<<< HEAD\n              min="1"   \n              max="10"   \n              id="Priority"     \n              name="Priority"   \n              class="form-control rounded-pill border-0"/>\n          '
-                        )
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.item.Quantity,
+                              expression: "data.item.Quantity"
+                            }
+                          ],
+                          staticClass: "form-control rounded-pill border-0",
+                          attrs: {
+                            type: "number",
+                            min: "1",
+                            max: "10",
+                            id: "Priority",
+                            name: "Priority"
+                          },
+                          domProps: { value: data.item.Quantity },
+                          on: {
+                            change: function($event) {
+                              return _vm.updateRow(data.item)
+                            },
+                            blur: function($event) {
+                              return _vm.updateRow(data.item)
+                            },
+                            keyup: function($event) {
+                              if (
+                                !$event.type.indexOf("key") &&
+                                _vm._k(
+                                  $event.keyCode,
+                                  "enter",
+                                  13,
+                                  $event.key,
+                                  "Enter"
+                                )
+                              ) {
+                                return null
+                              }
+                              return _vm.updateRow(data.item)
+                            },
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                data.item,
+                                "Quantity",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
                       ]
                     }
                   },
