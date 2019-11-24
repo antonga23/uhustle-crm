@@ -185065,6 +185065,7 @@ __webpack_require__.r(__webpack_exports__);
         requestor: '',
         requesition_notes: '',
         vat: 0.00,
+        sub_amount: 0.00,
         amount: 0.00
       },
       order_items: [],
@@ -185179,6 +185180,7 @@ __webpack_require__.r(__webpack_exports__);
         sub_total += item.UnitCost * item.Quantity;
       });
       vm.order.vat = parseFloat(tax_amount);
+      vm.order.sub_amount = parseFloat(sub_total);
       return {
         sub_total: parseFloat(sub_total).toFixed(2),
         tax_amount: parseFloat(tax_amount).toFixed(2),

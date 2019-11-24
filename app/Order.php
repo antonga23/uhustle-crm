@@ -27,6 +27,7 @@ class Order extends Model implements Auditable
       'requestor_company_id',
       'requesition_notes',
       'vat',
+      'sub_amount',
       'amount',
       'request_date',
       'priority',
@@ -36,6 +37,9 @@ class Order extends Model implements Auditable
       'tax',
       'tax_percent',
       'tax_type',
+      'purchase_order',
+      'delivery_note',
+      'invoice',
       'status',
     ];
 
@@ -59,5 +63,11 @@ class Order extends Model implements Auditable
     public function class()
     {
       return $this->hasOne('App\OrderClass','id', 'order_class');
+    }
+
+
+    public function requesting_company()
+    {
+      return $this->hasOne('App\Company','id', 'requestor_company_id');
     }
 }

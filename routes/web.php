@@ -379,7 +379,7 @@ Route::group(['prefix' => 'orders'], function () {
   Route::get('/get-all', 'OrderController@index');
   Route::get('/get-types', 'OrderController@getTypes');
   Route::get('/get-order-product', 'OrderController@getProductInfo');
-  Route::get('/print-pdf', 'OrderController@printPDF');
+  Route::get('/print-pdf/{order}', 'OrderController@createInvoice');
 });
 
 

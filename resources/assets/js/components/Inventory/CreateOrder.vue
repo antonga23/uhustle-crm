@@ -400,6 +400,7 @@ export default {
         requestor:'',
         requesition_notes: '',
         vat: 0.00,
+        sub_amount: 0.00,
         amount: 0.00,
       },
       order_items: [],
@@ -521,6 +522,7 @@ export default {
       });
 
       vm.order.vat = parseFloat(tax_amount);
+      vm.order.sub_amount = parseFloat(sub_total);
 
 return {
         sub_total : parseFloat(sub_total).toFixed(2),

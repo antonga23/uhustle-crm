@@ -1,134 +1,154 @@
-@extends('layouts.pdf')
+@extends('layouts.pdf') @section('content')
+<table class="purchase-note">
+    <thead>
+        <tr>
+            <th colspan="5">
+                <img src="https://dev.uhustle.co.za/images/Page-Automation-Logo-800x800.jpg">
+            </th>
+            <th colspan="7">
+                <table width="100%" class="right">
+                    <tr>
+                        <td colspan="12">
+                            <h2>Purchase Order</h2></td>
+                    </tr>
 
-@section('content')
-<table width="100">
-  <thead>
-    <tr>
-      <th colspan="5">logo</th>
+                    <tr>
+                        <td colspan="12">
+                            <h3>{{ $requesting_company->name }}</h3></td>
+                    </tr>
 
-      <th>
-        <table width="100">
-          <tr>
-            <td colspan="12"><h1>Purchase Order</h1></td>
-          </tr>
+                    <tr>
+                        <td colspan="6">{{ $requesting_company->address }}</td>
+                        <td colspan="6">{{ $requesting_company->postal_address }}</td>
+                    </tr>
 
-          <tr>
-            <td colspan="12">[Company Name]</td>
-          </tr>
+                    <tr>
+                        <td colspan="6">Reg No.: {{ $requesting_company->reg_number }}</td>
+                        <td colspan="6">Fax No.: {{ $requesting_company->fax }}</td>
+                    </tr>
 
-          <tr>
-            <td colspan="6">[Physical Address]</td>
-            <td colspan="6">[Postal Address]</td>
-          </tr>
+                    <tr>
+                        <td colspan="6">VAT No.: {{ $requesting_company->tax_number }}</td>
+                        <td colspan="6">Tel No.: {{ $requesting_company->tell }}</td>
+                    </tr>
 
-          <tr>
-            <td colspan="6">Reg No.: [reg no]</td>
-            <td colspan="6">Fax No.: [fax no]</td>
-          </tr>
+                    <tr>
+                        <td colspan="12">Document Ref.: {{ $doc_ref }}</td>
+                    </tr>
 
-          <tr>
-            <td colspan="6">VAT No.: [vat no]</td>
-            <td colspan="6">Tel No.: [tel no]</td>
-          </tr>
+                    <tr>
+                        <td colspan="12">Date.: {{ $order->created_at }}</td>
+                    </tr>
 
-          <tr>
-            <td colspan="12">Document Ref.: [ref no]</td>
-          </tr>
+                    <tr>
+                        <td colspan="12">Description : {{ $order->delivery_note }}</td>
+                    </tr>
+                </table>
+            </th>
+        </tr>
+    </thead>
 
-          <tr>
-            <td colspan="12">Date : [date]</td>
-          </tr>
+    <tbody class="top-border">
+        <tr style="padding:0;">
+            <td colspan="12"><b>Your Details:</b></td>
+        </tr>
 
-          <tr>
-            <td colspan="12">Description : [desc]</td>
-          </tr>
-        </table>
-      </th>
-    </tr>
-  </thead>
+        <tr class="company-info">
+            <td colspan="12" style="padding:0;">
+                <table width="100%">
+                    <tr>
+                        <td colspan="12" style="padding:0;">
+                            <table width="100%">
+                                <tr>
+                                    <td><b>Company Name:</b> {{ $requesting_company->name }}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Company Code:</b> {{ $requesting_company->code }}</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
 
-  <tbody>
-    <tr>
-      <td colspan="12">Your Details : [details]</td>
-    </tr>
+        <tr>
+            <td colspan="12" style="padding:10px 0px 0px 0px;">
+                <table width="100%">
+                    <thead style="background-color: #cdcdcf;">
+                        <tr>
+                            <th colspan="1">ID</th>
+                            <th colspan="1">Supplier Code</th>
+                            <th colspan="3">Item Description</th>
+                            <th colspan="1">Priority</th>
+                            <th colspan="1">Unit Cost</th>
+                            <th colspan="1">Qty</th>
+                            <th colspan="1">Vat</th>
+                            <th colspan="2">Cost</th>
+                        </tr>
+                    </thead>
 
-    <tr>
-      <td colspan="12"><span>Company Name : [company name]</span></td>
-    </tr>
+                    <tbody>
+                    @foreach($items as $key => $value)
+                        <tr>
+                            <td colspan="1">{{ $value->id }}</td>
+                            <td colspan="1">{{ $value->PartCode }}</td>
+                            <td colspan="3">{{ $value->Description }}</td>
+                            <td colspan="1">{{ $value->Priority }}</td>
+                            <td colspan="1">{{ $value->UnitCost }}</td>
+                            <td colspan="1">{{ $value->Quantity }}</td>
+                            <td colspan="1">{{ $value->Vat }}</td>
+                            <td colspan="2">{{ $value->Total }}</td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </td>
+        </tr>
 
-    <tr>
-      <td colspan="12"><span>Company Code : [company code]</span></td>
-    </tr>
+        <tr>
+            <td colspan="8" style="padding:0;">
+                <table width="100%">
+                    <tr>
+                        &nbsp;
+                    </tr>
+                    <tr>
+                        <td>[Receiving Signature]</td>
+                        <td>[Date]</td>
+                        <td>[Time]</td>
+                    </tr>
+                    <tr>
+                        <td>Receiving Signature</td>
+                        <td>Date</td>
+                        <td>Time</td>
+                    </tr>
+                </table>
+            </td>
 
-    <tr>
-      <td>
-        <table width="100">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Item Code</th>
-              <th>Supplier Code</th>
-              <th>Item Description</th>
-              <th>Currency</th>
-              <th>Unity Cost</th>
-              <th>Qty/UOP</th>
-              <th>Qty</th>
-              <th>Cost</th>
-            </tr>
-          </thead>
+            <td colspan="4">
+                <table width="100%" class="right">
+                    <tr>
+                        <td colspan="4"><strong>Sub Total</strong></td>
+                        <td colspan="4">ZAR {{ $order->sub_amount }}</td>
+                    </tr>
 
-          <tbody>
-            <tr>
-              <td>[ID]</td>
-              <td>[Item Code]</td>
-              <td>[Supplier Code]</td>
-              <td>[Item Description]</td>
-              <td>[Currency]</td>
-              <td>[Unit Cost]</td>
-              <td>[Qty/UOP]</td>
-              <td>[Qty]</td>
-              <td>[Cost]</td>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-    </tr>
+                    <tr>
+                        <td colspan="4"><strong>VAT</strong></td>
+                        <td colspan="4">ZAR {{ $order->vat }}</td>
+                    </tr>
 
-    <tr>
-      <td colspan="8" rowspan="3">
-        <table width="100">
-          <tr>
-            <td>Receiving Signature</td>
-            <td>Date</td>
-            <td>Time</td>
-          </tr>
-        </table>
-      </td>
+                    <tr>
+                        <td colspan="4"><strong>Total</strong></td>
+                        <td colspan="4">ZAR {{ $order->amount }}</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
 
-      <td>
-        <table width="100">
-          <tr>
-            <td colspan="4"><strong>Sub Total</strong></td>
-            <td colspan="4">ZAR [amount]</td>
-          </tr>
-
-          <tr>
-            <td colspan="4"><strong>VAT</strong></td>
-            <td colspan="4">ZAR [amount]</td>
-          </tr>
-
-          <tr>
-            <td colspan="4"><strong>Total</strong></td>
-            <td colspan="4">ZAR [amount]</td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-
-    <tr>
-      <td colspan="6">Requested By: [requested by]</td>
-      <td colspan="6">Approved By: [approved by]</td>
-    </tr>
-  </tbody>
+        <tr>
+            <td colspan="6">Requested By: {{ $order->requestor }}</td>
+            <td colspan="6" class="right">Approved By: ____________________________</td>
+        </tr>
+    </tbody>
 </table>
 @endsection

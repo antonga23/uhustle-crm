@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DB;
 use Auth;
 use PDF;
+use Storage;
 use App\Order;
 use App\OrderItem;
 use App\OrderClass;
@@ -78,7 +79,7 @@ class OrderController extends Controller
 
             $this->createInvoice($order);
 
-            $this->sendInvoice($order);
+            $this->sendInvoice($order->id);
   
             return array('success' => true, 'message' => 'Order has been saved.', 'order' => $order );
   
@@ -88,11 +89,31 @@ class OrderController extends Controller
         }
     }
 
-    public function createInvoice(){
+    public function createInvoice(Order $order){
+      
+      $time = time();
 
+      $file_name = 'order_' . $order->id . '_' . $time . '.pdf';
+
+      $data = [
+        'order' => $order,
+        'items' => $order->items,
+        'requesting_company' => $order->requesting_company,
+        'doc_ref' => $order->id . '_' . $time
+      ];
+      
+      $pdf = PDF::loadView('pdf.purchase-order', $data);
+
+      Storage::put('public/pdf/'.$file_name, $pdf->output());
+
+      Order::find($order->id)->update([
+        'purchase_order' => $file_name
+      ]);
+      
+      return $pdf->download($file_name);
     }
 
-    public function sendInvoice(){
+    public function sendInvoice($order_id){
 
     }
 
@@ -104,9 +125,10 @@ class OrderController extends Controller
           'heading' => 'Hello from 99Points.info',
           'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.'        
         ];
-        
-        $pdf = PDF::loadView('pdf_view', $data);  
-        return $pdf->download('medium.pdf');
+
+      $pdf = PDF::loadView('pdf.purchase-order', $data);  
+      return $pdf->download('medium.pdf');
+
     }
 
     /**
