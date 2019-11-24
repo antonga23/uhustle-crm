@@ -500,7 +500,7 @@ export default {
               }); 
               vm.clearOrder();
               vm.$Progress.finish(); 
-              vm.loading
+              vm.loading = false;
             } else { 
               vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning'); 
               vm.$Progress.fail(); 
