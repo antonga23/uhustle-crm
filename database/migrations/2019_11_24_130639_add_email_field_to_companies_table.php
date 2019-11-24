@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOrderItemsTable extends Migration
+class AddEmailFieldToCompaniesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateOrderItemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('order_items', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedInteger('order_id');
-            $table->unsignedInteger('product_id');
-            $table->timestamps();
+        Schema::table('companies', function (Blueprint $table) {
+          $table->string('email')->after('fax')->nullable();
         });
     }
 
@@ -28,6 +25,8 @@ class CreateOrderItemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('order_items');
+        Schema::table('companies', function (Blueprint $table) {
+            //
+        });
     }
 }

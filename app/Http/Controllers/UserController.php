@@ -49,17 +49,17 @@ class UserController extends Controller
     
     public function getUsers($role = null){
 
-        $users_col = User::with('role')->orderBy('updated_at', 'DESC')->get();
+        $users_col = User::with(['role','company'])->orderBy('updated_at', 'DESC')->get();
 
         $all_users = $this->getUserDataFromColection($users_col);
 
-        $manager = User::with('role')->where(['role_id' => 1])->count();    
+        $manager = User::with(['role','company'])->where(['role_id' => 1])->count();    
 
-        $account_manager = User::where(['role_id' => 2])->count();
+        $account_manager = User::with(['role','company'])->where(['role_id' => 2])->count();
 
-        $team_leader = User::where(['role_id' => 3])->count();
+        $team_leader = User::with(['role','company'])->where(['role_id' => 3])->count();
 
-        $agent = User::where(['role_id' => 4])->count();
+        $agent = User::with(['role','company'])->where(['role_id' => 4])->count();
 
         $roles = Role::get();
 
@@ -69,7 +69,7 @@ class UserController extends Controller
 
         else:
 
-            $users_col = User::with('role')->where(['role_id' => $role])->orderBy('updated_at', 'DESC')->get();
+            $users_col = User::with(['role','company'])->where(['role_id' => $role])->orderBy('updated_at', 'DESC')->get();
             
             $selected_users = $this->getUserDataFromColection($users_col);
 
@@ -103,6 +103,7 @@ class UserController extends Controller
             $data->email = $user->email;
             $data->role = $user->role->display_name;
             $data->role_id = $user->role->id;
+            $data->company_id = ( null !== $user->company )? $user->company->id : '';
             $data->personal_number = $user->personal_number;
             $data->work_number = $user->work_number;
             $data->address = $user->address;
@@ -213,6 +214,7 @@ class UserController extends Controller
         $personal_number = $data['personal_number'];
         $address = $data['address'];
         $role_id = $data['role_id'];
+        $company_id = $data['company_id'];
         $notifications = 1;
         $commission_structure = $data['commission_structure'];
         $monthly_target = $data['monthly_target'];
@@ -231,6 +233,7 @@ class UserController extends Controller
 
                 $user = User::create([
                     'role_id' => $role_id,
+                    'company_id' => $company_id,
                     'name' => $name,
                     'lastname' => $lastname,
                     'nickname' => $nickname,
@@ -263,6 +266,7 @@ class UserController extends Controller
         $id = $data['id'];
         $name = $data['name'];
         $role_id = $data['role_id'];
+        $company_id = $data['company_id'];
         $lastname = $data['lastname'];
         $nickname = (isset($data['nickname']))? $data['nickname'] : NULL;
         $email = $data['email'];
@@ -274,7 +278,7 @@ class UserController extends Controller
         $commission_structure = $data['commission_structure'];
         $monthly_target = $data['monthly_target'];
         $password_confirmation = isset($data['password_confirmation']) ? $data['password_confirmation'] : null ;
-
+        
         $validator = \Validator::make($request->all(), [
             'email' => 'required|email|max:255|unique:users,email,'. $id,
         ]);
@@ -288,6 +292,7 @@ class UserController extends Controller
                 if(is_null($password_confirmation)){ 
                   $user = User::where(['id' => $id])->update([
                       'role_id' => $role_id,
+                      'company_id' => $company_id,
                       'name' => $name,
                       'lastname' => $lastname,
                       'nickname' => $nickname,
@@ -303,6 +308,7 @@ class UserController extends Controller
                 }else{
                   $user = User::where(['id' => $id])->update([
                       'role_id' => $role_id,
+                      'company_id' => $company_id,
                       'name' => $name,
                       'lastname' => $lastname,
                       'nickname' => $nickname,

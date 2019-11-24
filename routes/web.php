@@ -353,6 +353,7 @@ Route::group(['prefix' => 'settings'], function () {
 Route::group(['prefix' => 'products'], function () {
 	Route::get('/get/{id}', 'ProductController@getById');
 	Route::get('/get-all', 'ProductController@index');
+	Route::get('/get-list', 'ProductController@getProductList');
 	Route::get('/get-active-categories', 'ProductController@getActiveCategories');
 	Route::get('/get-active', 'ProductController@getActive');
 	Route::post('/create', 'ProductController@store');
@@ -378,6 +379,7 @@ Route::group(['prefix' => 'orders'], function () {
   Route::get('/get-all', 'OrderController@index');
   Route::get('/get-types', 'OrderController@getTypes');
   Route::get('/get-order-product', 'OrderController@getProductInfo');
+  Route::get('/download-po/{order_id}', 'OrderController@getPurchaseOrder');
 });
 
 

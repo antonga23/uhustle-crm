@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use DB;
+use Auth;
 use App\Tax;
 use App\Product;
 use App\ProductCategory;
@@ -27,13 +28,17 @@ class ProductController extends Controller
      */
     public function index()
     {
-         $products = Product::with(['category','origin','tax', 'origin_type','supplier'])->get();
+         $products = Product::with(['category','origin','tax', 'origin_type','supplier'])
+                              ->where(['origin_id' => Auth::user()->company_id])
+                              ->get();
          return array('success' => true, 'products' => $products);
     }
 
     public function getActive()
     {
-         $products = Product::with(['category','origin','tax', 'origin_type','supplier'])->where(['status' => 0])->get();
+         $products = Product::with(['category','origin','tax', 'origin_type','supplier'])
+                              ->where(['origin_id' => Auth::user()->company_id])
+                              ->where(['status' => 0])->get();
          return array('success' => true, 'products' => $products);
     }
 
@@ -41,6 +46,13 @@ class ProductController extends Controller
 
       $product = Product::with(['category','origin','tax', 'origin_type','supplier'])->find($id);
       return array('success' => true, 'product' => $product);
+    }
+
+
+    public function getProductList($id = null){
+
+      $products = Product::with(['category','origin','tax', 'origin_type','supplier'])->get();
+      return array('success' => true, 'products' => $products);
     }
 
     /**

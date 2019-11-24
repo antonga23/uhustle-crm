@@ -129,6 +129,16 @@ h5 {
               name="branchFax"   
               class="form-control rounded-pill"/>
 
+            <label for="input-none">Email</label>
+            <span id="error" v-show="errors.has('Email')" class="help-block">{{ errors.first('Email') }}</span>
+            <input 
+              v-validate="'required|email'" 
+              v-model="branch.email"    
+              type="tell"    
+              id="branch-fax"     
+              name="branchFax"   
+              class="form-control rounded-pill"/>
+
             <label for="input-none">Tax Number</label>
             <span id="error" v-show="errors.has('Tax Number')" class="help-block">{{ errors.first('Tax Number') }}</span>
             <input
@@ -200,6 +210,7 @@ export default {
         city: '',
         tell: '',
         fax: '',
+        email: '',
         tax_number: '',
         type_id: '',
         code: '',

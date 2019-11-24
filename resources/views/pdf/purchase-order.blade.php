@@ -3,7 +3,7 @@
     <thead>
         <tr>
             <th colspan="5">
-                <img src="/images/Page-Automation-Logo-800x800.jpg">
+                <img src="https://dev.uhustle.co.za/images/Page-Automation-Logo-800x800.jpg">
             </th>
             <th colspan="7">
                 <table width="100%" class="right">
@@ -14,34 +14,34 @@
 
                     <tr>
                         <td colspan="12">
-                            <h3>[Company Name]</h3></td>
+                            <h3>{{ $requesting_company->name }}</h3></td>
                     </tr>
 
                     <tr>
-                        <td colspan="6">[Physical Address]</td>
-                        <td colspan="6">[Postal Address]</td>
+                        <td colspan="6">{{ $requesting_company->address }}</td>
+                        <td colspan="6">{{ $requesting_company->postal_address }}</td>
                     </tr>
 
                     <tr>
-                        <td colspan="6">Reg No.: [reg no]</td>
-                        <td colspan="6">Fax No.: [fax no]</td>
+                        <td colspan="6">Reg No.: {{ $requesting_company->reg_number }}</td>
+                        <td colspan="6">Fax No.: {{ $requesting_company->fax }}</td>
                     </tr>
 
                     <tr>
-                        <td colspan="6">VAT No.: [vat no]</td>
-                        <td colspan="6">Tel No.: []tel no</td>
+                        <td colspan="6">VAT No.: {{ $requesting_company->tax_number }}</td>
+                        <td colspan="6">Tel No.: {{ $requesting_company->tell }}</td>
                     </tr>
 
                     <tr>
-                        <td colspan="12">Document Ref.: [doc ref]</td>
+                        <td colspan="12">Document Ref.: {{ $doc_ref }}</td>
                     </tr>
 
                     <tr>
-                        <td colspan="12">Date.: [date]</td>
+                        <td colspan="12">Date.: {{ $order->created_at }}</td>
                     </tr>
 
                     <tr>
-                        <td colspan="12">Description : [desc]</td>
+                        <td colspan="12">Description : {{ $order->delivery_note }}</td>
                     </tr>
                 </table>
             </th>
@@ -60,10 +60,10 @@
                         <td colspan="12" style="padding:0;">
                             <table width="100%">
                                 <tr>
-                                    <td><b>Company Name:</b> [name]</td>
+                                    <td><b>Company Name:</b> {{ $requesting_company->name }}</td>
                                 </tr>
                                 <tr>
-                                    <td><b>Company Code:</b> [code]</td>
+                                    <td><b>Company Code:</b> {{ $requesting_company->code }}</td>
                                 </tr>
                             </table>
                         </td>
@@ -78,29 +78,29 @@
                     <thead style="background-color: #cdcdcf;">
                         <tr>
                             <th colspan="1">ID</th>
-                            <th colspan="1">Item Code</th>
                             <th colspan="1">Supplier Code</th>
                             <th colspan="3">Item Description</th>
-                            <th colspan="1">Currency</th>
+                            <th colspan="1">Priority</th>
                             <th colspan="1">Unit Cost</th>
-                            <th colspan="1">Qty/UOP</th>
                             <th colspan="1">Qty</th>
+                            <th colspan="1">Vat</th>
                             <th colspan="2">Cost</th>
                         </tr>
                     </thead>
 
                     <tbody>
+                    @foreach($items as $key => $value)
                         <tr>
-                            <td colspan="1">[ID]</td>
-                            <td colspan="1">[Item Code]</td>
-                            <td colspan="1">[Supplier Code]</td>
-                            <td colspan="3">[Item Description]</td>
-                            <td colspan="1">[Currency]</td>
-                            <td colspan="1">[Unit Cost]</td>
-                            <td colspan="1">[Qty/UOP]</td>
-                            <td colspan="1">[Qty]</td>
-                            <td colspan="2">[Cost]</td>
+                            <td colspan="1">{{ $value->id }}</td>
+                            <td colspan="1">{{ $value->PartCode }}</td>
+                            <td colspan="3">{{ $value->Description }}</td>
+                            <td colspan="1">{{ $value->Priority }}</td>
+                            <td colspan="1">{{ $value->UnitCost }}</td>
+                            <td colspan="1">{{ $value->Quantity }}</td>
+                            <td colspan="1">{{ $value->Vat }}</td>
+                            <td colspan="2">{{ $value->Total }}</td>
                         </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </td>
@@ -129,25 +129,25 @@
                 <table width="100%" class="right">
                     <tr>
                         <td colspan="4"><strong>Sub Total</strong></td>
-                        <td colspan="4">ZAR [amount]</td>
+                        <td colspan="4">ZAR {{ $order->sub_amount }}</td>
                     </tr>
 
                     <tr>
                         <td colspan="4"><strong>VAT</strong></td>
-                        <td colspan="4">ZAR [amount]</td>
+                        <td colspan="4">ZAR {{ $order->vat }}</td>
                     </tr>
 
                     <tr>
                         <td colspan="4"><strong>Total</strong></td>
-                        <td colspan="4">ZAR [amount]</td>
+                        <td colspan="4">ZAR {{ $order->amount }}</td>
                     </tr>
                 </table>
             </td>
         </tr>
 
         <tr>
-            <td colspan="6">Requested By: [requested by]</td>
-            <td colspan="6" class="right">Approved By: [approved by]</td>
+            <td colspan="6">Requested By: {{ $order->requestor }}</td>
+            <td colspan="6" class="right">Approved By: ____________________________</td>
         </tr>
     </tbody>
 </table>

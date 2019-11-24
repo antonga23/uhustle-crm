@@ -146,7 +146,7 @@ label{
           class="form-control rounded-pill"/>
       </b-col>
 
-      <b-col sm="6" v-if="product.rate == ''">
+      <b-col sm="6">
         <label for="input-none">Unit Cost</label>
         <span id="error" v-show="errors.has('Unit Cost')" class="help-block">{{ errors.first('Unit Cost') }}</span>
         <input 
@@ -155,38 +155,6 @@ label{
           type="number"    
           id="unit_cost"     
           name="Unit Cost"   
-          class="form-control rounded-pill"/>
-      </b-col>
-
-      <b-col sm="6" v-else>
-        <label for="input-none">Unit Cost</label>
-        <input 
-          v-model="product.unit_cost"    
-          type="number"    
-          id="unit_cost"     
-          name="Unit Cost"   
-          class="form-control rounded-pill"/>
-      </b-col>
-
-      <b-col sm="3" class="pr-0" v-if="product.unit_cost == ''">
-        <label for="input-none">Rate</label>
-        <span id="error" v-show="errors.has('Rate')" class="help-block">{{ errors.first('Rate') }}</span>
-        <input 
-          v-validate="'required'"
-          v-model="product.rate"    
-          type="number"    
-          id="rate"     
-          name="Rate"   
-          class="form-control rounded-pill"/>
-      </b-col>
-
-      <b-col sm="3" class="pr-0" v-else>
-        <label for="input-none">Rate</label>
-        <input 
-          v-model="product.rate"    
-          type="number"    
-          id="rate"     
-          name="Rate"   
           class="form-control rounded-pill"/>
       </b-col>
       

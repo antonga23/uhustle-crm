@@ -16,7 +16,10 @@ class Company extends Model implements Auditable
     'city',
     'tell',
     'fax',
+    'email',
     'tax_number',
+    'postal_address',
+    'reg_number',
     'type_id',
     'code',
     'status'

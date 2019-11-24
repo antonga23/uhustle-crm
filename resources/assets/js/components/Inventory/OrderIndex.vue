@@ -121,11 +121,16 @@ import CreateOrder from './CreateOrder';
       vm.getSelectOPtions();
 
       Fire.$on('StartOrder', function(data){
-
         vm.tabIndex = 1;
-
         vm.order_summary = true;
+      });
 
+      Fire.$on('CancelOrder', function(data){
+        vm.tabIndex = 0;
+      });
+
+      Fire.$on('OrderCreated', function(data){
+        vm.tabIndex = 2;
       });
     },
     created: function () {
