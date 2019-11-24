@@ -2,14 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use DB;
+use Auth;
+use PDF;
 use App\Order;
 use App\OrderItem;
 use App\OrderClass;
 use App\OrderType;
+use App\Product;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+  
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +31,13 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+      $orders = Order::with(['items', 'type', 'class'])
+                ->where(['origin_id' => Auth::user()->company_id])
+                ->orWhere(['requestor_company_id' => Auth::user()->company_id])
+                ->orderBy('created_at', 'DESC')
+                ->get();
+
+      return ['orders' => $orders];
     }
 
     /**
@@ -28,9 +48,66 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+          
+        try{
+            DB::beginTransaction();
+          
+            $data['order']['priority'] = 1;
+
+            $data['order']['requestor_id'] = Auth::user()->id;
+
+            $data['order']['requestor_company_id'] = Auth::user()->company_id;
+
+            $data['order']['status'] = 'PENDING';
+            
+            $order = Order::create($data['order']);
+
+            foreach ($data['order_items'] as $key => $item) {
+              $product_id = $item['ProductId'] ;
+              $item['order_id'] = $order->id;
+               
+              $item = OrderItem::create($item);
+
+              Product::find($product_id)->decrement('current_stock', $item['Quantity']);
+            }
+  
+            DB::commit();
+
+            $order = Order::with(['items', 'type', 'class'])->find($order->id);
+
+            $this->createInvoice($order);
+
+            $this->sendInvoice($order);
+  
+            return array('success' => true, 'message' => 'Order has been saved.', 'order' => $order );
+  
+        }catch(\QueryException $e){
+            DB::rollback();
+            return array('success' =>false, 'message' => $e->getMessage());
+        }
     }
 
+    public function createInvoice(){
+
+    }
+
+    public function sendInvoice(){
+
+    }
+
+    public function printPDF()
+    {
+       // This  $data array will be passed to our PDF blade
+       $data = [
+          'title' => 'First PDF for Medium',
+          'heading' => 'Hello from 99Points.info',
+          'content' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.'        
+        ];
+        
+        $pdf = PDF::loadView('pdf_view', $data);  
+        return $pdf->download('medium.pdf');
+    }
 
     /**
      * Update the specified resource in storage.

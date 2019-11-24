@@ -181226,6 +181226,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     var vm = this;
@@ -181245,6 +181255,7 @@ __webpack_require__.r(__webpack_exports__);
           city: company.city,
           tell: company.tell,
           fax: company.fax,
+          email: company.email,
           tax_number: company.tax_number,
           type_id: company.type_id,
           code: company.code,
@@ -181303,6 +181314,7 @@ __webpack_require__.r(__webpack_exports__);
               city: company.city,
               tell: company.tell,
               fax: company.fax,
+              email: company.email,
               tax_number: company.tax_number,
               type_id: company.type_id,
               code: company.code,
@@ -182905,54 +182917,52 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    var vm = this;
+    vm.getOrders();
+    Fire.$on('OrderCreated', function (data) {
+      vm.orderHistory = [];
+      vm.orders.push(data.order);
+      vm.mapOrders(vm.orders);
+    });
+  },
   data: function data() {
     return {
+      orders: [],
       perPage: 20,
       currentPage: 1,
-      orderHistory: [{
-        type_id: 1,
-        class_id: '',
-        origin_id: '',
-        requestor_id: '',
-        billing_address: '9 Dock Road',
-        contact_number: '021 000 0000',
-        contact_person: 'John Doe',
-        amount: 'R1000',
-        vat_mount: 'R150',
-        vat: '15%',
-        total_amount: 'R1150',
-        status: '',
-        date_created: '21/11/2019'
-      }, {
-        type_id: 1,
-        class_id: '',
-        origin_id: '',
-        requestor_id: '',
-        billing_address: '9 Dock Road',
-        contact_number: '021 000 0000',
-        contact_person: 'John Doe',
-        amount: 'R1000',
-        vat_mount: 'R150',
-        vat: '15%',
-        total_amount: 'R1150',
-        status: '',
-        date_created: '21/11/2019'
-      }, {
-        type_id: 1,
-        class_id: '',
-        origin_id: '',
-        requestor_id: '',
-        billing_address: '9 Dock Road',
-        contact_number: '021 000 0000',
-        contact_person: 'John Doe',
-        amount: 'R1000',
-        vat_mount: 'R150',
-        vat: '15%',
-        total_amount: 'R1150',
-        status: '',
-        date_created: '21/11/2019'
-      }]
+      orderHistory: []
     };
+  },
+  methods: {
+    getOrders: function getOrders() {
+      var vm = this;
+      axios.get('/orders/get-all').then(function (response) {
+        vm.orders = response.data.orders;
+        vm.mapOrders(vm.orders);
+      });
+    },
+    mapOrders: function mapOrders(orders) {
+      var vm = this;
+      orders.map(function (order) {
+        vm.orderHistory.push({
+          ID: order.id,
+          Type: order.type.name,
+          Class: order["class"].name,
+          Requestor: order["class"].name,
+          BillingAddress: order.requestor,
+          ContactPerson: order.contact_name,
+          ContactNumber: order.contact_number,
+          ContactEmail: order.contact_email,
+          Rate: order.tax_percent + '%',
+          Vat: 'R' + order.vat,
+          TotalAmount: 'R' + order.amount,
+          DateCreated: order.created_at,
+          Status: order.status,
+          Actions: ''
+        });
+      });
+    }
   },
   computed: {
     rows: function rows() {
@@ -182974,8 +182984,6 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
 //
 //
 //
@@ -183185,7 +183193,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     getProducts: function getProducts() {
       var companies = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
       var vm = this;
-      axios.get('/products/get-all').then(function (response) {
+      var endpoint = '';
+
+      if (this.mode == 'view') {
+        endpoint = '/products/get-list';
+      } else {
+        endpoint = '/products/get-all';
+      }
+
+      axios.get(endpoint).then(function (response) {
         vm.products = response.data.products;
         vm.mapProducts(vm.products);
       });
@@ -183209,7 +183225,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             part_code: product.part_code,
             model_number: product.model_number,
             unit_cost: product.unit_cost,
-            rate: product.rate,
             current_stock: product.current_stock,
             reserved_stock: product.reserved_stock,
             available_stock: product.current_stock - product.reserved_stock,
@@ -183230,7 +183245,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             part_code: product.part_code,
             model_number: product.model_number,
             unit_cost: product.unit_cost,
-            rate: product.rate,
             current_stock: product.current_stock,
             reserved_stock: product.reserved_stock,
             available_stock: product.current_stock - product.reserved_stock,
@@ -184371,6 +184385,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   mounted: function mounted() {
@@ -184396,6 +184420,7 @@ __webpack_require__.r(__webpack_exports__);
         city: '',
         tell: '',
         fax: '',
+        email: '',
         tax_number: '',
         type_id: '',
         code: '',
@@ -184890,6 +184915,121 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   mounted: function mounted() {
@@ -184897,6 +185037,12 @@ __webpack_require__.r(__webpack_exports__);
     Fire.$on('StartOrder', function (data) {
       vm.item = data.product;
       vm.getProductInfo(vm.item.id);
+    });
+    this.Toast = this.$swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
     });
   },
   created: function created() {},
@@ -184910,7 +185056,7 @@ __webpack_require__.r(__webpack_exports__);
       },
       order: {
         type: '',
-        order_class: '-None-',
+        order_class: '',
         billing_address: '',
         contact_number: '',
         contact_email: '',
@@ -184918,8 +185064,10 @@ __webpack_require__.r(__webpack_exports__);
         related_item: '',
         requestor: '',
         requesition_notes: '',
-        amount: 100.00
+        vat: 0.00,
+        amount: 0.00
       },
+      order_items: [],
       tableRow: [],
       Toast: null
     };
@@ -184939,8 +185087,25 @@ __webpack_require__.r(__webpack_exports__);
         vm.order.tax = vm.product.tax.tax_type;
         vm.order.tax_percent = vm.product.tax.percentage;
         vm.order.tax_type = vm.product.tax_type;
-        vm.tableRow = {};
+        vm.order_items.push({
+          ProductId: vm.product.id,
+          PartType: vm.product.category.name,
+          PartCode: vm.product.part_code,
+          Description: vm.product.description,
+          Priority: 1,
+          WarehouseName: vm.product.origin.name,
+          Quantity: 1,
+          UnitCost: vm.product.unit_cost,
+          TaxRate: vm.product.tax.percentage,
+          Vat: vm.calculateProductTAxAmount(vm.product.tax.percentage, vm.product.unit_cost),
+          Total: vm.calculateProductTotal(vm.calculateProductTAxAmount(vm.product.tax.percentage, vm.product.unit_cost), vm.product.unit_cost)
+        });
       });
+    },
+    updateRow: function updateRow(row) {
+      var vm = this;
+      row.Vat = vm.calculateProductTAxAmount(row.TaxRate, parseFloat(row.UnitCost) * parseFloat(row.Quantity));
+      row.Total = vm.calculateProductTotal(row.Vat, parseFloat(row.UnitCost) * parseFloat(row.Quantity));
     },
     getDate: function getDate() {
       var today = new Date();
@@ -184949,14 +185114,76 @@ __webpack_require__.r(__webpack_exports__);
       var dateTime = date + ' ' + time;
       return dateTime;
     },
-    calculateTAxAmount: function calculateTAxAmount() {
-      var amount = this.order.tax_percent / 100 * this.order.amount;
+    calculateProductTAxAmount: function calculateProductTAxAmount(rate, unit_cost) {
+      var amount = rate / 100 * unit_cost;
       return amount.toFixed(2);
     },
+    calculateProductTotal: function calculateProductTotal(vat_amout, unit_cost) {
+      return parseFloat(vat_amout) + parseFloat(unit_cost);
+    },
+    clearOrder: function clearOrder() {
+      this.order.type = '';
+      this.order.order_class = '';
+      this.order.billing_address = '';
+      this.order.contact_number = '';
+      this.order.contact_email = '';
+      this.order.contact_name = '';
+      this.order.related_item = '';
+      this.order.requestor = '';
+      this.order.requesition_notes = '';
+      this.order.vat = 0.00;
+      this.order.amount = 0.00;
+      this.order_items = [];
+    },
+    cancelOrder: function cancelOrder() {
+      this.clearOrder();
+      Fire.$emit('CancelOrder');
+    },
+    saveOrder: function saveOrder() {
+      var vm = this;
+      vm.$validator.validateAll().then(function (result) {
+        if (!result) {} else {
+          axios.post('/orders/create', {
+            order: vm.order,
+            order_items: vm.order_items
+          }).then(function (response) {
+            if (response.data.success === true) {
+              vm.Toast.fire({
+                type: 'success',
+                title: response.data.message
+              });
+              Fire.$emit('OrderCreated', {
+                order: response.data.order
+              });
+              vm.clearOrder();
+              vm.$Progress.finish();
+            } else {
+              vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
+              vm.$Progress.fail();
+            }
+          });
+        }
+      });
+    }
+  },
+  computed: {
     calculateGrandTotal: function calculateGrandTotal() {
-      var tax_amount = this.calculateTAxAmount();
-      var grand_total = parseFloat(this.order.amount) + parseFloat(tax_amount);
-      return parseFloat(grand_total);
+      var vm = this;
+      vm.order.amount = 0;
+      var tax_amount = 0;
+      var sub_total = 0;
+      var grand_total = 0;
+      vm.order_items.forEach(function (item) {
+        vm.order.amount += item.Total;
+        tax_amount += item.Vat;
+        sub_total += item.UnitCost * item.Quantity;
+      });
+      vm.order.vat = parseFloat(tax_amount);
+      return {
+        sub_total: parseFloat(sub_total).toFixed(2),
+        tax_amount: parseFloat(tax_amount).toFixed(2),
+        grand_total: parseFloat(vm.order.amount).toFixed(2)
+      };
     }
   }
 });
@@ -184972,38 +185199,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -185810,6 +186005,12 @@ __webpack_require__.r(__webpack_exports__);
     Fire.$on('StartOrder', function (data) {
       vm.tabIndex = 1;
       vm.order_summary = true;
+    });
+    Fire.$on('CancelOrder', function (data) {
+      vm.tabIndex = 0;
+    });
+    Fire.$on('OrderCreated', function (data) {
+      vm.tabIndex = 2;
     });
   },
   created: function created() {},
@@ -195772,6 +195973,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -195810,6 +196029,7 @@ __webpack_require__.r(__webpack_exports__);
       vm.applyFilter(data);
     });
     vm.getCommissionStructures();
+    vm.getCompanies();
     this.Toast = this.$swal.mixin({
       toast: true,
       position: "top-end",
@@ -195835,13 +196055,15 @@ __webpack_require__.r(__webpack_exports__);
         activated: "",
         commission_structure: "",
         leads: [],
-        clients: []
+        clients: [],
+        company_id: ""
       },
       current_user: {},
       structures: [],
       structure_a: [],
       structure_b: [],
       structure_c: [],
+      companies: [],
       add_user: false,
       edit_user: false,
       show_page_loader: false,
@@ -195924,6 +196146,12 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    getCompanies: function getCompanies() {
+      var vm = this;
+      axios.get('/company/get-all').then(function (response) {
+        vm.companies = response.data.companies;
+      });
+    },
     getCommissionStructures: function getCommissionStructures() {
       var vm = this;
       axios.get('/settings/get-comm-structures').then(function (response) {
@@ -249474,7 +249702,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.col-6[data-v-c3b77390] {\n  padding-left: 3.3%;\n  padding-right: 3.3%;\n}\n.col-6.border-right[data-v-c3b77390] {\n  border-color: #8D8D8D;\n}\n.col-6 .col-7 .col-8[data-v-c3b77390],\n.col-6 .col-7 .col-4[data-v-c3b77390] {\n  padding-left: 10px;\n  padding-right:10px;\n}\ninput[data-v-c3b77390], textarea[data-v-c3b77390], select[data-v-c3b77390] {\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding: 11px 18px!important;\n  font-size: 12px;\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height: auto!important;\n}\ntextarea[data-v-c3b77390] {\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding: 11px 18px!important;\n  font-size: 12px;\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height: auto!important;\n  border-radius: 10px;\n}\n.custom-select[data-v-c3b77390] {\n  height: auto;\n}\nlabel[data-v-c3b77390]{\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom: 7px;\n  margin-left: 17px;\n}\n.btn-default[data-v-c3b77390]{\n  background: #fff;\n  color: #999999;    \n  border: none!important;\n  padding: 11px 14px 10px;\n  font-size: 10px;\n  text-transform:uppercase;\n  border-radius: 50rem!important;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n  -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-c3b77390] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 10px;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n.calendar-container[data-v-c3b77390] {\n  margin-left: 17px;\n  margin-right: 17px;\n}\n", ""]);
+exports.push([module.i, "\n.col-6[data-v-c3b77390] {\n  padding-left: 3.3%;\n  padding-right: 3.3%;\n}\n.col-6.border-right[data-v-c3b77390] {\n  border-color: #8D8D8D;\n}\n.col-6 .col-7 .col-8[data-v-c3b77390],\n.col-6 .col-7 .col-4[data-v-c3b77390] {\n  padding-left: 10px;\n  padding-right:10px;\n}\ninput[data-v-c3b77390], textarea[data-v-c3b77390], select[data-v-c3b77390] {\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding: 11px 18px!important;\n  font-size: 12px;\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height: auto!important;\n}\ntextarea[data-v-c3b77390] {\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding: 11px 18px!important;\n  font-size: 12px;\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height: auto!important;\n  border-radius: 10px;\n}\n.custom-select[data-v-c3b77390] {\n  height: auto;\n}\nlabel[data-v-c3b77390]{\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom: 7px;\n  margin-left: 17px;\n}\n.btn-default[data-v-c3b77390]{\n  background: #fff;\n  color: #999999;    \n  border: none!important;\n  padding: 11px 14px 10px;\n  font-size: 10px;\n  text-transform:uppercase;\n  border-radius: 50rem!important;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n  -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-c3b77390] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 10px;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n.calendar-container[data-v-c3b77390] {\n  margin-left: 17px;\n  margin-right: 17px;\n}\n.scroll-x[data-v-c3b77390]{\n  overflow: auto !important;\n}\n.orders .createOrder .order-summary .product-listing td[data-v-c3b77390] {\n  font-size: 12px  !important;\n}\n", ""]);
 
 // exports
 
@@ -368561,6 +368789,37 @@ var render = function() {
               }
             },
             {
+              key: "email",
+              fn: function(data) {
+                return [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: data.item.email,
+                        expression: "data.item.email"
+                      }
+                    ],
+                    staticClass: "form-control border-0 rounded-pill",
+                    attrs: { type: "text", id: "fax", name: "fax" },
+                    domProps: { value: data.item.email },
+                    on: {
+                      blur: function($event) {
+                        return _vm.updateCompany(data.item)
+                      },
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(data.item, "email", $event.target.value)
+                      }
+                    }
+                  })
+                ]
+              }
+            },
+            {
               key: "tax_number",
               fn: function(data) {
                 return [
@@ -370736,48 +370995,6 @@ var render = function() {
               }
             },
             {
-              key: "rate",
-              fn: function(data) {
-                return [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "validate",
-                        rawName: "v-validate",
-                        value: "required",
-                        expression: "'required'"
-                      },
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: data.item.rate,
-                        expression: "data.item.rate"
-                      }
-                    ],
-                    staticClass: "form-control rounded-pill border-0",
-                    attrs: {
-                      disabled: _vm.mode == "view" ? true : false,
-                      type: "number",
-                      id: "unit-cost",
-                      name: "unitCost"
-                    },
-                    domProps: { value: data.item.rate },
-                    on: {
-                      blur: function($event) {
-                        return _vm.updateProduct(data.item)
-                      },
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(data.item, "rate", $event.target.value)
-                      }
-                    }
-                  })
-                ]
-              }
-            },
-            {
               key: "current_stock",
               fn: function(data) {
                 return [
@@ -370861,6 +371078,43 @@ var render = function() {
                         _vm.$set(
                           data.item,
                           "reserved_stock",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  })
+                ]
+              }
+            },
+            {
+              key: "available_stock",
+              fn: function(data) {
+                return [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: data.item.available_stock,
+                        expression: "data.item.available_stock"
+                      }
+                    ],
+                    staticClass: "form-control rounded-pill border-0",
+                    attrs: {
+                      disabled: "",
+                      type: "number",
+                      id: "stock",
+                      name: "Current Stock"
+                    },
+                    domProps: { value: data.item.available_stock },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          data.item,
+                          "available_stock",
                           $event.target.value
                         )
                       }
@@ -370974,7 +371228,8 @@ var render = function() {
             {
               key: "actions",
               fn: function(data) {
-                return _vm.mode == "view"
+                return _vm.mode == "view" &&
+                  (data.item.available_stock > 0 && data.item.current_stock > 0)
                   ? [
                       _c("span", { staticClass: "actions" }, [
                         _c(
@@ -372179,6 +372434,59 @@ var render = function() {
                       }),
                       _vm._v(" "),
                       _c("label", { attrs: { for: "input-none" } }, [
+                        _vm._v("Email")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.errors.has("Email"),
+                              expression: "errors.has('Email')"
+                            }
+                          ],
+                          staticClass: "help-block",
+                          attrs: { id: "error" }
+                        },
+                        [_vm._v(_vm._s(_vm.errors.first("Email")))]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "validate",
+                            rawName: "v-validate",
+                            value: "required|email",
+                            expression: "'required|email'"
+                          },
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.branch.email,
+                            expression: "branch.email"
+                          }
+                        ],
+                        staticClass: "form-control rounded-pill",
+                        attrs: {
+                          type: "tell",
+                          id: "branch-fax",
+                          name: "branchFax"
+                        },
+                        domProps: { value: _vm.branch.email },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.branch, "email", $event.target.value)
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("label", { attrs: { for: "input-none" } }, [
                         _vm._v("Tax Number")
                       ]),
                       _vm._v(" "),
@@ -372639,88 +372947,43 @@ var render = function() {
                     })
                   ]),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "col-4 pr-0" },
-                    [
-                      _c(
-                        "label",
-                        {
-                          staticClass: "col-lg-12 control-label w-100 p-0 mb-2"
-                        },
-                        [_vm._v("Priority")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a-select",
-                        {
-                          staticClass: "custom-select rounded-pill border-0",
-                          model: {
-                            value: _vm.order.priority,
-                            callback: function($$v) {
-                              _vm.$set(_vm.order, "priority", $$v)
-                            },
-                            expression: "order.priority"
-                          }
-                        },
-                        [
-                          _c("a-select-option", { attrs: { value: "Low" } }, [
-                            _vm._v("Low")
-                          ]),
-                          _vm._v(" "),
-                          _c("a-select-option", { attrs: { value: "Mid" } }, [
-                            _vm._v("Mid")
-                          ]),
-                          _vm._v(" "),
-                          _c("a-select-option", { attrs: { value: "High" } }, [
-                            _vm._v("High")
-                          ])
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-12 pl-0" }, [
+                  _c("div", { staticClass: "col-4 pr-0" }, [
                     _c(
                       "label",
                       { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
                       [_vm._v("Request Date")]
                     ),
                     _vm._v(" "),
-                    _c("div", { staticClass: "calendar-container" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.order.request_date,
-                            expression: "order.request_date"
-                          }
-                        ],
-                        staticClass: "rounded-pill form-control",
-                        attrs: {
-                          disabled: "",
-                          type: "text",
-                          id: "request_date",
-                          name: "request_date"
-                        },
-                        domProps: { value: _vm.order.request_date },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.order,
-                              "request_date",
-                              $event.target.value
-                            )
-                          }
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.order.request_date,
+                          expression: "order.request_date"
                         }
-                      })
-                    ])
+                      ],
+                      staticClass: "rounded-pill form-control",
+                      attrs: {
+                        disabled: "",
+                        type: "text",
+                        id: "request_date",
+                        name: "request_date"
+                      },
+                      domProps: { value: _vm.order.request_date },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.order,
+                            "request_date",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
                   ])
                 ])
               ]),
@@ -372738,7 +373001,16 @@ var render = function() {
                   _c(
                     "a-select",
                     {
+                      directives: [
+                        {
+                          name: "validate",
+                          rawName: "v-validate",
+                          value: "required",
+                          expression: "'required'"
+                        }
+                      ],
                       staticClass: "custom-select rounded-pill border-0",
+                      attrs: { name: "Type" },
                       model: {
                         value: _vm.order.type,
                         callback: function($$v) {
@@ -372748,7 +373020,7 @@ var render = function() {
                       }
                     },
                     [
-                      _c("a-select-option", { attrs: { value: "-None-" } }, [
+                      _c("a-select-option", { attrs: { value: "" } }, [
                         _vm._v("- Please Select -")
                       ]),
                       _vm._v(" "),
@@ -372761,6 +373033,23 @@ var render = function() {
                       })
                     ],
                     2
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "span",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: _vm.errors.has("Type"),
+                          expression: "errors.has('Type')"
+                        }
+                      ],
+                      staticClass: "help-block",
+                      attrs: { id: "error" }
+                    },
+                    [_vm._v(_vm._s(_vm.errors.first("Type")))]
                   ),
                   _vm._v(" "),
                   _c(
@@ -372791,7 +373080,7 @@ var render = function() {
                       }
                     },
                     [
-                      _c("a-select-option", { attrs: { value: "-None-" } }, [
+                      _c("a-select-option", { attrs: { value: "" } }, [
                         _vm._v("- Please Select -")
                       ]),
                       _vm._v(" "),
@@ -372908,6 +373197,12 @@ var render = function() {
                 _c("textarea", {
                   directives: [
                     {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required",
+                      expression: "'required'"
+                    },
+                    {
                       name: "model",
                       rawName: "v-model",
                       value: _vm.order.billing_address,
@@ -372915,7 +373210,7 @@ var render = function() {
                     }
                   ],
                   staticClass: "form-control ",
-                  attrs: { id: "info", name: "Info" },
+                  attrs: { id: "info", name: "Billing Address" },
                   domProps: { value: _vm.order.billing_address },
                   on: {
                     input: function($event) {
@@ -372932,6 +373227,23 @@ var render = function() {
                 }),
                 _vm._v(" "),
                 _c(
+                  "span",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.errors.has("Billing Address"),
+                        expression: "errors.has('Billing Address')"
+                      }
+                    ],
+                    staticClass: "help-block",
+                    attrs: { id: "error" }
+                  },
+                  [_vm._v(_vm._s(_vm.errors.first("Billing Address")))]
+                ),
+                _vm._v(" "),
+                _c(
                   "label",
                   { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
                   [_vm._v("Contact Name")]
@@ -372939,6 +373251,12 @@ var render = function() {
                 _vm._v(" "),
                 _c("input", {
                   directives: [
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required",
+                      expression: "'required'"
+                    },
                     {
                       name: "model",
                       rawName: "v-model",
@@ -372950,7 +373268,7 @@ var render = function() {
                   attrs: {
                     type: "text",
                     id: "contact-name",
-                    name: "contactName"
+                    name: "Contact Name"
                   },
                   domProps: { value: _vm.order.contact_name },
                   on: {
@@ -372964,6 +373282,23 @@ var render = function() {
                 }),
                 _vm._v(" "),
                 _c(
+                  "span",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.errors.has("Contact Name"),
+                        expression: "errors.has('Contact Name')"
+                      }
+                    ],
+                    staticClass: "help-block",
+                    attrs: { id: "error" }
+                  },
+                  [_vm._v(_vm._s(_vm.errors.first("Contact Name")))]
+                ),
+                _vm._v(" "),
+                _c(
                   "label",
                   { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
                   [_vm._v("Email")]
@@ -372972,6 +373307,12 @@ var render = function() {
                 _c("input", {
                   directives: [
                     {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required|email",
+                      expression: "'required|email'"
+                    },
+                    {
                       name: "model",
                       rawName: "v-model",
                       value: _vm.order.contact_email,
@@ -372979,11 +373320,7 @@ var render = function() {
                     }
                   ],
                   staticClass: "form-control rounded-pill",
-                  attrs: {
-                    type: "tel",
-                    id: "contact-number",
-                    name: "ContactNumber"
-                  },
+                  attrs: { type: "tel", id: "contact-email", name: "Email" },
                   domProps: { value: _vm.order.contact_email },
                   on: {
                     input: function($event) {
@@ -372993,10 +373330,25 @@ var render = function() {
                       _vm.$set(_vm.order, "contact_email", $event.target.value)
                     }
                   }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-6 pr-0" }, [
+                }),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.errors.has("Email"),
+                        expression: "errors.has('Email')"
+                      }
+                    ],
+                    staticClass: "help-block",
+                    attrs: { id: "error" }
+                  },
+                  [_vm._v(_vm._s(_vm.errors.first("Email")))]
+                ),
+                _vm._v(" "),
                 _c(
                   "label",
                   { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
@@ -373006,6 +373358,12 @@ var render = function() {
                 _c("input", {
                   directives: [
                     {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: "required|numeric",
+                      expression: "'required|numeric'"
+                    },
+                    {
                       name: "model",
                       rawName: "v-model",
                       value: _vm.order.contact_number,
@@ -373013,11 +373371,7 @@ var render = function() {
                     }
                   ],
                   staticClass: "form-control rounded-pill",
-                  attrs: {
-                    type: "tel",
-                    id: "contact-number",
-                    name: "ContactNumber"
-                  },
+                  attrs: { type: "tel", id: "contact-Phone", name: "Phone" },
                   domProps: { value: _vm.order.contact_number },
                   on: {
                     input: function($event) {
@@ -373029,6 +373383,25 @@ var render = function() {
                   }
                 }),
                 _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.errors.has("Phone"),
+                        expression: "errors.has('Phone')"
+                      }
+                    ],
+                    staticClass: "help-block",
+                    attrs: { id: "error" }
+                  },
+                  [_vm._v(_vm._s(_vm.errors.first("Phone")))]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-6 pr-0" }, [
                 _c(
                   "label",
                   { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
@@ -373068,7 +373441,410 @@ var render = function() {
         [
           _c(
             "b-row",
-            { staticClass: "mx-0 justify-content-between align-items-end" },
+            {
+              staticClass:
+                "mx-0 mt-4 justify-content-between align-items-end scroll-x"
+            },
+            [
+              _c("b-table", {
+                staticClass: "product-listing",
+                attrs: { items: _vm.order_items },
+                scopedSlots: _vm._u([
+                  {
+                    key: "Quantity",
+                    fn: function(data) {
+                      return [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.item.Quantity,
+                              expression: "data.item.Quantity"
+                            }
+                          ],
+                          staticClass: "form-control rounded-pill border-0",
+                          attrs: {
+                            type: "number",
+                            min: "1",
+                            id: "quantity",
+                            name: "description"
+                          },
+                          domProps: { value: data.item.Quantity },
+                          on: {
+                            change: function($event) {
+                              return _vm.updateRow(data.item)
+                            },
+                            blur: function($event) {
+                              return _vm.updateRow(data.item)
+                            },
+                            keyup: function($event) {
+                              if (
+                                !$event.type.indexOf("key") &&
+                                _vm._k(
+                                  $event.keyCode,
+                                  "enter",
+                                  13,
+                                  $event.key,
+                                  "Enter"
+                                )
+                              ) {
+                                return null
+                              }
+                              return _vm.updateRow(data.item)
+                            },
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                data.item,
+                                "Quantity",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]
+                    }
+                  },
+                  {
+                    key: "PartType",
+                    fn: function(data) {
+                      return [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.item.PartType,
+                              expression: "data.item.PartType"
+                            }
+                          ],
+                          staticClass: "form-control rounded-pill border-0",
+                          attrs: {
+                            disabled: "",
+                            id: "prt_type",
+                            name: "prt_type"
+                          },
+                          domProps: { value: data.item.PartType },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                data.item,
+                                "PartType",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]
+                    }
+                  },
+                  {
+                    key: "PartCode",
+                    fn: function(data) {
+                      return [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.item.PartCode,
+                              expression: "data.item.PartCode"
+                            }
+                          ],
+                          staticClass: "form-control rounded-pill border-0",
+                          attrs: {
+                            disabled: "",
+                            title: data.item.PartCode,
+                            id: "part-code",
+                            name: "part-code"
+                          },
+                          domProps: { value: data.item.PartCode },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                data.item,
+                                "PartCode",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]
+                    }
+                  },
+                  {
+                    key: "Description",
+                    fn: function(data) {
+                      return [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.item.Description,
+                              expression: "data.item.Description"
+                            }
+                          ],
+                          staticClass: "form-control rounded-pill border-0",
+                          attrs: {
+                            disabled: "",
+                            title: data.item.Description,
+                            id: "quantity",
+                            name: "description"
+                          },
+                          domProps: { value: data.item.Description },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                data.item,
+                                "Description",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]
+                    }
+                  },
+                  {
+                    key: "Priority",
+                    fn: function(data) {
+                      return [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.item.Priority,
+                              expression: "data.item.Priority"
+                            }
+                          ],
+                          staticClass: "form-control rounded-pill border-0",
+                          attrs: {
+                            title: data.item.Priority,
+                            type: "number",
+                            min: "1",
+                            max: "10",
+                            id: "Priority",
+                            name: "Priority"
+                          },
+                          domProps: { value: data.item.Priority },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                data.item,
+                                "Priority",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]
+                    }
+                  },
+                  {
+                    key: "WarehouseName",
+                    fn: function(data) {
+                      return [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.item.WarehouseName,
+                              expression: "data.item.WarehouseName"
+                            }
+                          ],
+                          staticClass: "form-control rounded-pill border-0",
+                          attrs: {
+                            disabled: "",
+                            title: data.item.WarehouseName,
+                            type: "text",
+                            id: "origin",
+                            name: "origin"
+                          },
+                          domProps: { value: data.item.WarehouseName },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                data.item,
+                                "WarehouseName",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]
+                    }
+                  },
+                  {
+                    key: "UnitCost",
+                    fn: function(data) {
+                      return [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.item.UnitCost,
+                              expression: "data.item.UnitCost"
+                            }
+                          ],
+                          staticClass: "form-control rounded-pill border-0",
+                          attrs: {
+                            disabled: "",
+                            title: data.item.UnitCost,
+                            id: "cost",
+                            name: "cost"
+                          },
+                          domProps: { value: data.item.UnitCost },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                data.item,
+                                "UnitCost",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]
+                    }
+                  },
+                  {
+                    key: "TaxRate",
+                    fn: function(data) {
+                      return [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.item.TaxRate,
+                              expression: "data.item.TaxRate"
+                            }
+                          ],
+                          staticClass: "form-control rounded-pill border-0",
+                          attrs: {
+                            disabled: "",
+                            title: data.item.TaxRate,
+                            id: "rate",
+                            name: "rate"
+                          },
+                          domProps: { value: data.item.TaxRate },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                data.item,
+                                "TaxRate",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]
+                    }
+                  },
+                  {
+                    key: "Vat",
+                    fn: function(data) {
+                      return [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.item.Vat,
+                              expression: "data.item.Vat"
+                            }
+                          ],
+                          staticClass: "form-control rounded-pill border-0",
+                          attrs: {
+                            disabled: "",
+                            title: data.item.Vat,
+                            id: "vat",
+                            name: "vat"
+                          },
+                          domProps: { value: data.item.Vat },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(data.item, "Vat", $event.target.value)
+                            }
+                          }
+                        })
+                      ]
+                    }
+                  },
+                  {
+                    key: "Total",
+                    fn: function(data) {
+                      return [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.item.Total,
+                              expression: "data.item.Total"
+                            }
+                          ],
+                          staticClass: "form-control rounded-pill border-0",
+                          attrs: {
+                            disabled: "",
+                            id: "p-total",
+                            name: "p-total"
+                          },
+                          domProps: { value: data.item.Total },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(data.item, "Total", $event.target.value)
+                            }
+                          }
+                        })
+                      ]
+                    }
+                  }
+                ])
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-row",
+            {
+              staticClass: "mx-0 mt-4 justify-content-between align-items-end"
+            },
             [
               _c("b-col", { staticClass: "pl-0", attrs: { sm: "4" } }, [
                 _c("label", { staticClass: "control-label w-100 p-0 mb-2" }, [
@@ -373137,17 +373913,21 @@ var render = function() {
                         },
                         [
                           _c("p", { staticClass: "text-right mb-0" }, [
-                            _vm._v(_vm._s(_vm.order.amount))
+                            _vm._v(_vm._s(_vm.calculateGrandTotal.sub_total))
                           ]),
                           _vm._v(" "),
                           _c("p", { staticClass: "text-right mb-0" }, [
-                            _vm._v(_vm._s(_vm.calculateTAxAmount()))
+                            _vm._v(_vm._s(_vm.calculateGrandTotal.tax_amount))
                           ]),
                           _vm._v(" "),
                           _c(
                             "p",
                             { staticClass: "font-weight-bold text-right mb-0" },
-                            [_vm._v(_vm._s(_vm.calculateGrandTotal()))]
+                            [
+                              _vm._v(
+                                _vm._s(_vm.calculateGrandTotal.grand_total)
+                              )
+                            ]
                           )
                         ]
                       )
@@ -373166,9 +373946,14 @@ var render = function() {
               "div",
               { staticClass: "col-auto pl-0" },
               [
-                _c("b-button", { staticClass: "btn btn-default my-0 ml-0" }, [
-                  _vm._v("Cancel")
-                ])
+                _c(
+                  "b-button",
+                  {
+                    staticClass: "btn btn-default my-0 ml-0",
+                    on: { click: _vm.cancelOrder }
+                  },
+                  [_vm._v("Cancel")]
+                )
               ],
               1
             ),
@@ -373179,7 +373964,10 @@ var render = function() {
               [
                 _c(
                   "b-button",
-                  { staticClass: "btn btn-primary font-weight-bold my-0 mr-0" },
+                  {
+                    staticClass: "btn btn-primary font-weight-bold my-0 mr-0",
+                    on: { click: _vm.saveOrder }
+                  },
                   [_vm._v("Save")]
                 )
               ],
@@ -373651,159 +374439,56 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _vm.product.rate == ""
-            ? _c("b-col", { attrs: { sm: "6" } }, [
-                _c("label", { attrs: { for: "input-none" } }, [
-                  _vm._v("Unit Cost")
-                ]),
-                _vm._v(" "),
-                _c(
-                  "span",
+          _c("b-col", { attrs: { sm: "6" } }, [
+            _c("label", { attrs: { for: "input-none" } }, [
+              _vm._v("Unit Cost")
+            ]),
+            _vm._v(" "),
+            _c(
+              "span",
+              {
+                directives: [
                   {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.errors.has("Unit Cost"),
-                        expression: "errors.has('Unit Cost')"
-                      }
-                    ],
-                    staticClass: "help-block",
-                    attrs: { id: "error" }
-                  },
-                  [_vm._v(_vm._s(_vm.errors.first("Unit Cost")))]
-                ),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "validate",
-                      rawName: "v-validate",
-                      value: "required",
-                      expression: "'required'"
-                    },
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.product.unit_cost,
-                      expression: "product.unit_cost"
-                    }
-                  ],
-                  staticClass: "form-control rounded-pill",
-                  attrs: { type: "number", id: "unit_cost", name: "Unit Cost" },
-                  domProps: { value: _vm.product.unit_cost },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.product, "unit_cost", $event.target.value)
-                    }
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.errors.has("Unit Cost"),
+                    expression: "errors.has('Unit Cost')"
                   }
-                })
-              ])
-            : _c("b-col", { attrs: { sm: "6" } }, [
-                _c("label", { attrs: { for: "input-none" } }, [
-                  _vm._v("Unit Cost")
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.product.unit_cost,
-                      expression: "product.unit_cost"
-                    }
-                  ],
-                  staticClass: "form-control rounded-pill",
-                  attrs: { type: "number", id: "unit_cost", name: "Unit Cost" },
-                  domProps: { value: _vm.product.unit_cost },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.product, "unit_cost", $event.target.value)
-                    }
+                ],
+                staticClass: "help-block",
+                attrs: { id: "error" }
+              },
+              [_vm._v(_vm._s(_vm.errors.first("Unit Cost")))]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "validate",
+                  rawName: "v-validate",
+                  value: "required",
+                  expression: "'required'"
+                },
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.product.unit_cost,
+                  expression: "product.unit_cost"
+                }
+              ],
+              staticClass: "form-control rounded-pill",
+              attrs: { type: "number", id: "unit_cost", name: "Unit Cost" },
+              domProps: { value: _vm.product.unit_cost },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
                   }
-                })
-              ]),
-          _vm._v(" "),
-          _vm.product.unit_cost == ""
-            ? _c("b-col", { staticClass: "pr-0", attrs: { sm: "3" } }, [
-                _c("label", { attrs: { for: "input-none" } }, [_vm._v("Rate")]),
-                _vm._v(" "),
-                _c(
-                  "span",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.errors.has("Rate"),
-                        expression: "errors.has('Rate')"
-                      }
-                    ],
-                    staticClass: "help-block",
-                    attrs: { id: "error" }
-                  },
-                  [_vm._v(_vm._s(_vm.errors.first("Rate")))]
-                ),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "validate",
-                      rawName: "v-validate",
-                      value: "required",
-                      expression: "'required'"
-                    },
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.product.rate,
-                      expression: "product.rate"
-                    }
-                  ],
-                  staticClass: "form-control rounded-pill",
-                  attrs: { type: "number", id: "rate", name: "Rate" },
-                  domProps: { value: _vm.product.rate },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.product, "rate", $event.target.value)
-                    }
-                  }
-                })
-              ])
-            : _c("b-col", { staticClass: "pr-0", attrs: { sm: "3" } }, [
-                _c("label", { attrs: { for: "input-none" } }, [_vm._v("Rate")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.product.rate,
-                      expression: "product.rate"
-                    }
-                  ],
-                  staticClass: "form-control rounded-pill",
-                  attrs: { type: "number", id: "rate", name: "Rate" },
-                  domProps: { value: _vm.product.rate },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.product, "rate", $event.target.value)
-                    }
-                  }
-                })
-              ]),
+                  _vm.$set(_vm.product, "unit_cost", $event.target.value)
+                }
+              }
+            })
+          ]),
           _vm._v(" "),
           _c("b-col", { staticClass: "pl-0", attrs: { sm: "3" } }, [
             _c("label", { attrs: { for: "input-none" } }, [
@@ -388903,6 +389588,95 @@ var render = function() {
                                         domProps: { value: item.id }
                                       },
                                       [_vm._v(_vm._s(item.display_name))]
+                                    )
+                                  })
+                                ],
+                                2
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                {
+                                  directives: [
+                                    {
+                                      name: "show",
+                                      rawName: "v-show",
+                                      value: _vm.errors.has("Role"),
+                                      expression: "errors.has('Role')"
+                                    }
+                                  ],
+                                  staticClass: "help-block",
+                                  attrs: { id: "error" }
+                                },
+                                [_vm._v(_vm._s(_vm.errors.first("Role")))]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "label",
+                            { staticClass: "col-lg-4 control-label" },
+                            [
+                              _c("span", { staticClass: "label-text" }, [
+                                _vm._v("Company")
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "select",
+                                {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.user.company_id,
+                                      expression: "user.company_id"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  attrs: {
+                                    type: "text",
+                                    id: "role",
+                                    name: "Role"
+                                  },
+                                  on: {
+                                    change: function($event) {
+                                      var $$selectedVal = Array.prototype.filter
+                                        .call($event.target.options, function(
+                                          o
+                                        ) {
+                                          return o.selected
+                                        })
+                                        .map(function(o) {
+                                          var val =
+                                            "_value" in o ? o._value : o.value
+                                          return val
+                                        })
+                                      _vm.$set(
+                                        _vm.user,
+                                        "company_id",
+                                        $event.target.multiple
+                                          ? $$selectedVal
+                                          : $$selectedVal[0]
+                                      )
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("option", { attrs: { value: "" } }, [
+                                    _vm._v("- Please Choose -")
+                                  ]),
+                                  _vm._v(" "),
+                                  _vm._l(_vm.companies, function(
+                                    company,
+                                    index
+                                  ) {
+                                    return _c(
+                                      "option",
+                                      {
+                                        key: index,
+                                        domProps: { value: company.id }
+                                      },
+                                      [_vm._v(_vm._s(company.name))]
                                     )
                                   })
                                 ],

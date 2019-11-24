@@ -85,18 +85,6 @@
           class="form-control rounded-pill border-0"/>
       </template>
 
-      <template slot="rate" slot-scope="data">
-        <input 
-          :disabled="(mode == 'view')? true : false"
-          @blur="updateProduct(data.item)"
-          v-validate="'required'"
-          v-model="data.item.rate"    
-          type="number"    
-          id="unit-cost"     
-          name="unitCost"   
-          class="form-control rounded-pill border-0"/>
-      </template>
-
       <template slot="current_stock" slot-scope="data">
         <input 
           :disabled="(mode == 'view')? true : false"
@@ -121,6 +109,16 @@
           class="form-control rounded-pill border-0"/>
       </template>
 
+      <template slot="available_stock" slot-scope="data">
+        <input
+          disabled
+          v-model="data.item.available_stock"    
+          type="number"    
+          id="stock"     
+          name="Current Stock"   
+          class="form-control rounded-pill border-0"/>
+      </template>
+
       <template slot="tax_type" slot-scope="data">
         <a-select :disabled="(mode == 'view')? true : false" @change="updateProduct(data.item)" v-validate="'required'" name="Tax Type" v-model="data.item.tax_type" class="custom-select rounded-pill border-0">   
           <a-select-option value="">-None-</a-select-option>   
@@ -136,7 +134,7 @@
         </a-select>
       </template>
 
-      <template slot="actions" slot-scope="data" v-if="mode == 'view'">
+      <template slot="actions" slot-scope="data" v-if="mode == 'view' && (data.item.available_stock > 0 && data.item.current_stock > 0)">
         <span class="actions">
           <!-- <a class="Edit" href="#"  title="Edit" ></a> -->
           <!-- <a class="Delete" href="#" title="Delete"></a> -->
@@ -216,7 +214,13 @@ export default {
     },
     getProducts(companies = null){
       var vm = this;
-        axios.get('/products/get-all').then(function (response) {
+      var endpoint = '';
+      if(this.mode == 'view'){
+        endpoint = '/products/get-list';
+      }else{
+        endpoint = '/products/get-all';
+      }
+      axios.get(endpoint).then(function (response) {
 
         vm.products = response.data.products;
 
@@ -240,7 +244,6 @@ export default {
               part_code: product.part_code,
               model_number: product.model_number,
               unit_cost: product.unit_cost,
-              rate: product.rate,
               current_stock: product.current_stock,
               reserved_stock: product.reserved_stock,
               available_stock: product.current_stock - product.reserved_stock,
@@ -263,7 +266,6 @@ export default {
               part_code: product.part_code,
               model_number: product.model_number,
               unit_cost: product.unit_cost,
-              rate: product.rate,
               current_stock: product.current_stock,
               reserved_stock: product.reserved_stock,
               available_stock: product.current_stock - product.reserved_stock,

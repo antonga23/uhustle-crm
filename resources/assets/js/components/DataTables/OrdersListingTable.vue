@@ -60,15 +60,63 @@
 </template>
 <script>
   export default {
+    mounted() {
+      var vm = this;
+      
+      vm.getOrders();
+
+      Fire.$on('OrderCreated', function(data){
+      
+        vm.orderHistory = [];
+
+        vm.orders.push(data.order);
+
+        vm.mapOrders(vm.orders);
+
+      });
+    },
     data() {
       return {
+        orders: [],
         perPage: 20, 
         currentPage: 1,
-        orderHistory: [
-          {type_id: 1, class_id: '', origin_id: '', requestor_id: '', billing_address: '9 Dock Road', contact_number:'021 000 0000',contact_person:'John Doe', amount: 'R1000', vat_mount:'R150', vat:'15%', total_amount:'R1150', status:'', date_created:'21/11/2019' },
-          { type_id: 1, class_id: '', origin_id: '', requestor_id: '', billing_address: '9 Dock Road', contact_number:'021 000 0000',contact_person:'John Doe', amount: 'R1000', vat_mount:'R150', vat:'15%', total_amount:'R1150', status:'', date_created:'21/11/2019' },
-          { type_id: 1, class_id: '', origin_id: '', requestor_id: '', billing_address: '9 Dock Road', contact_number:'021 000 0000',contact_person:'John Doe', amount: 'R1000', vat_mount:'R150', vat:'15%', total_amount:'R1150', status:'', date_created:'21/11/2019' },
-        ]
+        orderHistory: []
+      }
+    },
+    methods:{
+      getOrders(){
+        var vm = this;
+
+        axios.get('/orders/get-all').then(function (response) {
+
+          vm.orders = response.data.orders;
+
+          vm.mapOrders(vm.orders);
+
+        });
+      },
+      mapOrders(orders){
+        var vm = this;
+
+        orders.map( (order) => {
+          vm.orderHistory.push({
+            ID: order.id,
+            Type: order.type.name,
+            Class: order.class.name,
+            Requestor: order.class.name,
+            BillingAddress: order.requestor,
+            ContactPerson: order.contact_name,
+            ContactNumber: order.contact_number,
+            ContactEmail: order.contact_email,
+            Rate: order.tax_percent + '%',
+            Vat: 'R' + order.vat,
+            TotalAmount: 'R' + order.amount,
+            DateCreated: order.created_at,
+            Status: order.status,
+            Actions: ''
+          });
+        });
+
       }
     },
     computed: {

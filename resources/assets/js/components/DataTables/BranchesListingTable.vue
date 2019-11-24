@@ -108,7 +108,17 @@
           id="fax"     
           name="fax"   
           class="form-control border-0 rounded-pill"/> 
-      </template> 
+      </template>
+
+      <template slot="email" slot-scope="data">   
+        <input
+          @blur="updateCompany(data.item)"
+          v-model="data.item.email"     
+          type="text"    
+          id="fax"     
+          name="fax"   
+          class="form-control border-0 rounded-pill"/> 
+      </template>  
 
       <template slot="tax_number" slot-scope="data">   
         <input
@@ -163,6 +173,7 @@
             city: company.city,
             tell: company.tell,
             fax: company.fax,
+            email: company.email,
             tax_number: company.tax_number,
             type_id: company.type_id,
             code: company.code,
@@ -231,6 +242,7 @@
                 city: company.city,
                 tell: company.tell,
                 fax: company.fax,
+                email: company.email,
                 tax_number: company.tax_number,
                 type_id: company.type_id,
                 code: company.code,

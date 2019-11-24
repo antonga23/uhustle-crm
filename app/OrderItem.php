@@ -14,8 +14,18 @@ class OrderItem extends Model implements Auditable
      * @var array
      */
     protected $fillable = [
-      'order_id',
-      'product_id'
+      "id",
+      "order_id",
+      "PartType",
+      "PartCode",
+      "Description",
+      "Priority",
+      "WarehouseName",
+      "Quantity",
+      "UnitCost",
+      "TaxRate",
+      "Vat",
+      "Total",
     ];
 
     public function generateTags(): array
@@ -30,8 +40,4 @@ class OrderItem extends Model implements Auditable
         return $this->belongsTo('App\Order', 'order_id');
     }
 
-    public function product()
-    {
-      return $this->hasOne('App\Product', 'product_id');
-    }
 }

@@ -19,6 +19,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'role_id',
+        'company_id',
         'name',
         'lastname',
         'nickname',
@@ -69,5 +70,11 @@ class User extends Authenticatable
     {
 
         return $this->hasOne('App\Role', 'id','role_id');
+    }
+
+    public function company()
+    {
+
+        return $this->hasOne('App\Role', 'id','company_id');
     }
 }
