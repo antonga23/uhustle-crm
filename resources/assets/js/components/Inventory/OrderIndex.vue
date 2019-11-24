@@ -86,7 +86,7 @@ textarea {
               </template>
 
               <transition name="fade">
-                <create-order :user_name="user_name" :order_clases="order_clases" :order_types="order_types"/>
+                <create-order :user_id="user_id" :user_name="user_name" :order_clases="order_clases" :order_types="order_types"/>
               </transition>
             </b-tab>
 
@@ -96,7 +96,7 @@ textarea {
               </template>
 
               <transition name="fade">
-                <OrdersListingTable></OrdersListingTable>
+                <OrdersListingTable :user_id="user_id" :user_name="user_name" :order_clases="order_clases" :order_types="order_types"></OrdersListingTable>
               </transition>
             </b-tab>
           </b-tabs>
@@ -137,6 +137,7 @@ import CreateOrder from './CreateOrder';
     },
     props: [
       'role',
+      'user_id',
       'user_name',
       'provinces',
       'cities',

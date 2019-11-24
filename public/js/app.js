@@ -182914,7 +182914,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['user_id', 'user_name', 'order_clases', 'order_types'],
   mounted: function mounted() {
     var vm = this;
     vm.getOrders();
@@ -182927,6 +182929,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       orders: [],
+      requestor_id: '',
+      status: '',
       perPage: 20,
       currentPage: 1,
       orderHistory: []
@@ -182943,12 +182947,14 @@ __webpack_require__.r(__webpack_exports__);
     mapOrders: function mapOrders(orders) {
       var vm = this;
       orders.map(function (order) {
+        vm.requestor_id = order.requestor_id;
+        vm.status = order.status;
         vm.orderHistory.push({
           ID: order.id,
           Type: order.type.name,
           Class: order["class"].name,
-          Requestor: order["class"].name,
-          BillingAddress: order.requestor,
+          Requestor: order.requestor,
+          BillingAddress: order.billing_address,
           ContactPerson: order.contact_name,
           ContactNumber: order.contact_number,
           ContactEmail: order.contact_email,
@@ -182965,6 +182971,10 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     rows: function rows() {
       return this.orderHistory.length;
+    },
+    checkSelectDisabled: function checkSelectDisabled() {},
+    checkForDeliveryNote: function checkForDeliveryNote(data) {
+      return this.status == 'IN TRANSIT' || this.status == 'DELIVERED' || this.status == 'PAID';
     }
   }
 });
@@ -185044,7 +185054,7 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   created: function created() {},
-  props: ['user_name', 'order_clases', 'order_types'],
+  props: ['user_id', 'user_name', 'order_clases', 'order_types'],
   data: function data() {
     return {
       item: {},
@@ -185820,6 +185830,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -186018,7 +186029,7 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   created: function created() {},
-  props: ['role', 'user_name', 'provinces', 'cities', 'company_types'],
+  props: ['role', 'user_id', 'user_name', 'provinces', 'cities', 'company_types'],
   data: function data() {
     return {
       tabIndex: 0,
@@ -370473,6 +370484,45 @@ var render = function() {
           },
           scopedSlots: _vm._u([
             {
+              key: "Status",
+              fn: function(data) {
+                return [
+                  _c(
+                    "a-select",
+                    {
+                      model: {
+                        value: data.item.Status,
+                        callback: function($$v) {
+                          _vm.$set(data.item, "Status", $$v)
+                        },
+                        expression: "data.item.Status"
+                      }
+                    },
+                    [
+                      _c("a-select-option", { attrs: { value: "PENDING" } }, [
+                        _vm._v("PENDING")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "a-select-option",
+                        { attrs: { value: "IN TRANSIT" } },
+                        [_vm._v("IN TRANSIT")]
+                      ),
+                      _vm._v(" "),
+                      _c("a-select-option", { attrs: { value: "DELIVERED" } }, [
+                        _vm._v("DELIVERED")
+                      ]),
+                      _vm._v(" "),
+                      _c("a-select-option", { attrs: { value: "PAID" } }, [
+                        _vm._v("PAID")
+                      ])
+                    ],
+                    1
+                  )
+                ]
+              }
+            },
+            {
               key: "Actions",
               fn: function(data) {
                 return [
@@ -370495,14 +370545,16 @@ var render = function() {
                     [_vm._v("Download Invoice")]
                   ),
                   _vm._v(" "),
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn btn-primary",
-                      attrs: { href: "/orders/download-dn/" + data.item.ID }
-                    },
-                    [_vm._v("Download Delivery Note")]
-                  )
+                  _vm.checkForDeliveryNote
+                    ? _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-primary",
+                          attrs: { href: "/orders/download-dn/" + data.item.ID }
+                        },
+                        [_vm._v("Download Delivery Note")]
+                      )
+                    : _vm._e()
                 ]
               }
             }
@@ -370550,25 +370602,6 @@ var render = function() {
           _c(
             "template",
             { slot: "origin_id" },
-            [
-              _c(
-                "a-select",
-                {},
-                [
-                  _c("a-select-option", { attrs: { value: "0" } }, [
-                    _c("div", { staticClass: "d-inline-block" }),
-                    _vm._v("CPT001\n        ")
-                  ])
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "template",
-            { slot: "requestor_id" },
             [
               _c(
                 "a-select",
@@ -374919,6 +374952,7 @@ var render = function() {
                   _c("order-index", {
                     attrs: {
                       role: _vm.current_user.role_id,
+                      user_id: _vm.current_user.user_id,
                       user_name:
                         _vm.current_user.name + " " + _vm.current_user.lastname,
                       provinces: _vm.provinces,
@@ -375055,6 +375089,7 @@ var render = function() {
                     [
                       _c("create-order", {
                         attrs: {
+                          user_id: _vm.user_id,
                           user_name: _vm.user_name,
                           order_clases: _vm.order_clases,
                           order_types: _vm.order_types
@@ -375099,7 +375134,16 @@ var render = function() {
                   _c(
                     "transition",
                     { attrs: { name: "fade" } },
-                    [_c("OrdersListingTable")],
+                    [
+                      _c("OrdersListingTable", {
+                        attrs: {
+                          user_id: _vm.user_id,
+                          user_name: _vm.user_name,
+                          order_clases: _vm.order_clases,
+                          order_types: _vm.order_types
+                        }
+                      })
+                    ],
                     1
                   )
                 ],

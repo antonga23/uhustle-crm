@@ -381,7 +381,7 @@ export default {
     });
   },
   created: function () {},
-  props: ['user_name','order_clases','order_types'],
+  props: ['user_id','user_name','order_clases','order_types'],
   data: function(){
     return { 
       item: {},
@@ -528,11 +528,11 @@ export default {
       vm.order.vat = parseFloat(tax_amount);
       vm.order.sub_amount = parseFloat(sub_total);
 
-return {
-        sub_total : parseFloat(sub_total).toFixed(2),
-        tax_amount : parseFloat(tax_amount).toFixed(2),
-        grand_total : parseFloat(vm.order.amount).toFixed(2),
-      }
+      return {
+              sub_total : parseFloat(sub_total).toFixed(2),
+              tax_amount : parseFloat(tax_amount).toFixed(2),
+              grand_total : parseFloat(vm.order.amount).toFixed(2),
+            }
     }
   }
 }

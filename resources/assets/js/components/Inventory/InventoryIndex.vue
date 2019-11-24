@@ -250,6 +250,7 @@
         <div class="orders" v-if="!show_page_loader && active_module_name == 'orders'">
           <order-index 
             :role="current_user.role_id"
+            :user_id="current_user.user_id"
             :user_name="current_user.name + ' ' + current_user.lastname"
             :provinces="provinces" 
             :cities="cities" 
