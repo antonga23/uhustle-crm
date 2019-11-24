@@ -184883,16 +184883,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   mounted: function mounted() {
@@ -372605,132 +372595,83 @@ var render = function() {
         _c("div", { staticClass: "row mx-0" }, [
           _c("div", { staticClass: "col-6 border-right pl-0" }, [
             _c("div", { staticClass: "row mx-0" }, [
-              _c("div", { staticClass: "col-7 pl-0" }, [
-                _c("div", { staticClass: "row mx-0" }, [
-                  _c("div", { staticClass: "col-8 pl-0" }, [
-                    _c(
-                      "label",
-                      { staticClass: "control-label w-100 p-0 mb-2" },
-                      [_vm._v("Requestor")]
-                    ),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.order.requestor,
-                          expression: "order.requestor"
-                        }
-                      ],
-                      staticClass: "rounded-pill form-control",
-                      attrs: {
-                        disabled: "",
-                        type: "text",
-                        id: "requestor",
-                        name: "requestor"
-                      },
-                      domProps: { value: _vm.order.requestor },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.order, "requestor", $event.target.value)
-                        }
+              _c("div", { staticClass: "col-4 pl-0" }, [
+                _c("label", { staticClass: "control-label w-100 p-0 mb-2" }, [
+                  _vm._v("Requestor")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.order.requestor,
+                      expression: "order.requestor"
+                    }
+                  ],
+                  staticClass: "rounded-pill form-control",
+                  attrs: {
+                    disabled: "",
+                    type: "text",
+                    id: "requestor",
+                    name: "requestor"
+                  },
+                  domProps: { value: _vm.order.requestor },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
                       }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "col-4 pr-0" },
-                    [
-                      _c(
-                        "label",
-                        {
-                          staticClass: "col-lg-12 control-label w-100 p-0 mb-2"
-                        },
-                        [_vm._v("Priority")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "a-select",
-                        {
-                          staticClass: "custom-select rounded-pill border-0",
-                          model: {
-                            value: _vm.order.priority,
-                            callback: function($$v) {
-                              _vm.$set(_vm.order, "priority", $$v)
-                            },
-                            expression: "order.priority"
-                          }
-                        },
-                        [
-                          _c("a-select-option", { attrs: { value: "Low" } }, [
-                            _vm._v("Low")
-                          ]),
-                          _vm._v(" "),
-                          _c("a-select-option", { attrs: { value: "Mid" } }, [
-                            _vm._v("Mid")
-                          ]),
-                          _vm._v(" "),
-                          _c("a-select-option", { attrs: { value: "High" } }, [
-                            _vm._v("High")
-                          ])
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-12 pl-0" }, [
-                    _c(
-                      "label",
-                      { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
-                      [_vm._v("Request Date")]
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "calendar-container" }, [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.order.request_date,
-                            expression: "order.request_date"
-                          }
-                        ],
-                        staticClass: "rounded-pill form-control",
-                        attrs: {
-                          disabled: "",
-                          type: "text",
-                          id: "request_date",
-                          name: "request_date"
-                        },
-                        domProps: { value: _vm.order.request_date },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.order,
-                              "request_date",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      })
-                    ])
-                  ])
-                ])
+                      _vm.$set(_vm.order, "requestor", $event.target.value)
+                    }
+                  }
+                })
               ]),
               _vm._v(" "),
               _c(
                 "div",
-                { staticClass: "col-5 pr-0" },
+                { staticClass: "col-4 pl-0" },
+                [
+                  _c(
+                    "label",
+                    { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
+                    [_vm._v("Priority")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "a-select",
+                    {
+                      staticClass: "custom-select rounded-pill border-0",
+                      model: {
+                        value: _vm.order.priority,
+                        callback: function($$v) {
+                          _vm.$set(_vm.order, "priority", $$v)
+                        },
+                        expression: "order.priority"
+                      }
+                    },
+                    [
+                      _c("a-select-option", { attrs: { value: "Low" } }, [
+                        _vm._v("Low")
+                      ]),
+                      _vm._v(" "),
+                      _c("a-select-option", { attrs: { value: "Mid" } }, [
+                        _vm._v("Mid")
+                      ]),
+                      _vm._v(" "),
+                      _c("a-select-option", { attrs: { value: "High" } }, [
+                        _vm._v("High")
+                      ])
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-4 pl-0" },
                 [
                   _c(
                     "label",
@@ -372764,8 +372705,17 @@ var render = function() {
                       })
                     ],
                     2
-                  ),
-                  _vm._v(" "),
+                  )
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row mx-0" }, [
+              _c(
+                "div",
+                { staticClass: "col-4 pl-0" },
+                [
                   _c(
                     "label",
                     { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
@@ -372824,80 +372774,84 @@ var render = function() {
                       attrs: { id: "error" }
                     },
                     [_vm._v(_vm._s(_vm.errors.first("Class")))]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "label",
-                    { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
-                    [_vm._v("Origin Type")]
-                  ),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.order.origin_type_name,
-                        expression: "order.origin_type_name"
-                      }
-                    ],
-                    staticClass: "rounded-pill form-control",
-                    attrs: {
-                      disabled: "",
-                      type: "text",
-                      id: "origin",
-                      name: "origin"
-                    },
-                    domProps: { value: _vm.order.origin_type_name },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.order,
-                          "origin_type_name",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "label",
-                    { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
-                    [_vm._v("Origin")]
-                  ),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.order.origin_name,
-                        expression: "order.origin_name"
-                      }
-                    ],
-                    staticClass: "rounded-pill form-control",
-                    attrs: {
-                      disabled: "",
-                      type: "text",
-                      id: "origin",
-                      name: "origin"
-                    },
-                    domProps: { value: _vm.order.origin_name },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.order, "origin_name", $event.target.value)
-                      }
-                    }
-                  })
+                  )
                 ],
                 1
-              )
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-4 pl-0" }, [
+                _c(
+                  "label",
+                  { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
+                  [_vm._v("Origin Type")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.order.origin_type_name,
+                      expression: "order.origin_type_name"
+                    }
+                  ],
+                  staticClass: "rounded-pill form-control",
+                  attrs: {
+                    disabled: "",
+                    type: "text",
+                    id: "origin",
+                    name: "origin"
+                  },
+                  domProps: { value: _vm.order.origin_type_name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.order,
+                        "origin_type_name",
+                        $event.target.value
+                      )
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-4 pl-0" }, [
+                _c(
+                  "label",
+                  { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
+                  [_vm._v("Origin")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.order.origin_name,
+                      expression: "order.origin_name"
+                    }
+                  ],
+                  staticClass: "rounded-pill form-control",
+                  attrs: {
+                    disabled: "",
+                    type: "text",
+                    id: "origin",
+                    name: "origin"
+                  },
+                  domProps: { value: _vm.order.origin_name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.order, "origin_name", $event.target.value)
+                    }
+                  }
+                })
+              ])
             ])
           ]),
           _vm._v(" "),

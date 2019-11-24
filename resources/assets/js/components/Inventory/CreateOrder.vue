@@ -84,10 +84,8 @@ label{
     <b-card no-body>    
       <div class="row mx-0">
         <div class="col-6 border-right pl-0">  
-          <div class="row mx-0"> 
-            <div class="col-7 pl-0">
-              <div class="row mx-0">
-                <div class="col-8 pl-0">
+           <div class="row mx-0"> 
+                <div class="col-4 pl-0">
                   <label class="control-label w-100 p-0 mb-2">Requestor</label>  
                   <input
                     disabled 
@@ -98,7 +96,7 @@ label{
                     class="rounded-pill form-control"/>
                 </div>
 
-                <div class="col-4 pr-0">
+                <div class="col-4 pl-0">
                   <label class="col-lg-12 control-label w-100 p-0 mb-2">Priority</label>
                   <a-select v-model="order.priority" class="custom-select rounded-pill border-0">   
                     <a-select-option value="Low">Low</a-select-option>   
@@ -107,36 +105,26 @@ label{
                   </a-select>  
                 </div>
 
-                <div class="col-12 pl-0">
-                  <label class="col-lg-12 control-label w-100 p-0 mb-2">Request Date</label>  
-                  <div class="calendar-container"> 
-                    <input
-                      disabled 
-                      v-model="order.request_date"
-                      type="text"   
-                      id="request_date"     
-                      name="request_date"   
-                      class="rounded-pill form-control"/>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-5 pr-0">
-              <label class="col-lg-12 control-label w-100 p-0 mb-2">Type</label>   
+                <div class="col-4 pl-0">
+                  <label class="col-lg-12 control-label w-100 p-0 mb-2">Type</label>   
               <a-select v-model="order.type" class="custom-select rounded-pill border-0">   
                 <a-select-option :value="'-None-'">- Please Select -</a-select-option>   
                 <a-select-option :value="o_type.id" v-for="(o_type, index) in order_types" :key="index">{{o_type.name}}</a-select-option>  
               </a-select>  
-
-              <label class="col-lg-12 control-label w-100 p-0 mb-2">Class</label>   
+                </div>
+          </div>
+           <div class="row mx-0"> 
+                <div class="col-4 pl-0">
+                 <label class="col-lg-12 control-label w-100 p-0 mb-2">Class</label>   
               <a-select v-validate="'required'" name="Class" v-model="order.order_class" class="custom-select rounded-pill border-0">   
                 <a-select-option :value="'-None-'">- Please Select -</a-select-option>   
                 <a-select-option :value="o_class.id" v-for="(o_class, index) in order_clases" :key="index">{{o_class.name}}</a-select-option>  
               </a-select>
               <span id="error" v-show="errors.has('Class')" class="help-block">{{ errors.first('Class') }}</span>
+                </div>
 
-              <label class="col-lg-12 control-label w-100 p-0 mb-2">Origin Type</label> 
+                <div class="col-4 pl-0">
+                  <label class="col-lg-12 control-label w-100 p-0 mb-2">Origin Type</label> 
               <input 
                 disabled
                 v-model="order.origin_type_name"
@@ -144,8 +132,10 @@ label{
                 id="origin"     
                 name="origin"   
                 class="rounded-pill form-control"/>
+                </div>
 
-              <label class="col-lg-12 control-label w-100 p-0 mb-2">Origin</label>   
+                <div class="col-4 pl-0">
+                 <label class="col-lg-12 control-label w-100 p-0 mb-2">Origin</label>   
               <input
                 disabled 
                 v-model="order.origin_name"
@@ -154,7 +144,7 @@ label{
                 name="origin"   
                 class="rounded-pill form-control"/>
 
-            </div>
+                </div>
           </div>
         </div>
 
