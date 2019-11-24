@@ -167,7 +167,18 @@ label{
                 id="info"     
                 name="Info"   
                 class="form-control "/>
-
+                </div>
+                <div class="col-6 pr-0">
+                 <label class="col-lg-12 control-label w-100 p-0 mb-2">Related Item</label>   
+              <textarea 
+                v-model="order.related_item"   
+                id="info"     
+                name="Info"   
+                class="form-control"/>
+          </div>
+          </div> 
+          <div class="row mx-0">
+            <div class="col-4 pl-0">
               <label class="col-lg-12 control-label w-100 p-0 mb-2">Contact Name</label>   
               <input
                 v-model="order.contact_name"    
@@ -175,17 +186,17 @@ label{
                 id="contact-name"     
                 name="contactName"   
                 class="form-control rounded-pill"/>    
-      
-              <label class="col-lg-12 control-label w-100 p-0 mb-2">Email</label> 
-              <input 
-                v-model="order.contact_email"    
-                type="tel"    
-                id="contact-number"     
-                name="ContactNumber"   
-                class="form-control rounded-pill"/>
-            </div>
-
-            <div class="col-6 pr-0">
+              </div>
+               <div class="col-4 pl-0">
+                <label class="col-lg-12 control-label w-100 p-0 mb-2">Email</label> 
+                <input 
+                  v-model="order.contact_email"    
+                  type="tel"    
+                  id="contact-number"     
+                  name="ContactNumber"   
+                  class="form-control rounded-pill"/>
+              </div>
+            <div class="col-4 pr-0">
               <label class="col-lg-12 control-label w-100 p-0 mb-2">Phone</label> 
               <input 
                 v-model="order.contact_number"    
@@ -193,14 +204,6 @@ label{
                 id="contact-number"     
                 name="ContactNumber"   
                 class="form-control rounded-pill"/> 
-
-              <label class="col-lg-12 control-label w-100 p-0 mb-2">Related Item</label>   
-              <textarea 
-                v-model="order.related_item"   
-                id="info"     
-                name="Info"   
-                class="form-control"/>
-
             </div>
           </div> 
         </div>   
