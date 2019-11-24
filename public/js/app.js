@@ -185159,7 +185159,7 @@ __webpack_require__.r(__webpack_exports__);
               });
               vm.clearOrder();
               vm.$Progress.finish();
-              vm.loading;
+              vm.loading = false;
             } else {
               vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
               vm.$Progress.fail();
@@ -374656,8 +374656,8 @@ var render = function() {
                   _vm._l(_vm.tax_types, function(type, index) {
                     return _c(
                       "a-select-option",
-                      { key: index, attrs: { value: type } },
-                      [_vm._v(_vm._s(type))]
+                      { key: index, attrs: { value: type.id } },
+                      [_vm._v(_vm._s(type.tax_type))]
                     )
                   })
                 ],

@@ -514,26 +514,60 @@ export default {
     calculateGrandTotal: function(){ 
  
       var vm = this; 
-      vm.order.amount = 0; 
-      var tax_amount = 0; 
-      var sub_total = 0; 
-      var grand_total = 0; 
- 
-      vm.order_items.forEach( (item) => { 
-        vm.order.amount += item.Total; 
-        tax_amount +=  item.Vat; 
-        sub_total += (item.UnitCost * item.Quantity ); 
-      }); 
- 
-      vm.order.vat = parseFloat(tax_amount); 
-      vm.order.sub_amount = parseFloat(sub_total); 
- 
-return { 
-        sub_total : parseFloat(sub_total).toFixed(2), 
-        tax_amount : parseFloat(tax_amount).toFixed(2), 
-        grand_total : parseFloat(vm.order.amount).toFixed(2), 
-      } 
-    } 
-  } 
-} 
-</script> 
+      vm.$Progress.start();
+      vm.loading = true;
+      vm.$validator.validateAll().then((result) => { 
+        if (!result) {} else { 
+          axios.post('/orders/create', { 
+            order: vm.order,
+            order_items: vm.order_items,
+          }).then(function(response) { 
+
+            if (response.data.success === true) { 
+              vm.Toast.fire({ 
+                type: 'success', 
+                title: response.data.message 
+              }); 
+
+              Fire.$emit('OrderCreated', {
+                order : response.data.order
+              }); 
+              vm.clearOrder();
+              vm.$Progress.finish(); 
+              vm.loading = false;
+            } else { 
+              vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning'); 
+              vm.$Progress.fail(); 
+            } 
+          }); 
+        } 
+      });
+    }
+  },
+  computed:{
+    calculateGrandTotal: function(){
+
+      var vm = this;
+      vm.order.amount = 0;
+      var tax_amount = 0;
+      var sub_total = 0;
+      var grand_total = 0;
+
+      vm.order_items.forEach( (item) => {
+        vm.order.amount += item.Total;
+        tax_amount +=  item.Vat;
+        sub_total += (item.UnitCost * item.Quantity );
+      });
+
+      vm.order.vat = parseFloat(tax_amount);
+      vm.order.sub_amount = parseFloat(sub_total);
+
+return {
+        sub_total : parseFloat(sub_total).toFixed(2),
+        tax_amount : parseFloat(tax_amount).toFixed(2),
+        grand_total : parseFloat(vm.order.amount).toFixed(2),
+      }
+    }
+  }
+}
+</script>

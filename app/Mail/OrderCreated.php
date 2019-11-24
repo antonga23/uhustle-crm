@@ -36,9 +36,8 @@ class OrderCreated extends Mailable
      */
     public function build()
     {
-        return $this->view('email.orders.created')
-                    ->attach('/public/pdf/' . $this->order->purchase_order, [
-                        'as' => $this->order->purchase_order,
+        return $this->view('mail.orders.created')
+                    ->attachFromStorage('/public/pdf/' . $this->order->purchase_order, $this->order->purchase_order,[
                         'mime' => 'application/pdf',
                     ]);
     }

@@ -81,7 +81,7 @@ class OrderController extends Controller
 
             $this->createInvoice($order);
 
-            $this->sendInvoice($order);
+            $this->sendInvoice($order->id);
   
             return array('success' => true, 'message' => 'Order has been saved.', 'order' => $order );
   
@@ -112,10 +112,11 @@ class OrderController extends Controller
         'purchase_order' => $file_name
       ]);
       
-      return $pdf->download($file_name);
+      return true;
     }
 
-    public function sendInvoice(Order $order){
+    public function sendInvoice($order_id){
+      $order = Order::with(['items', 'type', 'class','recieving_company','requesting_company'])->find($order_id);
       Mail::to($order->recieving_company->email)->send(new OrderCreated($order));
     }
 

@@ -3,7 +3,7 @@
     <thead>
         <tr>
             <th colspan="5">
-                <img src="https://dev.uhustle.co.za/images/Page-Automation-Logo-800x800.jpg">
+                <img src="{{ public_path() . '/images/Page-Automation-Logo-800x800.jpg' }}">
             </th>
             <th colspan="7">
                 <table width="100%" class="right">
@@ -107,24 +107,6 @@
         </tr>
 
         <tr>
-            <td colspan="8" style="padding:0;">
-                <table width="100%">
-                    <tr>
-                        &nbsp;
-                    </tr>
-                    <tr>
-                        <td>[Receiving Signature]</td>
-                        <td>[Date]</td>
-                        <td>[Time]</td>
-                    </tr>
-                    <tr>
-                        <td>Receiving Signature</td>
-                        <td>Date</td>
-                        <td>Time</td>
-                    </tr>
-                </table>
-            </td>
-
             <td colspan="4">
                 <table width="100%" class="right">
                     <tr>
@@ -146,7 +128,26 @@
         </tr>
 
         <tr>
-            <td colspan="6">Requested By: {{ $order->requestor }}</td>
+            <td colspan="8" style="padding:0;">
+                <table width="100%">
+                    <tr>
+                        &nbsp;
+                    </tr>
+                    <tr>
+                        <td>[Receiving Signature]</td>
+                        <td>[Date]</td>
+                        <td>[Time]</td>
+                    </tr>
+                    <tr>
+                        <td>Receiving Signature</td>
+                        <td>Date</td>
+                        <td>Time</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" style>Requested By: {{ $order->requestor }}</td>
             <td colspan="6" class="right">Approved By: ____________________________</td>
         </tr>
     </tbody>
