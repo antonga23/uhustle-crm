@@ -113,30 +113,39 @@
             <td colspan="8">
                 <table width="100%" class="right">
                     <tr>
-                        <td colspan="4"><strong>Sub Total</strong></td>
+                        <td colspan="4" style="text-align: right"><strong>Sub Total</strong></td>
                         <td colspan="4">ZAR {{ $order->sub_amount }}</td>
                     </tr>
 
                     <tr>
-                        <td colspan="4"><strong>VAT</strong></td>
+                        <td colspan="4" style="text-align: right"><strong>VAT</strong></td>
                         <td colspan="4">ZAR {{ $order->vat }}</td>
                     </tr>
 
                     <tr>
-                        <td colspan="4"><strong>Total</strong></td>
+                        <td colspan="4" style="text-align: right"><strong>Total</strong></td>
                         <td colspan="4">ZAR {{ $order->amount }}</td>
                     </tr>
                 </table>
             </td>
         </tr>
         <tr>
-            <td>Receiving Signature</td>
-            <td>Date</td>
-            <td>Time</td>
-        </tr>
+            <table width="100%">
+            <tr>
+            <td colspan="4" >________________</td>
+            <td colspan="4" >________________</td>
+            <td colspan="4" >________________</td>
+            </tr>
+            <tr>
+            <td colspan="4" >Receiving Signature</td>
+            <td colspan="4" >Date</td>
+            <td colspan="4" >Time</td>
+            </tr>
+            </tabe>
+        </tr> 
         <tr>
             <td colspan="6" >Requested By: {{ $order->requestor }}</td>
-            <td colspan="6" class="right">Approved By: ____________________________</td>
+            <td colspan="6" class="right">Approved By: _______________</td>
         </tr>
     </tbody>
 </table>
