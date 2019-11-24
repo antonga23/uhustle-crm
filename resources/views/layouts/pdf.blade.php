@@ -19,7 +19,7 @@
         table {
             font-family: 'Rubik', sans-serif !important;
         }
-        .delivery-note {
+        .delivery-note, .purchase-note {
             margin: 0 auto;
             border-collapse: collapse;
         }
@@ -41,7 +41,7 @@
         .divider {
             border-top: 1px solid #f4f4f5;
         }
-        .supplier-info {
+        .supplier-info, .company-info {
             border: 1px solid #ccc;;
         }
         .right {
