@@ -107,7 +107,10 @@
         </tr>
 
         <tr>
-            <td colspan="4">
+            <td colspan="4" style="padding:0;">
+                &nbsp;
+            </td>
+            <td colspan="8">
                 <table width="100%" class="right">
                     <tr>
                         <td colspan="4"><strong>Sub Total</strong></td>
@@ -126,28 +129,13 @@
                 </table>
             </td>
         </tr>
-
         <tr>
-            <td colspan="8" style="padding:0;">
-                <table width="100%">
-                    <tr>
-                        &nbsp;
-                    </tr>
-                    <tr>
-                        <td>[Receiving Signature]</td>
-                        <td>[Date]</td>
-                        <td>[Time]</td>
-                    </tr>
-                    <tr>
-                        <td>Receiving Signature</td>
-                        <td>Date</td>
-                        <td>Time</td>
-                    </tr>
-                </table>
-            </td>
+            <td>Receiving Signature</td>
+            <td>Date</td>
+            <td>Time</td>
         </tr>
         <tr>
-            <td colspan="6" style>Requested By: {{ $order->requestor }}</td>
+            <td colspan="6" >Requested By: {{ $order->requestor }}</td>
             <td colspan="6" class="right">Approved By: ____________________________</td>
         </tr>
     </tbody>
