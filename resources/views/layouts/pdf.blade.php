@@ -20,7 +20,7 @@
     font-family: 'Rubik', sans-serif !important;
   }
   .container {
-    height:1070px;
+    /* height:1000px; */
   }
   .delivery-note, .purchase-note, .supplier-invoice {
     margin: 0 auto;
