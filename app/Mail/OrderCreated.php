@@ -18,15 +18,17 @@ class OrderCreated extends Mailable
      * @var Order
      */
     public $order;
+    public $subject;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Order $order)
+    public function __construct(Order $order, $subject = '')
     {
       $this->order = $order;
+      $this->subject = $subject;
     }
 
     /**
@@ -36,8 +38,16 @@ class OrderCreated extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.orders.created')
-                    ->attachFromStorage('/public/pdf/' . $this->order->purchase_order, $this->order->purchase_order,[
+      $attahment = '';
+      if($this->subject == 'New Purchase Order'){
+        $attahment = $this->order->delivery_note;
+      }
+      if($this->subject == 'New Delivery Note'){
+        $attahment = $this->order->purchase_order;
+      }
+        return $this->subject($this->subject)
+                    ->view('mail.orders.created')
+                    ->attachFromStorage('/public/pdf/' . $attahment, $attahment,[
                         'mime' => 'application/pdf',
                     ]);
     }

@@ -12,6 +12,7 @@
 */
 
 use App\Lead;
+use App\Order;
 use App\ModuleItem;
 use App\ModuleItemMeta;
 use App\ModuleCustomFields;
@@ -174,15 +175,58 @@ Route::get('/inventory', 'PagesController@inventory')->name('inventory');
 
 
 Route::get('/purchase-order', function(){
-  return view('pdf.purchase-order');
+  $order = Order::with(['items', 'type', 'class','recieving_company','requesting_company'])->find(1);
+
+  $time = time();
+
+  $file_name = 'DN' . $order->id . $time . '.pdf';
+
+  $data = [
+    'order' => $order,
+    'items' => $order->items,
+    'requesting_company' => $order->requesting_company,
+    'recieving_company' => $order->recieving_company,
+    'doc_ref' => $order->id . '_' . $time
+  ];
+
+  return view('pdf.purchase-order')->with($data);
 });
 
 Route::get('/invoice', function(){
-  return view('pdf.invoice');
+  $order = Order::with(['items', 'type', 'class','recieving_company','requesting_company'])->find(1);
+
+  $time = time();
+
+  $file_name = 'DN' . $order->id . $time . '.pdf';
+
+  $data = [
+    'order' => $order,
+    'items' => $order->items,
+    'requesting_company' => $order->requesting_company,
+    'recieving_company' => $order->recieving_company,
+    'doc_ref' => $order->id . '_' . $time
+  ];
+
+  return view('pdf.invoice')->with($data);
 });
 
 Route::get('/delivery-note',function(){
-  return view('pdf.delivery-note');
+
+  $order = Order::with(['items', 'type', 'class','recieving_company','requesting_company'])->find(1);
+
+  $time = time();
+
+  $file_name = 'DN' . $order->id . $time . '.pdf';
+
+  $data = [
+    'order' => $order,
+    'items' => $order->items,
+    'requesting_company' => $order->requesting_company,
+    'recieving_company' => $order->recieving_company,
+    'doc_ref' => $order->id . '_' . $time
+  ];
+
+  return view('pdf.delivery-note')->with($data);
 });
 
 // Stripe Routes
@@ -380,6 +424,7 @@ Route::group(['prefix' => 'orders'], function () {
   Route::get('/get-types', 'OrderController@getTypes');
   Route::get('/get-order-product', 'OrderController@getProductInfo');
   Route::get('/download-po/{order_id}', 'OrderController@getPurchaseOrder');
+  Route::get('/download-dn/{order_id}', 'OrderController@getDeliveryNote');
 });
 
 

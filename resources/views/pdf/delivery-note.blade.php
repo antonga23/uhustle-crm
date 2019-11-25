@@ -5,7 +5,7 @@
             <table width="100%">
                 <tr>
                     <th colspan="5">
-                        <img src="/images/Page-Automation-Logo-800x800.jpg">
+                        <img src="{{ public_path() . '/images/Page-Automation-Logo-800x800.jpg' }}">
                     </th>
 
                     <th colspan="7">
@@ -18,38 +18,38 @@
 
                             <tr>
                                 <td colspan="12" class="left">
-                                    <h3>[Company Name]</h3>
+                                    <h3>{{ $recieving_company->name }}</h3>
                                 </td>
                             </tr>
 
                             <tr>
-                                <td colspan="6" class="left">[Physical Address]</td>
-                                <td colspan="6" class="left">[Postal Address]</td>
+                                <td colspan="6" class="left">{{ $recieving_company->address }}</td>
+                                <td colspan="6" class="left">{{ $recieving_company->postal_address }}</td>
                             </tr>
 
                             <tr>
-                                <td colspan="6" class="left">Reg No.: [reg no]</td>
-                                <td colspan="6" class="left">Fax No.: [fax no]</td>
+                                <td colspan="6" class="left">Reg No.: {{ $recieving_company->reg_number }}</td>
+                                <td colspan="6" class="left">Fax No.: {{ $recieving_company->fax }}</td>
                             </tr>
 
                             <tr>
-                                <td colspan="6" class="left">VAT No.: [vat no]</td>
-                                <td colspan="6" class="left">Tel No.: []tel no</td>
+                                <td colspan="6" class="left">VAT No.: {{ $recieving_company->tax_number }}</td>
+                                <td colspan="6" class="left">Tel No.: {{ $recieving_company->tell }}</td>
                             </tr>
 
                             <tr>
-                                <td colspan="12" class="left">Document Ref.: [doc ref]</td>
+                                <td colspan="12" class="left">Document Ref.: {{ $doc_ref }}</td>
                             </tr>
 
                             <tr>
-                                <td colspan="12" class="left">Date.: [date]</td>
+                                <td colspan="12" class="left">Date.: {{ $order->created_at }}</td>
                             </tr>
 
                             <tr>
-                                <td colspan="12" class="left">Reference : [ref]</td>
+                                <td colspan="12" class="left">Reference : #{{ $order->id }}</td>
                             </tr>
 
-                            <tr>
+                            <tr style="display:none">
                                 <td colspan="12" class="left">GRN No : [grn no]</td>
                             </tr>
                         </table>
@@ -67,22 +67,22 @@
                                 <td colspan="6" style="padding:0;">
                                     <table width="100%">
                                         <tr>
-                                            <td><b>Supplier_Name:</b> [name]</td>
+                                            <td><b>Supplier_Name:</b> {{ $recieving_company->name }}</td>
                                         </tr>
 
                                         <tr>
-                                            <td><b>Supplier_VAT No:</b> [VAT]</td>
+                                            <td><b>Supplier_VAT No:</b> {{ $recieving_company->tax_number }}</td>
                                         </tr>
 
                                         <tr>
-                                            <td><b>Supplier_Currency:</b> [ZAR]</td>
+                                            <td><b>Supplier_Currency:</b> {{ $recieving_company->tax_number }}</td>
                                         </tr>
                                     </table>
                                 </td>
 
                                 <td rowspan="3" class="bold" style="vertical-align: top;">Postal Address: </td>
 
-                                <td rowspan="3" style="vertical-align: top;">[Postal Address] </td>
+                                <td rowspan="3" style="vertical-align: top;">{{ $recieving_company->postal_address }}</td>
                             </tr>
                         </table>
                     </td>
@@ -92,27 +92,32 @@
                     <td colspan="12" style="padding:10px 0px 0px 0px;">
                         <table width="100%" style="border-collapse: collapse;">
                             <thead style="background-color: #cdcdcf;">
+                            <thead style="background-color: #cdcdcf;">
                                 <tr>
-                                    <th colspan="1" class="left">Item Code</th>
-                                    <th colspan="3" class="left">Item Description</th>
-                                    <th colspan="2" class="right">Serial No.</th>
-                                    <th colspan="1" class="right">Quantity</th>
-                                    <th colspan="1" class="right">Unit Price</th>
-                                    <th colspan="2" class="right">Net Price</th>
-                                    <th colspan="2" class="right">Total</th>
+                                    <th colspan="1">ID</th>
+                                    <th colspan="2">Item Code</th>
+                                    <th colspan="3">Item Description</th>
+                                    <th colspan="1">Priority</th>
+                                    <th colspan="1">Unit Cost</th>
+                                    <th colspan="1">Qty</th>
+                                    <th colspan="1">Vat</th>
+                                    <th colspan="2">Cost</th>
                                 </tr>
                             </thead>
 
                             <tbody>
+                                @foreach($items as $key => $value)
                                 <tr>
-                                    <td colspan="1" class="left">[Item Code]</td>
-                                    <td colspan="3" class="left">[Item Description]</td>
-                                    <td colspan="2" class="right">[Serial No.]</td>
-                                    <td colspan="1" class="right">[Quantity]</td>
-                                    <td colspan="1" class="right">[Unit Price]</td>
-                                    <td colspan="2" class="right">[Net Price]</td>
-                                    <td colspan="2" class="right">[Total]</td>
+                                    <td colspan="1">{{ $value->id }}</td>
+                                    <td colspan="2">{{ $value->PartCode }}</td>
+                                    <td colspan="3">{{ $value->Description }}</td>
+                                    <td colspan="1">{{ $value->Priority }}</td>
+                                    <td colspan="1">{{ $value->UnitCost }}</td>
+                                    <td colspan="1">{{ $value->Quantity }}</td>
+                                    <td colspan="1">{{ $value->Vat }}</td>
+                                    <td colspan="2">{{ $value->Total }}</td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </td>
@@ -157,17 +162,17 @@
                                     <table width="100%" class="right" style="border-collapse: collapse">
                                         <tr>
                                             <td colspan="4" style="border: 1px solid #000;"><strong>Sub Total</strong></td>
-                                            <td colspan="4" style="border: 1px solid #000;">ZAR [amount]</td>
+                                            <td colspan="4" style="border: 1px solid #000;">{{ $recieving_company->currency }} {{ $order->sub_amount }}</td>
                                         </tr>
 
                                         <tr>
                                             <td colspan="4" style="border: 1px solid #000;"><strong>VAT</strong></td>
-                                            <td colspan="4" style="border: 1px solid #000;">ZAR [amount]</td>
+                                            <td colspan="4" style="border: 1px solid #000;">{{ $recieving_company->currency }} {{ $order->vat }}</td>
                                         </tr>
 
                                         <tr>
                                             <td colspan="4" style="border: 1px solid #000;"><strong>Total</strong></td>
-                                            <td colspan="4" style="border: 1px solid #000;">ZAR [amount]</td>
+                                            <td colspan="4" style="border: 1px solid #000;">{{ $recieving_company->currency }} {{ $order->amount }}</td>
                                         </tr>
                                     </table>
                                 </td>
@@ -180,8 +185,8 @@
                     <td colspan="12" class="top-border">
                         <table width="100%">
                             <tr>
-                                <td colspan="6">Requested By: [requested by]</td>
-                                <td colspan="6" class="right">Approved By: [approved by]</td>
+                                <td colspan="6">Requested By: {{ $order->requestor }} </td>
+                                <td colspan="6" class="right">Approved By: ___________________________</td>
                             </tr>
                         </table>
                     </td>

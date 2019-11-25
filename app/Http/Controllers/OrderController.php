@@ -81,9 +81,9 @@ class OrderController extends Controller
 
             $order = Order::with(['items', 'type', 'class','recieving_company','requesting_company'])->find($order->id);
 
-            $this->createInvoice($order);
+            $this->createPurchaseOrder($order);
 
-            $this->sendInvoice($order->id);
+            $this->sendPurchaseOrder($order->id);
   
             return array('success' => true, 'message' => 'Order has been saved.', 'order' => $order );
   
@@ -93,17 +93,18 @@ class OrderController extends Controller
         }
     }
 
-    public function createInvoice(Order $order){
+    public function createPurchaseOrder(Order $order){
       
       $time = time();
 
-      $file_name = 'order_' . $order->id . '_' . $time . '.pdf';
+      $file_name = 'PO' . $order->id . $time . '.pdf';
 
       $data = [
         'order' => $order,
         'items' => $order->items,
         'requesting_company' => $order->requesting_company,
-        'doc_ref' => $order->id . '_' . $time
+        'recieving_company' => $order->recieving_company,
+        'doc_ref' => $order->id . $time
       ];
       
       $pdf = PDF::loadView('pdf.purchase-order', $data);
@@ -116,24 +117,45 @@ class OrderController extends Controller
       
       return true;
     }
-
-    public function sendInvoice($order_id){
-      $order = Order::with(['items', 'type', 'class','recieving_company','requesting_company'])->find($order_id);
-      Mail::to($order->recieving_company->email)->send(new OrderCreated($order));
-    }
-
-    public function getPurchaseOrder($id)
-    {
-      $order = Order::with(['items', 'type', 'class'])->find($id);
-
+    
+    public function createDeliveryNote(Order $order){
+      
       $time = time();
 
-      $file_name = 'order_' . $order->id . '_' . $time . '.pdf';
+      $file_name = 'DN' . $order->id . $time . '.pdf';
 
       $data = [
         'order' => $order,
         'items' => $order->items,
         'requesting_company' => $order->requesting_company,
+        'recieving_company' => $order->recieving_company,
+        'doc_ref' => $order->id . $time
+      ];
+      
+      $pdf = PDF::loadView('pdf.delivery-note', $data);
+
+      Storage::put('public/pdf/'.$file_name, $pdf->output());
+
+      Order::find($order->id)->update([
+        'delivery_note' => $file_name
+      ]);
+      
+      return true;
+    }
+
+    public function getPurchaseOrder($id)
+    {
+      $order = Order::with(['items', 'type', 'class','recieving_company','requesting_company'])->find($id);
+
+      $time = time();
+
+      $file_name = 'PO' . $order->id . $time . '.pdf';
+
+      $data = [
+        'order' => $order,
+        'items' => $order->items,
+        'requesting_company' => $order->requesting_company,
+        'recieving_company' => $order->recieving_company,
         'doc_ref' => $order->id . '_' . $time
       ];
       
@@ -141,6 +163,40 @@ class OrderController extends Controller
       
       return $pdf->download($file_name);
 
+    }
+
+    public function getDeliveryNote($id)
+    {
+      $order = Order::with(['items', 'type', 'class','recieving_company','requesting_company'])->find($id);
+
+      $time = time();
+
+      $file_name = 'DN' . $order->id . $time . '.pdf';
+
+      $data = [
+        'order' => $order,
+        'items' => $order->items,
+        'requesting_company' => $order->requesting_company,
+        'recieving_company' => $order->recieving_company,
+        'doc_ref' => $order->id . '_' . $time
+      ];
+      
+      $pdf = PDF::loadView('pdf.delivery-note', $data);
+      
+      return $pdf->download($file_name);
+
+    }
+
+    public function sendPurchaseOrder($order_id){
+      $order = Order::with(['items', 'type', 'class','recieving_company','requesting_company'])->find($order_id);
+      Mail::to($order->recieving_company->email)
+            ->send(new OrderCreated($order,'New Purchase Order'));
+    }
+
+    public function sendDeliveryNote($order_id){
+      $order = Order::with(['items', 'type', 'class','recieving_company','requesting_company'])->find($order_id);
+      Mail::to($order->requesting_company->email)
+            ->send(new OrderCreated($order,'New Delivery Note'));
     }
 
     /**
@@ -163,6 +219,13 @@ class OrderController extends Controller
         Order::find($order_id)->update([
           'status' => $order_status
         ]);
+
+        $order = Order::with(['items', 'type', 'class','recieving_company','requesting_company'])->find($order_id);
+
+        if($order_status == 'IN TRANSIT'){
+          $this->createDeliveryNote($order);
+          $this->sendDeliveryNote($order_id);
+        }
 
         DB::commit();            
         

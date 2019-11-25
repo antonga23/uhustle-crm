@@ -22,6 +22,7 @@ class Company extends Model implements Auditable
     'reg_number',
     'type_id',
     'code',
+    'currency',
     'status'
    ];
 

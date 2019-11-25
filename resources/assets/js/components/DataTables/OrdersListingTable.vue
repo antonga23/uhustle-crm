@@ -185,11 +185,12 @@
         var vm = this;
         var outcome = false;
         vm.orderRelations.forEach( (relation) => {
-
           if(relation.requestor_company_id == vm.company_id && data.Status == 'PENDING'){
-
+            outcome = false;
+          }else if(relation.requestor_company_id == vm.company_id && data.Status == 'DELIVERED'){
+            outcome = false;
+          }else if(relation.requestor_company_id == vm.company_id && data.Status == 'IN TRANSIT'){
             outcome = (stage == 'DELIVERED') ? true : false;
-
           }
 
           if(relation.origin_id == vm.company_id && data.Status == 'PENDING'){

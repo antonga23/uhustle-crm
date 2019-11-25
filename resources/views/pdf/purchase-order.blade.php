@@ -150,17 +150,17 @@
                                     <table width="100%" class="right" style="border-collapse: collapse">
                                         <tr>
                                             <td colspan="3" style="border: 1px solid #000;"><strong>Sub Total</strong></td>
-                                            <td colspan="3" style="border: 1px solid #000;">ZAR {{ $order->sub_amount }}</td>
+                                            <td colspan="3" style="border: 1px solid #000;">{{ $recieving_company->currency }} {{ $order->sub_amount }}</td>
                                         </tr>
 
                                         <tr>
                                             <td colspan="3" style="border: 1px solid #000;"><strong>VAT</strong></td>
-                                            <td colspan="3" style="border: 1px solid #000;">ZAR {{ $order->vat }}</td>
+                                            <td colspan="3" style="border: 1px solid #000;">{{ $recieving_company->currency }} {{ $order->vat }}</td>
                                         </tr>
 
                                         <tr>
                                             <td colspan="3" style="border: 1px solid #000;"><strong>Total</strong></td>
-                                            <td colspan="3" style="border: 1px solid #000;">ZAR {{ $order->amount }}</td>
+                                            <td colspan="3" style="border: 1px solid #000;">{{ $recieving_company->currency }} {{ $order->amount }}</td>
                                         </tr>
                                     </table>
                                 </td>
