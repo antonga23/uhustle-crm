@@ -15,9 +15,12 @@
   @page {
     size: A4;
   }
-       
+
   table {
     font-family: 'Rubik', sans-serif !important;
+  }
+  .container {
+    height:1070px;
   }
   .delivery-note, .purchase-note, .supplier-invoice {
     margin: 0 auto;
@@ -40,9 +43,8 @@
     font-size: 14px;
     padding: 5px;
   }
-  table thead th img {
-    width: 200px;
-
+  img {
+    max-width: 200px;
   }
   h2, h3 {
     margin-bottom: 0 !important;
