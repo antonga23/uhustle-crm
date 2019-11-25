@@ -501,7 +501,7 @@ label:not(.form-check-label):not(.custom-file-label) {
 }
 .ant-calendar-today .ant-calendar-date {
   border-color: #ff931e!important;
-  color: #ff931e!important;
+  color: #ffffff !important;
   border-radius: 50%;
 }
 .ant-time-picker-icon, .ant-calendar-picker-icon.anticon.anticon-calendar {
@@ -887,6 +887,7 @@ max-height: 350px;
   font-size: 0.73vw !important;
   width: auto;
 }
+
 @media screen and (max-width: 1643px) {
   .calendar .ant-calendar-picker-input.ant-input,
   .calendar .ant-time-picker-input {
@@ -1085,6 +1086,13 @@ max-height: 350px;
   background-color: #fbfbfc;
   
 } */
+.products .product-listing thead tr th:first-child,
+.branches .companies-listing thead tr th:first-child,
+.orders .order-listing thead tr th:first-child,
+.orders .product-listing thead tr th:first-child,
+.products .category-listing thead tr th:first-child {
+  padding-left: 0 !important;
+}
 
 .products .product-listing thead tr th,
 .branches .companies-listing thead tr th,
@@ -1285,7 +1293,7 @@ max-height: 350px;
   background-color: #fff;
   border: 1px solid #444444 !important;
   border-radius: 50% !important;
-  padding: 4px 5px 4px 6px;
+  padding: 4px 6px 1px 5px;
   font-size: 10px;
   line-height:1em;
 }
