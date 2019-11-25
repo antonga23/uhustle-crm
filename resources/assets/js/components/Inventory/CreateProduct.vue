@@ -158,7 +158,7 @@ label{
           class="form-control rounded-pill"/>
       </b-col>
       
-      <b-col sm="3" class="pl-0">
+      <b-col sm="3" class="pr-0">
         <label for="input-none">Current Stock</label>
         <input 
           v-validate="'required'"
@@ -169,7 +169,7 @@ label{
           class="form-control rounded-pill"/>
       </b-col>
 
-      <b-col sm="3">
+      <b-col sm="3" class="pl-0">
         <label for="input-none">Reserved Stock</label>
         <input 
           @blur="calculateStock"
@@ -191,25 +191,22 @@ label{
           class="form-control rounded-pill"/>
       </b-col>
 
-      <b-col sm="3" class="pr-0">
+      <b-col sm="3">
         <label for="input-none">Tax Type</label>
         <a-select v-validate="'required'" name="Tax Type" v-model="product.tax_type" class="custom-select rounded-pill border-0">   
           <a-select-option value="" selected>-None-</a-select-option>   
           <a-select-option :value="type.id" v-for="(type, index) in tax_types" :key="index">{{type.tax_type}}</a-select-option> 
         </a-select>
       </b-col>
-    </b-row>
 
-    <b-row class="mx-0">
-      <b-col sm="auto" class="px-0">
+      <b-col sm="auto" class="pl-0">
         <label for="input-none" class="d-block">Status</label>
         <span id="error" v-show="errors.has('Status')" class="help-block">{{ errors.first('Status') }}</span>
         <a-switch v-model="product.status" v-validate="'required'" name="Status"/>
         <label v-if="product.status == 1 || product.status == true">Active</label>
         <label v-if="product.status == 0 || product.status == false">Inactive</label>
       </b-col>
-    </b-row>  
-
+    </b-row>
     <div class="row mx-0 justify-content-end">
       <div class="col-auto pl-0">
         <b-button class="btn btn-default my-0 ml-0" @click="clearProduct">Cancel</b-button>

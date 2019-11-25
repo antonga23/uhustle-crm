@@ -32,7 +32,7 @@
         </a-select>
       </template>
 
-       <template slot="Status"  slot-scope="data">
+       <template slot="Status" slot-scope="data">
         <a-select class v-model="data.item.Status">
           <a-select-option value="PENDING">PENDING</a-select-option>
           <a-select-option value="IN TRANSIT">IN TRANSIT</a-select-option>
@@ -41,10 +41,10 @@
         </a-select>
       </template>
 
-       <template slot="Actions"  slot-scope="data">
-        <a :href="'/orders/download-po/' + data.item.ID" class="btn btn-primary">Download Purchase Order</a>
-        <a :href="'/orders/download-inv/' + data.item.ID" class="btn btn-primary" style="display:none;">Download Invoice</a>
-        <a :href="'/orders/download-dn/' + data.item.ID" class="btn btn-primary" v-if="checkForDeliveryNote">Download Delivery Note</a>
+       <template slot="Actions" slot-scope="data">
+        <a :href="'/orders/download-po/' + data.item.ID" class="btn btn-default">Download Purchase Order</a>
+        <a :href="'/orders/download-inv/' + data.item.ID" class="btn btn-default" style="display:none;">Download Invoice</a>
+        <a :href="'/orders/download-dn/' + data.item.ID" class="btn btn-primary btn-default" v-if="checkForDeliveryNote">Download Delivery Note</a>
       </template>
     </b-table>
 
@@ -136,3 +136,31 @@
     }
   }
 </script>
+
+<style scoped>
+  .btn-default{
+  background: #fff;
+  color: #999999;    
+  border: none!important;
+  padding: 11px 14px 10px;
+  font-size: 10px;
+  text-transform:uppercase;
+  border-radius: 50rem!important;
+  line-height:1em;
+  margin-left: 0.9%;
+  margin-right: 0.9%;
+  -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
+  -moz-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
+  -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
+}
+.btn-primary {
+  border-radius: 50rem!important;
+  text-transform:uppercase;
+  font-size: 10px;
+  padding: 11px 14px 10px;
+  line-height:1em;
+  margin-left: 0.9%;
+  margin-right: 0.9%;
+}
+</style>

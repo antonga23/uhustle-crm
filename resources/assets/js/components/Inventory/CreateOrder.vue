@@ -91,48 +91,42 @@ label{
       <div class="row mx-0"> 
         <div class="col-6 border-right pl-0">   
           <div class="row mx-0">  
-            <div class="col-7 pl-0"> 
-              <div class="row mx-0"> 
-                <div class="col-8 pl-0"> 
-                  <label class="control-label w-100 p-0 mb-2">Requestor</label>   
-                  <input 
-                    disabled  
-                    v-model="order.requestor" 
-                    type="text"    
-                    id="requestor"      
-                    name="requestor"    
-                    class="rounded-pill form-control"/> 
-                </div> 
- 
-                <div class="col-4 pr-0"> 
-                  <label class="col-lg-12 control-label w-100 p-0 mb-2">Request Date</label>   
-                    <input 
-                      disabled  
-                      v-model="order.request_date" 
-                      type="text"    
-                      id="request_date"      
-                      name="request_date"    
-                      class="rounded-pill form-control"/> 
-                </div> 
-              </div> 
-            </div> 
- 
-            <div class="col-5 pr-0"> 
-              <label class="col-lg-12 control-label w-100 p-0 mb-2">Type</label>    
-              <a-select  v-validate="'required'" name="Type" v-model="order.type" class="custom-select rounded-pill border-0">    
+            <div class="col-7 pl-0">  
+              <label class="control-label p-0 mb-2">Requestor</label>   
+              <input 
+                disabled  
+                v-model="order.requestor" 
+                type="text"    
+                id="requestor"      
+                name="requestor"    
+                class="rounded-pill form-control"/> 
+
+              <label class="control-label p-0 mb-2">Request Date</label>   
+              <input 
+                disabled  
+                v-model="order.request_date" 
+                type="text"    
+                id="request_date"      
+                name="request_date"    
+                class="rounded-pill form-control"/> 
+              
+              <label class="control-label p-0 mb-2">Type</label>    
+              <span id="error" v-show="errors.has('Type')" class="help-block">{{ errors.first('Type') }}</span>   
+              <a-select  v-validate="'required'" name="Type" v-model="order.type" class="custom-select rounded-pill border-0" tabindex="1">    
                 <a-select-option :value="''">- Please Select -</a-select-option>    
                 <a-select-option :value="o_type.id" v-for="(o_type, index) in order_types" :key="index">{{o_type.name}}</a-select-option>   
               </a-select> 
-              <span id="error" v-show="errors.has('Type')" class="help-block">{{ errors.first('Type') }}</span>   
+            </div> 
  
-              <label class="col-lg-12 control-label w-100 p-0 mb-2">Class</label>    
-              <a-select v-validate="'required'" name="Class" v-model="order.order_class" class="custom-select rounded-pill border-0">    
+            <div class="col-5 pr-0"> 
+              <label class="control-label p-0 mb-2">Class</label>    
+              <span id="error" v-show="errors.has('Class')" class="help-block">{{ errors.first('Class') }}</span> 
+              <a-select v-validate="'required'" name="Class" v-model="order.order_class" class="custom-select rounded-pill border-0" tabindex="2">    
                 <a-select-option :value="''">- Please Select -</a-select-option>    
                 <a-select-option :value="o_class.id" v-for="(o_class, index) in order_clases" :key="index">{{o_class.name}}</a-select-option>   
               </a-select> 
-              <span id="error" v-show="errors.has('Class')" class="help-block">{{ errors.first('Class') }}</span> 
  
-              <label class="col-lg-12 control-label w-100 p-0 mb-2">Origin Type</label>  
+              <label class="control-label p-0 mb-2">Origin Type</label>  
               <input  
                 disabled 
                 v-model="order.origin_type_name" 
@@ -141,7 +135,7 @@ label{
                 name="origin"    
                 class="rounded-pill form-control"/> 
  
-              <label class="col-lg-12 control-label w-100 p-0 mb-2">Origin</label>    
+              <label class="control-label p-0 mb-2">Origin</label>    
               <input 
                 disabled  
                 v-model="order.origin_name" 
@@ -157,65 +151,68 @@ label{
         <div class="col-6 pr-0">    
           <div class="row mx-0"> 
             <div class="col-6 pl-0"> 
-              <label class="control-label w-100 p-0 mb-2">Billing Address</label>    
+              <label class="control-label p-0 mb-2">Billing Address</label>    
+              <span id="error" v-show="errors.has('Billing Address')" class="help-block">{{ errors.first('Billing Address') }}</span>   
               <textarea  
                 v-validate="'required'" 
                 v-model="order.billing_address"    
                 id="info"      
                 name="Billing Address"    
-                class="form-control "/> 
-                <span id="error" v-show="errors.has('Billing Address')" class="help-block">{{ errors.first('Billing Address') }}</span>   
+                class="form-control "
+                tabindex="3"/> 
  
  
-              <label class="col-lg-12 control-label w-100 p-0 mb-2">Contact Name</label>    
+              <label class="control-label p-0 mb-2">Contact Name</label>    
+              <span id="error" v-show="errors.has('Contact Name')" class="help-block">{{ errors.first('Contact Name') }}</span>        
               <input 
                 v-validate="'required'" 
                 v-model="order.contact_name"     
                 type="text"     
                 id="contact-name"      
                 name="Contact Name"    
-                class="form-control rounded-pill"/> 
-                <span id="error" v-show="errors.has('Contact Name')" class="help-block">{{ errors.first('Contact Name') }}</span>     
-       
-              <label class="col-lg-12 control-label w-100 p-0 mb-2">Email</label>  
-              <input 
-                v-validate="'required|email'"  
-                v-model="order.contact_email"     
-                type="tel"     
-                id="contact-email"      
-                name="Email"    
-                class="form-control rounded-pill"/> 
-                <span id="error" v-show="errors.has('Email')" class="help-block">{{ errors.first('Email') }}</span>   
+                class="form-control rounded-pill"
+                tabindex="5"/> 
  
-              <label class="col-lg-12 control-label w-100 p-0 mb-2">Phone</label>  
+              <label class="control-label p-0 mb-2">Phone</label>  
+              <span id="error" v-show="errors.has('Phone')" class="help-block">{{ errors.first('Phone') }}</span>   
               <input  
                 v-validate="'required|numeric'"  
                 v-model="order.contact_number"     
                 type="tel"     
                 id="contact-Phone"      
                 name="Phone"    
-                class="form-control rounded-pill"/> 
-                <span id="error" v-show="errors.has('Phone')" class="help-block">{{ errors.first('Phone') }}</span>   
+                class="form-control rounded-pill"
+                tabindex="6"/> 
             </div> 
  
             <div class="col-6 pr-0"> 
-              <label class="col-lg-12 control-label w-100 p-0 mb-2">Related Item</label>    
+              <label class="control-label p-0 mb-2">Email</label>  
+              <span id="error" v-show="errors.has('Email')" class="help-block">{{ errors.first('Email') }}</span>
+              <input 
+                v-validate="'required|email'"  
+                v-model="order.contact_email"     
+                type="tel"     
+                id="contact-email"      
+                name="Email"    
+                class="form-control rounded-pill"
+                tabindex="7"/> 
+
+              <label class="control-label p-0 mb-2">Related Item</label>    
               <textarea  
                 v-model="order.related_item"    
                 id="info"      
                 name="Info"    
-                class="form-control"/> 
- 
+                class="form-control"
+                tabindex="4"/> 
             </div> 
           </div>  
         </div>    
       </div> 
     </b-card>  
+
     <b-card class="order-summary"> 
- 
       <b-row class="mx-0 mt-4 justify-content-between align-items-end scroll-x"> 
-        <b-table class="product-listing" :items="order_items"> 
- 
+        <b-table class="product-listing" :items="order_items" sticky-header="190px" responsive> 
           <template slot="Quantity"  slot-scope="data"> 
             <input  
               @change="updateRow(data.item)"  
@@ -279,7 +276,6 @@ label{
               name="p-total"   
               class="form-control rounded-pill border-0"/>
           </template>
-
         </b-table>
       </b-row>
 
@@ -296,9 +292,9 @@ label{
         <b-col sm="auto" class="pl-0">
           <b-row class="mx-0">
             <b-col sm="auto border-right pl-0">
-              <p class="font-weight-bold mb-0">Sub Total</p>
-              <p class="font-weight-bold mb-0">{{ order.tax }} ({{ parseInt(order.tax_percent) }}%)</p>
-              <p class="font-weight-bold mb-0">Grand Total</p>
+              <p class="font-weight-bold text-right mb-0">Sub Total</p>
+              <p class="font-weight-bold text-right mb-0">{{ order.tax }} ({{ parseInt(order.tax_percent) }}%)</p>
+              <p class="font-weight-bold text-right mb-0">Grand Total</p>
             </b-col>
 
             <b-col sm="auto" class="pr-0 order-totals">

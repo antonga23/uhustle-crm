@@ -1103,6 +1103,10 @@ max-height: 350px;
   background: white;
 }
 
+.orders .product-listing thead tr th,
+.orders .order-listing thead tr th {
+  padding-left:0;
+}
 .products .product-listing td,
 .branches .companies-listing td,
 .orders .product-listing td,
