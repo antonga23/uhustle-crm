@@ -38,7 +38,7 @@ class OrderCreated extends Mailable
      */
     public function build()
     {
-      $attahment = '';
+     
       if($this->subject == 'New Purchase Order'){
         $attahment = $this->order->delivery_note;
       }

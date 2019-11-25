@@ -198792,6 +198792,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -199217,7 +199220,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
           vm.$swal('Failed', 'Opps, something went wrong while update, please try again', 'warning');
         }
       });
-      this.edit_task = false;
+      vm.activity.title = '', vm.activity.duedate = '', vm.activity.status = 2, this.edit_task = false;
     },
     getActivities: function getActivities() {
       var vm = this;
@@ -389041,34 +389044,6 @@ var render = function() {
           _c(
             "label",
             { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
-            [_vm._v("Expected Revenue")]
-          ),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.deal.expected_revenue,
-                expression: "deal.expected_revenue"
-              }
-            ],
-            staticClass: "form-control rounded-pill",
-            attrs: { type: "number", id: "revenue", name: "Revenue" },
-            domProps: { value: _vm.deal.expected_revenue },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.deal, "expected_revenue", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c(
-            "label",
-            { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
             [_vm._v("Terms")]
           ),
           _vm._v(" "),
@@ -389104,6 +389079,34 @@ var render = function() {
             ],
             1
           ),
+          _vm._v(" "),
+          _c(
+            "label",
+            { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
+            [_vm._v("Contact Name")]
+          ),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.deal.contact_name,
+                expression: "deal.contact_name"
+              }
+            ],
+            staticClass: "form-control rounded-pill",
+            attrs: { type: "text", id: "contact-name", name: "ContactName" },
+            domProps: { value: _vm.deal.contact_name },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.deal, "contact_name", $event.target.value)
+              }
+            }
+          }),
           _vm._v(" "),
           _c(
             "label",
@@ -391040,62 +391043,39 @@ var render = function() {
                                         },
                                         [
                                           _c(
-                                            "select",
+                                            "a-select",
                                             {
-                                              directives: [
-                                                {
-                                                  name: "model",
-                                                  rawName: "v-model",
-                                                  value:
-                                                    item.custom_field_value,
-                                                  expression:
-                                                    "item.custom_field_value"
-                                                }
-                                              ],
                                               staticClass:
-                                                "form-control editable border-0",
+                                                "form-control editable border-0 p-0",
                                               attrs: {
                                                 type: "text",
                                                 id: "Source",
                                                 name: "Source"
                                               },
                                               on: {
-                                                change: [
-                                                  function($event) {
-                                                    var $$selectedVal = Array.prototype.filter
-                                                      .call(
-                                                        $event.target.options,
-                                                        function(o) {
-                                                          return o.selected
-                                                        }
-                                                      )
-                                                      .map(function(o) {
-                                                        var val =
-                                                          "_value" in o
-                                                            ? o._value
-                                                            : o.value
-                                                        return val
-                                                      })
-                                                    _vm.$set(
-                                                      item,
-                                                      "custom_field_value",
-                                                      $event.target.multiple
-                                                        ? $$selectedVal
-                                                        : $$selectedVal[0]
-                                                    )
-                                                  },
-                                                  function($event) {
-                                                    return _vm.submitEdit(
-                                                      _vm.item_field
-                                                    )
-                                                  }
-                                                ]
+                                                change: function($event) {
+                                                  return _vm.submitEdit(
+                                                    _vm.item_field
+                                                  )
+                                                }
+                                              },
+                                              model: {
+                                                value: item.custom_field_value,
+                                                callback: function($$v) {
+                                                  _vm.$set(
+                                                    item,
+                                                    "custom_field_value",
+                                                    $$v
+                                                  )
+                                                },
+                                                expression:
+                                                  "item.custom_field_value"
                                               }
                                             },
                                             [
                                               _c(
-                                                "option",
-                                                { domProps: { value: null } },
+                                                "a-select-option",
+                                                { attrs: { value: null } },
                                                 [_vm._v("- None -")]
                                               ),
                                               _vm._v(" "),
@@ -391104,10 +391084,10 @@ var render = function() {
                                                 index
                                               ) {
                                                 return _c(
-                                                  "option",
+                                                  "a-select-option",
                                                   {
                                                     key: index,
-                                                    domProps: { value: item.id }
+                                                    attrs: { value: item.id }
                                                   },
                                                   [_vm._v(_vm._s(item.name))]
                                                 )
@@ -391115,7 +391095,8 @@ var render = function() {
                                             ],
                                             2
                                           )
-                                        ]
+                                        ],
+                                        1
                                       )
                                     ]
                                   )
@@ -391148,62 +391129,39 @@ var render = function() {
                                         },
                                         [
                                           _c(
-                                            "select",
+                                            "a-select",
                                             {
-                                              directives: [
-                                                {
-                                                  name: "model",
-                                                  rawName: "v-model",
-                                                  value:
-                                                    item.custom_field_value,
-                                                  expression:
-                                                    "item.custom_field_value"
-                                                }
-                                              ],
                                               staticClass:
-                                                "form-control editable border-0",
+                                                "form-control editable border-0 p-0",
                                               attrs: {
                                                 type: "text",
                                                 id: "Source",
                                                 name: "Source"
                                               },
                                               on: {
-                                                change: [
-                                                  function($event) {
-                                                    var $$selectedVal = Array.prototype.filter
-                                                      .call(
-                                                        $event.target.options,
-                                                        function(o) {
-                                                          return o.selected
-                                                        }
-                                                      )
-                                                      .map(function(o) {
-                                                        var val =
-                                                          "_value" in o
-                                                            ? o._value
-                                                            : o.value
-                                                        return val
-                                                      })
-                                                    _vm.$set(
-                                                      item,
-                                                      "custom_field_value",
-                                                      $event.target.multiple
-                                                        ? $$selectedVal
-                                                        : $$selectedVal[0]
-                                                    )
-                                                  },
-                                                  function($event) {
-                                                    return _vm.submitEdit(
-                                                      _vm.item_field
-                                                    )
-                                                  }
-                                                ]
+                                                change: function($event) {
+                                                  return _vm.submitEdit(
+                                                    _vm.item_field
+                                                  )
+                                                }
+                                              },
+                                              model: {
+                                                value: item.custom_field_value,
+                                                callback: function($$v) {
+                                                  _vm.$set(
+                                                    item,
+                                                    "custom_field_value",
+                                                    $$v
+                                                  )
+                                                },
+                                                expression:
+                                                  "item.custom_field_value"
                                               }
                                             },
                                             [
                                               _c(
-                                                "option",
-                                                { domProps: { value: null } },
+                                                "a-select-option",
+                                                { attrs: { value: null } },
                                                 [_vm._v("- None -")]
                                               ),
                                               _vm._v(" "),
@@ -391212,10 +391170,10 @@ var render = function() {
                                                 index
                                               ) {
                                                 return _c(
-                                                  "option",
+                                                  "a-select-option",
                                                   {
                                                     key: index,
-                                                    domProps: { value: item.id }
+                                                    attrs: { value: item.id }
                                                   },
                                                   [_vm._v(_vm._s(item.name))]
                                                 )
@@ -391223,7 +391181,8 @@ var render = function() {
                                             ],
                                             2
                                           )
-                                        ]
+                                        ],
+                                        1
                                       )
                                     ]
                                   )
@@ -391257,62 +391216,39 @@ var render = function() {
                                         },
                                         [
                                           _c(
-                                            "select",
+                                            "a-select",
                                             {
-                                              directives: [
-                                                {
-                                                  name: "model",
-                                                  rawName: "v-model",
-                                                  value:
-                                                    item.custom_field_value,
-                                                  expression:
-                                                    "item.custom_field_value"
-                                                }
-                                              ],
                                               staticClass:
-                                                "form-control editable border-0",
+                                                "form-control editable border-0 p-0",
                                               attrs: {
                                                 type: "text",
                                                 id: "Source",
                                                 name: "Source"
                                               },
                                               on: {
-                                                change: [
-                                                  function($event) {
-                                                    var $$selectedVal = Array.prototype.filter
-                                                      .call(
-                                                        $event.target.options,
-                                                        function(o) {
-                                                          return o.selected
-                                                        }
-                                                      )
-                                                      .map(function(o) {
-                                                        var val =
-                                                          "_value" in o
-                                                            ? o._value
-                                                            : o.value
-                                                        return val
-                                                      })
-                                                    _vm.$set(
-                                                      item,
-                                                      "custom_field_value",
-                                                      $event.target.multiple
-                                                        ? $$selectedVal
-                                                        : $$selectedVal[0]
-                                                    )
-                                                  },
-                                                  function($event) {
-                                                    return _vm.submitEdit(
-                                                      _vm.item_field
-                                                    )
-                                                  }
-                                                ]
+                                                change: function($event) {
+                                                  return _vm.submitEdit(
+                                                    _vm.item_field
+                                                  )
+                                                }
+                                              },
+                                              model: {
+                                                value: item.custom_field_value,
+                                                callback: function($$v) {
+                                                  _vm.$set(
+                                                    item,
+                                                    "custom_field_value",
+                                                    $$v
+                                                  )
+                                                },
+                                                expression:
+                                                  "item.custom_field_value"
                                               }
                                             },
                                             [
                                               _c(
-                                                "option",
-                                                { domProps: { value: null } },
+                                                "a-select-option",
+                                                { attrs: { value: null } },
                                                 [_vm._v("- None -")]
                                               ),
                                               _vm._v(" "),
@@ -391321,10 +391257,10 @@ var render = function() {
                                                 index
                                               ) {
                                                 return _c(
-                                                  "option",
+                                                  "a-select-option",
                                                   {
                                                     key: index,
-                                                    domProps: { value: item.id }
+                                                    attrs: { value: item.id }
                                                   },
                                                   [
                                                     _vm._v(
@@ -391340,7 +391276,8 @@ var render = function() {
                                             ],
                                             2
                                           )
-                                        ]
+                                        ],
+                                        1
                                       )
                                     ]
                                   )
@@ -391373,91 +391310,70 @@ var render = function() {
                                         },
                                         [
                                           _c(
-                                            "select",
+                                            "a-select",
                                             {
-                                              directives: [
-                                                {
-                                                  name: "model",
-                                                  rawName: "v-model",
-                                                  value:
-                                                    item.custom_field_value,
-                                                  expression:
-                                                    "item.custom_field_value"
-                                                }
-                                              ],
                                               staticClass:
-                                                "form-control editable border-0",
+                                                "form-control editable border-0 p-0",
                                               attrs: {
                                                 type: "text",
                                                 id: "Source",
                                                 name: "Source"
                                               },
                                               on: {
-                                                change: [
-                                                  function($event) {
-                                                    var $$selectedVal = Array.prototype.filter
-                                                      .call(
-                                                        $event.target.options,
-                                                        function(o) {
-                                                          return o.selected
-                                                        }
-                                                      )
-                                                      .map(function(o) {
-                                                        var val =
-                                                          "_value" in o
-                                                            ? o._value
-                                                            : o.value
-                                                        return val
-                                                      })
-                                                    _vm.$set(
-                                                      item,
-                                                      "custom_field_value",
-                                                      $event.target.multiple
-                                                        ? $$selectedVal
-                                                        : $$selectedVal[0]
-                                                    )
-                                                  },
-                                                  function($event) {
-                                                    return _vm.submitEdit(
-                                                      _vm.item_field
-                                                    )
-                                                  }
-                                                ]
+                                                change: function($event) {
+                                                  return _vm.submitEdit(
+                                                    _vm.item_field
+                                                  )
+                                                }
+                                              },
+                                              model: {
+                                                value: item.custom_field_value,
+                                                callback: function($$v) {
+                                                  _vm.$set(
+                                                    item,
+                                                    "custom_field_value",
+                                                    $$v
+                                                  )
+                                                },
+                                                expression:
+                                                  "item.custom_field_value"
                                               }
                                             },
                                             [
                                               _c(
-                                                "option",
-                                                { domProps: { value: null } },
+                                                "a-select-option",
+                                                { attrs: { value: null } },
                                                 [_vm._v("- None -")]
                                               ),
                                               _vm._v(" "),
                                               _c(
-                                                "option",
+                                                "a-select-option",
                                                 { attrs: { value: "1" } },
                                                 [_vm._v("Active")]
                                               ),
                                               _vm._v(" "),
                                               _c(
-                                                "option",
+                                                "a-select-option",
                                                 { attrs: { value: "2" } },
                                                 [_vm._v("Inactive")]
                                               ),
                                               _vm._v(" "),
                                               _c(
-                                                "option",
+                                                "a-select-option",
                                                 { attrs: { value: "3" } },
                                                 [_vm._v("Canceled")]
                                               ),
                                               _vm._v(" "),
                                               _c(
-                                                "option",
+                                                "a-select-option",
                                                 { attrs: { value: "0" } },
                                                 [_vm._v("Disabled")]
                                               )
-                                            ]
+                                            ],
+                                            1
                                           )
-                                        ]
+                                        ],
+                                        1
                                       )
                                     ]
                                   )
@@ -391490,97 +391406,76 @@ var render = function() {
                                         },
                                         [
                                           _c(
-                                            "select",
+                                            "a-select",
                                             {
-                                              directives: [
-                                                {
-                                                  name: "model",
-                                                  rawName: "v-model",
-                                                  value:
-                                                    item.custom_field_value,
-                                                  expression:
-                                                    "item.custom_field_value"
-                                                }
-                                              ],
                                               staticClass:
-                                                "form-control editable border-0",
+                                                "form-control editable border-0 p-0",
                                               attrs: {
                                                 type: "text",
                                                 id: "Source",
                                                 name: "Source"
                                               },
                                               on: {
-                                                change: [
-                                                  function($event) {
-                                                    var $$selectedVal = Array.prototype.filter
-                                                      .call(
-                                                        $event.target.options,
-                                                        function(o) {
-                                                          return o.selected
-                                                        }
-                                                      )
-                                                      .map(function(o) {
-                                                        var val =
-                                                          "_value" in o
-                                                            ? o._value
-                                                            : o.value
-                                                        return val
-                                                      })
-                                                    _vm.$set(
-                                                      item,
-                                                      "custom_field_value",
-                                                      $event.target.multiple
-                                                        ? $$selectedVal
-                                                        : $$selectedVal[0]
-                                                    )
-                                                  },
-                                                  function($event) {
-                                                    return _vm.submitEdit(
-                                                      _vm.item_field
-                                                    )
-                                                  }
-                                                ]
+                                                change: function($event) {
+                                                  return _vm.submitEdit(
+                                                    _vm.item_field
+                                                  )
+                                                }
+                                              },
+                                              model: {
+                                                value: item.custom_field_value,
+                                                callback: function($$v) {
+                                                  _vm.$set(
+                                                    item,
+                                                    "custom_field_value",
+                                                    $$v
+                                                  )
+                                                },
+                                                expression:
+                                                  "item.custom_field_value"
                                               }
                                             },
                                             [
                                               _c(
-                                                "option",
-                                                { domProps: { value: null } },
+                                                "a-select-option",
+                                                { attrs: { value: null } },
                                                 [_vm._v("- None -")]
                                               ),
                                               _vm._v(" "),
                                               _c(
-                                                "option",
+                                                "a-select-option",
                                                 { attrs: { value: "Dr" } },
                                                 [_vm._v("Dr")]
                                               ),
                                               _vm._v(" "),
                                               _c(
-                                                "option",
+                                                "a-select-option",
                                                 { attrs: { value: "Mr" } },
                                                 [_vm._v("Mr")]
                                               ),
                                               _vm._v(" "),
                                               _c(
-                                                "option",
+                                                "a-select-option",
                                                 { attrs: { value: "Mrs" } },
                                                 [_vm._v("Mrs")]
                                               ),
                                               _vm._v(" "),
                                               _c(
-                                                "option",
+                                                "a-select-option",
                                                 { attrs: { value: "Miss" } },
                                                 [_vm._v("Miss")]
                                               ),
                                               _vm._v(" "),
                                               _c(
-                                                "option",
+                                                "a-select-option",
                                                 { attrs: { value: "Prof" } },
                                                 [_vm._v("Prof")]
                                               )
-                                            ]
+                                            ],
+                                            1
                                           )
-                                        ]
+                                        ],
+                                        1
                                       )
                                     ]
                                   )
@@ -391613,79 +391508,58 @@ var render = function() {
                                         },
                                         [
                                           _c(
-                                            "select",
+                                            "a-select",
                                             {
-                                              directives: [
-                                                {
-                                                  name: "model",
-                                                  rawName: "v-model",
-                                                  value:
-                                                    item.custom_field_value,
-                                                  expression:
-                                                    "item.custom_field_value"
-                                                }
-                                              ],
                                               staticClass:
-                                                "form-control editable border-0",
+                                                "form-control editable border-0 p-0",
                                               attrs: {
                                                 type: "text",
                                                 id: "Source",
                                                 name: "Source"
                                               },
                                               on: {
-                                                change: [
-                                                  function($event) {
-                                                    var $$selectedVal = Array.prototype.filter
-                                                      .call(
-                                                        $event.target.options,
-                                                        function(o) {
-                                                          return o.selected
-                                                        }
-                                                      )
-                                                      .map(function(o) {
-                                                        var val =
-                                                          "_value" in o
-                                                            ? o._value
-                                                            : o.value
-                                                        return val
-                                                      })
-                                                    _vm.$set(
-                                                      item,
-                                                      "custom_field_value",
-                                                      $event.target.multiple
-                                                        ? $$selectedVal
-                                                        : $$selectedVal[0]
-                                                    )
-                                                  },
-                                                  function($event) {
-                                                    return _vm.submitEdit(
-                                                      _vm.item_field
-                                                    )
-                                                  }
-                                                ]
+                                                change: function($event) {
+                                                  return _vm.submitEdit(
+                                                    _vm.item_field
+                                                  )
+                                                }
+                                              },
+                                              model: {
+                                                value: item.custom_field_value,
+                                                callback: function($$v) {
+                                                  _vm.$set(
+                                                    item,
+                                                    "custom_field_value",
+                                                    $$v
+                                                  )
+                                                },
+                                                expression:
+                                                  "item.custom_field_value"
                                               }
                                             },
                                             [
                                               _c(
-                                                "option",
-                                                { domProps: { value: null } },
+                                                "a-select-option",
+                                                { attrs: { value: null } },
                                                 [_vm._v("- None -")]
                                               ),
                                               _vm._v(" "),
                                               _c(
-                                                "option",
+                                                "a-select-option",
                                                 { attrs: { value: "Male" } },
                                                 [_vm._v("Male")]
                                               ),
                                               _vm._v(" "),
                                               _c(
-                                                "option",
+                                                "a-select-option",
                                                 { attrs: { value: "Female" } },
                                                 [_vm._v("Female")]
                                               )
-                                            ]
+                                            ],
+                                            1
                                           )
-                                        ]
+                                        ],
+                                        1
                                       )
                                     ]
                                   )
@@ -392269,6 +392143,7 @@ var render = function() {
                                         staticClass: "rounded-pill",
                                         attrs: {
                                           format: "DD-MM",
+                                          use: "",
                                           allowEmpty: false
                                         },
                                         on: {
@@ -392311,6 +392186,7 @@ var render = function() {
                                         " \n                      Time of Callback \n                      "
                                       ),
                                       _c("a-time-picker", {
+                                        staticClass: "shadow-none",
                                         attrs: {
                                           allowEmpty: false,
                                           use24Hours: "",
@@ -393250,6 +393126,7 @@ var render = function() {
                                         _c("a-time-picker", {
                                           attrs: {
                                             name: "Time",
+                                            use24Hours: "",
                                             format: "HH:mm"
                                           },
                                           on: {
@@ -393273,7 +393150,7 @@ var render = function() {
                                 ],
                                 null,
                                 false,
-                                2014092939
+                                3529181899
                               )
                             }),
                             _vm._v(" "),
@@ -393481,6 +393358,7 @@ var render = function() {
                                         _c("a-time-picker", {
                                           attrs: {
                                             name: "Time",
+                                            use24Hours: "",
                                             format: "HH:mm"
                                           },
                                           on: {
@@ -393504,7 +393382,7 @@ var render = function() {
                                 ],
                                 null,
                                 false,
-                                2014092939
+                                3529181899
                               )
                             }),
                             _vm._v(" "),
@@ -393561,6 +393439,7 @@ var render = function() {
                           },
                           [
                             _c("b-table", {
+                              staticClass: "deals-table",
                               attrs: {
                                 hover: "",
                                 items: _vm.dealItems,
