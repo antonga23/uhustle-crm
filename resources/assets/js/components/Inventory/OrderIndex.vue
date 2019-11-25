@@ -96,7 +96,12 @@ textarea {
               </template>
 
               <transition name="fade">
-                <OrdersListingTable :user_id="user_id" :user_name="user_name" :order_clases="order_clases" :order_types="order_types"></OrdersListingTable>
+                <OrdersListingTable 
+                  :user_id="user_id" 
+                  :user_name="user_name" 
+                  :company_id="company_id" 
+                  :order_clases="order_clases" 
+                  :order_types="order_types"></OrdersListingTable>
               </transition>
             </b-tab>
           </b-tabs>
@@ -139,6 +144,7 @@ import CreateOrder from './CreateOrder';
       'role',
       'user_id',
       'user_name',
+      'company_id',
       'provinces',
       'cities',
       'company_types'

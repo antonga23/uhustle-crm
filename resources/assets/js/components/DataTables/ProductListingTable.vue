@@ -1,160 +1,171 @@
 <template>
   <div class="table-container">
-    <b-table class="product-listing" :items="productListing" :per-page="perPage" :current-page="currentPage">
-      <template slot="name"  slot-scope="data">
-        <input
-          :disabled="(mode == 'view')? true : false"
-          @blur="updateProduct(data.item)" 
-          v-model="data.item.name"    
-          type="text"    
-          id="name"     
-          name="Name"   
-          class="form-control rounded-pill  border-0"/>
-      </template>
+    <div v-if="show_page_loader">
+      <vcl-table v-if="show_page_loader" ></vcl-table>
+    </div>
+    <div v-else>
+      <b-table class="product-listing" :items="productListing" :per-page="perPage" :current-page="currentPage">
+        <template slot="name"  slot-scope="data">
+          <input
+            :disabled="(mode == 'view')? true : false"
+            @blur="updateProduct(data.item)" 
+            v-model="data.item.name"    
+            type="text"    
+            id="name"     
+            name="Name"   
+            class="form-control rounded-pill  border-0"/>
+        </template>
 
-      <template slot="description"  slot-scope="data">
-        <input 
-          :disabled="(mode == 'view')? true : false"
-          @blur="updateProduct(data.item)" 
-          v-model="data.item.description"   
-          id="description"     
-          name="description"   
-          class="form-control rounded-pill border-0"/>
-      </template>
+        <template slot="description"  slot-scope="data">
+          <input 
+            :disabled="(mode == 'view')? true : false"
+            @blur="updateProduct(data.item)" 
+            v-model="data.item.description"   
+            id="description"     
+            name="description"   
+            class="form-control rounded-pill border-0"/>
+        </template>
 
-      <template slot="category_id" slot-scope="data">
-        <a-select :disabled="(mode == 'view')? true : false" @change="updateProduct(data.item)"  name="Part Type" v-model="data.item.category_id" class="custom-select rounded-pill border-0">   
-          <a-select-option value="" selected>-None-</a-select-option>   
-          <a-select-option :value="cat.id" v-for="(cat, index) in categories" :key="index">{{cat.name}}</a-select-option> 
-        </a-select>
-      </template>
+        <template slot="category_id" slot-scope="data">
+          <a-select :disabled="(mode == 'view')? true : false" @change="updateProduct(data.item)"  name="Part Type" v-model="data.item.category_id" class="custom-select rounded-pill border-0">   
+            <a-select-option value="" selected>-None-</a-select-option>   
+            <a-select-option :value="cat.id" v-for="(cat, index) in categories" :key="index">{{cat.name}}</a-select-option> 
+          </a-select>
+        </template>
 
-      <template slot="origin_type_id" slot-scope="data">
-        <a-select :disabled="(mode == 'view')? true : false" name="Origin Type" @change="filterCompaniesByType(data.item.origin_type_id)" v-model="data.item.origin_type_id" class="custom-select rounded-pill border-0">   
-          <a-select-option value="" selected>-None-</a-select-option>   
-          <a-select-option :value="type.id" v-for="(type, index) in company_types" :key="index">{{type.name}}</a-select-option> 
-        </a-select>
-      </template>
+        <template slot="origin_type_id" slot-scope="data">
+          <a-select :disabled="(mode == 'view')? true : false" name="Origin Type" @change="filterCompaniesByType(data.item.origin_type_id)" v-model="data.item.origin_type_id" class="custom-select rounded-pill border-0">   
+            <a-select-option value="" selected>-None-</a-select-option>   
+            <a-select-option :value="type.id" v-for="(type, index) in company_types" :key="index">{{type.name}}</a-select-option> 
+          </a-select>
+        </template>
 
-      <template slot="origin_id" slot-scope="data">
-        <a-select :disabled="(mode == 'view')? true : false" @change="updateProduct(data.item)" name="Origin" v-model="data.item.origin_id" class="custom-select rounded-pill border-0">   
-          <a-select-option value="" selected>-None-</a-select-option>   
-          <a-select-option :value="company.id" v-for="(company, index) in filtered_companies" :key="index">{{company.name}}</a-select-option> 
-        </a-select>
-      </template>
+        <template slot="origin_id" slot-scope="data">
+          <a-select :disabled="(mode == 'view')? true : false" @change="updateProduct(data.item)" name="Origin" v-model="data.item.origin_id" class="custom-select rounded-pill border-0">   
+            <a-select-option value="" selected>-None-</a-select-option>   
+            <a-select-option :value="company.id" v-for="(company, index) in filtered_companies" :key="index">{{company.name}}</a-select-option> 
+          </a-select>
+        </template>
 
-      <template slot="supplier_id" slot-scope="data">
-        <a-select :disabled="(mode == 'view')? true : false" @change="updateProduct(data.item)" name="Supplier" v-model="data.item.supplier_id" class="custom-select rounded-pill border-0">   
-          <a-select-option value="" selected>-None-</a-select-option>   
-          <a-select-option :value="supplier.id" v-for="(supplier, index) in suppliers" :key="index">{{supplier.name}}</a-select-option> 
-        </a-select>
-      </template>
+        <template slot="supplier_id" slot-scope="data">
+          <a-select :disabled="(mode == 'view')? true : false" @change="updateProduct(data.item)" name="Supplier" v-model="data.item.supplier_id" class="custom-select rounded-pill border-0">   
+            <a-select-option value="" selected>-None-</a-select-option>   
+            <a-select-option :value="supplier.id" v-for="(supplier, index) in suppliers" :key="index">{{supplier.name}}</a-select-option> 
+          </a-select>
+        </template>
 
-      <template slot="model_number" slot-scope="data">
-        <input
-          :disabled="(mode == 'view')? true : false"
-          @blur="updateProduct(data.item)"
-          v-validate="'required'" 
-          name="Model Number" 
-          v-model="data.item.model_number"    
-          type="text"    
-          id="model-number" 
-          class="form-control rounded-pill  border-0"/>
-      </template>
+        <template slot="model_number" slot-scope="data">
+          <input
+            :disabled="(mode == 'view')? true : false"
+            @blur="updateProduct(data.item)"
+            v-validate="'required'" 
+            name="Model Number" 
+            v-model="data.item.model_number"    
+            type="text"    
+            id="model-number" 
+            class="form-control rounded-pill  border-0"/>
+        </template>
 
-      <template slot="part_code" slot-scope="data">
-        <input
-          :disabled="(mode == 'view')? true : false" 
-          @blur="updateProduct(data.item)"
-          v-model="data.item.part_code"    
-          type="text"    
-          id="part-code"     
-          name="partCode"   
-          class="form-control rounded-pill border-0"/>
-      </template>
+        <template slot="part_code" slot-scope="data">
+          <input
+            :disabled="(mode == 'view')? true : false" 
+            @blur="updateProduct(data.item)"
+            v-model="data.item.part_code"    
+            type="text"    
+            id="part-code"     
+            name="partCode"   
+            class="form-control rounded-pill border-0"/>
+        </template>
 
-      <template slot="unit_cost" slot-scope="data">
-        <input
-          :disabled="(mode == 'view')? true : false" 
-          @blur="updateProduct(data.item)"
-          v-validate="'required'"
-          v-model="data.item.unit_cost"    
-          type="number"    
-          id="unit-cost"     
-          name="unitCost"   
-          class="form-control rounded-pill border-0"/>
-      </template>
+        <template slot="unit_cost" slot-scope="data">
+          <input
+            :disabled="(mode == 'view')? true : false" 
+            @blur="updateProduct(data.item)"
+            v-validate="'required'"
+            v-model="data.item.unit_cost"    
+            type="number"    
+            id="unit-cost"     
+            name="unitCost"   
+            class="form-control rounded-pill border-0"/>
+        </template>
 
-      <template slot="current_stock" slot-scope="data">
-        <input 
-          :disabled="(mode == 'view')? true : false"
-          @blur="updateProduct(data.item)"
-          v-validate="'required'"
-          v-model="data.item.current_stock"    
-          type="number"    
-          id="stock"     
-          name="Current Stock"   
-          class="form-control rounded-pill border-0"/>
-      </template>
+        <template slot="current_stock" slot-scope="data">
+          <input 
+            :disabled="(mode == 'view')? true : false"
+            @blur="updateProduct(data.item)"
+            v-validate="'required'"
+            v-model="data.item.current_stock"    
+            type="number"    
+            id="stock"     
+            name="Current Stock"   
+            class="form-control rounded-pill border-0"/>
+        </template>
 
-      <template slot="reserved_stock" slot-scope="data">
-        <input
-          :disabled="(mode == 'view')? true : false"
-          @blur="updateProduct(data.item)" 
-          v-validate="'required'"
-          v-model="data.item.reserved_stock"    
-          type="number"    
-          id="stock"     
-          name="Current Stock"   
-          class="form-control rounded-pill border-0"/>
-      </template>
+        <template slot="reserved_stock" slot-scope="data">
+          <input
+            :disabled="(mode == 'view')? true : false"
+            @blur="updateProduct(data.item)" 
+            v-validate="'required'"
+            v-model="data.item.reserved_stock"    
+            type="number"    
+            id="stock"     
+            name="Current Stock"   
+            class="form-control rounded-pill border-0"/>
+        </template>
 
-      <template slot="available_stock" slot-scope="data">
-        <input
-          disabled
-          v-model="data.item.available_stock"    
-          type="number"    
-          id="stock"     
-          name="Current Stock"   
-          class="form-control rounded-pill border-0"/>
-      </template>
+        <template slot="available_stock" slot-scope="data">
+          <input
+            disabled
+            v-model="data.item.available_stock"    
+            type="number"    
+            id="stock"     
+            name="Current Stock"   
+            class="form-control rounded-pill border-0"/>
+        </template>
 
-      <template slot="tax_type" slot-scope="data">
-        <a-select :disabled="(mode == 'view')? true : false" @change="updateProduct(data.item)" v-validate="'required'" name="Tax Type" v-model="data.item.tax_type" class="custom-select rounded-pill border-0">   
-          <a-select-option value="">-None-</a-select-option>   
-          <a-select-option :value="type.id" v-for="(type, index) in tax_types" :key="index">{{type.tax_type}}</a-select-option> 
-        </a-select>
-      </template>
+        <template slot="tax_type" slot-scope="data">
+          <a-select :disabled="(mode == 'view')? true : false"  v-model="data.item.tax_type"  @change="updateProduct(data.item)" v-validate="'required'" name="Tax Type" class="custom-select rounded-pill border-0">   
+            <a-select-option value="">-None-</a-select-option>   
+            <a-select-option :value="type.id" v-for="(type, index) in tax_types" :key="index">{{type.tax_type}}</a-select-option> 
+          </a-select>
+        </template>
 
-      <template slot="status" slot-scope="data">
-        <a-select :disabled="(mode == 'view')? true : false" @change="updateProduct(data.item)" v-validate="'required'" name="Status" v-model="data.item.status" class="custom-select rounded-pill border-0">   
-          <a-select-option value="">-None-</a-select-option>   
-          <a-select-option :value="1">Active</a-select-option> 
-          <a-select-option :value="0">Disabled</a-select-option> 
-        </a-select>
-      </template>
+        <template slot="status" slot-scope="data">
+          <a-select :disabled="(mode == 'view')? true : false" @change="updateProduct(data.item)" v-validate="'required'" name="Status" v-model="data.item.status" class="custom-select rounded-pill border-0">   
+            <a-select-option value="">-None-</a-select-option>   
+            <a-select-option :value="1">Active</a-select-option> 
+            <a-select-option :value="0">Disabled</a-select-option> 
+          </a-select>
+        </template>
 
-      <template slot="actions" slot-scope="data" v-if="mode == 'view' && (data.item.available_stock > 0 && data.item.current_stock > 0)">
-        <span class="actions">
-          <!-- <a class="Edit" href="#"  title="Edit" ></a> -->
-          <!-- <a class="Delete" href="#" title="Delete"></a> -->
-          <a class="Order-button" href="#" title="Order" @click="startOrder(data.item)">Order</a>
-        </span>
-      </template>
-    </b-table>
+        <template slot="actions" slot-scope="data" v-if="mode == 'view' && (data.item.available_stock > 0 && data.item.current_stock > 0)">
+          <span class="actions">
+            <!-- <a class="Edit" href="#"  title="Edit" ></a> -->
+            <!-- <a class="Delete" href="#" title="Delete"></a> -->
+            <a class="Order-button" href="#" title="Order" @click="startOrder(data.item)">Order</a>
+          </span>
+        </template>
+      </b-table>
 
-    <b-pagination
-      class="products-pagination"
-      v-model="currentPage"
-      :per-page="perPage"
-      align="center"
-      size="sm"
-      :total-rows="rows"
-    ></b-pagination>
+      <b-pagination
+        class="products-pagination"
+        v-model="currentPage"
+        :per-page="perPage"
+        align="center"
+        size="sm"
+        :total-rows="rows"
+      ></b-pagination>
+    </div>
   </div>
 </template>
 <script>
+import { VclFacebook, VclInstagram,VclTable } from 'vue-content-loading';
 export default {
+  components: { 
+    VclFacebook,
+    VclInstagram,
+    VclTable,
+  },
   props: ['role', 'mode'],
   mounted(){
     var vm = this;
@@ -191,6 +202,7 @@ export default {
       categories: [],
       company_types: [],
       tax_types:[],
+      show_page_loader: false,
       Toas: null
     };
   },
@@ -220,12 +232,14 @@ export default {
       }else{
         endpoint = '/products/get-all';
       }
+      vm.show_page_loader = true;
       axios.get(endpoint).then(function (response) {
 
         vm.products = response.data.products;
 
         vm.mapProducts(vm.products);
 
+        vm.show_page_loader = false;
       });
     },
     mapProducts(products){

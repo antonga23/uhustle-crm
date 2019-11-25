@@ -67,7 +67,7 @@ class CompanyController extends Controller
       try{
           DB::beginTransaction();
 
-          $role = Company::find($data['company']['id'])->update($data['company']);
+          $company = Company::find($data['company']['id'])->update($data['company']);
 
           DB::commit();
 

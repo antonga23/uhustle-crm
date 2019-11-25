@@ -72,7 +72,11 @@ label{
   line-height:1em; 
   margin-left: 0.9%; 
   margin-right: 0.9%; 
+  
 } 
+input, select{
+  margin-bottom: 0;
+}
 .calendar-container { 
   margin-left: 17px; 
   margin-right: 17px; 
@@ -83,6 +87,9 @@ label{
 .orders .createOrder .order-summary .product-listing td { 
   font-size: 12px  !important; 
 } 
+.error{
+  color: red;
+}
 </style> 
  
 <template> 
@@ -215,13 +222,38 @@ label{
  
       <b-row class="mx-0 mt-4 justify-content-between align-items-end scroll-x"> 
         <b-table class="product-listing" :items="order_items"> 
- 
+         
+          <template slot="Available"  slot-scope="data"> 
+            <input  
+              disabled
+              v-model="data.item.Available"  
+              type="number" 
+              min="1"   
+              max="10"   
+              id="Available"     
+              name="Available"   
+              class="form-control rounded-pill border-0"/>
+          </template>
+
           <template slot="Quantity"  slot-scope="data"> 
             <input  
               @change="updateRow(data.item)"  
               @blur="updateRow(data.item)" 
-               @keyup.enter="updateRow(data.item)"  
+               @keyup.enter="updateRow(data.item)" 
+               @keyup="updateRow(data.item)"  
               v-model="data.item.Quantity"  
+              type="number" 
+              min="1"
+              :max="data.item.Available"   
+              id="Quantity"     
+              name="Quantity"   
+              class="form-control rounded-pill border-0"/>
+              <span id="error" v-show="max_quantity_reached" class="help-block">Max quantiy reached</span>
+          </template>          
+          
+          <template slot="Priority"  slot-scope="data"> 
+            <input  
+              v-model="data.item.Priority"  
               type="number" 
               min="1"   
               max="10"   
@@ -280,6 +312,45 @@ label{
               class="form-control rounded-pill border-0"/>
           </template>
 
+          <template slot="ProductId"  slot-scope="data">
+            <input 
+              disabled
+              v-model="data.item.ProductId"   
+              id="p-total"     
+              name="p-total"   
+              class="form-control rounded-pill border-0"/>
+          </template>
+
+          <template slot="PartType"  slot-scope="data">
+            <input 
+              disabled
+              v-model="data.item.PartType"  
+              :title="data.item.PartType"   
+              id="p-total"     
+              name="p-total"   
+              class="form-control rounded-pill border-0"/>
+          </template>
+
+          <template slot="PartCode"  slot-scope="data">
+            <input 
+              disabled
+              v-model="data.item.PartCode"
+              :title="data.item.PartCode"   
+              id="p-total"     
+              name="p-total"   
+              class="form-control rounded-pill border-0"/>
+          </template>
+
+          <template slot="Description"  slot-scope="data">
+            <input 
+              disabled
+              :title="data.item.Description"
+              v-model="data.item.Description"   
+              id="p-total"     
+              name="p-total"   
+              class="form-control rounded-pill border-0"/>
+          </template>
+
         </b-table>
       </b-row>
 
@@ -316,7 +387,12 @@ label{
         </div>
 
         <div class="col-auto pl-0">
-          <b-button class="btn btn-primary font-weight-bold my-0 mr-0" @click="saveOrder"> <a-icon type="loading" v-if="loading" /> Save</b-button>
+          <b-button class="btn btn-primary font-weight-bold my-0 mr-0" @click="saveOrder" v-if="max_quantity_reached" disabled>
+            <a-icon type="loading" v-if="loading" /> Save
+          </b-button>
+          <b-button class="btn btn-primary font-weight-bold my-0 mr-0" @click="saveOrder" v-else>
+            <a-icon type="loading" v-if="loading" /> Save
+          </b-button>
         </div>
       </div>
     </b-card> 
@@ -365,6 +441,7 @@ export default {
       },
       order_items: [],
       tableRow: [],
+      max_quantity_reached: false,
       loading: false,
       Toast: null,
     }
@@ -390,8 +467,9 @@ export default {
           PartType: vm.product.category.name,
           PartCode: vm.product.part_code,
           Description: vm.product.description,
-          Priority: 1,
           WarehouseName: vm.product.origin.name,
+          Available: vm.product.current_stock - vm.product.reserved_stock,
+          Priority: 1,
           Quantity: 1,
           UnitCost: vm.product.unit_cost,
           TaxRate: vm.product.tax.percentage,
@@ -403,8 +481,13 @@ export default {
     },
     updateRow(row){
       var vm = this;
-      row.Vat = vm.calculateProductTAxAmount(row.TaxRate, ( parseFloat(row.UnitCost) * parseFloat(row.Quantity) ));
-      row.Total = vm.calculateProductTotal(row.Vat, ( parseFloat(row.UnitCost) * parseFloat(row.Quantity) ) );
+      if(row.Quantity >= row.Available){
+        vm.max_quantity_reached = true;
+      }else{
+        vm.max_quantity_reached = false;
+        row.Vat = vm.calculateProductTAxAmount(row.TaxRate, ( parseFloat(row.UnitCost) * parseFloat(row.Quantity) ));
+        row.Total = vm.calculateProductTotal(row.Vat, ( parseFloat(row.UnitCost) * parseFloat(row.Quantity) ) );
+      }
     },
     getDate(){
       var today = new Date();
@@ -460,7 +543,7 @@ export default {
               });  
               vm.clearOrder(); 
               vm.$Progress.finish();  
-              vm.loading 
+              vm.loading = false; 
             } else {  
               vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');  
               vm.$Progress.fail();  

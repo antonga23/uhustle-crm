@@ -2089,8 +2089,6 @@ a.down-scroll:hover {
 <script>  
 import { setupCalendar, Calendar } from "v-calendar";  
 import { DatePicker, TimePicker } from "ant-design-vue";  
-import { Bar } from "vue-chartjs";  
-import { BarChart } from "vue-morris";  
 import Scripts from "./Scripts.vue";  
 import Education from "./Education.vue";  
 import FlipCountdown from "vue2-flip-countdown";  
@@ -2099,9 +2097,7 @@ import { VclFacebook, VclInstagram, VclTable } from "vue-content-loading";
 import CreateDeal from '../Transactions/createDeal';
 const Device = require("twilio-client").Device;  
 export default {  
-  extends: Bar,  
   components: {  
-    BarChart,  
     FlipCountdown,  
     VclFacebook,  
     VclInstagram,  

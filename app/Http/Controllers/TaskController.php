@@ -52,7 +52,7 @@ class TaskController extends Controller
         
         $title = $data['title'];
         $description = ( isset($data['description']) )? $data['description'] : null;
-        $status = $data['status'];
+        $status = ( isset($data['status']) )? $data['status'] : null;
         $user_created_id = Auth::user()->id;
         $deadline = $data['date'];
         $time = $data['time'];
@@ -64,7 +64,7 @@ class TaskController extends Controller
               $task = Task::create([
                   'title' => $title,
                   'description' => $description,
-                  'status' => $data['status'],
+                  'status' => $status,
                   'user_created_id' => $user_created_id,
                   'client_id' => $data['lead_id'],
                   'deadline' => $deadline,

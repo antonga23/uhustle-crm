@@ -181083,6 +181083,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-content-loading */ "./node_modules/vue-content-loading/dist/vuecontentloading.js");
+/* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_content_loading__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -181236,7 +181238,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    VclFacebook: vue_content_loading__WEBPACK_IMPORTED_MODULE_0__["VclFacebook"],
+    VclInstagram: vue_content_loading__WEBPACK_IMPORTED_MODULE_0__["VclInstagram"],
+    VclTable: vue_content_loading__WEBPACK_IMPORTED_MODULE_0__["VclTable"]
+  },
   mounted: function mounted() {
     var vm = this;
     vm.company_types = JSON.parse(vm.prop_company_types);
@@ -181281,7 +181294,8 @@ __webpack_require__.r(__webpack_exports__);
       companiesListing: [],
       Toast: null,
       perPage: 20,
-      currentPage: 1
+      currentPage: 1,
+      show_page_loader: true
     };
   },
   computed: {
@@ -181303,24 +181317,11 @@ __webpack_require__.r(__webpack_exports__);
       if (companies !== null) {
         vm.companies = companies;
       } else {
+        vm.show_page_loader = true;
         axios.get('/company/get-all').then(function (response) {
           vm.companies = response.data.companies;
-          vm.companies.map(function (company) {
-            vm.companiesListing.push({
-              id: company.id,
-              name: company.name,
-              address: company.address,
-              province: company.province,
-              city: company.city,
-              tell: company.tell,
-              fax: company.fax,
-              email: company.email,
-              tax_number: company.tax_number,
-              type_id: company.type_id,
-              code: company.code,
-              status: company.status
-            });
-          });
+          vm.mapCompanies(vm.companies);
+          vm.show_page_loader = false;
         });
       }
     },
@@ -181334,12 +181335,32 @@ __webpack_require__.r(__webpack_exports__);
             type: 'success',
             title: response.data.message
           });
-          vm.getCompanies();
+          vm.companiesListing = [];
+          vm.mapCompanies(response.data.companies);
           vm.$Progress.finish();
         } else {
           vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
           vm.$Progress.fail();
         }
+      });
+    },
+    mapCompanies: function mapCompanies(companies) {
+      var vm = this;
+      companies.map(function (company) {
+        vm.companiesListing.push({
+          id: company.id,
+          name: company.name,
+          address: company.address,
+          province: company.province,
+          city: company.city,
+          tell: company.tell,
+          fax: company.fax,
+          email: company.email,
+          tax_number: company.tax_number,
+          type_id: company.type_id,
+          code: company.code,
+          status: company.status
+        });
       });
     }
   },
@@ -182856,6 +182877,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-content-loading */ "./node_modules/vue-content-loading/dist/vuecontentloading.js");
+/* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_content_loading__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -182915,8 +182938,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['user_id', 'user_name', 'order_clases', 'order_types'],
+  components: {
+    VclFacebook: vue_content_loading__WEBPACK_IMPORTED_MODULE_0__["VclFacebook"],
+    VclInstagram: vue_content_loading__WEBPACK_IMPORTED_MODULE_0__["VclInstagram"],
+    VclTable: vue_content_loading__WEBPACK_IMPORTED_MODULE_0__["VclTable"]
+  },
+  props: ['user_id', 'user_name', 'company_id', 'order_clases', 'order_types'],
   mounted: function mounted() {
     var vm = this;
     vm.getOrders();
@@ -182924,6 +182958,12 @@ __webpack_require__.r(__webpack_exports__);
       vm.orderHistory = [];
       vm.orders.push(data.order);
       vm.mapOrders(vm.orders);
+    });
+    this.Toast = this.$swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
     });
   },
   data: function data() {
@@ -182933,22 +182973,32 @@ __webpack_require__.r(__webpack_exports__);
       status: '',
       perPage: 20,
       currentPage: 1,
-      orderHistory: []
+      orderHistory: [],
+      orderRelations: [],
+      show_page_loader: false,
+      Toast: null
     };
   },
   methods: {
     getOrders: function getOrders() {
       var vm = this;
+      vm.show_page_loader = true;
       axios.get('/orders/get-all').then(function (response) {
         vm.orders = response.data.orders;
         vm.mapOrders(vm.orders);
+        vm.show_page_loader = false;
       });
     },
     mapOrders: function mapOrders(orders) {
       var vm = this;
       orders.map(function (order) {
-        vm.requestor_id = order.requestor_id;
-        vm.status = order.status;
+        vm.orderRelations.push({
+          order_id: order.id,
+          requestor_id: order.requestor_id,
+          status: order.status,
+          requestor_company_id: order.requestor_company_id,
+          origin_id: order.origin_id
+        });
         vm.orderHistory.push({
           ID: order.id,
           Type: order.type.name,
@@ -182966,16 +183016,54 @@ __webpack_require__.r(__webpack_exports__);
           Actions: ''
         });
       });
+    },
+    updateOrder: function updateOrder(order) {
+      var vm = this;
+      vm.$Progress.start();
+      axios.post('/orders/update', {
+        order_id: order.ID,
+        order_status: order.Status
+      }).then(function (response) {
+        if (response.data.success === true) {
+          vm.orders = response.data.orders;
+          vm.orderHistory = [];
+          vm.mapOrders(vm.orders);
+          vm.Toast.fire({
+            type: 'success',
+            title: response.data.message
+          });
+          vm.$Progress.finish();
+        } else {
+          vm.$Progress.fail();
+          vm.$swal('Failed', 'Opps, something went wrong, please try again', 'warning');
+        }
+      });
+    },
+    checkForDeliveryNote: function checkForDeliveryNote(data) {
+      return data == 'IN TRANSIT' || data == 'DELIVERED' || data == 'PAID';
+    },
+    diableOrderStage: function diableOrderStage(data, stage) {
+      var vm = this;
+      var outcome = false;
+      vm.orderRelations.forEach(function (relation) {
+        if (relation.requestor_company_id == vm.company_id && data.Status == 'PENDING') {
+          outcome = stage == 'DELIVERED' ? true : false;
+        }
+
+        if (relation.origin_id == vm.company_id && data.Status == 'PENDING') {
+          outcome = stage == 'IN TRANSIT' ? true : false;
+        } else if (relation.origin_id == vm.company_id && data.Status == 'DELIVERED') {
+          outcome = stage == 'PAID' ? true : false;
+        }
+      });
+      return outcome;
     }
   },
   computed: {
     rows: function rows() {
       return this.orderHistory.length;
     },
-    checkSelectDisabled: function checkSelectDisabled() {},
-    checkForDeliveryNote: function checkForDeliveryNote(data) {
-      return this.status == 'IN TRANSIT' || this.status == 'DELIVERED' || this.status == 'PAID';
-    }
+    checkSelectDisabled: function checkSelectDisabled() {}
   }
 });
 
@@ -182990,6 +183078,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-content-loading */ "./node_modules/vue-content-loading/dist/vuecontentloading.js");
+/* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_content_loading__WEBPACK_IMPORTED_MODULE_0__);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 //
@@ -183147,7 +183237,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    VclFacebook: vue_content_loading__WEBPACK_IMPORTED_MODULE_0__["VclFacebook"],
+    VclInstagram: vue_content_loading__WEBPACK_IMPORTED_MODULE_0__["VclInstagram"],
+    VclTable: vue_content_loading__WEBPACK_IMPORTED_MODULE_0__["VclTable"]
+  },
   props: ['role', 'mode'],
   mounted: function mounted() {
     var vm = this;
@@ -183177,6 +183278,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       categories: [],
       company_types: [],
       tax_types: [],
+      show_page_loader: false,
       Toas: null
     };
   },
@@ -183209,9 +183311,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         endpoint = '/products/get-all';
       }
 
+      vm.show_page_loader = true;
       axios.get(endpoint).then(function (response) {
         vm.products = response.data.products;
         vm.mapProducts(vm.products);
+        vm.show_page_loader = false;
       });
     },
     mapProducts: function mapProducts(products) {
@@ -184998,6 +185102,82 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   mounted: function mounted() {
@@ -185038,6 +185218,7 @@ __webpack_require__.r(__webpack_exports__);
       },
       order_items: [],
       tableRow: [],
+      max_quantity_reached: false,
       loading: false,
       Toast: null
     };
@@ -185062,8 +185243,9 @@ __webpack_require__.r(__webpack_exports__);
           PartType: vm.product.category.name,
           PartCode: vm.product.part_code,
           Description: vm.product.description,
-          Priority: 1,
           WarehouseName: vm.product.origin.name,
+          Available: vm.product.current_stock - vm.product.reserved_stock,
+          Priority: 1,
           Quantity: 1,
           UnitCost: vm.product.unit_cost,
           TaxRate: vm.product.tax.percentage,
@@ -185074,8 +185256,14 @@ __webpack_require__.r(__webpack_exports__);
     },
     updateRow: function updateRow(row) {
       var vm = this;
-      row.Vat = vm.calculateProductTAxAmount(row.TaxRate, parseFloat(row.UnitCost) * parseFloat(row.Quantity));
-      row.Total = vm.calculateProductTotal(row.Vat, parseFloat(row.UnitCost) * parseFloat(row.Quantity));
+
+      if (row.Quantity >= row.Available) {
+        vm.max_quantity_reached = true;
+      } else {
+        vm.max_quantity_reached = false;
+        row.Vat = vm.calculateProductTAxAmount(row.TaxRate, parseFloat(row.UnitCost) * parseFloat(row.Quantity));
+        row.Total = vm.calculateProductTotal(row.Vat, parseFloat(row.UnitCost) * parseFloat(row.Quantity));
+      }
     },
     getDate: function getDate() {
       var today = new Date();
@@ -185129,7 +185317,7 @@ __webpack_require__.r(__webpack_exports__);
               });
               vm.clearOrder();
               vm.$Progress.finish();
-              vm.loading;
+              vm.loading = false;
             } else {
               vm.$swal('Failed', 'Opps, something went wrong while retrieving lead, please try again', 'warning');
               vm.$Progress.fail();
@@ -185791,6 +185979,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -185965,6 +186154,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -185989,7 +186183,7 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   created: function created() {},
-  props: ['role', 'user_id', 'user_name', 'provinces', 'cities', 'company_types'],
+  props: ['role', 'user_id', 'user_name', 'company_id', 'provinces', 'cities', 'company_types'],
   data: function data() {
     return {
       tabIndex: 0,
@@ -186348,15 +186542,12 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_chartjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-chartjs */ "./node_modules/vue-chartjs/es/index.js");
-/* harmony import */ var vue_morris__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-morris */ "./node_modules/vue-morris/dist/vue-morris.min.js");
-/* harmony import */ var vue_morris__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_morris__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _Modules_AddModuleItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Modules/AddModuleItem */ "./resources/assets/js/components/Modules/AddModuleItem.vue");
-/* harmony import */ var _DataTables_ListingDataTable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../DataTables/ListingDataTable */ "./resources/assets/js/components/DataTables/ListingDataTable.vue");
-/* harmony import */ var _DataTables_ListingDataTableEditable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../DataTables/ListingDataTableEditable */ "./resources/assets/js/components/DataTables/ListingDataTableEditable.vue");
-/* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-content-loading */ "./node_modules/vue-content-loading/dist/vuecontentloading.js");
-/* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue_content_loading__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _alfsnd_vue_bootstrap_select__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @alfsnd/vue-bootstrap-select */ "./node_modules/@alfsnd/vue-bootstrap-select/dist/vue-bootstrap-select.esm.js");
+/* harmony import */ var _Modules_AddModuleItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Modules/AddModuleItem */ "./resources/assets/js/components/Modules/AddModuleItem.vue");
+/* harmony import */ var _DataTables_ListingDataTable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../DataTables/ListingDataTable */ "./resources/assets/js/components/DataTables/ListingDataTable.vue");
+/* harmony import */ var _DataTables_ListingDataTableEditable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../DataTables/ListingDataTableEditable */ "./resources/assets/js/components/DataTables/ListingDataTableEditable.vue");
+/* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-content-loading */ "./node_modules/vue-content-loading/dist/vuecontentloading.js");
+/* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_content_loading__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _alfsnd_vue_bootstrap_select__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @alfsnd/vue-bootstrap-select */ "./node_modules/@alfsnd/vue-bootstrap-select/dist/vue-bootstrap-select.esm.js");
 //
 //
 //
@@ -186588,24 +186779,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
-
 
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  "extends": vue_chartjs__WEBPACK_IMPORTED_MODULE_0__["Bar"],
   components: {
-    BarChart: vue_morris__WEBPACK_IMPORTED_MODULE_1__["BarChart"],
-    VclFacebook: vue_content_loading__WEBPACK_IMPORTED_MODULE_5__["VclFacebook"],
-    VclInstagram: vue_content_loading__WEBPACK_IMPORTED_MODULE_5__["VclInstagram"],
-    VclTable: vue_content_loading__WEBPACK_IMPORTED_MODULE_5__["VclTable"],
-    VSelect: _alfsnd_vue_bootstrap_select__WEBPACK_IMPORTED_MODULE_6__["default"],
-    AddModuleItem: _Modules_AddModuleItem__WEBPACK_IMPORTED_MODULE_2__["default"],
-    DataTableEditable: _DataTables_ListingDataTableEditable__WEBPACK_IMPORTED_MODULE_4__["default"],
-    'datatable': _DataTables_ListingDataTable__WEBPACK_IMPORTED_MODULE_3__["default"]
+    VclFacebook: vue_content_loading__WEBPACK_IMPORTED_MODULE_3__["VclFacebook"],
+    VclInstagram: vue_content_loading__WEBPACK_IMPORTED_MODULE_3__["VclInstagram"],
+    VclTable: vue_content_loading__WEBPACK_IMPORTED_MODULE_3__["VclTable"],
+    VSelect: _alfsnd_vue_bootstrap_select__WEBPACK_IMPORTED_MODULE_4__["default"],
+    AddModuleItem: _Modules_AddModuleItem__WEBPACK_IMPORTED_MODULE_0__["default"],
+    DataTableEditable: _DataTables_ListingDataTableEditable__WEBPACK_IMPORTED_MODULE_2__["default"],
+    'datatable': _DataTables_ListingDataTable__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   mounted: function mounted() {
     console.log('Component mounted');
@@ -186783,10 +186970,7 @@ __webpack_require__.r(__webpack_exports__);
       vm.$Progress.start();
       axios.get(endpoint).then(function (response) {
         if (response.data.success == true) {
-          vm.items = response.data.items; // vm.cachItems = response.data.items;
-          // vm.display_items = response.data.display_items;
-          // vm.chached_display_items = response.data.display_items;
-
+          vm.items = response.data.items;
           vm.count_assigned = response.data.count_assigned;
           vm.count_unassigned = response.data.count_unassigned;
           vm.show_page_loader = false;
@@ -186794,7 +186978,7 @@ __webpack_require__.r(__webpack_exports__);
         } else {
           vm.show_page_loader = false;
           vm.$Progress.fail();
-          vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again', 'warning');
+          vm.$swal('Failed', 'Opps, something went wrong, please try again', 'warning');
         }
       });
     },
@@ -196494,17 +196678,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var v_calendar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! v-calendar */ "./node_modules/v-calendar/lib/v-calendar.umd.min.js");
 /* harmony import */ var v_calendar__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(v_calendar__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var ant_design_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ant-design-vue */ "./node_modules/ant-design-vue/es/index.js");
-/* harmony import */ var vue_chartjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-chartjs */ "./node_modules/vue-chartjs/es/index.js");
-/* harmony import */ var vue_morris__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-morris */ "./node_modules/vue-morris/dist/vue-morris.min.js");
-/* harmony import */ var vue_morris__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_morris__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _Scripts_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Scripts.vue */ "./resources/assets/js/components/Workstation/Scripts.vue");
-/* harmony import */ var _Education_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Education.vue */ "./resources/assets/js/components/Workstation/Education.vue");
-/* harmony import */ var vue2_flip_countdown__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue2-flip-countdown */ "./node_modules/vue2-flip-countdown/dist/vue2-flip-countdown.js");
-/* harmony import */ var vue2_flip_countdown__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(vue2_flip_countdown__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _DataTables_CallLogsDataTable__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../DataTables/CallLogsDataTable */ "./resources/assets/js/components/DataTables/CallLogsDataTable.vue");
-/* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-content-loading */ "./node_modules/vue-content-loading/dist/vuecontentloading.js");
-/* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vue_content_loading__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _Transactions_createDeal__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Transactions/createDeal */ "./resources/assets/js/components/Transactions/createDeal.vue");
+/* harmony import */ var _Scripts_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Scripts.vue */ "./resources/assets/js/components/Workstation/Scripts.vue");
+/* harmony import */ var _Education_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Education.vue */ "./resources/assets/js/components/Workstation/Education.vue");
+/* harmony import */ var vue2_flip_countdown__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue2-flip-countdown */ "./node_modules/vue2-flip-countdown/dist/vue2-flip-countdown.js");
+/* harmony import */ var vue2_flip_countdown__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vue2_flip_countdown__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _DataTables_CallLogsDataTable__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../DataTables/CallLogsDataTable */ "./resources/assets/js/components/DataTables/CallLogsDataTable.vue");
+/* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue-content-loading */ "./node_modules/vue-content-loading/dist/vuecontentloading.js");
+/* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(vue_content_loading__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _Transactions_createDeal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Transactions/createDeal */ "./resources/assets/js/components/Transactions/createDeal.vue");
 //
 //
 //
@@ -198593,8 +198774,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
-
 
 
 
@@ -198607,17 +198786,15 @@ __webpack_require__.r(__webpack_exports__);
 var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-client/es5/twilio.js").Device;
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  "extends": vue_chartjs__WEBPACK_IMPORTED_MODULE_2__["Bar"],
   components: {
-    BarChart: vue_morris__WEBPACK_IMPORTED_MODULE_3__["BarChart"],
-    FlipCountdown: vue2_flip_countdown__WEBPACK_IMPORTED_MODULE_6___default.a,
-    VclFacebook: vue_content_loading__WEBPACK_IMPORTED_MODULE_8__["VclFacebook"],
-    VclInstagram: vue_content_loading__WEBPACK_IMPORTED_MODULE_8__["VclInstagram"],
-    VclTable: vue_content_loading__WEBPACK_IMPORTED_MODULE_8__["VclTable"],
-    Scripts: _Scripts_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-    Education: _Education_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
-    CreateDeal: _Transactions_createDeal__WEBPACK_IMPORTED_MODULE_9__["default"],
-    datatable: _DataTables_CallLogsDataTable__WEBPACK_IMPORTED_MODULE_7__["default"]
+    FlipCountdown: vue2_flip_countdown__WEBPACK_IMPORTED_MODULE_4___default.a,
+    VclFacebook: vue_content_loading__WEBPACK_IMPORTED_MODULE_6__["VclFacebook"],
+    VclInstagram: vue_content_loading__WEBPACK_IMPORTED_MODULE_6__["VclInstagram"],
+    VclTable: vue_content_loading__WEBPACK_IMPORTED_MODULE_6__["VclTable"],
+    Scripts: _Scripts_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    Education: _Education_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    CreateDeal: _Transactions_createDeal__WEBPACK_IMPORTED_MODULE_7__["default"],
+    datatable: _DataTables_CallLogsDataTable__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   mounted: function mounted() {
     console.log("Workstation Mounted");
@@ -249677,7 +249854,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.col-6[data-v-c3b77390] { \n  padding-left: 3.3%; \n  padding-right: 3.3%;\n}\n.col-6.border-right[data-v-c3b77390] { \n  border-color: #8D8D8D;\n}\n.col-6 .col-7 .col-8[data-v-c3b77390], \n.col-6 .col-7 .col-4[data-v-c3b77390] { \n  padding-left: 10px; \n  padding-right:10px;\n}\ninput[data-v-c3b77390], textarea[data-v-c3b77390], select[data-v-c3b77390] { \n  box-shadow: 0 0 4px rgba(0,0,0,0.1); \n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1); \n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1); \n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1); \n  padding: 11px 18px!important; \n  font-size: 12px; \n  color: #003449; \n  border-color: #ccc; \n  margin-bottom: 17px; \n  font-family: 'Rubik', sans-serif; \n  height: auto!important;\n}\ntextarea[data-v-c3b77390] { \n  box-shadow: 0 0 4px rgba(0,0,0,0.1); \n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1); \n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1); \n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1); \n  padding: 11px 18px!important; \n  font-size: 12px; \n  color: #003449; \n  border-color: #ccc; \n  margin-bottom: 17px; \n  font-family: 'Rubik', sans-serif; \n  height: auto!important; \n  border-radius: 10px;\n}\n.custom-select[data-v-c3b77390] { \n  height: auto;\n}\nlabel[data-v-c3b77390]{ \n  font-family: 'Rubik', sans-serif; \n  font-size: 10px; \n  color: #999999; \n  margin-bottom: 7px; \n  margin-left: 17px;\n}\n.btn-default[data-v-c3b77390]{ \n  background: #fff; \n  color: #999999;     \n  border: none!important; \n  padding: 11px 14px 10px; \n  font-size: 10px; \n  text-transform:uppercase; \n  border-radius: 50rem!important; \n  line-height:1em; \n  margin-left: 0.9%; \n  margin-right: 0.9%; \n  -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05); \n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-c3b77390] { \n  border-radius: 50rem!important; \n  text-transform:uppercase; \n  font-size: 10px; \n  padding: 11px 14px 10px; \n  line-height:1em; \n  margin-left: 0.9%; \n  margin-right: 0.9%;\n}\n.calendar-container[data-v-c3b77390] { \n  margin-left: 17px; \n  margin-right: 17px;\n}\n.scroll-x[data-v-c3b77390]{ \n  overflow: auto !important;\n}\n.orders .createOrder .order-summary .product-listing td[data-v-c3b77390] { \n  font-size: 12px  !important;\n} \n", ""]);
+exports.push([module.i, "\n.col-6[data-v-c3b77390] { \n  padding-left: 3.3%; \n  padding-right: 3.3%;\n}\n.col-6.border-right[data-v-c3b77390] { \n  border-color: #8D8D8D;\n}\n.col-6 .col-7 .col-8[data-v-c3b77390], \n.col-6 .col-7 .col-4[data-v-c3b77390] { \n  padding-left: 10px; \n  padding-right:10px;\n}\ninput[data-v-c3b77390], textarea[data-v-c3b77390], select[data-v-c3b77390] { \n  box-shadow: 0 0 4px rgba(0,0,0,0.1); \n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1); \n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1); \n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1); \n  padding: 11px 18px!important; \n  font-size: 12px; \n  color: #003449; \n  border-color: #ccc; \n  margin-bottom: 17px; \n  font-family: 'Rubik', sans-serif; \n  height: auto!important;\n}\ntextarea[data-v-c3b77390] { \n  box-shadow: 0 0 4px rgba(0,0,0,0.1); \n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1); \n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1); \n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1); \n  padding: 11px 18px!important; \n  font-size: 12px; \n  color: #003449; \n  border-color: #ccc; \n  margin-bottom: 17px; \n  font-family: 'Rubik', sans-serif; \n  height: auto!important; \n  border-radius: 10px;\n}\n.custom-select[data-v-c3b77390] { \n  height: auto;\n}\nlabel[data-v-c3b77390]{ \n  font-family: 'Rubik', sans-serif; \n  font-size: 10px; \n  color: #999999; \n  margin-bottom: 7px; \n  margin-left: 17px;\n}\n.btn-default[data-v-c3b77390]{ \n  background: #fff; \n  color: #999999;     \n  border: none!important; \n  padding: 11px 14px 10px; \n  font-size: 10px; \n  text-transform:uppercase; \n  border-radius: 50rem!important; \n  line-height:1em; \n  margin-left: 0.9%; \n  margin-right: 0.9%; \n  -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05); \n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-c3b77390] { \n  border-radius: 50rem!important; \n  text-transform:uppercase; \n  font-size: 10px; \n  padding: 11px 14px 10px; \n  line-height:1em; \n  margin-left: 0.9%; \n  margin-right: 0.9%;\n}\ninput[data-v-c3b77390], select[data-v-c3b77390]{\n  margin-bottom: 0;\n}\n.calendar-container[data-v-c3b77390] { \n  margin-left: 17px; \n  margin-right: 17px;\n}\n.scroll-x[data-v-c3b77390]{ \n  overflow: auto !important;\n}\n.orders .createOrder .order-summary .product-listing td[data-v-c3b77390] { \n  font-size: 12px  !important;\n}\n.error[data-v-c3b77390]{\n  color: red;\n}\n", ""]);
 
 // exports
 
@@ -368434,462 +368611,480 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "table-container" },
-    [
-      _c(
-        "b-table",
-        {
-          staticClass: "companies-listing",
-          attrs: {
-            "sticky-header": "190px",
-            responsive: "",
-            items: _vm.companiesListing,
-            "per-page": _vm.perPage,
-            "current-page": _vm.currentPage
-          },
-          scopedSlots: _vm._u([
-            {
-              key: "name",
-              fn: function(data) {
-                return [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: data.item.name,
-                        expression: "data.item.name"
-                      }
-                    ],
-                    staticClass: "form-control border-0 rounded-pill",
-                    attrs: { type: "text", id: "deal-name", name: "DealName" },
-                    domProps: { value: data.item.name },
-                    on: {
-                      blur: function($event) {
-                        return _vm.updateCompany(data.item)
-                      },
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(data.item, "name", $event.target.value)
-                      }
+  return _c("div", { staticClass: "table-container" }, [
+    _vm.show_page_loader
+      ? _c("div", [_vm.show_page_loader ? _c("vcl-table") : _vm._e()], 1)
+      : _c(
+          "div",
+          [
+            _c(
+              "b-table",
+              {
+                staticClass: "companies-listing",
+                attrs: {
+                  "sticky-header": "190px",
+                  responsive: "",
+                  items: _vm.companiesListing,
+                  "per-page": _vm.perPage,
+                  "current-page": _vm.currentPage
+                },
+                scopedSlots: _vm._u([
+                  {
+                    key: "name",
+                    fn: function(data) {
+                      return [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.item.name,
+                              expression: "data.item.name"
+                            }
+                          ],
+                          staticClass: "form-control border-0 rounded-pill",
+                          attrs: {
+                            type: "text",
+                            id: "deal-name",
+                            name: "DealName"
+                          },
+                          domProps: { value: data.item.name },
+                          on: {
+                            blur: function($event) {
+                              return _vm.updateCompany(data.item)
+                            },
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(data.item, "name", $event.target.value)
+                            }
+                          }
+                        })
+                      ]
                     }
-                  })
-                ]
-              }
-            },
-            {
-              key: "address",
-              fn: function(data) {
-                return [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: data.item.address,
-                        expression: "data.item.address"
-                      }
-                    ],
-                    staticClass: "form-control border-0 rounded-pill",
-                    attrs: { type: "text", id: "deal-name", name: "DealName" },
-                    domProps: { value: data.item.address },
-                    on: {
-                      blur: function($event) {
-                        return _vm.updateCompany(data.item)
-                      },
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(data.item, "address", $event.target.value)
-                      }
+                  },
+                  {
+                    key: "address",
+                    fn: function(data) {
+                      return [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.item.address,
+                              expression: "data.item.address"
+                            }
+                          ],
+                          staticClass: "form-control border-0 rounded-pill",
+                          attrs: {
+                            type: "text",
+                            id: "deal-name",
+                            name: "DealName"
+                          },
+                          domProps: { value: data.item.address },
+                          on: {
+                            blur: function($event) {
+                              return _vm.updateCompany(data.item)
+                            },
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                data.item,
+                                "address",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]
                     }
-                  })
-                ]
-              }
-            },
-            {
-              key: "province",
-              fn: function(data) {
-                return [
-                  _c(
-                    "a-select",
-                    {
-                      directives: [
-                        {
-                          name: "validate",
-                          rawName: "v-validate",
-                          value: "required",
-                          expression: "'required'"
-                        }
-                      ],
-                      staticClass: "custom-select rounded-pill border-0",
-                      attrs: { name: "Province" },
-                      on: {
-                        change: function($event) {
-                          return _vm.changeProvince(data.item.province)
-                        }
-                      },
-                      model: {
-                        value: data.item.province,
-                        callback: function($$v) {
-                          _vm.$set(data.item, "province", $$v)
-                        },
-                        expression: "data.item.province"
-                      }
-                    },
-                    [
-                      _c(
-                        "a-select-option",
-                        { attrs: { value: "", selected: "" } },
-                        [_vm._v("-None-")]
-                      ),
-                      _vm._v(" "),
-                      _vm._l(_vm.provinces, function(s_province, index) {
-                        return _c(
-                          "a-select-option",
-                          { key: index, attrs: { value: s_province.id } },
-                          [_vm._v(_vm._s(s_province.name))]
+                  },
+                  {
+                    key: "province",
+                    fn: function(data) {
+                      return [
+                        _c(
+                          "a-select",
+                          {
+                            directives: [
+                              {
+                                name: "validate",
+                                rawName: "v-validate",
+                                value: "required",
+                                expression: "'required'"
+                              }
+                            ],
+                            staticClass: "custom-select rounded-pill border-0",
+                            attrs: { name: "Province" },
+                            on: {
+                              change: function($event) {
+                                return _vm.changeProvince(data.item.province)
+                              }
+                            },
+                            model: {
+                              value: data.item.province,
+                              callback: function($$v) {
+                                _vm.$set(data.item, "province", $$v)
+                              },
+                              expression: "data.item.province"
+                            }
+                          },
+                          [
+                            _c(
+                              "a-select-option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("-None-")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.provinces, function(s_province, index) {
+                              return _c(
+                                "a-select-option",
+                                { key: index, attrs: { value: s_province.id } },
+                                [_vm._v(_vm._s(s_province.name))]
+                              )
+                            })
+                          ],
+                          2
                         )
-                      })
-                    ],
-                    2
-                  )
-                ]
-              }
-            },
-            {
-              key: "city",
-              fn: function(data) {
-                return [
-                  _c(
-                    "a-select",
-                    {
-                      directives: [
-                        {
-                          name: "validate",
-                          rawName: "v-validate",
-                          value: "required",
-                          expression: "'required'"
-                        }
-                      ],
-                      staticClass: "custom-select rounded-pill border-0",
-                      attrs: { name: "City" },
-                      on: {
-                        change: function($event) {
-                          return _vm.updateCompany(data.item)
-                        }
-                      },
-                      model: {
-                        value: data.item.city,
-                        callback: function($$v) {
-                          _vm.$set(data.item, "city", $$v)
-                        },
-                        expression: "data.item.city"
-                      }
-                    },
-                    [
-                      _c(
-                        "a-select-option",
-                        { attrs: { value: "", selected: "" } },
-                        [_vm._v("-None-")]
-                      ),
-                      _vm._v(" "),
-                      _vm._l(_vm.filtered_cities, function(s_city, index) {
-                        return _c(
-                          "a-select-option",
-                          { key: index, attrs: { value: s_city.id } },
-                          [_vm._v(_vm._s(s_city.name))]
+                      ]
+                    }
+                  },
+                  {
+                    key: "city",
+                    fn: function(data) {
+                      return [
+                        _c(
+                          "a-select",
+                          {
+                            directives: [
+                              {
+                                name: "validate",
+                                rawName: "v-validate",
+                                value: "required",
+                                expression: "'required'"
+                              }
+                            ],
+                            staticClass: "custom-select rounded-pill border-0",
+                            attrs: { name: "City" },
+                            on: {
+                              change: function($event) {
+                                return _vm.updateCompany(data.item)
+                              }
+                            },
+                            model: {
+                              value: data.item.city,
+                              callback: function($$v) {
+                                _vm.$set(data.item, "city", $$v)
+                              },
+                              expression: "data.item.city"
+                            }
+                          },
+                          [
+                            _c(
+                              "a-select-option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("-None-")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.filtered_cities, function(
+                              s_city,
+                              index
+                            ) {
+                              return _c(
+                                "a-select-option",
+                                { key: index, attrs: { value: s_city.id } },
+                                [_vm._v(_vm._s(s_city.name))]
+                              )
+                            })
+                          ],
+                          2
                         )
-                      })
-                    ],
-                    2
-                  )
-                ]
-              }
-            },
-            {
-              key: "type_id",
-              fn: function(data) {
-                return [
-                  _c(
-                    "a-select",
-                    {
-                      directives: [
-                        {
-                          name: "validate",
-                          rawName: "v-validate",
-                          value: "required",
-                          expression: "'required'"
-                        }
-                      ],
-                      staticClass: "custom-select rounded-pill border-0",
-                      attrs: { name: "Type" },
-                      on: {
-                        change: function($event) {
-                          return _vm.updateCompany(data.item)
-                        }
-                      },
-                      model: {
-                        value: data.item.type_id,
-                        callback: function($$v) {
-                          _vm.$set(data.item, "type_id", $$v)
-                        },
-                        expression: "data.item.type_id"
-                      }
-                    },
-                    [
-                      _c(
-                        "a-select-option",
-                        { attrs: { value: "", selected: "" } },
-                        [_vm._v("-None-")]
-                      ),
-                      _vm._v(" "),
-                      _vm._l(_vm.company_types, function(s_type, index) {
-                        return _c(
-                          "a-select-option",
-                          { key: index, attrs: { value: s_type.id } },
-                          [_vm._v(_vm._s(s_type.name))]
+                      ]
+                    }
+                  },
+                  {
+                    key: "type_id",
+                    fn: function(data) {
+                      return [
+                        _c(
+                          "a-select",
+                          {
+                            directives: [
+                              {
+                                name: "validate",
+                                rawName: "v-validate",
+                                value: "required",
+                                expression: "'required'"
+                              }
+                            ],
+                            staticClass: "custom-select rounded-pill border-0",
+                            attrs: { name: "Type" },
+                            on: {
+                              change: function($event) {
+                                return _vm.updateCompany(data.item)
+                              }
+                            },
+                            model: {
+                              value: data.item.type_id,
+                              callback: function($$v) {
+                                _vm.$set(data.item, "type_id", $$v)
+                              },
+                              expression: "data.item.type_id"
+                            }
+                          },
+                          [
+                            _c(
+                              "a-select-option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("-None-")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.company_types, function(s_type, index) {
+                              return _c(
+                                "a-select-option",
+                                { key: index, attrs: { value: s_type.id } },
+                                [_vm._v(_vm._s(s_type.name))]
+                              )
+                            })
+                          ],
+                          2
                         )
-                      })
-                    ],
-                    2
-                  )
-                ]
-              }
-            },
-            {
-              key: "status",
-              fn: function(data) {
-                return [
-                  _c("a-switch", {
-                    directives: [
-                      {
-                        name: "validate",
-                        rawName: "v-validate",
-                        value: "required",
-                        expression: "'required'"
-                      }
-                    ],
-                    staticClass: "ml-3 mr-2",
-                    attrs: { name: "Status" },
-                    on: {
-                      change: function($event) {
-                        return _vm.updateCompany(data.item)
-                      }
-                    },
-                    model: {
-                      value: data.item.status,
-                      callback: function($$v) {
-                        _vm.$set(data.item, "status", $$v)
-                      },
-                      expression: "data.item.status"
+                      ]
                     }
-                  }),
-                  _vm._v(" "),
-                  data.item.status == 1 || data.item.status == true
-                    ? _c("label", [_vm._v("Active")])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  data.item.status == 0 || data.item.status == false
-                    ? _c("label", [_vm._v("Inactive")])
-                    : _vm._e()
-                ]
-              }
-            },
-            {
-              key: "tell",
-              fn: function(data) {
-                return [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: data.item.tell,
-                        expression: "data.item.tell"
-                      }
-                    ],
-                    staticClass: "form-control border-0 rounded-pill",
-                    attrs: { type: "text", id: "fax", name: "fax" },
-                    domProps: { value: data.item.tell },
-                    on: {
-                      blur: function($event) {
-                        return _vm.updateCompany(data.item)
-                      },
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(data.item, "tell", $event.target.value)
-                      }
+                  },
+                  {
+                    key: "status",
+                    fn: function(data) {
+                      return [
+                        _c("a-switch", {
+                          directives: [
+                            {
+                              name: "validate",
+                              rawName: "v-validate",
+                              value: "required",
+                              expression: "'required'"
+                            }
+                          ],
+                          staticClass: "ml-3 mr-2",
+                          attrs: { name: "Status" },
+                          on: {
+                            change: function($event) {
+                              return _vm.updateCompany(data.item)
+                            }
+                          },
+                          model: {
+                            value: data.item.status,
+                            callback: function($$v) {
+                              _vm.$set(data.item, "status", $$v)
+                            },
+                            expression: "data.item.status"
+                          }
+                        }),
+                        _vm._v(" "),
+                        data.item.status == 1 || data.item.status == true
+                          ? _c("label", [_vm._v("Active")])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        data.item.status == 0 || data.item.status == false
+                          ? _c("label", [_vm._v("Inactive")])
+                          : _vm._e()
+                      ]
                     }
-                  })
-                ]
-              }
-            },
-            {
-              key: "fax",
-              fn: function(data) {
-                return [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: data.item.fax,
-                        expression: "data.item.fax"
-                      }
-                    ],
-                    staticClass: "form-control border-0 rounded-pill",
-                    attrs: { type: "text", id: "fax", name: "fax" },
-                    domProps: { value: data.item.fax },
-                    on: {
-                      blur: function($event) {
-                        return _vm.updateCompany(data.item)
-                      },
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(data.item, "fax", $event.target.value)
-                      }
+                  },
+                  {
+                    key: "tell",
+                    fn: function(data) {
+                      return [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.item.tell,
+                              expression: "data.item.tell"
+                            }
+                          ],
+                          staticClass: "form-control border-0 rounded-pill",
+                          attrs: { type: "text", id: "fax", name: "fax" },
+                          domProps: { value: data.item.tell },
+                          on: {
+                            blur: function($event) {
+                              return _vm.updateCompany(data.item)
+                            },
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(data.item, "tell", $event.target.value)
+                            }
+                          }
+                        })
+                      ]
                     }
-                  })
-                ]
-              }
-            },
-            {
-              key: "email",
-              fn: function(data) {
-                return [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: data.item.email,
-                        expression: "data.item.email"
-                      }
-                    ],
-                    staticClass: "form-control border-0 rounded-pill",
-                    attrs: { type: "text", id: "fax", name: "fax" },
-                    domProps: { value: data.item.email },
-                    on: {
-                      blur: function($event) {
-                        return _vm.updateCompany(data.item)
-                      },
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(data.item, "email", $event.target.value)
-                      }
+                  },
+                  {
+                    key: "fax",
+                    fn: function(data) {
+                      return [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.item.fax,
+                              expression: "data.item.fax"
+                            }
+                          ],
+                          staticClass: "form-control border-0 rounded-pill",
+                          attrs: { type: "text", id: "fax", name: "fax" },
+                          domProps: { value: data.item.fax },
+                          on: {
+                            blur: function($event) {
+                              return _vm.updateCompany(data.item)
+                            },
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(data.item, "fax", $event.target.value)
+                            }
+                          }
+                        })
+                      ]
                     }
-                  })
-                ]
-              }
-            },
-            {
-              key: "tax_number",
-              fn: function(data) {
-                return [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: data.item.fax,
-                        expression: "data.item.fax"
-                      }
-                    ],
-                    staticClass: "form-control border-0 rounded-pill",
-                    attrs: {
-                      type: "text",
-                      id: "tax_number",
-                      name: "tax number"
-                    },
-                    domProps: { value: data.item.fax },
-                    on: {
-                      blur: function($event) {
-                        return _vm.updateCompany(data.item)
-                      },
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(data.item, "fax", $event.target.value)
-                      }
+                  },
+                  {
+                    key: "email",
+                    fn: function(data) {
+                      return [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.item.email,
+                              expression: "data.item.email"
+                            }
+                          ],
+                          staticClass: "form-control border-0 rounded-pill",
+                          attrs: { type: "text", id: "fax", name: "fax" },
+                          domProps: { value: data.item.email },
+                          on: {
+                            blur: function($event) {
+                              return _vm.updateCompany(data.item)
+                            },
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(data.item, "email", $event.target.value)
+                            }
+                          }
+                        })
+                      ]
                     }
-                  })
-                ]
-              }
-            },
-            {
-              key: "code",
-              fn: function(data) {
-                return [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: data.item.code,
-                        expression: "data.item.code"
-                      }
-                    ],
-                    staticClass: "form-control border-0 rounded-pill",
-                    attrs: { type: "text", id: "code", name: "code" },
-                    domProps: { value: data.item.code },
-                    on: {
-                      blur: function($event) {
-                        return _vm.updateCompany(data.item)
-                      },
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(data.item, "code", $event.target.value)
-                      }
+                  },
+                  {
+                    key: "tax_number",
+                    fn: function(data) {
+                      return [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.item.fax,
+                              expression: "data.item.fax"
+                            }
+                          ],
+                          staticClass: "form-control border-0 rounded-pill",
+                          attrs: {
+                            type: "text",
+                            id: "tax_number",
+                            name: "tax number"
+                          },
+                          domProps: { value: data.item.fax },
+                          on: {
+                            blur: function($event) {
+                              return _vm.updateCompany(data.item)
+                            },
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(data.item, "fax", $event.target.value)
+                            }
+                          }
+                        })
+                      ]
                     }
-                  })
-                ]
+                  },
+                  {
+                    key: "code",
+                    fn: function(data) {
+                      return [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.item.code,
+                              expression: "data.item.code"
+                            }
+                          ],
+                          staticClass: "form-control border-0 rounded-pill",
+                          attrs: { type: "text", id: "code", name: "code" },
+                          domProps: { value: data.item.code },
+                          on: {
+                            blur: function($event) {
+                              return _vm.updateCompany(data.item)
+                            },
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(data.item, "code", $event.target.value)
+                            }
+                          }
+                        })
+                      ]
+                    }
+                  }
+                ])
+              },
+              [
+                _vm._v(" "),
+                _vm._v(" "),
+                _vm._v(" "),
+                _vm._v(" "),
+                _vm._v(">\n\n      ")
+              ]
+            ),
+            _vm._v(" "),
+            _c("b-pagination", {
+              staticClass: "companies-pagination",
+              attrs: {
+                "per-page": _vm.perPage,
+                align: "center",
+                size: "sm",
+                "total-rows": _vm.rows
+              },
+              model: {
+                value: _vm.currentPage,
+                callback: function($$v) {
+                  _vm.currentPage = $$v
+                },
+                expression: "currentPage"
               }
-            }
-          ])
-        },
-        [
-          _vm._v(" "),
-          _vm._v(" "),
-          _vm._v(" "),
-          _vm._v(" "),
-          _vm._v(">\n\n    ")
-        ]
-      ),
-      _vm._v(" "),
-      _c("b-pagination", {
-        staticClass: "companies-pagination",
-        attrs: {
-          "per-page": _vm.perPage,
-          align: "center",
-          size: "sm",
-          "total-rows": _vm.rows
-        },
-        model: {
-          value: _vm.currentPage,
-          callback: function($$v) {
-            _vm.currentPage = $$v
-          },
-          expression: "currentPage"
-        }
-      })
-    ],
-    1
-  )
+            })
+          ],
+          1
+        )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -370427,178 +370622,218 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "table-container" },
-    [
-      _c(
-        "b-table",
-        {
-          staticClass: "order-listing",
-          attrs: {
-            items: _vm.orderHistory,
-            "per-page": _vm.perPage,
-            "sticky-header": "190px",
-            responsive: "",
-            "current-page": _vm.currentPage
-          },
-          scopedSlots: _vm._u([
-            {
-              key: "Status",
-              fn: function(data) {
-                return [
-                  _c(
-                    "a-select",
-                    {
-                      model: {
-                        value: data.item.Status,
-                        callback: function($$v) {
-                          _vm.$set(data.item, "Status", $$v)
-                        },
-                        expression: "data.item.Status"
-                      }
-                    },
-                    [
-                      _c("a-select-option", { attrs: { value: "PENDING" } }, [
-                        _vm._v("PENDING")
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "a-select-option",
-                        { attrs: { value: "IN TRANSIT" } },
-                        [_vm._v("IN TRANSIT")]
-                      ),
-                      _vm._v(" "),
-                      _c("a-select-option", { attrs: { value: "DELIVERED" } }, [
-                        _vm._v("DELIVERED")
-                      ]),
-                      _vm._v(" "),
-                      _c("a-select-option", { attrs: { value: "PAID" } }, [
-                        _vm._v("PAID")
-                      ])
-                    ],
-                    1
-                  )
-                ]
+  return _c("div", { staticClass: "table-container" }, [
+    _vm.show_page_loader
+      ? _c("div", [_vm.show_page_loader ? _c("vcl-table") : _vm._e()], 1)
+      : _c(
+          "div",
+          [
+            _c(
+              "b-table",
+              {
+                staticClass: "order-listing",
+                attrs: {
+                  items: _vm.orderHistory,
+                  "per-page": _vm.perPage,
+                  "sticky-header": "190px",
+                  responsive: "",
+                  "current-page": _vm.currentPage
+                },
+                scopedSlots: _vm._u([
+                  {
+                    key: "Status",
+                    fn: function(data) {
+                      return [
+                        _c(
+                          "a-select",
+                          {
+                            on: {
+                              change: function($event) {
+                                return _vm.updateOrder(data.item)
+                              }
+                            },
+                            model: {
+                              value: data.item.Status,
+                              callback: function($$v) {
+                                _vm.$set(data.item, "Status", $$v)
+                              },
+                              expression: "data.item.Status"
+                            }
+                          },
+                          [
+                            _vm.diableOrderStage(data.item, "PENDING")
+                              ? _c(
+                                  "a-select-option",
+                                  { attrs: { value: "PENDING" } },
+                                  [_vm._v("PENDING")]
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.diableOrderStage(data.item, "IN TRANSIT")
+                              ? _c(
+                                  "a-select-option",
+                                  { attrs: { value: "IN TRANSIT" } },
+                                  [_vm._v("IN TRANSIT")]
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.diableOrderStage(data.item, "DELIVERED")
+                              ? _c(
+                                  "a-select-option",
+                                  { attrs: { value: "DELIVERED" } },
+                                  [_vm._v("DELIVERED")]
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.diableOrderStage(data.item, "PAID")
+                              ? _c(
+                                  "a-select-option",
+                                  { attrs: { value: "PAID" } },
+                                  [_vm._v("PAID")]
+                                )
+                              : _vm._e()
+                          ],
+                          1
+                        )
+                      ]
+                    }
+                  },
+                  {
+                    key: "Actions",
+                    fn: function(data) {
+                      return [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-primary",
+                            attrs: {
+                              href: "/orders/download-po/" + data.item.ID
+                            }
+                          },
+                          [
+                            _c("a-icon", { attrs: { type: "download" } }),
+                            _vm._v(" Purchase Order")
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-primary",
+                            staticStyle: { display: "none" },
+                            attrs: {
+                              href: "/orders/download-inv/" + data.item.ID
+                            }
+                          },
+                          [
+                            _c("a-icon", { attrs: { type: "download" } }),
+                            _vm._v(" Invoice")
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _vm.checkForDeliveryNote(data.item.Status)
+                          ? _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-primary",
+                                attrs: {
+                                  href: "/orders/download-dn/" + data.item.ID
+                                }
+                              },
+                              [
+                                _c("a-icon", { attrs: { type: "download" } }),
+                                _vm._v(" Delivery Note")
+                              ],
+                              1
+                            )
+                          : _vm._e()
+                      ]
+                    }
+                  }
+                ])
+              },
+              [
+                _c(
+                  "template",
+                  { slot: "type_id" },
+                  [
+                    _c(
+                      "a-select",
+                      {},
+                      [
+                        _c("a-select-option", { attrs: { value: "0" } }, [
+                          _c("div", { staticClass: "d-inline-block" }),
+                          _vm._v("CPT001\n          ")
+                        ])
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "template",
+                  { slot: "class_id" },
+                  [
+                    _c(
+                      "a-select",
+                      {},
+                      [
+                        _c("a-select-option", { attrs: { value: "0" } }, [
+                          _c("div", { staticClass: "d-inline-block" }),
+                          _vm._v("CPT001\n          ")
+                        ])
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "template",
+                  { slot: "origin_id" },
+                  [
+                    _c(
+                      "a-select",
+                      {},
+                      [
+                        _c("a-select-option", { attrs: { value: "0" } }, [
+                          _c("div", { staticClass: "d-inline-block" }),
+                          _vm._v("CPT001\n          ")
+                        ])
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ],
+              2
+            ),
+            _vm._v(" "),
+            _c("b-pagination", {
+              attrs: {
+                "per-page": _vm.perPage,
+                align: "center",
+                size: "sm",
+                "total-rows": _vm.rows
+              },
+              model: {
+                value: _vm.currentPage,
+                callback: function($$v) {
+                  _vm.currentPage = $$v
+                },
+                expression: "currentPage"
               }
-            },
-            {
-              key: "Actions",
-              fn: function(data) {
-                return [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn btn-primary",
-                      attrs: { href: "/orders/download-po/" + data.item.ID }
-                    },
-                    [_vm._v("Download Purchase Order")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn btn-primary",
-                      staticStyle: { display: "none" },
-                      attrs: { href: "/orders/download-inv/" + data.item.ID }
-                    },
-                    [_vm._v("Download Invoice")]
-                  ),
-                  _vm._v(" "),
-                  _vm.checkForDeliveryNote
-                    ? _c(
-                        "a",
-                        {
-                          staticClass: "btn btn-primary",
-                          attrs: { href: "/orders/download-dn/" + data.item.ID }
-                        },
-                        [_vm._v("Download Delivery Note")]
-                      )
-                    : _vm._e()
-                ]
-              }
-            }
-          ])
-        },
-        [
-          _c(
-            "template",
-            { slot: "type_id" },
-            [
-              _c(
-                "a-select",
-                {},
-                [
-                  _c("a-select-option", { attrs: { value: "0" } }, [
-                    _c("div", { staticClass: "d-inline-block" }),
-                    _vm._v("CPT001\n        ")
-                  ])
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "template",
-            { slot: "class_id" },
-            [
-              _c(
-                "a-select",
-                {},
-                [
-                  _c("a-select-option", { attrs: { value: "0" } }, [
-                    _c("div", { staticClass: "d-inline-block" }),
-                    _vm._v("CPT001\n        ")
-                  ])
-                ],
-                1
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "template",
-            { slot: "origin_id" },
-            [
-              _c(
-                "a-select",
-                {},
-                [
-                  _c("a-select-option", { attrs: { value: "0" } }, [
-                    _c("div", { staticClass: "d-inline-block" }),
-                    _vm._v("CPT001\n        ")
-                  ])
-                ],
-                1
-              )
-            ],
-            1
-          )
-        ],
-        2
-      ),
-      _vm._v(" "),
-      _c("b-pagination", {
-        attrs: {
-          "per-page": _vm.perPage,
-          align: "center",
-          size: "sm",
-          "total-rows": _vm.rows
-        },
-        model: {
-          value: _vm.currentPage,
-          callback: function($$v) {
-            _vm.currentPage = $$v
-          },
-          expression: "currentPage"
-        }
-      })
-    ],
-    1
-  )
+            })
+          ],
+          1
+        )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -370622,673 +370857,696 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "table-container" },
-    [
-      _c("b-table", {
-        staticClass: "product-listing",
-        attrs: {
-          items: _vm.productListing,
-          "per-page": _vm.perPage,
-          "current-page": _vm.currentPage
-        },
-        scopedSlots: _vm._u(
+  return _c("div", { staticClass: "table-container" }, [
+    _vm.show_page_loader
+      ? _c("div", [_vm.show_page_loader ? _c("vcl-table") : _vm._e()], 1)
+      : _c(
+          "div",
           [
-            {
-              key: "name",
-              fn: function(data) {
-                return [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: data.item.name,
-                        expression: "data.item.name"
-                      }
-                    ],
-                    staticClass: "form-control rounded-pill  border-0",
-                    attrs: {
-                      disabled: _vm.mode == "view" ? true : false,
-                      type: "text",
-                      id: "name",
-                      name: "Name"
-                    },
-                    domProps: { value: data.item.name },
-                    on: {
-                      blur: function($event) {
-                        return _vm.updateProduct(data.item)
-                      },
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(data.item, "name", $event.target.value)
-                      }
-                    }
-                  })
-                ]
-              }
-            },
-            {
-              key: "description",
-              fn: function(data) {
-                return [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: data.item.description,
-                        expression: "data.item.description"
-                      }
-                    ],
-                    staticClass: "form-control rounded-pill border-0",
-                    attrs: {
-                      disabled: _vm.mode == "view" ? true : false,
-                      id: "description",
-                      name: "description"
-                    },
-                    domProps: { value: data.item.description },
-                    on: {
-                      blur: function($event) {
-                        return _vm.updateProduct(data.item)
-                      },
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(data.item, "description", $event.target.value)
-                      }
-                    }
-                  })
-                ]
-              }
-            },
-            {
-              key: "category_id",
-              fn: function(data) {
-                return [
-                  _c(
-                    "a-select",
-                    {
-                      staticClass: "custom-select rounded-pill border-0",
-                      attrs: {
-                        disabled: _vm.mode == "view" ? true : false,
-                        name: "Part Type"
-                      },
-                      on: {
-                        change: function($event) {
-                          return _vm.updateProduct(data.item)
-                        }
-                      },
-                      model: {
-                        value: data.item.category_id,
-                        callback: function($$v) {
-                          _vm.$set(data.item, "category_id", $$v)
-                        },
-                        expression: "data.item.category_id"
-                      }
-                    },
-                    [
-                      _c(
-                        "a-select-option",
-                        { attrs: { value: "", selected: "" } },
-                        [_vm._v("-None-")]
-                      ),
-                      _vm._v(" "),
-                      _vm._l(_vm.categories, function(cat, index) {
-                        return _c(
-                          "a-select-option",
-                          { key: index, attrs: { value: cat.id } },
-                          [_vm._v(_vm._s(cat.name))]
-                        )
-                      })
-                    ],
-                    2
-                  )
-                ]
-              }
-            },
-            {
-              key: "origin_type_id",
-              fn: function(data) {
-                return [
-                  _c(
-                    "a-select",
-                    {
-                      staticClass: "custom-select rounded-pill border-0",
-                      attrs: {
-                        disabled: _vm.mode == "view" ? true : false,
-                        name: "Origin Type"
-                      },
-                      on: {
-                        change: function($event) {
-                          return _vm.filterCompaniesByType(
-                            data.item.origin_type_id
-                          )
-                        }
-                      },
-                      model: {
-                        value: data.item.origin_type_id,
-                        callback: function($$v) {
-                          _vm.$set(data.item, "origin_type_id", $$v)
-                        },
-                        expression: "data.item.origin_type_id"
-                      }
-                    },
-                    [
-                      _c(
-                        "a-select-option",
-                        { attrs: { value: "", selected: "" } },
-                        [_vm._v("-None-")]
-                      ),
-                      _vm._v(" "),
-                      _vm._l(_vm.company_types, function(type, index) {
-                        return _c(
-                          "a-select-option",
-                          { key: index, attrs: { value: type.id } },
-                          [_vm._v(_vm._s(type.name))]
-                        )
-                      })
-                    ],
-                    2
-                  )
-                ]
-              }
-            },
-            {
-              key: "origin_id",
-              fn: function(data) {
-                return [
-                  _c(
-                    "a-select",
-                    {
-                      staticClass: "custom-select rounded-pill border-0",
-                      attrs: {
-                        disabled: _vm.mode == "view" ? true : false,
-                        name: "Origin"
-                      },
-                      on: {
-                        change: function($event) {
-                          return _vm.updateProduct(data.item)
-                        }
-                      },
-                      model: {
-                        value: data.item.origin_id,
-                        callback: function($$v) {
-                          _vm.$set(data.item, "origin_id", $$v)
-                        },
-                        expression: "data.item.origin_id"
-                      }
-                    },
-                    [
-                      _c(
-                        "a-select-option",
-                        { attrs: { value: "", selected: "" } },
-                        [_vm._v("-None-")]
-                      ),
-                      _vm._v(" "),
-                      _vm._l(_vm.filtered_companies, function(company, index) {
-                        return _c(
-                          "a-select-option",
-                          { key: index, attrs: { value: company.id } },
-                          [_vm._v(_vm._s(company.name))]
-                        )
-                      })
-                    ],
-                    2
-                  )
-                ]
-              }
-            },
-            {
-              key: "supplier_id",
-              fn: function(data) {
-                return [
-                  _c(
-                    "a-select",
-                    {
-                      staticClass: "custom-select rounded-pill border-0",
-                      attrs: {
-                        disabled: _vm.mode == "view" ? true : false,
-                        name: "Supplier"
-                      },
-                      on: {
-                        change: function($event) {
-                          return _vm.updateProduct(data.item)
-                        }
-                      },
-                      model: {
-                        value: data.item.supplier_id,
-                        callback: function($$v) {
-                          _vm.$set(data.item, "supplier_id", $$v)
-                        },
-                        expression: "data.item.supplier_id"
-                      }
-                    },
-                    [
-                      _c(
-                        "a-select-option",
-                        { attrs: { value: "", selected: "" } },
-                        [_vm._v("-None-")]
-                      ),
-                      _vm._v(" "),
-                      _vm._l(_vm.suppliers, function(supplier, index) {
-                        return _c(
-                          "a-select-option",
-                          { key: index, attrs: { value: supplier.id } },
-                          [_vm._v(_vm._s(supplier.name))]
-                        )
-                      })
-                    ],
-                    2
-                  )
-                ]
-              }
-            },
-            {
-              key: "model_number",
-              fn: function(data) {
-                return [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "validate",
-                        rawName: "v-validate",
-                        value: "required",
-                        expression: "'required'"
-                      },
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: data.item.model_number,
-                        expression: "data.item.model_number"
-                      }
-                    ],
-                    staticClass: "form-control rounded-pill  border-0",
-                    attrs: {
-                      disabled: _vm.mode == "view" ? true : false,
-                      name: "Model Number",
-                      type: "text",
-                      id: "model-number"
-                    },
-                    domProps: { value: data.item.model_number },
-                    on: {
-                      blur: function($event) {
-                        return _vm.updateProduct(data.item)
-                      },
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(data.item, "model_number", $event.target.value)
-                      }
-                    }
-                  })
-                ]
-              }
-            },
-            {
-              key: "part_code",
-              fn: function(data) {
-                return [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: data.item.part_code,
-                        expression: "data.item.part_code"
-                      }
-                    ],
-                    staticClass: "form-control rounded-pill border-0",
-                    attrs: {
-                      disabled: _vm.mode == "view" ? true : false,
-                      type: "text",
-                      id: "part-code",
-                      name: "partCode"
-                    },
-                    domProps: { value: data.item.part_code },
-                    on: {
-                      blur: function($event) {
-                        return _vm.updateProduct(data.item)
-                      },
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(data.item, "part_code", $event.target.value)
-                      }
-                    }
-                  })
-                ]
-              }
-            },
-            {
-              key: "unit_cost",
-              fn: function(data) {
-                return [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "validate",
-                        rawName: "v-validate",
-                        value: "required",
-                        expression: "'required'"
-                      },
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: data.item.unit_cost,
-                        expression: "data.item.unit_cost"
-                      }
-                    ],
-                    staticClass: "form-control rounded-pill border-0",
-                    attrs: {
-                      disabled: _vm.mode == "view" ? true : false,
-                      type: "number",
-                      id: "unit-cost",
-                      name: "unitCost"
-                    },
-                    domProps: { value: data.item.unit_cost },
-                    on: {
-                      blur: function($event) {
-                        return _vm.updateProduct(data.item)
-                      },
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(data.item, "unit_cost", $event.target.value)
-                      }
-                    }
-                  })
-                ]
-              }
-            },
-            {
-              key: "current_stock",
-              fn: function(data) {
-                return [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "validate",
-                        rawName: "v-validate",
-                        value: "required",
-                        expression: "'required'"
-                      },
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: data.item.current_stock,
-                        expression: "data.item.current_stock"
-                      }
-                    ],
-                    staticClass: "form-control rounded-pill border-0",
-                    attrs: {
-                      disabled: _vm.mode == "view" ? true : false,
-                      type: "number",
-                      id: "stock",
-                      name: "Current Stock"
-                    },
-                    domProps: { value: data.item.current_stock },
-                    on: {
-                      blur: function($event) {
-                        return _vm.updateProduct(data.item)
-                      },
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          data.item,
-                          "current_stock",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  })
-                ]
-              }
-            },
-            {
-              key: "reserved_stock",
-              fn: function(data) {
-                return [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "validate",
-                        rawName: "v-validate",
-                        value: "required",
-                        expression: "'required'"
-                      },
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: data.item.reserved_stock,
-                        expression: "data.item.reserved_stock"
-                      }
-                    ],
-                    staticClass: "form-control rounded-pill border-0",
-                    attrs: {
-                      disabled: _vm.mode == "view" ? true : false,
-                      type: "number",
-                      id: "stock",
-                      name: "Current Stock"
-                    },
-                    domProps: { value: data.item.reserved_stock },
-                    on: {
-                      blur: function($event) {
-                        return _vm.updateProduct(data.item)
-                      },
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          data.item,
-                          "reserved_stock",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  })
-                ]
-              }
-            },
-            {
-              key: "available_stock",
-              fn: function(data) {
-                return [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: data.item.available_stock,
-                        expression: "data.item.available_stock"
-                      }
-                    ],
-                    staticClass: "form-control rounded-pill border-0",
-                    attrs: {
-                      disabled: "",
-                      type: "number",
-                      id: "stock",
-                      name: "Current Stock"
-                    },
-                    domProps: { value: data.item.available_stock },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          data.item,
-                          "available_stock",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  })
-                ]
-              }
-            },
-            {
-              key: "tax_type",
-              fn: function(data) {
-                return [
-                  _c(
-                    "a-select",
-                    {
-                      directives: [
-                        {
-                          name: "validate",
-                          rawName: "v-validate",
-                          value: "required",
-                          expression: "'required'"
-                        }
-                      ],
-                      staticClass: "custom-select rounded-pill border-0",
-                      attrs: {
-                        disabled: _vm.mode == "view" ? true : false,
-                        name: "Tax Type"
-                      },
-                      on: {
-                        change: function($event) {
-                          return _vm.updateProduct(data.item)
-                        }
-                      },
-                      model: {
-                        value: data.item.tax_type,
-                        callback: function($$v) {
-                          _vm.$set(data.item, "tax_type", $$v)
-                        },
-                        expression: "data.item.tax_type"
-                      }
-                    },
-                    [
-                      _c("a-select-option", { attrs: { value: "" } }, [
-                        _vm._v("-None-")
-                      ]),
-                      _vm._v(" "),
-                      _vm._l(_vm.tax_types, function(type, index) {
-                        return _c(
-                          "a-select-option",
-                          { key: index, attrs: { value: type.id } },
-                          [_vm._v(_vm._s(type.tax_type))]
-                        )
-                      })
-                    ],
-                    2
-                  )
-                ]
-              }
-            },
-            {
-              key: "status",
-              fn: function(data) {
-                return [
-                  _c(
-                    "a-select",
-                    {
-                      directives: [
-                        {
-                          name: "validate",
-                          rawName: "v-validate",
-                          value: "required",
-                          expression: "'required'"
-                        }
-                      ],
-                      staticClass: "custom-select rounded-pill border-0",
-                      attrs: {
-                        disabled: _vm.mode == "view" ? true : false,
-                        name: "Status"
-                      },
-                      on: {
-                        change: function($event) {
-                          return _vm.updateProduct(data.item)
-                        }
-                      },
-                      model: {
-                        value: data.item.status,
-                        callback: function($$v) {
-                          _vm.$set(data.item, "status", $$v)
-                        },
-                        expression: "data.item.status"
-                      }
-                    },
-                    [
-                      _c("a-select-option", { attrs: { value: "" } }, [
-                        _vm._v("-None-")
-                      ]),
-                      _vm._v(" "),
-                      _c("a-select-option", { attrs: { value: 1 } }, [
-                        _vm._v("Active")
-                      ]),
-                      _vm._v(" "),
-                      _c("a-select-option", { attrs: { value: 0 } }, [
-                        _vm._v("Disabled")
-                      ])
-                    ],
-                    1
-                  )
-                ]
-              }
-            },
-            {
-              key: "actions",
-              fn: function(data) {
-                return _vm.mode == "view" &&
-                  (data.item.available_stock > 0 && data.item.current_stock > 0)
-                  ? [
-                      _c("span", { staticClass: "actions" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "Order-button",
-                            attrs: { href: "#", title: "Order" },
-                            on: {
-                              click: function($event) {
-                                return _vm.startOrder(data.item)
+            _c("b-table", {
+              staticClass: "product-listing",
+              attrs: {
+                items: _vm.productListing,
+                "per-page": _vm.perPage,
+                "current-page": _vm.currentPage
+              },
+              scopedSlots: _vm._u(
+                [
+                  {
+                    key: "name",
+                    fn: function(data) {
+                      return [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.item.name,
+                              expression: "data.item.name"
+                            }
+                          ],
+                          staticClass: "form-control rounded-pill  border-0",
+                          attrs: {
+                            disabled: _vm.mode == "view" ? true : false,
+                            type: "text",
+                            id: "name",
+                            name: "Name"
+                          },
+                          domProps: { value: data.item.name },
+                          on: {
+                            blur: function($event) {
+                              return _vm.updateProduct(data.item)
+                            },
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
                               }
+                              _vm.$set(data.item, "name", $event.target.value)
+                            }
+                          }
+                        })
+                      ]
+                    }
+                  },
+                  {
+                    key: "description",
+                    fn: function(data) {
+                      return [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.item.description,
+                              expression: "data.item.description"
+                            }
+                          ],
+                          staticClass: "form-control rounded-pill border-0",
+                          attrs: {
+                            disabled: _vm.mode == "view" ? true : false,
+                            id: "description",
+                            name: "description"
+                          },
+                          domProps: { value: data.item.description },
+                          on: {
+                            blur: function($event) {
+                              return _vm.updateProduct(data.item)
+                            },
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                data.item,
+                                "description",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]
+                    }
+                  },
+                  {
+                    key: "category_id",
+                    fn: function(data) {
+                      return [
+                        _c(
+                          "a-select",
+                          {
+                            staticClass: "custom-select rounded-pill border-0",
+                            attrs: {
+                              disabled: _vm.mode == "view" ? true : false,
+                              name: "Part Type"
+                            },
+                            on: {
+                              change: function($event) {
+                                return _vm.updateProduct(data.item)
+                              }
+                            },
+                            model: {
+                              value: data.item.category_id,
+                              callback: function($$v) {
+                                _vm.$set(data.item, "category_id", $$v)
+                              },
+                              expression: "data.item.category_id"
                             }
                           },
-                          [_vm._v("Order")]
+                          [
+                            _c(
+                              "a-select-option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("-None-")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.categories, function(cat, index) {
+                              return _c(
+                                "a-select-option",
+                                { key: index, attrs: { value: cat.id } },
+                                [_vm._v(_vm._s(cat.name))]
+                              )
+                            })
+                          ],
+                          2
                         )
-                      ])
-                    ]
-                  : undefined
+                      ]
+                    }
+                  },
+                  {
+                    key: "origin_type_id",
+                    fn: function(data) {
+                      return [
+                        _c(
+                          "a-select",
+                          {
+                            staticClass: "custom-select rounded-pill border-0",
+                            attrs: {
+                              disabled: _vm.mode == "view" ? true : false,
+                              name: "Origin Type"
+                            },
+                            on: {
+                              change: function($event) {
+                                return _vm.filterCompaniesByType(
+                                  data.item.origin_type_id
+                                )
+                              }
+                            },
+                            model: {
+                              value: data.item.origin_type_id,
+                              callback: function($$v) {
+                                _vm.$set(data.item, "origin_type_id", $$v)
+                              },
+                              expression: "data.item.origin_type_id"
+                            }
+                          },
+                          [
+                            _c(
+                              "a-select-option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("-None-")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.company_types, function(type, index) {
+                              return _c(
+                                "a-select-option",
+                                { key: index, attrs: { value: type.id } },
+                                [_vm._v(_vm._s(type.name))]
+                              )
+                            })
+                          ],
+                          2
+                        )
+                      ]
+                    }
+                  },
+                  {
+                    key: "origin_id",
+                    fn: function(data) {
+                      return [
+                        _c(
+                          "a-select",
+                          {
+                            staticClass: "custom-select rounded-pill border-0",
+                            attrs: {
+                              disabled: _vm.mode == "view" ? true : false,
+                              name: "Origin"
+                            },
+                            on: {
+                              change: function($event) {
+                                return _vm.updateProduct(data.item)
+                              }
+                            },
+                            model: {
+                              value: data.item.origin_id,
+                              callback: function($$v) {
+                                _vm.$set(data.item, "origin_id", $$v)
+                              },
+                              expression: "data.item.origin_id"
+                            }
+                          },
+                          [
+                            _c(
+                              "a-select-option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("-None-")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.filtered_companies, function(
+                              company,
+                              index
+                            ) {
+                              return _c(
+                                "a-select-option",
+                                { key: index, attrs: { value: company.id } },
+                                [_vm._v(_vm._s(company.name))]
+                              )
+                            })
+                          ],
+                          2
+                        )
+                      ]
+                    }
+                  },
+                  {
+                    key: "supplier_id",
+                    fn: function(data) {
+                      return [
+                        _c(
+                          "a-select",
+                          {
+                            staticClass: "custom-select rounded-pill border-0",
+                            attrs: {
+                              disabled: _vm.mode == "view" ? true : false,
+                              name: "Supplier"
+                            },
+                            on: {
+                              change: function($event) {
+                                return _vm.updateProduct(data.item)
+                              }
+                            },
+                            model: {
+                              value: data.item.supplier_id,
+                              callback: function($$v) {
+                                _vm.$set(data.item, "supplier_id", $$v)
+                              },
+                              expression: "data.item.supplier_id"
+                            }
+                          },
+                          [
+                            _c(
+                              "a-select-option",
+                              { attrs: { value: "", selected: "" } },
+                              [_vm._v("-None-")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.suppliers, function(supplier, index) {
+                              return _c(
+                                "a-select-option",
+                                { key: index, attrs: { value: supplier.id } },
+                                [_vm._v(_vm._s(supplier.name))]
+                              )
+                            })
+                          ],
+                          2
+                        )
+                      ]
+                    }
+                  },
+                  {
+                    key: "model_number",
+                    fn: function(data) {
+                      return [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "validate",
+                              rawName: "v-validate",
+                              value: "required",
+                              expression: "'required'"
+                            },
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.item.model_number,
+                              expression: "data.item.model_number"
+                            }
+                          ],
+                          staticClass: "form-control rounded-pill  border-0",
+                          attrs: {
+                            disabled: _vm.mode == "view" ? true : false,
+                            name: "Model Number",
+                            type: "text",
+                            id: "model-number"
+                          },
+                          domProps: { value: data.item.model_number },
+                          on: {
+                            blur: function($event) {
+                              return _vm.updateProduct(data.item)
+                            },
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                data.item,
+                                "model_number",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]
+                    }
+                  },
+                  {
+                    key: "part_code",
+                    fn: function(data) {
+                      return [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.item.part_code,
+                              expression: "data.item.part_code"
+                            }
+                          ],
+                          staticClass: "form-control rounded-pill border-0",
+                          attrs: {
+                            disabled: _vm.mode == "view" ? true : false,
+                            type: "text",
+                            id: "part-code",
+                            name: "partCode"
+                          },
+                          domProps: { value: data.item.part_code },
+                          on: {
+                            blur: function($event) {
+                              return _vm.updateProduct(data.item)
+                            },
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                data.item,
+                                "part_code",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]
+                    }
+                  },
+                  {
+                    key: "unit_cost",
+                    fn: function(data) {
+                      return [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "validate",
+                              rawName: "v-validate",
+                              value: "required",
+                              expression: "'required'"
+                            },
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.item.unit_cost,
+                              expression: "data.item.unit_cost"
+                            }
+                          ],
+                          staticClass: "form-control rounded-pill border-0",
+                          attrs: {
+                            disabled: _vm.mode == "view" ? true : false,
+                            type: "number",
+                            id: "unit-cost",
+                            name: "unitCost"
+                          },
+                          domProps: { value: data.item.unit_cost },
+                          on: {
+                            blur: function($event) {
+                              return _vm.updateProduct(data.item)
+                            },
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                data.item,
+                                "unit_cost",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]
+                    }
+                  },
+                  {
+                    key: "current_stock",
+                    fn: function(data) {
+                      return [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "validate",
+                              rawName: "v-validate",
+                              value: "required",
+                              expression: "'required'"
+                            },
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.item.current_stock,
+                              expression: "data.item.current_stock"
+                            }
+                          ],
+                          staticClass: "form-control rounded-pill border-0",
+                          attrs: {
+                            disabled: _vm.mode == "view" ? true : false,
+                            type: "number",
+                            id: "stock",
+                            name: "Current Stock"
+                          },
+                          domProps: { value: data.item.current_stock },
+                          on: {
+                            blur: function($event) {
+                              return _vm.updateProduct(data.item)
+                            },
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                data.item,
+                                "current_stock",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]
+                    }
+                  },
+                  {
+                    key: "reserved_stock",
+                    fn: function(data) {
+                      return [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "validate",
+                              rawName: "v-validate",
+                              value: "required",
+                              expression: "'required'"
+                            },
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.item.reserved_stock,
+                              expression: "data.item.reserved_stock"
+                            }
+                          ],
+                          staticClass: "form-control rounded-pill border-0",
+                          attrs: {
+                            disabled: _vm.mode == "view" ? true : false,
+                            type: "number",
+                            id: "stock",
+                            name: "Current Stock"
+                          },
+                          domProps: { value: data.item.reserved_stock },
+                          on: {
+                            blur: function($event) {
+                              return _vm.updateProduct(data.item)
+                            },
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                data.item,
+                                "reserved_stock",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]
+                    }
+                  },
+                  {
+                    key: "available_stock",
+                    fn: function(data) {
+                      return [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.item.available_stock,
+                              expression: "data.item.available_stock"
+                            }
+                          ],
+                          staticClass: "form-control rounded-pill border-0",
+                          attrs: {
+                            disabled: "",
+                            type: "number",
+                            id: "stock",
+                            name: "Current Stock"
+                          },
+                          domProps: { value: data.item.available_stock },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                data.item,
+                                "available_stock",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]
+                    }
+                  },
+                  {
+                    key: "tax_type",
+                    fn: function(data) {
+                      return [
+                        _c(
+                          "a-select",
+                          {
+                            directives: [
+                              {
+                                name: "validate",
+                                rawName: "v-validate",
+                                value: "required",
+                                expression: "'required'"
+                              }
+                            ],
+                            staticClass: "custom-select rounded-pill border-0",
+                            attrs: {
+                              disabled: _vm.mode == "view" ? true : false,
+                              name: "Tax Type"
+                            },
+                            on: {
+                              change: function($event) {
+                                return _vm.updateProduct(data.item)
+                              }
+                            },
+                            model: {
+                              value: data.item.tax_type,
+                              callback: function($$v) {
+                                _vm.$set(data.item, "tax_type", $$v)
+                              },
+                              expression: "data.item.tax_type"
+                            }
+                          },
+                          [
+                            _c("a-select-option", { attrs: { value: "" } }, [
+                              _vm._v("-None-")
+                            ]),
+                            _vm._v(" "),
+                            _vm._l(_vm.tax_types, function(type, index) {
+                              return _c(
+                                "a-select-option",
+                                { key: index, attrs: { value: type.id } },
+                                [_vm._v(_vm._s(type.tax_type))]
+                              )
+                            })
+                          ],
+                          2
+                        )
+                      ]
+                    }
+                  },
+                  {
+                    key: "status",
+                    fn: function(data) {
+                      return [
+                        _c(
+                          "a-select",
+                          {
+                            directives: [
+                              {
+                                name: "validate",
+                                rawName: "v-validate",
+                                value: "required",
+                                expression: "'required'"
+                              }
+                            ],
+                            staticClass: "custom-select rounded-pill border-0",
+                            attrs: {
+                              disabled: _vm.mode == "view" ? true : false,
+                              name: "Status"
+                            },
+                            on: {
+                              change: function($event) {
+                                return _vm.updateProduct(data.item)
+                              }
+                            },
+                            model: {
+                              value: data.item.status,
+                              callback: function($$v) {
+                                _vm.$set(data.item, "status", $$v)
+                              },
+                              expression: "data.item.status"
+                            }
+                          },
+                          [
+                            _c("a-select-option", { attrs: { value: "" } }, [
+                              _vm._v("-None-")
+                            ]),
+                            _vm._v(" "),
+                            _c("a-select-option", { attrs: { value: 1 } }, [
+                              _vm._v("Active")
+                            ]),
+                            _vm._v(" "),
+                            _c("a-select-option", { attrs: { value: 0 } }, [
+                              _vm._v("Disabled")
+                            ])
+                          ],
+                          1
+                        )
+                      ]
+                    }
+                  },
+                  {
+                    key: "actions",
+                    fn: function(data) {
+                      return _vm.mode == "view" &&
+                        (data.item.available_stock > 0 &&
+                          data.item.current_stock > 0)
+                        ? [
+                            _c("span", { staticClass: "actions" }, [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "Order-button",
+                                  attrs: { href: "#", title: "Order" },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.startOrder(data.item)
+                                    }
+                                  }
+                                },
+                                [_vm._v("Order")]
+                              )
+                            ])
+                          ]
+                        : undefined
+                    }
+                  }
+                ],
+                null,
+                true
+              )
+            }),
+            _vm._v(" "),
+            _c("b-pagination", {
+              staticClass: "products-pagination",
+              attrs: {
+                "per-page": _vm.perPage,
+                align: "center",
+                size: "sm",
+                "total-rows": _vm.rows
+              },
+              model: {
+                value: _vm.currentPage,
+                callback: function($$v) {
+                  _vm.currentPage = $$v
+                },
+                expression: "currentPage"
               }
-            }
+            })
           ],
-          null,
-          true
+          1
         )
-      }),
-      _vm._v(" "),
-      _c("b-pagination", {
-        staticClass: "products-pagination",
-        attrs: {
-          "per-page": _vm.perPage,
-          align: "center",
-          size: "sm",
-          "total-rows": _vm.rows
-        },
-        model: {
-          value: _vm.currentPage,
-          callback: function($$v) {
-            _vm.currentPage = $$v
-          },
-          expression: "currentPage"
-        }
-      })
-    ],
-    1
-  )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -373465,6 +373723,45 @@ var render = function() {
                 attrs: { items: _vm.order_items },
                 scopedSlots: _vm._u([
                   {
+                    key: "Available",
+                    fn: function(data) {
+                      return [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.item.Available,
+                              expression: "data.item.Available"
+                            }
+                          ],
+                          staticClass: "form-control rounded-pill border-0",
+                          attrs: {
+                            disabled: "",
+                            type: "number",
+                            min: "1",
+                            max: "10",
+                            id: "Available",
+                            name: "Available"
+                          },
+                          domProps: { value: data.item.Available },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                data.item,
+                                "Available",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]
+                    }
+                  },
+                  {
                     key: "Quantity",
                     fn: function(data) {
                       return [
@@ -373481,9 +373778,9 @@ var render = function() {
                           attrs: {
                             type: "number",
                             min: "1",
-                            max: "10",
-                            id: "Priority",
-                            name: "Priority"
+                            max: data.item.Available,
+                            id: "Quantity",
+                            name: "Quantity"
                           },
                           domProps: { value: data.item.Quantity },
                           on: {
@@ -373493,21 +373790,26 @@ var render = function() {
                             blur: function($event) {
                               return _vm.updateRow(data.item)
                             },
-                            keyup: function($event) {
-                              if (
-                                !$event.type.indexOf("key") &&
-                                _vm._k(
-                                  $event.keyCode,
-                                  "enter",
-                                  13,
-                                  $event.key,
-                                  "Enter"
-                                )
-                              ) {
-                                return null
+                            keyup: [
+                              function($event) {
+                                if (
+                                  !$event.type.indexOf("key") &&
+                                  _vm._k(
+                                    $event.keyCode,
+                                    "enter",
+                                    13,
+                                    $event.key,
+                                    "Enter"
+                                  )
+                                ) {
+                                  return null
+                                }
+                                return _vm.updateRow(data.item)
+                              },
+                              function($event) {
+                                return _vm.updateRow(data.item)
                               }
-                              return _vm.updateRow(data.item)
-                            },
+                            ],
                             input: function($event) {
                               if ($event.target.composing) {
                                 return
@@ -373515,6 +373817,61 @@ var render = function() {
                               _vm.$set(
                                 data.item,
                                 "Quantity",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.max_quantity_reached,
+                                expression: "max_quantity_reached"
+                              }
+                            ],
+                            staticClass: "help-block",
+                            attrs: { id: "error" }
+                          },
+                          [_vm._v("Max quantiy reached")]
+                        )
+                      ]
+                    }
+                  },
+                  {
+                    key: "Priority",
+                    fn: function(data) {
+                      return [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.item.Priority,
+                              expression: "data.item.Priority"
+                            }
+                          ],
+                          staticClass: "form-control rounded-pill border-0",
+                          attrs: {
+                            type: "number",
+                            min: "1",
+                            max: "10",
+                            id: "Priority",
+                            name: "Priority"
+                          },
+                          domProps: { value: data.item.Priority },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                data.item,
+                                "Priority",
                                 $event.target.value
                               )
                             }
@@ -373699,6 +374056,153 @@ var render = function() {
                         })
                       ]
                     }
+                  },
+                  {
+                    key: "ProductId",
+                    fn: function(data) {
+                      return [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.item.ProductId,
+                              expression: "data.item.ProductId"
+                            }
+                          ],
+                          staticClass: "form-control rounded-pill border-0",
+                          attrs: {
+                            disabled: "",
+                            id: "p-total",
+                            name: "p-total"
+                          },
+                          domProps: { value: data.item.ProductId },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                data.item,
+                                "ProductId",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]
+                    }
+                  },
+                  {
+                    key: "PartType",
+                    fn: function(data) {
+                      return [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.item.PartType,
+                              expression: "data.item.PartType"
+                            }
+                          ],
+                          staticClass: "form-control rounded-pill border-0",
+                          attrs: {
+                            disabled: "",
+                            title: data.item.PartType,
+                            id: "p-total",
+                            name: "p-total"
+                          },
+                          domProps: { value: data.item.PartType },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                data.item,
+                                "PartType",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]
+                    }
+                  },
+                  {
+                    key: "PartCode",
+                    fn: function(data) {
+                      return [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.item.PartCode,
+                              expression: "data.item.PartCode"
+                            }
+                          ],
+                          staticClass: "form-control rounded-pill border-0",
+                          attrs: {
+                            disabled: "",
+                            title: data.item.PartCode,
+                            id: "p-total",
+                            name: "p-total"
+                          },
+                          domProps: { value: data.item.PartCode },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                data.item,
+                                "PartCode",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]
+                    }
+                  },
+                  {
+                    key: "Description",
+                    fn: function(data) {
+                      return [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: data.item.Description,
+                              expression: "data.item.Description"
+                            }
+                          ],
+                          staticClass: "form-control rounded-pill border-0",
+                          attrs: {
+                            disabled: "",
+                            title: data.item.Description,
+                            id: "p-total",
+                            name: "p-total"
+                          },
+                          domProps: { value: data.item.Description },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                data.item,
+                                "Description",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]
+                    }
                   }
                 ])
               })
@@ -373828,20 +374332,38 @@ var render = function() {
               "div",
               { staticClass: "col-auto pl-0" },
               [
-                _c(
-                  "b-button",
-                  {
-                    staticClass: "btn btn-primary font-weight-bold my-0 mr-0",
-                    on: { click: _vm.saveOrder }
-                  },
-                  [
-                    _vm.loading
-                      ? _c("a-icon", { attrs: { type: "loading" } })
-                      : _vm._e(),
-                    _vm._v(" Save")
-                  ],
-                  1
-                )
+                _vm.max_quantity_reached
+                  ? _c(
+                      "b-button",
+                      {
+                        staticClass:
+                          "btn btn-primary font-weight-bold my-0 mr-0",
+                        attrs: { disabled: "" },
+                        on: { click: _vm.saveOrder }
+                      },
+                      [
+                        _vm.loading
+                          ? _c("a-icon", { attrs: { type: "loading" } })
+                          : _vm._e(),
+                        _vm._v(" Save\n        ")
+                      ],
+                      1
+                    )
+                  : _c(
+                      "b-button",
+                      {
+                        staticClass:
+                          "btn btn-primary font-weight-bold my-0 mr-0",
+                        on: { click: _vm.saveOrder }
+                      },
+                      [
+                        _vm.loading
+                          ? _c("a-icon", { attrs: { type: "loading" } })
+                          : _vm._e(),
+                        _vm._v(" Save\n        ")
+                      ],
+                      1
+                    )
               ],
               1
             )
@@ -374767,6 +375289,7 @@ var render = function() {
                       user_id: _vm.current_user.user_id,
                       user_name:
                         _vm.current_user.name + " " + _vm.current_user.lastname,
+                      company_id: _vm.current_user.company_id,
                       provinces: _vm.provinces,
                       cities: _vm.cities,
                       company_types: _vm.company_types
@@ -374951,6 +375474,7 @@ var render = function() {
                         attrs: {
                           user_id: _vm.user_id,
                           user_name: _vm.user_name,
+                          company_id: _vm.company_id,
                           order_clases: _vm.order_clases,
                           order_types: _vm.order_types
                         }

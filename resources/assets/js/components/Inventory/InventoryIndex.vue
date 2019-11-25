@@ -252,6 +252,7 @@
             :role="current_user.role_id"
             :user_id="current_user.user_id"
             :user_name="current_user.name + ' ' + current_user.lastname"
+            :company_id="current_user.company_id"
             :provinces="provinces" 
             :cities="cities" 
             :company_types="company_types"

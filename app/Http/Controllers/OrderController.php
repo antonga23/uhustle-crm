@@ -67,7 +67,9 @@ class OrderController extends Controller
             $order = Order::create($data['order']);
 
             foreach ($data['order_items'] as $key => $item) {
+
               $product_id = $item['ProductId'] ;
+              
               $item['order_id'] = $order->id;
                
               $item = OrderItem::create($item);
@@ -150,7 +152,29 @@ class OrderController extends Controller
      */
     public function update(Request $request, Order $order)
     {
-        //
+      $data = $request->all();
+      $order_id = $data['order_id'];
+      $order_status = $data['order_status'];
+          
+      try{
+
+        DB::beginTransaction();
+
+        Order::find($order_id)->update([
+          'status' => $order_status
+        ]);
+
+        DB::commit();            
+        
+        $orders = $this->index();
+
+        return array('success' => true, 'message' => 'Order has been updated.', 'orders' => $orders['orders'] );
+  
+      }catch(\QueryException $e){
+          DB::rollback();
+          return array('success' =>false, 'message' => $e->getMessage());
+      }
+      
     }
 
     /**
