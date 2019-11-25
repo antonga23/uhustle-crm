@@ -169,14 +169,6 @@ label{
           name="Revenue"   
           class="form-control rounded-pill"/> 
 
-        <label class="col-lg-12 control-label w-100 p-0 mb-2">Expected Revenue</label>   
-        <input
-          v-model="deal.expected_revenue"    
-          type="number"    
-          id="revenue"     
-          name="Revenue"   
-          class="form-control rounded-pill"/> 
-
         <label class="col-lg-12 control-label w-100 p-0 mb-2">Terms</label>   
         <a-select class="custom-select rounded-pill border-0">   
           <a-select-option value="-None-" selected>-None-</a-select-option>   
@@ -186,6 +178,14 @@ label{
           <a-select-option value="4">Monthly</a-select-option>
           <a-select-option value="4">Yearly</a-select-option>     
         </a-select>  
+
+        <label class="col-lg-12 control-label w-100 p-0 mb-2">Contact Name</label> 
+        <input 
+          v-model="deal.contact_name"    
+          type="text"    
+          id="contact-name"     
+          name="ContactName"   
+          class="form-control rounded-pill"/>  
 
         <label class="col-lg-12 control-label w-100 p-0 mb-2">Contact Number</label> 
         <input 

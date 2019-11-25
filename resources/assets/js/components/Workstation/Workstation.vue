@@ -902,21 +902,21 @@ a.down-scroll:hover {
                   <p class="top">{{ custom_field.display_name }}</p>  
                 </div>  
                 <div class="col-8 bottom truncate border-left-grey">    
-                    <select 
-                      @change="submitEdit(item_field)"
-                      type="text" 
-                      id="Source"  
-                      name="Source" 
-                      v-model="item.custom_field_value"  
-                      class="form-control editable border-0"
-                    >
-                      <option :value="null">- None -</option>
-                      <option 
-                        :value="item.id" 
-                        v-for="(item,index) in sources" 
-                        :key="index"
-                      >{{ item.name }}</option>
-                    </select>
+                  <a-select 
+                    @change="submitEdit(item_field)"
+                    type="text" 
+                    id="Source"  
+                    name="Source" 
+                    v-model="item.custom_field_value"
+                    class="form-control editable border-0 p-0"
+                  >
+                    <a-select-option :value="null">- None -</a-select-option>
+                    <a-select-option 
+                      :value="item.id" 
+                      v-for="(item,index) in sources" 
+                      :key="index"
+                    >{{ item.name }}</a-select-option>
+                  </a-select>
                 </div>  
               </div>  
               <div  
@@ -927,17 +927,17 @@ a.down-scroll:hover {
                   <p class="top">{{ custom_field.display_name }}</p>  
                 </div>  
                 <div class="col-8 bottom truncate border-left-grey">    
-                    <select 
-                      @change="submitEdit(item_field)"
-                      type="text" 
-                      id="Source"  
-                      name="Source" 
-                      v-model="item.custom_field_value"  
-                      class="form-control editable border-0"
-                    >
-                      <option :value="null">- None -</option>
-                      <option :value="item.id" v-for="(item,index) in packages" :key="index">{{ item.name }}</option>
-                    </select>
+                  <a-select 
+                    @change="submitEdit(item_field)"
+                    type="text" 
+                    id="Source"  
+                    name="Source" 
+                    v-model="item.custom_field_value"  
+                    class="form-control editable border-0 p-0"
+                  >
+                    <a-select-option :value="null">- None -</a-select-option>
+                    <a-select-option :value="item.id" v-for="(item,index) in packages" :key="index">{{ item.name }}</a-select-option>
+                  </a-select>
                 </div>  
               </div>
               <div  
@@ -948,21 +948,21 @@ a.down-scroll:hover {
                   <p class="top">{{ custom_field.display_name }}</p>  
                 </div>  
                 <div class="col-8 bottom truncate border-left-grey">    
-                    <select 
-                      @change="submitEdit(item_field)"
-                      type="text" 
-                      id="Source"  
-                      name="Source" 
-                      v-model="item.custom_field_value"  
-                      class="form-control editable border-0"
-                    >
-                      <option :value="null">- None -</option>
-                      <option 
-                        :value="item.id" 
-                        v-for="(item,index) in active_users" 
-                        :key="index"
-                      >{{ item.name + ' ' + item.lastname }}</option>
-                    </select>
+                  <a-select 
+                    @change="submitEdit(item_field)"
+                    type="text" 
+                    id="Source"  
+                    name="Source" 
+                    v-model="item.custom_field_value"  
+                    class="form-control editable border-0 p-0"
+                  >
+                    <a-select-option :value="null">- None -</a-select-option>
+                    <a-select-option 
+                      :value="item.id" 
+                      v-for="(item,index) in active_users" 
+                      :key="index"
+                    >{{ item.name + ' ' + item.lastname }}</a-select-option>
+                  </a-select>
                 </div>  
               </div> 
               <div  
@@ -973,20 +973,20 @@ a.down-scroll:hover {
                   <p class="top">{{ custom_field.display_name }}</p>  
                 </div>  
                 <div class="col-8 bottom truncate border-left-grey">    
-                    <select 
-                      @change="submitEdit(item_field)"
-                      type="text" 
-                      id="Source"  
-                      name="Source" 
-                      v-model="item.custom_field_value"  
-                      class="form-control editable border-0"
-                    >
-                      <option :value="null">- None -</option>
-                      <option value="1">Active</option>
-                      <option value="2">Inactive</option>
-                      <option value="3">Canceled</option>
-                      <option value="0">Disabled</option>
-                    </select>
+                  <a-select 
+                    @change="submitEdit(item_field)"
+                    type="text" 
+                    id="Source"  
+                    name="Source" 
+                    v-model="item.custom_field_value"  
+                    class="form-control editable border-0 p-0"
+                  >
+                    <a-select-option :value="null">- None -</a-select-option>
+                    <a-select-option value="1">Active</a-select-option>
+                    <a-select-option value="2">Inactive</a-select-option>
+                    <a-select-option value="3">Canceled</a-select-option>
+                    <a-select-option value="0">Disabled</a-select-option>
+                  </a-select>
                 </div>  
               </div>    
               
@@ -998,21 +998,21 @@ a.down-scroll:hover {
                   <p class="top">{{ custom_field.display_name }}</p>  
                 </div>  
                 <div class="col-8 bottom truncate border-left-grey">    
-                    <select 
-                      @change="submitEdit(item_field)"
-                      type="text" 
-                      id="Source"  
-                      name="Source" 
-                      v-model="item.custom_field_value"  
-                      class="form-control editable border-0"
-                    >
-                      <option :value="null">- None -</option>
-                      <option value="Dr">Dr</option>
-                      <option value="Mr">Mr</option>
-                      <option value="Mrs">Mrs</option>
-                      <option value="Miss">Miss</option>
-                      <option value="Prof">Prof</option>
-                    </select>
+                  <a-select 
+                    @change="submitEdit(item_field)"
+                    type="text" 
+                    id="Source"  
+                    name="Source" 
+                    v-model="item.custom_field_value"  
+                    class="form-control editable border-0 p-0"
+                  >
+                    <a-select-option :value="null">- None -</a-select-option>
+                    <a-select-option value="Dr">Dr</a-select-option>
+                    <a-select-option value="Mr">Mr</a-select-option>
+                    <a-select-option value="Mrs">Mrs</a-select-option>
+                    <a-select-option value="Miss">Miss</a-select-option>
+                    <a-select-option value="Prof">Prof</a-select-option>
+                  </a-select>
                 </div>  
               </div>    
               
@@ -1024,18 +1024,18 @@ a.down-scroll:hover {
                   <p class="top">{{ custom_field.display_name }}</p>  
                 </div>  
                 <div class="col-8 bottom truncate border-left-grey">    
-                    <select 
-                      @change="submitEdit(item_field)"
-                      type="text" 
-                      id="Source"  
-                      name="Source" 
-                      v-model="item.custom_field_value"  
-                      class="form-control editable border-0"
-                    >
-                      <option :value="null">- None -</option>
-                      <option value="Male">Male</option>
-                      <option value="Female">Female</option>
-                    </select>
+                  <a-select 
+                    @change="submitEdit(item_field)"
+                    type="text" 
+                    id="Source"  
+                    name="Source" 
+                    v-model="item.custom_field_value"  
+                    class="form-control editable border-0 p-0"
+                  >
+                    <a-select-option :value="null">- None -</a-select-option>
+                    <a-select-option value="Male">Male</a-select-option>
+                    <a-select-option value="Female">Female</a-select-option>
+                  </a-select>
                 </div>  
               </div>    
               
@@ -1317,6 +1317,7 @@ a.down-scroll:hover {
                         <a-date-picker 
                           v-model="selected_date" 
                           format="DD-MM" 
+                          use
                           :allowEmpty="false" 
                           @change="checkCBDate()" 
                           class="rounded-pill" 
@@ -1334,6 +1335,7 @@ a.down-scroll:hover {
                           :allowEmpty="false" 
                           use24Hours 
                           format="hh:mm" 
+                          class="shadow-none"
                         /> 
                       </label> 
                     </div> 
@@ -1679,7 +1681,7 @@ a.down-scroll:hover {
                     </template>
 
                     <template slot="time" slot-scope="data">   
-                      <a-time-picker v-model="data.item.time" name="Time" format="HH:mm" @change="updateActivity(data.item)" /> 
+                      <a-time-picker v-model="data.item.time" name="Time" use24Hours format="HH:mm" @change="updateActivity(data.item)" /> 
                     </template>
                   </b-table>   
    
@@ -1733,7 +1735,7 @@ a.down-scroll:hover {
                     </template>
 
                     <template slot="time" slot-scope="data">   
-                      <a-time-picker v-model="data.item.time" name="Time" format="HH:mm"  @change="updateActivity(data.item)" /> 
+                      <a-time-picker v-model="data.item.time" name="Time" use24Hours format="HH:mm"  @change="updateActivity(data.item)" /> 
                     </template>
 
                   </b-table>  
@@ -1814,6 +1816,7 @@ a.down-scroll:hover {
                     :current-page="currentPage"   
                     sticky-header="190px"
                     responsive
+                    class="deals-table"
                   >
                     <template slot="agent_name" slot-scope="data">   
                       <input
@@ -2544,7 +2547,9 @@ export default {
               vm.$swal('Failed', 'Opps, something went wrong while update, please try again', 'warning'); 
           } 
       });
-
+      vm.activity.title = '',
+      vm.activity.duedate =  '',
+      vm.activity.status = 2,
       this.edit_task = false; 
     },
     getActivities(){
