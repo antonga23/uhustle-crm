@@ -19,9 +19,9 @@
   table {
     font-family: 'Rubik', sans-serif !important;
   }
-  .container {
-    /* height:1000px; */
-  }
+  /* .container {
+    height:1011px;
+  } */
   .delivery-note, .purchase-note, .supplier-invoice {
     margin: 0 auto;
     border-collapse: collapse;
