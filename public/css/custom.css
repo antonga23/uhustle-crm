@@ -501,7 +501,7 @@ label:not(.form-check-label):not(.custom-file-label) {
 }
 .ant-calendar-today .ant-calendar-date {
   border-color: #ff931e!important;
-  color: #ff931e!important;
+  color: #ffffff !important;
   border-radius: 50%;
 }
 .ant-time-picker-icon, .ant-calendar-picker-icon.anticon.anticon-calendar {
@@ -887,6 +887,7 @@ max-height: 350px;
   font-size: 0.73vw !important;
   width: auto;
 }
+
 @media screen and (max-width: 1643px) {
   .calendar .ant-calendar-picker-input.ant-input,
   .calendar .ant-time-picker-input {

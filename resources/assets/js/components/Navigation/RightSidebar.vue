@@ -189,6 +189,7 @@ h3 img {
 }
 .description-text {
   font-size: 0.73vw !important;
+  color: #808080 !important;
 }
 
 .position {
@@ -2069,7 +2070,7 @@ input.save-text:focus {
                                 <div class="row mx-0 justify-content-between">
                                   <div class="col-6 pl-0 custom-control pl-34">
                                     <label class="task-deadline terms-text" for="task1">
-                                      <a-date-picker v-model="new_task.date" class="w-100" />
+                                      <a-date-picker v-model="new_task.date" class="w-100 reminder-date-picker" />
                                     </label>
                                   </div>
 

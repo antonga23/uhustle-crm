@@ -428,6 +428,7 @@ margin-left: 35px;
   }
   .reminders .terms-text .desc-text {
     font-size: 0.73vw !important;
+    color: #808080 !important;
   }
  label.terms-text.desc-text-label, .ant-calendar-picker {
     padding-left: 37px;
