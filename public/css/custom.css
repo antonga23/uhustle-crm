@@ -1085,6 +1085,13 @@ max-height: 350px;
   background-color: #fbfbfc;
   
 } */
+.products .product-listing thead tr th:first-child,
+.branches .companies-listing thead tr th:first-child,
+.orders .order-listing thead tr th:first-child,
+.orders .product-listing thead tr th:first-child,
+.products .category-listing thead tr th:first-child {
+  padding-left: 0 !important;
+}
 
 .products .product-listing thead tr th,
 .branches .companies-listing thead tr th,
