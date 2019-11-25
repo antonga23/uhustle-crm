@@ -24,10 +24,18 @@
 
 
           <template slot="status" slot-scope="data">   
-            <a-select @change="updateCat(data.item)" name="Province" v-validate="'required'" v-model="data.item.status" class="custom-select rounded-pill border-0">   
+            <a-switch 
+              @change="updateCat(data.item)"  
+              v-model="data.item.status" 
+              v-validate="'required'" 
+              name="Status" 
+              class="ml-3 mr-2"/>
+            <label v-if="data.item.status == 1 || data.item.status == true">Active</label>
+            <label v-if="data.item.status == 0 || data.item.status == false">Inactive</label>
+            <!-- <a-select @change="updateCat(data.item)" name="Province" v-validate="'required'" v-model="data.item.status" class="custom-select rounded-pill border-0">   
               <a-select-option value="" selected>-None-</a-select-option>   
               <a-select-option :value="s_status.value" v-for="(s_status, index) in category_statuses" :key="index">{{s_status.text}}</a-select-option> 
-            </a-select>
+            </a-select> -->
           </template>  
 
         </b-table>

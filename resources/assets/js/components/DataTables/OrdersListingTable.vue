@@ -217,3 +217,31 @@
     }
   }
 </script>
+
+<style scoped>
+  .btn-default{
+  background: #fff;
+  color: #999999;    
+  border: none!important;
+  padding: 11px 14px 10px;
+  font-size: 10px;
+  text-transform:uppercase;
+  border-radius: 50rem!important;
+  line-height:1em;
+  margin-left: 0.9%;
+  margin-right: 0.9%;
+  -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
+  -moz-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
+  -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);
+}
+.btn-primary {
+  border-radius: 50rem!important;
+  text-transform:uppercase;
+  font-size: 10px;
+  padding: 11px 14px 10px;
+  line-height:1em;
+  margin-left: 0.9%;
+  margin-right: 0.9%;
+}
+</style>
