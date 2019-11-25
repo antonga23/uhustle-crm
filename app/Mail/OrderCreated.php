@@ -40,15 +40,24 @@ class OrderCreated extends Mailable
     {
      
       if($this->subject == 'New Purchase Order'){
+        
         $attahment = $this->order->delivery_note;
-      }
-      if($this->subject == 'New Delivery Note'){
-        $attahment = $this->order->purchase_order;
-      }
+
         return $this->subject($this->subject)
                     ->view('mail.orders.created')
                     ->attachFromStorage('/public/pdf/' . $attahment, $attahment,[
                         'mime' => 'application/pdf',
                     ]);
+      }
+      if($this->subject == 'New Delivery Note'){
+
+        $attahment = $this->order->purchase_order;
+
+        return $this->subject($this->subject)
+                    ->view('mail.orders.created')
+                    ->attachFromStorage('/public/pdf/' . $attahment, $attahment,[
+                        'mime' => 'application/pdf',
+                    ]);
+      }
     }
 }

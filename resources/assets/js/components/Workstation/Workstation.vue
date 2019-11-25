@@ -1066,6 +1066,49 @@ a.down-scroll:hover {
         </div> 
       </div> 
 
+        <!--Note <div class="card border-0 product mb-0"> 
+          <div class="card-body"> 
+            <h5 class="card-title"> 
+              <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" /> 
+              Product 
+            </h5> 
+            <p 
+              class="card-text truncate mb-2" 
+              :title="module_item.product.meta_value.description + '. ' + module_item.product.meta_value.price "
+            >{{ module_item.product.meta_value.name }}</p> 
+            <p 
+              class="card-link truncate w-100 mb-0" 
+              :title="module_item.product.meta_value.description + '. ' + module_item.product.meta_value.currency + module_item.product.meta_value.price"
+            >{{ module_item.product.meta_value.description + '. ' + module_item.product.meta_value.currency + module_item.product.meta_value.price  }}</p>  
+          </div> 
+        </div>
+
+        <div class="card border-0 mb-0 activity"> 
+          <div class="card-body"> 
+            <h5 class="card-title"> 
+              <img src="/images/workstation/S_A@4x.png" alt="Icon" class="icon" /> 
+              Last Called by
+            </h5> 
+            <p class="card-text mb-2">John Hill</p> 
+            <p class="card-link mb-0">21-05-2019</p>  
+          </div> 
+        </div> 
+
+        <div class="card border-0 mb-0 mr-0 time"> 
+          <div class="card-body"> 
+            <h5 class="card-title"> 
+              <img src="/images/workstation/Time_Icon@4x.png" alt="Icon" class="icon" /> 
+              Time 
+            </h5> 
+            <p class="card-text mb-2">11:20</p>
+            <div class="truncate"> 
+              <p v-if="module_item.city.meta_value" class="card-link d-inline border-right border-white pb-3 pr-3">{{ module_item.city.meta_value }}</p> 
+              <p v-if="module_item.country.meta_value" class="card-link d-inline ml-0 pb-3 pl-3">{{ module_item.country.meta_value }}</p>  
+            </div>
+          </div> 
+        </div>
+      </div> End Beatrice Note -->
+      
       <div class="stats final-modal"> 
         <div class="card-deck mx-0 mb-0"> 
           <div class="card mt-3 border-0 shadow-none mr-4 ml-0 tab-card"> 
