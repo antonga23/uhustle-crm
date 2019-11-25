@@ -39,7 +39,7 @@
   .left-border {
     border-left: 1px solid black;
   }
-  table tr td {
+  table tr td, table tr th {
     font-size: 14px;
     padding: 5px;
   }
