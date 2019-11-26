@@ -189,6 +189,7 @@ h3 img {
 }
 .description-text {
   font-size: 0.73vw !important;
+  color: #808080 !important;
 }
 
 .position {
@@ -725,34 +726,6 @@ p.badges {
   box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);
   
 }
-
-/* .menu-toggle {
-  background-image: url("/images/icons/right-sidebar/Filter.svg") !important;
-    background-repeat: no-repeat;
-    height: 43px;
-    width: 43px;
-    top: 2px;
-    position: relative;
-    left: -11px;
-}
-.menu-toggle:hover {
-  background-image: url("/images/icons/right-sidebar/Filter_Active.svg") !important;
-}
-
-.sidebar-collapse .menu-toggle {
-  background-image: url("/images/icons/right-sidebar/General.svg") !important;
-}
-.sidebar-collapse .menu-toggle:hover {
-  background-image: url("/images/icons/right-sidebar/General_Active.svg") !important;
-}
-
-.reminders { 
-    box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
-    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
-    -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.1); 
-    border-radius: 25px; 
-  }  */
 
 .reminders .nav-link[aria-posinset="2"] {
   text-align: right;
@@ -2097,7 +2070,7 @@ input.save-text:focus {
                                 <div class="row mx-0 justify-content-between">
                                   <div class="col-6 pl-0 custom-control pl-34">
                                     <label class="task-deadline terms-text" for="task1">
-                                      <a-date-picker v-model="new_task.date" class="w-100" />
+                                      <a-date-picker v-model="new_task.date" class="w-100 reminder-date-picker" />
                                     </label>
                                   </div>
 

@@ -14,18 +14,33 @@ class Order extends Model implements Auditable
      * @var array
      */
     protected $fillable = [
-      'type_id',
-      'class_id',
-      'origin_id',
-      'requestor_id',
+      'order_id',
+      'type',
+      'order_class',
       'billing_address',
       'contact_number',
-      'contact_person',
-      'amount',
-      'vat_mount',
+      'contact_email',
+      'contact_name',
+      'related_item',
+      'requestor',
+      'requestor_id',
+      'requestor_company_id',
+      'requesition_notes',
       'vat',
-      'total_amount',
-      'status'
+      'sub_amount',
+      'amount',
+      'request_date',
+      'priority',
+      'origin_id',
+      'origin_name',
+      'origin_type_name',
+      'tax',
+      'tax_percent',
+      'tax_type',
+      'purchase_order',
+      'delivery_note',
+      'invoice',
+      'status',
     ];
 
     public function generateTags(): array
@@ -42,11 +57,21 @@ class Order extends Model implements Auditable
 
     public function type()
     {
-      return $this->hasOne('App\OrderType', 'type_id','id');
+      return $this->hasOne('App\OrderType', 'id', 'type');
     }
 
     public function class()
     {
-      return $this->hasOne('App\OrderClass', 'class_id','id');
+      return $this->hasOne('App\OrderClass','id', 'order_class');
+    }
+
+    public function requesting_company()
+    {
+      return $this->hasOne('App\Company','id', 'requestor_company_id');
+    }
+
+    public function recieving_company()
+    {
+      return $this->hasOne('App\Company','id', 'origin_id');
     }
 }

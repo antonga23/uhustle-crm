@@ -5,10 +5,21 @@ namespace App\Http\Controllers;
 use DB;
 use Auth;
 use App\Company;
+use App\CompanyType;
 use Illuminate\Http\Request;
 
 class CompanyController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+  
     /**
      * Display a listing of the resource.
      *
@@ -56,7 +67,7 @@ class CompanyController extends Controller
       try{
           DB::beginTransaction();
 
-          $role = Company::find($data['company']['id'])->update($data['company']);
+          $company = Company::find($data['company']['id'])->update($data['company']);
 
           DB::commit();
 
@@ -77,5 +88,9 @@ class CompanyController extends Controller
     public function destroy(Company $company)
     {
         //
+    }
+
+    public function getTypes(){
+      return ['company_types' => CompanyType::where(['status' => 1])->get()];
     }
 }

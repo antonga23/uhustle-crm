@@ -16,14 +16,18 @@ class Product extends Model implements Auditable
     protected $fillable = [
         'supplier_id',
         'category_id',
+        'origin_type_id',
         'origin_id',
-        'code',
+        'part_code',
+        'model_number',
         'name',
         'description',
         'unit_cost',
+        'rate',
         'current_stock',
         'reserved_stock',
         'available_stock',
+        'tax_type',
         'status',
     ];
 
@@ -36,18 +40,26 @@ class Product extends Model implements Auditable
  
     public function category()
     {
-        return $this->hasOne('App\ProductCategory', 'category_id','id');
+        return $this->hasOne('App\ProductCategory', 'id','category_id');
     } 
 
     public function origin()
     {
-        return $this->hasOne('App\Company', 'origin_id', 'id');
+        return $this->hasOne('App\Company','id', 'origin_id');
+    }
+
+    public function origin_type()
+    {
+        return $this->hasOne('App\CompanyType','id', 'origin_type_id');
     }
 
     public function supplier()
     {
-        return $this->hasOne('App\Supplier', 'supplier_id','id');
+        return $this->hasOne('App\Supplier','id', 'supplier_id');
     }
 
-
+    public function tax()
+    {
+        return $this->hasOne('App\Tax','id', 'tax_type');
+    }
 }

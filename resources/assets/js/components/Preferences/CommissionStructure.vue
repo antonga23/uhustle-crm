@@ -98,8 +98,8 @@
                     <label for="input-none" class="mb-4 ml-0">Status</label>
                     <br/>
                     <a-switch v-model="item.status.value" :id="'structure_a-0'"/>
-                    <label v-if="item.status.value == 0">Inactive</label>
-                    <label v-if="item.status.value == 1">Active</label>
+                    <label v-if="item.status.value == 1 || item.status.value == true">Active</label>
+                    <label v-if="item.status.value == 0 || item.status.value == false">Inactive</label>
                   </div>
                 </a-col>
               </a-row>
@@ -139,8 +139,8 @@
                     <label for="input-none" class="mb-4 ml-0">Status</label>
                     <br/>
                     <a-switch v-model="range.status.value" :id="'structure_b-' + index"/>
-                    <label v-if="range.status.value == 0">Inactive</label>
-                    <label v-if="range.status.value == 1">Active</label>
+                    <label v-if="range.status.value == 1 || range.status.value == true">Active</label>
+                    <label v-if="range.status.value == 0 || range.status.value == false">Inactive</label>
                   </div>
                 </a-col>
 
@@ -198,8 +198,8 @@
                     <label for="input-none" class="mb-4 ml-0">Status</label>
                     <br/>
                     <a-switch v-model="item.status.value" :id="'structure_c' + i"/>
-                    <label v-if="item.status.value == 0">Inactive</label>
-                    <label v-if="item.status.value == 1">Active</label>
+                    <label v-if="item.status.value == 1 || item.status.value == true">Active</label>
+                    <label v-if="item.status.value == 0 || item.status.value == false">Inactive</label>
                   </div>
                 </a-col>
 

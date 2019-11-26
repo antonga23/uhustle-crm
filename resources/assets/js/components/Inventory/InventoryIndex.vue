@@ -1,4 +1,62 @@
 <style scoped>
+.main-header.navbar.navbar-expand {
+  padding: 0 4%;
+}
+.navbar .title h1{
+  color: #003549;
+  font-size: 1.67vw;
+  letter-spacing: 0.1em;
+}
+.callIcons li a{
+  background-repeat: no-repeat;
+  color: black;
+  background-size: 59px !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+}
+.callIcons .search .col-auto {
+  padding-right:41%;
+}
+.callIcons .search a{
+  background-color: #fff;
+  background-image: url('/images/icons/top-nav/Search.svg') !important;
+  background-size: 15px!important;
+  background-repeat: no-repeat;
+  border-radius: 50rem;
+	box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+	width: 48px;
+	height: 48px;
+}
+.callIcons .search a:hover{
+  background-image: url('/images/icons/Asset 61.svg') !important;
+  background-size: 170%!important;
+  background-repeat: no-repeat;
+}
+.callIcons .search input {
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  padding:14px 0 14px;
+  right: -40px;
+  position: absolute;
+  top: -24px;
+  width:0;
+  transition: width 2s;
+}
+.callIcons .search:hover input {
+  width:auto;
+  padding:14px 40px 14px 15px;
+}
+.callIcons .search input::placeholder {
+  font-size: 12px;
+  font-weight: 300;
+  font-family: 'Rubik', sans-serif;
+  font-style: italic;
+}
   .header, .top-nav, .row.stats {
     padding-left: 5.2%!important;
     padding-right: 5.2%!important;
@@ -8,15 +66,7 @@
     flex-wrap: wrap;
     align-items: center;
   }
-  .navbar {
-    padding: 0;
-  }
 	/*Right Component*/
-	li.title h1 {
-		color: #003549;
-    font-size: 32px;
-    letter-spacing: 0.1em;
-  }
   div.top-nav{
     margin-top: 15px;
   }
@@ -155,32 +205,23 @@
 </style>
 <template>
   <div id="inventory">
-		<nav class="header navbar navbar-expand navbar-white navbar-light">
-			<!-- Left navbar links -->
-      <ul class="navbar-nav left">
-        <li class="nav-item d-none d-sm-inline-block title">
-          <h1 class="font-weight-bold p-0">Inventory</h1>
-        </li> 
-      </ul>
-		</nav>
-
     <div class="row mx-0 my-0 top-nav">
       <ul class="top-menu w-100">
-        <li class="item ml-0">
+        <li class="item ml-0" v-if="current_user.role_id == 1">
           <a 
             href="#" 
             @click="showModulePreferences('companies', 'companies', null);"
             :class="{ 'active' : ( active_module_name ===  'companies')? true : false }"
             class="ml-0"
-          >Companies</a>
+          >Manage Companies</a>
         </li>
 
-        <li class="item">
+        <li class="item" v-if="current_user.role_id == 1">
           <a 
             href="#" 
             @click="showModulePreferences('products', 'products', null);"
             :class="{ 'active' : ( active_module_name ===  'products')? true : false }"
-          >Products</a>
+          >Manage Products</a>
         </li>
 
         <li class="item">
@@ -198,16 +239,24 @@
       <div class="col-lg-12 px-0">
         <vcl-table v-if="show_page_loader"> </vcl-table>
 
-        <div class="branches" v-if="!show_page_loader && active_module_name == 'branches'">
-          <branch-index :provinces="provinces" :cities="cities" :company_types="company_types" />
+        <div  class="branches" v-if="!show_page_loader && active_module_name == 'companies' && current_user.role_id == 1">
+          <branch-index :role="current_user.role_id"  :provinces="provinces" :cities="cities" :company_types="company_types" />
         </div>
 
         <div class="products" v-if="!show_page_loader && active_module_name == 'products'">
-          <product-index :provinces="provinces" :cities="cities" :company_types="company_types"/>
+          <product-index :role="current_user.role_id" :provinces="provinces" :cities="cities" :company_types="company_types"/>
         </div>
 
         <div class="orders" v-if="!show_page_loader && active_module_name == 'orders'">
-          <order-index :provinces="provinces" :cities="cities" :company_types="company_types"/>
+          <order-index 
+            :role="current_user.role_id"
+            :user_id="current_user.user_id"
+            :user_name="current_user.name + ' ' + current_user.lastname"
+            :company_id="current_user.company_id"
+            :provinces="provinces" 
+            :cities="cities" 
+            :company_types="company_types"
+            />
         </div>
       </div>
     </div>
@@ -232,6 +281,12 @@
       console.log('Inventory Component Mounted');
 
       this.current_user = JSON.parse(this.logged_user);
+
+      if(this.current_user.role_id == 1){
+        this.active_module_name = 'companies';
+      }else{
+        this.active_module_name = 'orders';
+      }
       
       this.Toast = this.$swal.mixin({
         toast: true,
@@ -251,8 +306,9 @@
     ],
     data: function(){
       return {
+        current_user: [],
         show_page_loader: false,
-        active_module_name: 'branches',
+        active_module_name: 'companies',
         Toast:null
       }
     },

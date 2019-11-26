@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use DB;
+use Auth;
+use App\Tax;
 use App\Product;
 use App\ProductCategory;
 use Illuminate\Http\Request;
@@ -26,14 +28,31 @@ class ProductController extends Controller
      */
     public function index()
     {
-         $products = Product::get();
+         $products = Product::with(['category','origin','tax', 'origin_type','supplier'])
+                              ->where(['origin_id' => Auth::user()->company_id])
+                              ->get();
          return array('success' => true, 'products' => $products);
     }
 
     public function getActive()
     {
-         $products = Product::where(['status' => 0])->get();
+         $products = Product::with(['category','origin','tax', 'origin_type','supplier'])
+                              ->where(['origin_id' => Auth::user()->company_id])
+                              ->where(['status' => 0])->get();
          return array('success' => true, 'products' => $products);
+    }
+
+    public function getById($id = null){
+
+      $product = Product::with(['category','origin','tax', 'origin_type','supplier'])->find($id);
+      return array('success' => true, 'product' => $product);
+    }
+
+
+    public function getProductList($id = null){
+
+      $products = Product::with(['category','origin','tax', 'origin_type','supplier'])->get();
+      return array('success' => true, 'products' => $products);
     }
 
     /**
@@ -43,27 +62,17 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $request_user = ['user_id' => $request->session_user_id, 'name' => $request->session_user_name];
-
         $data = $request->all();
-        $name = $data['name'];
-        $description = $data['description'];
-        $price = $data['price'];
-        $status = $data['status'];
 
-        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        unset($data['product']['available_stock']);
+
         try{
             DB::beginTransaction();
 
-            $product = Product::create([
-                'name' => $name,
-                'description' => $description,
-                'price' => $price,
-                'status' => $status,
-            ]);
+            $product = Product::create($data['product']);
 
             DB::commit();
-            return array('success' => true, 'product' => $product);
+            return array('success' => true, 'message' => 'Product created successfully','product' => $product);
 
         }catch(\QueryException $e){
             DB::rollback();
@@ -80,29 +89,20 @@ class ProductController extends Controller
      */
     public function update(Request $request)
     {
-        $request_user = ['user_id' => $request->session_user_id, 'name' => $request->session_user_name];
-
         $data = $request->all();
-        $id = $data['id'];
-        $name = $data['name'];
-        $description = $data['description'];
-        $price = $data['price'];
-        $status = $data['status'];
+        
+        unset($data['product']['available_stock']);
+        unset($data['product']['actions']);
 
         try{
             DB::beginTransaction();
 
-            $product = Product::where(['id' => $id])->update([
-                'name' => $name,
-                'description' => $description,
-                'price' => $price,
-                'status' => $status,
-            ]);
+            $product = Product::where(['id' =>$data['product']['id']])->update($data['product']);
 
-            $product = Product::where(['id' => $id])->get();
+            $products = Product::with(['category','origin','tax', 'origin_type','supplier'])->get();
 
             DB::commit();
-            return array('success' => true, 'product' => Product::find($id));
+            return array('success' => true, 'message' => 'Product update successfully', 'products' => $products);
 
         }catch(\QueryException $e){
             DB::rollback();
@@ -123,7 +123,10 @@ class ProductController extends Controller
     }
 
     public function getCategories(){
-        return ['categories' => ProductCategory::get() ];
+        return [
+          'categories' => ProductCategory::get(),
+          'tax_types' => Tax::get()
+         ];
     }
 
     public function getActiveCategories(){

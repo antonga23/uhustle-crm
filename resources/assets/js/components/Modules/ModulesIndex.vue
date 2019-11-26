@@ -230,17 +230,13 @@ table.listing tr  th{
 </template>
 
 <script>
-  import { Bar } from 'vue-chartjs';
-  import { BarChart } from 'vue-morris';
   import AddModuleItem from '../Modules/AddModuleItem';
   import DataTable from '../DataTables/ListingDataTable';
   import DataTableEditable from '../DataTables/ListingDataTableEditable';
   import { VclFacebook, VclInstagram,VclTable } from 'vue-content-loading';
   import VSelect from '@alfsnd/vue-bootstrap-select';
   export default {
-    extends: Bar,
     components: { 
-      BarChart,
       VclFacebook,
       VclInstagram,
       VclTable,
@@ -450,12 +446,6 @@ table.listing tr  th{
 
             vm.items = response.data.items;
             
-            // vm.cachItems = response.data.items;
-
-            // vm.display_items = response.data.display_items;
-            
-            // vm.chached_display_items = response.data.display_items;
-
             vm.count_assigned = response.data.count_assigned;
 
             vm.count_unassigned = response.data.count_unassigned;
@@ -466,7 +456,7 @@ table.listing tr  th{
           }else{
             vm.show_page_loader = false;
             vm.$Progress.fail();
-            vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
+            vm.$swal('Failed', 'Opps, something went wrong, please try again','warning');
           }
         });
       },		

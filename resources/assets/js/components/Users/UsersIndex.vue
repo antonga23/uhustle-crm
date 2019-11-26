@@ -689,6 +689,24 @@ table.listing tr th {
                 >{{ errors.first('Role') }}</span>
               </label>
               <label class="col-lg-4 control-label">
+               <span class="label-text">Company</span>
+                <select
+                  type="text"
+                  id="role"
+                  name="Role"
+                  v-model="user.company_id"
+                  class="form-control"
+                >
+                  <option value="">- Please Choose -</option>
+                  <option :value="company.id" v-for="(company, index) in companies" :key="index">{{ company.name }}</option>
+                </select>
+                <span
+                  id="error"
+                  v-show="errors.has('Role')"
+                  class="help-block"
+                >{{ errors.first('Role') }}</span>
+              </label>
+              <label class="col-lg-4 control-label">
                <span class="label-text">Status</span>
                 <select
                   type="text"
@@ -842,6 +860,8 @@ export default {
 
     vm.getCommissionStructures();
 
+    vm.getCompanies();
+
     this.Toast = this.$swal.mixin({
       toast: true,
       position: "top-end",
@@ -867,13 +887,15 @@ export default {
         activated: "",
         commission_structure: "",
         leads: [],
-        clients: []
+        clients: [],
+        company_id: ""
       },
       current_user: {},
       structures: [],
       structure_a: [],
       structure_b: [],
       structure_c: [],
+      companies: [],
       add_user: false,
       edit_user: false,
       show_page_loader: false,
@@ -936,6 +958,13 @@ export default {
     };
   },
   methods: {
+    getCompanies(){
+      var vm = this;
+      axios.get('/company/get-all',).then(function (response) {
+        vm.companies = response.data.companies;
+      });
+
+    },
     getCommissionStructures(){
       var vm = this;
       axios.get('/settings/get-comm-structures',).then(function (response) {

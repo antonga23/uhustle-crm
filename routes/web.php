@@ -12,6 +12,7 @@
 */
 
 use App\Lead;
+use App\Order;
 use App\ModuleItem;
 use App\ModuleItemMeta;
 use App\ModuleCustomFields;
@@ -172,6 +173,62 @@ Route::get('/preferences', 'PagesController@preferences')->name('preferences');
 Route::get('/transactions', 'PagesController@transactions')->name('transactions');
 Route::get('/inventory', 'PagesController@inventory')->name('inventory');
 
+
+Route::get('/purchase-order', function(){
+  $order = Order::with(['items', 'type', 'class','recieving_company','requesting_company'])->find(1);
+
+  $time = time();
+
+  $file_name = 'DN' . $order->id . $time . '.pdf';
+
+  $data = [
+    'order' => $order,
+    'items' => $order->items,
+    'requesting_company' => $order->requesting_company,
+    'recieving_company' => $order->recieving_company,
+    'doc_ref' => $order->id . '_' . $time
+  ];
+
+  return view('pdf.purchase-order')->with($data);
+});
+
+Route::get('/invoice', function(){
+  $order = Order::with(['items', 'type', 'class','recieving_company','requesting_company'])->find(1);
+
+  $time = time();
+
+  $file_name = 'DN' . $order->id . $time . '.pdf';
+
+  $data = [
+    'order' => $order,
+    'items' => $order->items,
+    'requesting_company' => $order->requesting_company,
+    'recieving_company' => $order->recieving_company,
+    'doc_ref' => $order->id . '_' . $time
+  ];
+
+  return view('pdf.invoice')->with($data);
+});
+
+Route::get('/delivery-note',function(){
+
+  $order = Order::with(['items', 'type', 'class','recieving_company','requesting_company'])->find(1);
+
+  $time = time();
+
+  $file_name = 'DN' . $order->id . $time . '.pdf';
+
+  $data = [
+    'order' => $order,
+    'items' => $order->items,
+    'requesting_company' => $order->requesting_company,
+    'recieving_company' => $order->recieving_company,
+    'doc_ref' => $order->id . '_' . $time
+  ];
+
+  return view('pdf.delivery-note')->with($data);
+});
+
 // Stripe Routes
 Route::group(['prefix' => 'stripe'], function () {
 	Route::get('/balance-transactions', 'StripeController@index');
@@ -287,20 +344,6 @@ Route::group(['prefix' => 'roles'], function () {
 	Route::put('/apply-dialer-permissions', 'RoleController@applyDialerPermissions');
 });
 
-// Products Routes
-Route::group(['prefix' => 'products'], function () {
-	Route::get('/get/{role_id}', 'ProductController@getById');
-	Route::get('/get-all', 'ProductController@index');
-	Route::get('/get-active-categories', 'ProductController@getActiveCategories');
-	Route::get('/get-active', 'ProductController@getActive');
-	Route::post('/create', 'ProductController@store');
-  Route::post('/update', 'ProductController@update');
-
-	Route::get('/get-categories', 'ProductController@getCategories');
-	Route::post('/update-category', 'ProductController@updateCategory');
-	Route::post('/create-category', 'ProductController@createCategory');
-});
-
 // Comments Routes
 Route::group(['prefix' => 'comments'], function () {
     Route::post('/add', 'CommentController@store');
@@ -350,11 +393,38 @@ Route::group(['prefix' => 'settings'], function () {
     Route::post('/update', 'SystemSettingsController@update');
 });
 
+// Products Routes
+Route::group(['prefix' => 'products'], function () {
+	Route::get('/get/{id}', 'ProductController@getById');
+	Route::get('/get-all', 'ProductController@index');
+	Route::get('/get-list', 'ProductController@getProductList');
+	Route::get('/get-active-categories', 'ProductController@getActiveCategories');
+	Route::get('/get-active', 'ProductController@getActive');
+	Route::post('/create', 'ProductController@store');
+  Route::post('/update', 'ProductController@update');
+
+	Route::get('/get-categories', 'ProductController@getCategories');
+	Route::post('/update-category', 'ProductController@updateCategory');
+	Route::post('/create-category', 'ProductController@createCategory');
+});
+
 // Company Routes
 Route::group(['prefix' => 'company'], function () {
   Route::post('/create', 'CompanyController@store');
   Route::post('/update', 'CompanyController@update');
   Route::get('/get-all', 'CompanyController@index');
+  Route::get('/get-types', 'CompanyController@getTypes');
+});
+
+// Company Routes
+Route::group(['prefix' => 'orders'], function () {
+  Route::post('/create', 'OrderController@store');
+  Route::post('/update', 'OrderController@update');
+  Route::get('/get-all', 'OrderController@index');
+  Route::get('/get-types', 'OrderController@getTypes');
+  Route::get('/get-order-product', 'OrderController@getProductInfo');
+  Route::get('/download-po/{order_id}', 'OrderController@getPurchaseOrder');
+  Route::get('/download-dn/{order_id}', 'OrderController@getDeliveryNote');
 });
 
 
