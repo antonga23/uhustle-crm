@@ -1,12 +1,12 @@
 <template>
-  <div class="row" id="landing"> 
+  <div id="landing"> 
     <div class="sections-menu">
       <span
-         class="menu-point"
-         v-bind:class="{active: activeSection == index}"
-         v-on:click="scrollToSection(index)"
-         v-for="(offset, index) in offsets"
-         v-bind:key="index">
+        class="menu-point"
+        :class="{active: activeSection == index}"
+        @click="scrollToSection(index)"
+        v-for="(offset, index) in offsets"
+        :key="index">
       </span>
     </div>
 
@@ -47,6 +47,24 @@ export default {
       touchStartY: 0
     }
   },
+  created() {
+    this.calculateSectionOffsets();
+    
+    window.addEventListener('DOMMouseScroll', this.handleMouseWheelDOM);  // Mozilla Firefox
+    window.addEventListener('mousewheel', this.handleMouseWheel, { passive: false }); // Other browsers
+    
+    window.addEventListener('touchstart', this.touchStart, { passive: false }); // mobile devices
+    window.addEventListener('touchmove', this.touchMove, { passive: false }); // mobile devices
+  },
+
+  destroyed() {
+    window.removeEventListener('mousewheel', this.handleMouseWheel, { passive: false });  // Other browsers
+    window.removeEventListener('DOMMouseScroll', this.handleMouseWheelDOM); // Mozilla Firefox
+    
+    window.removeEventListener('touchstart', this.touchStart); // mobile devices
+    window.removeEventListener('touchmove', this.touchMove); // mobile devices
+  },
+  
   methods: {
     calculateSectionOffsets() {
       let sections = document.getElementsByTagName('section');
@@ -134,27 +152,11 @@ export default {
       this.touchStartY = 0;
       return false;
     }
-  },
-  created() {
-    this.calculateSectionOffsets();
-    
-    window.addEventListener('DOMMouseScroll', this.handleMouseWheelDOM);  // Mozilla Firefox
-    window.addEventListener('mousewheel', this.handleMouseWheel, { passive: false }); // Other browsers
-    
-    window.addEventListener('touchstart', this.touchStart, { passive: false }); // mobile devices
-    window.addEventListener('touchmove', this.touchMove, { passive: false }); // mobile devices
-  },
-
-  destroyed() {
-    window.removeEventListener('mousewheel', this.handleMouseWheel, { passive: false });  // Other browsers
-    window.removeEventListener('DOMMouseScroll', this.handleMouseWheelDOM); // Mozilla Firefox
-    
-    window.removeEventListener('touchstart', this.touchStart); // mobile devices
-    window.removeEventListener('touchmove', this.touchMove); // mobile devices
   }
 }
 </script>
 
+<style scoped>
 body {
   margin: 0;
   color: #FFF;
@@ -243,6 +245,5 @@ h1.black {
     font-size: 2.5em;
   }
 }
-<style scoped>
 </style>
 
