@@ -79,124 +79,124 @@ export default {
     PricingPage,
     ContactPage
   },
-  mounted() {
+  // mounted() {
 
-  },
-  props: [],
-  data: function(){
-    return { 
-      inMove: false,
-      activeSection: 0,
-      offsets: [],
-      touchStartY: 0
-    }
-  },
-  created() {
-    this.calculateSectionOffsets();
+  // },
+  // props: [],
+  // data: function(){
+  //   return { 
+  //     inMove: false,
+  //     activeSection: 0,
+  //     offsets: [],
+  //     touchStartY: 0
+  //   }
+  // },
+  // created() {
+  //   this.calculateSectionOffsets();
     
-    window.addEventListener('DOMMouseScroll', this.handleMouseWheelDOM);  // Mozilla Firefox
-    window.addEventListener('mousewheel', this.handleMouseWheel, { passive: false }); // Other browsers
+  //   window.addEventListener('DOMMouseScroll', this.handleMouseWheelDOM);  // Mozilla Firefox
+  //   window.addEventListener('mousewheel', this.handleMouseWheel, { passive: false }); // Other browsers
     
-    window.addEventListener('touchstart', this.touchStart, { passive: false }); // mobile devices
-    window.addEventListener('touchmove', this.touchMove, { passive: false }); // mobile devices
-  },
+  //   window.addEventListener('touchstart', this.touchStart, { passive: false }); // mobile devices
+  //   window.addEventListener('touchmove', this.touchMove, { passive: false }); // mobile devices
+  // },
 
-  destroyed() {
-    window.removeEventListener('mousewheel', this.handleMouseWheel, { passive: false });  // Other browsers
-    window.removeEventListener('DOMMouseScroll', this.handleMouseWheelDOM); // Mozilla Firefox
+  // destroyed() {
+  //   window.removeEventListener('mousewheel', this.handleMouseWheel, { passive: false });  // Other browsers
+  //   window.removeEventListener('DOMMouseScroll', this.handleMouseWheelDOM); // Mozilla Firefox
     
-    window.removeEventListener('touchstart', this.touchStart); // mobile devices
-    window.removeEventListener('touchmove', this.touchMove); // mobile devices
-  },
+  //   window.removeEventListener('touchstart', this.touchStart); // mobile devices
+  //   window.removeEventListener('touchmove', this.touchMove); // mobile devices
+  // },
   
-  methods: {
-    calculateSectionOffsets() {
-      let sections = document.getElementsByTagName('section');
-      let length = sections.length;
+  // methods: {
+  //   calculateSectionOffsets() {
+  //     let sections = document.getElementsByTagName('section');
+  //     let length = sections.length;
       
-      for(let i = 0; i < length; i++) {
-        let sectionOffset = sections[i].offsetTop;
-        this.offsets.push(sectionOffset);
-      }
-    },
+  //     for(let i = 0; i < length; i++) {
+  //       let sectionOffset = sections[i].offsetTop;
+  //       this.offsets.push(sectionOffset);
+  //     }
+  //   },
 
-    handleMouseWheel: function(e) {
+  //   handleMouseWheel: function(e) {
       
-      if (e.wheelDelta < 30 && !this.inMove) {
-        this.moveUp();
-      } else if (e.wheelDelta > 30 && !this.inMove) {
-        this.moveDown();
-      }
+  //     if (e.wheelDelta < 30 && !this.inMove) {
+  //       this.moveUp();
+  //     } else if (e.wheelDelta > 30 && !this.inMove) {
+  //       this.moveDown();
+  //     }
         
-      e.preventDefault();
-      return false;
-    },
+  //     e.preventDefault();
+  //     return false;
+  //   },
 
-    handleMouseWheelDOM: function(e) {
+  //   handleMouseWheelDOM: function(e) {
       
-      if (e.detail > 0 && !this.inMove) {
-        this.moveUp();
-      } else if (e.detail < 0 && !this.inMove) {
-        this.moveDown();
-      }
+  //     if (e.detail > 0 && !this.inMove) {
+  //       this.moveUp();
+  //     } else if (e.detail < 0 && !this.inMove) {
+  //       this.moveDown();
+  //     }
       
-      return false;
-    },
+  //     return false;
+  //   },
 
-    moveDown() {
-      this.inMove = true;
-      this.activeSection--;
+  //   moveDown() {
+  //     this.inMove = true;
+  //     this.activeSection--;
         
-      if(this.activeSection < 0) this.activeSection = this.offsets.length - 1;
+  //     if(this.activeSection < 0) this.activeSection = this.offsets.length - 1;
         
-      this.scrollToSection(this.activeSection, true);
-    },
+  //     this.scrollToSection(this.activeSection, true);
+  //   },
 
-    moveUp() {
-      this.inMove = true;
-      this.activeSection++;
+  //   moveUp() {
+  //     this.inMove = true;
+  //     this.activeSection++;
         
-      if(this.activeSection > this.offsets.length - 1) this.activeSection = 0;
+  //     if(this.activeSection > this.offsets.length - 1) this.activeSection = 0;
         
-      this.scrollToSection(this.activeSection, true);
-    },
+  //     this.scrollToSection(this.activeSection, true);
+  //   },
 
-    scrollToSection(id, force = false) {
-      if(this.inMove && !force) return false;
+  //   scrollToSection(id, force = false) {
+  //     if(this.inMove && !force) return false;
       
-      this.activeSection = id;
-      this.inMove = true;
+  //     this.activeSection = id;
+  //     this.inMove = true;
       
-      document.getElementsByTagName('section')[id].scrollIntoView({behavior: 'smooth'});
+  //     document.getElementsByTagName('section')[id].scrollIntoView({behavior: 'smooth'});
       
-      setTimeout(() => {
-        this.inMove = false;
-      }, 400);
+  //     setTimeout(() => {
+  //       this.inMove = false;
+  //     }, 400);
       
-    },
+  //   },
 
-    touchStart(e) {
-      e.preventDefault();
+  //   touchStart(e) {
+  //     e.preventDefault();
       
-      this.touchStartY = e.touches[0].clientY;
-    },
+  //     this.touchStartY = e.touches[0].clientY;
+  //   },
 
-    touchMove(e) {
-      if(this.inMove) return false;
-      e.preventDefault();
+  //   touchMove(e) {
+  //     if(this.inMove) return false;
+  //     e.preventDefault();
       
-      const currentY = e.touches[0].clientY;
+  //     const currentY = e.touches[0].clientY;
       
-      if(this.touchStartY < currentY) {
-        this.moveDown();
-      } else {
-        this.moveUp();
-      }
+  //     if(this.touchStartY < currentY) {
+  //       this.moveDown();
+  //     } else {
+  //       this.moveUp();
+  //     }
       
-      this.touchStartY = 0;
-      return false;
-    }
-  }
+  //     this.touchStartY = 0;
+  //     return false;
+  //   }
+  // }
 }
 </script>
 
@@ -249,6 +249,7 @@ export default {
   font-size: 2.71vw;
   font-weight: bold;
   text-transform: capitalize;
+  margin-bottom: 0.5rem !important;
 }
 
 #landing h2 {
@@ -256,12 +257,16 @@ export default {
   font-size: 1.62vw;
   font-weight: bold;
   text-transform: capitalize;
+  margin-bottom: 9%;
+  
 }
 
 #landing p {
   color: #3A3A3A;
   font-size: 0.84vw;;
   font-family: 'Rubik', sans-serif;
+  line-height: 30px;
+  margin-bottom: 25px;
 } 
 
 #landing .btn-primary {
@@ -276,5 +281,6 @@ export default {
 #landing img {
   max-height: 100vh;
 }
+
 </style>
 

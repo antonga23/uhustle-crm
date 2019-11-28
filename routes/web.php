@@ -19,8 +19,8 @@ use App\ModuleCustomFields;
 use Illuminate\Support\Facades\Log;
 
 Route::get('/', function () {
-    return redirect('/login');
-    //  return view('/welcome');
+    // return redirect('/login');
+     return view('/welcome');
 });
 
 Route::get('/home', function () {

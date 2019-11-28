@@ -2,7 +2,7 @@
   <div class="crm-page-container">
     <div class="row mx-0 justify-content-center h-100">
       <div class="col-12 text-center">
-        <h1>Customer Relationship Management. Simplified.</h1>
+        <h1 class="mt-3">Customer Relationship Management. Simplified.</h1>
         <p>SIAREM is streamlined to increase the speed of your sales department. All processes are optimized to guide your agents and focus on the most important: closing deals. SIAREM is used and tested by thousands of sales agents; we redesigned and tested our modules until perfection.</p>
       </div>
 
@@ -52,7 +52,10 @@ export default {
 }
 
 .col-12 {
-  padding-left: 243px;
-  padding-right: 243px;
+  padding-left: 13%;
+  padding-right: 13%;
+}
+.mt-3 {
+  margin-top: 3% !important;
 }
 </style>
