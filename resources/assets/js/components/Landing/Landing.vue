@@ -1,5 +1,20 @@
 <template>
   <div id="landing"> 
+    <b-navbar type="light" variant="light" sticky>
+      <b-navbar-brand>
+        <img src="/images/SVG_Images/siarem-logo.svg" alt="Siarem logo">
+      </b-navbar-brand>
+
+      <b-navbar-nav class="ml-auto">
+        <b-nav-item href="#">About</b-nav-item>
+        <b-nav-item href="#">Features</b-nav-item>
+        <b-nav-item href="#">Pricing</b-nav-item>
+        <b-nav-item href="#">Support</b-nav-item>
+        <b-nav-item href="#" class="btn=primary">Sign Up Now</b-nav-item>
+        <b-nav-item href="#">LA/EN</b-nav-item>
+      </b-navbar-nav>
+    </b-navbar>
+
     <div class="sections-menu">
       <span
         class="menu-point"
@@ -190,6 +205,11 @@ export default {
   margin: 0;
   overflow: hidden;
   background-color: #fff;
+}
+
+#landing .nav-item {
+  color: #535554;
+  font-size: 15px;
 }
 
 #landing .sections-menu {

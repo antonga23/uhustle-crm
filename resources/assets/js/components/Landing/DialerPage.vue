@@ -8,7 +8,7 @@
 
         <div class="row mx-0">
           <div class="col-auto pl-0">
-
+            <img src="/images/landing/Paragraph Check.svg" alt="checked" width="13"/>
           </div>
 
           <div class="col pr-0">
@@ -18,7 +18,7 @@
 
         <div class="row mx-0">
           <div class="col-auto pl-0">
-
+            <img src="/images/landing/Paragraph Check.svg" alt="checked" width="13"/>
           </div>
 
           <div class="col pr-0">
@@ -28,7 +28,7 @@
 
         <div class="row mx-0">
           <div class="col-auto pl-0">
-
+            <img src="/images/landing/Paragraph Check.svg" alt="checked" width="13"/>
           </div>
 
           <div class="col pr-0">

@@ -11,7 +11,7 @@
 
         <div class="row mx-0">
           <div class="col-auto pl-0">
-
+            <img src="/images/landing/Paragraph Check.svg" alt="checked" width="13"/>
           </div>
 
           <div class="col pr-0">
@@ -21,7 +21,7 @@
 
         <div class="row mx-0">
           <div class="col-auto pl-0">
-
+            <img src="/images/landing/Paragraph Check.svg" alt="checked" width="13"/>
           </div>
 
           <div class="col pr-0">
@@ -31,7 +31,7 @@
 
         <div class="row mx-0">
           <div class="col-auto pl-0">
-
+            <img src="/images/landing/Paragraph Check.svg" alt="checked" width="13"/>
           </div>
 
           <div class="col pr-0">
@@ -82,6 +82,10 @@ export default {
   background-color: #00C3FF;
   width: 100%;
   height:100%;
+  background-image: url('/images/landing/flow-page-background.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left bottom;
 }
 
 .col-auto {

@@ -4,6 +4,7 @@
       <div class="col-12">
         <div class="row mx-0 justify-content-center align-items-center">
           <div class="col-6 text-center">
+            <img src="/images/landing/V3.svg" alt="map"/>
           </div>
 
           <div class="col-6 text-center">

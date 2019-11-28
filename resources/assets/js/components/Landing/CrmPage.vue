@@ -11,6 +11,10 @@
         <img src="/images/icons/Orange Dot_Big.svg" alt="dots" width="8" class="mx-5"/>
         <img src="/images/icons/Orange Dot_Big.svg" alt="dots" width="8" class="mx-5"/>
       </div>
+
+      <div class="col-12 text-center">
+        <img src="/images/landing/MockUp.png" alt="mockup" width="63%"/>
+      </div>
     </div>
   </div>
 </template>

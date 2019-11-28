@@ -49,6 +49,10 @@ export default {
     background-color: #00C3FF;
     width: 100%;
     height:100%;
+    background-image: url('/images/landing/first-page-background.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right bottom;
   }
 </style>
 
