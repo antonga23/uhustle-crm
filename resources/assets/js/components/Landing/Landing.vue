@@ -1,8 +1,8 @@
 <template>
   <div id="landing"> 
-    <b-navbar type="light" variant="light" sticky>
+    <b-navbar type="light" variant="light" sticky class="navHeader">
       <b-navbar-brand>
-        <img src="/images/SVG_Images/siarem-logo.svg" alt="Siarem logo">
+        <img src="/images/SVG_Images/siarem-logo.svg" class="pl-4" alt="Siarem logo" width="200">
       </b-navbar-brand>
 
       <b-navbar-nav class="ml-auto">
@@ -10,8 +10,8 @@
         <b-nav-item href="#">Features</b-nav-item>
         <b-nav-item href="#">Pricing</b-nav-item>
         <b-nav-item href="#">Support</b-nav-item>
-        <b-nav-item href="#" class="btn=primary">Sign Up Now</b-nav-item>
-        <b-nav-item href="#">LA/EN</b-nav-item>
+        <b-nav-item href="#" class="btn-primary p-2 text-uppercase white" >Sign Up Now</b-nav-item>
+        <!-- <b-nav-item href="#" class="pl-4">LA/EN</b-nav-item> -->
       </b-navbar-nav>
     </b-navbar>
 
@@ -207,9 +207,23 @@ export default {
   background-color: #fff;
 }
 
+#landing .navHeader {
+    background-color: #fff !important;
+    -webkit-box-shadow: 0px 0px 9.51px 0px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 0px 9.51px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 9.51px 0px rgba(0,0,0,0.1);
+}
+
+#landing .navbar-nav.ml-auto {
+  width: 50%;
+}
+
 #landing .nav-item {
   color: #535554;
   font-size: 15px;
+  display: flex;
+  flex: 1;
+  
 }
 
 #landing .sections-menu {
@@ -266,7 +280,7 @@ export default {
   font-size: 0.84vw;;
   font-family: 'Rubik', sans-serif;
   line-height: 30px;
-  margin-bottom: 25px;
+  margin-bottom: 4%;
 } 
 
 #landing .btn-primary {
@@ -276,6 +290,12 @@ export default {
   box-shadow:none;
   line-height:1em;
   white-space: nowrap;
+}
+
+.nav-item.white a.nav-link {
+  color: #fff !important;
+  font-weight: 700;
+  margin: 0 auto;
 }
 
 #landing img {

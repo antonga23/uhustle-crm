@@ -281,4 +281,7 @@ export default {
 img {
   margin-bottom: 17px;
 }
+h1 {
+  margin-top: 1.5rem !important;
+}
 </style>

@@ -187175,6 +187175,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   mounted: function mounted() {},
@@ -251138,7 +251139,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.analytics-page-container[data-v-6c42c8f6] {\r\n  background-color: #00c3ff;\r\n  width: 100%;\r\n  height: 100%;\r\n  background-image: url(\"/images/landing/analytics-page-background.png\");\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-position: left top;\n}\n.col-auto[data-v-6c42c8f6] {\r\n  margin-right: 3%;\n}\r\n\r\n/* Equivalent of 50px is 9% */\n.ml-9[data-v-6c42c8f6] { \r\n  margin-left: 9%;\n}\n.my-9[data-v-6c42c8f6] {\r\n  margin: 9%;\n}\n.my-20[data-v-6c42c8f6] {\r\n  margin: 0 20%;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.analytics-page-container[data-v-6c42c8f6] {\r\n  background-color: #00c3ff;\r\n  width: 100%;\r\n  height: 100%;\r\n  background-image: url(\"/images/landing/analytics-page-background.png\");\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  background-position: left top;\n}\n.col-auto[data-v-6c42c8f6] {\r\n  margin-right: 3%;\n}\r\n\r\n/* Equivalent of 50px is 9% */\n.ml-9[data-v-6c42c8f6] { \r\n  margin-left: 9%;\n}\n.my-9[data-v-6c42c8f6] {\r\n  margin: 9%;\n}\n.my-20[data-v-6c42c8f6] {\r\n  margin: 0 20%;\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -251157,7 +251158,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.contact-page-container[data-v-743a6dd0] {\r\n  width: 100%;\r\n  height: 100%;\n}\nh5[data-v-743a6dd0] {\r\n  color: #1e2738;\r\n  font-weight: bold;\r\n  font-size: 0.96vw;\r\n  margin-bottom: 5%;\n}\n.footer-text[data-v-743a6dd0] {\r\n  font-size: 0.73vw !important;\r\n  color: inherit;\n}\nli[data-v-743a6dd0] {\r\n  padding-left: 15px;\r\n  padding-right: 15px;\n}\n.mb-9[data-v-743a6dd0] {\r\n  margin-bottom: 9%;\n}\n.margin-footer[data-v-743a6dd0] {\r\n  margin: 5% 20% 3%;\n}\n.m-7[data-v-743a6dd0] {\r\n  margin: 0 7%;\n}\r\n", ""]);
+exports.push([module.i, "\n.contact-page-container[data-v-743a6dd0] {\r\n  width: 100%;\r\n  height: 100%;\n}\nh5[data-v-743a6dd0] {\r\n  color: #1e2738;\r\n  font-weight: bold;\r\n  font-size: 0.96vw;\r\n  margin-bottom: 5%;\n}\n.footer-text[data-v-743a6dd0] {\r\n  font-size: 0.73vw !important;\r\n  color: inherit;\n}\nli[data-v-743a6dd0] {\r\n  padding-left: 15px;\r\n  padding-right: 15px;\n}\n.mb-9[data-v-743a6dd0] {\r\n  margin-bottom: 9%;\n}\n.margin-footer[data-v-743a6dd0] {\r\n  margin: 3% 20% 3%;\n}\n.m-7[data-v-743a6dd0] {\r\n  margin: 0 7%;\n}\nimg.contact[data-v-743a6dd0] {\r\n  width: 100%;\n}\r\n", ""]);
 
 // exports
 
@@ -251214,7 +251215,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.first-page-container[data-v-441772a0] {\n  background-color: #00C3FF;\n  width: 100%;\n  height:100%;\n  background-image: url('/images/landing/first-page-background.png');\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: right bottom;\n}\n", ""]);
+exports.push([module.i, "\n.first-page-container[data-v-441772a0] {\n  background-color: #00C3FF;\n  width: 100%;\n  height:100%;\n  background-image: url('/images/landing/first-page-background.png');\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: right bottom;\n}\n", ""]);
 
 // exports
 
@@ -251233,7 +251234,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.flow-page-container[data-v-262024a8] {\r\n  background-color: #00C3FF;\r\n  width: 100%;\r\n  height:100%;\r\n  background-image: url('/images/landing/flow-page-background.png');\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-position: left bottom;\n}\n.col-auto[data-v-262024a8] {\r\n  margin-right: 3%;\n}\r\n\r\n/* Equivalent of 50px is 9% */\n.ml-9[data-v-262024a8] { \r\n  margin-left: 9%;\n}\n.my-20[data-v-262024a8] {\r\n  margin: 0px 20%;\n}\n.ml-20[data-v-262024a8] {\r\n  margin: 0 0 0 20%;\n}\r\n", ""]);
+exports.push([module.i, "\n.flow-page-container[data-v-262024a8] {\r\n  background-color: #00C3FF;\r\n  width: 100%;\r\n  height:100%;\r\n  background-image: url('/images/landing/flow-page-background.png');\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  background-position: left bottom;\n}\n.col-auto[data-v-262024a8] {\r\n  margin-right: 3%;\n}\r\n\r\n/* Equivalent of 50px is 9% */\n.ml-9[data-v-262024a8] { \r\n  margin-left: 9%;\n}\n.my-20[data-v-262024a8] {\r\n  margin: 0px 20%;\n}\n.ml-20[data-v-262024a8] {\r\n  margin: 0 0 0 20%;\n}\r\n", ""]);
 
 // exports
 
@@ -251252,7 +251253,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n#landing {\r\n  margin: 0;\r\n  overflow: hidden;\r\n  background-color: #fff;\n}\n#landing .nav-item {\r\n  color: #535554;\r\n  font-size: 15px;\n}\n#landing .sections-menu {\r\n  position: fixed;\r\n  right: 1rem;\r\n  top: 50%;\r\n  transform: translateY(-50%);\n}\n#landing .sections-menu .menu-point {\r\n  width: 10px;\r\n  height: 10px;\r\n  background-color: #FFF;\r\n  display: block;\r\n  margin: 1rem 0;\r\n  opacity: .6;\r\n  transition: .4s ease all;\r\n  cursor: pointer;\n}\n#landing .sections-menu .menu-point.active {\r\n  opacity: 1;\r\n  transform: scale(1.5);\n}\n#landing .fullpage {\r\n  height: 100vh;\r\n  width: 100%;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  flex-direction: column;\n}\n#landing h1 {\r\n  color: #4D4D4D;\r\n  font-size: 2.71vw;\r\n  font-weight: bold;\r\n  text-transform: capitalize;\r\n  margin-bottom: 0.5rem !important;\n}\n#landing h2 {\r\n  color: #999999;\r\n  font-size: 1.62vw;\r\n  font-weight: bold;\r\n  text-transform: capitalize;\r\n  margin-bottom: 9%;\n}\n#landing p {\r\n  color: #3A3A3A;\r\n  font-size: 0.84vw;;\r\n  font-family: 'Rubik', sans-serif;\r\n  line-height: 30px;\r\n  margin-bottom: 25px;\n}\n#landing .btn-primary {\r\n  font-size: 0.94vw;\r\n  text-transform : uppercase;\r\n  padding: 2.1% 3.7%;\r\n  box-shadow:none;\r\n  line-height:1em;\r\n  white-space: nowrap;\n}\n#landing img {\r\n  max-height: 100vh;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n#landing {\r\n  margin: 0;\r\n  overflow: hidden;\r\n  background-color: #fff;\n}\n#landing .navHeader {\r\n    background-color: #fff !important;\r\n    box-shadow: 0px 0px 9.51px 0px rgba(0,0,0,0.1);\n}\n#landing .navbar-nav.ml-auto {\r\n  width: 50%;\n}\n#landing .nav-item {\r\n  color: #535554;\r\n  font-size: 15px;\r\n  display: flex;\r\n  flex: 1;\n}\n#landing .sections-menu {\r\n  position: fixed;\r\n  right: 1rem;\r\n  top: 50%;\r\n  transform: translateY(-50%);\n}\n#landing .sections-menu .menu-point {\r\n  width: 10px;\r\n  height: 10px;\r\n  background-color: #FFF;\r\n  display: block;\r\n  margin: 1rem 0;\r\n  opacity: .6;\r\n  transition: .4s ease all;\r\n  cursor: pointer;\n}\n#landing .sections-menu .menu-point.active {\r\n  opacity: 1;\r\n  transform: scale(1.5);\n}\n#landing .fullpage {\r\n  height: 100vh;\r\n  width: 100%;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  flex-direction: column;\n}\n#landing h1 {\r\n  color: #4D4D4D;\r\n  font-size: 2.71vw;\r\n  font-weight: bold;\r\n  text-transform: capitalize;\r\n  margin-bottom: 0.5rem !important;\n}\n#landing h2 {\r\n  color: #999999;\r\n  font-size: 1.62vw;\r\n  font-weight: bold;\r\n  text-transform: capitalize;\r\n  margin-bottom: 9%;\n}\n#landing p {\r\n  color: #3A3A3A;\r\n  font-size: 0.84vw;;\r\n  font-family: 'Rubik', sans-serif;\r\n  line-height: 30px;\r\n  margin-bottom: 4%;\n}\n#landing .btn-primary {\r\n  font-size: 0.94vw;\r\n  text-transform : uppercase;\r\n  padding: 2.1% 3.7%;\r\n  box-shadow:none;\r\n  line-height:1em;\r\n  white-space: nowrap;\n}\n.nav-item.white a.nav-link {\r\n  color: #fff !important;\r\n  font-weight: 700;\r\n  margin: 0 auto;\n}\n#landing img {\r\n  max-height: 100vh;\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -251271,7 +251272,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.pricing-page-container[data-v-1d70e376] {\r\n  width: 100%;\r\n  height:100%;\n}\nh3[data-v-1d70e376] {\r\n  color: #4D4D4D;\r\n  font-size: 30px;\r\n  font-weight: bold;\r\n  text-transform: uppercase;\n}\nh3.siarem[data-v-1d70e376] {\r\n  color: #999999\n}\nh4[data-v-1d70e376] {\r\n  color: #999999;\r\n  font-size: 23px;\r\n  font-weight: bold;\n}\nh5[data-v-1d70e376] {\r\n  color: #4D4D4D;\r\n  font-size: 0.73vw;\r\n  font-weight: bold;\r\n  text-transform: uppercase;\n}\n.start[data-v-1d70e376] {\r\n  background: linear-gradient(to right, rgba(255,129,51,1) 0%, rgba(255,147, 58,1) 100%);\r\n  border-radius: 13px;\n}\n.basic[data-v-1d70e376] {\r\n  background: linear-gradient(to right, #02E3F4 0%, #0496F0 100%);\r\n  border-radius: 13px;\n}\n.premium[data-v-1d70e376] {\r\n  background: linear-gradient(to right, #C079D9 0%, #683EFC 100%);\r\n  border-radius: 13px;\n}\ntd[data-v-1d70e376] {\r\n  color: #999999;\r\n  font-family: 'Rubik', sans-serif !important;\r\n  border:1px solid #CCCCCC;\n}\r\n", ""]);
+exports.push([module.i, "\n.pricing-page-container[data-v-1d70e376] {\r\n  width: 100%;\r\n  height:100%;\n}\nh3[data-v-1d70e376] {\r\n  color: #4D4D4D;\r\n  font-size: 1.5vw;\r\n  font-weight: bold;\r\n  text-transform: uppercase;\r\n  margin-bottom: 0;\n}\nh3.siarem[data-v-1d70e376] {\r\n  color: #999999;\r\n  font-size: 1.5vw;\n}\nh3.price[data-v-1d70e376] {\r\n  font-size: 2vw;\n}\nh4[data-v-1d70e376] {\r\n  color: #999999;\r\n  font-size: 1.4vw;\r\n  font-weight: bold;\n}\nh5[data-v-1d70e376] {\r\n  color: #4D4D4D;\r\n  font-size: 10px;\r\n  font-weight: bold;\r\n  text-transform: uppercase;\n}\n.start[data-v-1d70e376] {\r\n  background: linear-gradient(to right, rgba(255,129,51,1) 0%, rgba(255,147, 58,1) 100%);\r\n  border-radius: 13px;\r\n  font-size: 1.5vw;\r\n  padding: 17px;\r\n  width: 100%;\r\n  margin: 0 auto;\n}\n.basic[data-v-1d70e376] {\r\n  background: linear-gradient(to right, #02E3F4 0%, #0496F0 100%);\r\n  border-radius: 13px;\r\n  font-size: 1.5vw;\r\n  padding: 17px;\r\n   width: 100%;\r\n  margin: 0 auto;\n}\n.premium[data-v-1d70e376] {\r\n  background: linear-gradient(to right, #C079D9 0%, #683EFC 100%);\r\n  border-radius: 13px;\r\n  font-size: 1.5vw;\r\n  padding: 17px;\r\n   width: 100%;\r\n  margin: 0 auto;\n}\ntd[data-v-1d70e376] {\r\n  color: #999999;\r\n  font-family: 'Rubik', sans-serif !important;\r\n  border:1px solid #CCCCCC;\r\n  font-size: 0.72vw;\n}\ntd[data-v-1d70e376]:first-child {\r\n  width: 23%;\r\n  padding-left: 40px;\r\n  font-size: 0.72vw;\n}\nth[data-v-1d70e376] {\r\n  padding: 1%;\n}\n.left[data-v-1d70e376] {\r\n  text-align: left;\n}\n.extra-padding[data-v-1d70e376] {\r\n  padding-bottom: 3%;\n}\nspan.small-text[data-v-1d70e376] {\r\n  font-size: 8px;\r\n  color: #999999;\n}\n@media screen and (max-width: 1440px) {\nimg.checkMarks[data-v-1d70e376] {\r\n  width: 10px;\n}\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -251290,7 +251291,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.why-crm-page-container[data-v-612c9bb4] {\r\n  width: 100%;\r\n  height: 100%;\n}\nimg[data-v-612c9bb4] {\r\n  margin-bottom: 17px;\n}\r\n", ""]);
+exports.push([module.i, "\n.why-crm-page-container[data-v-612c9bb4] {\r\n  width: 100%;\r\n  height: 100%;\n}\nimg[data-v-612c9bb4] {\r\n  margin-bottom: 17px;\n}\nh1[data-v-612c9bb4] {\r\n  margin-top: 1.5rem !important;\n}\r\n", ""]);
 
 // exports
 
@@ -377586,7 +377587,10 @@ var staticRenderFns = [
       { staticClass: "row mx-0 justify-content-center align-items-center" },
       [
         _c("div", { staticClass: "col-6 text-center" }, [
-          _c("img", { attrs: { src: "/images/landing/V3.svg", alt: "map" } })
+          _c("img", {
+            staticClass: "contact",
+            attrs: { src: "/images/landing/Dev_1.png", alt: "map" }
+          })
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-6 text-center" }, [
@@ -377666,7 +377670,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-6 text-right" }, [
-      _c("ul", [
+      _c("ul", { staticClass: "mt-3" }, [
         _c("li", { staticClass: "d-inline-block" }, [
           _c("a", { attrs: { href: "#" } }, [
             _c("img", {
@@ -378158,13 +378162,18 @@ var render = function() {
     [
       _c(
         "b-navbar",
-        { attrs: { type: "light", variant: "light", sticky: "" } },
+        {
+          staticClass: "navHeader",
+          attrs: { type: "light", variant: "light", sticky: "" }
+        },
         [
           _c("b-navbar-brand", [
             _c("img", {
+              staticClass: "pl-4",
               attrs: {
                 src: "/images/SVG_Images/siarem-logo.svg",
-                alt: "Siarem logo"
+                alt: "Siarem logo",
+                width: "200"
               }
             })
           ]),
@@ -378183,11 +378192,12 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "b-nav-item",
-                { staticClass: "btn=primary", attrs: { href: "#" } },
+                {
+                  staticClass: "btn-primary p-2 text-uppercase white",
+                  attrs: { href: "#" }
+                },
                 [_vm._v("Sign Up Now")]
-              ),
-              _vm._v(" "),
-              _c("b-nav-item", { attrs: { href: "#" } }, [_vm._v("LA/EN")])
+              )
             ],
             1
           )
@@ -378263,12 +378273,12 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "pricing-page-container" }, [
       _c("div", { staticClass: "row mx-0 justify-content-center h-100" }, [
-        _c("div", { staticClass: "col-12 text-center" }, [
-          _c("table", { attrs: { width: "100%" } }, [
+        _c("div", { staticClass: "col-8 text-center" }, [
+          _c("table", { attrs: { width: "100%", height: "90%" } }, [
             _c("thead", [
               _c("tr", [
                 _c("th", [
-                  _c("h3", { staticClass: "text-uppercase siarem" }, [
+                  _c("h3", { staticClass: "text-uppercase siarem pl-0" }, [
                     _vm._v("SIAREM")
                   ])
                 ]),
@@ -378295,26 +378305,30 @@ var staticRenderFns = [
               ]),
               _vm._v(" "),
               _c("tr", [
-                _c("th", [
-                  _c("h4", { staticClass: "text-uppercase" }, [
+                _c("th", { staticClass: "extra-padding" }, [
+                  _c("h4", { staticClass: "text-uppercase mb-0" }, [
                     _vm._v("Pricing Table")
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "text-uppercase small-text" }, [
+                    _vm._v("We have three different packages")
                   ])
                 ]),
                 _vm._v(" "),
-                _c("th", [
-                  _c("h3", [_vm._v("$29.99")]),
+                _c("th", { staticClass: "extra-padding" }, [
+                  _c("h3", { staticClass: "price" }, [_vm._v("$29.99")]),
                   _vm._v(" "),
                   _c("h5", [_vm._v("per month")])
                 ]),
                 _vm._v(" "),
-                _c("th", [
-                  _c("h3", [_vm._v("$49.99")]),
+                _c("th", { staticClass: "extra-padding" }, [
+                  _c("h3", { staticClass: "price" }, [_vm._v("$49.99")]),
                   _vm._v(" "),
                   _c("h5", [_vm._v("per month")])
                 ]),
                 _vm._v(" "),
-                _c("th", [
-                  _c("h3", [_vm._v("$69.99")]),
+                _c("th", { staticClass: "extra-padding" }, [
+                  _c("h3", { staticClass: "price" }, [_vm._v("$69.99")]),
                   _vm._v(" "),
                   _c("h5", [_vm._v("per month")])
                 ])
@@ -378323,12 +378337,13 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("tbody", [
               _c("tr", [
-                _c("td", { staticClass: "border-0" }, [
+                _c("td", { staticClass: "border-0 left" }, [
                   _vm._v("Consectetur adipiscing")
                 ]),
                 _vm._v(" "),
                 _c("td", { staticClass: "border-left-0" }, [
                   _c("img", {
+                    staticClass: "checkMarks",
                     attrs: {
                       src: "/images/landing/Price Cross.svg",
                       alt: "unchecked",
@@ -378339,6 +378354,7 @@ var staticRenderFns = [
                 _vm._v(" "),
                 _c("td", [
                   _c("img", {
+                    staticClass: "checkMarks",
                     attrs: {
                       src: "/images/landing/Price Cross.svg",
                       alt: "unchecked",
@@ -378349,6 +378365,7 @@ var staticRenderFns = [
                 _vm._v(" "),
                 _c("td", { staticClass: "border-right-0" }, [
                   _c("img", {
+                    staticClass: "checkMarks",
                     attrs: {
                       src: "/images/landing/Price Tick.svg",
                       alt: "checked",
@@ -378359,7 +378376,7 @@ var staticRenderFns = [
               ]),
               _vm._v(" "),
               _c("tr", [
-                _c("td", { staticClass: "border-0" }, [
+                _c("td", { staticClass: "border-0 left" }, [
                   _vm._v("Adipiscing consectetur")
                 ]),
                 _vm._v(" "),
@@ -378377,7 +378394,9 @@ var staticRenderFns = [
               ]),
               _vm._v(" "),
               _c("tr", [
-                _c("td", { staticClass: "border-0" }, [_vm._v("Pellentesque")]),
+                _c("td", { staticClass: "border-0 left" }, [
+                  _vm._v("Pellentesque")
+                ]),
                 _vm._v(" "),
                 _c("td", { staticClass: "border-left-0" }, [
                   _vm._v("50 contacts")
@@ -378391,10 +378410,13 @@ var staticRenderFns = [
               ]),
               _vm._v(" "),
               _c("tr", [
-                _c("td", { staticClass: "border-0" }, [_vm._v("Vitae purus")]),
+                _c("td", { staticClass: "border-0 left" }, [
+                  _vm._v("Vitae purus")
+                ]),
                 _vm._v(" "),
                 _c("td", { staticClass: "border-left-0" }, [
                   _c("img", {
+                    staticClass: "checkMarks",
                     attrs: {
                       src: "/images/landing/Price Tick.svg",
                       alt: "checked",
@@ -378405,6 +378427,7 @@ var staticRenderFns = [
                 _vm._v(" "),
                 _c("td", [
                   _c("img", {
+                    staticClass: "checkMarks",
                     attrs: {
                       src: "/images/landing/Price Tick.svg",
                       alt: "checked",
@@ -378415,6 +378438,7 @@ var staticRenderFns = [
                 _vm._v(" "),
                 _c("td", { staticClass: "border-right-0" }, [
                   _c("img", {
+                    staticClass: "checkMarks",
                     attrs: {
                       src: "/images/landing/Price Tick.svg",
                       alt: "checked",
@@ -378425,12 +378449,13 @@ var staticRenderFns = [
               ]),
               _vm._v(" "),
               _c("tr", [
-                _c("td", { staticClass: "border-0" }, [
+                _c("td", { staticClass: "border-0 left" }, [
                   _vm._v("Donec egestas nec")
                 ]),
                 _vm._v(" "),
                 _c("td", { staticClass: "border-left-0" }, [
                   _c("img", {
+                    staticClass: "checkMarks",
                     attrs: {
                       src: "/images/landing/Price Cross.svg",
                       alt: "unchecked",
@@ -378441,6 +378466,7 @@ var staticRenderFns = [
                 _vm._v(" "),
                 _c("td", [
                   _c("img", {
+                    staticClass: "checkMarks",
                     attrs: {
                       src: "/images/landing/Price Cross.svg",
                       alt: "unchecked",
@@ -378451,6 +378477,7 @@ var staticRenderFns = [
                 _vm._v(" "),
                 _c("td", { staticClass: "border-right-0" }, [
                   _c("img", {
+                    staticClass: "checkMarks",
                     attrs: {
                       src: "/images/landing/Price Tick.svg",
                       alt: "checked",
@@ -378461,12 +378488,13 @@ var staticRenderFns = [
               ]),
               _vm._v(" "),
               _c("tr", [
-                _c("td", { staticClass: "border-0" }, [
+                _c("td", { staticClass: "border-0 left" }, [
                   _vm._v("Mauris interdum")
                 ]),
                 _vm._v(" "),
                 _c("td", { staticClass: "border-left-0" }, [
                   _c("img", {
+                    staticClass: "checkMarks",
                     attrs: {
                       src: "/images/landing/Price Cross.svg",
                       alt: "unchecked",
@@ -378477,6 +378505,7 @@ var staticRenderFns = [
                 _vm._v(" "),
                 _c("td", [
                   _c("img", {
+                    staticClass: "checkMarks",
                     attrs: {
                       src: "/images/landing/Price Cross.svg",
                       alt: "unchecked",
@@ -378487,6 +378516,7 @@ var staticRenderFns = [
                 _vm._v(" "),
                 _c("td", { staticClass: "border-right-0" }, [
                   _c("img", {
+                    staticClass: "checkMarks",
                     attrs: {
                       src: "/images/landing/Price Tick.svg",
                       alt: "checked",
@@ -378497,7 +378527,7 @@ var staticRenderFns = [
               ]),
               _vm._v(" "),
               _c("tr", [
-                _c("td", { staticClass: "border-0" }, [
+                _c("td", { staticClass: "border-0 left" }, [
                   _vm._v("lacus in nisi molestie")
                 ]),
                 _vm._v(" "),
@@ -378513,12 +378543,13 @@ var staticRenderFns = [
               ]),
               _vm._v(" "),
               _c("tr", [
-                _c("td", { staticClass: "border-0" }, [
+                _c("td", { staticClass: "border-0 left" }, [
                   _vm._v("lacus in nisi molestie")
                 ]),
                 _vm._v(" "),
                 _c("td", { staticClass: "border-left-0" }, [
                   _c("img", {
+                    staticClass: "checkMarks",
                     attrs: {
                       src: "/images/landing/Price Cross.svg",
                       alt: "unchecked",
@@ -378529,6 +378560,7 @@ var staticRenderFns = [
                 _vm._v(" "),
                 _c("td", [
                   _c("img", {
+                    staticClass: "checkMarks",
                     attrs: {
                       src: "/images/landing/Price Cross.svg",
                       alt: "unchecked",
@@ -378539,6 +378571,7 @@ var staticRenderFns = [
                 _vm._v(" "),
                 _c("td", { staticClass: "border-right-0" }, [
                   _c("img", {
+                    staticClass: "checkMarks",
                     attrs: {
                       src: "/images/landing/Price Tick.svg",
                       alt: "checked",
@@ -378549,12 +378582,13 @@ var staticRenderFns = [
               ]),
               _vm._v(" "),
               _c("tr", [
-                _c("td", { staticClass: "border-0" }, [
+                _c("td", { staticClass: "border-0 left" }, [
                   _vm._v("Mauris ultrices")
                 ]),
                 _vm._v(" "),
                 _c("td", { staticClass: "border-left-0" }, [
                   _c("img", {
+                    staticClass: "checkMarks",
                     attrs: {
                       src: "/images/landing/Price Tick.svg",
                       alt: "checked",
@@ -378565,6 +378599,7 @@ var staticRenderFns = [
                 _vm._v(" "),
                 _c("td", [
                   _c("img", {
+                    staticClass: "checkMarks",
                     attrs: {
                       src: "/images/landing/Price Tick.svg",
                       alt: "checked",
@@ -378575,6 +378610,7 @@ var staticRenderFns = [
                 _vm._v(" "),
                 _c("td", { staticClass: "border-right-0" }, [
                   _c("img", {
+                    staticClass: "checkMarks",
                     attrs: {
                       src: "/images/landing/Price Tick.svg",
                       alt: "checked",
@@ -378585,7 +378621,9 @@ var staticRenderFns = [
               ]),
               _vm._v(" "),
               _c("tr", [
-                _c("td", { staticClass: "border-0" }, [_vm._v("Pellentesque")]),
+                _c("td", { staticClass: "border-0 left" }, [
+                  _vm._v("Pellentesque")
+                ]),
                 _vm._v(" "),
                 _c("td", { staticClass: "text-uppercase border-left-0" }, [
                   _vm._v("Unlimited")

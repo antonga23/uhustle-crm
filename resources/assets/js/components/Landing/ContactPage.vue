@@ -4,7 +4,7 @@
       <div class="col-12">
         <div class="row mx-0 justify-content-center align-items-center">
           <div class="col-6 text-center">
-            <img src="/images/landing/V3.svg" alt="map"/>
+            <img src="/images/landing/Dev_1.png" alt="map" class="contact" />
           </div>
 
           <div class="col-6 text-center">
@@ -55,7 +55,7 @@
               </div>
 
               <div class="col-6 text-right">
-                <ul>
+                <ul class="mt-3">
                   <li class="d-inline-block">
                     <a href="#">
                       <img src="/images/landing/Linkedin.svg" alt="Linkedin" width="21" />
@@ -134,9 +134,13 @@ li {
 }
 
 .margin-footer {
-  margin: 5% 20% 3%;
+  margin: 3% 20% 3%;
 }
 .m-7 {
   margin: 0 7%;
+}
+
+img.contact {
+  width: 100%;
 }
 </style>
