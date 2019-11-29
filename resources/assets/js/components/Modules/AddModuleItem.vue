@@ -29,7 +29,7 @@
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
     border: 0;
-    padding: 4.4% 5.6% 6.8%;
+    padding: 4.4% 5.6%;
 }
 .m-lt {
     margin-top: 20px;

@@ -1,6 +1,6 @@
 <style scoped>
   .tab-pane.card-body{
-    padding: 4.4% 5.6% 6.8%;
+    padding: 4.4% 5.6%;
   }
   .form-control {
     border-radius: 50rem;
