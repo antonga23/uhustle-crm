@@ -382916,16 +382916,30 @@ var render = function() {
                                                                   }
                                                                 },
                                                                 [
-                                                                  _vm._v(
-                                                                    _vm._s(
-                                                                      call_back
-                                                                        .lead
-                                                                        .name +
-                                                                        " " +
-                                                                        call_back
-                                                                          .lead
-                                                                          .surname
-                                                                    )
+                                                                  _c(
+                                                                    "a",
+                                                                    {
+                                                                      attrs: {
+                                                                        href:
+                                                                          "/workstation/" +
+                                                                          call_back
+                                                                            .lead
+                                                                            .id
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        _vm._s(
+                                                                          call_back
+                                                                            .lead
+                                                                            .name +
+                                                                            " " +
+                                                                            call_back
+                                                                              .lead
+                                                                              .surname
+                                                                        )
+                                                                      )
+                                                                    ]
                                                                   )
                                                                 ]
                                                               ),
