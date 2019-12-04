@@ -41,7 +41,7 @@
         </div>
 
         <div class="row mx-0 justify-content-center text-center">
-          <a href="#" class="font-weight-bold btn-primary">Sign Up Now</a>
+          <a href="/register" class="font-weight-bold btn-primary">Sign Up Now</a>
         </div>
       </div>
     </div>

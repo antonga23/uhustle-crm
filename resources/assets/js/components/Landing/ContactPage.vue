@@ -11,7 +11,11 @@
             <h1 class="mb-0">Become an agent today.</h1>
             <p class="mb-9">Connect with millions around the world and begin to work for yourself.</p>
             <div class="row mx-0 justify-content-center">
+<<<<<<< HEAD
               <a href="#" class="font-weight-bold btn-primary">Get Started</a>
+=======
+              <a href="/register" class="font-weight-bold btn-primary">Get Started</a>
+>>>>>>> origin
             </div>
           </div>
         </div>

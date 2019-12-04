@@ -10,7 +10,7 @@
         <b-nav-item href="#">Features</b-nav-item>
         <b-nav-item href="#">Pricing</b-nav-item>
         <b-nav-item href="#">Support</b-nav-item>
-        <b-nav-item href="#" class="btn-primary p-2 text-uppercase white" >Sign Up Now</b-nav-item>
+        <b-nav-item href="/register" class="btn-primary p-2 text-uppercase white" >Sign Up Now</b-nav-item>
         <!-- <b-nav-item href="#" class="pl-4">LA/EN</b-nav-item> -->
       </b-navbar-nav>
     </b-navbar>
