@@ -11,7 +11,7 @@
         </div>
 
         <div class="row mx-0 justify-content-center text-center">
-          <a href="/register" class="font-weight-bold btn-primary">Get Started</a>
+          <a href="/register" class="font-weight-bold btn-primary" style="margin: 0 auto !important;">Get Started</a>
         </div>
       </div>
     </div>
@@ -46,10 +46,10 @@ export default {
 
 <style scoped>
   .first-page-container {
-    background-color: #00C3FF;
+    /* background-color: #00C3FF; */
     width: 100%;
     height:100%;
-    background-image: url('/images/landing/first-page-background.png');
+    background-image: url('/images/landing/Pages_1_reduced_2.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: right bottom;

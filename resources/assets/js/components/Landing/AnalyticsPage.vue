@@ -73,10 +73,10 @@ export default {
 
 <style scoped>
 .analytics-page-container {
-  background-color: #00c3ff;
+  /* background-color: #00c3ff; */
   width: 100%;
   height: 100%;
-  background-image: url("/images/landing/analytics-page-background.png");
+  background-image: url("/images/landing/Pages_2_(2).png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: left top;

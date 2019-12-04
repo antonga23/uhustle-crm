@@ -84,10 +84,10 @@ export default {
 
 <style scoped>
 .flow-page-container {
-  background-color: #00C3FF;
+  /* background-color: #00C3FF; */
   width: 100%;
   height:100%;
-  background-image: url('/images/landing/flow-page-background.png');
+  background-image: url('/images/landing/Pages_3_(2).png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: left bottom;

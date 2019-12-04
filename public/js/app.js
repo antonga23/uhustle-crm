@@ -251139,7 +251139,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.analytics-page-container[data-v-6c42c8f6] {\r\n  background-color: #00c3ff;\r\n  width: 100%;\r\n  height: 100%;\r\n  background-image: url(\"/images/landing/analytics-page-background.png\");\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  background-position: left top;\n}\n.col-auto[data-v-6c42c8f6] {\r\n  margin-right: 3%;\n}\r\n\r\n/* Equivalent of 50px is 9% */\n.ml-9[data-v-6c42c8f6] { \r\n  margin-left: 9%;\n}\n.my-9[data-v-6c42c8f6] {\r\n  margin: 9%;\n}\n.my-20[data-v-6c42c8f6] {\r\n  margin: 0 20%;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.analytics-page-container[data-v-6c42c8f6] {\r\n  /* background-color: #00c3ff; */\r\n  width: 100%;\r\n  height: 100%;\r\n  background-image: url(\"/images/landing/Pages_2_(2).png\");\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  background-position: left top;\n}\n.col-auto[data-v-6c42c8f6] {\r\n  margin-right: 3%;\n}\r\n\r\n/* Equivalent of 50px is 9% */\n.ml-9[data-v-6c42c8f6] { \r\n  margin-left: 9%;\n}\n.my-9[data-v-6c42c8f6] {\r\n  margin: 9%;\n}\n.my-20[data-v-6c42c8f6] {\r\n  margin: 0 20%;\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -251215,7 +251215,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.first-page-container[data-v-441772a0] {\n  background-color: #00C3FF;\n  width: 100%;\n  height:100%;\n  background-image: url('/images/landing/first-page-background.png');\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: right bottom;\n}\n", ""]);
+exports.push([module.i, "\n.first-page-container[data-v-441772a0] {\n  /* background-color: #00C3FF; */\n  width: 100%;\n  height:100%;\n  background-image: url('/images/landing/Pages_1_reduced_2.png');\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: right bottom;\n}\n", ""]);
 
 // exports
 
@@ -251234,7 +251234,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.flow-page-container[data-v-262024a8] {\r\n  background-color: #00C3FF;\r\n  width: 100%;\r\n  height:100%;\r\n  background-image: url('/images/landing/flow-page-background.png');\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  background-position: left bottom;\n}\n.col-auto[data-v-262024a8] {\r\n  margin-right: 3%;\n}\r\n\r\n/* Equivalent of 50px is 9% */\n.ml-9[data-v-262024a8] { \r\n  margin-left: 9%;\n}\n.my-20[data-v-262024a8] {\r\n  margin: 0px 20%;\n}\n.ml-20[data-v-262024a8] {\r\n  margin: 0 0 0 20%;\n}\r\n", ""]);
+exports.push([module.i, "\n.flow-page-container[data-v-262024a8] {\r\n  /* background-color: #00C3FF; */\r\n  width: 100%;\r\n  height:100%;\r\n  background-image: url('/images/landing/Pages_3_(2).png');\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  background-position: left bottom;\n}\n.col-auto[data-v-262024a8] {\r\n  margin-right: 3%;\n}\r\n\r\n/* Equivalent of 50px is 9% */\n.ml-9[data-v-262024a8] { \r\n  margin-left: 9%;\n}\n.my-20[data-v-262024a8] {\r\n  margin: 0px 20%;\n}\n.ml-20[data-v-262024a8] {\r\n  margin: 0 0 0 20%;\n}\r\n", ""]);
 
 // exports
 
@@ -377499,7 +377499,7 @@ var staticRenderFns = [
                       "a",
                       {
                         staticClass: "font-weight-bold btn-primary",
-                        attrs: { href: "#" }
+                        attrs: { href: "/register" }
                       },
                       [_vm._v("Sign Up Now")]
                     )
@@ -377607,7 +377607,7 @@ var staticRenderFns = [
               "a",
               {
                 staticClass: "font-weight-bold btn-primary",
-                attrs: { href: "#" }
+                attrs: { href: "/register" }
               },
               [_vm._v("Get Started")]
             )
@@ -377911,7 +377911,7 @@ var staticRenderFns = [
                 "a",
                 {
                   staticClass: "font-weight-bold btn-primary",
-                  attrs: { href: "#" }
+                  attrs: { href: "/register" }
                 },
                 [_vm._v("Sign Up Now")]
               )
@@ -377984,7 +377984,8 @@ var staticRenderFns = [
                   "a",
                   {
                     staticClass: "font-weight-bold btn-primary",
-                    attrs: { href: "#" }
+                    staticStyle: { margin: "0 auto !important" },
+                    attrs: { href: "/register" }
                   },
                   [_vm._v("Get Started")]
                 )
@@ -378111,7 +378112,7 @@ var staticRenderFns = [
                       "a",
                       {
                         staticClass: "font-weight-bold btn-primary",
-                        attrs: { href: "#" }
+                        attrs: { href: "/register" }
                       },
                       [_vm._v("Sign Up Now")]
                     )
@@ -378194,7 +378195,7 @@ var render = function() {
                 "b-nav-item",
                 {
                   staticClass: "btn-primary p-2 text-uppercase white",
-                  attrs: { href: "#" }
+                  attrs: { href: "/register" }
                 },
                 [_vm._v("Sign Up Now")]
               )
@@ -382916,30 +382917,16 @@ var render = function() {
                                                                   }
                                                                 },
                                                                 [
-                                                                  _c(
-                                                                    "a",
-                                                                    {
-                                                                      attrs: {
-                                                                        href:
-                                                                          "/workstation/" +
-                                                                          call_back
-                                                                            .lead
-                                                                            .id
-                                                                      }
-                                                                    },
-                                                                    [
-                                                                      _vm._v(
-                                                                        _vm._s(
-                                                                          call_back
-                                                                            .lead
-                                                                            .name +
-                                                                            " " +
-                                                                            call_back
-                                                                              .lead
-                                                                              .surname
-                                                                        )
-                                                                      )
-                                                                    ]
+                                                                  _vm._v(
+                                                                    _vm._s(
+                                                                      call_back
+                                                                        .lead
+                                                                        .name +
+                                                                        " " +
+                                                                        call_back
+                                                                          .lead
+                                                                          .surname
+                                                                    )
                                                                   )
                                                                 ]
                                                               ),
