@@ -11,7 +11,7 @@
         </div>
 
         <div class="row mx-0 justify-content-center text-center">
-          <a href="#" class="font-weight-bold btn-primary">Get Started</a>
+          <a href="/register" class="font-weight-bold btn-primary">Get Started</a>
         </div>
       </div>
     </div>
