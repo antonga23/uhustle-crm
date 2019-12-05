@@ -92,7 +92,7 @@
     -o-box-shadow:none!important;
   }
   .tab-pane.card-body {
-    padding:4.4% 5.6% 6.8%;
+    padding:4.4% 5.6%;
   }
   .card-body .form-group{
     margin-left: 0%;
@@ -115,6 +115,7 @@
     margin-top: 4.6%;
     padding-left:0;
     margin-left: 20px;
+    width: calc(100% - 20px)!important;
   }
   .expand-toggle.btn-secondary:not(:disabled):not(.disabled):active, 
   .expand-toggle.btn-secondary:not(:disabled):not(.disabled).active, 
@@ -267,7 +268,7 @@
                         href="#" 
                         v-b-toggle="'accordion-0'"  
                         :aria-controls="'accordion-0'"
-                        class="w-100 mr-0 py-0 pr-0 expand-toggle"
+                        class="mr-0 py-0 pr-0 expand-toggle"
                       >
                         Dialer
                         <img src="images/icons/up.svg" alt="toggle icon" width="11" class="toggle-icon"/>
@@ -324,7 +325,7 @@
                         href="#" 
                         v-b-toggle="'accordion-00'"  
                         :aria-controls="'accordion-00'"
-                        class="w-100 mr-0 py-0 pr-0 expand-toggle"
+                        class="mr-0 py-0 pr-0 expand-toggle"
                       >
                         Commission
                         <img src="images/icons/up.svg" alt="toggle icon" width="11" class="toggle-icon"/>
@@ -363,7 +364,7 @@
                           block href="#" 
                           v-b-toggle="'accordion-' + (i+1)"  
                           :aria-controls="'accordion-' + (i+1)"
-                          class="w-100 mr-0 py-0 pr-0 expand-toggle"
+                          class="mr-0 py-0 pr-0 expand-toggle"
                         >
                           {{ a_module.display_name }}
                           <img src="images/icons/up.svg" alt="toggle icon" width="11" class="toggle-icon"/>
