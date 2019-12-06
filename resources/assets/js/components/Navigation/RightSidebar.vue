@@ -2413,13 +2413,11 @@ input.save-text:focus {
   } 
   from 'v-calendar' 
   import TransitionHeight from '../Plugins/TransitionExpand.vue'; 
-  import VueCircle from 'vue2-circle-progress' 
   import moment from 'moment' 
   export default { 
     props: ['auth_user', 'active'], 
     components: { 
-      'transition-expand': TransitionHeight, 
-      VueCircle 
+      'transition-expand': TransitionHeight
     }, 
     data: function() { 
       return { 

@@ -1,9 +1,9 @@
 <template>
   <div class="contact-page-container">
     <div class="row mx-0 justify-content-center h-100">
-      <div class="col-12">
+      <div class="col-12 pl-0">
         <div class="row mx-0 justify-content-center align-items-center">
-          <div class="col-6 text-center">
+          <div class="col-6 text-center pl-0">
             <img src="/images/landing/Dev_1.png" alt="map" class="contact" />
           </div>
 

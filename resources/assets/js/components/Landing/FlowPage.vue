@@ -88,9 +88,9 @@ export default {
   width: 100%;
   height:100%;
   background-image: url('/images/landing/Pages_3_(2).png');
-  background-size: cover;
+  background-size: auto 100%;
   background-repeat: no-repeat;
-  background-position: left bottom;
+  background-position: right center;
 }
 
 .col-auto {

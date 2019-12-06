@@ -11,7 +11,7 @@
         </div>
 
         <div class="row mx-0 justify-content-center text-center">
-          <a href="/register" class="font-weight-bold btn-primary" style="margin: 0 auto !important;">Get Started</a>
+          <a href="/register" class="font-weight-bold btn-primary">Get Started</a>
         </div>
       </div>
     </div>
@@ -50,9 +50,9 @@ export default {
     width: 100%;
     height:100%;
     background-image: url('/images/landing/Pages_1_reduced_2.png');
-    background-size: cover;
+    background-size: auto 100%;
     background-repeat: no-repeat;
-    background-position: right bottom;
+    background-position: left center;
   }
 </style>
 

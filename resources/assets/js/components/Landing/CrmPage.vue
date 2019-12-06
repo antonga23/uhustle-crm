@@ -13,7 +13,7 @@
       </div>
 
       <div class="col-12 text-center">
-        <img src="/images/landing/MockUp.png" alt="mockup" width="63%"/>
+        <img src="/images/landing/MockUp-tiny.png" alt="mockup" width="63%"/>
       </div>
     </div>
   </div>

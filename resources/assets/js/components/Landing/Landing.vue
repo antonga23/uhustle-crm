@@ -1,21 +1,21 @@
 <template>
   <div id="landing"> 
-    <b-navbar type="light" variant="light" sticky class="navHeader">
+    <b-navbar type="light" variant="light" sticky class="navHeader justify-content-between">
       <b-navbar-brand>
-        <img src="/images/SVG_Images/siarem-logo.svg" class="pl-4" alt="Siarem logo" width="200">
+        <img src="/images/SVG_Images/siarem-logo.svg" alt="Siarem logo" width="66.5%">
       </b-navbar-brand>
 
-      <b-navbar-nav class="ml-auto">
+      <b-navbar-nav class="align-items-center">
         <b-nav-item href="#">About</b-nav-item>
         <b-nav-item href="#">Features</b-nav-item>
         <b-nav-item href="#">Pricing</b-nav-item>
         <b-nav-item href="#">Support</b-nav-item>
-        <b-nav-item href="/register" class="btn-primary p-2 text-uppercase white" >Sign Up Now</b-nav-item>
+        <b-nav-item href="/register" class="btn-primary text-uppercase white">Sign Up Now</b-nav-item>
         <!-- <b-nav-item href="#" class="pl-4">LA/EN</b-nav-item> -->
       </b-navbar-nav>
     </b-navbar>
 
-    <div class="sections-menu">
+    <!-- <div class="sections-menu">
       <span
         class="menu-point"
         :class="{active: activeSection == index}"
@@ -23,8 +23,7 @@
         v-for="(offset, index) in offsets"
         :key="index">
       </span>
-    </div>
-
+    </div> -->
     <section class="fullpage">
       <first-page/>
     </section>
@@ -208,22 +207,24 @@ export default {
 }
 
 #landing .navHeader {
-    background-color: #fff !important;
-    -webkit-box-shadow: 0px 0px 9.51px 0px rgba(0,0,0,0.1);
-    -moz-box-shadow: 0px 0px 9.51px 0px rgba(0,0,0,0.1);
-    box-shadow: 0px 0px 9.51px 0px rgba(0,0,0,0.1);
-}
-
-#landing .navbar-nav.ml-auto {
-  width: 50%;
+  background-color: #fff !important;
+  -webkit-box-shadow: 0px 0px 9.51px 0px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0px 0px 9.51px 0px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 9.51px 0px rgba(0,0,0,0.1);
+  padding-left: 3.95%;
+  padding-right: 3.95%;
 }
 
 #landing .nav-item {
   color: #535554;
   font-size: 15px;
-  display: flex;
-  flex: 1;
-  
+  padding-left: 5.25%;
+  padding-right: 5.25%;
+  width:100%;
+}
+
+#landing .nav-link {
+  padding: 0;
 }
 
 #landing .sections-menu {
@@ -295,7 +296,6 @@ export default {
 .nav-item.white a.nav-link {
   color: #fff !important;
   font-weight: 700;
-  margin: 0 auto;
 }
 
 #landing img {
