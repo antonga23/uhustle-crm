@@ -543,20 +543,19 @@ class ModuleController extends Controller
 
 
   public function addItem(Request $request){
-
     $item = $request->item;
 
     try{
       DB::beginTransaction();
 
-      ModuleItem::create([
+      $m_item = ModuleItem::create([
         'module_id' => $item['id']
       ]);
-
       foreach($item['module_fields'] as $key => $value){
-        ModuleItemMeta::create([
-          'item_id' => $value['module_id'],
+        $meta = ModuleItemMeta::create([
+          'item_id' => $m_item->id,
           'custom_field_id' => $value['id'],
+          'custom_field_name' => $value['name'],
           'custom_field_value' => isset($value['value'])? $value['value'] : null,
         ]);
       }
@@ -888,7 +887,6 @@ class ModuleController extends Controller
     if(Auth::user()->role_id == 1){
 
       if($preferences){
-
         $module_items = ModuleItem::with('item_meta')
         ->where(['module_id' => $module->id])
         ->take($preferences['value'])
@@ -914,7 +912,6 @@ class ModuleController extends Controller
         ->whereNull('assignee')
         ->count();
         
-
     }else if(Auth::user()->role_id == 2){
 
       if($preferences){

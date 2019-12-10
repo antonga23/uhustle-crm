@@ -3,8 +3,9 @@
     <div v-if="show_page_loader">
       <vcl-table v-if="show_page_loader" ></vcl-table>
     </div>
+
     <div v-else>
-      <b-table class="product-listing" :items="productListing" :per-page="perPage" :current-page="currentPage">
+      <b-table class="product-listing" :items="productListing" :per-page="perPage" :current-page="currentPage" sticky-header responsive>
         <template slot="name"  slot-scope="data">
           <input
             :disabled="(mode == 'view')? true : false"
@@ -130,22 +131,22 @@
           </a-select>
         </template>
 
-      <template slot="status" slot-scope="data">
-        <a-switch 
-          :disabled="(mode == 'view')? true : false"
-          @change="updateProduct(data.item)"  
-          v-model="data.item.status" 
-          v-validate="'required'" 
-          name="Status" 
-          class="ml-3 mr-2"/>
-        <label v-if="data.item.status == 1 || data.item.status == true">Active</label>
-        <label v-if="data.item.status == 0 || data.item.status == false">Inactive</label>
-        <!-- <a-select :disabled="(mode == 'view')? true : false" @change="updateProduct(data.item)" v-validate="'required'" name="Status" v-model="data.item.status" class="custom-select rounded-pill border-0">   
-          <a-select-option value="">-None-</a-select-option>   
-          <a-select-option :value="1">Active</a-select-option> 
-          <a-select-option :value="0">Disabled</a-select-option> 
-        </a-select> -->
-      </template>
+        <template slot="status" slot-scope="data">
+          <a-switch 
+            :disabled="(mode == 'view')? true : false"
+            @change="updateProduct(data.item)"  
+            v-model="data.item.status" 
+            v-validate="'required'" 
+            name="Status" 
+            class="ml-3 mr-2"/>
+          <label v-if="data.item.status == 1 || data.item.status == true">Active</label>
+          <label v-if="data.item.status == 0 || data.item.status == false">Inactive</label>
+          <!-- <a-select :disabled="(mode == 'view')? true : false" @change="updateProduct(data.item)" v-validate="'required'" name="Status" v-model="data.item.status" class="custom-select rounded-pill border-0">   
+            <a-select-option value="">-None-</a-select-option>   
+            <a-select-option :value="1">Active</a-select-option> 
+            <a-select-option :value="0">Disabled</a-select-option> 
+          </a-select> -->
+        </template>
 
         <template slot="actions" slot-scope="data" v-if="mode == 'view' && (data.item.available_stock > 0 && data.item.current_stock > 0)">
           <span class="actions">
@@ -342,4 +343,10 @@ export default {
     }
 };
 </script>
+
+<style scoped>
+  .product-listing {
+    margin-bottom: 20px;
+  }
+</style>
  

@@ -4,7 +4,7 @@
   padding-right:5.2%;
 }
 .tab-pane.card-body {
-  padding:4.4% 5.6% 6.8%;
+  padding:4.4% 5.6%;
 }
 .nav-link.active img {
   display:inline-block!important;
@@ -16,9 +16,6 @@
 }
 h5 {
   font-size: 0.83vw;
-}
-.tab-pane.card-body {
-  padding:4.4% 5.6% 6.8%;
 }
 label{
   font-family: 'Rubik', sans-serif;

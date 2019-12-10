@@ -4,12 +4,13 @@
   padding-right:5.2%;
 }
 .tab-pane.card-body {
-  padding:4.4% 5.6% 6.8%;
+  padding:4.4% 5.6%;
 }
 .branches .tab-pane .row{
   margin-right: 0;
   margin-left: 0;
 }
+
 h5 {
   font-size: 0.83vw;
 }
@@ -21,9 +22,6 @@ h5 {
   -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);
   -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);
   border-radius: 50rem;
-}
-.tab-pane.card-body {
-  padding:4.4% 5.6% 6.8%;
 }
 </style>
 

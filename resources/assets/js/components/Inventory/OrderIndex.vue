@@ -4,7 +4,7 @@
   padding-right:5.2%;
 }
 .tab-pane.card-body {
-  padding:4.4% 5.6% 6.8%;
+  padding:4.4% 5.6%;
 }
 .products .tab-pane .row{
   margin-right: 0;
@@ -27,9 +27,6 @@ h5 {
   -webkit-box-shadow:none!important;
   -moz-box-shadow:none!important;
   -o-box-shadow:none!important;
-}
-.tab-pane.card-body {
-  padding:4.4% 5.6% 6.8%;
 }
 .order-summary {
   box-shadow: 0 0 20px rgba(0,0,0,0.1)!important;

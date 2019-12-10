@@ -220,6 +220,9 @@
 </script>
 
 <style scoped>
+  .order-listing {
+    margin-bottom: 20px;
+  }
   .btn-default{
   background: #fff;
   color: #999999;    

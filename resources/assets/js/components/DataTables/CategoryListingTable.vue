@@ -1,45 +1,53 @@
 <template>
-     <div class='table-container'>
-        <b-table class="category-listing" :items="categoryListing">
+  <div class='table-container'>
+    <b-table class="category-listing" :items="categoryListing" responsive sticky-header :per-page="perPage" :current-page="currentPage">
 
-          <template slot="name" slot-scope="data">   
-            <input
-              @blur="updateCat(data.item)"
-              v-model="data.item.name"     
-              type="text"    
-              id="deal-name"     
-              name="DealName"   
-              class="form-control border-0 rounded-pill"/> 
-          </template>
+      <template slot="name" slot-scope="data">   
+        <input
+          @blur="updateCat(data.item)"
+          v-model="data.item.name"     
+          type="text"    
+          id="deal-name"     
+          name="DealName"   
+          class="form-control border-0 rounded-pill"/> 
+      </template>
 
-          <template slot="description" slot-scope="data">   
-            <input
-              @blur="updateCat(data.item)"
-              v-model="data.item.description"     
-              type="text"    
-              id="deal-name"     
-              name="DealName"   
-              class="form-control border-0 rounded-pill"/> 
-          </template>
+      <template slot="description" slot-scope="data">   
+        <input
+          @blur="updateCat(data.item)"
+          v-model="data.item.description"     
+          type="text"    
+          id="deal-name"     
+          name="DealName"   
+          class="form-control border-0 rounded-pill"/> 
+      </template>
 
 
-          <template slot="status" slot-scope="data">   
-            <a-switch 
-              @change="updateCat(data.item)"  
-              v-model="data.item.status" 
-              v-validate="'required'" 
-              name="Status" 
-              class="ml-3 mr-2"/>
-            <label v-if="data.item.status == 1 || data.item.status == true">Active</label>
-            <label v-if="data.item.status == 0 || data.item.status == false">Inactive</label>
-            <!-- <a-select @change="updateCat(data.item)" name="Province" v-validate="'required'" v-model="data.item.status" class="custom-select rounded-pill border-0">   
-              <a-select-option value="" selected>-None-</a-select-option>   
-              <a-select-option :value="s_status.value" v-for="(s_status, index) in category_statuses" :key="index">{{s_status.text}}</a-select-option> 
-            </a-select> -->
-          </template>  
+      <template slot="status" slot-scope="data">   
+        <a-switch 
+          @change="updateCat(data.item)"  
+          v-model="data.item.status" 
+          v-validate="'required'" 
+          name="Status" 
+          class="ml-3 mr-2"/>
+        <label v-if="data.item.status == 1 || data.item.status == true">Active</label>
+        <label v-if="data.item.status == 0 || data.item.status == false">Inactive</label>
+        <!-- <a-select @change="updateCat(data.item)" name="Province" v-validate="'required'" v-model="data.item.status" class="custom-select rounded-pill border-0">   
+          <a-select-option value="" selected>-None-</a-select-option>   
+          <a-select-option :value="s_status.value" v-for="(s_status, index) in category_statuses" :key="index">{{s_status.text}}</a-select-option> 
+        </a-select> -->
+      </template>  
+    </b-table>
 
-        </b-table>
-    </div>
+    <b-pagination
+      class="products-pagination"
+      v-model="currentPage"
+      :per-page="perPage"
+      align="center"
+      size="sm"
+      :total-rows="rows"
+    ></b-pagination>
+  </div>
 </template>
 <script>
   export default {
@@ -84,7 +92,9 @@
             text: 'Disabled',
           }
         ],
-        Toas: null
+        Toast: null,
+        perPage: 20, 
+        currentPage: 1
       }
     },
     methods:{
@@ -138,6 +148,17 @@
     },
     created() {
       this.getCategories()
+    },
+    computed: {
+      rows() {
+        return this.categoryListing.length
+      }
     }
   }
 </script>
+
+<style scoped>
+.category-listing {
+  margin-bottom: 20px;
+}
+</style>
