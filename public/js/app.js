@@ -67111,19 +67111,19 @@ function moveTo(from, to, targetIndexes, insertBefore) {
 /*!***********************************************************!*\
   !*** ./node_modules/@syncfusion/ej2-navigations/index.js ***!
   \***********************************************************/
-/*! exports provided: MenuAnimationSettings, MenuItem, HScroll, VScroll, Item, Toolbar, AccordionActionSettings, AccordionAnimationSettings, AccordionItem, Accordion, ContextMenu, Menu, TabActionSettings, TabAnimationSettings, Header, TabItem, Tab, FieldsSettings, ActionSettings, NodeAnimationSettings, TreeView, Sidebar */
+/*! exports provided: HScroll, VScroll, MenuAnimationSettings, MenuItem, Item, Toolbar, AccordionActionSettings, AccordionAnimationSettings, AccordionItem, Accordion, ContextMenu, Menu, TabActionSettings, TabAnimationSettings, Header, TabItem, Tab, FieldsSettings, ActionSettings, NodeAnimationSettings, TreeView, Sidebar */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _src_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./src/index */ "./node_modules/@syncfusion/ej2-navigations/src/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MenuAnimationSettings", function() { return _src_index__WEBPACK_IMPORTED_MODULE_0__["MenuAnimationSettings"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MenuItem", function() { return _src_index__WEBPACK_IMPORTED_MODULE_0__["MenuItem"]; });
-
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HScroll", function() { return _src_index__WEBPACK_IMPORTED_MODULE_0__["HScroll"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VScroll", function() { return _src_index__WEBPACK_IMPORTED_MODULE_0__["VScroll"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MenuAnimationSettings", function() { return _src_index__WEBPACK_IMPORTED_MODULE_0__["MenuAnimationSettings"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MenuItem", function() { return _src_index__WEBPACK_IMPORTED_MODULE_0__["MenuItem"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Item", function() { return _src_index__WEBPACK_IMPORTED_MODULE_0__["Item"]; });
 
@@ -68969,7 +68969,7 @@ var HScroll = /** @class */ (function (_super) {
 /*!**********************************************************************!*\
   !*** ./node_modules/@syncfusion/ej2-navigations/src/common/index.js ***!
   \**********************************************************************/
-/*! exports provided: MenuAnimationSettings, MenuItem, HScroll, VScroll */
+/*! exports provided: HScroll, VScroll, MenuAnimationSettings, MenuItem */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -71582,19 +71582,19 @@ __webpack_require__.r(__webpack_exports__);
 /*!***************************************************************!*\
   !*** ./node_modules/@syncfusion/ej2-navigations/src/index.js ***!
   \***************************************************************/
-/*! exports provided: MenuAnimationSettings, MenuItem, HScroll, VScroll, Item, Toolbar, AccordionActionSettings, AccordionAnimationSettings, AccordionItem, Accordion, ContextMenu, Menu, TabActionSettings, TabAnimationSettings, Header, TabItem, Tab, FieldsSettings, ActionSettings, NodeAnimationSettings, TreeView, Sidebar */
+/*! exports provided: HScroll, VScroll, MenuAnimationSettings, MenuItem, Item, Toolbar, AccordionActionSettings, AccordionAnimationSettings, AccordionItem, Accordion, ContextMenu, Menu, TabActionSettings, TabAnimationSettings, Header, TabItem, Tab, FieldsSettings, ActionSettings, NodeAnimationSettings, TreeView, Sidebar */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _common_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./common/index */ "./node_modules/@syncfusion/ej2-navigations/src/common/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MenuAnimationSettings", function() { return _common_index__WEBPACK_IMPORTED_MODULE_0__["MenuAnimationSettings"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MenuItem", function() { return _common_index__WEBPACK_IMPORTED_MODULE_0__["MenuItem"]; });
-
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HScroll", function() { return _common_index__WEBPACK_IMPORTED_MODULE_0__["HScroll"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VScroll", function() { return _common_index__WEBPACK_IMPORTED_MODULE_0__["VScroll"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MenuAnimationSettings", function() { return _common_index__WEBPACK_IMPORTED_MODULE_0__["MenuAnimationSettings"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MenuItem", function() { return _common_index__WEBPACK_IMPORTED_MODULE_0__["MenuItem"]; });
 
 /* harmony import */ var _toolbar_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./toolbar/index */ "./node_modules/@syncfusion/ej2-navigations/src/toolbar/index.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Item", function() { return _toolbar_index__WEBPACK_IMPORTED_MODULE_1__["Item"]; });
@@ -175352,10 +175352,10 @@ var _package_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpac
 /*!**************************************************!*\
   !*** ./node_modules/ant-design-vue/package.json ***!
   \**************************************************/
-/*! exports provided: _args, _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _spec, _where, bugs, dependencies, description, devDependencies, files, homepage, keywords, license, main, module, name, peerDependencies, pre-commit, repository, scripts, sideEffects, title, typings, version, default */
+/*! exports provided: _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _shasum, _spec, _where, bugs, bundleDependencies, dependencies, deprecated, description, devDependencies, files, homepage, keywords, license, main, module, name, peerDependencies, pre-commit, repository, scripts, sideEffects, title, typings, version, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"_args\":[[\"ant-design-vue@1.3.13\",\"C:\\\\xampp\\\\uhustle-app\"]],\"_from\":\"ant-design-vue@1.3.13\",\"_id\":\"ant-design-vue@1.3.13\",\"_inBundle\":false,\"_integrity\":\"sha512-PMPoVcnM5Ygn8CqdCmlPK9w4i/LdxwDkZ72knPMZ1hrHUcHfWoKxZG6NW2XxxyR0vnXheEAa/4ojNaQkEAbSrQ==\",\"_location\":\"/ant-design-vue\",\"_phantomChildren\":{},\"_requested\":{\"type\":\"version\",\"registry\":true,\"raw\":\"ant-design-vue@1.3.13\",\"name\":\"ant-design-vue\",\"escapedName\":\"ant-design-vue\",\"rawSpec\":\"1.3.13\",\"saveSpec\":null,\"fetchSpec\":\"1.3.13\"},\"_requiredBy\":[\"/\"],\"_resolved\":\"https://registry.npmjs.org/ant-design-vue/-/ant-design-vue-1.3.13.tgz\",\"_spec\":\"1.3.13\",\"_where\":\"C:\\\\xampp\\\\uhustle-app\",\"bugs\":{\"url\":\"https://github.com/vueComponent/ant-design-vue/issues\"},\"dependencies\":{\"@ant-design/icons\":\"^2.1.1\",\"@ant-design/icons-vue\":\"^2.0.0\",\"add-dom-event-listener\":\"^1.0.2\",\"array-tree-filter\":\"^2.1.0\",\"async-validator\":\"^1.8.2\",\"babel-helper-vue-jsx-merge-props\":\"^2.0.3\",\"babel-runtime\":\"6.x\",\"classnames\":\"^2.2.5\",\"component-classes\":\"^1.2.6\",\"dom-align\":\"^1.7.0\",\"dom-closest\":\"^0.2.0\",\"dom-scroll-into-view\":\"^1.2.1\",\"enquire.js\":\"^2.1.6\",\"intersperse\":\"^1.0.0\",\"is-negative-zero\":\"^2.0.0\",\"ismobilejs\":\"^0.5.1\",\"json2mq\":\"^0.2.0\",\"lodash\":\"^4.17.5\",\"moment\":\"^2.21.0\",\"mutationobserver-shim\":\"^0.3.2\",\"omit.js\":\"^1.0.0\",\"raf\":\"^3.4.0\",\"resize-observer-polyfill\":\"^1.5.1\",\"shallow-equal\":\"^1.0.0\",\"shallowequal\":\"^1.0.2\",\"vue-ref\":\"^1.0.4\",\"warning\":\"^3.0.0\"},\"description\":\"An enterprise-class UI design language and Vue-based implementation\",\"devDependencies\":{\"@commitlint/cli\":\"^6.2.0\",\"@commitlint/config-conventional\":\"^6.1.3\",\"@octokit/rest\":\"^15.4.1\",\"@vue/cli-plugin-eslint\":\"^3.0.5\",\"@vue/server-test-utils\":\"1.0.0-beta.16\",\"@vue/test-utils\":\"1.0.0-beta.16\",\"acorn\":\"^6.0.5\",\"autoprefixer\":\"^9.6.0\",\"axios\":\"^0.18.0\",\"babel-cli\":\"^6.26.0\",\"babel-core\":\"^6.26.0\",\"babel-eslint\":\"^10.0.1\",\"babel-helper-vue-jsx-merge-props\":\"^2.0.3\",\"babel-jest\":\"^23.6.0\",\"babel-loader\":\"^7.1.2\",\"babel-plugin-import\":\"^1.1.1\",\"babel-plugin-inline-import-data-uri\":\"^1.0.1\",\"babel-plugin-istanbul\":\"^4.1.1\",\"babel-plugin-syntax-dynamic-import\":\"^6.18.0\",\"babel-plugin-syntax-jsx\":\"^6.18.0\",\"babel-plugin-transform-class-properties\":\"^6.24.1\",\"babel-plugin-transform-decorators\":\"^6.24.1\",\"babel-plugin-transform-decorators-legacy\":\"^1.3.4\",\"babel-plugin-transform-es3-member-expression-literals\":\"^6.22.0\",\"babel-plugin-transform-es3-property-literals\":\"^6.22.0\",\"babel-plugin-transform-object-assign\":\"^6.22.0\",\"babel-plugin-transform-object-rest-spread\":\"^6.26.0\",\"babel-plugin-transform-runtime\":\"~6.23.0\",\"babel-plugin-transform-vue-jsx\":\"^3.7.0\",\"babel-polyfill\":\"^6.26.0\",\"babel-preset-env\":\"^1.6.1\",\"case-sensitive-paths-webpack-plugin\":\"^2.1.2\",\"chalk\":\"^2.3.2\",\"cheerio\":\"^1.0.0-rc.2\",\"codecov\":\"^3.0.0\",\"colorful\":\"^2.1.0\",\"commander\":\"^2.15.0\",\"compare-versions\":\"^3.3.0\",\"cross-env\":\"^5.1.4\",\"css-loader\":\"^0.28.7\",\"deep-assign\":\"^2.0.0\",\"enquire-js\":\"^0.2.1\",\"eslint\":\"^5.8.0\",\"eslint-config-prettier\":\"^3.0.1\",\"eslint-plugin-html\":\"^3.2.2\",\"eslint-plugin-vue\":\"^5.1.0\",\"fetch-jsonp\":\"^1.1.3\",\"fs-extra\":\"^7.0.0\",\"glob\":\"^7.1.2\",\"gulp\":\"^4.0.1\",\"gulp-babel\":\"^7.0.0\",\"gulp-strip-code\":\"^0.1.4\",\"highlight.js\":\"^9.12.0\",\"html-webpack-plugin\":\"^3.2.0\",\"husky\":\"^0.14.3\",\"istanbul-instrumenter-loader\":\"^3.0.0\",\"jest\":\"^24.0.0\",\"jest-serializer-vue\":\"^1.0.0\",\"js-base64\":\"^2.4.8\",\"jsonp\":\"^0.2.1\",\"less\":\"^3.9.0\",\"less-loader\":\"^4.1.0\",\"less-plugin-npm-import\":\"^2.1.0\",\"lint-staged\":\"^7.2.2\",\"markdown-it\":\"^8.4.0\",\"markdown-it-anchor\":\"^4.0.0\",\"marked\":\"^0.3.7\",\"merge2\":\"^1.2.1\",\"mini-css-extract-plugin\":\"^0.5.0\",\"minimist\":\"^1.2.0\",\"mkdirp\":\"^0.5.1\",\"mockdate\":\"^2.0.2\",\"node-emoji\":\"^1.10.0\",\"nprogress\":\"^0.2.0\",\"optimize-css-assets-webpack-plugin\":\"^5.0.1\",\"postcss\":\"^7.0.6\",\"postcss-loader\":\"^3.0.0\",\"pre-commit\":\"^1.2.2\",\"prettier\":\"^1.15.3\",\"querystring\":\"^0.2.0\",\"raw-loader\":\"^1.0.0-beta.0\",\"reqwest\":\"^2.0.5\",\"rimraf\":\"^2.6.2\",\"rucksack-css\":\"^1.0.2\",\"selenium-server\":\"^3.0.1\",\"semver\":\"^5.3.0\",\"style-loader\":\"^0.18.2\",\"stylelint\":\"^9.10.1\",\"stylelint-config-prettier\":\"^4.0.0\",\"stylelint-config-standard\":\"^18.2.0\",\"through2\":\"^2.0.3\",\"uglifyjs-webpack-plugin\":\"^2.1.1\",\"url-loader\":\"^1.1.2\",\"vue\":\"^2.5.16\",\"vue-antd-md-loader\":\"^1.1.0\",\"vue-clipboard2\":\"0.0.8\",\"vue-eslint-parser\":\"^5.0.0\",\"vue-i18n\":\"^8.3.2\",\"vue-infinite-scroll\":\"^2.0.2\",\"vue-jest\":\"^2.5.0\",\"vue-loader\":\"^15.5.1\",\"vue-router\":\"^3.0.1\",\"vue-server-renderer\":\"^2.5.16\",\"vue-template-compiler\":\"^2.5.16\",\"vue-virtual-scroller\":\"^0.12.0\",\"vuex\":\"^3.1.0\",\"webpack\":\"^4.28.4\",\"webpack-cli\":\"^3.2.1\",\"webpack-dev-server\":\"^3.1.14\",\"webpack-merge\":\"^4.1.1\",\"webpackbar\":\"^3.1.5\"},\"files\":[\"dist\",\"lib\",\"es\",\"types\",\"scripts\"],\"homepage\":\"https://vue.ant.design/\",\"keywords\":[\"ant\",\"design\",\"antd\",\"vue\",\"vueComponent\",\"component\",\"components\",\"ui\",\"framework\",\"frontend\"],\"license\":\"MIT\",\"main\":\"lib/index.js\",\"module\":\"es/index.js\",\"name\":\"ant-design-vue\",\"peerDependencies\":{\"vue\":\">=2.5.0\",\"vue-template-compiler\":\">=2.5.0\"},\"pre-commit\":[\"lint\",\"prettier\"],\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/vueComponent/ant-design-vue.git\"},\"scripts\":{\"codecov\":\"codecov\",\"commitmsg\":\"commitlint -x @commitlint/config-conventional -e $GIT_PARAMS\",\"compile\":\"node antd-tools/cli/run.js compile\",\"copy\":\"node scripts/run.js copy-html\",\"dev\":\"cross-env NODE_ENV=development ENTRY_INDEX=dev ./node_modules/.bin/webpack-dev-server --open --hot --port 3001\",\"dist\":\"node antd-tools/cli/run.js dist\",\"lint\":\"eslint -c ./.eslintrc --fix --ext .jsx,.js,.vue ./components\",\"lint:style\":\"stylelint \\\"{site,components}/**/*.less\\\" --syntax less\",\"postinstall\":\"node scripts/postinstall || echo \\\"ignore\\\"\",\"pre-publish\":\"node ./scripts/prepub\",\"prepublish\":\"node antd-tools/cli/run.js guard\",\"prettier\":\"node ./scripts/prettier.js\",\"pub\":\"node antd-tools/cli/run.js pub\",\"pub-with-ci\":\"node antd-tools/cli/run.js pub-with-ci\",\"site\":\"node scripts/run.js _site\",\"start\":\"cross-env NODE_ENV=development ./node_modules/.bin/webpack-dev-server --open --hot\",\"test\":\"cross-env NODE_ENV=test jest --config .jest.js\"},\"sideEffects\":[\"site/*\",\"components/style.js\",\"components/**/style/*\",\"*.vue\",\"*.md\",\"dist/*\",\"es/**/style/*\",\"lib/**/style/*\",\"*.less\"],\"title\":\"Ant Design Vue\",\"typings\":\"types/index.d.ts\",\"version\":\"1.3.13\"}");
+module.exports = JSON.parse("{\"_from\":\"ant-design-vue@^1.3.13\",\"_id\":\"ant-design-vue@1.3.13\",\"_inBundle\":false,\"_integrity\":\"sha512-PMPoVcnM5Ygn8CqdCmlPK9w4i/LdxwDkZ72knPMZ1hrHUcHfWoKxZG6NW2XxxyR0vnXheEAa/4ojNaQkEAbSrQ==\",\"_location\":\"/ant-design-vue\",\"_phantomChildren\":{},\"_requested\":{\"type\":\"range\",\"registry\":true,\"raw\":\"ant-design-vue@^1.3.13\",\"name\":\"ant-design-vue\",\"escapedName\":\"ant-design-vue\",\"rawSpec\":\"^1.3.13\",\"saveSpec\":null,\"fetchSpec\":\"^1.3.13\"},\"_requiredBy\":[\"#USER\",\"/\"],\"_resolved\":\"https://registry.npmjs.org/ant-design-vue/-/ant-design-vue-1.3.13.tgz\",\"_shasum\":\"63bfeba6c0b46101abf1cebb1ad1da13a46be932\",\"_spec\":\"ant-design-vue@^1.3.13\",\"_where\":\"/var/www/uhustle-app\",\"bugs\":{\"url\":\"https://github.com/vueComponent/ant-design-vue/issues\"},\"bundleDependencies\":false,\"dependencies\":{\"@ant-design/icons\":\"^2.1.1\",\"@ant-design/icons-vue\":\"^2.0.0\",\"add-dom-event-listener\":\"^1.0.2\",\"array-tree-filter\":\"^2.1.0\",\"async-validator\":\"^1.8.2\",\"babel-helper-vue-jsx-merge-props\":\"^2.0.3\",\"babel-runtime\":\"6.x\",\"classnames\":\"^2.2.5\",\"component-classes\":\"^1.2.6\",\"dom-align\":\"^1.7.0\",\"dom-closest\":\"^0.2.0\",\"dom-scroll-into-view\":\"^1.2.1\",\"enquire.js\":\"^2.1.6\",\"intersperse\":\"^1.0.0\",\"is-negative-zero\":\"^2.0.0\",\"ismobilejs\":\"^0.5.1\",\"json2mq\":\"^0.2.0\",\"lodash\":\"^4.17.5\",\"moment\":\"^2.21.0\",\"mutationobserver-shim\":\"^0.3.2\",\"omit.js\":\"^1.0.0\",\"raf\":\"^3.4.0\",\"resize-observer-polyfill\":\"^1.5.1\",\"shallow-equal\":\"^1.0.0\",\"shallowequal\":\"^1.0.2\",\"vue-ref\":\"^1.0.4\",\"warning\":\"^3.0.0\"},\"deprecated\":false,\"description\":\"An enterprise-class UI design language and Vue-based implementation\",\"devDependencies\":{\"@commitlint/cli\":\"^6.2.0\",\"@commitlint/config-conventional\":\"^6.1.3\",\"@octokit/rest\":\"^15.4.1\",\"@vue/cli-plugin-eslint\":\"^3.0.5\",\"@vue/server-test-utils\":\"1.0.0-beta.16\",\"@vue/test-utils\":\"1.0.0-beta.16\",\"acorn\":\"^6.0.5\",\"autoprefixer\":\"^9.6.0\",\"axios\":\"^0.18.0\",\"babel-cli\":\"^6.26.0\",\"babel-core\":\"^6.26.0\",\"babel-eslint\":\"^10.0.1\",\"babel-helper-vue-jsx-merge-props\":\"^2.0.3\",\"babel-jest\":\"^23.6.0\",\"babel-loader\":\"^7.1.2\",\"babel-plugin-import\":\"^1.1.1\",\"babel-plugin-inline-import-data-uri\":\"^1.0.1\",\"babel-plugin-istanbul\":\"^4.1.1\",\"babel-plugin-syntax-dynamic-import\":\"^6.18.0\",\"babel-plugin-syntax-jsx\":\"^6.18.0\",\"babel-plugin-transform-class-properties\":\"^6.24.1\",\"babel-plugin-transform-decorators\":\"^6.24.1\",\"babel-plugin-transform-decorators-legacy\":\"^1.3.4\",\"babel-plugin-transform-es3-member-expression-literals\":\"^6.22.0\",\"babel-plugin-transform-es3-property-literals\":\"^6.22.0\",\"babel-plugin-transform-object-assign\":\"^6.22.0\",\"babel-plugin-transform-object-rest-spread\":\"^6.26.0\",\"babel-plugin-transform-runtime\":\"~6.23.0\",\"babel-plugin-transform-vue-jsx\":\"^3.7.0\",\"babel-polyfill\":\"^6.26.0\",\"babel-preset-env\":\"^1.6.1\",\"case-sensitive-paths-webpack-plugin\":\"^2.1.2\",\"chalk\":\"^2.3.2\",\"cheerio\":\"^1.0.0-rc.2\",\"codecov\":\"^3.0.0\",\"colorful\":\"^2.1.0\",\"commander\":\"^2.15.0\",\"compare-versions\":\"^3.3.0\",\"cross-env\":\"^5.1.4\",\"css-loader\":\"^0.28.7\",\"deep-assign\":\"^2.0.0\",\"enquire-js\":\"^0.2.1\",\"eslint\":\"^5.8.0\",\"eslint-config-prettier\":\"^3.0.1\",\"eslint-plugin-html\":\"^3.2.2\",\"eslint-plugin-vue\":\"^5.1.0\",\"fetch-jsonp\":\"^1.1.3\",\"fs-extra\":\"^7.0.0\",\"glob\":\"^7.1.2\",\"gulp\":\"^4.0.1\",\"gulp-babel\":\"^7.0.0\",\"gulp-strip-code\":\"^0.1.4\",\"highlight.js\":\"^9.12.0\",\"html-webpack-plugin\":\"^3.2.0\",\"husky\":\"^0.14.3\",\"istanbul-instrumenter-loader\":\"^3.0.0\",\"jest\":\"^24.0.0\",\"jest-serializer-vue\":\"^1.0.0\",\"js-base64\":\"^2.4.8\",\"jsonp\":\"^0.2.1\",\"less\":\"^3.9.0\",\"less-loader\":\"^4.1.0\",\"less-plugin-npm-import\":\"^2.1.0\",\"lint-staged\":\"^7.2.2\",\"markdown-it\":\"^8.4.0\",\"markdown-it-anchor\":\"^4.0.0\",\"marked\":\"^0.3.7\",\"merge2\":\"^1.2.1\",\"mini-css-extract-plugin\":\"^0.5.0\",\"minimist\":\"^1.2.0\",\"mkdirp\":\"^0.5.1\",\"mockdate\":\"^2.0.2\",\"node-emoji\":\"^1.10.0\",\"nprogress\":\"^0.2.0\",\"optimize-css-assets-webpack-plugin\":\"^5.0.1\",\"postcss\":\"^7.0.6\",\"postcss-loader\":\"^3.0.0\",\"pre-commit\":\"^1.2.2\",\"prettier\":\"^1.15.3\",\"querystring\":\"^0.2.0\",\"raw-loader\":\"^1.0.0-beta.0\",\"reqwest\":\"^2.0.5\",\"rimraf\":\"^2.6.2\",\"rucksack-css\":\"^1.0.2\",\"selenium-server\":\"^3.0.1\",\"semver\":\"^5.3.0\",\"style-loader\":\"^0.18.2\",\"stylelint\":\"^9.10.1\",\"stylelint-config-prettier\":\"^4.0.0\",\"stylelint-config-standard\":\"^18.2.0\",\"through2\":\"^2.0.3\",\"uglifyjs-webpack-plugin\":\"^2.1.1\",\"url-loader\":\"^1.1.2\",\"vue\":\"^2.5.16\",\"vue-antd-md-loader\":\"^1.1.0\",\"vue-clipboard2\":\"0.0.8\",\"vue-eslint-parser\":\"^5.0.0\",\"vue-i18n\":\"^8.3.2\",\"vue-infinite-scroll\":\"^2.0.2\",\"vue-jest\":\"^2.5.0\",\"vue-loader\":\"^15.5.1\",\"vue-router\":\"^3.0.1\",\"vue-server-renderer\":\"^2.5.16\",\"vue-template-compiler\":\"^2.5.16\",\"vue-virtual-scroller\":\"^0.12.0\",\"vuex\":\"^3.1.0\",\"webpack\":\"^4.28.4\",\"webpack-cli\":\"^3.2.1\",\"webpack-dev-server\":\"^3.1.14\",\"webpack-merge\":\"^4.1.1\",\"webpackbar\":\"^3.1.5\"},\"files\":[\"dist\",\"lib\",\"es\",\"types\",\"scripts\"],\"homepage\":\"https://vue.ant.design/\",\"keywords\":[\"ant\",\"design\",\"antd\",\"vue\",\"vueComponent\",\"component\",\"components\",\"ui\",\"framework\",\"frontend\"],\"license\":\"MIT\",\"main\":\"lib/index.js\",\"module\":\"es/index.js\",\"name\":\"ant-design-vue\",\"peerDependencies\":{\"vue\":\">=2.5.0\",\"vue-template-compiler\":\">=2.5.0\"},\"pre-commit\":[\"lint\",\"prettier\"],\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/vueComponent/ant-design-vue.git\"},\"scripts\":{\"codecov\":\"codecov\",\"commitmsg\":\"commitlint -x @commitlint/config-conventional -e $GIT_PARAMS\",\"compile\":\"node antd-tools/cli/run.js compile\",\"copy\":\"node scripts/run.js copy-html\",\"dev\":\"cross-env NODE_ENV=development ENTRY_INDEX=dev ./node_modules/.bin/webpack-dev-server --open --hot --port 3001\",\"dist\":\"node antd-tools/cli/run.js dist\",\"lint\":\"eslint -c ./.eslintrc --fix --ext .jsx,.js,.vue ./components\",\"lint:style\":\"stylelint \\\"{site,components}/**/*.less\\\" --syntax less\",\"postinstall\":\"node scripts/postinstall || echo \\\"ignore\\\"\",\"pre-publish\":\"node ./scripts/prepub\",\"prepublish\":\"node antd-tools/cli/run.js guard\",\"prettier\":\"node ./scripts/prettier.js\",\"pub\":\"node antd-tools/cli/run.js pub\",\"pub-with-ci\":\"node antd-tools/cli/run.js pub-with-ci\",\"site\":\"node scripts/run.js _site\",\"start\":\"cross-env NODE_ENV=development ./node_modules/.bin/webpack-dev-server --open --hot\",\"test\":\"cross-env NODE_ENV=test jest --config .jest.js\"},\"sideEffects\":[\"site/*\",\"components/style.js\",\"components/**/style/*\",\"*.vue\",\"*.md\",\"dist/*\",\"es/**/style/*\",\"lib/**/style/*\",\"*.less\"],\"title\":\"Ant Design Vue\",\"typings\":\"types/index.d.ts\",\"version\":\"1.3.13\"}");
 
 /***/ }),
 
@@ -178950,6 +178950,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -179937,12 +179940,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Plugins_Schedule__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Plugins/Schedule */ "./resources/assets/js/components/Plugins/Schedule.vue");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -181957,6 +181954,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     var vm = this;
@@ -181990,7 +181995,9 @@ __webpack_require__.r(__webpack_exports__);
         value: 0,
         text: 'Disabled'
       }],
-      Toas: null
+      Toast: null,
+      perPage: 20,
+      currentPage: 1
     };
   },
   methods: {
@@ -182039,6 +182046,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.getCategories();
+  },
+  computed: {
+    rows: function rows() {
+      return this.categoryListing.length;
+    }
   }
 });
 
@@ -183264,6 +183276,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -184251,8 +184264,6 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DataTables_BranchesListingTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../DataTables/BranchesListingTable */ "./resources/assets/js/components/DataTables/BranchesListingTable.vue");
 /* harmony import */ var _CreateBranch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CreateBranch */ "./resources/assets/js/components/Inventory/CreateBranch.vue");
-//
-//
 //
 //
 //
@@ -186173,9 +186184,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 
 
@@ -186237,9 +186245,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DataTables_CategoryListingTable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../DataTables/CategoryListingTable */ "./resources/assets/js/components/DataTables/CategoryListingTable.vue");
 /* harmony import */ var _CreateCategory__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CreateCategory */ "./resources/assets/js/components/Inventory/CreateCategory.vue");
 /* harmony import */ var _CreateProduct__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./CreateProduct */ "./resources/assets/js/components/Inventory/CreateProduct.vue");
-//
-//
-//
 //
 //
 //
@@ -187601,6 +187606,97 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['module', 'active_users', 'active_roles', 'sources'],
   data: function data() {
@@ -188386,6 +188482,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['active', 'logged_user'],
   data: function data() {
@@ -188420,10 +188533,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var v_calendar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! v-calendar */ "./node_modules/v-calendar/lib/v-calendar.umd.min.js");
 /* harmony import */ var v_calendar__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(v_calendar__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Plugins_TransitionExpand_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Plugins/TransitionExpand.vue */ "./resources/assets/js/components/Plugins/TransitionExpand.vue");
-/* harmony import */ var vue2_circle_progress__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue2-circle-progress */ "./node_modules/vue2-circle-progress/dist/vue-circle-progress.js");
-/* harmony import */ var vue2_circle_progress__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue2_circle_progress__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 //
@@ -190835,15 +190946,56 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['auth_user', 'active'],
   components: {
-    'transition-expand': _Plugins_TransitionExpand_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    VueCircle: vue2_circle_progress__WEBPACK_IMPORTED_MODULE_2___default.a
+    'transition-expand': _Plugins_TransitionExpand_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
     return _defineProperty({
@@ -190906,7 +191058,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       new_task: {
         title: '',
         description: '',
-        date: moment__WEBPACK_IMPORTED_MODULE_3___default()()
+        date: moment__WEBPACK_IMPORTED_MODULE_2___default()(),
+        selected_time: moment__WEBPACK_IMPORTED_MODULE_2___default()()
       },
       avatarUrl: '/images/avatars/',
       noImageUrl: '/images/icons/user_icon@4x.png',
@@ -190969,7 +191122,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     });
   },
   methods: {
-    moment: moment__WEBPACK_IMPORTED_MODULE_3___default.a,
+    moment: moment__WEBPACK_IMPORTED_MODULE_2___default.a,
     showNotifications: function showNotifications() {
       this.notifications_on = !this.notifications_on;
       this.settings_on = false;
@@ -191077,7 +191230,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         vm.call_backs.forEach(function (call_back) {
           vm.attrs.push({
             key: 'call_back' + call_back.id,
-            highlight: 'red',
+            highlight: 'blue',
+            dot: 'blue',
             "class": 'call_back_date',
             dates: new Date(call_back.call_date),
             popover: {
@@ -191110,6 +191264,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var vm = this;
       axios.get("/tasks/get-user-tasks").then(function (response) {
         vm.tasks = response.data.tasks;
+        vm.attrs = [{
+          key: 'today',
+          highlight: true,
+          "class": 'today_date',
+          dates: new Date()
+        }];
+        vm.tasks.forEach(function (task) {
+          vm.attrs.push({
+            key: 'task' + task.id,
+            dot: 'orange',
+            "class": 'task_date',
+            dates: new Date(task.deadline),
+            popover: {
+              label: task.title
+            }
+          });
+        });
         Fire.$emit("AfterTaskkRequest", {
           tasks: vm.tasks
         });
@@ -191118,30 +191289,37 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     addTask: function addTask() {
       this.new_task.title = "";
       this.new_task.description = "";
-      this.new_task.date = moment__WEBPACK_IMPORTED_MODULE_3___default()();
+      this.new_task.date = moment__WEBPACK_IMPORTED_MODULE_2___default()();
+      this.new_task.selected_time = moment__WEBPACK_IMPORTED_MODULE_2___default()();
       this.add_task = !this.add_task;
     },
     submitTask: function submitTask() {
       var vm = this;
-      vm.$Progress.start();
-      axios.post("/tasks/create", {
-        title: vm.new_task.title,
-        description: vm.new_task.description,
-        date: vm.new_task.date.format("YYYY-MM-DD")
-      }).then(function (response) {
-        if (response.data.success == true) {
-          vm.Toast.fire({
-            type: "success",
-            title: response.data.message
-          });
-          vm.getUserTasks();
-          vm.add_task = !vm.add_task;
-          vm.$Progress.finish();
-        } else {
-          vm.$Progress.fail();
-          vm.$swal("Failed", "Opps, something went wrong while update, please try again", "warning");
-        }
-      });
+
+      if (this.new_task.title == "") {
+        this.$swal("Oops", "Please add a title.", "warning");
+      } else {
+        vm.$Progress.start();
+        axios.post("/tasks/create", {
+          title: vm.new_task.title,
+          description: vm.new_task.description,
+          date: vm.new_task.date.format("YYYY-MM-DD"),
+          time: vm.new_task.selected_time.format("hh:mm")
+        }).then(function (response) {
+          if (response.data.success == true) {
+            vm.Toast.fire({
+              type: "success",
+              title: response.data.message
+            });
+            vm.getUserTasks();
+            vm.add_task = !vm.add_task;
+            vm.$Progress.finish();
+          } else {
+            vm.$Progress.fail();
+            vm.$swal("Failed", "Opps, something went wrong while update, please try again", "warning");
+          }
+        });
+      }
     },
     editTask: function editTask(task, mode) {
       var vm = this;
@@ -191153,26 +191331,33 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         status = 0;
       }
 
-      axios.post("/tasks/update", {
-        id: task.id,
-        title: task.title,
-        status: status,
-        description: task.description,
-        date: task.deadline
-      }).then(function (response) {
-        if (response.data.success == true) {
-          vm.Toast.fire({
-            type: 'success',
-            title: response.data.message
-          });
-          vm.getUserTasks();
-          vm.edit_task = false;
-          vm.$Progress.finish();
-        } else {
-          vm.$Progress.fail();
-          vm.$swal('Failed', 'Opps, something went wrong while updating data, please try again', 'warning');
-        }
-      });
+      if (task.title === '') {
+        this.edit_task = false;
+        vm.$swal("Failed", "Opps, please add a title.", "warning");
+      } else {
+        axios.post("/tasks/update", {
+          id: task.id,
+          title: task.title,
+          status: status,
+          description: task.description,
+          date: task.deadline,
+          time: task.time
+        }).then(function (response) {
+          if (response.data.success == true) {
+            vm.Toast.fire({
+              type: 'success',
+              title: response.data.message
+            });
+            vm.getUserTasks();
+            vm.edit_task = false;
+            vm.$Progress.finish();
+          } else {
+            vm.$Progress.fail();
+            vm.$swal('Failed', 'Opps, something went wrong while updating data, please try again', 'warning');
+          }
+        });
+      }
+
       this.edit_task = false;
     },
     editTaskCollapes: function editTaskCollapes(id) {
@@ -194456,6 +194641,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -195985,6 +196171,113 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -196063,7 +196356,9 @@ __webpack_require__.r(__webpack_exports__);
       paidItems: [],
       pendingItems: [],
       dueItems: [],
-      rejectedItems: []
+      rejectedItems: [],
+      perPage: 20,
+      currentPage: 1
     };
   },
   methods: {
@@ -196101,6 +196396,40 @@ __webpack_require__.r(__webpack_exports__);
           vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again', 'warning');
         }
       });
+    },
+    getDaysAgo: function getDaysAgo(second_date) {
+      var date_string = "";
+      var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds  
+
+      var firstDate = new Date();
+      var secondDate = new Date(second_date);
+      var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime()) / oneDay));
+
+      if (diffDays <= 1) {
+        date_string = "Today";
+      } else if (diffDays > 1 && diffDays <= 7) {
+        date_string = diffDays + " Days ago";
+      } else if (diffDays == 7) {
+        date_string = "1 Week ago";
+      } else if (diffDays >= 7) {
+        date_string = second_date;
+      }
+
+      return date_string;
+    }
+  },
+  computed: {
+    paidRows: function paidRows() {
+      return this.paidItems.length;
+    },
+    pendingRows: function pendingRows() {
+      return this.pendingItems.length;
+    },
+    dueRows: function dueRows() {
+      return this.dueItems.length;
+    },
+    rejectedRows: function rejectedRows() {
+      return this.rejectedItems.length;
     }
   }
 });
@@ -196460,6 +196789,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DataTables_UsersDataTable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../DataTables/UsersDataTable */ "./resources/assets/js/components/DataTables/UsersDataTable.vue");
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-content-loading */ "./node_modules/vue-content-loading/dist/vuecontentloading.js");
 /* harmony import */ var vue_content_loading__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vue_content_loading__WEBPACK_IMPORTED_MODULE_3__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -199945,6 +200283,47 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -200246,6 +200625,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
       },
       deal_items: [],
       dealItems: [],
+      dealHeaders: ['status', 'deal_name', 'type', 'description', 'amount', 'contact_name', 'contact_number', 'expected_revenue', 'probability', 'stage', 'lead_source', 'agent_name', 'closing_date', 'created_at'],
       perPage: 10,
       currentPage: 1,
       radioStyle: {
@@ -200272,6 +200652,34 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
         vm.deal_items = response.data.deals; // ToDo: Push for slots
 
         vm.deal_items.map(function (item) {
+          var color = '';
+          var status = '';
+
+          if (item.status == '-None-') {
+            color = '#ccc';
+            status = '-None-';
+          }
+
+          if (item.status == 1) {
+            color = '#00d58e';
+            status = 'Paid';
+          }
+
+          if (item.status == 2) {
+            color = '#FF933A';
+            status = 'Pending';
+          }
+
+          if (item.status == 3) {
+            color = '#f42222';
+            status = 'Due';
+          }
+
+          if (item.status == 4) {
+            color = '#f42222';
+            status = 'Rejected';
+          }
+
           vm.dealItems.push({
             id: item.id,
             status: item.status,
@@ -200364,6 +200772,7 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
             title: 'Activity added successfully'
           });
           vm.getActivities();
+          vm.addActivityCollapse();
           vm.$Progress.finish();
         } else {
           vm.$Progress.fail();
@@ -200769,6 +201178,17 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
       }
 
       return date_string;
+    },
+    dealStatColor: function dealStatColor(status) {
+      if (status == 1) {
+        return '#00D58E';
+      } else if (status == 2 || status == 3) {
+        return '#FF933A';
+      } else if (status == 4) {
+        return '#F42222';
+      } else {
+        return '#ccc';
+      }
     }
   }
 });
@@ -221766,7 +222186,7 @@ var VBTooltip = {
 /*!*************************************************!*\
   !*** ./node_modules/bootstrap-vue/esm/index.js ***!
   \*************************************************/
-/*! exports provided: BVConfigPlugin, BVConfig, BootstrapVue, install, setConfig, default, componentsPlugin, BVModalPlugin, BVToastPlugin, AlertPlugin, BAlert, BadgePlugin, BBadge, BreadcrumbPlugin, BBreadcrumb, BBreadcrumbItem, ButtonPlugin, BButton, BButtonClose, ButtonGroupPlugin, BButtonGroup, ButtonToolbarPlugin, BButtonToolbar, CardPlugin, BCard, BCardBody, BCardFooter, BCardGroup, BCardHeader, BCardImg, BCardImgLazy, BCardSubTitle, BCardText, BCardTitle, CarouselPlugin, BCarousel, BCarouselSlide, CollapsePlugin, BCollapse, DropdownPlugin, BDropdown, BDropdownItem, BDropdownItemButton, BDropdownDivider, BDropdownForm, BDropdownGroup, BDropdownHeader, BDropdownText, EmbedPlugin, BEmbed, FormPlugin, BForm, BFormDatalist, BFormText, BFormInvalidFeedback, BFormValidFeedback, FormCheckboxPlugin, BFormCheckbox, BFormCheckboxGroup, FormFilePlugin, BFormFile, FormGroupPlugin, BFormGroup, FormInputPlugin, BFormInput, FormRadioPlugin, BFormRadio, BFormRadioGroup, FormSelectPlugin, BFormSelect, FormTextareaPlugin, BFormTextarea, ImagePlugin, BImg, BImgLazy, InputGroupPlugin, BInputGroup, BInputGroupAddon, BInputGroupAppend, BInputGroupPrepend, BInputGroupText, JumbotronPlugin, BJumbotron, LayoutPlugin, BContainer, BRow, BCol, BFormRow, LinkPlugin, BLink, ListGroupPlugin, BListGroup, BListGroupItem, MediaPlugin, BMedia, BMediaAside, BMediaBody, ModalPlugin, BModal, NavPlugin, BNav, BNavForm, BNavItem, BNavItemDropdown, BNavText, NavbarPlugin, BNavbar, BNavbarBrand, BNavbarNav, BNavbarToggle, PaginationPlugin, BPagination, PaginationNavPlugin, BPaginationNav, PopoverPlugin, BPopover, ProgressPlugin, BProgress, BProgressBar, SpinnerPlugin, BSpinner, TablePlugin, BTable, BTableLite, TabsPlugin, BTabs, BTab, ToastPlugin, BToast, BToaster, TooltipPlugin, BTooltip, directivesPlugin, VBModalPlugin, VBModal, VBPopoverPlugin, VBPopover, VBScrollspyPlugin, VBScrollspy, VBTogglePlugin, VBToggle, VBTooltipPlugin, VBTooltip */
+/*! exports provided: componentsPlugin, BVModalPlugin, BVToastPlugin, AlertPlugin, BAlert, BadgePlugin, BBadge, BreadcrumbPlugin, BBreadcrumb, BBreadcrumbItem, ButtonPlugin, BButton, BButtonClose, ButtonGroupPlugin, BButtonGroup, ButtonToolbarPlugin, BButtonToolbar, CardPlugin, BCard, BCardBody, BCardFooter, BCardGroup, BCardHeader, BCardImg, BCardImgLazy, BCardSubTitle, BCardText, BCardTitle, CarouselPlugin, BCarousel, BCarouselSlide, CollapsePlugin, BCollapse, DropdownPlugin, BDropdown, BDropdownItem, BDropdownItemButton, BDropdownDivider, BDropdownForm, BDropdownGroup, BDropdownHeader, BDropdownText, EmbedPlugin, BEmbed, FormPlugin, BForm, BFormDatalist, BFormText, BFormInvalidFeedback, BFormValidFeedback, FormCheckboxPlugin, BFormCheckbox, BFormCheckboxGroup, FormFilePlugin, BFormFile, FormGroupPlugin, BFormGroup, FormInputPlugin, BFormInput, FormRadioPlugin, BFormRadio, BFormRadioGroup, FormSelectPlugin, BFormSelect, FormTextareaPlugin, BFormTextarea, ImagePlugin, BImg, BImgLazy, InputGroupPlugin, BInputGroup, BInputGroupAddon, BInputGroupAppend, BInputGroupPrepend, BInputGroupText, JumbotronPlugin, BJumbotron, LayoutPlugin, BContainer, BRow, BCol, BFormRow, LinkPlugin, BLink, ListGroupPlugin, BListGroup, BListGroupItem, MediaPlugin, BMedia, BMediaAside, BMediaBody, ModalPlugin, BModal, NavPlugin, BNav, BNavForm, BNavItem, BNavItemDropdown, BNavText, NavbarPlugin, BNavbar, BNavbarBrand, BNavbarNav, BNavbarToggle, PaginationPlugin, BPagination, PaginationNavPlugin, BPaginationNav, PopoverPlugin, BPopover, ProgressPlugin, BProgress, BProgressBar, SpinnerPlugin, BSpinner, TablePlugin, BTable, BTableLite, TabsPlugin, BTabs, BTab, ToastPlugin, BToast, BToaster, TooltipPlugin, BTooltip, directivesPlugin, VBModalPlugin, VBModal, VBPopoverPlugin, VBPopover, VBScrollspyPlugin, VBScrollspy, VBTogglePlugin, VBToggle, VBTooltipPlugin, VBTooltip, BVConfigPlugin, BVConfig, BootstrapVue, install, setConfig, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -250835,7 +251255,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.scroll-hidden[data-v-507c5f96]{\n    overflow-y: scroll;\n    height: 70vh;\n    /* padding-top: 6px; */\n    padding-right: 6px;\n    width: 100%;\n}\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar {\n    width: 5px !important;\n    height: 3px;\n}\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar-track {\n    border-radius: 0 !important;\n}\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar-thumb {\n    background: #B3B3B3 !important;\n    border-radius: 5px !important;\n}\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar-thumb:hover {\n    background: #B3B3B3 !important;\n}\n.dropdown-menu[data-v-507c5f96] {\n        border-radius: 15px;\n        box-shadow: -4px -3px 5px 0px rgba(179, 179, 179, 0.24);\n        border: 0;\n        font-size: 0.63vw;\n        font-family: 'Rubik', sans-serif;\n        letter-spacing: 0.05em;\n        color: #1e2331;\n        top: 10px !important;\n}\n.is-hidden[data-v-507c5f96] {\n    display: none;\n}\n.is-active[data-v-507c5f96] {\n    display: block;\n}\n#top-section[data-v-507c5f96] {\n    padding: 10px 3%;\n}\n    \n  /* .row {\n    margin-bottom: 3%;\n  } */\n.top-section[data-v-507c5f96] {\n    list-style: none;\n}\n.top-section li[data-v-507c5f96] {\n    margin-right: 52px;\n    padding: 6px 83px 3px 15px;\n    border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-507c5f96] {\n    margin-bottom: 0;\n    font-size: 19px;\n    font-weight: 900;\n}\n.card[data-v-507c5f96] {\n    border-radius: 10px;\n    border: none;\n    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);\n    -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);\n    -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);\n    -o-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);\n    min-width: 150px;\n}\n.ca .card-title[data-v-507c5f96] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #fff;\n}\n.calls[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(255, 164, 128, 1) 0%, rgba(255, 128, 134, 1) 100%);\n    color: #fff;\n}\n.sales[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(65, 197, 231, 1) 0%, rgba(4, 149, 240, 1) 100%);\n    color: #fff;\n}\n.sales-amount[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(221, 192, 241, 1) 0%, rgba(160, 117, 209, 1) 100%);\n    color: #fff;\n}\n.call-backs[data-v-507c5f96] {\n      background: linear-gradient(to right, rgba(101, 215, 207, 1) 0%, rgba(111, 148, 211, 1) 100%);\n      color: #fff;\n}\n.ave-time[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(222, 137, 180, 1) 0%, rgba(239, 84, 128, 1) 100%);\n    color: #fff;\n}\n.con-ratio[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(97, 167, 221, 1) 0%, rgba(99, 101, 202, 1) 100%);\n    color: #fff;\n}\n.mon-target[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(75, 189, 149, 1) 0%, rgba(32, 190, 198, 1) 100%);\n    color: #fff;\n}\n.add-new-top-section[data-v-507c5f96] {\n    float: right;\n    border-radius: 50%;\n}\nh5[data-v-507c5f96] {\n    color: #fff;\n}\nh5 .icon[data-v-507c5f96] {\n    width: 15px;\n    margin: -5px 15px 0 0;\n}\n.card-body p[data-v-507c5f96] {\n    color: #fff;\n    width: 100%;\n    margin-right: 0;\n    text-align: right;\n    float: left;\n    margin-bottom: -10px;\n    word-break: keep-all;\n    line-height: 14px;\n}\np.card-text[data-v-507c5f96] {\n  font-size: 16px;\n  color: #fff;\n  font-weight: bolder;\n  margin: 0;\n  width: 100%;\n  float: right;\n  font-family: 'Montserrat bold', sans-serif;\n}\np.card-text span[data-v-507c5f96] {\n    font-size: 19px;\n    color: #333333;\n    font-weight: bolder;\n}\np.card-link[data-v-507c5f96] {\n    font-size: 22px;\n    color: #333333;\n}\n.stats .card[data-v-507c5f96] {\n    border-radius: 10px;\n}\n.stats .card h5[data-v-507c5f96] {\n    color: #818284;\n}\n.stats .card h5 .icon[data-v-507c5f96] {\n    width: 25px;\n    margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-507c5f96] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-507c5f96] {\n    float: right;\n}\n.truncate[data-v-507c5f96] {\n    width: 250px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.list-group-item p[data-v-507c5f96] {\n    margin: 0;\n}\n.list-group-item p strong[data-v-507c5f96] {\n    font-size: 25px;\n    margin-right: 30px;\n}\n.choose-comment-type[data-v-507c5f96] {\n    float: left;\n    display: block;\n    height: 50px;\n    width: 50px;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    cursor: pointer;\n}\n.comment-desc[data-v-507c5f96] {\n    display: block;\n    height: 50px;\n    width: 75%;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    border: none;\n    cursor: pointer;\n    float: left;\n}\n#send-btn[data-v-507c5f96] {\n    height: 50px;\n    margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-507c5f96] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n.btn-secondary[data-v-507c5f96]:not(:disabled):not(.disabled):active,\n  .btn-secondary:not(:disabled):not(.disabled).active[data-v-507c5f96],\n  .show > .btn-secondary.dropdown-toggle[data-v-507c5f96] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-507c5f96] {\n    height: 318px !important;\n}\n.green[data-v-507c5f96] {\n    color: #00a25a !important;\n}\n.red[data-v-507c5f96] {\n    color: red !important;\n}\n.grey-bg-color[data-v-507c5f96] {\n    background-color: #EBEFF3;\n    width: 110%;\n}\n.card-text-small[data-v-507c5f96] {\n    margin-top: -7px;\n    color: #3b3b3b;\n    font-family: 'Rubik', sans-serif !important;\n    font-size:0.73vw;\n}\n.badge[data-v-507c5f96] {\n    width: 12%;\n}\n.badge img[data-v-507c5f96] {\n    width: 100%;\n}\n.headings[data-v-507c5f96] {\n    list-style: none;\n    padding-left: 70px;\n}\n.headings p[data-v-507c5f96] {\n    font-weight: 700;\n    color: #9c9c9c;\n    font-size: 14px;\n    text-transform: capitalize;\n    text-align: left;\n}\nul.items[data-v-507c5f96] {\n    list-style: none;\n    padding-left: 40px;\n}\nul.items li[data-v-507c5f96] {\n    float: left;\n    font-weight: 700;\n    color: #003449;\n    width: 14%;\n    text-align: left;\n}\nul.items li a[data-v-507c5f96]:hover {\n    text-decoration: none;\n}\n.form-control[data-v-507c5f96] {\n    width: 30px;\n    margin-top: -8px;\n}\n.scroll-hidden[data-v-507c5f96] {\n    overflow-y: scroll;\n    height: 70vh;\n    /* padding-top: 6px; */\n    padding-right: 6px;\n    width: 100%;\n}\ntable.listing[data-v-507c5f96] {\n    width: 100%;\n}\ntable.listing tr th[data-v-507c5f96] {\n    float: left;\n    font-weight: 700;\n    color: #9fb3bb;\n    padding: 0 69px 20px 70px;\n}\n.padding-bottom-12[data-v-507c5f96] {\n    padding-bottom: 12px;\n}\n.padding-bottom-18[data-v-507c5f96] {\n    padding-bottom: 18px;\n}\n.card .card-text[data-v-507c5f96] {\n    font-size: 1.65vw;\n    line-height: 1em;\n}\n.horizontal-scroll[data-v-507c5f96] {\n    overflow: auto;\n    flex-wrap: nowrap;\n}\n.col-lg-auto .btn.btn-secondary[data-v-507c5f96] {\n    width: 40px;\n    height: 40px;\n    padding: 2px 5px 5px;\n    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)!important;\n    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)!important;\n    -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)!important;\n    -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)!important;\n    background-color: #fff;\n}\n.headings .btn.btn-secondary[data-v-507c5f96] {\n    width: 30px;\n    height: 30px;\n    padding: 0 0 3px 0;\n    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)!important;\n    -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)!important;\n    -moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)!important;\n    -o-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)!important;\n    background-color: #fff;\n}\n.add-new-top-section .dropdown[data-v-507c5f96] {\n    top: -5px;\n    right: 170px;\n}\n.table-section[data-v-507c5f96] {\n    padding: 0 0 0 4%;\n}\n.pb-10[data-v-507c5f96] {\n    padding-bottom: 10px;\n}\n\n\n  /* Media Queries */\n@media screen and (max-width: 1500px) {\n.card[data-v-507c5f96] {\n      min-width: 150px !important;\n}\n.add-new-top-section img.icon[data-v-507c5f96] {\n      width: 36px !important;\n}\n.add-new-top-section .dropdown[data-v-507c5f96] {\n      top: -5px;\n      right: 100px;\n}\n.individual-cards[data-v-507c5f96] {\n    width: 95%;\n}\n}\n\n\n", ""]);
+exports.push([module.i, "\n.scroll-hidden[data-v-507c5f96]{\n    overflow-y: scroll;\n    height: 70vh;\n    /* padding-top: 6px; */\n    padding-right: 6px;\n    width: 100%;\n}\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar {\n    width: 5px !important;\n    height: 5px;\n}\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar-track {\n    border-radius: 0 !important;\n}\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar-thumb {\n    background: #B3B3B3 !important;\n    border-radius: 5px !important;\n}\n.horizontal-scroll[data-v-507c5f96]::-webkit-scrollbar-thumb:hover {\n    background: #B3B3B3 !important;\n}\n.dropdown-menu[data-v-507c5f96] {\n        border-radius: 15px;\n        box-shadow: -4px -3px 5px 0px rgba(179, 179, 179, 0.24);\n        border: 0;\n        font-size: 0.63vw;\n        font-family: 'Rubik', sans-serif;\n        letter-spacing: 0.05em;\n        color: #1e2331;\n        top: 10px !important;\n}\n.is-hidden[data-v-507c5f96] {\n    display: none;\n}\n.is-active[data-v-507c5f96] {\n    display: block;\n}\n#top-section[data-v-507c5f96] {\n    padding: 10px 3%;\n}\n    \n  /* .row {\n    margin-bottom: 3%;\n  } */\n.top-section[data-v-507c5f96] {\n    list-style: none;\n}\n.top-section li[data-v-507c5f96] {\n    margin-right: 52px;\n    padding: 6px 83px 3px 15px;\n    border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-507c5f96] {\n    margin-bottom: 0;\n    font-size: 19px;\n    font-weight: 900;\n}\n.card[data-v-507c5f96] {\n    border-radius: 10px;\n    border: none;\n    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);\n    -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);\n    -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);\n    -o-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);\n    min-width: 150px;\n}\n.ca .card-title[data-v-507c5f96] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #fff;\n}\n.calls[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(255, 164, 128, 1) 0%, rgba(255, 128, 134, 1) 100%);\n    color: #fff;\n}\n.sales[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(65, 197, 231, 1) 0%, rgba(4, 149, 240, 1) 100%);\n    color: #fff;\n}\n.sales-amount[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(221, 192, 241, 1) 0%, rgba(160, 117, 209, 1) 100%);\n    color: #fff;\n}\n.call-backs[data-v-507c5f96] {\n      background: linear-gradient(to right, rgba(101, 215, 207, 1) 0%, rgba(111, 148, 211, 1) 100%);\n      color: #fff;\n}\n.ave-time[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(222, 137, 180, 1) 0%, rgba(239, 84, 128, 1) 100%);\n    color: #fff;\n}\n.con-ratio[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(97, 167, 221, 1) 0%, rgba(99, 101, 202, 1) 100%);\n    color: #fff;\n}\n.mon-target[data-v-507c5f96] {\n    background: linear-gradient(to right, rgba(75, 189, 149, 1) 0%, rgba(32, 190, 198, 1) 100%);\n    color: #fff;\n}\n.add-new-top-section[data-v-507c5f96] {\n    float: right;\n    border-radius: 50%;\n}\nh5[data-v-507c5f96] {\n    color: #fff;\n}\nh5 .icon[data-v-507c5f96] {\n    width: 15px;\n    margin: -5px 15px 0 0;\n}\n.card-body[data-v-507c5f96] {\n    cursor: pointer;\n}\n.card-body p[data-v-507c5f96] {\n    color: #fff;\n    width: 100%;\n    margin-right: 0;\n    text-align: right;\n    float: left;\n    margin-bottom: -10px;\n    word-break: keep-all;\n    line-height: 14px;\n}\np.card-text[data-v-507c5f96] {\n  font-size: 16px;\n  color: #fff;\n  font-weight: bolder;\n  margin: 0;\n  width: 100%;\n  float: right;\n  font-family: 'Montserrat bold', sans-serif;\n}\np.card-text span[data-v-507c5f96] {\n    font-size: 19px;\n    color: #333333;\n    font-weight: bolder;\n}\np.card-link[data-v-507c5f96] {\n    font-size: 22px;\n    color: #333333;\n}\n.stats .card[data-v-507c5f96] {\n    border-radius: 10px;\n}\n.stats .card h5[data-v-507c5f96] {\n    color: #818284;\n}\n.stats .card h5 .icon[data-v-507c5f96] {\n    width: 25px;\n    margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-507c5f96] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-507c5f96] {\n    float: right;\n}\n.truncate[data-v-507c5f96] {\n    width: 250px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.list-group-item p[data-v-507c5f96] {\n    margin: 0;\n}\n.list-group-item p strong[data-v-507c5f96] {\n    font-size: 25px;\n    margin-right: 30px;\n}\n.choose-comment-type[data-v-507c5f96] {\n    float: left;\n    display: block;\n    height: 50px;\n    width: 50px;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    cursor: pointer;\n}\n.comment-desc[data-v-507c5f96] {\n    display: block;\n    height: 50px;\n    width: 75%;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    border: none;\n    cursor: pointer;\n    float: left;\n}\n#send-btn[data-v-507c5f96] {\n    height: 50px;\n    margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-507c5f96] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n.btn-secondary[data-v-507c5f96]:not(:disabled):not(.disabled):active,\n  .btn-secondary:not(:disabled):not(.disabled).active[data-v-507c5f96],\n  .show > .btn-secondary.dropdown-toggle[data-v-507c5f96] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-507c5f96] {\n    height: 318px !important;\n}\n.green[data-v-507c5f96] {\n    color: #00a25a !important;\n}\n.red[data-v-507c5f96] {\n    color: red !important;\n}\n.grey-bg-color[data-v-507c5f96] {\n    background-color: #EBEFF3;\n    width: 110%;\n}\n.card-text-small[data-v-507c5f96] {\n    margin-top: -7px;\n    color: #3b3b3b;\n    font-family: 'Rubik', sans-serif !important;\n    font-size:0.73vw;\n}\n.badge[data-v-507c5f96] {\n    width: 12%;\n}\n.badge img[data-v-507c5f96] {\n    width: 100%;\n}\n.headings[data-v-507c5f96] {\n    list-style: none;\n    padding-left: 70px;\n}\n.headings p[data-v-507c5f96] {\n    font-weight: 700;\n    color: #9c9c9c;\n    font-size: 14px;\n    text-transform: capitalize;\n    text-align: left;\n}\nul.items[data-v-507c5f96] {\n    list-style: none;\n    padding-left: 40px;\n}\nul.items li[data-v-507c5f96] {\n    float: left;\n    font-weight: 700;\n    color: #003449;\n    width: 14%;\n    text-align: left;\n}\nul.items li a[data-v-507c5f96]:hover {\n    text-decoration: none;\n}\n.form-control[data-v-507c5f96] {\n    width: 30px;\n    margin-top: -8px;\n}\n.scroll-hidden[data-v-507c5f96] {\n    overflow-y: scroll;\n    height: 70vh;\n    /* padding-top: 6px; */\n    padding-right: 6px;\n    width: 100%;\n}\ntable.listing[data-v-507c5f96] {\n    width: 100%;\n}\ntable.listing tr th[data-v-507c5f96] {\n    float: left;\n    font-weight: 700;\n    color: #9fb3bb;\n    padding: 0 69px 20px 70px;\n}\n.padding-bottom-12[data-v-507c5f96] {\n    padding-bottom: 12px;\n}\n.padding-bottom-18[data-v-507c5f96] {\n    padding-bottom: 18px;\n}\n.card .card-text[data-v-507c5f96] {\n    font-size: 1.65vw;\n    line-height: 1em;\n}\n.horizontal-scroll[data-v-507c5f96] {\n    overflow: auto;\n    flex-wrap: nowrap;\n}\n.col-lg-auto .btn.btn-secondary[data-v-507c5f96] {\n    width: 40px;\n    height: 40px;\n    padding: 2px 5px 5px;\n    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)!important;\n    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)!important;\n    -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)!important;\n    -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)!important;\n    background-color: #fff;\n}\n.headings .btn.btn-secondary[data-v-507c5f96] {\n    width: 30px;\n    height: 30px;\n    padding: 0 0 3px 0;\n    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)!important;\n    -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)!important;\n    -moz-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)!important;\n    -o-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1)!important;\n    background-color: #fff;\n}\n.add-new-top-section .dropdown[data-v-507c5f96] {\n    top: -5px;\n    right: 170px;\n}\n.table-section[data-v-507c5f96] {\n    padding: 0 0 0 4%;\n}\n.pb-10[data-v-507c5f96] {\n    padding-bottom: 10px;\n}\n\n\n  /* Media Queries */\n@media screen and (max-width: 1500px) {\n.card[data-v-507c5f96] {\n      min-width: 150px !important;\n}\n.add-new-top-section img.icon[data-v-507c5f96] {\n      width: 36px !important;\n}\n.add-new-top-section .dropdown[data-v-507c5f96] {\n      top: -5px;\n      right: 100px;\n}\n.individual-cards[data-v-507c5f96] {\n    width: 95%;\n}\n}\n\n\n", ""]);
 
 // exports
 
@@ -250854,7 +251274,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.row[data-v-6f97a8da]{\r\n    margin-bottom: 1%;\n}\n.top-section[data-v-6f97a8da]{\r\n    list-style: none;\n}\n.top-section li[data-v-6f97a8da]{    \r\n    float: left;\r\n    margin-right: 52px;\r\n    padding: 6px 83px 3px 15px;\r\n    border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-6f97a8da]{\r\n    margin-bottom: 0;\r\n    font-size: 19px;\r\n    font-weight: 900;\n}\n.card[data-v-6f97a8da]{\r\n    border-radius: 27px;\r\n    border: none;\n}\n.card-body[data-v-6f97a8da]{\r\n    color: #fff;\n}\n.card-title[data-v-6f97a8da] {\r\n    margin-bottom: 0.75rem;\r\n    padding-bottom: 0.75rem;\r\n    border-bottom: 1px solid #fff;\n}\n.calls[data-v-6f97a8da]{\r\n    background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\r\n    color: #fff;\n}\n.sales[data-v-6f97a8da]{\r\n    background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149, 240,1) 100% ) ;\r\n    color: #fff;\n}\n.sales-amount[data-v-6f97a8da]{\r\n    background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\r\n    color: #fff;\n}\n.call-backs[data-v-6f97a8da]{\r\n    background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\r\n    color: #fff;\n}\n.ave-time[data-v-6f97a8da]{\r\n    background: linear-gradient(to right, rgba(226,111,145,1) 0%, rgba(239,84,128,1) 100% ) ;\r\n    color: #fff;\n}\n.con-ratio[data-v-6f97a8da]{\r\n    background: linear-gradient(to right, rgba(97,167,221,1) 0%, rgba(99,101,202 ,1) 100% ) ;\r\n    color: #fff;\n}\nh5[data-v-6f97a8da]{\r\n    color: #fff;\n}\nh5 .icon[data-v-6f97a8da]{\r\n    width: 15px;\r\n    margin: -5px 15px 0 0;\n}\n.card-body p[data-v-6f97a8da]{\r\n    color: #fff;\r\n    width: 100%;\r\n    margin-right: 0;\r\n    text-align: left;\r\n    float: left;\r\n    margin-bottom: 0;\r\n    margin-top: 0;\n}\n.card-body p strong[data-v-6f97a8da]{\r\n    float: right;\n}\np.card-text[data-v-6f97a8da]{\r\n    font-size: 16px;\r\n    color: #fff;\r\n    font-weight: bolder;\r\n    margin: 0;\r\n    width: 100%;\r\n    float: right;\n}\np.card-text span[data-v-6f97a8da]{\r\n    font-size: 19px;\r\n    color: #333333;\r\n    font-weight: bolder;\n}\np.card-link[data-v-6f97a8da]{\r\n    font-size: 22px;\r\n    color: #333333;\n}\n.stats .card[data-v-6f97a8da]{\r\n    border-radius: 10px;\n}\n.stats .card h5[data-v-6f97a8da]{\r\n    color: #818284;\n}\n.stats .card h5 .icon[data-v-6f97a8da]{\r\n    width: 25px;\r\n    margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-6f97a8da] {\r\n    margin-bottom: 0.75rem;\r\n    padding-bottom: 0.75rem;\r\n    border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-6f97a8da]{\r\n    float: right;\n}\n.truncate[data-v-6f97a8da] {\r\n    width: 250px;\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\n}\n.list-group-item p[data-v-6f97a8da]{\r\n    margin: 0;\n}\n.list-group-item p strong[data-v-6f97a8da]{\r\n    font-size: 25px;\r\n    margin-right: 30px;\n}\n.choose-comment-type[data-v-6f97a8da]{\r\n    float: left;\r\n    display: block;\r\n    height: 50px;\r\n    width: 50px;\r\n    padding: 11px;\r\n    margin: 10px 10px 10px 0;\r\n    background: #f6f8f9;\r\n    border-radius: 9px;\r\n    cursor: pointer;\n}\n.comment-desc[data-v-6f97a8da]{\r\n    display: block;\r\n    height: 50px;\r\n    width: 75%;\r\n    padding: 11px;\r\n    margin: 10px 10px 10px 0;\r\n    background: #f6f8f9;\r\n    border-radius: 9px;\r\n    border: none;\r\n    cursor: pointer;\r\n    float: left;\n}\n#send-btn[data-v-6f97a8da]{\r\n    height: 50px;\r\n    margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-6f97a8da] {\r\n    color: #fff;\r\n    background-color: #f6f8f9;\r\n    border-color: #f6f8f9;\n}\n.btn-secondary[data-v-6f97a8da]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-6f97a8da], .show > .btn-secondary.dropdown-toggle[data-v-6f97a8da] {\r\n    color: #fff;\r\n    background-color: #f6f8f9;\r\n    border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-6f97a8da]{\r\n    height: 318px !important;\n}\n#top-section[data-v-6f97a8da]{\r\n    background: #fff;\r\n    padding: 0px 3%;\n}\n.green[data-v-6f97a8da]{\r\n    color:#00a25a !important;\n}\n.red[data-v-6f97a8da]{\r\n    color:red !important;\n}.card-text-small[data-v-6f97a8da]{\r\n    margin-top: -7px;\r\n    color: #3b3b3b;\n}\n.badge[data-v-6f97a8da]{\r\n    width: 12%;\n}\n.badge img[data-v-6f97a8da]{\r\n    width: 100%;\n}\nul.headings[data-v-6f97a8da]{\r\n    list-style: none;\r\n    padding-left: 70px;\n}\nul.headings li[data-v-6f97a8da] {\r\n    float: left;\r\n    font-weight: 700;\r\n    color: #9fb3bb;\r\n    width: 11%;\r\n    text-align: left;\n}\nul.items[data-v-6f97a8da]{\r\n    list-style: none;\r\n    padding-left: 40px;\n}\nul.items li[data-v-6f97a8da] {\r\n    float:left;\r\n    font-weight: 700;\r\n    color:#003449;    \r\n    width: 11%;\r\n    text-align: left;\n}\nul.items li a[data-v-6f97a8da]:hover{\r\n    text-decoration: none;\n}\n.scroll-hidden[data-v-6f97a8da]{\r\n    overflow-y: scroll;\r\n    height: 70vh;\r\n    padding-top: 6px;\r\n    padding-right: 6px;\r\n    width: 104%;\n}\ntable.listing[data-v-6f97a8da]{\r\n    width: 100%;\n}\ntable.listing tr  th[data-v-6f97a8da]{ \r\n    float: left;\r\n    font-weight: 700;\r\n    color: #9fb3bb;\r\n    padding: 0 69px 20px 70px;\n}\n#top-section .filter-stub[data-v-6f97a8da]{\r\n    cursor: pointer;\r\n    margin-right: 15px;\n}\n.control-label[data-v-6f97a8da]{\r\n    float: left;\r\n    height: 77px;\n}\n.help-block[data-v-6f97a8da]{\r\n    color:red;\r\n    font-weight: normal;\n}\n.modal-body[data-v-6f97a8da] {\r\n    background: orange !important;\n}\n.card-head[data-v-6f97a8da], .ant-card-padding-transition .ant-card-body[data-v-6f97a8da] {\r\n    transition: padding 0.3s;\r\n    overflow-y: scroll;\r\n    height: 380px;\n}\r\n", ""]);
+exports.push([module.i, "\n.row[data-v-6f97a8da]{\n    margin-bottom: 1%;\n}\n.top-section[data-v-6f97a8da]{\n    list-style: none;\n}\n.top-section li[data-v-6f97a8da]{    \n    float: left;\n    margin-right: 52px;\n    padding: 6px 83px 3px 15px;\n    border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-6f97a8da]{\n    margin-bottom: 0;\n    font-size: 19px;\n    font-weight: 900;\n}\n.card[data-v-6f97a8da]{\n    border-radius: 27px;\n    border: none;\n}\n.card-body[data-v-6f97a8da]{\n    color: #fff;\n}\n.card-title[data-v-6f97a8da] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #fff;\n}\n.calls[data-v-6f97a8da]{\n    background: linear-gradient(to right, rgba(255,164,128,1) 0%, rgba(255,128,134,1) 100% ) ;\n    color: #fff;\n}\n.sales[data-v-6f97a8da]{\n    background: linear-gradient(to right, rgba(159,204,226,1) 0%, rgba(4,149, 240,1) 100% ) ;\n    color: #fff;\n}\n.sales-amount[data-v-6f97a8da]{\n    background: linear-gradient(to right, rgba(221,192,241,1) 0%, rgba(160,117, 209,1) 100% ) ;\n    color: #fff;\n}\n.call-backs[data-v-6f97a8da]{\n    background: linear-gradient(to right, rgba(101,215,207,1) 0%, rgba(111,148, 211,1) 100% ) ;\n    color: #fff;\n}\n.ave-time[data-v-6f97a8da]{\n    background: linear-gradient(to right, rgba(226,111,145,1) 0%, rgba(239,84,128,1) 100% ) ;\n    color: #fff;\n}\n.con-ratio[data-v-6f97a8da]{\n    background: linear-gradient(to right, rgba(97,167,221,1) 0%, rgba(99,101,202 ,1) 100% ) ;\n    color: #fff;\n}\nh5[data-v-6f97a8da]{\n    color: #fff;\n}\nh5 .icon[data-v-6f97a8da]{\n    width: 15px;\n    margin: -5px 15px 0 0;\n}\n.card-body p[data-v-6f97a8da]{\n    color: #fff;\n    width: 100%;\n    margin-right: 0;\n    text-align: left;\n    float: left;\n    margin-bottom: 0;\n    margin-top: 0;\n}\n.card-body p strong[data-v-6f97a8da]{\n    float: right;\n}\np.card-text[data-v-6f97a8da]{\n    font-size: 16px;\n    color: #fff;\n    font-weight: bolder;\n    margin: 0;\n    width: 100%;\n    float: right;\n}\np.card-text span[data-v-6f97a8da]{\n    font-size: 19px;\n    color: #333333;\n    font-weight: bolder;\n}\np.card-link[data-v-6f97a8da]{\n    font-size: 22px;\n    color: #333333;\n}\n.stats .card[data-v-6f97a8da]{\n    border-radius: 10px;\n}\n.stats .card h5[data-v-6f97a8da]{\n    color: #818284;\n}\n.stats .card h5 .icon[data-v-6f97a8da]{\n    width: 25px;\n    margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-6f97a8da] {\n    margin-bottom: 0.75rem;\n    padding-bottom: 0.75rem;\n    border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-6f97a8da]{\n    float: right;\n}\n.truncate[data-v-6f97a8da] {\n    width: 250px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.list-group-item p[data-v-6f97a8da]{\n    margin: 0;\n}\n.list-group-item p strong[data-v-6f97a8da]{\n    font-size: 25px;\n    margin-right: 30px;\n}\n.choose-comment-type[data-v-6f97a8da]{\n    float: left;\n    display: block;\n    height: 50px;\n    width: 50px;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    cursor: pointer;\n}\n.comment-desc[data-v-6f97a8da]{\n    display: block;\n    height: 50px;\n    width: 75%;\n    padding: 11px;\n    margin: 10px 10px 10px 0;\n    background: #f6f8f9;\n    border-radius: 9px;\n    border: none;\n    cursor: pointer;\n    float: left;\n}\n#send-btn[data-v-6f97a8da]{\n    height: 50px;\n    margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-6f97a8da] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n.btn-secondary[data-v-6f97a8da]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-6f97a8da], .show > .btn-secondary.dropdown-toggle[data-v-6f97a8da] {\n    color: #fff;\n    background-color: #f6f8f9;\n    border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-6f97a8da]{\n    height: 318px !important;\n}\n#top-section[data-v-6f97a8da]{\n    background: #fff;\n    padding: 0px 3%;\n}\n.green[data-v-6f97a8da]{\n    color:#00a25a !important;\n}\n.red[data-v-6f97a8da]{\n    color:red !important;\n}.card-text-small[data-v-6f97a8da]{\n    margin-top: -7px;\n    color: #3b3b3b;\n}\n.badge[data-v-6f97a8da]{\n    width: 12%;\n}\n.badge img[data-v-6f97a8da]{\n    width: 100%;\n}\nul.headings[data-v-6f97a8da]{\n    list-style: none;\n    padding-left: 70px;\n}\nul.headings li[data-v-6f97a8da] {\n    float: left;\n    font-weight: 700;\n    color: #9fb3bb;\n    width: 11%;\n    text-align: left;\n}\nul.items[data-v-6f97a8da]{\n    list-style: none;\n    padding-left: 40px;\n}\nul.items li[data-v-6f97a8da] {\n    float:left;\n    font-weight: 700;\n    color:#003449;    \n    width: 11%;\n    text-align: left;\n}\nul.items li a[data-v-6f97a8da]:hover{\n    text-decoration: none;\n}\n.scroll-hidden[data-v-6f97a8da]{\n    overflow-y: scroll;\n    height: 70vh;\n    padding-top: 6px;\n    padding-right: 6px;\n    width: 104%;\n}\ntable.listing[data-v-6f97a8da]{\n    width: 100%;\n}\ntable.listing tr  th[data-v-6f97a8da]{ \n    float: left;\n    font-weight: 700;\n    color: #9fb3bb;\n    padding: 0 69px 20px 70px;\n}\n#top-section .filter-stub[data-v-6f97a8da]{\n    cursor: pointer;\n    margin-right: 15px;\n}\n.control-label[data-v-6f97a8da]{\n    float: left;\n    height: 77px;\n}\n.help-block[data-v-6f97a8da]{\n    color:red;\n    font-weight: normal;\n}\n.modal-body[data-v-6f97a8da] {\n    background: orange !important;\n}\n.card-head[data-v-6f97a8da], .ant-card-padding-transition .ant-card-body[data-v-6f97a8da] {\n    transition: padding 0.3s;\n    overflow-y: scroll;\n    height: 380px;\n}\n", ""]);
 
 // exports
 
@@ -250873,7 +251293,26 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\nh1[data-v-2c246ed2] {\n    font-size: 1.04vw;\n    font-family: 'Rubik', sans-serif;\n    padding-left: 5.2%;\n    padding-right: 5.2%;\n    margin-top:1%;\n}\n#dash-container[data-v-2c246ed2] {\n    padding-left: 5.2%;\n    padding-right: 5.2%;\n    background-color: #F7F7F7;\n}\n#top-section[data-v-2c246ed2] {\n    padding-top:1%;\n    margin-bottom: 5.5%;\n}\nselect.rounded-pill[data-v-2c246ed2]{\n    box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    font-size: 0.84vw;\n    font-family: 'Rubik', sans-serif;\n    padding:9px 17px 7px;\n    color: #333333;\n}\n.divider-line[data-v-2c246ed2] {\n    height: 1px;\n    background-color: #ccc;\n}\n#top-section .agent-stats[data-v-2c246ed2] {\n    margin-top:2.5%;\n}\n#top-section .agent-stats .card[data-v-2c246ed2]{    \n    border-radius: 25px;\n    padding: 1.3%;\n    box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n}\n#top-section .agent-stats .card .card-numeral[data-v-2c246ed2] {\n    font-size: 1.58vw;\n    line-height: 1em;\n    letter-spacing: 0.1em;\n    color: #333333;\n}\n#top-section .agent-stats .card .card-desc[data-v-2c246ed2] {\n    font-size: 0.82vw;\n    font-family: 'Rubik', sans-serif;\n    line-height: 1em;\n    color: #333333;\n    margin-top: 8px;\n}\n#top-section .agent-stats .card .card-stat[data-v-2c246ed2] {\n    font-size: 0.71vw;\n    font-family: 'Rubik', sans-serif;\n    line-height: 1em;\n    letter-spacing: 0.1em;\n    margin-top: 12px;\n}\n.agent-graphs[data-v-2c246ed2] {\n    margin-top:3.4%;\n}\n.agent-graphs .card[data-v-2c246ed2] {\n    margin-left: 1.7%;\n    margin-right: 1.7%;\n    background-color: transparent;\n}\n.agent-graphs .tab-content[data-v-2c246ed2] {\n    padding-top:12px;\n    border-bottom-left-radius: 25px;\n    border-bottom-right-radius: 25px;\n    background-color: #fff;\n    box-shadow: 0 0 20px 10px #e6e6e6;\n    -webkit-box-shadow: 0 0 20px 10px #e6e6e6;\n    -moz-box-shadow: 0 0 20px 10px #e6e6e6;\n    -o-box-shadow: 0 0 20px 10px #e6e6e6;\n}\n.agent-graphs .tab-pane[data-v-2c246ed2] {\n    padding:2.5% 8.5% 5%;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[data-v-2c246ed2] {\n    color: #808080;\n    font-size: 0.73vw;\n    border: none;\n}\n.nav.nav-tabs.card-header-tabs .nav-link .icon[data-v-2c246ed2] {\n    padding-top:18px;\n    padding-bottom:18px;\n    margin-right: 5%;\n}\n@media screen and (max-width: 1643px) {\n.nav.nav-tabs.card-header-tabs .nav-link .icon[data-v-2c246ed2] {\n      width: 27px;\n}\n}\n.agent-graphs .nav-tabs .nav-item[data-v-2c246ed2] {\n    margin-bottom: 3px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][data-v-2c246ed2]{ \n    box-shadow: -0 -10px 20px rgba(0,0,0,0.05);\n    -webkit-box-shadow: -0 -10px 20px rgba(0,0,0,0.05);\n    -moz-box-shadow: -0 -10px 20px rgba(0,0,0,0.05);\n    -o-box-shadow: -0 -10px 20px rgba(0,0,0,0.05); \n    border-top-left-radius: 25px; \n    border-top-right-radius: 25px;\n}\n.card .card-header.tab-card-header[data-v-2c246ed2] {\n    background-color: transparent;\n    border-top-left-radius: 25px;\n    border-top-right-radius: 25px;\n}\n.agent-details[data-v-2c246ed2] {\n    margin-top: 3.1%;\n}\n.agent-details .container-row .col[data-v-2c246ed2], .agent-details .container-row .col-3[data-v-2c246ed2]{\n    padding-left: 1.3%;\n    padding-right: 1.3%;\n}\n.agent-details .top-row .col[data-v-2c246ed2] {\n    padding-left: 1.7%;\n    padding-right: 1.7%;\n}\n.agent-details .bottom-row[data-v-2c246ed2]{\n    margin-top: 3.8%;\n}\n.agent-details .bottom-row .col[data-v-2c246ed2] {\n    padding-left: 1.7%;\n    padding-right: 1.7%;\n}\n.agent-details .card[data-v-2c246ed2] {\n    padding: 5% 7% 5.7%!important;\n    border-radius: 15px!important;\n    box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n}\n.agent-details .card .heading[data-v-2c246ed2] {\n    font-size: 0.94vw;\n    font-family: 'Rubik', sans-serif;\n    color: #B3B3B3;\n    margin-bottom: 3%;\n}\n.agent-details .card .detail[data-v-2c246ed2] {\n    font-size: 1.57vw;\n    color: #1A1C43;\n    line-height: 1em;\n    margin-top:7px;\n}\n#three .col[data-v-2c246ed2] {\n    padding-left:3.6%;\n    padding-right:3.6%;\n}\n#three .col[data-v-2c246ed2]:first-child {\n    padding-left:0;\n}\n#three .col[data-v-2c246ed2]:last-child {\n    padding-right:0;\n}\n#three .col-6[data-v-2c246ed2] {\n    padding-left:5px;\n    padding-right:5px;\n}\n.legend[data-v-2c246ed2] {\n    margin-bottom:3.1%;\n}\n.legend p[data-v-2c246ed2] {\n    font-family: 'Rubik', sans-serif;\n    font-size: 0.7vw;\n    color:#999999;\n}\n.comparison-month[data-v-2c246ed2] {\n    color:#999999;;\n    font-size: 0.7vw;\n    font-family: 'Rubik', sans-serif;\n    margin-top:20%;\n}\n.progress-bar[data-v-2c246ed2]{\n    background: #F2F2F2;\n    min-height:100px;\n    max-width:20px;\n    justify-content: flex-end;\n    margin:0 auto;\n}\n.tank[data-v-2c246ed2]{\n    border-top-left-radius: 50rem;\n    border-top-right-radius: 50rem;\n    transition: all 0.5s ease 0s;\n}\n.tank.answers[data-v-2c246ed2] {\n    background:  linear-gradient(#02D3F4 0%, #0496F0 100%) !important;\n    background: #0496F0;\n}\n.tank.dialing[data-v-2c246ed2] {\n    background:  linear-gradient(#FFA380 0%, #FF8087 100%) !important;\n    background: #0496F0;\n}\n.card.target .card-text[data-v-2c246ed2]{\n    margin: auto;\n}\n.card.target.reached[data-v-2c246ed2] {\n    background:  linear-gradient(to right, rgba(160,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;\n}\n.card.target.not-reached[data-v-2c246ed2] {\n    background:  linear-gradient(to right, rgba(255,163,128,1) 0%, rgba(255,63,61,1) 100%) !important;\n}\n.card.target .heading[data-v-2c246ed2] {\n    font-size: 0.94vw;\n    color: #fff;\n    margin-bottom:8%;\n    font-family: Montserrat, sans-serif;\n}\n#dash-activities[data-v-2c246ed2] {\n    margin-top:5.2%;\n    padding-bottom: 65px;\n}\n#dash-activities .card[data-v-2c246ed2] {\n    border-radius: 25px;\n    box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    padding:2.9% 3.7%;\n}\n#dash-activities .col[data-v-2c246ed2] {\n    padding-left: 3.4%;\n    padding-right: 3.4%;\n}\n#dash-activities .border-right[data-v-2c246ed2] {\n    border-color: #003449;\n}\n#dash-activities h4[data-v-2c246ed2] {\n    font-size: 0.84vw;\n    font-family: 'Rubik', sans-serif;\n}\n#dash-activities .calendar h4[data-v-2c246ed2] {\n    margin-left:4.3%;\n}\n.calendar .card[data-v-2c246ed2] {\n    padding: 6% 5%!important;\n}\n.calendar p[data-v-2c246ed2] {\n    font-size: 16px;\n    font-family: 'Rubik', sans-serif;\n}\n.calendar .card-title[data-v-2c246ed2] {\n    font-family: 'Rubik', sans-serif;\n    font-weight: 600;\n    font-size: 12px;\n}\n.calendar .col-6[data-v-2c246ed2],\n  .reminders .col-6[data-v-2c246ed2] {\n    padding-left: 4.5%;\n    padding-right: 4.5%;\n}\n.calendar p[data-v-2c246ed2] {\n    font-family: 'Rubik', sans-serif;\n    font-size: 10px;\n}\n.reminders p[data-v-2c246ed2] {\n    font-size: 16px;\n    font-family: 'Rubik', sans-serif;\n    color: #333333;\n}\n.reminders ul[data-v-2c246ed2] {\n    max-height:448px;\n    overflow-y: auto;\n    margin-top: 20px;\n    border-top: 1px solid #CDCDCF;\n}\n.reminders ul li[data-v-2c246ed2] {\n    box-shadow: none !important;\n    padding:10px 15px;\n}\n.reminders ul li label[data-v-2c246ed2] {\n    font-size: 16px;\n    font-family: 'Rubik', sans-serif;\n    color: #808080;\n}\n.callback-label[data-v-2c246ed2],\n  .tasks-date[data-v-2c246ed2] {\n  font-size: 10px;\n  font-family: \"Rubik\", sans-serif !important;\n  color: #808080;\n}\n.tasks-date[data-v-2c246ed2] {\nmargin-left: 35px;\n}\n.reminders input.list-input[data-v-2c246ed2]{\n    font-size: 0.83vw;\n    font-family: 'Rubik', sans-serif;\n    color: #808080;\n    padding-left: 37px!important;\n    width: 100%;\n    text-overflow: ellipsis;\n}\n.reminders .terms-text input[data-v-2c246ed2] {\n    border-bottom: 1px solid #f7f7f7;\n    width: 100%;\n    border-left: 0;\n    border-top: 0;\n    border-right: 0;\n}\n.reminders .terms-text .desc-text[data-v-2c246ed2]::-webkit-input-placeholder, input.list-input[data-v-2c246ed2]::-webkit-input-placeholder  {\n    font-style: italic !important;\n    font-weight: 300 !important;\n}\n.reminders .terms-text .desc-text[data-v-2c246ed2]::-moz-placeholder, input.list-input[data-v-2c246ed2]::-moz-placeholder  {\n    font-style: italic !important;\n    font-weight: 300 !important;\n}\n.reminders .terms-text .desc-text[data-v-2c246ed2]:-ms-input-placeholder, input.list-input[data-v-2c246ed2]:-ms-input-placeholder  {\n    font-style: italic !important;\n    font-weight: 300 !important;\n}\n.reminders .terms-text .desc-text[data-v-2c246ed2]::-ms-input-placeholder, input.list-input[data-v-2c246ed2]::-ms-input-placeholder  {\n    font-style: italic !important;\n    font-weight: 300 !important;\n}\n.reminders .terms-text .desc-text[data-v-2c246ed2]::placeholder, input.list-input[data-v-2c246ed2]::placeholder  {\n    font-style: italic !important;\n    font-weight: 300 !important;\n}\na.Edit[data-v-2c246ed2]{\n    background-image: url('/images/DataTables/Edit_Icon.svg');\n    background-size: 20px;\n    background-repeat: no-repeat;\n    width:20px;\n    height:20px;\n}\na.Edit[data-v-2c246ed2]:hover,\n  a.Edit[data-v-2c246ed2]:active{\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');\n    background-size: 20px;\n    background-repeat: no-repeat;\n}\n.callback-capture[data-v-2c246ed2] {\n    background: #f4f4f4;\n    border-radius: 50rem;\n    height: 50px;\n}\n.comment-desc[data-v-2c246ed2] {\n    height: 50px;\n    padding: 11px;\n    margin: 0;\n    background: #f4f4f4;\n    cursor: pointer;\n    float: left;\n}\n.comment-desc[data-v-2c246ed2]::-webkit-input-placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n.comment-desc[data-v-2c246ed2]::-moz-placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n.comment-desc[data-v-2c246ed2]:-ms-input-placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n.comment-desc[data-v-2c246ed2]::-ms-input-placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n.comment-desc[data-v-2c246ed2]::placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n#submit-btn img[data-v-2c246ed2] {\n    margin-top: -15px;\n    margin-right: -15px;\n}\n.callbacks-to-dos .border-top[data-v-2c246ed2] {\n    border-color: #CDCDCF;\n}\n.callbacks-to-dos .task-time[data-v-2c246ed2] {\n    font-size: 0.73vw;\n    color: #818284;\n    padding-right:3.5%;\n}\n.callbacks-to-dos .task-description[data-v-2c246ed2] {\n    height:22px;\n    font-size: 11px;\n    font-weight:500;\n    font-family: 'Rubik', sans-serif;\n    color: #6B6B6B;\n    padding-left:3.5%;\n}\n.active-task[data-v-2c246ed2] {\n    background-color:rgba(255,147,58,0.5);\n}\n\n  /* Custom checkbox */\n.main label.custom-control-label[data-v-2c246ed2] { \n    color: inherit; \n    font-weight: 200; \n    padding-top: 3px;\n}\n.custom-checkbox .custom-control-label[data-v-2c246ed2] { \n    padding-top: 5px;\n}\nli.custom-control.custom-checkbox[data-v-2c246ed2] { \n    box-shadow: 0 0 7px rgba(0, 0, 0, 0.05); \n    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n}\n.custom-control.custom-checkbox .custom-control-label[data-v-2c246ed2]:before { \n    border-radius: 50%!important; \n    border: 1px solid #ededed; \n    box-shadow: none; \n    -webkit-box-shadow: none;\n    -moz-box-shadow: none;\n    -o-box-shadow: none;\n    background-image: url('/images/icons/right-sidebar/Task_Check.svg') !important; \n    background-size: cover;\n}\n.custom-control-label[data-v-2c246ed2]::after, \n  .custom-control-label[data-v-2c246ed2]::before { \n    width: 20px;\n    height: 20px;\n    top: 19px;\n    left: 0.2rem;\n    cursor: pointer;\n}\n.btn-primary[data-v-2c246ed2] {\n    font-size: 10px;\n    background: linear-gradient( to right, rgb(255, 128, 51, 1) 0%, rgba(255, 147, 58, 1) 100% ) !important;\n    font-weight: 600;\n    text-transform: uppercase;\n    padding: 10px 20px;\n    letter-spacing: 0.05em;\n}\n.reminders .btn-primary[data-v-2c246ed2] {\n    width: auto !important;\n    float: right;\n    line-height: 1em;\n}\ninput.search-text[data-v-2c246ed2]:focus, \n  input.save-text[data-v-2c246ed2]:focus,\n  .reminders input.list-input[data-v-2c246ed2]:focus  { \n    outline: 0 !important; \n    border: 0 !important;\n}\ninput.desc-text[data-v-2c246ed2]:focus {\n     outline: 0 !important;\n}\n.reminders .terms-text .desc-text[data-v-2c246ed2] {\n    font-size: 0.73vw !important;\n    color: #808080 !important;\n}\nlabel.terms-text.desc-text-label[data-v-2c246ed2], .ant-calendar-picker[data-v-2c246ed2] {\n    padding-left: 37px;\n}\n.rounded-circle img.icon[data-v-2c246ed2] {\n  background-color: #fff !important;\n}\n.reminders-border-bottom[data-v-2c246ed2] {\n  border-bottom: 1px solid #f7f7f7;\n}\n@media screen and (max-width: 1368px) {\n.ant-calendar-picker[data-v-2c246ed2] {\n  padding-left: 0px;\n}\n}\n\n/* li.row.m-2.pl-0.align-items-center.reminders-border-bottom:first-child {\nborder-top: 1px solid #f7f7f7;\n} */\n", ""]);
+exports.push([module.i, "\nh1[data-v-2c246ed2] {\n    font-size: 1.04vw;\n    font-family: 'Rubik', sans-serif;\n    padding-left: 5.2%;\n    padding-right: 5.2%;\n    margin-top:1%;\n}\n#dash-container[data-v-2c246ed2] {\n    padding-left: 5.2%;\n    padding-right: 5.2%;\n    background-color: #F7F7F7;\n}\n#top-section[data-v-2c246ed2] {\n    padding-top:1%;\n    margin-bottom: 5.5%;\n}\nselect.rounded-pill[data-v-2c246ed2]{\n    box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    font-size: 0.84vw;\n    font-family: 'Rubik', sans-serif;\n    padding:9px 17px 7px;\n    color: #333333;\n}\n.divider-line[data-v-2c246ed2] {\n    height: 1px;\n    background-color: #ccc;\n}\n#top-section .agent-stats[data-v-2c246ed2] {\n    margin-top:2.5%;\n}\n#top-section .agent-stats .card[data-v-2c246ed2]{    \n    border-radius: 25px;\n    padding: 1.3%;\n    box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n}\n#top-section .agent-stats .card .card-numeral[data-v-2c246ed2] {\n    font-size: 1.58vw;\n    line-height: 1em;\n    letter-spacing: 0.1em;\n    color: #333333;\n}\n#top-section .agent-stats .card .card-desc[data-v-2c246ed2] {\n    font-size: 0.82vw;\n    font-family: 'Rubik', sans-serif;\n    line-height: 1em;\n    color: #333333;\n    margin-top: 8px;\n}\n#top-section .agent-stats .card .card-stat[data-v-2c246ed2] {\n    font-size: 0.71vw;\n    font-family: 'Rubik', sans-serif;\n    line-height: 1em;\n    letter-spacing: 0.1em;\n    margin-top: 12px;\n}\n.agent-graphs[data-v-2c246ed2] {\n    margin-top:3.4%;\n}\n.agent-graphs .card[data-v-2c246ed2] {\n    margin-left: 1.7%;\n    margin-right: 1.7%;\n    background-color: transparent;\n}\n.agent-graphs .tab-content[data-v-2c246ed2] {\n    padding-top:12px;\n    border-bottom-left-radius: 25px;\n    border-bottom-right-radius: 25px;\n    background-color: #fff;\n    box-shadow: 0 0 20px 10px #e6e6e6;\n    -webkit-box-shadow: 0 0 20px 10px #e6e6e6;\n    -moz-box-shadow: 0 0 20px 10px #e6e6e6;\n    -o-box-shadow: 0 0 20px 10px #e6e6e6;\n}\n.agent-graphs .tab-pane[data-v-2c246ed2] {\n    padding:2.5% 8.5% 5%;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[data-v-2c246ed2] {\n    color: #808080;\n    font-size: 0.73vw;\n    border: none;\n}\n.nav.nav-tabs.card-header-tabs .nav-link .icon[data-v-2c246ed2] {\n    padding-top:18px;\n    padding-bottom:18px;\n    margin-right: 5%;\n}\n@media screen and (max-width: 1643px) {\n.nav.nav-tabs.card-header-tabs .nav-link .icon[data-v-2c246ed2] {\n      width: 27px;\n}\n}\n.agent-graphs .nav-tabs .nav-item[data-v-2c246ed2] {\n    margin-bottom: 3px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][data-v-2c246ed2]{ \n    box-shadow: -0 -17px 20px rgba(0,0,0,0.05);\n    -webkit-box-shadow: -0 -17px 20px rgba(0,0,0,0.05);\n    -moz-box-shadow: -0 -17px 20px rgba(0,0,0,0.05);\n    -o-box-shadow: -0 -17px 20px rgba(0,0,0,0.05); \n    border-top-left-radius: 25px; \n    border-top-right-radius: 25px;\n}\n.card .card-header.tab-card-header[data-v-2c246ed2] {\n    background-color: transparent;\n    border-top-left-radius: 25px;\n    border-top-right-radius: 25px;\n}\n.agent-details[data-v-2c246ed2] {\n    margin-top: 3.1%;\n}\n.agent-details .container-row .col[data-v-2c246ed2], .agent-details .container-row .col-3[data-v-2c246ed2]{\n    padding-left: 1.3%;\n    padding-right: 1.3%;\n}\n.agent-details .top-row .col[data-v-2c246ed2] {\n    padding-left: 1.7%;\n    padding-right: 1.7%;\n}\n.agent-details .bottom-row[data-v-2c246ed2]{\n    margin-top: 3.8%;\n}\n.agent-details .bottom-row .col[data-v-2c246ed2] {\n    padding-left: 1.7%;\n    padding-right: 1.7%;\n}\n.agent-details .card[data-v-2c246ed2] {\n    padding: 5% 7% 5.7%!important;\n    border-radius: 15px!important;\n    box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n}\n.agent-details .card .heading[data-v-2c246ed2] {\n    font-size: 0.94vw;\n    font-family: 'Rubik', sans-serif;\n    color: #B3B3B3;\n    margin-bottom: 3%;\n}\n.agent-details .card .detail[data-v-2c246ed2] {\n    font-size: 1.57vw;\n    color: #1A1C43;\n    line-height: 1em;\n    margin-top:7px;\n}\n#three .col[data-v-2c246ed2] {\n    padding-left:3.6%;\n    padding-right:3.6%;\n}\n#three .col[data-v-2c246ed2]:first-child {\n    padding-left:0;\n}\n#three .col[data-v-2c246ed2]:last-child {\n    padding-right:0;\n}\n#three .col-6[data-v-2c246ed2] {\n    padding-left:5px;\n    padding-right:5px;\n}\n.legend[data-v-2c246ed2] {\n    margin-bottom:3.1%;\n}\n.legend p[data-v-2c246ed2] {\n    font-family: 'Rubik', sans-serif;\n    font-size: 0.7vw;\n    color:#999999;\n}\n.comparison-month[data-v-2c246ed2] {\n    color:#999999;;\n    font-size: 0.7vw;\n    font-family: 'Rubik', sans-serif;\n    margin-top:20%;\n}\n.progress-bar[data-v-2c246ed2]{\n    background: #F2F2F2;\n    min-height:100px;\n    max-width:20px;\n    justify-content: flex-end;\n    margin:0 auto;\n}\n.tank[data-v-2c246ed2]{\n    border-top-left-radius: 50rem;\n    border-top-right-radius: 50rem;\n    transition: all 0.5s ease 0s;\n}\n.tank.answers[data-v-2c246ed2] {\n    background:  linear-gradient(#02D3F4 0%, #0496F0 100%) !important;\n    background: #0496F0;\n}\n.tank.dialing[data-v-2c246ed2] {\n    background:  linear-gradient(#FFA380 0%, #FF8087 100%) !important;\n    background: #0496F0;\n}\n.card.target .card-text[data-v-2c246ed2]{\n    margin: auto;\n}\n.card.target.reached[data-v-2c246ed2] {\n    background:  linear-gradient(to right, rgba(160,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;\n}\n.card.target.not-reached[data-v-2c246ed2] {\n    background:  linear-gradient(to right, rgba(255,163,128,1) 0%, rgba(255,63,61,1) 100%) !important;\n}\n.card.target .heading[data-v-2c246ed2] {\n    font-size: 0.94vw;\n    color: #fff;\n    margin-bottom:8%;\n    font-family: Montserrat, sans-serif;\n}\n#dash-activities[data-v-2c246ed2] {\n    margin-top:5.2%;\n    padding-bottom: 65px;\n}\n#dash-activities .card[data-v-2c246ed2] {\n    border-radius: 25px;\n    box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    padding:2.9% 3.7%;\n}\n#dash-activities .col[data-v-2c246ed2] {\n    padding-left: 3.4%;\n    padding-right: 3.4%;\n}\n#dash-activities .border-right[data-v-2c246ed2] {\n    border-color: #003449;\n}\n#dash-activities h4[data-v-2c246ed2] {\n    font-size: 0.84vw;\n    font-family: 'Rubik', sans-serif;\n}\n#dash-activities .calendar h4[data-v-2c246ed2] {\n    margin-left:4.3%;\n}\n.calendar .card[data-v-2c246ed2] {\n    padding: 6% 5%!important;\n}\n.calendar p[data-v-2c246ed2] {\n    font-size: 16px;\n    font-family: 'Rubik', sans-serif;\n}\n.calendar .card-title[data-v-2c246ed2] {\n    font-family: 'Rubik', sans-serif;\n    font-weight: 600;\n    font-size: 12px;\n}\n.calendar .col-6[data-v-2c246ed2],\n  .reminders .col-6[data-v-2c246ed2] {\n    padding-left: 4.5%;\n    padding-right: 4.5%;\n}\n.calendar p[data-v-2c246ed2] {\n    font-family: 'Rubik', sans-serif;\n    font-size: 10px;\n}\n.reminders p[data-v-2c246ed2] {\n    font-size: 16px;\n    font-family: 'Rubik', sans-serif;\n    color: #333333;\n}\n.reminders ul[data-v-2c246ed2] {\n    max-height: 550px;\n    overflow-y: auto;\n    margin-top: 20px;\n    border-top: 1px solid #CDCDCF;\n}\n.reminders ul li[data-v-2c246ed2] {\n    box-shadow: none !important;\n    padding:10px 15px;\n}\n.reminders ul li label[data-v-2c246ed2] {\n    font-size: 16px;\n    font-family: 'Rubik', sans-serif;\n    color: #808080;\n}\n.callback-label[data-v-2c246ed2],\n  .tasks-date[data-v-2c246ed2] {\n  font-size: 10px;\n  font-family: \"Rubik\", sans-serif !important;\n  color: #808080;\n}\n.tasks-date[data-v-2c246ed2] {\nmargin-left: 35px;\n}\n.reminders input.list-input[data-v-2c246ed2]{\n    font-size: 0.83vw;\n    font-family: 'Rubik', sans-serif;\n    color: #808080;\n    padding-left: 37px!important;\n    width: 100%;\n    text-overflow: ellipsis;\n}\n.reminders .terms-text input[data-v-2c246ed2] {\n    border-bottom: 1px solid #f7f7f7;\n    width: 100%;\n    border-left: 0;\n    border-top: 0;\n    border-right: 0;\n}\n.reminders .terms-text .desc-text[data-v-2c246ed2]::-webkit-input-placeholder, input.list-input[data-v-2c246ed2]::-webkit-input-placeholder  {\n    font-style: italic !important;\n    font-weight: 300 !important;\n}\n.reminders .terms-text .desc-text[data-v-2c246ed2]::-moz-placeholder, input.list-input[data-v-2c246ed2]::-moz-placeholder  {\n    font-style: italic !important;\n    font-weight: 300 !important;\n}\n.reminders .terms-text .desc-text[data-v-2c246ed2]:-ms-input-placeholder, input.list-input[data-v-2c246ed2]:-ms-input-placeholder  {\n    font-style: italic !important;\n    font-weight: 300 !important;\n}\n.reminders .terms-text .desc-text[data-v-2c246ed2]::-ms-input-placeholder, input.list-input[data-v-2c246ed2]::-ms-input-placeholder  {\n    font-style: italic !important;\n    font-weight: 300 !important;\n}\n.reminders .terms-text .desc-text[data-v-2c246ed2]::placeholder, input.list-input[data-v-2c246ed2]::placeholder  {\n    font-style: italic !important;\n    font-weight: 300 !important;\n}\na.Edit[data-v-2c246ed2]{\n    background-image: url('/images/DataTables/Edit_Icon.svg');\n    background-size: 20px;\n    background-repeat: no-repeat;\n    width:20px;\n    height:20px;\n}\na.Edit[data-v-2c246ed2]:hover,\n  a.Edit[data-v-2c246ed2]:active{\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');\n    background-size: 20px;\n    background-repeat: no-repeat;\n}\n.callback-capture[data-v-2c246ed2] {\n    background: #f4f4f4;\n    border-radius: 50rem;\n    height: 50px;\n}\n.comment-desc[data-v-2c246ed2] {\n    height: 50px;\n    padding: 11px;\n    margin: 0;\n    background: #f4f4f4;\n    cursor: pointer;\n    float: left;\n}\n.comment-desc[data-v-2c246ed2]::-webkit-input-placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n.comment-desc[data-v-2c246ed2]::-moz-placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n.comment-desc[data-v-2c246ed2]:-ms-input-placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n.comment-desc[data-v-2c246ed2]::-ms-input-placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n.comment-desc[data-v-2c246ed2]::placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n#submit-btn img[data-v-2c246ed2] {\n    margin-top: -15px;\n    margin-right: -15px;\n}\n.callbacks-to-dos[data-v-2c246ed2] {\n    padding-top:20px;\n}\n.callbacks-to-dos .border-top[data-v-2c246ed2] {\n    border-color: #CDCDCF;\n}\n.callbacks-to-dos .task-time[data-v-2c246ed2] {\n    font-size: 0.73vw;\n    color: #818284;\n    padding-right:3.5%;\n}\n.callbacks-to-dos .task-description[data-v-2c246ed2] {\n    height:22px;\n    font-size: 11px;\n    font-weight:500;\n    font-family: 'Rubik', sans-serif;\n    color: #6B6B6B;\n    padding-left:3.5%;\n}\n#dash-activities h5[data-v-2c246ed2] {\n    font-family: 'Rubik', sans-serif;\n    font-size: 0.68vw;\n    color: rgba(28, 35, 49, 0.5);\n}\n.active-task[data-v-2c246ed2] {\n    background-color:rgba(255,147,58,0.5);\n}\n\n  /* Custom checkbox */\n.main label.custom-control-label[data-v-2c246ed2] { \n    color: inherit; \n    font-weight: 200; \n    padding-top: 3px;\n}\n.custom-checkbox .custom-control-label[data-v-2c246ed2] { \n    padding-top: 5px;\n}\nli.custom-control.custom-checkbox[data-v-2c246ed2] { \n    box-shadow: 0 0 7px rgba(0, 0, 0, 0.05); \n    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n}\n.custom-control.custom-checkbox .custom-control-label[data-v-2c246ed2]:before { \n    border-radius: 50%!important; \n    border: 1px solid #ededed; \n    box-shadow: none; \n    -webkit-box-shadow: none;\n    -moz-box-shadow: none;\n    -o-box-shadow: none;\n    background-image: url('/images/icons/right-sidebar/Task_Check.svg') !important; \n    background-size: cover;\n}\n.custom-control-label[data-v-2c246ed2]::after, \n  .custom-control-label[data-v-2c246ed2]::before { \n    width: 20px;\n    height: 20px;\n    top: 9px;\n    left: 0.2rem;\n    cursor: pointer;\n}\n.btn-primary[data-v-2c246ed2] {\n    font-size: 10px;\n    background: linear-gradient( to right, rgb(255, 128, 51, 1) 0%, rgba(255, 147, 58, 1) 100% ) !important;\n    font-weight: 600;\n    text-transform: uppercase;\n    padding: 10px 20px;\n    letter-spacing: 0.05em;\n}\n.reminders .btn-primary[data-v-2c246ed2] {\n    width: auto !important;\n    float: right;\n    line-height: 1em;\n}\ninput.search-text[data-v-2c246ed2]:focus, \n  input.save-text[data-v-2c246ed2]:focus,\n  .reminders input.list-input[data-v-2c246ed2]:focus  { \n    outline: 0 !important; \n    border: 0 !important;\n}\ninput.desc-text[data-v-2c246ed2]:focus {\n     outline: 0 !important;\n}\n.reminders .terms-text .desc-text[data-v-2c246ed2] {\n    font-size: 0.73vw !important;\n    color: #808080 !important;\n}\nlabel.terms-text.desc-text-label[data-v-2c246ed2], .ant-calendar-picker[data-v-2c246ed2] {\n    padding-left: 37px;\n}\n.rounded-circle img.icon[data-v-2c246ed2] {\n  background-color: #fff !important;\n}\n.reminders-border-bottom[data-v-2c246ed2] {\n  border-bottom: 1px solid #f7f7f7;\n}\n@media screen and (max-width: 1368px) {\n.ant-calendar-picker[data-v-2c246ed2] {\n  padding-left: 0px;\n}\n}\n\n/* li.row.m-2.pl-0.align-items-center.reminders-border-bottom:first-child {\nborder-top: 1px solid #f7f7f7;\n} */\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/BranchesListingTable.vue?vue&type=style&index=0&id=2370a533&scoped=true&lang=css&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/DataTables/BranchesListingTable.vue?vue&type=style&index=0&id=2370a533&scoped=true&lang=css& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.companies-listing[data-v-2370a533] {\n  margin-bottom: 20px;\n}\n", ""]);
 
 // exports
 
@@ -250892,7 +251331,26 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\nthead th[data-v-ccb78764] { \r\n  position: sticky; \r\n  position: -webkit-sticky; \r\n  top: 0; \r\n  background: white; \r\n  z-index: 10;\n}\n.btn-secondary[data-v-ccb78764]{ \r\n  color: #fff; \r\n  background-color: #f6f8f9; \r\n  border-color: #f6f8f9; \r\n  padding: 0px 7px;\n}\n.btn-secondary img[data-v-ccb78764]{ \r\n  width: 11px;\n}\nth .dropdown[data-v-ccb78764]{ \r\n  width: 25%; \r\n  padding: 0; \r\n  margin: 0; \r\n  float: right;\n}\n.dropdown-menu[data-v-ccb78764] { \r\n  border-radius: 15px; \r\n  box-shadow: -4px -3px 5px 0px rgba(179, 179, 179, 0.24); \r\n  border: 0; \r\n  font-size: 0.63vw; \r\n  font-family: 'Rubik', sans-serif; \r\n  letter-spacing: 0.05em; \r\n  color: #1e2331;\n}\n.no-box-shadow[data-v-ccb78764] { \r\n  box-shadow: none !important; \r\n  -webkit-box-shadow: none !important; \r\n  -moz-box-shadow: none !important; \r\n  -o-box-shadow: none !important;\n}\ntable tr td a.Canceled[data-v-ccb78764]{ \r\n  color: red;\n}\ntable tr td a.Inactive[data-v-ccb78764]{ \r\n  color: orange;\n}\ntable tr td a.Active[data-v-ccb78764]{ \r\n  color: green;\n}\ntable tr td span.actions a[data-v-ccb78764]{ \r\n  width: 32px; \r\n  display: block; \r\n  height: 35px; \r\n  float: left;\n}\ntable tr td span.in-progress[data-v-ccb78764]{ \r\n  background-image: url('/images/icons/Talking.svg'); \r\n  background-size: 75%; \r\n  background-repeat: no-repeat; \r\n  display: block; \r\n  width: 100%; \r\n  height: 38px; \r\n  background-position: center;\n}\ntable tr td span.completed[data-v-ccb78764]{ \r\n  background-image: url('/images/icons/No Talking.svg'); \r\n  background-size: 90%; \r\n  background-repeat: no-repeat; \r\n  display: block; \r\n  width: 100%; \r\n  height: 38px; \r\n  background-position: center;\n}\ntable tr td a.View[data-v-ccb78764]{ \r\n  background-image: url('/images/DataTables/View_Icon_Active.svg'); \r\n  background-size: 36px 35px; \r\n  background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-ccb78764]:hover, \r\ntable tr td a.View[data-v-ccb78764]:active{ \r\n  background-image: url('/images/DataTables/View_Icon.svg'); \r\n  background-size: 36px 35px; \r\n  background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-ccb78764]{ \r\n  background-image: url('/images/DataTables/Delete_Icon.svg'); \r\n  background-size: 36px 35px; \r\n  background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-ccb78764]:hover, \r\ntable tr td a.Delete[data-v-ccb78764]:active{ \r\n  background-image: url('/images/DataTables/Delete_Icon_Active.svg'); \r\n  background-size: 36px 35px; \r\n  background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-ccb78764]{ \r\n  background-image: url('/images/DataTables/Edit_Icon.svg'); \r\n  background-size: 36px 35px; \r\n  background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-ccb78764]:hover, \r\ntable tr td a.Edit[data-v-ccb78764]:active{ \r\n  background-image: url('/images/DataTables/Edit_Icon_Active.svg'); \r\n  background-size: 36px 35px; \r\n  background-repeat: no-repeat;\n}\ntable tr td a.Whisper[data-v-ccb78764]{ \r\n  background-image: url('/images/icons/Whisper.svg'); \r\n  background-size: 30px 35px; \r\n  background-repeat: no-repeat;\n}\ntable tr td a.Whisper[data-v-ccb78764]:hover, \r\ntable tr td a.Whisper[data-v-ccb78764]:active{ \r\n  background-image: url('/images/icons/Whisper.svg'); \r\n  background-size: 31px 35px; \r\n  background-repeat: no-repeat;\n}\ntable tr td a.Barge[data-v-ccb78764]{ \r\n  background-image: url('/images/icons/Barge.svg'); \r\n  background-size: 30px 35px; \r\n  background-repeat: no-repeat;\n}\ntable tr td a.Barge[data-v-ccb78764]:hover, \r\ntable tr td a.Barge[data-v-ccb78764]:active{ \r\n  background-image: url('/images/icons/Barge.svg'); \r\n  background-size: 31px 35px; \r\n  background-repeat: no-repeat;\n}\n.control-label[data-v-ccb78764]{ \r\n  float: left;\n}\ndiv.material-table[data-v-ccb78764] { \r\n  padding: 0;\n}\n#breakdown tr td[data-v-ccb78764]{ \r\n  height: 35px;\n}\n#items tr td[data-v-ccb78764]{ \r\n  padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-ccb78764], #items tr[data-v-ccb78764] { \r\n  border: 1px solid #dddddd;\n}\ntr.clickable[data-v-ccb78764] { \r\n  cursor: pointer;\n}\n#search-input[data-v-ccb78764] { \r\n  margin: 0; \r\n  border: transparent 0 !important; \r\n  height: 48px; \r\n  color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-ccb78764] { \r\n  padding: 0 14px 0 24px; \r\n  border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-ccb78764] { \r\n  /* table-layout: fixed; */ \r\n  border-spacing: 0 6px;\n}\n.table-header[data-v-ccb78764] { \r\n  height: 64px; \r\n  padding-left: 24px; \r\n  padding-right: 14px; \r\n  align-items: center; \r\n  display: flex; \r\n  -webkit-display: flex; \r\n  border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-ccb78764] { \r\n  display: -webkit-flex; \r\n  margin-left: auto;\n}\n.table-header .btn-flat[data-v-ccb78764] { \r\n  min-width: 36px; \r\n  padding: 0 8px;\n}\n.table-header input[data-v-ccb78764] { \r\n  margin: 0; \r\n  height: auto;\n}\n.table-header i[data-v-ccb78764] { \r\n  color: rgba(0, 0, 0, 0.54); \r\n  font-size: 24px;\n}\n.table-footer[data-v-ccb78764] { \r\n  height: 56px; \r\n  padding-left: 24px; \r\n  padding-right: 14px; \r\n  display: flex; \r\n  flex-direction: row; \r\n  justify-content: flex-end; \r\n  align-items: center; \r\n  font-size: 12px !important; \r\n  color: rgba(0, 0, 0, 0.54); \r\n  position: relative !important; \r\n  right: -100px !important;\n}\n@media screen and (max-width: 1500px) {\n.table-footer[data-v-ccb78764] { \r\n    position: relative !important; \r\n    right: -500px !important;\n}\n}\n.table-footer .datatable-length[data-v-ccb78764] { \r\n  display: flex;\n}\n.table-footer .datatable-length select[data-v-ccb78764] { \r\n  outline: none;\n}\n.table-footer img[data-v-ccb78764] { \r\n  width: 46px;\n}\n.table-footer label[data-v-ccb78764] { \r\n  font-size: 12px; \r\n  color: rgba(0, 0, 0, 0.54); \r\n  display: flex; \r\n  /* works with row or column */ \r\n  flex-direction: row; \r\n  align-items: center; \r\n  justify-content: center; \r\n  margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-ccb78764] { \r\n  display: flex; \r\n  /* works with row or column */ \r\n  flex-direction: row; \r\n  align-items: center; \r\n  justify-content: center;\n}\n.table-footer .datatable-info[data-v-ccb78764], \r\n.table-footer .datatable-length[data-v-ccb78764] { \r\n  margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-ccb78764] { \r\n  display: flex; \r\n  -webkit-display: flex; \r\n  margin: 0; \r\n  list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-ccb78764] { \r\n  color: rgba(0, 0, 0, 0.54); \r\n  padding: 0 8px; \r\n  font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-ccb78764] { \r\n  margin: 0; \r\n  border-bottom: none; \r\n  height: auto; \r\n  line-height: normal; \r\n  font-size: 12px; \r\n  width: 40px; \r\n  text-align: right;\n}\n.table-footer select[data-v-ccb78764] { \r\n  background-color: transparent; \r\n  width: auto; \r\n  padding: 0; \r\n  border: 0; \r\n  border-radius: 0; \r\n  height: auto; \r\n  margin-left: 20px;\n}\n.table-title[data-v-ccb78764] { \r\n  font-size: 20px; \r\n  color: #000;\n}\ntable tr td[data-v-ccb78764] { \r\n  height: 35px; \r\n  font-size: 14px; \r\n  color: #1c2331; \r\n  display: table-cell; \r\n  font-family: 'Rubik', sans-serif !important; \r\n  padding: 10px 20px 10px 0px; \r\n  min-width: 150px;\n}\n@media screen and (max-width: 1500px) {\ntable tr td[data-v-ccb78764] { \r\n    font-size: 12px; \r\n    padding: 5px 10px 5px 0px;\n}\n}\ntable tr td a i[data-v-ccb78764] { \r\n  font-size: 18px; \r\n  color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-ccb78764] { \r\n  font-size: 12px; \r\n  border-bottom: 1px solid #f2f2f2; \r\n  padding-left: 0; \r\n  width: auto; \r\n  white-space: nowrap;\n}\ntable thead tr[data-v-ccb78764]:first-child { \r\n  border-bottom: 0;\n}\ntable th[data-v-ccb78764] { \r\n  font-size: 12px; \r\n  font-weight: 600; \r\n  color: #A6A6A6; \r\n  cursor: pointer; \r\n  white-space: nowrap; \r\n  padding-right: 20px !important; \r\n  /* height: 56px; */ \r\n  /* padding-left: 14px; */ \r\n  vertical-align: middle; \r\n  outline: none !important; \r\n  overflow: hidden; \r\n  text-overflow: ellipsis; \r\n  background-size: 11px 12px; \r\n    background-repeat: no-repeat; \r\n    background-position: left center; \r\n  font-family: 'Montserrat bold', sans-serif;\n}\ntable th[data-v-ccb78764]:hover { \r\n  overflow: visible; \r\n  text-overflow: initial;\n}\ntable th.sorting-asc[data-v-ccb78764], \r\ntable th.sorting-desc[data-v-ccb78764] { \r\n  color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-ccb78764] { \r\n  color: rgba(0, 0, 0, 0.87); \r\n  background-image: url('/images/DataTables/Filter_1.svg') !important; \r\n    background-repeat: no-repeat; \r\n    background-position: 77% 7px;\n}\ntable th.sorting-desc[data-v-ccb78764] { \r\n  color: rgba(0, 0, 0, 0.87); \r\n  background-image: url('/images/DataTables/Filter_2.svg') !important; \r\n    background-repeat: no-repeat; \r\n    background-position: 77% 7px;\n}\ntable tr td a[data-v-ccb78764]{ \r\n  color: #1890ff; \r\n  background-color: transparent; \r\n  text-decoration: none; \r\n  outline: none; \r\n  cursor: pointer; \r\n  transition: color 0.3s; \r\n  -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-ccb78764]:hover:after, \r\ntable th.sorting-asc[data-v-ccb78764]:after, \r\ntable th.sorting-desc[data-v-ccb78764]:after { \r\n  display: inline-block;\n}\ntable tbody tr[data-v-ccb78764]:hover { \r\n  background-color: #EEE;\n}\ntable th[data-v-ccb78764]:last-child, \r\ntable td[data-v-ccb78764]:last-child { \r\n  padding-right: 14px; \r\n  padding-left: 11px; \r\n  background-image: none !important;\n} \r\n \r\n/* table th:first-child, \r\ntable td:first-child { \r\n  padding-left: 25px; \r\n} */\n.add-columns[data-v-ccb78764] {  \r\n  position: fixed;  \r\n  z-index: 100;  \r\n  background-color: #fff;  \r\n  padding-right: 20px;  \r\n  left:75px;\n}\n.show > .btn-secondary.dropdown-toggle[data-v-ccb78764] {  \r\n  background-color: #f6f8f9;\n}\n#dropdownMenuButton[data-v-ccb78764]:after {  \r\n  display: none;\n}\n.btn-primary[data-v-ccb78764] {  \r\n  border-radius: 50rem!important;  \r\n  text-transform:uppercase;  \r\n  font-size: 10px;  \r\n  padding: 11px 14px 10px;  \r\n  line-height:1em;  \r\n  margin-left: 0.9%;  \r\n  margin-right: 0.9%;\n}\n.dropdown-menu.show[data-v-ccb78764] {  \r\n  padding:10px;  \r\n  border-radius: 10px;  \r\n  border:0;  \r\n  box-shadow: 0 0 10px rgba(0,0,0,0.1);  \r\n  width:225px;\n}\n.form-group.select-columns-list[data-v-ccb78764] {  \r\n  max-height: 150px;  \r\n  overflow-y: auto;  \r\n  overflow-x: hidden;  \r\n  margin-bottom: 0!important;\n}  \r\n", ""]);
+exports.push([module.i, "\nthead th[data-v-ccb78764] { \n  position: sticky; \n  position: -webkit-sticky; \n  top: 0; \n  background: white; \n  z-index: 10;\n}\n.btn-secondary[data-v-ccb78764]{ \n  color: #fff; \n  background-color: #f6f8f9; \n  border-color: #f6f8f9; \n  padding: 0px 7px;\n}\n.btn-secondary img[data-v-ccb78764]{ \n  width: 11px;\n}\nth .dropdown[data-v-ccb78764]{ \n  width: 25%; \n  padding: 0; \n  margin: 0; \n  float: right;\n}\n.dropdown-menu[data-v-ccb78764] { \n  border-radius: 15px; \n  box-shadow: -4px -3px 5px 0px rgba(179, 179, 179, 0.24); \n  border: 0; \n  font-size: 0.63vw; \n  font-family: 'Rubik', sans-serif; \n  letter-spacing: 0.05em; \n  color: #1e2331;\n}\n.no-box-shadow[data-v-ccb78764] { \n  box-shadow: none !important; \n  -webkit-box-shadow: none !important; \n  -moz-box-shadow: none !important; \n  -o-box-shadow: none !important;\n}\ntable tr td a.Canceled[data-v-ccb78764]{ \n  color: red;\n}\ntable tr td a.Inactive[data-v-ccb78764]{ \n  color: orange;\n}\ntable tr td a.Active[data-v-ccb78764]{ \n  color: green;\n}\ntable tr td span.actions a[data-v-ccb78764]{ \n  width: 32px; \n  display: block; \n  height: 35px; \n  float: left;\n}\ntable tr td span.in-progress[data-v-ccb78764]{ \n  background-image: url('/images/icons/Talking.svg'); \n  background-size: 75%; \n  background-repeat: no-repeat; \n  display: block; \n  width: 100%; \n  height: 38px; \n  background-position: center;\n}\ntable tr td span.completed[data-v-ccb78764]{ \n  background-image: url('/images/icons/No Talking.svg'); \n  background-size: 90%; \n  background-repeat: no-repeat; \n  display: block; \n  width: 100%; \n  height: 38px; \n  background-position: center;\n}\ntable tr td a.View[data-v-ccb78764]{ \n  background-image: url('/images/DataTables/View_Icon_Active.svg'); \n  background-size: 36px 35px; \n  background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-ccb78764]:hover, \ntable tr td a.View[data-v-ccb78764]:active{ \n  background-image: url('/images/DataTables/View_Icon.svg'); \n  background-size: 36px 35px; \n  background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-ccb78764]{ \n  background-image: url('/images/DataTables/Delete_Icon.svg'); \n  background-size: 36px 35px; \n  background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-ccb78764]:hover, \ntable tr td a.Delete[data-v-ccb78764]:active{ \n  background-image: url('/images/DataTables/Delete_Icon_Active.svg'); \n  background-size: 36px 35px; \n  background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-ccb78764]{ \n  background-image: url('/images/DataTables/Edit_Icon.svg'); \n  background-size: 36px 35px; \n  background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-ccb78764]:hover, \ntable tr td a.Edit[data-v-ccb78764]:active{ \n  background-image: url('/images/DataTables/Edit_Icon_Active.svg'); \n  background-size: 36px 35px; \n  background-repeat: no-repeat;\n}\ntable tr td a.Whisper[data-v-ccb78764]{ \n  background-image: url('/images/icons/Whisper.svg'); \n  background-size: 30px 35px; \n  background-repeat: no-repeat;\n}\ntable tr td a.Whisper[data-v-ccb78764]:hover, \ntable tr td a.Whisper[data-v-ccb78764]:active{ \n  background-image: url('/images/icons/Whisper.svg'); \n  background-size: 31px 35px; \n  background-repeat: no-repeat;\n}\ntable tr td a.Barge[data-v-ccb78764]{ \n  background-image: url('/images/icons/Barge.svg'); \n  background-size: 30px 35px; \n  background-repeat: no-repeat;\n}\ntable tr td a.Barge[data-v-ccb78764]:hover, \ntable tr td a.Barge[data-v-ccb78764]:active{ \n  background-image: url('/images/icons/Barge.svg'); \n  background-size: 31px 35px; \n  background-repeat: no-repeat;\n}\n.control-label[data-v-ccb78764]{ \n  float: left;\n}\ndiv.material-table[data-v-ccb78764] { \n  padding: 0;\n}\n#breakdown tr td[data-v-ccb78764]{ \n  height: 35px;\n}\n#items tr td[data-v-ccb78764]{ \n  padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-ccb78764], #items tr[data-v-ccb78764] { \n  border: 1px solid #dddddd;\n}\ntr.clickable[data-v-ccb78764] { \n  cursor: pointer;\n}\n#search-input[data-v-ccb78764] { \n  margin: 0; \n  border: transparent 0 !important; \n  height: 48px; \n  color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-ccb78764] { \n  padding: 0 14px 0 24px; \n  border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-ccb78764] { \n  /* table-layout: fixed; */ \n  border-spacing: 0 6px;\n}\n.table-header[data-v-ccb78764] { \n  height: 64px; \n  padding-left: 24px; \n  padding-right: 14px; \n  align-items: center; \n  display: flex; \n  -webkit-display: flex; \n  border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-ccb78764] { \n  display: -webkit-flex; \n  margin-left: auto;\n}\n.table-header .btn-flat[data-v-ccb78764] { \n  min-width: 36px; \n  padding: 0 8px;\n}\n.table-header input[data-v-ccb78764] { \n  margin: 0; \n  height: auto;\n}\n.table-header i[data-v-ccb78764] { \n  color: rgba(0, 0, 0, 0.54); \n  font-size: 24px;\n}\n.table-footer[data-v-ccb78764] { \n  height: 56px; \n  padding-left: 24px; \n  padding-right: 14px; \n  display: flex; \n  flex-direction: row; \n  justify-content: flex-end; \n  align-items: center; \n  font-size: 12px !important; \n  color: rgba(0, 0, 0, 0.54); \n  position: relative !important; \n  right: -100px !important;\n}\n@media screen and (max-width: 1500px) {\n.table-footer[data-v-ccb78764] { \n    position: relative !important; \n    right: -500px !important;\n}\n}\n.table-footer .datatable-length[data-v-ccb78764] { \n  display: flex;\n}\n.table-footer .datatable-length select[data-v-ccb78764] { \n  outline: none;\n}\n.table-footer img[data-v-ccb78764] { \n  width: 46px;\n}\n.table-footer label[data-v-ccb78764] { \n  font-size: 12px; \n  color: rgba(0, 0, 0, 0.54); \n  display: flex; \n  /* works with row or column */ \n  flex-direction: row; \n  align-items: center; \n  justify-content: center; \n  margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-ccb78764] { \n  display: flex; \n  /* works with row or column */ \n  flex-direction: row; \n  align-items: center; \n  justify-content: center;\n}\n.table-footer .datatable-info[data-v-ccb78764], \n.table-footer .datatable-length[data-v-ccb78764] { \n  margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-ccb78764] { \n  display: flex; \n  -webkit-display: flex; \n  margin: 0; \n  list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-ccb78764] { \n  color: rgba(0, 0, 0, 0.54); \n  padding: 0 8px; \n  font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-ccb78764] { \n  margin: 0; \n  border-bottom: none; \n  height: auto; \n  line-height: normal; \n  font-size: 12px; \n  width: 40px; \n  text-align: right;\n}\n.table-footer select[data-v-ccb78764] { \n  background-color: transparent; \n  width: auto; \n  padding: 0; \n  border: 0; \n  border-radius: 0; \n  height: auto; \n  margin-left: 20px;\n}\n.table-title[data-v-ccb78764] { \n  font-size: 20px; \n  color: #000;\n}\ntable tr td[data-v-ccb78764] { \n  height: 35px; \n  font-size: 14px; \n  color: #1c2331; \n  display: table-cell; \n  font-family: 'Rubik', sans-serif !important; \n  padding: 10px 20px 10px 0px; \n  min-width: 150px;\n}\n@media screen and (max-width: 1500px) {\ntable tr td[data-v-ccb78764] { \n    font-size: 12px; \n    padding: 5px 10px 5px 0px;\n}\n}\ntable tr td a i[data-v-ccb78764] { \n  font-size: 18px; \n  color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-ccb78764] { \n  font-size: 12px; \n  border-bottom: 1px solid #f2f2f2; \n  padding-left: 0; \n  width: auto; \n  white-space: nowrap;\n}\ntable thead tr[data-v-ccb78764]:first-child { \n  border-bottom: 0;\n}\ntable th[data-v-ccb78764] { \n  font-size: 12px; \n  font-weight: 600; \n  color: #A6A6A6; \n  cursor: pointer; \n  white-space: nowrap; \n  padding-right: 20px !important; \n  /* height: 56px; */ \n  /* padding-left: 14px; */ \n  vertical-align: middle; \n  outline: none !important; \n  overflow: hidden; \n  text-overflow: ellipsis; \n  background-size: 11px 12px; \n    background-repeat: no-repeat; \n    background-position: left center; \n  font-family: 'Montserrat bold', sans-serif;\n}\ntable th[data-v-ccb78764]:hover { \n  overflow: visible; \n  text-overflow: initial;\n}\ntable th.sorting-asc[data-v-ccb78764], \ntable th.sorting-desc[data-v-ccb78764] { \n  color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-ccb78764] { \n  color: rgba(0, 0, 0, 0.87); \n  background-image: url('/images/DataTables/Filter_1.svg') !important; \n    background-repeat: no-repeat; \n    background-position: 77% 7px;\n}\ntable th.sorting-desc[data-v-ccb78764] { \n  color: rgba(0, 0, 0, 0.87); \n  background-image: url('/images/DataTables/Filter_2.svg') !important; \n    background-repeat: no-repeat; \n    background-position: 77% 7px;\n}\ntable tr td a[data-v-ccb78764]{ \n  color: #1890ff; \n  background-color: transparent; \n  text-decoration: none; \n  outline: none; \n  cursor: pointer; \n  transition: color 0.3s; \n  -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-ccb78764]:hover:after, \ntable th.sorting-asc[data-v-ccb78764]:after, \ntable th.sorting-desc[data-v-ccb78764]:after { \n  display: inline-block;\n}\ntable tbody tr[data-v-ccb78764]:hover { \n  background-color: #EEE;\n}\ntable th[data-v-ccb78764]:last-child, \ntable td[data-v-ccb78764]:last-child { \n  padding-right: 14px; \n  padding-left: 11px; \n  background-image: none !important;\n} \n \n/* table th:first-child, \ntable td:first-child { \n  padding-left: 25px; \n} */\n.add-columns[data-v-ccb78764] {  \n  position: fixed;  \n  z-index: 100;  \n  /* background-color: #fff;   */\n  /* padding-right: 20px;   */\n  left:62px;\n}\n.show > .btn-secondary.dropdown-toggle[data-v-ccb78764] {  \n  background-color: #f6f8f9;\n}\n#dropdownMenuButton[data-v-ccb78764]:after {  \n  display: none;\n}\n.btn-primary[data-v-ccb78764] {  \n  border-radius: 50rem!important;  \n  text-transform:uppercase;  \n  font-size: 10px;  \n  padding: 11px 14px 10px;  \n  line-height:1em;  \n  margin-left: 0.9%;  \n  margin-right: 0.9%;\n}\n.dropdown-menu.show[data-v-ccb78764] {  \n  padding:10px;  \n  border-radius: 10px;  \n  border:0;  \n  box-shadow: 0 0 10px rgba(0,0,0,0.1);  \n  width:225px;\n}\n.form-group.select-columns-list[data-v-ccb78764] {  \n  max-height: 150px;  \n  overflow-y: auto;  \n  overflow-x: hidden;  \n  margin-bottom: 0!important;\n}  \n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/CategoryListingTable.vue?vue&type=style&index=0&id=4b72173e&scoped=true&lang=css&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/DataTables/CategoryListingTable.vue?vue&type=style&index=0&id=4b72173e&scoped=true&lang=css& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.category-listing[data-v-4b72173e] {\n  margin-bottom: 20px;\n}\n", ""]);
 
 // exports
 
@@ -250911,7 +251369,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.btn-secondary[data-v-6263b939]{\r\n  color: #fff;\r\n  background-color: #f6f8f9;\r\n  border-color: #f6f8f9;\r\n  padding: 0px 7px;\n}\n.btn-secondary img[data-v-6263b939]{\r\n  width: 11px;\n}\nth .dropdown[data-v-6263b939]{\r\n  width: 25%;\r\n  padding: 0;\r\n  margin: 0;\r\n  float: right;\n}\nthead th[data-v-6263b939] {\r\n  position: sticky;\r\n  position: -webkit-sticky;\r\n  top: 0;\r\n  background: white;\r\n  z-index: 10;\n}\n.no-box-shadow[data-v-6263b939] {\r\n  box-shadow: none !important;\r\n  -webkit-box-shadow: none !important;\r\n  -moz-box-shadow: none !important;\r\n  -o-box-shadow: none !important;\n}\n.btn-orange[data-v-6263b939] {\r\n\tbackground: #FF9039;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 9px 12px 9px 10px;\r\n  font-size: 13px;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.dropdown-menu.show[data-v-6263b939] {\r\n  display: block;\r\n  width: 98%;\n}\n.orange-btn[data-v-6263b939]:hover {\r\n\tbackground: #FF9039;\r\n\tcolor: #ffffff;\r\n  border: transparent !important;\r\n\tpadding: 9px 12px 9px 10px;\r\n  font-size: 13px;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\r\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\ntable.tg[data-v-6263b939]{\r\n  width: 98%;\r\n  margin: 0 auto;\n}\ntable.tg td p[data-v-6263b939]{\r\n  margin-top: 1em;\n}\nspan.days-remaining[data-v-6263b939]{\r\n  display: block;\r\n  width: 100%;\r\n  text-align: center;\n}\ntable tr td a.Canceled[data-v-6263b939]{\r\n  color: red;\r\n  background-color: red;\r\n  width: 19px;\r\n  display: block;\r\n  height: 19px;\r\n  margin: 0 auto;\r\n  border-radius: 32px;\n}\ntable tr td a.Inactive[data-v-6263b939]{\r\n  color: orange;\r\n  background-color: orange;\r\n  width: 19px;\r\n  display: block;\r\n  height: 19px;\r\n  margin: 0 auto;\r\n  border-radius: 32px;\n}\ntable tr td a.Active[data-v-6263b939]{\r\n  color: green;\r\n  background-color: green;\r\n  width: 19px;\r\n  display: block;\r\n  height: 19px;\r\n  margin: 0 auto;\r\n  border-radius: 32px;\n}\ntable tr td span.actions a[data-v-6263b939]{\r\n  width: 32px;\r\n  display: block;\r\n  height: 35px;\r\n  float: left;\n}\ntable tr td a.Save[data-v-6263b939]{\r\n  background-image: url('/images/DataTables/New/Check Icon.svg');\r\n  background-size: 25px 35px;\r\n  background-repeat: no-repeat;\n}\ntable tr td a.Save[data-v-6263b939]:hover,\r\ntable tr td a.Save[data-v-6263b939]:active{\r\n  background-image: url('/images/DataTables/New/Check Icon Hover.svg');\r\n  background-size: 25px 35px;\r\n  background-repeat: no-repeat;\n}\ntable tr td a.Cancel[data-v-6263b939]{\r\n  background-image: url('/images/DataTables/New/Cancel Icon.svg');\r\n  background-size: 25px 35px;\r\n  background-repeat: no-repeat;\n}\ntable tr td a.Cancel[data-v-6263b939]:hover,\r\ntable tr td a.Cancel[data-v-6263b939]:active{\r\n  background-image: url('/images/DataTables/New/Cancel Hover.svg');\r\n  background-size: 25px 35px;\r\n  background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-6263b939]{\r\n  background-image: url('/images/DataTables/New/View Icon.svg');\r\n  background-size: 25px 35px;\r\n  background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-6263b939]:hover,\r\ntable tr td a.View[data-v-6263b939]:active{\r\n  background-image: url('/images/DataTables/New/View Icon Hover.svg');\r\n  background-size: 25px 35px;\r\n  background-repeat: no-repeat;\n}\n.alert[data-v-6263b939] {\r\n  position: relative;\r\n  padding: 0.75rem 1.25rem;\r\n  margin-bottom: 1rem;\r\n  border: 1px solid transparent;\r\n  border-radius: 0.25rem;\r\n  width: 100%;\r\n  float: left;\n}\ntable tr td a.Delete[data-v-6263b939]{\r\n  background-image: url('/images/DataTables/New/Delete Icon.svg');\r\n  background-size: 25px 35px;\r\n  background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-6263b939]:hover,\r\ntable tr td a.Delete[data-v-6263b939]:active{\r\n  background-image: url('/images/DataTables/New/Delete Icon Hover.svg');\r\n  background-size: 25px 35px;\r\n  background-repeat: no-repeat;\n}\n.uploaded-files a[data-v-6263b939]{\r\n  display: flex;\r\n  width: 90%;\r\n  float: left;\n}\n.uploaded-files .Delete[data-v-6263b939]{\r\n  background-color: transparent;\r\n  border: none;\r\n  width: 49px;\r\n  height: 46px;\r\n  margin: 0;\r\n  box-shadow: none;\r\n  -webkit-box-shadow: none;\r\n  -moz-box-shadow: none;\r\n  -o-box-shadow: none;\r\n  background-image: url('/images/DataTables/New/Delete Icon.svg');\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\n}\n.uploaded-files .Delete[data-v-6263b939]:hover,\r\n.uploaded-files .Delete[data-v-6263b939]:active{\r\n  background-color: transparent;\r\n  border: none;\r\n  width: 49px;\r\n  height: 46px;\r\n  margin: 0;\r\n  box-shadow: none;\r\n  -webkit-box-shadow: none;\r\n  -moz-box-shadow: none;\r\n  -o-box-shadow: none;\r\n  background-image: url('/images/DataTables/New/Delete Icon Hover.svg');\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-6263b939]{\r\n  background-image: url('/images/DataTables/New/Edit Icon_1.svg');\r\n  background-size: 25px 35px;\r\n  background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-6263b939]:hover,\r\ntable tr td a.Edit[data-v-6263b939]:active{\r\n  background-image: url('/images/DataTables/New/Edit Icon Hover.svg');\r\n  background-size: 25px 35px;\r\n  background-repeat: no-repeat;\n}\n@media screen and (max-width: 1500px) {\ntable tr td[data-v-6263b939] {\r\n      font-size: 12px !important;\r\n      padding: 5px 10px 5px 0px !important;\n}\n}\n.control-label[data-v-6263b939]{\r\n  float: left;\n}\n.editable[data-v-6263b939] {\r\n  border-radius: 20px;\n}\ndiv.material-table[data-v-6263b939] {\r\n  padding: 0;\n}\n#breakdown tr td[data-v-6263b939]{\r\n  height: 35px;\n}\n#items tr td[data-v-6263b939]{\r\n  padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-6263b939], #items tr[data-v-6263b939] {\r\n  border: 1px solid #dddddd;\n}\ntr.clickable[data-v-6263b939] {\r\n  cursor: pointer;\n}\n#search-input[data-v-6263b939] {\r\n  margin: 0;\r\n  border: transparent 0 !important;\r\n  height: 48px;\r\n  color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-6263b939] {\r\n  padding: 0 14px 0 24px;\r\n  border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-6263b939] {\r\n  /* table-layout: fixed; */\r\n  border-spacing: 0 6px;\n}\n.table-header[data-v-6263b939] {\r\n  height: 64px;\r\n  padding-left: 24px;\r\n  padding-right: 14px;\r\n  align-items: center;\r\n  display: flex;\r\n  -webkit-display: flex;\r\n  border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-6263b939] {\r\n  display: -webkit-flex;\r\n  margin-left: auto;\n}\n.table-header .btn-flat[data-v-6263b939] {\r\n  min-width: 36px;\r\n  padding: 0 8px;\n}\n.table-header input[data-v-6263b939] {\r\n  margin: 0;\r\n  height: auto;\n}\n.table-header i[data-v-6263b939] {\r\n  color: rgba(0, 0, 0, 0.54);\r\n  font-size: 24px;\n}\n.table-footer[data-v-6263b939] {\r\n  height: 56px;\r\n  padding-left: 24px;\r\n  padding-right: 14px;\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: flex-end;\r\n  align-items: center;\r\n  font-size: 12px !important;\r\n  color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-6263b939] {\r\n  display: flex;\n}\n.table-footer .datatable-length select[data-v-6263b939] {\r\n  outline: none;\n}\n.table-footer img[data-v-6263b939] {\r\n  width: 46px;\n}\n.table-footer label[data-v-6263b939] {\r\n  font-size: 12px;\r\n  color: rgba(0, 0, 0, 0.54);\r\n  display: flex;\r\n  /* works with row or column */\r\n  flex-direction: row;\r\n  align-items: center;\r\n  justify-content: center;\r\n  margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-6263b939] {\r\n  display: flex;\r\n  /* works with row or column */\r\n  flex-direction: row;\r\n  align-items: center;\r\n  justify-content: center;\n}\n.table-footer .datatable-info[data-v-6263b939],\r\n.table-footer .datatable-length[data-v-6263b939] {\r\n  margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-6263b939] {\r\n  display: flex;\r\n  -webkit-display: flex;\r\n  margin: 0;\r\n  list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-6263b939] {\r\n  color: rgba(0, 0, 0, 0.54);\r\n  padding: 0 8px;\r\n  font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-6263b939] {\r\n  margin: 0;\r\n  border-bottom: none;\r\n  height: auto;\r\n  line-height: normal;\r\n  font-size: 12px;\r\n  width: 40px;\r\n  text-align: right;\n}\n.table-footer select[data-v-6263b939] {\r\n  background-color: transparent;\r\n  width: auto;\r\n  padding: 0;\r\n  border: 0;\r\n  border-radius: 0;\r\n  height: auto;\r\n  margin-left: 20px;\n}\n.table-title[data-v-6263b939] {\r\n  font-size: 20px;\r\n  color: #000;\n}\ntable tr td[data-v-6263b939] {\r\n  height: 35px;\r\n  font-size: 0.73vw;\r\n  color: #1c2331;\r\n  display: table-cell;\r\n  font-family: 'Rubik', sans-serif !important;\r\n  padding: 10px 20px 10px 0px;\r\n  min-width: 150px;\n}\ntable tr td a i[data-v-6263b939] {\r\n  font-size: 18px;\r\n  color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-6263b939] {\r\n  font-size: 0.63vw;\r\n  border-bottom: 1px solid #f2f2f2;\r\n  padding-left: 0;\r\n  width: auto;\r\n  white-space: nowrap;\n}\ntable thead tr[data-v-6263b939]:first-child {\r\n  border-bottom: 0 !important;\n}\ntable th[data-v-6263b939] {\r\n  font-size: 12px;\r\n  font-weight: 600;\r\n  color: #A6A6A6;\r\n  cursor: pointer;\r\n  white-space: nowrap;\r\n  padding-right: 20px;\r\n  /* height: 56px; */\r\n  /* padding-left: 14px; */\r\n  vertical-align: middle;\r\n  outline: none !important;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  background-size: 11px 12px;\r\n  background-repeat: no-repeat;\r\n  background-position: left center;\r\n  font-family: 'Montserrat bold', sans-serif;\n}\ntable th[data-v-6263b939]:hover {\r\n  overflow: visible;\r\n  text-overflow: initial;\n}\ntable th.sorting-asc[data-v-6263b939],\r\ntable th.sorting-desc[data-v-6263b939] {\r\n  color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-6263b939] {\r\n  color: rgba(0, 0, 0, 0.87);\r\n  background-image: url('/images/DataTables/Filter_1.svg') !important;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: 100% 7px;\n}\ntable th.sorting-desc[data-v-6263b939] {\r\n  color: rgba(0, 0, 0, 0.87);\r\n  background-image: url('/images/DataTables/Filter_2.svg') !important;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: 100% 7px;\n}\ntable tr td a[data-v-6263b939]{\r\n  color: #1890ff;\r\n  background-color: transparent;\r\n  text-decoration: none;\r\n  outline: none;\r\n  cursor: pointer;\r\n  transition: color 0.3s;\r\n  -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-6263b939]:hover:after,\r\ntable th.sorting-asc[data-v-6263b939]:after,\r\ntable th.sorting-desc[data-v-6263b939]:after {\r\n  display: inline-block;\n}\ntable tbody tr[data-v-6263b939]:hover {\r\n  background-color: #f7f7f7;\n}\ntable th[data-v-6263b939]:last-child,\r\ntable td[data-v-6263b939]:last-child {\r\n  padding-right: 14px;\r\n  background-image: none !important;\n}\r\n\r\n/* table th:first-child,\r\ntable td:first-child {\r\n    padding-left: 25px;\r\n} */\n.add-columns[data-v-6263b939] {\r\n  position: fixed;\r\n  z-index: 100;\r\n  background-color: #fff;\r\n  padding-right: 20px;\r\n  left:75px;\n}\n.show > .btn-secondary.dropdown-toggle[data-v-6263b939] {\r\n  background-color: #f6f8f9;\n}\n#dropdownMenuButton[data-v-6263b939]:after {\r\n  display: none;\n}\n.btn-primary[data-v-6263b939] {\r\n  border-radius: 50rem!important;\r\n  text-transform:uppercase;\r\n  font-size: 10px;\r\n  padding: 11px 14px 10px;\r\n  line-height:1em;\r\n  margin-left: 0.9%;\r\n  margin-right: 0.9%;\n}\n.dropdown-menu.show[data-v-6263b939] {\r\n  padding:10px;\r\n  border-radius: 10px;\r\n  border:0;\r\n  box-shadow: 0 0 10px rgba(0,0,0,0.1);\r\n  width:225px;\n}\n.form-group.select-columns-list[data-v-6263b939] {\r\n  max-height: 150px;\r\n  overflow-y: auto;\r\n  overflow-x: hidden;\r\n  margin-bottom: 0!important;\n}\r\n", ""]);
+exports.push([module.i, "\n.btn-secondary[data-v-6263b939]{\n  color: #fff;\n  background-color: #f6f8f9;\n  border-color: #f6f8f9;\n  padding: 0px 7px;\n}\n.btn-secondary img[data-v-6263b939]{\n  width: 11px;\n}\nth .dropdown[data-v-6263b939]{\n  width: 25%;\n  padding: 0;\n  margin: 0;\n  float: right;\n}\nthead th[data-v-6263b939] {\n  position: sticky;\n  position: -webkit-sticky;\n  top: 0;\n  background: white;\n  z-index: 10;\n}\n.no-box-shadow[data-v-6263b939] {\n  box-shadow: none !important;\n  -webkit-box-shadow: none !important;\n  -moz-box-shadow: none !important;\n  -o-box-shadow: none !important;\n}\n.btn-orange[data-v-6263b939] {\n\tbackground: #FF9039;\n\tcolor: #ffffff;\n  border: transparent !important;\n\tpadding: 9px 12px 9px 10px;\n  font-size: 13px;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\n.dropdown-menu.show[data-v-6263b939] {\n  display: block;\n  width: 98%;\n}\n.orange-btn[data-v-6263b939]:hover {\n\tbackground: #FF9039;\n\tcolor: #ffffff;\n  border: transparent !important;\n\tpadding: 9px 12px 9px 10px;\n  font-size: 13px;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n\tbox-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);\n}\ntable.tg[data-v-6263b939]{\n  width: 98%;\n  margin: 0 auto;\n}\ntable.tg td p[data-v-6263b939]{\n  margin-top: 1em;\n}\nspan.days-remaining[data-v-6263b939]{\n  display: block;\n  width: 100%;\n  text-align: center;\n}\ntable tr td a.Canceled[data-v-6263b939]{\n  color: red;\n  background-color: red;\n  width: 19px;\n  display: block;\n  height: 19px;\n  margin: 0 auto;\n  border-radius: 32px;\n}\ntable tr td a.Inactive[data-v-6263b939]{\n  color: orange;\n  background-color: orange;\n  width: 19px;\n  display: block;\n  height: 19px;\n  margin: 0 auto;\n  border-radius: 32px;\n}\ntable tr td a.Active[data-v-6263b939]{\n  color: green;\n  background-color: green;\n  width: 19px;\n  display: block;\n  height: 19px;\n  margin: 0 auto;\n  border-radius: 32px;\n}\ntable tr td span.actions a[data-v-6263b939]{\n  width: 32px;\n  display: block;\n  height: 35px;\n  float: left;\n}\ntable tr td a.Save[data-v-6263b939]{\n  background-image: url('/images/DataTables/New/Check Icon.svg');\n  background-size: 25px 35px;\n  background-repeat: no-repeat;\n}\ntable tr td a.Save[data-v-6263b939]:hover,\ntable tr td a.Save[data-v-6263b939]:active{\n  background-image: url('/images/DataTables/New/Check Icon Hover.svg');\n  background-size: 25px 35px;\n  background-repeat: no-repeat;\n}\ntable tr td a.Cancel[data-v-6263b939]{\n  background-image: url('/images/DataTables/New/Cancel Icon.svg');\n  background-size: 25px 35px;\n  background-repeat: no-repeat;\n}\ntable tr td a.Cancel[data-v-6263b939]:hover,\ntable tr td a.Cancel[data-v-6263b939]:active{\n  background-image: url('/images/DataTables/New/Cancel Hover.svg');\n  background-size: 25px 35px;\n  background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-6263b939]{\n  background-image: url('/images/DataTables/New/View Icon.svg');\n  background-size: 25px 35px;\n  background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-6263b939]:hover,\ntable tr td a.View[data-v-6263b939]:active{\n  background-image: url('/images/DataTables/New/View Icon Hover.svg');\n  background-size: 25px 35px;\n  background-repeat: no-repeat;\n}\n.alert[data-v-6263b939] {\n  position: relative;\n  padding: 0.75rem 1.25rem;\n  margin-bottom: 1rem;\n  border: 1px solid transparent;\n  border-radius: 0.25rem;\n  width: 100%;\n  float: left;\n}\ntable tr td a.Delete[data-v-6263b939]{\n  background-image: url('/images/DataTables/New/Delete Icon.svg');\n  background-size: 25px 35px;\n  background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-6263b939]:hover,\ntable tr td a.Delete[data-v-6263b939]:active{\n  background-image: url('/images/DataTables/New/Delete Icon Hover.svg');\n  background-size: 25px 35px;\n  background-repeat: no-repeat;\n}\n.uploaded-files a[data-v-6263b939]{\n  display: flex;\n  width: 90%;\n  float: left;\n}\n.uploaded-files .Delete[data-v-6263b939]{\n  background-color: transparent;\n  border: none;\n  width: 49px;\n  height: 46px;\n  margin: 0;\n  box-shadow: none;\n  -webkit-box-shadow: none;\n  -moz-box-shadow: none;\n  -o-box-shadow: none;\n  background-image: url('/images/DataTables/New/Delete Icon.svg');\n  background-size: cover;\n  background-repeat: no-repeat;\n}\n.uploaded-files .Delete[data-v-6263b939]:hover,\n.uploaded-files .Delete[data-v-6263b939]:active{\n  background-color: transparent;\n  border: none;\n  width: 49px;\n  height: 46px;\n  margin: 0;\n  box-shadow: none;\n  -webkit-box-shadow: none;\n  -moz-box-shadow: none;\n  -o-box-shadow: none;\n  background-image: url('/images/DataTables/New/Delete Icon Hover.svg');\n  background-size: cover;\n  background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-6263b939]{\n  background-image: url('/images/DataTables/New/Edit Icon_1.svg');\n  background-size: 25px 35px;\n  background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-6263b939]:hover,\ntable tr td a.Edit[data-v-6263b939]:active{\n  background-image: url('/images/DataTables/New/Edit Icon Hover.svg');\n  background-size: 25px 35px;\n  background-repeat: no-repeat;\n}\n@media screen and (max-width: 1500px) {\ntable tr td[data-v-6263b939] {\n      font-size: 12px !important;\n      padding: 5px 10px 5px 0px !important;\n}\n}\n.control-label[data-v-6263b939]{\n  float: left;\n}\n.editable[data-v-6263b939] {\n  border-radius: 20px;\n}\ndiv.material-table[data-v-6263b939] {\n  padding: 0;\n}\n#breakdown tr td[data-v-6263b939]{\n  height: 35px;\n}\n#items tr td[data-v-6263b939]{\n  padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-6263b939], #items tr[data-v-6263b939] {\n  border: 1px solid #dddddd;\n}\ntr.clickable[data-v-6263b939] {\n  cursor: pointer;\n}\n#search-input[data-v-6263b939] {\n  margin: 0;\n  border: transparent 0 !important;\n  height: 48px;\n  color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-6263b939] {\n  padding: 0 14px 0 24px;\n  border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-6263b939] {\n  /* table-layout: fixed; */\n  border-spacing: 0 6px;\n}\n.table-header[data-v-6263b939] {\n  height: 64px;\n  padding-left: 24px;\n  padding-right: 14px;\n  align-items: center;\n  display: flex;\n  -webkit-display: flex;\n  border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-6263b939] {\n  display: -webkit-flex;\n  margin-left: auto;\n}\n.table-header .btn-flat[data-v-6263b939] {\n  min-width: 36px;\n  padding: 0 8px;\n}\n.table-header input[data-v-6263b939] {\n  margin: 0;\n  height: auto;\n}\n.table-header i[data-v-6263b939] {\n  color: rgba(0, 0, 0, 0.54);\n  font-size: 24px;\n}\n.table-footer[data-v-6263b939] {\n  height: 56px;\n  padding-left: 24px;\n  padding-right: 14px;\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-end;\n  align-items: center;\n  font-size: 12px !important;\n  color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-6263b939] {\n  display: flex;\n}\n.table-footer .datatable-length select[data-v-6263b939] {\n  outline: none;\n}\n.table-footer img[data-v-6263b939] {\n  width: 46px;\n}\n.table-footer label[data-v-6263b939] {\n  font-size: 12px;\n  color: rgba(0, 0, 0, 0.54);\n  display: flex;\n  /* works with row or column */\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n  margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-6263b939] {\n  display: flex;\n  /* works with row or column */\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n}\n.table-footer .datatable-info[data-v-6263b939],\n.table-footer .datatable-length[data-v-6263b939] {\n  margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-6263b939] {\n  display: flex;\n  -webkit-display: flex;\n  margin: 0;\n  list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-6263b939] {\n  color: rgba(0, 0, 0, 0.54);\n  padding: 0 8px;\n  font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-6263b939] {\n  margin: 0;\n  border-bottom: none;\n  height: auto;\n  line-height: normal;\n  font-size: 12px;\n  width: 40px;\n  text-align: right;\n}\n.table-footer select[data-v-6263b939] {\n  background-color: transparent;\n  width: auto;\n  padding: 0;\n  border: 0;\n  border-radius: 0;\n  height: auto;\n  margin-left: 20px;\n}\n.table-title[data-v-6263b939] {\n  font-size: 20px;\n  color: #000;\n}\ntable tr td[data-v-6263b939] {\n  height: 35px;\n  font-size: 0.73vw;\n  color: #1c2331;\n  display: table-cell;\n  font-family: 'Rubik', sans-serif !important;\n  padding: 10px 20px 10px 0px;\n  min-width: 150px;\n}\ntable tr td a i[data-v-6263b939] {\n  font-size: 18px;\n  color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-6263b939] {\n  font-size: 0.63vw;\n  border-bottom: 1px solid #f2f2f2;\n  padding-left: 0;\n  width: auto;\n  white-space: nowrap;\n}\ntable thead tr[data-v-6263b939]:first-child {\n  border-bottom: 0 !important;\n}\ntable th[data-v-6263b939] {\n  font-size: 12px;\n  font-weight: 600;\n  color: #A6A6A6;\n  cursor: pointer;\n  white-space: nowrap;\n  padding-right: 20px;\n  /* height: 56px; */\n  /* padding-left: 14px; */\n  vertical-align: middle;\n  outline: none !important;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  background-size: 11px 12px;\n  background-repeat: no-repeat;\n  background-position: left center;\n  font-family: 'Montserrat bold', sans-serif;\n}\ntable th[data-v-6263b939]:hover {\n  overflow: visible;\n  text-overflow: initial;\n}\ntable th.sorting-asc[data-v-6263b939],\ntable th.sorting-desc[data-v-6263b939] {\n  color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-6263b939] {\n  color: rgba(0, 0, 0, 0.87);\n  background-image: url('/images/DataTables/Filter_1.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 100% 7px;\n}\ntable th.sorting-desc[data-v-6263b939] {\n  color: rgba(0, 0, 0, 0.87);\n  background-image: url('/images/DataTables/Filter_2.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 100% 7px;\n}\ntable tr td a[data-v-6263b939]{\n  color: #1890ff;\n  background-color: transparent;\n  text-decoration: none;\n  outline: none;\n  cursor: pointer;\n  transition: color 0.3s;\n  -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-6263b939]:hover:after,\ntable th.sorting-asc[data-v-6263b939]:after,\ntable th.sorting-desc[data-v-6263b939]:after {\n  display: inline-block;\n}\ntable tbody tr[data-v-6263b939]:hover {\n  background-color: #f7f7f7;\n}\ntable th[data-v-6263b939]:last-child,\ntable td[data-v-6263b939]:last-child {\n  padding-right: 14px;\n  background-image: none !important;\n}\n\n/* table th:first-child,\ntable td:first-child {\n    padding-left: 25px;\n} */\n.add-columns[data-v-6263b939] {\n  position: fixed;\n  z-index: 100;\n  /* background-color: #fff; */\n  /* padding-right: 20px; */\n  left:69px;\n}\n.show > .btn-secondary.dropdown-toggle[data-v-6263b939] {\n  background-color: #f6f8f9;\n}\n#dropdownMenuButton[data-v-6263b939]:after {\n  display: none;\n}\n.btn-primary[data-v-6263b939] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 10px;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n.dropdown-menu.show[data-v-6263b939] {\n  padding:10px;\n  border-radius: 10px;\n  border:0;\n  box-shadow: 0 0 10px rgba(0,0,0,0.1);\n  width:225px;\n}\n.form-group.select-columns-list[data-v-6263b939] {\n  max-height: 150px;\n  overflow-y: auto;\n  overflow-x: hidden;\n  margin-bottom: 0!important;\n}\n", ""]);
 
 // exports
 
@@ -250930,7 +251388,26 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.btn-default[data-v-c75b0ef0]{\n  background: #fff;\n  color: #999999;    \n  border: none!important;\n  padding: 11px 14px 10px;\n  font-size: 10px;\n  text-transform:uppercase;\n  border-radius: 50rem!important;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n  -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-c75b0ef0] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 10px;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n", ""]);
+exports.push([module.i, "\n.order-listing[data-v-c75b0ef0] {\n    margin-bottom: 20px;\n}\n.btn-default[data-v-c75b0ef0]{\n  background: #fff;\n  color: #999999;    \n  border: none!important;\n  padding: 11px 14px 10px;\n  font-size: 10px;\n  text-transform:uppercase;\n  border-radius: 50rem!important;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n  -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-c75b0ef0] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 10px;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/ProductListingTable.vue?vue&type=style&index=0&id=021dfba0&scoped=true&lang=css&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/DataTables/ProductListingTable.vue?vue&type=style&index=0&id=021dfba0&scoped=true&lang=css& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.product-listing[data-v-021dfba0] {\n  margin-bottom: 20px;\n}\n", ""]);
 
 // exports
 
@@ -250949,7 +251426,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\nspan.days-remaining[data-v-25cd21a6]{\r\n    display: block;\r\n    width: 100%;\r\n    text-align: center;\n}\ntable tr td a.Canceled[data-v-25cd21a6]{\r\n    color: red;\r\n    background-color: red;\r\n    width: 19px;\r\n    display: block;\r\n    height: 19px;\r\n    margin: 0 auto;\r\n    border-radius: 32px;\n}\ntable tr td a.Inactive[data-v-25cd21a6]{\r\n    color: orange;\r\n    background-color: orange;\r\n    width: 19px;\r\n    display: block;\r\n    height: 19px;\r\n    margin: 0 auto;\r\n    border-radius: 32px;\n}\ntable tr td a.Active[data-v-25cd21a6]{\r\n    color: green;\r\n    background-color: green;\r\n    width: 19px;\r\n    display: block;\r\n    height: 19px;\r\n    margin: 0 auto;\r\n    border-radius: 32px;\n}\ntable tr td span.actions a[data-v-25cd21a6]{\r\n    width: 32px;\r\n    display: block;\r\n    height: 35px;\r\n    float: left;\n}\ntable tr td a.View[data-v-25cd21a6]{\r\n    background-image: url('/images/DataTables/View_Icon_Active.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-25cd21a6]:hover,\r\ntable tr td a.View[data-v-25cd21a6]:active{\r\n    background-image: url('/images/DataTables/View_Icon.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-25cd21a6]{\r\n    background-image: url('/images/DataTables/Delete_Icon.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-25cd21a6]:hover,\r\ntable tr td a.Delete[data-v-25cd21a6]:active{\r\n    background-image: url('/images/DataTables/Delete_Icon_Active.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-25cd21a6]{\r\n    background-image: url('/images/DataTables/Edit_Icon.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-25cd21a6]:hover,\r\ntable tr td a.Edit[data-v-25cd21a6]:active{\r\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');\r\n    background-size: 36px 35px;\r\n    background-repeat: no-repeat;\n}\n.control-label[data-v-25cd21a6]{\r\n    float: left;\n}\ndiv.material-table[data-v-25cd21a6] {\r\n    padding: 0;\n}\n#breakdown tr td[data-v-25cd21a6]{\r\n    height: 35px;\n}\n#items tr td[data-v-25cd21a6]{\r\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-25cd21a6], #items tr[data-v-25cd21a6] {\r\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-25cd21a6] {\r\n    cursor: pointer;\n}\n#search-input[data-v-25cd21a6] {\r\n    margin: 0;\r\n    border: transparent 0 !important;\r\n    height: 48px;\r\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-25cd21a6] {\r\n    padding: 0 14px 0 24px;\r\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-25cd21a6] {\r\n    /* table-layout: fixed; */\r\n    border-collapse: separate;\r\n    border-spacing: 0 6px;\n}\n.table-header[data-v-25cd21a6] {\r\n    height: 64px;\r\n    padding-left: 24px;\r\n    padding-right: 14px;\r\n    align-items: center;\r\n    display: flex;\r\n    -webkit-display: flex;\r\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-25cd21a6] {\r\n    display: -webkit-flex;\r\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-25cd21a6] {\r\n    min-width: 36px;\r\n    padding: 0 8px;\n}\n.table-header input[data-v-25cd21a6] {\r\n    margin: 0;\r\n    height: auto;\n}\n.table-header i[data-v-25cd21a6] {\r\n    color: rgba(0, 0, 0, 0.54);\r\n    font-size: 24px;\n}\n.table-footer[data-v-25cd21a6] {\r\n    height: 56px;\r\n    padding-left: 24px;\r\n    padding-right: 14px;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: flex-end;\r\n    align-items: center;\r\n    font-size: 12px !important;\r\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-25cd21a6] {\r\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-25cd21a6] {\r\n    outline: none;\n}\n.table-footer img[data-v-25cd21a6] {\r\n    width: 46px;\n}\n.table-footer label[data-v-25cd21a6] {\r\n    font-size: 12px;\r\n    color: rgba(0, 0, 0, 0.54);\r\n    display: flex;\r\n    /* works with row or column */\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: center;\r\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-25cd21a6] {\r\n    display: flex;\r\n    /* works with row or column */\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-25cd21a6],\r\n.table-footer .datatable-length[data-v-25cd21a6] {\r\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-25cd21a6] {\r\n    display: flex;\r\n    -webkit-display: flex;\r\n    margin: 0;\r\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-25cd21a6] {\r\n    color: rgba(0, 0, 0, 0.54);\r\n    padding: 0 8px;\r\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-25cd21a6] {\r\n    margin: 0;\r\n    border-bottom: none;\r\n    height: auto;\r\n    line-height: normal;\r\n    font-size: 12px;\r\n    width: 40px;\r\n    text-align: right;\n}\n.table-footer select[data-v-25cd21a6] {\r\n    background-color: transparent;\r\n    width: auto;\r\n    padding: 0;\r\n    border: 0;\r\n    border-radius: 0;\r\n    height: auto;\r\n    margin-left: 20px;\n}\n.table-title[data-v-25cd21a6] {\r\n    font-size: 20px;\r\n    color: #000;\n}\ntable tr td[data-v-25cd21a6] {\r\n    height: 35px;\r\n    font-size: 11px;\r\n    color: rgba(0, 0, 0, 0.87);\r\n    display: table-cell;\n}\ntable tr td a i[data-v-25cd21a6] {\r\n    font-size: 18px;\r\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-25cd21a6] {\r\n    font-size: 12px;\r\n    box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2);\r\n    -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2);\r\n    -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2);\r\n    -o-box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2);\n}\ntable thead tr[data-v-25cd21a6]:first-child {\r\n    box-shadow: 0 0 0px rgba(0, 0, 0, 0.0), 0 1px 0px rgba(0, 0, 0, 0.2);\r\n    -webkit-box-shadow: 0 0 0px rgba(0, 0, 0, 0.0), 0 1px 0px rgba(0, 0, 0, 0.2);\r\n    -moz-box-shadow: 0 0 0px rgba(0, 0, 0, 0.0), 0 1px 0px rgba(0, 0, 0, 0.2);\r\n    -o-box-shadow: 0 0 0px rgba(0, 0, 0, 0.0), 0 1px 0px rgba(0, 0, 0, 0.2);\n}\ntable th[data-v-25cd21a6] {\r\n    font-size: 15px;\r\n    font-weight: 500;\r\n    color: #003449;\r\n    cursor: pointer;\r\n    white-space: nowrap;\r\n    padding: 0 0 3px 0;\r\n    height: 30px;\r\n    padding-left: 14px;\r\n    vertical-align: middle;\r\n    outline: none !important;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    background-size: 11px 12px;\n}\ntable th[data-v-25cd21a6]:hover {\r\n    overflow: visible;\r\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-25cd21a6],\r\ntable th.sorting-desc[data-v-25cd21a6] {\r\n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-25cd21a6] {\r\n    color: rgba(0, 0, 0, 0.87);\r\n    background-image: url('/images/DataTables/Filter_1.svg') !important;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: 100% 7px;\n}\ntable th.sorting-desc[data-v-25cd21a6] {\r\n    color: rgba(0, 0, 0, 0.87);\r\n    background-image: url('/images/DataTables/Filter_2.svg') !important;\r\n\tbackground-repeat: no-repeat;\r\n\tbackground-position: 100% 7px;\n}\ntable tr td a[data-v-25cd21a6]{\r\n    color: #1890ff;\r\n    background-color: transparent;\r\n    text-decoration: none;\r\n    outline: none;\r\n    cursor: pointer;\r\n    transition: color 0.3s;\r\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-25cd21a6]:hover:after,\r\ntable th.sorting-asc[data-v-25cd21a6]:after,\r\ntable th.sorting-desc[data-v-25cd21a6]:after {\r\n    display: inline-block;\n}\ntable tbody tr[data-v-25cd21a6]:hover {\r\n    background-color: #EEE;\n}\ntable th[data-v-25cd21a6]:last-child,\r\ntable td[data-v-25cd21a6]:last-child {\r\n    padding-right: 14px;\r\n    background-image: none !important;\n}\ntable th[data-v-25cd21a6]:first-child,\r\ntable td[data-v-25cd21a6]:first-child {\r\n    padding-left: 25px;\n}\r\n", ""]);
+exports.push([module.i, "\nspan.days-remaining[data-v-25cd21a6]{\n    display: block;\n    width: 100%;\n    text-align: center;\n}\ntable tr td a.Canceled[data-v-25cd21a6]{\n    color: red;\n    background-color: red;\n    width: 19px;\n    display: block;\n    height: 19px;\n    margin: 0 auto;\n    border-radius: 32px;\n}\ntable tr td a.Inactive[data-v-25cd21a6]{\n    color: orange;\n    background-color: orange;\n    width: 19px;\n    display: block;\n    height: 19px;\n    margin: 0 auto;\n    border-radius: 32px;\n}\ntable tr td a.Active[data-v-25cd21a6]{\n    color: green;\n    background-color: green;\n    width: 19px;\n    display: block;\n    height: 19px;\n    margin: 0 auto;\n    border-radius: 32px;\n}\ntable tr td span.actions a[data-v-25cd21a6]{\n    width: 32px;\n    display: block;\n    height: 35px;\n    float: left;\n}\ntable tr td a.View[data-v-25cd21a6]{\n    background-image: url('/images/DataTables/View_Icon_Active.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-25cd21a6]:hover,\ntable tr td a.View[data-v-25cd21a6]:active{\n    background-image: url('/images/DataTables/View_Icon.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-25cd21a6]{\n    background-image: url('/images/DataTables/Delete_Icon.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-25cd21a6]:hover,\ntable tr td a.Delete[data-v-25cd21a6]:active{\n    background-image: url('/images/DataTables/Delete_Icon_Active.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-25cd21a6]{\n    background-image: url('/images/DataTables/Edit_Icon.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-25cd21a6]:hover,\ntable tr td a.Edit[data-v-25cd21a6]:active{\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');\n    background-size: 36px 35px;\n    background-repeat: no-repeat;\n}\n.control-label[data-v-25cd21a6]{\n    float: left;\n}\ndiv.material-table[data-v-25cd21a6] {\n    padding: 0;\n}\n#breakdown tr td[data-v-25cd21a6]{\n    height: 35px;\n}\n#items tr td[data-v-25cd21a6]{\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-25cd21a6], #items tr[data-v-25cd21a6] {\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-25cd21a6] {\n    cursor: pointer;\n}\n#search-input[data-v-25cd21a6] {\n    margin: 0;\n    border: transparent 0 !important;\n    height: 48px;\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-25cd21a6] {\n    padding: 0 14px 0 24px;\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-25cd21a6] {\n    /* table-layout: fixed; */\n    border-collapse: separate;\n    border-spacing: 0 6px;\n}\n.table-header[data-v-25cd21a6] {\n    height: 64px;\n    padding-left: 24px;\n    padding-right: 14px;\n    align-items: center;\n    display: flex;\n    -webkit-display: flex;\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-25cd21a6] {\n    display: -webkit-flex;\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-25cd21a6] {\n    min-width: 36px;\n    padding: 0 8px;\n}\n.table-header input[data-v-25cd21a6] {\n    margin: 0;\n    height: auto;\n}\n.table-header i[data-v-25cd21a6] {\n    color: rgba(0, 0, 0, 0.54);\n    font-size: 24px;\n}\n.table-footer[data-v-25cd21a6] {\n    height: 56px;\n    padding-left: 24px;\n    padding-right: 14px;\n    display: flex;\n    flex-direction: row;\n    justify-content: flex-end;\n    align-items: center;\n    font-size: 12px !important;\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-25cd21a6] {\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-25cd21a6] {\n    outline: none;\n}\n.table-footer img[data-v-25cd21a6] {\n    width: 46px;\n}\n.table-footer label[data-v-25cd21a6] {\n    font-size: 12px;\n    color: rgba(0, 0, 0, 0.54);\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-25cd21a6] {\n    display: flex;\n    /* works with row or column */\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-25cd21a6],\n.table-footer .datatable-length[data-v-25cd21a6] {\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-25cd21a6] {\n    display: flex;\n    -webkit-display: flex;\n    margin: 0;\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-25cd21a6] {\n    color: rgba(0, 0, 0, 0.54);\n    padding: 0 8px;\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-25cd21a6] {\n    margin: 0;\n    border-bottom: none;\n    height: auto;\n    line-height: normal;\n    font-size: 12px;\n    width: 40px;\n    text-align: right;\n}\n.table-footer select[data-v-25cd21a6] {\n    background-color: transparent;\n    width: auto;\n    padding: 0;\n    border: 0;\n    border-radius: 0;\n    height: auto;\n    margin-left: 20px;\n}\n.table-title[data-v-25cd21a6] {\n    font-size: 20px;\n    color: #000;\n}\ntable tr td[data-v-25cd21a6] {\n    height: 35px;\n    font-size: 11px;\n    color: rgba(0, 0, 0, 0.87);\n    display: table-cell;\n}\ntable tr td a i[data-v-25cd21a6] {\n    font-size: 18px;\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-25cd21a6] {\n    font-size: 12px;\n    box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2);\n    -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2);\n    -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2);\n    -o-box-shadow: 0 0 1px rgba(0, 0, 0, 0.125), 0 1px 3px rgba(0, 0, 0, 0.2);\n}\ntable thead tr[data-v-25cd21a6]:first-child {\n    box-shadow: 0 0 0px rgba(0, 0, 0, 0.0), 0 1px 0px rgba(0, 0, 0, 0.2);\n    -webkit-box-shadow: 0 0 0px rgba(0, 0, 0, 0.0), 0 1px 0px rgba(0, 0, 0, 0.2);\n    -moz-box-shadow: 0 0 0px rgba(0, 0, 0, 0.0), 0 1px 0px rgba(0, 0, 0, 0.2);\n    -o-box-shadow: 0 0 0px rgba(0, 0, 0, 0.0), 0 1px 0px rgba(0, 0, 0, 0.2);\n}\ntable th[data-v-25cd21a6] {\n    font-size: 15px;\n    font-weight: 500;\n    color: #003449;\n    cursor: pointer;\n    white-space: nowrap;\n    padding: 0 0 3px 0;\n    height: 30px;\n    padding-left: 14px;\n    vertical-align: middle;\n    outline: none !important;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    background-size: 11px 12px;\n}\ntable th[data-v-25cd21a6]:hover {\n    overflow: visible;\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-25cd21a6],\ntable th.sorting-desc[data-v-25cd21a6] {\n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-25cd21a6] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_1.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 100% 7px;\n}\ntable th.sorting-desc[data-v-25cd21a6] {\n    color: rgba(0, 0, 0, 0.87);\n    background-image: url('/images/DataTables/Filter_2.svg') !important;\n\tbackground-repeat: no-repeat;\n\tbackground-position: 100% 7px;\n}\ntable tr td a[data-v-25cd21a6]{\n    color: #1890ff;\n    background-color: transparent;\n    text-decoration: none;\n    outline: none;\n    cursor: pointer;\n    transition: color 0.3s;\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-25cd21a6]:hover:after,\ntable th.sorting-asc[data-v-25cd21a6]:after,\ntable th.sorting-desc[data-v-25cd21a6]:after {\n    display: inline-block;\n}\ntable tbody tr[data-v-25cd21a6]:hover {\n    background-color: #EEE;\n}\ntable th[data-v-25cd21a6]:last-child,\ntable td[data-v-25cd21a6]:last-child {\n    padding-right: 14px;\n    background-image: none !important;\n}\ntable th[data-v-25cd21a6]:first-child,\ntable td[data-v-25cd21a6]:first-child {\n    padding-left: 25px;\n}\n", ""]);
 
 // exports
 
@@ -250968,7 +251445,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.btn-secondary[data-v-3f7b2f16]{ \r\n  color: #fff; \r\n  background-color: #f6f8f9; \r\n  border-color: #f6f8f9; \r\n  padding: 0px 7px;\n}\n.btn-secondary img[data-v-3f7b2f16]{ \r\n  width: 11px;\n}\nthead th[data-v-3f7b2f16] {  \r\n    position: sticky;  \r\n    position: -webkit-sticky;  \r\n    top: 0;  \r\n    background: white;  \r\n    z-index: 10;\n}\n.ant-list-item[data-v-3f7b2f16] {  \r\n    align-items: center;  \r\n    display: flex;  \r\n    padding: 0;\n}\n.small-avatar img[data-v-3f7b2f16]{  \r\n    width: 28px;  \r\n    margin-top: 0px;  \r\n    border-radius: 50%;  \r\n    margin-right: 10px;\n}\ntable tr td a.Canceled[data-v-3f7b2f16]{  \r\n    color: red;\n}\ntable tr td a.Inactive[data-v-3f7b2f16]{  \r\n    color: orange;\n}\ntable tr td a.Active[data-v-3f7b2f16]{  \r\n    color: green;\n}\ntable tr td span.actions a[data-v-3f7b2f16]{  \r\n    padding: 0px 7px;  \r\n    width: 29px;  \r\n    display: block;  \r\n    height: 29px;  \r\n    float: left;\n}\ntable tr td a.View[data-v-3f7b2f16]{  \r\n    background-image: url('/images/DataTables/View_Icon_Active.svg');  \r\n    background-size: cover;  \r\n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-3f7b2f16]:hover,  \r\ntable tr td a.View[data-v-3f7b2f16]:active{  \r\n    background-image: url('/images/DataTables/View_Icon.svg');  \r\n    background-size: cover;  \r\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-3f7b2f16]{  \r\n    background-image: url('/images/icons/Bin_nodrop.svg');  \r\n    background-size: cover;  \r\n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-3f7b2f16]:hover,  \r\ntable tr td a.Delete[data-v-3f7b2f16]:active{  \r\n    background-image: url('/images/icons/Bin_hover.svg');  \r\n    background-size: cover;  \r\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-3f7b2f16]{  \r\n    background-image: url('/images/icons/No_Shadow.svg');  \r\n    background-size: cover;  \r\n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-3f7b2f16]:hover,  \r\ntable tr td a.Edit[data-v-3f7b2f16]:active{  \r\n    background-image: url('/images/icons/_Hover_nodrop.svg');  \r\n    background-size: cover;  \r\n    background-repeat: no-repeat;\n}\n.control-label[data-v-3f7b2f16]{  \r\n    float: left;\n}\ndiv.material-table[data-v-3f7b2f16] {  \r\n    padding: 0;\n}\n#breakdown tr td[data-v-3f7b2f16]{  \r\n    height: 35px;\n}\n#items tr td[data-v-3f7b2f16]{  \r\n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-3f7b2f16], #items tr[data-v-3f7b2f16] {  \r\n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-3f7b2f16] {  \r\n    cursor: pointer;\n}\n#search-input[data-v-3f7b2f16] {  \r\n    margin: 0;  \r\n    border: transparent 0 !important;  \r\n    height: 48px;  \r\n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-3f7b2f16] {  \r\n    padding: 0 14px 0 24px;  \r\n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-3f7b2f16] {  \r\n    /* table-layout: fixed; */  \r\n    /* border-collapse: separate; */  \r\n    border-spacing: 0 6px;\n}\n.table-header[data-v-3f7b2f16] {  \r\n    height: 64px;  \r\n    padding-left: 24px;  \r\n    padding-right: 14px;  \r\n    align-items: center;  \r\n    display: flex;  \r\n    -webkit-display: flex;  \r\n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-3f7b2f16] {  \r\n    display: -webkit-flex;  \r\n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-3f7b2f16] {  \r\n    min-width: 36px;  \r\n    padding: 0 8px;\n}\n.table-header input[data-v-3f7b2f16] {  \r\n    margin: 0;  \r\n    height: auto;\n}\n.table-header i[data-v-3f7b2f16] {  \r\n    color: rgba(0, 0, 0, 0.54);  \r\n    font-size: 24px;\n}\n.table-footer[data-v-3f7b2f16] {  \r\n    height: 56px;  \r\n    padding-left: 24px;  \r\n    padding-right: 14px;  \r\n    display: flex;  \r\n    flex-direction: row;  \r\n    justify-content: flex-end;  \r\n    align-items: center;  \r\n    font-size: 12px !important;  \r\n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-3f7b2f16] {  \r\n    display: flex;\n}\n.table-footer .datatable-length select[data-v-3f7b2f16] {  \r\n    outline: none;\n}\n.table-footer img[data-v-3f7b2f16] {  \r\n    width: 46px;\n}\n.table-footer label[data-v-3f7b2f16] {  \r\n    font-size: 12px;  \r\n    color: rgba(0, 0, 0, 0.54);  \r\n    display: flex;  \r\n    /* works with row or column */  \r\n    flex-direction: row;  \r\n    align-items: center;  \r\n    justify-content: center;  \r\n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-3f7b2f16] {  \r\n    display: flex;  \r\n    /* works with row or column */  \r\n    flex-direction: row;  \r\n    align-items: center;  \r\n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-3f7b2f16],  \r\n.table-footer .datatable-length[data-v-3f7b2f16] {  \r\n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-3f7b2f16] {  \r\n    display: flex;  \r\n    -webkit-display: flex;  \r\n    margin: 0;  \r\n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-3f7b2f16] {  \r\n    color: rgba(0, 0, 0, 0.54);  \r\n    padding: 0 8px;  \r\n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-3f7b2f16] {  \r\n    margin: 0;  \r\n    border-bottom: none;  \r\n    height: auto;  \r\n    line-height: normal;  \r\n    font-size: 12px;  \r\n    width: 40px;  \r\n    text-align: right;\n}\n.table-footer select[data-v-3f7b2f16] {  \r\n    background-color: transparent;  \r\n    width: auto;  \r\n    padding: 0;  \r\n    border: 0;  \r\n    border-radius: 0;  \r\n    height: auto;  \r\n    margin-left: 20px;\n}\n.table-title[data-v-3f7b2f16] {  \r\n    font-size: 20px;  \r\n    color: #000;\n}\ntable tr td[data-v-3f7b2f16] {  \r\n     height: 35px;  \r\n    font-size: 14px;  \r\n    color: #1c2331;  \r\n    display: table-cell;  \r\n    font-family: 'Rubik', sans-serif !important;  \r\n    padding: 10px 20px 10px 0px;  \r\n    min-width: 150px;\n}\n@media screen and (max-width: 1500px) {\ntable tr td[data-v-3f7b2f16] {  \r\n            font-size: 12px !important;  \r\n            padding: 5px 10px 5px 0px !important;\n}\n}\ntable tr td a i[data-v-3f7b2f16] {  \r\n    font-size: 18px;  \r\n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-3f7b2f16] {  \r\n    font-size: 12px;  \r\n     border-bottom: 1px solid #f2f2f2;  \r\n    padding-left: 0;  \r\n    width: auto;  \r\n    white-space: nowrap;\n}\ntable thead tr[data-v-3f7b2f16]:first-child {  \r\n    border-bottom: 0;\n}\ntable th[data-v-3f7b2f16] {  \r\n    font-size: 12px;  \r\n    font-weight: 600;  \r\n    color: #A6A6A6;  \r\n    cursor: pointer;  \r\n    white-space: nowrap;  \r\n    padding-right: 20px;  \r\n    /* height: 56px; */  \r\n    /* padding-left: 14px; */  \r\n    vertical-align: middle;  \r\n    outline: none !important;  \r\n    overflow: hidden;  \r\n    text-overflow: ellipsis;  \r\n    background-size: 11px 12px;  \r\n    background-repeat: no-repeat;  \r\n    background-position: left center;  \r\n    font-family: 'Montserrat bold', sans-serif;\n}\ntable th[data-v-3f7b2f16]:hover {  \r\n    overflow: visible;  \r\n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-3f7b2f16],  \r\ntable th.sorting-desc[data-v-3f7b2f16] {  \r\n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-3f7b2f16] {  \r\n    color: rgba(0, 0, 0, 0.87);  \r\n    background-image: url('/images/DataTables/Filter_1.svg') !important;  \r\n    background-repeat: no-repeat;  \r\n    background-position: 77% 45%;\n}\ntable th.sorting-desc[data-v-3f7b2f16] {  \r\n    color: rgba(0, 0, 0, 0.87);  \r\n    background-image: url('/images/DataTables/Filter_2.svg') !important;  \r\n    background-repeat: no-repeat;  \r\n    background-position: 77% 45%;\n}\ntable tr td span a[data-v-3f7b2f16]{  \r\n    color: #1890ff !important;  \r\n    background-color: transparent;  \r\n    text-decoration: none;  \r\n    outline: none;  \r\n    cursor: pointer;  \r\n    transition: color 0.3s;  \r\n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-3f7b2f16]:hover:after,  \r\ntable th.sorting-asc[data-v-3f7b2f16]:after,  \r\ntable th.sorting-desc[data-v-3f7b2f16]:after {  \r\n    display: inline-block;\n}\ntable tbody tr[data-v-3f7b2f16]:hover {  \r\n    background-color: #EEE;\n}\ntable th[data-v-3f7b2f16]:last-child,  \r\ntable td[data-v-3f7b2f16]:last-child {  \r\n    padding-right: 14px;  \r\n    background-image: none !important;\n}  \r\n  \r\n/* table th:first-child,  \r\ntable td:first-child {  \r\n    padding-left: 25px;  \r\n} */\n.add-columns[data-v-3f7b2f16] { \r\n  position: fixed; \r\n  z-index: 100; \r\n  background-color: #fff; \r\n  padding-right: 20px; \r\n  left:75px;\n}\n.show > .btn-secondary.dropdown-toggle[data-v-3f7b2f16] { \r\n  background-color: #f6f8f9;\n}\n#dropdownMenuButton[data-v-3f7b2f16]:after { \r\n  display: none;\n}\n.btn-primary[data-v-3f7b2f16] { \r\n  border-radius: 50rem!important; \r\n  text-transform:uppercase; \r\n  font-size: 10px; \r\n  padding: 11px 14px 10px; \r\n  line-height:1em; \r\n  margin-left: 0.9%; \r\n  margin-right: 0.9%;\n}\n.dropdown-menu.show[data-v-3f7b2f16] { \r\n  padding:10px; \r\n  border-radius: 10px; \r\n  border:0; \r\n  box-shadow: 0 0 10px rgba(0,0,0,0.1); \r\n  width:225px;\n}\n.form-group.select-columns-list[data-v-3f7b2f16] { \r\n  max-height: 150px; \r\n  overflow-y: auto; \r\n  overflow-x: hidden; \r\n  margin-bottom: 0!important;\n} \r\n", ""]);
+exports.push([module.i, "\n.btn-secondary[data-v-3f7b2f16]{ \n  color: #fff; \n  background-color: #f6f8f9; \n  border-color: #f6f8f9; \n  padding: 0px 7px;\n}\n.btn-secondary img[data-v-3f7b2f16]{ \n  width: 11px;\n}\nthead th[data-v-3f7b2f16] {  \n    position: sticky;  \n    position: -webkit-sticky;  \n    top: 0;  \n    background: white;  \n    z-index: 10;\n}\n.ant-list-item[data-v-3f7b2f16] {  \n    align-items: center;  \n    display: flex;  \n    padding: 0;\n}\n.small-avatar img[data-v-3f7b2f16]{  \n    width: 28px;  \n    margin-top: 0px;  \n    border-radius: 50%;  \n    margin-right: 10px;\n}\ntable tr td a.Canceled[data-v-3f7b2f16]{  \n    color: red;\n}\ntable tr td a.Inactive[data-v-3f7b2f16]{  \n    color: orange;\n}\ntable tr td a.Active[data-v-3f7b2f16]{  \n    color: green;\n}\ntable tr td span.actions a[data-v-3f7b2f16]{  \n    padding: 0px 7px;  \n    width: 29px;  \n    display: block;  \n    height: 29px;  \n    float: left;\n}\ntable tr td a.View[data-v-3f7b2f16]{  \n    background-image: url('/images/DataTables/View_Icon_Active.svg');  \n    background-size: cover;  \n    background-repeat: no-repeat;\n}\ntable tr td a.View[data-v-3f7b2f16]:hover,  \ntable tr td a.View[data-v-3f7b2f16]:active{  \n    background-image: url('/images/DataTables/View_Icon.svg');  \n    background-size: cover;  \n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-3f7b2f16]{  \n    background-image: url('/images/icons/Bin_nodrop.svg');  \n    background-size: cover;  \n    background-repeat: no-repeat;\n}\ntable tr td a.Delete[data-v-3f7b2f16]:hover,  \ntable tr td a.Delete[data-v-3f7b2f16]:active{  \n    background-image: url('/images/icons/Bin_hover.svg');  \n    background-size: cover;  \n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-3f7b2f16]{  \n    background-image: url('/images/icons/No_Shadow.svg');  \n    background-size: cover;  \n    background-repeat: no-repeat;\n}\ntable tr td a.Edit[data-v-3f7b2f16]:hover,  \ntable tr td a.Edit[data-v-3f7b2f16]:active{  \n    background-image: url('/images/icons/_Hover_nodrop.svg');  \n    background-size: cover;  \n    background-repeat: no-repeat;\n}\n.control-label[data-v-3f7b2f16]{  \n    float: left;\n}\ndiv.material-table[data-v-3f7b2f16] {  \n    padding: 0;\n}\n#breakdown tr td[data-v-3f7b2f16]{  \n    height: 35px;\n}\n#items tr td[data-v-3f7b2f16]{  \n    padding: 12px 0 0 14px;\n}\n#breakdown tr[data-v-3f7b2f16], #items tr[data-v-3f7b2f16] {  \n    border: 1px solid #dddddd;\n}\ntr.clickable[data-v-3f7b2f16] {  \n    cursor: pointer;\n}\n#search-input[data-v-3f7b2f16] {  \n    margin: 0;  \n    border: transparent 0 !important;  \n    height: 48px;  \n    color: rgba(0, 0, 0, .84);\n}\n#search-input-container[data-v-3f7b2f16] {  \n    padding: 0 14px 0 24px;  \n    border-bottom: solid 1px #DDDDDD;\n}\ntable[data-v-3f7b2f16] {  \n    /* table-layout: fixed; */  \n    /* border-collapse: separate; */  \n    border-spacing: 0 6px;\n}\n.table-header[data-v-3f7b2f16] {  \n    height: 64px;  \n    padding-left: 24px;  \n    padding-right: 14px;  \n    align-items: center;  \n    display: flex;  \n    -webkit-display: flex;  \n    border-bottom: solid 1px #DDDDDD;\n}\n.table-header .actions[data-v-3f7b2f16] {  \n    display: -webkit-flex;  \n    margin-left: auto;\n}\n.table-header .btn-flat[data-v-3f7b2f16] {  \n    min-width: 36px;  \n    padding: 0 8px;\n}\n.table-header input[data-v-3f7b2f16] {  \n    margin: 0;  \n    height: auto;\n}\n.table-header i[data-v-3f7b2f16] {  \n    color: rgba(0, 0, 0, 0.54);  \n    font-size: 24px;\n}\n.table-footer[data-v-3f7b2f16] {  \n    height: 56px;  \n    padding-left: 24px;  \n    padding-right: 14px;  \n    display: flex;  \n    flex-direction: row;  \n    justify-content: flex-end;  \n    align-items: center;  \n    font-size: 12px !important;  \n    color: rgba(0, 0, 0, 0.54);\n}\n.table-footer .datatable-length[data-v-3f7b2f16] {  \n    display: flex;\n}\n.table-footer .datatable-length select[data-v-3f7b2f16] {  \n    outline: none;\n}\n.table-footer img[data-v-3f7b2f16] {  \n    width: 46px;\n}\n.table-footer label[data-v-3f7b2f16] {  \n    font-size: 12px;  \n    color: rgba(0, 0, 0, 0.54);  \n    display: flex;  \n    /* works with row or column */  \n    flex-direction: row;  \n    align-items: center;  \n    justify-content: center;  \n    margin-bottom: 0;\n}\n.table-footer .select-wrapper[data-v-3f7b2f16] {  \n    display: flex;  \n    /* works with row or column */  \n    flex-direction: row;  \n    align-items: center;  \n    justify-content: center;\n}\n.table-footer .datatable-info[data-v-3f7b2f16],  \n.table-footer .datatable-length[data-v-3f7b2f16] {  \n    margin-right: 32px;\n}\n.table-footer .material-pagination[data-v-3f7b2f16] {  \n    display: flex;  \n    -webkit-display: flex;  \n    margin: 0;  \n    list-style-type: none;\n}\n.table-footer .material-pagination li a[data-v-3f7b2f16] {  \n    color: rgba(0, 0, 0, 0.54);  \n    padding: 0 8px;  \n    font-size: 24px;\n}\n.table-footer .select-wrapper input.select-dropdown[data-v-3f7b2f16] {  \n    margin: 0;  \n    border-bottom: none;  \n    height: auto;  \n    line-height: normal;  \n    font-size: 12px;  \n    width: 40px;  \n    text-align: right;\n}\n.table-footer select[data-v-3f7b2f16] {  \n    background-color: transparent;  \n    width: auto;  \n    padding: 0;  \n    border: 0;  \n    border-radius: 0;  \n    height: auto;  \n    margin-left: 20px;\n}\n.table-title[data-v-3f7b2f16] {  \n    font-size: 20px;  \n    color: #000;\n}\ntable tr td[data-v-3f7b2f16] {  \n     height: 35px;  \n    font-size: 14px;  \n    color: #1c2331;  \n    display: table-cell;  \n    font-family: 'Rubik', sans-serif !important;  \n    padding: 10px 20px 10px 0px;  \n    min-width: 150px;\n}\n@media screen and (max-width: 1500px) {\ntable tr td[data-v-3f7b2f16] {  \n            font-size: 12px !important;  \n            padding: 5px 10px 5px 0px !important;\n}\n}\ntable tr td a i[data-v-3f7b2f16] {  \n    font-size: 18px;  \n    color: rgba(0, 0, 0, 0.54);\n}\ntable tr[data-v-3f7b2f16] {  \n    font-size: 12px;  \n     border-bottom: 1px solid #f2f2f2;  \n    padding-left: 0;  \n    width: auto;  \n    white-space: nowrap;\n}\ntable thead tr[data-v-3f7b2f16]:first-child {  \n    border-bottom: 0;\n}\ntable th[data-v-3f7b2f16] {  \n    font-size: 12px;  \n    font-weight: 600;  \n    color: #A6A6A6;  \n    cursor: pointer;  \n    white-space: nowrap;  \n    padding-right: 20px;  \n    /* height: 56px; */  \n    /* padding-left: 14px; */  \n    vertical-align: middle;  \n    outline: none !important;  \n    overflow: hidden;  \n    text-overflow: ellipsis;  \n    background-size: 11px 12px;  \n    background-repeat: no-repeat;  \n    background-position: left center;  \n    font-family: 'Montserrat bold', sans-serif;\n}\ntable th[data-v-3f7b2f16]:hover {  \n    overflow: visible;  \n    text-overflow: initial;\n}\ntable th.sorting-asc[data-v-3f7b2f16],  \ntable th.sorting-desc[data-v-3f7b2f16] {  \n    color: rgba(0, 0, 0, 0.87);\n}\ntable th.sorting-asc[data-v-3f7b2f16] {  \n    color: rgba(0, 0, 0, 0.87);  \n    background-image: url('/images/DataTables/Filter_1.svg') !important;  \n    background-repeat: no-repeat;  \n    background-position: 77% 45%;\n}\ntable th.sorting-desc[data-v-3f7b2f16] {  \n    color: rgba(0, 0, 0, 0.87);  \n    background-image: url('/images/DataTables/Filter_2.svg') !important;  \n    background-repeat: no-repeat;  \n    background-position: 77% 45%;\n}\ntable tr td span a[data-v-3f7b2f16]{  \n    color: #1890ff !important;  \n    background-color: transparent;  \n    text-decoration: none;  \n    outline: none;  \n    cursor: pointer;  \n    transition: color 0.3s;  \n    -webkit-text-decoration-skip: objects;\n}\ntable th.sorting[data-v-3f7b2f16]:hover:after,  \ntable th.sorting-asc[data-v-3f7b2f16]:after,  \ntable th.sorting-desc[data-v-3f7b2f16]:after {  \n    display: inline-block;\n}\ntable tbody tr[data-v-3f7b2f16]:hover {  \n    background-color: #EEE;\n}\ntable th[data-v-3f7b2f16]:last-child,  \ntable td[data-v-3f7b2f16]:last-child {  \n    padding-right: 14px;  \n    background-image: none !important;\n}  \n  \n/* table th:first-child,  \ntable td:first-child {  \n    padding-left: 25px;  \n} */\n.add-columns[data-v-3f7b2f16] { \n  position: absolute; \n  z-index: 100; \n  left:-40px;\n}\n.show > .btn-secondary.dropdown-toggle[data-v-3f7b2f16] { \n  background-color: #f6f8f9;\n}\n#dropdownMenuButton[data-v-3f7b2f16]:after { \n  display: none;\n}\n.btn-primary[data-v-3f7b2f16] { \n  border-radius: 50rem!important; \n  text-transform:uppercase; \n  font-size: 10px; \n  padding: 11px 14px 10px; \n  line-height:1em; \n  margin-left: 0.9%; \n  margin-right: 0.9%;\n}\n.dropdown-menu.show[data-v-3f7b2f16] { \n  padding:10px; \n  border-radius: 10px; \n  border:0; \n  box-shadow: 0 0 10px rgba(0,0,0,0.1); \n  width:225px;\n}\n.form-group.select-columns-list[data-v-3f7b2f16] { \n  max-height: 150px; \n  overflow-y: auto; \n  overflow-x: hidden; \n  margin-bottom: 0!important;\n} \n", ""]);
 
 // exports
 
@@ -250987,7 +251464,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.trans-tabs[data-v-61b84854] {\r\n  padding-left:5.2%;\r\n  padding-right:5.2%;\n}\n.tab-pane.card-body[data-v-61b84854] {\r\n  padding:4.4% 5.6% 6.8%;\n}\n.branches .tab-pane .row[data-v-61b84854]{\r\n  margin-right: 0;\r\n  margin-left: 0;\n}\nh5[data-v-61b84854] {\r\n  font-size: 0.83vw;\n}\n.nav-link.active img[data-v-61b84854] {\r\n  margin-left:20px;\r\n  display: inline-block!important;\r\n  box-shadow: 0 0 2px rgba(0,0,0,0.15);\r\n  -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);\r\n  -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);\r\n  -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);\r\n  border-radius: 50rem;\n}\n.tab-pane.card-body[data-v-61b84854] {\r\n  padding:4.4% 5.6% 6.8%;\n}\r\n", ""]);
+exports.push([module.i, "\n.trans-tabs[data-v-61b84854] {\n  padding-left:5.2%;\n  padding-right:5.2%;\n}\n.tab-pane.card-body[data-v-61b84854] {\n  padding:4.4% 5.6%;\n}\n.branches .tab-pane .row[data-v-61b84854]{\n  margin-right: 0;\n  margin-left: 0;\n}\nh5[data-v-61b84854] {\n  font-size: 0.83vw;\n}\n.nav-link.active img[data-v-61b84854] {\n  margin-left:20px;\n  display: inline-block!important;\n  box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  border-radius: 50rem;\n}\n", ""]);
 
 // exports
 
@@ -251006,7 +251483,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\ninput[data-v-4c963e28], textarea[data-v-4c963e28], select[data-v-4c963e28] {\r\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  padding: 11px 18px!important;\r\n  font-size: 12px;\r\n  color: #003449;\r\n  border-color: #ccc;\r\n  margin-bottom: 17px;\r\n  font-family: 'Rubik', sans-serif;\r\n  height: auto!important;\n}\ntextarea[data-v-4c963e28] {\r\n  border-radius: 10px;\r\n  height: 124px!important;\n}\n.custom-select[data-v-4c963e28] {\r\n  height: auto;\n}\nlabel[data-v-4c963e28]{\r\n  font-family: 'Rubik', sans-serif;\r\n  font-size: 10px;\r\n  color: #999999;\r\n  margin-bottom: 7px;\r\n  margin-left: 17px;\n}\nh5[data-v-4c963e28] {\r\n  font-family: 'Rubik', sans-serif;\r\n  font-size: 0.73vw;\r\n  color: #2D2D2D;\r\n  margin-bottom: 20px;\n}\n.btn-default[data-v-4c963e28]{\r\n  background: #fff;\r\n  color: #999999;    \r\n  border: none!important;\r\n  padding: 11px 14px 10px;\r\n  font-size: 10px;\r\n  text-transform:uppercase;\r\n  border-radius: 50rem!important;\r\n  line-height:1em;\r\n  margin-left: 0.9%;\r\n  margin-right: 0.9%;\r\n  -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\r\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-4c963e28] {\r\n  border-radius: 50rem!important;\r\n  text-transform:uppercase;\r\n  font-size: 10px;\r\n  padding: 11px 14px 10px;\r\n  line-height:1em;\r\n  margin-left: 0.9%;\r\n  margin-right: 0.9%;\n}\n.ant-switch[data-v-4c963e28] {\r\n  margin-left: 17px;\n}\r\n", ""]);
+exports.push([module.i, "\ninput[data-v-4c963e28], textarea[data-v-4c963e28], select[data-v-4c963e28] {\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding: 11px 18px!important;\n  font-size: 12px;\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height: auto!important;\n}\ntextarea[data-v-4c963e28] {\n  border-radius: 10px;\n  height: 124px!important;\n}\n.custom-select[data-v-4c963e28] {\n  height: auto;\n}\nlabel[data-v-4c963e28]{\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom: 7px;\n  margin-left: 17px;\n}\nh5[data-v-4c963e28] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 0.73vw;\n  color: #2D2D2D;\n  margin-bottom: 20px;\n}\n.btn-default[data-v-4c963e28]{\n  background: #fff;\n  color: #999999;    \n  border: none!important;\n  padding: 11px 14px 10px;\n  font-size: 10px;\n  text-transform:uppercase;\n  border-radius: 50rem!important;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n  -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-4c963e28] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 10px;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n.ant-switch[data-v-4c963e28] {\n  margin-left: 17px;\n}\n", ""]);
 
 // exports
 
@@ -251025,7 +251502,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\ninput[data-v-1570c404], textarea[data-v-1570c404], select[data-v-1570c404] {\r\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  padding: 11px 18px!important;\r\n  font-size: 12px;\r\n  color: #003449;\r\n  border-color: #ccc;\r\n  margin-bottom: 17px;\r\n  font-family: 'Rubik', sans-serif;\r\n  height: auto!important;\n}\ntextarea[data-v-1570c404] {\r\n  border-radius: 10px;\r\n  height: 124px!important;\n}\n.custom-select[data-v-1570c404] {\r\n  height: auto;\n}\nlabel[data-v-1570c404]{\r\n  font-family: 'Rubik', sans-serif;\r\n  font-size: 10px;\r\n  color: #999999;\r\n  margin-bottom: 7px;\r\n  margin-left: 17px;\n}\nh5[data-v-1570c404] {\r\n  font-family: 'Rubik', sans-serif;\r\n  font-size: 0.73vw;\r\n  color: #2D2D2D;\r\n  margin-bottom: 20px;\n}\n.btn-default[data-v-1570c404]{\r\n  background: #fff;\r\n  color: #999999;    \r\n  border: none!important;\r\n  padding: 11px 14px 10px;\r\n  font-size: 10px;\r\n  text-transform:uppercase;\r\n  border-radius: 50rem!important;\r\n  line-height:1em;\r\n  margin-left: 0.9%;\r\n  margin-right: 0.9%;\r\n  -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\r\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-1570c404] {\r\n  border-radius: 50rem!important;\r\n  text-transform:uppercase;\r\n  font-size: 10px;\r\n  padding: 11px 14px 10px;\r\n  line-height:1em;\r\n  margin-left: 0.9%;\r\n  margin-right: 0.9%;\n}\n.ant-switch[data-v-1570c404] {\r\n  margin-left: 17px;\n}\r\n", ""]);
+exports.push([module.i, "\ninput[data-v-1570c404], textarea[data-v-1570c404], select[data-v-1570c404] {\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding: 11px 18px!important;\n  font-size: 12px;\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height: auto!important;\n}\ntextarea[data-v-1570c404] {\n  border-radius: 10px;\n  height: 124px!important;\n}\n.custom-select[data-v-1570c404] {\n  height: auto;\n}\nlabel[data-v-1570c404]{\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom: 7px;\n  margin-left: 17px;\n}\nh5[data-v-1570c404] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 0.73vw;\n  color: #2D2D2D;\n  margin-bottom: 20px;\n}\n.btn-default[data-v-1570c404]{\n  background: #fff;\n  color: #999999;    \n  border: none!important;\n  padding: 11px 14px 10px;\n  font-size: 10px;\n  text-transform:uppercase;\n  border-radius: 50rem!important;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n  -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-1570c404] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 10px;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n.ant-switch[data-v-1570c404] {\n  margin-left: 17px;\n}\n", ""]);
 
 // exports
 
@@ -251044,7 +251521,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.col-6[data-v-c3b77390] { \r\n  padding-left: 3.3%; \r\n  padding-right: 3.3%;\n}\n.col-6.border-right[data-v-c3b77390] { \r\n  border-color: #8D8D8D;\n}\n.col-6 .col-7 .col-8[data-v-c3b77390], \r\n.col-6 .col-7 .col-4[data-v-c3b77390] { \r\n  padding-left: 10px; \r\n  padding-right:10px;\n}\ninput[data-v-c3b77390], textarea[data-v-c3b77390], select[data-v-c3b77390] { \r\n  box-shadow: 0 0 4px rgba(0,0,0,0.1); \r\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1); \r\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1); \r\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1); \r\n  padding: 11px 18px!important; \r\n  font-size: 12px; \r\n  color: #003449; \r\n  border-color: #ccc; \r\n  margin-bottom: 17px; \r\n  font-family: 'Rubik', sans-serif; \r\n  height: auto!important;\n}\ntextarea[data-v-c3b77390] { \r\n  box-shadow: 0 0 4px rgba(0,0,0,0.1); \r\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1); \r\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1); \r\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1); \r\n  padding: 11px 18px!important; \r\n  font-size: 12px; \r\n  color: #003449; \r\n  border-color: #ccc; \r\n  margin-bottom: 17px; \r\n  font-family: 'Rubik', sans-serif; \r\n  height: auto!important; \r\n  border-radius: 10px;\n}\n.custom-select[data-v-c3b77390] { \r\n  height: auto;\n}\nlabel[data-v-c3b77390]{ \r\n  font-family: 'Rubik', sans-serif; \r\n  font-size: 10px; \r\n  color: #999999; \r\n  margin-bottom: 7px; \r\n  margin-left: 17px;\n}\n.btn-default[data-v-c3b77390]{ \r\n  background: #fff; \r\n  color: #999999;     \r\n  border: none!important; \r\n  padding: 11px 14px 10px; \r\n  font-size: 10px; \r\n  text-transform:uppercase; \r\n  border-radius: 50rem!important; \r\n  line-height:1em; \r\n  margin-left: 0.9%; \r\n  margin-right: 0.9%; \r\n  -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05); \r\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-c3b77390] { \r\n  border-radius: 50rem!important; \r\n  text-transform:uppercase; \r\n  font-size: 10px; \r\n  padding: 11px 14px 10px; \r\n  line-height:1em; \r\n  margin-left: 0.9%; \r\n  margin-right: 0.9%;\n}\ninput[data-v-c3b77390], select[data-v-c3b77390]{\r\n  margin-bottom: 0;\n}\n.calendar-container[data-v-c3b77390] { \r\n  margin-left: 17px; \r\n  margin-right: 17px;\n}\n.scroll-x[data-v-c3b77390]{ \r\n  overflow: auto !important;\n}\n.orders .createOrder .order-summary .product-listing td[data-v-c3b77390] { \r\n  font-size: 12px  !important;\n}\n.error[data-v-c3b77390]{\r\n  color: red;\n}\r\n", ""]);
+exports.push([module.i, "\n.col-6[data-v-c3b77390] { \n  padding-left: 3.3%; \n  padding-right: 3.3%;\n}\n.col-6.border-right[data-v-c3b77390] { \n  border-color: #8D8D8D;\n}\n.col-6 .col-7 .col-8[data-v-c3b77390], \n.col-6 .col-7 .col-4[data-v-c3b77390] { \n  padding-left: 10px; \n  padding-right:10px;\n}\ninput[data-v-c3b77390], textarea[data-v-c3b77390], select[data-v-c3b77390] { \n  box-shadow: 0 0 4px rgba(0,0,0,0.1); \n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1); \n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1); \n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1); \n  padding: 11px 18px!important; \n  font-size: 12px; \n  color: #003449; \n  border-color: #ccc; \n  margin-bottom: 17px; \n  font-family: 'Rubik', sans-serif; \n  height: auto!important;\n}\ntextarea[data-v-c3b77390] { \n  box-shadow: 0 0 4px rgba(0,0,0,0.1); \n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1); \n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1); \n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1); \n  padding: 11px 18px!important; \n  font-size: 12px; \n  color: #003449; \n  border-color: #ccc; \n  margin-bottom: 17px; \n  font-family: 'Rubik', sans-serif; \n  height: auto!important; \n  border-radius: 10px;\n}\n.custom-select[data-v-c3b77390] { \n  height: auto;\n}\nlabel[data-v-c3b77390]{ \n  font-family: 'Rubik', sans-serif; \n  font-size: 10px; \n  color: #999999; \n  margin-bottom: 7px; \n  margin-left: 17px;\n}\n.btn-default[data-v-c3b77390]{ \n  background: #fff; \n  color: #999999;     \n  border: none!important; \n  padding: 11px 14px 10px; \n  font-size: 10px; \n  text-transform:uppercase; \n  border-radius: 50rem!important; \n  line-height:1em; \n  margin-left: 0.9%; \n  margin-right: 0.9%; \n  -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05); \n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-c3b77390] { \n  border-radius: 50rem!important; \n  text-transform:uppercase; \n  font-size: 10px; \n  padding: 11px 14px 10px; \n  line-height:1em; \n  margin-left: 0.9%; \n  margin-right: 0.9%;\n}\ninput[data-v-c3b77390], select[data-v-c3b77390]{\n  margin-bottom: 0;\n}\n.calendar-container[data-v-c3b77390] { \n  margin-left: 17px; \n  margin-right: 17px;\n}\n.scroll-x[data-v-c3b77390]{ \n  overflow: auto !important;\n}\n.orders .createOrder .order-summary .product-listing td[data-v-c3b77390] { \n  font-size: 12px  !important;\n}\n.error[data-v-c3b77390]{\n  color: red;\n}\n", ""]);
 
 // exports
 
@@ -251063,7 +251540,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\ninput[data-v-2b0746d9], textarea[data-v-2b0746d9], select[data-v-2b0746d9] {\r\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  padding: 11px 18px!important;\r\n  font-size: 12px;\r\n  color: #003449;\r\n  border-color: #ccc;\r\n  margin-bottom: 17px;\r\n  font-family: 'Rubik', sans-serif;\r\n  height: auto!important;\n}\ntextarea[data-v-2b0746d9] {\r\n  border-radius: 10px;\r\n  height: 124px!important;\n}\n.custom-select[data-v-2b0746d9] {\r\n  height: auto;\n}\nh5[data-v-2b0746d9] {\r\n  font-family: 'Rubik', sans-serif;\r\n  font-size: 0.73vw;\r\n  color: #2D2D2D;\r\n  margin-bottom: 20px;\n}\nlabel[data-v-2b0746d9]{\r\n  font-family: 'Rubik', sans-serif;\r\n  font-size: 10px;\r\n  color: #999999;\r\n  margin-bottom: 7px;\r\n  margin-left: 17px;\n}\n.btn-default[data-v-2b0746d9]{\r\n  background: #fff;\r\n  color: #999999;    \r\n  border: none!important;\r\n  padding: 11px 14px 10px;\r\n  font-size: 10px;\r\n  text-transform:uppercase;\r\n  border-radius: 50rem!important;\r\n  line-height:1em;\r\n  margin-left: 0.9%;\r\n  margin-right: 0.9%;\r\n  -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\r\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-2b0746d9] {\r\n  border-radius: 50rem!important;\r\n  text-transform:uppercase;\r\n  font-size: 10px;\r\n  padding: 11px 14px 10px;\r\n  line-height:1em;\r\n  margin-left: 0.9%;\r\n  margin-right: 0.9%;\n}\n.ant-switch[data-v-2b0746d9] {\r\n  margin-left: 17px;\n}\r\n", ""]);
+exports.push([module.i, "\ninput[data-v-2b0746d9], textarea[data-v-2b0746d9], select[data-v-2b0746d9] {\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding: 11px 18px!important;\n  font-size: 12px;\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height: auto!important;\n}\ntextarea[data-v-2b0746d9] {\n  border-radius: 10px;\n  height: 124px!important;\n}\n.custom-select[data-v-2b0746d9] {\n  height: auto;\n}\nh5[data-v-2b0746d9] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 0.73vw;\n  color: #2D2D2D;\n  margin-bottom: 20px;\n}\nlabel[data-v-2b0746d9]{\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom: 7px;\n  margin-left: 17px;\n}\n.btn-default[data-v-2b0746d9]{\n  background: #fff;\n  color: #999999;    \n  border: none!important;\n  padding: 11px 14px 10px;\n  font-size: 10px;\n  text-transform:uppercase;\n  border-radius: 50rem!important;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n  -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-2b0746d9] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 10px;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n.ant-switch[data-v-2b0746d9] {\n  margin-left: 17px;\n}\n", ""]);
 
 // exports
 
@@ -251082,7 +251559,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.main-header.navbar.navbar-expand[data-v-8502ce80] {\r\n  padding: 0 4%;\n}\n.navbar .title h1[data-v-8502ce80]{\r\n  color: #003549;\r\n  font-size: 1.67vw;\r\n  letter-spacing: 0.1em;\n}\n.callIcons li a[data-v-8502ce80]{\r\n  background-repeat: no-repeat;\r\n  color: black;\r\n  background-size: 59px !important;\r\n  background-repeat: no-repeat !important;\r\n  background-position: center center !important;\n}\n.callIcons .search .col-auto[data-v-8502ce80] {\r\n  padding-right:41%;\n}\n.callIcons .search a[data-v-8502ce80]{\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/top-nav/Search.svg') !important;\r\n  background-size: 15px!important;\r\n  background-repeat: no-repeat;\r\n  border-radius: 50rem;\r\n\tbox-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n\twidth: 48px;\r\n\theight: 48px;\n}\n.callIcons .search a[data-v-8502ce80]:hover{\r\n  background-image: url('/images/icons/Asset 61.svg') !important;\r\n  background-size: 170%!important;\r\n  background-repeat: no-repeat;\n}\n.callIcons .search input[data-v-8502ce80] {\r\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  padding:14px 0 14px;\r\n  right: -40px;\r\n  position: absolute;\r\n  top: -24px;\r\n  width:0;\r\n  transition: width 2s;\n}\n.callIcons .search:hover input[data-v-8502ce80] {\r\n  width:auto;\r\n  padding:14px 40px 14px 15px;\n}\n.callIcons .search input[data-v-8502ce80]::-webkit-input-placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: 'Rubik', sans-serif;\r\n  font-style: italic;\n}\n.callIcons .search input[data-v-8502ce80]::-moz-placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: 'Rubik', sans-serif;\r\n  font-style: italic;\n}\n.callIcons .search input[data-v-8502ce80]:-ms-input-placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: 'Rubik', sans-serif;\r\n  font-style: italic;\n}\n.callIcons .search input[data-v-8502ce80]::-ms-input-placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: 'Rubik', sans-serif;\r\n  font-style: italic;\n}\n.callIcons .search input[data-v-8502ce80]::placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: 'Rubik', sans-serif;\r\n  font-style: italic;\n}\n.header[data-v-8502ce80], .top-nav[data-v-8502ce80], .row.stats[data-v-8502ce80] {\r\n    padding-left: 5.2%!important;\r\n    padding-right: 5.2%!important;\n}\n.top-menu[data-v-8502ce80] {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    align-items: center;\n}\r\n\t/*Right Component*/\ndiv.top-nav[data-v-8502ce80]{\r\n    margin-top: 15px;\n}\nul.top-menu[data-v-8502ce80]{\r\n    list-style: none;\r\n    padding: 0;\n}\nul.top-menu li.item[data-v-8502ce80]{\r\n    float: left;\r\n    margin-left: 1.6%;\r\n    margin-right: 1.6%;\r\n    margin-bottom: 8px;\n}\nul.top-menu li.item a[data-v-8502ce80]{\r\n    color: rgba(0, 0, 0, 0.5);\r\n    border-radius: 20px;\r\n    padding: 4px 22px;\r\n    text-decoration: none;\r\n    box-shadow: 0 0 7px rgba(0,0,0,0.1);\r\n    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.1);\r\n    -moz-box-shadow: 0 0 7px rgba(0,0,0,0.1);\r\n    -o-box-shadow: 0 0 7px rgba(0,0,0,0.1);\r\n    font-size:0.73vw;\n}\nul.top-menu li.item a.active[data-v-8502ce80]{\r\n    background: linear-gradient(to right, rgba(255,128,51,1) 0%,  rgba(255,147, 58,1) 100%) !important;\r\n    color: #fff !important;\r\n    text-decoration: none;\r\n    font-weight: 500;\n}\n.btn-default[data-v-8502ce80]{\r\n    background: #fff;\r\n    color: #999999;    \r\n    border: none!important;\r\n    padding: 11px 14px 10px;\r\n    font-size: 10px;\r\n    text-transform:uppercase;\r\n    border-radius: 50rem!important;\r\n    line-height:1em;\r\n    margin-left: 0.9%;\r\n    margin-right: 0.9%;\r\n    -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\r\n    box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-8502ce80] {\r\n    border-radius: 50rem!important;\r\n    text-transform:uppercase;\r\n    font-size: 10px;\r\n    padding: 11px 14px 10px;\r\n    line-height:1em;\r\n    margin-left: 0.9%;\r\n    margin-right: 0.9%;\n}\n.btn-block[data-v-8502ce80] {\r\n    display: block;\r\n    width: 98%;\n}\n.nav-link.active img[data-v-8502ce80] {\r\n    margin-left:20px;\r\n    display: inline-block!important;\r\n    box-shadow: 0 0 2px rgba(0,0,0,0.15);\r\n    -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);\r\n    -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);\r\n    -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);\r\n    border-radius: 50rem;\n}\n.add-module-btn[data-v-8502ce80] {\r\n    box-shadow:none!important;\r\n    -webkit-box-shadow:none!important;\r\n    -moz-box-shadow:none!important;\r\n    -o-box-shadow:none!important;\n}\n.tab-pane.card-body[data-v-8502ce80] {\r\n    padding:4.4% 5.6% 6.8%;\n}\n.card-body .form-group[data-v-8502ce80]{\r\n    margin-left: 0%;\n}\n.expand-toggle[data-v-8502ce80] {\r\n    background: #fff;\r\n    box-shadow: none;\r\n    -webkit-box-shadow: none;\r\n    -moz-box-shadow: none;\r\n    -o-box-shadow: none;\r\n    text-align: left;\r\n    border-radius: 0!important;\r\n    border-top: 0;\r\n    border-left: 0;\r\n    border-right: 0;\r\n    border-color: #ccc;\r\n    font-family: 'Rubik', sans-serif;\r\n    font-size:0.73vw;\r\n    color: #999999;\r\n    margin-top: 4.6%;\r\n    padding-left:25px;\n}\n.expand-toggle.btn-secondary[data-v-8502ce80]:not(:disabled):not(.disabled):active, \r\n  .expand-toggle.btn-secondary:not(:disabled):not(.disabled).active[data-v-8502ce80], \r\n  .show > .expand-toggle.btn-secondary.dropdown-toggle[data-v-8502ce80] {\r\n    background: #fff;\r\n    border-color: #fff;\r\n    color: #999999;\n}\n.expand-toggle[aria-expanded=\"true\"][data-v-8502ce80] {\r\n    border-bottom: 0;\n}\n.custom-control-label[data-v-8502ce80] {\r\n    color: #999999;\r\n    font-family: 'Rubik', sans-serif;\r\n    font-size:14px;\n}\n.custom-checkbox .custom-control-label[data-v-8502ce80] {\r\n    font-weight: 0.73vw;\n}\n.collapse.show .card[data-v-8502ce80] {\r\n    border-radius: 25px;\r\n    border: 1px solid #ccc!important;\n}\n.collapse.show .card-body[data-v-8502ce80]{\r\n    padding: 1.15% 2.5% 1.85%;\n}\n.edit-role[data-v-8502ce80] {\r\n    margin-bottom:1.7%;\n}\n.permissions-divider[data-v-8502ce80] {\r\n    margin-top:3.7%;\r\n    margin-bottom:3.1%;\n}\n.permissions[data-v-8502ce80] {\r\n    margin-top: 0.5%;\n}\r\n  \r\n", ""]);
+exports.push([module.i, "\n.main-header.navbar.navbar-expand[data-v-8502ce80] {\n  padding: 0 4%;\n}\n.navbar .title h1[data-v-8502ce80]{\n  color: #003549;\n  font-size: 1.67vw;\n  letter-spacing: 0.1em;\n}\n.callIcons li a[data-v-8502ce80]{\n  background-repeat: no-repeat;\n  color: black;\n  background-size: 59px !important;\n  background-repeat: no-repeat !important;\n  background-position: center center !important;\n}\n.callIcons .search .col-auto[data-v-8502ce80] {\n  padding-right:41%;\n}\n.callIcons .search a[data-v-8502ce80]{\n  background-color: #fff;\n  background-image: url('/images/icons/top-nav/Search.svg') !important;\n  background-size: 15px!important;\n  background-repeat: no-repeat;\n  border-radius: 50rem;\n\tbox-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n\twidth: 48px;\n\theight: 48px;\n}\n.callIcons .search a[data-v-8502ce80]:hover{\n  background-image: url('/images/icons/Asset 61.svg') !important;\n  background-size: 170%!important;\n  background-repeat: no-repeat;\n}\n.callIcons .search input[data-v-8502ce80] {\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding:14px 0 14px;\n  right: -40px;\n  position: absolute;\n  top: -24px;\n  width:0;\n  transition: width 2s;\n}\n.callIcons .search:hover input[data-v-8502ce80] {\n  width:auto;\n  padding:14px 40px 14px 15px;\n}\n.callIcons .search input[data-v-8502ce80]::-webkit-input-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-8502ce80]::-moz-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-8502ce80]:-ms-input-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-8502ce80]::-ms-input-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons .search input[data-v-8502ce80]::placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.header[data-v-8502ce80], .top-nav[data-v-8502ce80], .row.stats[data-v-8502ce80] {\n    padding-left: 5.2%!important;\n    padding-right: 5.2%!important;\n}\n.top-menu[data-v-8502ce80] {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n}\n\t/*Right Component*/\ndiv.top-nav[data-v-8502ce80]{\n    margin-top: 15px;\n}\nul.top-menu[data-v-8502ce80]{\n    list-style: none;\n    padding: 0;\n}\nul.top-menu li.item[data-v-8502ce80]{\n    float: left;\n    margin-left: 1.6%;\n    margin-right: 1.6%;\n    margin-bottom: 8px;\n}\nul.top-menu li.item a[data-v-8502ce80]{\n    color: rgba(0, 0, 0, 0.5);\n    border-radius: 20px;\n    padding: 4px 22px;\n    text-decoration: none;\n    box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    font-size:0.73vw;\n}\nul.top-menu li.item a.active[data-v-8502ce80]{\n    background: linear-gradient(to right, rgba(255,128,51,1) 0%,  rgba(255,147, 58,1) 100%) !important;\n    color: #fff !important;\n    text-decoration: none;\n    font-weight: 500;\n}\n.btn-default[data-v-8502ce80]{\n    background: #fff;\n    color: #999999;    \n    border: none!important;\n    padding: 11px 14px 10px;\n    font-size: 10px;\n    text-transform:uppercase;\n    border-radius: 50rem!important;\n    line-height:1em;\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n    -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n    box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-8502ce80] {\n    border-radius: 50rem!important;\n    text-transform:uppercase;\n    font-size: 10px;\n    padding: 11px 14px 10px;\n    line-height:1em;\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n}\n.btn-block[data-v-8502ce80] {\n    display: block;\n    width: 98%;\n}\n.nav-link.active img[data-v-8502ce80] {\n    margin-left:20px;\n    display: inline-block!important;\n    box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    border-radius: 50rem;\n}\n.add-module-btn[data-v-8502ce80] {\n    box-shadow:none!important;\n    -webkit-box-shadow:none!important;\n    -moz-box-shadow:none!important;\n    -o-box-shadow:none!important;\n}\n.tab-pane.card-body[data-v-8502ce80] {\n    padding:4.4% 5.6%;\n}\n.card-body .form-group[data-v-8502ce80]{\n    margin-left: 0%;\n}\n.expand-toggle[data-v-8502ce80] {\n    background: #fff;\n    box-shadow: none;\n    -webkit-box-shadow: none;\n    -moz-box-shadow: none;\n    -o-box-shadow: none;\n    text-align: left;\n    border-radius: 0!important;\n    border-top: 0;\n    border-left: 0;\n    border-right: 0;\n    border-color: #ccc;\n    font-family: 'Rubik', sans-serif;\n    font-size:0.73vw;\n    color: #999999;\n    margin-top: 4.6%;\n    padding-left:25px;\n}\n.expand-toggle.btn-secondary[data-v-8502ce80]:not(:disabled):not(.disabled):active, \n  .expand-toggle.btn-secondary:not(:disabled):not(.disabled).active[data-v-8502ce80], \n  .show > .expand-toggle.btn-secondary.dropdown-toggle[data-v-8502ce80] {\n    background: #fff;\n    border-color: #fff;\n    color: #999999;\n}\n.expand-toggle[aria-expanded=\"true\"][data-v-8502ce80] {\n    border-bottom: 0;\n}\n.custom-control-label[data-v-8502ce80] {\n    color: #999999;\n    font-family: 'Rubik', sans-serif;\n    font-size:14px;\n}\n.custom-checkbox .custom-control-label[data-v-8502ce80] {\n    font-weight: 0.73vw;\n}\n.collapse.show .card[data-v-8502ce80] {\n    border-radius: 25px;\n    border: 1px solid #ccc!important;\n}\n.collapse.show .card-body[data-v-8502ce80]{\n    padding: 1.15% 2.5% 1.85%;\n}\n.edit-role[data-v-8502ce80] {\n    margin-bottom:1.7%;\n}\n.permissions-divider[data-v-8502ce80] {\n    margin-top:3.7%;\n    margin-bottom:3.1%;\n}\n.permissions[data-v-8502ce80] {\n    margin-top: 0.5%;\n}\n  \n", ""]);
 
 // exports
 
@@ -251101,7 +251578,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.trans-tabs[data-v-caac97e4] {\r\n  padding-left:5.2%;\r\n  padding-right:5.2%;\n}\n.tab-pane.card-body[data-v-caac97e4] {\r\n  padding:4.4% 5.6% 6.8%;\n}\n.products .tab-pane .row[data-v-caac97e4]{\r\n  margin-right: 0;\r\n  margin-left: 0;\n}\nh5[data-v-caac97e4] {\r\n  font-size: 0.83vw;\n}\n.nav-link.active img[data-v-caac97e4] {\r\n  margin-left:20px;\r\n  display: inline-block!important;\r\n  box-shadow: 0 0 2px rgba(0,0,0,0.15);\r\n  -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);\r\n  -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);\r\n  -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);\r\n  border-radius: 50rem;\n}\n.add-module-btn[data-v-caac97e4] {\r\n  box-shadow:none!important;\r\n  -webkit-box-shadow:none!important;\r\n  -moz-box-shadow:none!important;\r\n  -o-box-shadow:none!important;\n}\n.tab-pane.card-body[data-v-caac97e4] {\r\n  padding:4.4% 5.6% 6.8%;\n}\n.order-summary[data-v-caac97e4] {\r\n  box-shadow: 0 0 20px rgba(0,0,0,0.1)!important;\r\n  -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.1)!important;\r\n  -moz-box-shadow: 0 0 20px rgba(0,0,0,0.1)!important;\r\n  -o-box-shadow: 0 0 20px rgba(0,0,0,0.1)!important;\r\n  border-radius: 25px;\n}\nlabel[data-v-caac97e4]{\r\n  font-family: 'Rubik', sans-serif;\r\n  font-size: 10px;\r\n  color: #999999;\r\n  margin-bottom: 7px;\r\n  margin-left: 17px;\n}\ntextarea[data-v-caac97e4] {\r\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  padding: 11px 18px!important;\r\n  font-size: 12px;\r\n  color: #003449;\r\n  border-color: #ccc;\r\n  margin-bottom: 17px;\r\n  font-family: 'Rubik', sans-serif;\r\n  height: auto!important;\r\n  border-radius: 10px;\n}\n.order-totals[data-v-caac97e4] {\r\n  min-width: 184px;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.trans-tabs[data-v-caac97e4] {\n  padding-left:5.2%;\n  padding-right:5.2%;\n}\n.tab-pane.card-body[data-v-caac97e4] {\n  padding:4.4% 5.6%;\n}\n.products .tab-pane .row[data-v-caac97e4]{\n  margin-right: 0;\n  margin-left: 0;\n}\nh5[data-v-caac97e4] {\n  font-size: 0.83vw;\n}\n.nav-link.active img[data-v-caac97e4] {\n  margin-left:20px;\n  display: inline-block!important;\n  box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  border-radius: 50rem;\n}\n.add-module-btn[data-v-caac97e4] {\n  box-shadow:none!important;\n  -webkit-box-shadow:none!important;\n  -moz-box-shadow:none!important;\n  -o-box-shadow:none!important;\n}\n.order-summary[data-v-caac97e4] {\n  box-shadow: 0 0 20px rgba(0,0,0,0.1)!important;\n  -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.1)!important;\n  -moz-box-shadow: 0 0 20px rgba(0,0,0,0.1)!important;\n  -o-box-shadow: 0 0 20px rgba(0,0,0,0.1)!important;\n  border-radius: 25px;\n}\nlabel[data-v-caac97e4]{\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom: 7px;\n  margin-left: 17px;\n}\ntextarea[data-v-caac97e4] {\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding: 11px 18px!important;\n  font-size: 12px;\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height: auto!important;\n  border-radius: 10px;\n}\n.order-totals[data-v-caac97e4] {\n  min-width: 184px;\n}\n\n", ""]);
 
 // exports
 
@@ -251120,7 +251597,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.trans-tabs[data-v-6e38270d] {\r\n  padding-left:5.2%;\r\n  padding-right:5.2%;\n}\n.tab-pane.card-body[data-v-6e38270d] {\r\n  padding:4.4% 5.6% 6.8%;\n}\n.nav-link.active img[data-v-6e38270d] {\r\n  display:inline-block!important;\r\n  margin-left: 20px;\n}\n.products .tab-pane .row[data-v-6e38270d]{\r\n  margin-right: 0;\r\n  margin-left: 0;\n}\nh5[data-v-6e38270d] {\r\n  font-size: 0.83vw;\n}\n.tab-pane.card-body[data-v-6e38270d] {\r\n  padding:4.4% 5.6% 6.8%;\n}\nlabel[data-v-6e38270d]{\r\n  font-family: 'Rubik', sans-serif;\r\n  font-size: 10px;\r\n  color: #999999;\r\n  margin-bottom: 7px;\r\n  margin-left: 17px;\n}\n.divider-line[data-v-6e38270d] {\r\n  margin-top: 25px;\r\n  margin-bottom: 30px;\n}\r\n", ""]);
+exports.push([module.i, "\n.trans-tabs[data-v-6e38270d] {\n  padding-left:5.2%;\n  padding-right:5.2%;\n}\n.tab-pane.card-body[data-v-6e38270d] {\n  padding:4.4% 5.6%;\n}\n.nav-link.active img[data-v-6e38270d] {\n  display:inline-block!important;\n  margin-left: 20px;\n}\n.products .tab-pane .row[data-v-6e38270d]{\n  margin-right: 0;\n  margin-left: 0;\n}\nh5[data-v-6e38270d] {\n  font-size: 0.83vw;\n}\nlabel[data-v-6e38270d]{\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom: 7px;\n  margin-left: 17px;\n}\n.divider-line[data-v-6e38270d] {\n  margin-top: 25px;\n  margin-bottom: 30px;\n}\n", ""]);
 
 // exports
 
@@ -251139,7 +251616,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.analytics-page-container[data-v-6c42c8f6] {\r\n  background-color: #00c3ff;\r\n  width: 100%;\r\n  height: 100%;\r\n  background-image: url(\"/images/landing/analytics-page-background.png\");\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  background-position: left top;\n}\n.col-auto[data-v-6c42c8f6] {\r\n  margin-right: 3%;\n}\r\n\r\n/* Equivalent of 50px is 9% */\n.ml-9[data-v-6c42c8f6] { \r\n  margin-left: 9%;\n}\n.my-9[data-v-6c42c8f6] {\r\n  margin: 9%;\n}\n.my-20[data-v-6c42c8f6] {\r\n  margin: 0 20%;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.analytics-page-container[data-v-6c42c8f6] {\n  background-color: #00c3ff;\n  width: 100%;\n  height: 100%;\n  background-image: url(\"/images/landing/analytics-page-background.png\");\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: left top;\n}\n.col-auto[data-v-6c42c8f6] {\n  margin-right: 3%;\n}\n\n/* Equivalent of 50px is 9% */\n.ml-9[data-v-6c42c8f6] { \n  margin-left: 9%;\n}\n.my-9[data-v-6c42c8f6] {\n  margin: 9%;\n}\n.my-20[data-v-6c42c8f6] {\n  margin: 0 20%;\n}\n\n", ""]);
 
 // exports
 
@@ -251158,7 +251635,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.contact-page-container[data-v-743a6dd0] {\r\n  width: 100%;\r\n  height: 100%;\n}\nh5[data-v-743a6dd0] {\r\n  color: #1e2738;\r\n  font-weight: bold;\r\n  font-size: 0.96vw;\r\n  margin-bottom: 5%;\n}\n.footer-text[data-v-743a6dd0] {\r\n  font-size: 0.73vw !important;\r\n  color: inherit;\n}\nli[data-v-743a6dd0] {\r\n  padding-left: 15px;\r\n  padding-right: 15px;\n}\n.mb-9[data-v-743a6dd0] {\r\n  margin-bottom: 9%;\n}\n.margin-footer[data-v-743a6dd0] {\r\n  margin: 3% 20% 3%;\n}\n.m-7[data-v-743a6dd0] {\r\n  margin: 0 7%;\n}\nimg.contact[data-v-743a6dd0] {\r\n  width: 100%;\n}\r\n", ""]);
+exports.push([module.i, "\n.contact-page-container[data-v-743a6dd0] {\n  width: 100%;\n  height: 100%;\n}\nh5[data-v-743a6dd0] {\n  color: #1e2738;\n  font-weight: bold;\n  font-size: 0.96vw;\n  margin-bottom: 5%;\n}\n.footer-text[data-v-743a6dd0] {\n  font-size: 0.73vw !important;\n  color: inherit;\n}\nli[data-v-743a6dd0] {\n  padding-left: 15px;\n  padding-right: 15px;\n}\n.mb-9[data-v-743a6dd0] {\n  margin-bottom: 9%;\n}\n.margin-footer[data-v-743a6dd0] {\n  margin: 3% 20% 3%;\n}\n.m-7[data-v-743a6dd0] {\n  margin: 0 7%;\n}\nimg.contact[data-v-743a6dd0] {\n  width: 100%;\n}\n", ""]);
 
 // exports
 
@@ -251177,7 +251654,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.crm-page-container[data-v-28d08a0e] {\r\n  width: 100%;\r\n  height:100%;\n}\n.col-12[data-v-28d08a0e] {\r\n  padding-left: 13%;\r\n  padding-right: 13%;\n}\n.mt-3[data-v-28d08a0e] {\r\n  margin-top: 3% !important;\n}\r\n", ""]);
+exports.push([module.i, "\n.crm-page-container[data-v-28d08a0e] {\n  width: 100%;\n  height:100%;\n}\n.col-12[data-v-28d08a0e] {\n  padding-left: 13%;\n  padding-right: 13%;\n}\n.mt-3[data-v-28d08a0e] {\n  margin-top: 3% !important;\n}\n", ""]);
 
 // exports
 
@@ -251196,7 +251673,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.crm-page-container[data-v-29ce37db] {\r\n  width: 100%;\r\n  height: 100%;\n}\n.ml-7[data-v-29ce37db] {\r\n  margin-left: 7%;\n}\r\n", ""]);
+exports.push([module.i, "\n.crm-page-container[data-v-29ce37db] {\n  width: 100%;\n  height: 100%;\n}\n.ml-7[data-v-29ce37db] {\n  margin-left: 7%;\n}\n", ""]);
 
 // exports
 
@@ -251234,7 +251711,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.flow-page-container[data-v-262024a8] {\r\n  background-color: #00C3FF;\r\n  width: 100%;\r\n  height:100%;\r\n  background-image: url('/images/landing/flow-page-background.png');\r\n  background-size: cover;\r\n  background-repeat: no-repeat;\r\n  background-position: left bottom;\n}\n.col-auto[data-v-262024a8] {\r\n  margin-right: 3%;\n}\r\n\r\n/* Equivalent of 50px is 9% */\n.ml-9[data-v-262024a8] { \r\n  margin-left: 9%;\n}\n.my-20[data-v-262024a8] {\r\n  margin: 0px 20%;\n}\n.ml-20[data-v-262024a8] {\r\n  margin: 0 0 0 20%;\n}\r\n", ""]);
+exports.push([module.i, "\n.flow-page-container[data-v-262024a8] {\n  background-color: #00C3FF;\n  width: 100%;\n  height:100%;\n  background-image: url('/images/landing/flow-page-background.png');\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: left bottom;\n}\n.col-auto[data-v-262024a8] {\n  margin-right: 3%;\n}\n\n/* Equivalent of 50px is 9% */\n.ml-9[data-v-262024a8] { \n  margin-left: 9%;\n}\n.my-20[data-v-262024a8] {\n  margin: 0px 20%;\n}\n.ml-20[data-v-262024a8] {\n  margin: 0 0 0 20%;\n}\n", ""]);
 
 // exports
 
@@ -251253,7 +251730,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n#landing {\r\n  margin: 0;\r\n  overflow: hidden;\r\n  background-color: #fff;\n}\n#landing .navHeader {\r\n    background-color: #fff !important;\r\n    box-shadow: 0px 0px 9.51px 0px rgba(0,0,0,0.1);\n}\n#landing .navbar-nav.ml-auto {\r\n  width: 50%;\n}\n#landing .nav-item {\r\n  color: #535554;\r\n  font-size: 15px;\r\n  display: flex;\r\n  flex: 1;\n}\n#landing .sections-menu {\r\n  position: fixed;\r\n  right: 1rem;\r\n  top: 50%;\r\n  transform: translateY(-50%);\n}\n#landing .sections-menu .menu-point {\r\n  width: 10px;\r\n  height: 10px;\r\n  background-color: #FFF;\r\n  display: block;\r\n  margin: 1rem 0;\r\n  opacity: .6;\r\n  transition: .4s ease all;\r\n  cursor: pointer;\n}\n#landing .sections-menu .menu-point.active {\r\n  opacity: 1;\r\n  transform: scale(1.5);\n}\n#landing .fullpage {\r\n  height: 100vh;\r\n  width: 100%;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  flex-direction: column;\n}\n#landing h1 {\r\n  color: #4D4D4D;\r\n  font-size: 2.71vw;\r\n  font-weight: bold;\r\n  text-transform: capitalize;\r\n  margin-bottom: 0.5rem !important;\n}\n#landing h2 {\r\n  color: #999999;\r\n  font-size: 1.62vw;\r\n  font-weight: bold;\r\n  text-transform: capitalize;\r\n  margin-bottom: 9%;\n}\n#landing p {\r\n  color: #3A3A3A;\r\n  font-size: 0.84vw;;\r\n  font-family: 'Rubik', sans-serif;\r\n  line-height: 30px;\r\n  margin-bottom: 4%;\n}\n#landing .btn-primary {\r\n  font-size: 0.94vw;\r\n  text-transform : uppercase;\r\n  padding: 2.1% 3.7%;\r\n  box-shadow:none;\r\n  line-height:1em;\r\n  white-space: nowrap;\n}\n.nav-item.white a.nav-link {\r\n  color: #fff !important;\r\n  font-weight: 700;\r\n  margin: 0 auto;\n}\n#landing img {\r\n  max-height: 100vh;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n#landing {\n  margin: 0;\n  overflow: hidden;\n  background-color: #fff;\n}\n#landing .navHeader {\n    background-color: #fff !important;\n    box-shadow: 0px 0px 9.51px 0px rgba(0,0,0,0.1);\n}\n#landing .navbar-nav.ml-auto {\n  width: 50%;\n}\n#landing .nav-item {\n  color: #535554;\n  font-size: 15px;\n  display: flex;\n  flex: 1;\n}\n#landing .sections-menu {\n  position: fixed;\n  right: 1rem;\n  top: 50%;\n  transform: translateY(-50%);\n}\n#landing .sections-menu .menu-point {\n  width: 10px;\n  height: 10px;\n  background-color: #FFF;\n  display: block;\n  margin: 1rem 0;\n  opacity: .6;\n  transition: .4s ease all;\n  cursor: pointer;\n}\n#landing .sections-menu .menu-point.active {\n  opacity: 1;\n  transform: scale(1.5);\n}\n#landing .fullpage {\n  height: 100vh;\n  width: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column;\n}\n#landing h1 {\n  color: #4D4D4D;\n  font-size: 2.71vw;\n  font-weight: bold;\n  text-transform: capitalize;\n  margin-bottom: 0.5rem !important;\n}\n#landing h2 {\n  color: #999999;\n  font-size: 1.62vw;\n  font-weight: bold;\n  text-transform: capitalize;\n  margin-bottom: 9%;\n}\n#landing p {\n  color: #3A3A3A;\n  font-size: 0.84vw;;\n  font-family: 'Rubik', sans-serif;\n  line-height: 30px;\n  margin-bottom: 4%;\n}\n#landing .btn-primary {\n  font-size: 0.94vw;\n  text-transform : uppercase;\n  padding: 2.1% 3.7%;\n  box-shadow:none;\n  line-height:1em;\n  white-space: nowrap;\n}\n.nav-item.white a.nav-link {\n  color: #fff !important;\n  font-weight: 700;\n  margin: 0 auto;\n}\n#landing img {\n  max-height: 100vh;\n}\n\n", ""]);
 
 // exports
 
@@ -251272,7 +251749,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.pricing-page-container[data-v-1d70e376] {\r\n  width: 100%;\r\n  height:100%;\n}\nh3[data-v-1d70e376] {\r\n  color: #4D4D4D;\r\n  font-size: 1.5vw;\r\n  font-weight: bold;\r\n  text-transform: uppercase;\r\n  margin-bottom: 0;\n}\nh3.siarem[data-v-1d70e376] {\r\n  color: #999999;\r\n  font-size: 1.5vw;\n}\nh3.price[data-v-1d70e376] {\r\n  font-size: 2vw;\n}\nh4[data-v-1d70e376] {\r\n  color: #999999;\r\n  font-size: 1.4vw;\r\n  font-weight: bold;\n}\nh5[data-v-1d70e376] {\r\n  color: #4D4D4D;\r\n  font-size: 10px;\r\n  font-weight: bold;\r\n  text-transform: uppercase;\n}\n.start[data-v-1d70e376] {\r\n  background: linear-gradient(to right, rgba(255,129,51,1) 0%, rgba(255,147, 58,1) 100%);\r\n  border-radius: 13px;\r\n  font-size: 1.5vw;\r\n  padding: 17px;\r\n  width: 100%;\r\n  margin: 0 auto;\n}\n.basic[data-v-1d70e376] {\r\n  background: linear-gradient(to right, #02E3F4 0%, #0496F0 100%);\r\n  border-radius: 13px;\r\n  font-size: 1.5vw;\r\n  padding: 17px;\r\n   width: 100%;\r\n  margin: 0 auto;\n}\n.premium[data-v-1d70e376] {\r\n  background: linear-gradient(to right, #C079D9 0%, #683EFC 100%);\r\n  border-radius: 13px;\r\n  font-size: 1.5vw;\r\n  padding: 17px;\r\n   width: 100%;\r\n  margin: 0 auto;\n}\ntd[data-v-1d70e376] {\r\n  color: #999999;\r\n  font-family: 'Rubik', sans-serif !important;\r\n  border:1px solid #CCCCCC;\r\n  font-size: 0.72vw;\n}\ntd[data-v-1d70e376]:first-child {\r\n  width: 23%;\r\n  padding-left: 40px;\r\n  font-size: 0.72vw;\n}\nth[data-v-1d70e376] {\r\n  padding: 1%;\n}\n.left[data-v-1d70e376] {\r\n  text-align: left;\n}\n.extra-padding[data-v-1d70e376] {\r\n  padding-bottom: 3%;\n}\nspan.small-text[data-v-1d70e376] {\r\n  font-size: 8px;\r\n  color: #999999;\n}\n@media screen and (max-width: 1440px) {\nimg.checkMarks[data-v-1d70e376] {\r\n  width: 10px;\n}\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.pricing-page-container[data-v-1d70e376] {\n  width: 100%;\n  height:100%;\n}\nh3[data-v-1d70e376] {\n  color: #4D4D4D;\n  font-size: 1.5vw;\n  font-weight: bold;\n  text-transform: uppercase;\n  margin-bottom: 0;\n}\nh3.siarem[data-v-1d70e376] {\n  color: #999999;\n  font-size: 1.5vw;\n}\nh3.price[data-v-1d70e376] {\n  font-size: 2vw;\n}\nh4[data-v-1d70e376] {\n  color: #999999;\n  font-size: 1.4vw;\n  font-weight: bold;\n}\nh5[data-v-1d70e376] {\n  color: #4D4D4D;\n  font-size: 10px;\n  font-weight: bold;\n  text-transform: uppercase;\n}\n.start[data-v-1d70e376] {\n  background: linear-gradient(to right, rgba(255,129,51,1) 0%, rgba(255,147, 58,1) 100%);\n  border-radius: 13px;\n  font-size: 1.5vw;\n  padding: 17px;\n  width: 100%;\n  margin: 0 auto;\n}\n.basic[data-v-1d70e376] {\n  background: linear-gradient(to right, #02E3F4 0%, #0496F0 100%);\n  border-radius: 13px;\n  font-size: 1.5vw;\n  padding: 17px;\n   width: 100%;\n  margin: 0 auto;\n}\n.premium[data-v-1d70e376] {\n  background: linear-gradient(to right, #C079D9 0%, #683EFC 100%);\n  border-radius: 13px;\n  font-size: 1.5vw;\n  padding: 17px;\n   width: 100%;\n  margin: 0 auto;\n}\ntd[data-v-1d70e376] {\n  color: #999999;\n  font-family: 'Rubik', sans-serif !important;\n  border:1px solid #CCCCCC;\n  font-size: 0.72vw;\n}\ntd[data-v-1d70e376]:first-child {\n  width: 23%;\n  padding-left: 40px;\n  font-size: 0.72vw;\n}\nth[data-v-1d70e376] {\n  padding: 1%;\n}\n.left[data-v-1d70e376] {\n  text-align: left;\n}\n.extra-padding[data-v-1d70e376] {\n  padding-bottom: 3%;\n}\nspan.small-text[data-v-1d70e376] {\n  font-size: 8px;\n  color: #999999;\n}\n@media screen and (max-width: 1440px) {\nimg.checkMarks[data-v-1d70e376] {\n  width: 10px;\n}\n}\n\n", ""]);
 
 // exports
 
@@ -251291,7 +251768,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.why-crm-page-container[data-v-612c9bb4] {\r\n  width: 100%;\r\n  height: 100%;\n}\nimg[data-v-612c9bb4] {\r\n  margin-bottom: 17px;\n}\nh1[data-v-612c9bb4] {\r\n  margin-top: 1.5rem !important;\n}\r\n", ""]);
+exports.push([module.i, "\n.why-crm-page-container[data-v-612c9bb4] {\n  width: 100%;\n  height: 100%;\n}\nimg[data-v-612c9bb4] {\n  margin-bottom: 17px;\n}\nh1[data-v-612c9bb4] {\n  margin-top: 1.5rem !important;\n}\n", ""]);
 
 // exports
 
@@ -251310,7 +251787,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\nlabel[data-v-06e14cd1], label input[data-v-06e14cd1], label a-select[data-v-06e14cd1]{\n    width: 100%;\n    font-family: \"Rubik\", sans-serif;\n    font-size: 0.52vw;\n    color: #999999;\n}\ninput.ant-input[data-v-06e14cd1] {\n    border-radius: 50rem;\n    margin-top: 5px;\n}\n.help-block[data-v-06e14cd1]{\n    color: red;\n    font-size: 12px;\n}\n.right[data-v-06e14cd1] {\n    float: right;\n}\n.btn[data-v-06e14cd1] {\n    padding: 4px 17px 6px !important;\n    font-size: 14px;\n}\n.add-box-shadow[data-v-06e14cd1] {\n    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);\n    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);\n    border-bottom-left-radius: 25px;\n    border-bottom-right-radius: 25px;\n    border: 0;\n    padding: 4.4% 5.6% 6.8%;\n}\n.m-lt[data-v-06e14cd1] {\n    margin-top: 20px;\n    margin-left: 36px;\n}\n.plr-4[data-v-06e14cd1] {\n  padding: 0px 4% !important;\n}\n@media screen and (max-width: 1400px) {\n.add-box-shadow .small-screen-hide[data-v-06e14cd1] {\n  display: none;\n}\n}\n", ""]);
+exports.push([module.i, "\nlabel[data-v-06e14cd1], label input[data-v-06e14cd1], label a-select[data-v-06e14cd1]{\n    width: 100%;\n    font-family: \"Rubik\", sans-serif;\n    font-size: 10px;\n    color: #999999;\n}\nlabel[data-v-06e14cd1]:after {\n      margin-left: 17px;\n}\ninput.ant-input[data-v-06e14cd1] {\n    border-radius: 50rem;\n    margin-top: 5px;\n}\n.right[data-v-06e14cd1] {\n    float: right;\n}\n.btn[data-v-06e14cd1] {\n    padding: 4px 17px 6px !important;\n    font-size: 14px;\n}\n.add-box-shadow[data-v-06e14cd1] {\n    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);\n    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);\n    border-bottom-left-radius: 25px;\n    border-bottom-right-radius: 25px;\n    border: 0;\n    padding: 4.4% 5.6%;\n}\n.m-lt[data-v-06e14cd1] {\n    margin-top: 20px;\n    margin-left: 36px;\n}\n.plr-4[data-v-06e14cd1] {\n  padding: 0px 4% !important;\n}\n@media screen and (max-width: 1400px) {\n.add-box-shadow .small-screen-hide[data-v-06e14cd1] {\n  display: none;\n}\n}\n", ""]);
 
 // exports
 
@@ -251329,7 +251806,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.truncate[data-v-78f6706a] {\r\n  width: 250px;\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\n}\n.btn-secondary[data-v-78f6706a] {\r\n  color: #fff;\r\n  background-color: #f6f8f9;\r\n  border-color: #f6f8f9;\n}\n.btn-secondary[data-v-78f6706a]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-78f6706a], .show > .btn-secondary.dropdown-toggle[data-v-78f6706a] {\r\n  color: #fff;\r\n  background-color: #f6f8f9;\r\n  border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-78f6706a]{\r\n  height: 318px !important;\n}\n#top-section[data-v-78f6706a]{\r\n  background: #fff;\r\n  padding: 17px 6.7%;\n}\n#top-section .col-auto[data-v-78f6706a] {\r\n  padding-left:1.6%;\r\n  padding-right:1.6%;\r\n  margin-bottom:6px;\n}\n.green[data-v-78f6706a]{\r\n  color:#00a25a !important;\n}\n.red[data-v-78f6706a]{\r\n  color:red !important;\n}\nul.headings[data-v-78f6706a]{\r\n  list-style: none;\r\n  padding-left: 70px;\n}\nul.headings li[data-v-78f6706a] {\r\n  float: left;\r\n  font-weight: 700;\r\n  color: #9fb3bb;\r\n  width: 11%;\r\n  text-align: left;\n}\nul.items[data-v-78f6706a]{\r\n  list-style: none;\r\n  padding-left: 40px;\n}\nul.items li[data-v-78f6706a] {\r\n  float:left;\r\n  font-weight: 700;\r\n  color:#003449;    \r\n  width: 11%;\r\n  text-align: left;\n}\nul.items li a[data-v-78f6706a]:hover{\r\n  text-decoration: none;\n}\n.scroll-hidden[data-v-78f6706a]{\r\n  overflow-y: scroll;\r\n  height: 70vh;\r\n  /* padding-top: 6px; */\r\n  padding-right: 6px;\r\n  width: 100%;\n}\n.horizontal-scroll[data-v-78f6706a]::-webkit-scrollbar-thumb {\r\n  background: #B3B3B3 !important;\r\n  border-radius: 5px !important;\n}\n[data-v-78f6706a]::-webkit-scrollbar-thumb {\r\n  background: #B3B3B3 !important;\r\n  border-radius: 5px !important;\n}\n[data-v-78f6706a]::-webkit-scrollbar {\r\nwidth: 3px;\n}\ntable.listing[data-v-78f6706a]{\r\n  width: 100%;\n}\ntable.listing tr  th[data-v-78f6706a]{ \r\n  float: left;\r\n  font-weight: 700;\r\n  color: #9fb3bb;\r\n  padding: 0 69px 20px 70px;\n}\n#top-section .filter-stub[data-v-78f6706a]{\r\n  cursor: pointer;\r\n  margin-right: 15px;\n}\n.plr-3[data-v-78f6706a] {\r\n  padding: 23px 4% 0 !important;\n}\n.control-label[data-v-78f6706a]{\r\n  float: left;\r\n  height: 77px;\n}\n.help-block[data-v-78f6706a]{\r\n  color:red;\r\n  font-weight: normal;\n}\n.modal-body[data-v-78f6706a] {\r\n  background: orange !important;\n}\r\n/* assignees section */\n.grey-bg-color[data-v-78f6706a] {\r\n  background-color: #EBEFF3 !important;\n}\n.grey-bg-color span[data-v-78f6706a]{\r\n  font-family: 'Rubik', sans-serif;\r\n  color: #999999;\r\n  font-size: 12px;\n}\n.btn-default.cancel-assign[data-v-78f6706a] {\r\n  border-radius: 50rem !important;\r\n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\r\n  -o-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\r\n  background: #ffffff;\r\n  font-size: 10px;\r\n  color: #989899;\r\n  text-transform: uppercase;\r\n  letter-spacing: 0.05em;\r\n  font-weight: 600;\r\n  padding: 6px 12px;\n}\n.btn-default.assign[data-v-78f6706a] {\r\n  border-radius: 50rem !important;\r\n  font-size: 10px;\r\n  background: linear-gradient(to right, rgb(255, 128, 51, 1) 0%, rgba(255, 147, 58, 1) 100%) !important;\r\n  font-weight: 600;\r\n  text-transform: uppercase;\r\n  letter-spacing: 0.05em;\r\n  color: #ffffff;\r\n  padding: 6px 12px;\n}\n#bottom-section[data-v-78f6706a] {\r\n  padding-left: 4%;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.truncate[data-v-78f6706a] {\n  width: 250px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.btn-secondary[data-v-78f6706a] {\n  color: #fff;\n  background-color: #f6f8f9;\n  border-color: #f6f8f9;\n}\n.btn-secondary[data-v-78f6706a]:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active[data-v-78f6706a], .show > .btn-secondary.dropdown-toggle[data-v-78f6706a] {\n  color: #fff;\n  background-color: #f6f8f9;\n  border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-78f6706a]{\n  height: 318px !important;\n}\n#top-section[data-v-78f6706a]{\n  background: #fff;\n  padding: 17px 6.7%;\n}\n#top-section .col-auto[data-v-78f6706a] {\n  padding-left:1.6%;\n  padding-right:1.6%;\n  margin-bottom:6px;\n}\n.green[data-v-78f6706a]{\n  color:#00a25a !important;\n}\n.red[data-v-78f6706a]{\n  color:red !important;\n}\nul.headings[data-v-78f6706a]{\n  list-style: none;\n  padding-left: 70px;\n}\nul.headings li[data-v-78f6706a] {\n  float: left;\n  font-weight: 700;\n  color: #9fb3bb;\n  width: 11%;\n  text-align: left;\n}\nul.items[data-v-78f6706a]{\n  list-style: none;\n  padding-left: 40px;\n}\nul.items li[data-v-78f6706a] {\n  float:left;\n  font-weight: 700;\n  color:#003449;    \n  width: 11%;\n  text-align: left;\n}\nul.items li a[data-v-78f6706a]:hover{\n  text-decoration: none;\n}\n.scroll-hidden[data-v-78f6706a]{\n  overflow-y: scroll;\n  height: 70vh;\n  /* padding-top: 6px; */\n  padding-right: 6px;\n  width: 100%;\n}\n.horizontal-scroll[data-v-78f6706a]::-webkit-scrollbar-thumb {\n  background: #B3B3B3 !important;\n  border-radius: 5px !important;\n}\n[data-v-78f6706a]::-webkit-scrollbar-thumb {\n  background: #B3B3B3 !important;\n  border-radius: 5px !important;\n}\n[data-v-78f6706a]::-webkit-scrollbar {\nwidth: 5px;\n}\ntable.listing[data-v-78f6706a]{\n  width: 100%;\n}\ntable.listing tr  th[data-v-78f6706a]{ \n  float: left;\n  font-weight: 700;\n  color: #9fb3bb;\n  padding: 0 69px 20px 70px;\n}\n#top-section .filter-stub[data-v-78f6706a]{\n  cursor: pointer;\n  margin-right: 15px;\n}\n.plr-3[data-v-78f6706a] {\n  padding: 23px 4% 0 !important;\n}\n.control-label[data-v-78f6706a]{\n  float: left;\n  height: 77px;\n}\n.help-block[data-v-78f6706a]{\n  color:red;\n  font-weight: normal;\n}\n.modal-body[data-v-78f6706a] {\n  background: orange !important;\n}\n/* assignees section */\n.grey-bg-color[data-v-78f6706a] {\n  background-color: #EBEFF3 !important;\n}\n.grey-bg-color span[data-v-78f6706a]{\n  font-family: 'Rubik', sans-serif;\n  color: #999999;\n  font-size: 12px;\n}\n.btn-default.cancel-assign[data-v-78f6706a] {\n  border-radius: 50rem !important;\n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\n  -o-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\n  background: #ffffff;\n  font-size: 10px;\n  color: #989899;\n  text-transform: uppercase;\n  letter-spacing: 0.05em;\n  font-weight: 600;\n  padding: 6px 12px;\n}\n.btn-default.assign[data-v-78f6706a] {\n  border-radius: 50rem !important;\n  font-size: 10px;\n  background: linear-gradient(to right, rgb(255, 128, 51, 1) 0%, rgba(255, 147, 58, 1) 100%) !important;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.05em;\n  color: #ffffff;\n  padding: 6px 12px;\n}\n#bottom-section[data-v-78f6706a] {\n  padding-left: 4%;\n}\n\n", ""]);
 
 // exports
 
@@ -251348,7 +251825,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\r\n/*Nav starts*/\n.main-sidebar[data-v-57a1bf10], .main-sidebar[data-v-57a1bf10]:before {\r\n  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;\r\n  width: 51px !important;\n}\n.sidebar-dark-primary[data-v-57a1bf10] {\r\n  background-color: #fff;\r\n  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n  -o-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n[class*=\"sidebar-dark\"] .brand-link[data-v-57a1bf10] {\r\n  color: rgba(255, 255, 255, 0.8);\r\n  border-bottom: none;\n}\n.nav-sidebar > .nav-item[data-v-57a1bf10] {\r\n  width: 50px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link img[data-v-57a1bf10] {\r\n  padding:8px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.active[data-v-57a1bf10],\r\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link[data-v-57a1bf10]:hover {\r\n  background-size: 50px;\r\n  background-image: url('/images/icons/left-sidebar/no-shadows/Orange Icon Background 2.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link[data-v-57a1bf10] {\r\n  background-repeat: no-repeat;\r\n  min-height:56px;\r\n  transition: background-image .3s ease;\n}\n.main-sidebar[data-v-57a1bf10] {\r\n  width: 51px!important;\r\n  overflow:visible;\n}\n#sidebar[data-v-57a1bf10], .nav.nav-pills.nav-sidebar.flex-column[data-v-57a1bf10], .nav.nav-pills a.nav-link[data-v-57a1bf10] {\r\n  overflow: visible!important;\n}\n.nav-link span[data-v-57a1bf10]{\r\n  position: relative;\r\n  left: -16px!important;\r\n  top: 2px;\r\n  background: #fff;\r\n  color: #000;\r\n  font-size: 0px;\r\n  color: #003549;\r\n  border-radius: 0 50rem 50rem 0;\r\n  box-shadow: 0 0 6px rgba(0,0,0,0.1);\r\n  -webkit-box-shadow: 0 0 6px rgba(0,0,0,0.1);\r\n  -moz-box-shadow: 0 0 6px rgba(0,0,0,0.1);\r\n  -o-box-shadow: 0 0 6px rgba(0,0,0,0.1);\r\n  padding: 18px 0;\r\n  width: 0;\r\n  overflow:hidden;\r\n  z-index:-1;\r\n  transition-delay: 2s;\r\n  transition: width .5s ease, padding .5s ease, overflow .5s ease, left .5s ease;\n}\n.nav-link:hover span[data-v-57a1bf10]{\r\n  width: auto; \r\n  overflow:visible;\r\n  padding: 18px 35px 18px 40px;\r\n  left: -20px!important;\r\n  font-size: 12px;\n}\r\n/*Nav Ends*/\r\n", ""]);
+exports.push([module.i, "\n/*Nav starts*/\n.main-sidebar[data-v-57a1bf10], .main-sidebar[data-v-57a1bf10]:before {\n  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;\n  width: 51px !important;\n  overflow:visible;\n}\n@media screen and (max-width:1643px) {\n.main-sidebar[data-v-57a1bf10], .main-sidebar[data-v-57a1bf10]:before {\n    width: 46px !important;\n}\n}\n.sidebar-dark-primary[data-v-57a1bf10] {\n  background-color: #fff;\n  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -o-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n[class*=\"sidebar-dark\"] .brand-link[data-v-57a1bf10] {\n  color: rgba(255, 255, 255, 0.8);\n  border-bottom: none;\n}\n.nav-sidebar > .nav-item[data-v-57a1bf10] {\n  width: 51px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link img[data-v-57a1bf10] {\n  padding:8px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.active[data-v-57a1bf10],\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link[data-v-57a1bf10]:hover {\n  background-size: 51px;\n  background-image: url('/images/icons/left-sidebar/no-shadows/Orange Icon Background 2.svg') !important;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link[data-v-57a1bf10] {\n  background-repeat: no-repeat;\n  min-height:53px;\n  transition: background-image .3s ease;\n}\n@media screen and (max-width:1643px) {\n.nav-sidebar > .nav-item[data-v-57a1bf10] {\n    width: 46px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link img[data-v-57a1bf10] {\n    width:46px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link.active[data-v-57a1bf10],\n  .sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link[data-v-57a1bf10]:hover {\n    background-size: 46px;\n}\n.sidebar-dark-primary #sidebar .nav-sidebar > .nav-item > .nav-link[data-v-57a1bf10] {\n    min-height:47px;\n}\n}\n#sidebar[data-v-57a1bf10], .nav.nav-pills.nav-sidebar.flex-column[data-v-57a1bf10], .nav.nav-pills a.nav-link[data-v-57a1bf10] {\n  overflow: visible!important;\n}\n.nav-link span[data-v-57a1bf10]{\n  position: relative;\n  left: -16px!important;\n  top: 2px;\n  background: #fff;\n  color: #000;\n  font-size: 0px;\n  color: #003549;\n  border-radius: 0 50rem 50rem 0;\n  box-shadow: 0 0 6px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 6px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 6px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 6px rgba(0,0,0,0.1);\n  padding: 18px 0;\n  width: 0;\n  overflow:hidden;\n  z-index:-1;\n  transition-delay: 2s;\n  transition: width .5s ease, padding .5s ease, overflow .5s ease, left .5s ease;\n}\n.nav-link:hover span[data-v-57a1bf10]{\n  width: auto; \n  overflow:visible;\n  padding: 18px 35px 18px 40px;\n  left: -20px!important;\n  font-size: 12px;\n}\n/*Nav Ends*/\n", ""]);
 
 // exports
 
@@ -251367,7 +251844,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.main-sidebar[data-v-48ad9a74] {\r\n  right: 0 !important;\r\n  left: auto;\r\n  overflow: visible;\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0 !important;\r\n  bottom: 0;\r\n  z-index: 830;\r\n  transition: right 0.3s ease-in-out;\r\n  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\r\n  -o-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n.main-sidebar[data-v-48ad9a74],\r\n.main-sidebar[data-v-48ad9a74]:before {\r\n  transition: margin-right 0.3s ease-in-out, width 0.3s ease-in-out !important;\r\n  width: 16.718% !important;\n}\n.sidebar-collapse .main-sidebar[data-v-48ad9a74],\r\n.sidebar-collapse .main-sidebar[data-v-48ad9a74]:before {\r\n  margin-left: 0 !important;\r\n  /* margin-right: -10.833%!important;  */\n}\n@media (max-width: 991.98px) {\n.main-sidebar[data-v-48ad9a74],\r\n  .main-sidebar[data-v-48ad9a74]:before {\r\n    margin-left: -0 !important;\r\n    margin-left: -10.833% !important;\n}\n.sidebar-open .main-sidebar[data-v-48ad9a74],\r\n  .sidebar-open .main-sidebar[data-v-48ad9a74]:before {\r\n    margin-right: 0 !important;\n}\n}\n.sidebar[data-v-48ad9a74] {\r\n  overflow: visible;\n}\np[data-v-48ad9a74] {\r\n  color: #9fb3bb;\r\n  margin: 0;\n}\nh2[data-v-48ad9a74] {\r\n  color: #003449;\r\n  font-size: 29px;\r\n  letter-spacing: 4.2px;\r\n  font-weight: 600;\n}\nh3[data-v-48ad9a74] {\r\n  color: #1a1c43;\r\n  font-size: 0.83vw;\r\n  font-weight: 700;\n}\nh3 img[data-v-48ad9a74] {\r\n  float: right;\r\n  cursor: pointer;\r\n  margin-top: -7px;\n}\n.main label.custom-control-label[data-v-48ad9a74] {\r\n  color: inherit;\r\n  font-weight: 200;\r\n  padding-top: 3px;\n}\n.navbar[data-v-48ad9a74] {\r\n  border-color: #cdcdcf;\r\n  margin-top: 6%;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] {\r\n  color: rgba(0, 0, 0, 0.5);\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] {\r\n  font-size: 14px;\r\n  color: #1e2331;\r\n  padding-top: 6px;\r\n  position: relative;\r\n  top: -4%;\n}\n.help-block[data-v-48ad9a74] {\r\n  color: red;\n}\n.status[data-v-48ad9a74] {\r\n  display: none;\n}\n.status.active[data-v-48ad9a74] {\r\n  width: 76px;\r\n  text-align: center;\r\n  border-radius: 8px;\r\n  display: block;\r\n  background: #00d68f;\r\n  padding: 4px 3px;\r\n  line-height: 20px;\r\n  color: #fff;\r\n  text-transform: uppercase;\r\n  font-size: 12px;\r\n  float: left;\r\n  margin: 0;\n}\n.status.offline[data-v-48ad9a74] {\r\n  width: 76px;\r\n  text-align: center;\r\n  border-radius: 8px;\r\n  display: block;\r\n  background: orange;\r\n  padding: 4px 3px;\r\n  line-height: 20px;\r\n  color: #fff;\r\n  text-transform: uppercase;\r\n  font-size: 12px;\r\n  float: left;\r\n  margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover,\r\n.status.offline[data-v-48ad9a74]:hover {\r\n  color: #3b3b3b;\r\n  cursor: pointer;\n}\n.status.show[data-v-48ad9a74] {\r\n  display: block !important;\n}\n.collapse[data-v-48ad9a74] {\r\n  border-bottom: 1px solid #cdccce;\n}\n.p-3[data-v-48ad9a74] {\r\n  padding: 0.8rem 2rem 1.4rem 1.7rem !important;\n}\n.pl-34[data-v-48ad9a74] {\r\n  padding-left: 34px;\n}\n.ml-12[data-v-48ad9a74] {\r\n  margin-left: 12px;\n}\n.progress-bar[data-v-48ad9a74] {\r\n  background: #f7f6fb;\r\n  border-radius: 5px;\n}\n.tank[data-v-48ad9a74] {\r\n  background: linear-gradient(\r\n    to right,\r\n    rgba(161, 237, 128, 1) 0%,\r\n    rgba(98, 211, 126, 1) 100%\r\n  ) !important;\r\n  border-radius: 5px;\r\n  background: rgb(114, 218, 126);\r\n  height: 8px;\r\n  transition: all 0.5s ease 0s;\n}\n.value[data-v-48ad9a74] {\r\n  font-weight: 900;\r\n  font-size: 0.83vw;\r\n  color: #1a1c43;\r\n  margin-top: -8px;\r\n  letter-spacing: 0.1em;\r\n  font-family: Montserrat !important;\n}\n.description[data-v-48ad9a74] {\r\n  font-size: 10px;\r\n  font-family: \"Rubik\", sans-serif;\r\n  color: #1e2331;\r\n  padding-bottom: 10px;\n}\n.description-text[data-v-48ad9a74] {\r\n  font-size: 0.73vw !important;\r\n  color: #808080 !important;\n}\n.position[data-v-48ad9a74] {\r\n  display: block;\r\n  position: relative;\r\n  background: #ff8234;\r\n  color: #fff;\r\n  height: 62px;\r\n  text-align: center;\r\n  font-size: 17px;\r\n  padding: 18px 9px;\r\n  width: 62px;\r\n  transform: rotate(45deg);\r\n  /* Standard syntax */\r\n  margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74] {\r\n  transform: rotate(0deg);\r\n  /* Standard syntax */\n}\np.heading[data-v-48ad9a74] {\r\n  border-bottom: 1px solid #cdccce;\r\n  margin-bottom: 10px;\r\n  font-weight: 900;\n}\n.navbar ul[data-v-48ad9a74] {\r\n  margin-bottom: 10px;\n}\n.personal-info[data-v-48ad9a74],\r\n.general-system-prefs[data-v-48ad9a74],\r\n.notifications .w-100[data-v-48ad9a74] {\r\n  margin-top: 20px;\n}\n.personal-info img[data-v-48ad9a74] {\r\n  border-radius: 50%;\r\n  width: 27%;\n}\n.personal-info button.btn-info[data-v-48ad9a74] {\r\n  margin: 5px 0 15px 0;\r\n  font-size: 9px;\n}\n.btn-info[data-v-48ad9a74] {\r\n  height: 24px !important;\r\n  background: #f98b39 !important;\r\n  border-color: #f98b39 !important;\r\n  color: #fff !important;\r\n  padding: 4px 17px 6px !important;\r\n  border-radius: 24px !important;\n}\n.settings .row.border-bottom[data-v-48ad9a74],\r\n.notifications .row.border-bottom[data-v-48ad9a74] {\r\n  border-color: #cdccce;\r\n  padding: 21px 0px 16px 0;\n}\n.notification-popup[data-v-48ad9a74] {\r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\r\n  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\r\n  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\r\n  border-radius: 21px;\r\n  width: 100% !important;\n}\n.settings .row p.description[data-v-48ad9a74] {\r\n  font-size: 9px;\r\n  display: block;\n}\n.custom-checkbox .custom-control-label[data-v-48ad9a74] {\r\n  padding-top: 5px;\n}\n.themes label[data-v-48ad9a74]:first-child,\r\n.themes label[data-v-48ad9a74]:nth-child(2),\r\n.language label[data-v-48ad9a74],\r\n.notifications label[data-v-48ad9a74],\r\n.action-btns label[data-v-48ad9a74]:first-child,\r\n.action-btns label[data-v-48ad9a74]:nth-child(2) {\r\n  margin-right: 8px;\r\n  float: left;\n}\n.control-label[data-v-48ad9a74] {\r\n  color: #989899;\r\n  font-family: \"Rubik\", sans-serif;\r\n  font-size: 12px;\r\n  text-align: left;\n}\n.btn-default[data-v-48ad9a74] {\r\n  padding: 6px 12px 6px 10px;\r\n  font-size: 10px;\r\n  border: transparent !important;\r\n  border-radius: 5px !important;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-default[data-v-48ad9a74]:hover {\r\n  background: #00344a;\r\n  color: #ffffff;\r\n  border: transparent !important;\r\n  padding: 6px 12px 6px 10px;\r\n  font-size: 10px;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-active[data-v-48ad9a74] {\r\n  background: #00344a;\r\n  color: #ffffff;\r\n  border: transparent !important;\r\n  padding: 6px 12px 6px 10px;\r\n  font-size: 0.6vw;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.themes .btn-default[data-v-48ad9a74],\r\n.language .btn-default[data-v-48ad9a74],\r\n.language .btn-active[data-v-48ad9a74] {\r\n  border-radius: 50rem !important;\r\n  padding: 8px 15px !important;\n}\n.btn-orange[data-v-48ad9a74],\r\n.btn-orange-active[data-v-48ad9a74] {\r\n  background: linear-gradient(\r\n    to right,\r\n    rgb(255, 128, 51, 1) 0%,\r\n    rgba(255, 147, 58, 1) 100%\r\n  ) !important;\r\n  color: #ffffff;\r\n  border: transparent !important;\r\n  font-size: 10px;\r\n  border-radius: 50rem !important;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-white[data-v-48ad9a74] {\r\n  background: #fff;\r\n  border: transparent !important;\r\n  font-size: 10px;\r\n  border-radius: 50rem !important;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.orange-btn[data-v-48ad9a74]:hover {\r\n  background: linear-gradient(\r\n    to right,\r\n    rgb(255, 128, 51, 1) 0%,\r\n    rgba(255, 147, 58, 1) 100%\r\n  ) !important;\r\n  color: #ffffff;\r\n  border: transparent !important;\r\n  padding: 8px 15px;\r\n  font-size: 10px;\r\n  border-radius: 50rem !important;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-blue[data-v-48ad9a74] {\r\n  background: linear-gradient(\r\n    to right,\r\n    rgb(60, 144, 206, 1) 0%,\r\n    rgba(65, 197, 231, 1) 100%\r\n  ) !important;\r\n  color: #ffffff;\r\n  border: transparent !important;\r\n  padding: 8px 15px;\r\n  font-size: 10px;\r\n  border-radius: 50rem !important;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.blue-btn[data-v-48ad9a74]:hover {\r\n  background: linear-gradient(\r\n    to right,\r\n    rgb(60, 144, 206, 1) 0%,\r\n    rgba(65, 197, 231, 1) 100%\r\n  ) !important;\r\n  color: #ffffff;\r\n  border: transparent !important;\r\n  padding: 8px 15px;\r\n  font-size: 10px;\r\n  border-radius: 50rem !important;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-dark[data-v-48ad9a74] {\r\n  background: linear-gradient(\r\n    to right,\r\n    rgb(25, 25, 26, 1) 0%,\r\n    rgba(23, 23, 66, 1) 100%\r\n  ) !important;\r\n  color: #ffffff;\r\n  border: transparent !important;\r\n  padding: 8px 15px;\r\n  font-size: 10px;\r\n  border-radius: 50rem !important;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.dark-btn[data-v-48ad9a74]:hover {\r\n  background: linear-gradient(\r\n    to right,\r\n    rgb(25, 25, 26, 1) 0%,\r\n    rgba(23, 23, 66, 1) 100%\r\n  ) !important;\r\n  color: #ffffff;\r\n  border: transparent !important;\r\n  padding: 8px 15px;\r\n  font-size: 10px;\r\n  border-radius: 50rem !important;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.notifications-close img[data-v-48ad9a74] {\r\n  width: 20px;\r\n  top: 5px;\r\n  position: relative;\n}\n.btn-has-new-dot[data-v-48ad9a74] {\r\n  background-image: url(\"/images/icons/Red-Notification-Dot.svg\") !important;\r\n  background-size: 12px 12px;\r\n  background-repeat: no-repeat;\r\n  background-position: right top;\r\n  width: 13px;\r\n  height: 100%;\r\n  z-index: 1;\r\n  position: absolute;\r\n  left: 66px;\r\n  top: -5px;\n}\n.btn-has-new-messages[data-v-48ad9a74] {\r\n  background-image: url(\"/images/icons/blue dot.svg\") !important;\r\n  background-size: 69% 34%;\r\n  background-repeat: no-repeat;\r\n  background-position: left top;\r\n  color: #ffffff;\r\n  font-size: 10px;\r\n  text-align: center;\n}\n.btn-has-new[data-v-48ad9a74]:hover {\r\n  background-image: url(\"/images/icons/Dot.png\") !important;\r\n  background-size: 12px 12px;\r\n  background-repeat: no-repeat;\r\n  background-position: right top;\n}\n.logout-wrapper[data-v-48ad9a74] {\r\n  margin-top: 14%;\n}\n#logout[data-v-48ad9a74] {\r\n  background-image: url(\"/images/icons/Asset 67.svg\") !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  height: 100px;\r\n  background-position: center;\r\n  margin-bottom: 11%;\n}\n#logout[data-v-48ad9a74]:hover {\r\n  background-image: url(\"/images/icons/Asset 66.svg\") !important;\n}\n.notifications .btn-default[data-v-48ad9a74] {\r\n  padding: 6px 25px 6px 18px;\r\n  font-size: 12px;\r\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.notifications .top-section[data-v-48ad9a74] {\r\n  list-style: none;\n}\n.notifications .card-body-notifications h3[data-v-48ad9a74],\r\n.notifications .card-body-notifications h3 a[data-v-48ad9a74],\r\n.caller-name[data-v-48ad9a74] {\r\n  color: #333333;\r\n  font-size: 0.7vw;\r\n  font-weight: 600;\n}\n.caller-time[data-v-48ad9a74] {\r\n  float: right;\r\n  font-size: 0.6vw;\r\n  color: #808080;\n}\n.notifications .card-body-notifications p.call_back_time[data-v-48ad9a74] {\r\n  color: #808080;\r\n  font-size: 0.7vw;\n}\n.personal-info .row.mx-0.border-left[data-v-48ad9a74],\r\n.account-info .row.mx-0.border-left[data-v-48ad9a74] {\r\n  border-color: #cdccce;\n}\n.settings .title[data-v-48ad9a74] {\r\n  color: #7f8080;\r\n  padding-bottom: 16px;\r\n  font-size: 12px;\n}\n.small-avatar img[data-v-48ad9a74] {\r\n  width: 30px;\r\n  border-radius: 50%;\n}\n.update-user[data-v-48ad9a74],\r\n.update-filter[data-v-48ad9a74],\r\n.save-filter[data-v-48ad9a74] {\r\n  margin: 0px 0px 5px 0px;\n}\n.final-modal[data-v-48ad9a74] {\r\n  padding: 0 0 1rem;\n}\n.final-modal .row-a[data-v-48ad9a74] {\r\n  width: 100%;\r\n  border-bottom: 1px solid #cdccce;\r\n  margin-left: 0;\n}\n.final-modal label button img[data-v-48ad9a74] {\r\n  width: 20px;\r\n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-48ad9a74] {\r\n  font-size: 55px;\r\n  color: #ff933a;\n}\n.card-header[data-v-48ad9a74] {\r\n  color: rgba(28, 35, 49, 0.5);\r\n  border-bottom: 0.5px solid #f4f4f5 !important;\r\n  background-color: #fff !important;\r\n  font-size: 10px;\r\n  font-weight: 600;\n}\n.card-body-notifications[data-v-48ad9a74] {\r\n  padding: 11px 10px;\n}\n.card-body-notifications img[data-v-48ad9a74] {\r\n  padding-right: 10px;\n}\n.callback-cal p[data-v-48ad9a74] {\r\n  font-size: 0.73vw;\r\n  color: #666666;\r\n  border-color: #ccc;\r\n  margin-top: 25px;\n}\n.final-modal .card-header[data-v-48ad9a74] {\r\n  padding: 0 11px 0;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-48ad9a74] {\r\n  border-bottom: none;\r\n  background: #fff;\r\n  padding: 6px 12px;\n}\n.final-modal .card-header-tabs .left a.active[aria-selected=\"true\"][data-v-48ad9a74] {\r\n  border-bottom: none;\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\r\n  -webkit-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\r\n  -moz-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\r\n  -o-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n}\n.final-modal .card-header-tabs .left a[aria-selected=\"false\"][data-v-48ad9a74] {\r\n  border-bottom: none;\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\r\n  -webkit-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\r\n  -moz-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\r\n  -o-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n}\n.final-modal .card-header-tabs .right a.active[aria-selected=\"true\"][data-v-48ad9a74] {\r\n  border-bottom: none;\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\r\n  -webkit-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\r\n  -moz-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\r\n  -o-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n}\n.final-modal .card-header-tabs .right a[aria-selected=\"false\"][data-v-48ad9a74] {\r\n  border-bottom: none;\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\r\n  -webkit-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\r\n  -moz-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\r\n  -o-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74] {\r\n  padding: 6px 12px;\r\n  font-size: 0.83vw;\r\n  color: #818284;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74]:hover {\r\n  border: none;\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 0.83vw;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74] {\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 0.83vw;\r\n  color: #818284;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74]:hover {\r\n  background: #fff;\r\n  padding: 6px 12px;\r\n  font-size: 0.83vw;\n}\n.form-control[data-v-48ad9a74] {\r\n  padding: 10px 12px !important;\r\n  font-size: 12px;\r\n  box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1) !important;\r\n  -webkit-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1) !important;\r\n  -moz-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1) !important;\r\n  -o-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1) !important;\r\n  color: #193246;\r\n  font-weight: 600;\r\n  margin-top: 6px;\n}\ntextarea.form-control[data-v-48ad9a74] {\r\n  height: 100px !important;\r\n  border-radius: 15px;\n}\n.stats-section[data-v-48ad9a74] {\r\n  margin-top: 22px;\n}\n.stats-section .commission[data-v-48ad9a74] {\r\n  padding: 7% 0;\n}\n.stats-section .sales[data-v-48ad9a74],\r\n.stats-section .calls[data-v-48ad9a74],\r\n.search-input[data-v-48ad9a74],\r\n.filter-search[data-v-48ad9a74],\r\n.filter-by[data-v-48ad9a74] {\r\n  padding: 5px 0;\n}\n.stats-section .calls .col-lg-12 p[data-v-48ad9a74],\r\n.stats-section .sales .col-lg-12 p[data-v-48ad9a74],\r\np.badges[data-v-48ad9a74] {\r\n  border-bottom: 0.5px solid #f4f4f5;\r\n  margin-bottom: 5px;\r\n  padding-bottom: 2px;\n}\n.print-btn[data-v-48ad9a74],\r\n.export-btn[data-v-48ad9a74] {\r\n  width: 90%;\n}\n.action-btns[data-v-48ad9a74] {\r\n  margin-top: 17px;\n}\r\n/* is the notification count being used? */\n.notification-count[data-v-48ad9a74] {\r\n  position: relative;\r\n  top: -7px;\r\n  right: 15px;\r\n  font-size: 9px;\r\n  color: #003449;\n}\n.nav-item .nav-link img.active-icon[data-v-48ad9a74], .nav-item .nav-link.generalIcon[data-v-48ad9a74]:hover,.nav-item .nav-link.filterIcon[data-v-48ad9a74]:hover, .nav-item .nav-link.notificationsIcon[data-v-48ad9a74]:hover, .nav-item .nav-link.settingsIcon[data-v-48ad9a74]:hover,.nav-item .nav-link.notificationsIcon img.inactive-icon[data-v-48ad9a74]:hover {\r\n  border-radius: 50%;\r\n  box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n}\n.reminders .nav-link[aria-posinset=\"2\"][data-v-48ad9a74] {\r\n  text-align: right;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  align-items: center;\r\n  line-height: 1em;\r\n  justify-content: flex-end;\n}\n.reminders .tabs[data-v-48ad9a74],\r\n.filter-content .tabs[data-v-48ad9a74] {\r\n  width: 100%;\n}\n.reminders .col-6[data-v-48ad9a74] {\r\n  padding-left: 6%;\r\n  padding-right: 6%;\n}\n.filter-results .custom-control.custom-checkbox .custom-control-label[data-v-48ad9a74]:before,\r\n.reminders .custom-checkbox .custom-control-label[data-v-48ad9a74]::before {\r\n  border-radius: 50% !important;\r\n  border: 1px solid #ededed;\r\n  box-shadow: none;\r\n  -webkit-box-shadow: none;\r\n  -moz-box-shadow: none;\r\n  -o-box-shadow: none;\r\n  background-image: url(\"/images/icons/right-sidebar/Task_Check.svg\") !important;\r\n  background-size: cover;\n}\n.reminders .custom-control-label[data-v-48ad9a74]::after,\r\n.reminders .custom-control-label[data-v-48ad9a74]::before {\r\n  width: 20px;\r\n  height: 20px;\r\n  top: 19px;\r\n  left: 0.2rem;\r\n  cursor: pointer;\n}\n.reminders input.list-input[data-v-48ad9a74] {\r\n  font-size: 0.83vw;\r\n  font-family: \"Rubik\", sans-serif;\r\n  color: #808080;\r\n  width: 100%;\r\n  text-overflow: ellipsis;\n}\n.reminders input.list-input[data-v-48ad9a74]:focus,\r\n.nav-link[data-v-48ad9a74]:focus {\r\n  outline: 0 !important;\r\n  box-shadow: none !important;\r\n  -webkit-box-shadow: none !important;\r\n  -moz-box-shadow: none !important;\r\n  -o-box-shadow: none !important;\r\n  border: 0 !important;\n}\n.reminders .btn-primary[data-v-48ad9a74] {\r\n  width: auto !important;\r\n    float: right;\r\n  line-height: 1em;\n}\n.reminders .terms-text input[data-v-48ad9a74] {\r\n    border-left: 0;\r\n    border-top: 0;\r\n    border-right: 0;\r\n    border-bottom: 1px solid #f7f7f7;\r\n    width: 100%;\n}\n.terms-text[data-v-48ad9a74] {\r\n  padding-left: 37px;\n}\n.reminders .terms-text input[data-v-48ad9a74]:focus {\r\n   outline: 0 !important;\n}\n.reminders .terms-text input[data-v-48ad9a74]::-webkit-input-placeholder {\r\n  font-style: italic;\r\n  font-weight: 300;\n}\n.reminders .terms-text input[data-v-48ad9a74]::-moz-placeholder {\r\n  font-style: italic;\r\n  font-weight: 300;\n}\n.reminders .terms-text input[data-v-48ad9a74]:-ms-input-placeholder {\r\n  font-style: italic;\r\n  font-weight: 300;\n}\n.reminders .terms-text input[data-v-48ad9a74]::-ms-input-placeholder {\r\n  font-style: italic;\r\n  font-weight: 300;\n}\n.reminders .terms-text input[data-v-48ad9a74]::placeholder {\r\n  font-style: italic;\r\n  font-weight: 300;\n}\n.reminders input.list-input.red[data-v-48ad9a74]::-webkit-input-placeholder {\r\n  color: red !important;\n}\n.reminders input.list-input.red[data-v-48ad9a74]::-moz-placeholder {\r\n  color: red !important;\n}\n.reminders input.list-input.red[data-v-48ad9a74]:-ms-input-placeholder {\r\n  color: red !important;\n}\n.reminders input.list-input.red[data-v-48ad9a74]::-ms-input-placeholder {\r\n  color: red !important;\n}\n.reminders input.list-input.red[data-v-48ad9a74]::placeholder {\r\n  color: red !important;\n}\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label[data-v-48ad9a74]::before {\r\n  background-image: url(\"/images/icons/right-sidebar/Task_Check.svg\") !important;\r\n  border-radius: 50% !important;\r\n  background-size: cover;\n}\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label[data-v-48ad9a74]::after {\r\n  border-radius: 50% !important;\n}\n.reminders input.list-input[data-v-48ad9a74]:focus {\r\n  border: 1px solid rgba(28, 35, 49, 0.5);\n}\n.grey-scroll[data-v-48ad9a74]::-webkit-scrollbar-thumb {\r\n  background: #b3b3b3 !important;\r\n  border-radius: 5px !important;\n}\n.orange[data-v-48ad9a74] {\r\n  color: #ff933a;\n}\n.blue[data-v-48ad9a74] {\r\n  color: #3fa9f5;\n}\n.tasks-date[data-v-48ad9a74] {\r\n  font-size: 10px;\r\n  font-family: \"Rubik\", sans-serif !important;\r\n  color: #808080;\r\n  margin-left: 35px;\n}\n.reminders-border-bottom[data-v-48ad9a74] {\r\n  border-bottom: 1px solid #f7f7f7;\n}\nli.row.m-2.pl-0.align-items-center.reminders-border-bottom[data-v-48ad9a74]:first-child {\r\nborder-top: 1px solid #f7f7f7;\n}\n.nav-tabs .nav-item[data-v-48ad9a74] {\r\n  width: 50%;\n}\n.btn-default.cancel-user[data-v-48ad9a74] {\r\n  border-radius: 50rem !important;\r\n  font-size: 10px;\r\n  color: #989899;\r\n  text-transform: uppercase;\r\n  padding: 10px 20px;\r\n  font-weight: 600;\n}\n.btn-primary.update-user[data-v-48ad9a74],\r\n.btn-primary.update-filter[data-v-48ad9a74],\r\n.btn-primary.save-filter[data-v-48ad9a74] {\r\n  font-size: 10px;\r\n  background: linear-gradient(\r\n    to right,\r\n    rgb(255, 128, 51, 1) 0%,\r\n    rgba(255, 147, 58, 1) 100%\r\n  ) !important;\r\n  font-weight: 600;\r\n  text-transform: uppercase;\r\n  padding: 10px 20px;\n}\n.btn-primary.update-filter[data-v-48ad9a74],\r\n.btn-primary.save-filter[data-v-48ad9a74] {\r\n  padding: 6px 12px !important;\n}\n.float-right[data-v-48ad9a74] {\r\n  float: right;\n}\n.inactive-icon[data-v-48ad9a74] {\r\n  /* padding: 6px; */\r\n  border-radius: 50rem;\r\n  box-shadow: none;\r\n  -webkit-box-shadow: none;\r\n  -moz-box-shadow: none;\r\n  -o-box-shadow: none;\r\n  transition: box-shadow 0.5s ease;\n}\r\n\r\n/* .inactive-icon:hover {\r\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\r\n  -o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\r\n} */\n.filter-heading[data-v-48ad9a74] {\r\n  font-size: 0.83vw;\r\n  color: #171717 !important;\r\n  font-family: \"Rubik\", sans-serif !important;\n}\n.filterborder[data-v-48ad9a74] {\r\n  border: 1px solid #fed6d6;\n}\n.show[data-v-48ad9a74] {\r\n  display: block !important;\n}\n.row.filter-content[data-v-48ad9a74] {\r\n  margin-left: -27px;\r\n  margin-right: -27px;\n}\n.row.filter-content .custom-control.custom-checkbox[data-v-48ad9a74],\r\n.saved-results[data-v-48ad9a74] {\r\n  border-radius: 14px;\r\n  box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\r\n  -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\r\n  -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\r\n  -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\r\n  margin: 10px 0;\n}\n.row.filter-content .custom-control.custom-checkbox .custom-control-label[data-v-48ad9a74] {\r\n  font-size: 14px;\r\n  padding-left: 28px;\r\n  font-family: \"Rubik\", sans-serif !important;\n}\n.row.filter-content\r\n  .filter-results\r\n  .custom-control.custom-checkbox\r\n  .custom-control-label[data-v-48ad9a74] {\r\n  font-size: 12px;\r\n  padding-left: 20px;\n}\n.row.filter-content .filter-results .custom-control[data-v-48ad9a74] {\r\n  padding-left: 10px !important;\n}\n.row.filter-content .search-criteria[data-v-48ad9a74] {\r\n  border: 0;\r\n  box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\r\n  -webkit-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\r\n  -moz-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\r\n  -o-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\r\n  font-size: 12px;\r\n  border-radius: 14px;\r\n  padding: 10px;\r\n  font-family: \"Rubik\", sans-serif !important;\n}\n.row.filter-content .search-text[data-v-48ad9a74],\r\n.save-text[data-v-48ad9a74] {\r\n  border: 0;\r\n  box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\r\n  -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\r\n  -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\r\n  -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\r\n  font-size: 12px;\r\n  font-family: \"Rubik\", sans-serif;\r\n  font-weight: 300;\r\n  font-style: italic;\r\n  border-radius: 15px;\r\n  padding: 10px;\n}\n.row.filter-content\r\n  .search-text::-webkit-input-placeholder\r\n  .save-text[data-v-48ad9a74]::-webkit-input-placeholder {\r\n  font-size: 12px !important;\r\n  font-family: \"Rubik\", sans-serif !important;\r\n  color: rgba(0, 0, 0, 0.65) !important;\n}\n.save-text[data-v-48ad9a74]::-webkit-input-placeholder {\r\n  font-size: 10px !important;\r\n  font-family: \"Rubik\", sans-serif !important;\r\n  color: #b3b3b3 !important;\r\n  font-style: italic;\n}\n.filter-results[data-v-48ad9a74] {\r\n  max-height: 200px;\r\n  overflow: auto;\r\n  margin-top: 20px;\n}\n.saved-results[data-v-48ad9a74] {\r\n  font-size: 12px !important;\r\n  font-family: \"Rubik\", sans-serif;\n}\n.px-6[data-v-48ad9a74] {\r\n  padding: 0px 8%;\n}\n.px-6-hide[data-v-48ad9a74] {\r\n  padding: 0px 8%;\n}\n.filter-container[data-v-48ad9a74] {\r\n  overflow: auto;\n}\n@media screen and (max-width: 1368px) {\n.filter-container[data-v-48ad9a74] {\r\n    max-height: 450px;\n}\n.px-6-hide[data-v-48ad9a74], .description[data-v-48ad9a74], label.task-deadline.terms-text[data-v-48ad9a74] {\r\n  padding:0;\n}\n.small-margin[data-v-48ad9a74] {\r\n    margin: 10px 10px 0px 9px;\n}\n}\n@media screen and (min-width: 1400px) {\n.filter-container[data-v-48ad9a74] {\r\n    max-height: 650px;\n}\n}\ninput.search-text[data-v-48ad9a74]:focus,\r\ninput.save-text[data-v-48ad9a74]:focus {\r\n  outline: 0 !important;\r\n  border: 0 !important;\n}\n.custom-filter-name-save[data-v-48ad9a74] {\r\n  border-color: #cdcdcf;\n}\r\n/*End Right Component*/\r\n", ""]);
+exports.push([module.i, "\n.main-sidebar[data-v-48ad9a74] {\n  right: 0 !important;\n  left: auto;\n  overflow: visible;\n  position: absolute;\n  top: 0;\n  right: 0 !important;\n  bottom: 0;\n  z-index: 830;\n  transition: right 0.3s ease-in-out;\n  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n  -o-box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);\n}\n.main-sidebar[data-v-48ad9a74],\n.main-sidebar[data-v-48ad9a74]:before {\n  transition: margin-right 0.3s ease-in-out, width 0.3s ease-in-out !important;\n  width: 16.718% !important;\n}\n.sidebar-collapse .main-sidebar[data-v-48ad9a74],\n.sidebar-collapse .main-sidebar[data-v-48ad9a74]:before {\n  margin-left: 0 !important;\n  /* margin-right: -10.833%!important;  */\n}\n@media (max-width: 991.98px) {\n.main-sidebar[data-v-48ad9a74],\n  .main-sidebar[data-v-48ad9a74]:before {\n    margin-left: -0 !important;\n    margin-left: -10.833% !important;\n}\n.sidebar-open .main-sidebar[data-v-48ad9a74],\n  .sidebar-open .main-sidebar[data-v-48ad9a74]:before {\n    margin-right: 0 !important;\n}\n}\n.sidebar[data-v-48ad9a74] {\n  overflow: visible;\n}\np[data-v-48ad9a74] {\n  color: #9fb3bb;\n  margin: 0;\n}\nh2[data-v-48ad9a74] {\n  color: #003449;\n  font-size: 29px;\n  letter-spacing: 4.2px;\n  font-weight: 600;\n}\nh3[data-v-48ad9a74] {\n  color: #1a1c43;\n  font-size: 0.83vw;\n  font-weight: 700;\n}\nh3 img[data-v-48ad9a74] {\n  float: right;\n  cursor: pointer;\n  margin-top: -7px;\n}\n.main label.custom-control-label[data-v-48ad9a74] {\n  color: inherit;\n  font-weight: 200;\n  padding-top: 3px;\n}\n.navbar[data-v-48ad9a74] {\n  border-color: #cdcdcf;\n  margin-top: 6%;\n}\n.navbar-light .navbar-nav .nav-link.icon[data-v-48ad9a74] {\n  color: rgba(0, 0, 0, 0.5);\n}\n.navbar-light .navbar-nav .nav-link.name[data-v-48ad9a74] {\n  font-size: 14px;\n  color: #1e2331;\n  padding-top: 6px;\n  position: relative;\n  top: -4%;\n}\n.help-block[data-v-48ad9a74] {\n  color: red;\n}\n.status[data-v-48ad9a74] {\n  display: none;\n}\n.status.active[data-v-48ad9a74] {\n  width: 76px;\n  text-align: center;\n  border-radius: 8px;\n  display: block;\n  background: #00d68f;\n  padding: 4px 3px;\n  line-height: 20px;\n  color: #fff;\n  text-transform: uppercase;\n  font-size: 12px;\n  float: left;\n  margin: 0;\n}\n.status.offline[data-v-48ad9a74] {\n  width: 76px;\n  text-align: center;\n  border-radius: 8px;\n  display: block;\n  background: orange;\n  padding: 4px 3px;\n  line-height: 20px;\n  color: #fff;\n  text-transform: uppercase;\n  font-size: 12px;\n  float: left;\n  margin: 0;\n}\n.status.active[data-v-48ad9a74]:hover,\n.status.offline[data-v-48ad9a74]:hover {\n  color: #3b3b3b;\n  cursor: pointer;\n}\n.status.show[data-v-48ad9a74] {\n  display: block !important;\n}\n.collapse[data-v-48ad9a74] {\n  border-bottom: 1px solid #cdccce;\n}\n.p-3[data-v-48ad9a74] {\n  padding: 0.8rem 2rem 1.4rem 1.7rem !important;\n}\n.pl-34[data-v-48ad9a74] {\n  padding-left: 34px;\n}\n.ml-12[data-v-48ad9a74] {\n  margin-left: 12px;\n}\n.progress-bar[data-v-48ad9a74] {\n  background: #f7f6fb;\n  border-radius: 5px;\n}\n.tank[data-v-48ad9a74] {\n  background: linear-gradient(\n    to right,\n    rgba(161, 237, 128, 1) 0%,\n    rgba(98, 211, 126, 1) 100%\n  ) !important;\n  border-radius: 5px;\n  background: rgb(114, 218, 126);\n  height: 8px;\n  transition: all 0.5s ease 0s;\n}\n.value[data-v-48ad9a74] {\n  font-weight: 900;\n  font-size: 0.83vw;\n  color: #1a1c43;\n  margin-top: -8px;\n  letter-spacing: 0.1em;\n  font-family: Montserrat !important;\n}\n.description[data-v-48ad9a74] {\n  font-size: 10px;\n  font-family: \"Rubik\", sans-serif;\n  color: #1e2331;\n  padding-bottom: 7px;\n}\n.description-text[data-v-48ad9a74] {\n  font-size: 0.73vw !important;\n  color: #808080 !important;\n}\ninput.description-text[data-v-48ad9a74]:focus {\n  outline: 0 !important;\n  box-shadow: none !important;\n}\n.position[data-v-48ad9a74] {\n  display: block;\n  position: relative;\n  background: #ff8234;\n  color: #fff;\n  height: 62px;\n  text-align: center;\n  font-size: 17px;\n  padding: 18px 9px;\n  width: 62px;\n  transform: rotate(45deg);\n  /* Standard syntax */\n  margin-bottom: 40px;\n}\n.position span[data-v-48ad9a74] {\n  transform: rotate(0deg);\n  /* Standard syntax */\n}\np.heading[data-v-48ad9a74] {\n  border-bottom: 1px solid #cdccce;\n  margin-bottom: 10px;\n  font-weight: 900;\n}\n.navbar ul[data-v-48ad9a74] {\n  margin-bottom: 10px;\n}\n.personal-info[data-v-48ad9a74],\n.general-system-prefs[data-v-48ad9a74],\n.notifications .w-100[data-v-48ad9a74] {\n  margin-top: 20px;\n}\n.personal-info img[data-v-48ad9a74] {\n  border-radius: 50%;\n  width: 27%;\n}\n.personal-info button.btn-info[data-v-48ad9a74] {\n  margin: 5px 0 15px 0;\n  font-size: 9px;\n}\n.btn-info[data-v-48ad9a74] {\n  height: 24px !important;\n  background: #f98b39 !important;\n  border-color: #f98b39 !important;\n  color: #fff !important;\n  padding: 4px 17px 6px !important;\n  border-radius: 24px !important;\n}\n.settings .row.border-bottom[data-v-48ad9a74],\n.notifications .row.border-bottom[data-v-48ad9a74] {\n  border-color: #cdccce;\n  padding: 21px 0px 16px 0;\n}\n.notification-popup[data-v-48ad9a74] {\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\n  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\n  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1) !important;\n  border-radius: 21px;\n  width: 100% !important;\n}\n.settings .row p.description[data-v-48ad9a74] {\n  font-size: 9px;\n  display: block;\n}\n.custom-checkbox .custom-control-label[data-v-48ad9a74] {\n  padding-top: 5px;\n}\n.themes label[data-v-48ad9a74]:first-child,\n.themes label[data-v-48ad9a74]:nth-child(2),\n.language label[data-v-48ad9a74],\n.notifications label[data-v-48ad9a74],\n.action-btns label[data-v-48ad9a74]:first-child,\n.action-btns label[data-v-48ad9a74]:nth-child(2) {\n  margin-right: 8px;\n  float: left;\n}\n.control-label[data-v-48ad9a74] {\n  color: #989899;\n  font-family: \"Rubik\", sans-serif;\n  font-size: 12px;\n  text-align: left;\n}\n.btn-default[data-v-48ad9a74] {\n  padding: 6px 12px 6px 10px;\n  font-size: 10px;\n  border: transparent !important;\n  border-radius: 5px !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-default[data-v-48ad9a74]:hover {\n  background: #00344a;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 6px 12px 6px 10px;\n  font-size: 10px;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-active[data-v-48ad9a74] {\n  background: #00344a;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 6px 12px 6px 10px;\n  font-size: 0.6vw;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.themes .btn-default[data-v-48ad9a74],\n.language .btn-default[data-v-48ad9a74],\n.language .btn-active[data-v-48ad9a74] {\n  border-radius: 50rem !important;\n  padding: 8px 15px !important;\n}\n.btn-orange[data-v-48ad9a74],\n.btn-orange-active[data-v-48ad9a74] {\n  background: linear-gradient(\n    to right,\n    rgb(255, 128, 51, 1) 0%,\n    rgba(255, 147, 58, 1) 100%\n  ) !important;\n  color: #ffffff;\n  border: transparent !important;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-white[data-v-48ad9a74] {\n  background: #fff;\n  border: transparent !important;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.orange-btn[data-v-48ad9a74]:hover {\n  background: linear-gradient(\n    to right,\n    rgb(255, 128, 51, 1) 0%,\n    rgba(255, 147, 58, 1) 100%\n  ) !important;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 8px 15px;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-blue[data-v-48ad9a74] {\n  background: linear-gradient(\n    to right,\n    rgb(60, 144, 206, 1) 0%,\n    rgba(65, 197, 231, 1) 100%\n  ) !important;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 8px 15px;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.blue-btn[data-v-48ad9a74]:hover {\n  background: linear-gradient(\n    to right,\n    rgb(60, 144, 206, 1) 0%,\n    rgba(65, 197, 231, 1) 100%\n  ) !important;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 8px 15px;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-dark[data-v-48ad9a74] {\n  background: linear-gradient(\n    to right,\n    rgb(25, 25, 26, 1) 0%,\n    rgba(23, 23, 66, 1) 100%\n  ) !important;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 8px 15px;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.dark-btn[data-v-48ad9a74]:hover {\n  background: linear-gradient(\n    to right,\n    rgb(25, 25, 26, 1) 0%,\n    rgba(23, 23, 66, 1) 100%\n  ) !important;\n  color: #ffffff;\n  border: transparent !important;\n  padding: 8px 15px;\n  font-size: 10px;\n  border-radius: 50rem !important;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.notifications-close img[data-v-48ad9a74] {\n  width: 20px;\n  top: 5px;\n  position: relative;\n}\n.btn-has-new-dot[data-v-48ad9a74] {\n  background-image: url(\"/images/icons/Red-Notification-Dot.svg\") !important;\n  background-size: 12px 12px;\n  background-repeat: no-repeat;\n  background-position: right top;\n  width: 13px;\n  height: 100%;\n  z-index: 1;\n  position: absolute;\n  left: 66px;\n  top: -5px;\n}\n.btn-has-new-messages[data-v-48ad9a74] {\n  background-image: url(\"/images/icons/blue dot.svg\") !important;\n  background-size: 69% 34%;\n  background-repeat: no-repeat;\n  background-position: left top;\n  color: #ffffff;\n  font-size: 10px;\n  text-align: center;\n}\n.btn-has-new[data-v-48ad9a74]:hover {\n  background-image: url(\"/images/icons/Dot.png\") !important;\n  background-size: 12px 12px;\n  background-repeat: no-repeat;\n  background-position: right top;\n}\n.logout-wrapper[data-v-48ad9a74] {\n  margin-top: 14%;\n}\n#logout[data-v-48ad9a74] {\n  background-image: url(\"/images/icons/Asset 67.svg\") !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n  height: 100px;\n  background-position: center;\n  margin-bottom: 11%;\n}\n#logout[data-v-48ad9a74]:hover {\n  background-image: url(\"/images/icons/Asset 66.svg\") !important;\n}\n.notifications .btn-default[data-v-48ad9a74] {\n  padding: 6px 25px 6px 18px;\n  font-size: 12px;\n  -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.notifications .top-section[data-v-48ad9a74] {\n  list-style: none;\n}\n.notifications .card-body-notifications h3[data-v-48ad9a74],\n.notifications .card-body-notifications h3 a[data-v-48ad9a74],\n.caller-name[data-v-48ad9a74] {\n  color: #333333;\n  font-size: 0.7vw;\n  font-weight: 600;\n}\n.caller-time[data-v-48ad9a74] {\n  float: right;\n  font-size: 0.6vw;\n  color: #808080;\n}\n.notifications .card-body-notifications p.call_back_time[data-v-48ad9a74] {\n  color: #808080;\n  font-size: 0.7vw;\n}\n.personal-info .row.mx-0.border-left[data-v-48ad9a74],\n.account-info .row.mx-0.border-left[data-v-48ad9a74] {\n  border-color: #cdccce;\n}\n.settings .title[data-v-48ad9a74] {\n  color: #7f8080;\n  padding-bottom: 16px;\n  font-size: 12px;\n}\n.small-avatar img[data-v-48ad9a74] {\n  width: 30px;\n  border-radius: 50%;\n}\n.update-user[data-v-48ad9a74],\n.update-filter[data-v-48ad9a74],\n.save-filter[data-v-48ad9a74] {\n  margin: 0px 0px 5px 0px;\n}\n.final-modal[data-v-48ad9a74] {\n  padding: 0 0 1rem;\n}\n.final-modal .row-a[data-v-48ad9a74] {\n  width: 100%;\n  border-bottom: 1px solid #cdccce;\n  margin-left: 0;\n}\n.final-modal label button img[data-v-48ad9a74] {\n  width: 20px;\n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-48ad9a74] {\n  font-size: 55px;\n  color: #ff933a;\n}\n.card-header[data-v-48ad9a74] {\n  color: rgba(28, 35, 49, 0.5);\n  border-bottom: 0.5px solid #f4f4f5 !important;\n  background-color: #fff !important;\n  font-size: 10px;\n  font-weight: 600;\n}\n.card-body-notifications[data-v-48ad9a74] {\n  padding: 11px 10px;\n}\n.card-body-notifications img[data-v-48ad9a74] {\n  padding-right: 10px;\n}\n.callback-cal p[data-v-48ad9a74] {\n  font-size: 10px;\n  color: #757575;\n  border-color: #ccc;\n  margin-top: 13.5%;\n  font-family: \"Rubik\", sans-serif;\n}\n.final-modal .card-header[data-v-48ad9a74] {\n  padding: 0 11px 0;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-48ad9a74] {\n  border-bottom: none;\n  background: #fff;\n  padding: 6px 12px;\n}\n.final-modal .card-header-tabs .left a.active[aria-selected=\"true\"][data-v-48ad9a74] {\n  border-bottom: none;\n  background: #fff;\n  padding: 6px 12px;\n  box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n  -webkit-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n  -moz-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n  -o-box-shadow: 11px -7px 16px -11px rgba(138, 134, 134, 0.75);\n}\n.final-modal .card-header-tabs .left a[aria-selected=\"false\"][data-v-48ad9a74] {\n  border-bottom: none;\n  background: #fff;\n  padding: 6px 12px;\n  box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n  -webkit-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n  -moz-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n  -o-box-shadow: -4px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n}\n.final-modal .card-header-tabs .right a.active[aria-selected=\"true\"][data-v-48ad9a74] {\n  border-bottom: none;\n  background: #fff;\n  padding: 6px 12px;\n  box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n  -webkit-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n  -moz-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n  -o-box-shadow: -8px -7px 14px -9px rgba(138, 134, 134, 0.75);\n}\n.final-modal .card-header-tabs .right a[aria-selected=\"false\"][data-v-48ad9a74] {\n  border-bottom: none;\n  background: #fff;\n  padding: 6px 12px;\n  box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n  -webkit-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n  -moz-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n  -o-box-shadow: 5px -7px 16px -11px rgba(138, 134, 134, 0.75) inset;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74] {\n  padding: 6px 12px;\n  font-size: 0.83vw;\n  color: #818284;\n}\n.final-modal .card ul li.left .nav-link[data-v-48ad9a74]:hover {\n  border: none;\n  background: #fff;\n  padding: 6px 12px;\n  font-size: 0.83vw;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74] {\n  background: #fff;\n  padding: 6px 12px;\n  font-size: 0.83vw;\n  color: #818284;\n}\n.final-modal .card ul li.right .nav-link[data-v-48ad9a74]:hover {\n  background: #fff;\n  padding: 6px 12px;\n  font-size: 0.83vw;\n}\n.form-control[data-v-48ad9a74] {\n  padding: 10px 12px !important;\n  font-size: 12px;\n  box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1) !important;\n  -webkit-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1) !important;\n  -moz-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1) !important;\n  -o-box-shadow: 0px 0 5px rgba(0, 0, 0, 0.1) !important;\n  color: #193246;\n  font-weight: 600;\n  margin-top: 6px;\n}\ntextarea.form-control[data-v-48ad9a74] {\n  height: 100px !important;\n  border-radius: 15px;\n}\n.stats-section[data-v-48ad9a74] {\n  margin-top: 22px;\n}\n.stats-section .commission[data-v-48ad9a74] {\n  padding: 5.5% 0;\n}\n.stats-section .sales[data-v-48ad9a74],\n.stats-section .calls[data-v-48ad9a74],\n.search-input[data-v-48ad9a74],\n.filter-search[data-v-48ad9a74],\n.filter-by[data-v-48ad9a74] {\n  padding: 5px 0;\n}\n.stats-section .calls .col-lg-12 p[data-v-48ad9a74],\n.stats-section .sales .col-lg-12 p[data-v-48ad9a74],\np.badges[data-v-48ad9a74] {\n  border-bottom: 0.5px solid #f4f4f5;\n  margin-bottom: 5.6%;\n  padding-bottom: 2px;\n}\n.print-btn[data-v-48ad9a74],\n.export-btn[data-v-48ad9a74] {\n  width: 90%;\n}\n.action-btns[data-v-48ad9a74] {\n  margin-top: 17px;\n}\n/* is the notification count being used? */\n.notification-count[data-v-48ad9a74] {\n  position: relative;\n  top: -7px;\n  right: 15px;\n  font-size: 9px;\n  color: #003449;\n}\n.nav-item .nav-link img.active-icon[data-v-48ad9a74], \n.nav-item .nav-link.generalIcon[data-v-48ad9a74]:hover,\n.nav-item .nav-link.filterIcon[data-v-48ad9a74]:hover, \n.nav-item .nav-link.notificationsIcon[data-v-48ad9a74]:hover, \n.nav-item .nav-link.settingsIcon[data-v-48ad9a74]:hover,\n.nav-item .nav-link.notificationsIcon img.inactive-icon[data-v-48ad9a74]:hover {\n  border-radius: 50%;\n  box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n}\n.reminders .nav-link[aria-posinset=\"2\"][data-v-48ad9a74] {\n  text-align: right;\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  line-height: 1em;\n  justify-content: flex-end;\n}\n.reminders .tabs[data-v-48ad9a74],\n.filter-content .tabs[data-v-48ad9a74] {\n  width: 100%;\n}\n.reminders .col-6[data-v-48ad9a74] {\n  padding-left: 6%;\n  padding-right: 6%;\n}\n.filter-results .custom-control.custom-checkbox .custom-control-label[data-v-48ad9a74]:before,\n.reminders .custom-checkbox .custom-control-label[data-v-48ad9a74]::before {\n  border-radius: 50% !important;\n  border: 1px solid #ededed;\n  box-shadow: none;\n  -webkit-box-shadow: none;\n  -moz-box-shadow: none;\n  -o-box-shadow: none;\n  background-image: url(\"/images/icons/right-sidebar/Task_Check.svg\") !important;\n  background-size: cover;\n}\n.reminders .custom-control-label[data-v-48ad9a74]::after,\n.reminders .custom-control-label[data-v-48ad9a74]::before {\n  width: 20px;\n  height: 20px;\n  top: 10px;\n  left: 0.2rem;\n  cursor: pointer;\n}\n.reminders .custom-control-label a.callback-name[data-v-48ad9a74]:hover {\n  text-decoration: underline;\n}\n.reminders .custom-control-label a.callback-name[data-v-48ad9a74] {\nfont-size: 0.83vw;\n}\n.reminders input.list-input[data-v-48ad9a74] {\n  font-size: 0.83vw;\n  font-family: \"Rubik\", sans-serif;\n  color: #808080;\n  width: 100%;\n  text-overflow: ellipsis;\n}\n.reminders input.list-input[data-v-48ad9a74]:focus,\n.nav-link[data-v-48ad9a74]:focus {\n  outline: 0 !important;\n  box-shadow: none !important;\n  -webkit-box-shadow: none !important;\n  -moz-box-shadow: none !important;\n  -o-box-shadow: none !important;\n  border: 0 !important;\n}\n.reminders .btn-primary[data-v-48ad9a74] {\n  width: auto !important;\n  float: right;\n  line-height: 1em;\n}\n.reminders .terms-text input[data-v-48ad9a74] {\n  border-left: 0;\n  border-top: 0;\n  border-right: 0;\n  border-bottom: 1px solid #f7f7f7;\n  width: 100%;\n  color: #8E8E8E;\n}\n.terms-text[data-v-48ad9a74] {\n  padding-left: 37px;\n}\n.new-task input[data-v-48ad9a74] {\n  border-left: 0;\n  border-top: 0;\n  border-right: 0;\n  border-bottom: 1px solid #f7f7f7;\n  color: #8E8E8E;\n}\n.reminders .terms-text input[data-v-48ad9a74]:focus {\n  outline: 0 !important;\n}\n.reminders .terms-text input[data-v-48ad9a74]::-webkit-input-placeholder,\n.new-task input[data-v-48ad9a74]::-webkit-input-placeholder {\n  font-style: italic;\n  font-weight: 300;\n}\n.reminders .terms-text input[data-v-48ad9a74]::-moz-placeholder,\n.new-task input[data-v-48ad9a74]::-moz-placeholder {\n  font-style: italic;\n  font-weight: 300;\n}\n.reminders .terms-text input[data-v-48ad9a74]:-ms-input-placeholder,\n.new-task input[data-v-48ad9a74]:-ms-input-placeholder {\n  font-style: italic;\n  font-weight: 300;\n}\n.reminders .terms-text input[data-v-48ad9a74]::-ms-input-placeholder,\n.new-task input[data-v-48ad9a74]::-ms-input-placeholder {\n  font-style: italic;\n  font-weight: 300;\n}\n.reminders .terms-text input[data-v-48ad9a74]::placeholder,\n.new-task input[data-v-48ad9a74]::placeholder {\n  font-style: italic;\n  font-weight: 300;\n}\n.reminders input.list-input.red[data-v-48ad9a74]::-webkit-input-placeholder {\n  color: red !important;\n}\n.reminders input.list-input.red[data-v-48ad9a74]::-moz-placeholder {\n  color: red !important;\n}\n.reminders input.list-input.red[data-v-48ad9a74]:-ms-input-placeholder {\n  color: red !important;\n}\n.reminders input.list-input.red[data-v-48ad9a74]::-ms-input-placeholder {\n  color: red !important;\n}\n.reminders input.list-input.red[data-v-48ad9a74]::placeholder {\n  color: red !important;\n}\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label[data-v-48ad9a74]::before {\n  background-image: url(\"/images/icons/right-sidebar/Task_Check.svg\") !important;\n  border-radius: 50% !important;\n  background-size: cover;\n}\n.custom-checkbox .custom-control-input:checked ~ .custom-control-label[data-v-48ad9a74]::after {\n  border-radius: 50% !important;\n}\n.reminders input.list-input[data-v-48ad9a74]:focus {\n  border: 1px solid rgba(28, 35, 49, 0.5);\n}\n.grey-scroll[data-v-48ad9a74]::-webkit-scrollbar-thumb {\n  background: #b3b3b3 !important;\n  border-radius: 5px !important;\n}\n.orange[data-v-48ad9a74] {\n  color: #ff933a;\n}\n.blue[data-v-48ad9a74] {\n  color: #3fa9f5;\n}\n.tasks-date[data-v-48ad9a74] {\n  font-size: 10px;\n  font-family: \"Rubik\", sans-serif !important;\n  color: #808080;\n  margin-left: 35px;\n}\n.reminders-border-bottom[data-v-48ad9a74] {\n  border-bottom: 1px solid #f7f7f7;\n}\nli.row.m-2.pl-0.align-items-center.reminders-border-bottom[data-v-48ad9a74]:first-child {\nborder-top: 1px solid #f7f7f7;\n}\n.nav-tabs .nav-item[data-v-48ad9a74] {\n  width: 50%;\n}\n.btn-default.cancel-user[data-v-48ad9a74] {\n  border-radius: 50rem !important;\n  font-size: 10px;\n  color: #989899;\n  text-transform: uppercase;\n  padding: 10px 20px;\n  font-weight: 600;\n}\n.btn-primary.update-user[data-v-48ad9a74],\n.btn-primary.update-filter[data-v-48ad9a74],\n.btn-primary.save-filter[data-v-48ad9a74] {\n  font-size: 10px;\n  background: linear-gradient(\n    to right,\n    rgb(255, 128, 51, 1) 0%,\n    rgba(255, 147, 58, 1) 100%\n  ) !important;\n  font-weight: 600;\n  text-transform: uppercase;\n  padding: 10px 20px;\n}\n.btn-primary.update-filter[data-v-48ad9a74],\n.btn-primary.save-filter[data-v-48ad9a74] {\n  padding: 6px 12px !important;\n}\n.float-right[data-v-48ad9a74] {\n  float: right;\n}\n.inactive-icon[data-v-48ad9a74] {\n  /* padding: 6px; */\n  border-radius: 50rem;\n  box-shadow: none;\n  -webkit-box-shadow: none;\n  -moz-box-shadow: none;\n  -o-box-shadow: none;\n  transition: box-shadow 0.5s ease;\n}\n\n/* .inactive-icon:hover {\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n  -o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n} */\n.filter-heading[data-v-48ad9a74] {\n  font-size: 0.83vw;\n  color: #171717 !important;\n  font-family: \"Rubik\", sans-serif !important;\n}\n.filterborder[data-v-48ad9a74] {\n  border: 1px solid #fed6d6;\n}\n.show[data-v-48ad9a74] {\n  display: block !important;\n}\n.row.filter-content[data-v-48ad9a74] {\n  margin-left: -27px;\n  margin-right: -27px;\n}\n.row.filter-content .custom-control.custom-checkbox[data-v-48ad9a74],\n.saved-results[data-v-48ad9a74] {\n  border-radius: 14px;\n  box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  margin: 10px 0;\n}\n.row.filter-content .custom-control.custom-checkbox .custom-control-label[data-v-48ad9a74] {\n  font-size: 14px;\n  padding-left: 28px;\n  font-family: \"Rubik\", sans-serif !important;\n}\n.row.filter-content\n  .filter-results\n  .custom-control.custom-checkbox\n  .custom-control-label[data-v-48ad9a74] {\n  font-size: 12px;\n  padding-left: 20px;\n}\n.row.filter-content .filter-results .custom-control[data-v-48ad9a74] {\n  padding-left: 10px !important;\n}\n.row.filter-content .search-criteria[data-v-48ad9a74] {\n  border: 0;\n  box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n  -webkit-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n  -moz-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n  -o-box-shadow: -2px 8px 7px 2px rgba(0, 0, 0, 0.05);\n  font-size: 12px;\n  border-radius: 14px;\n  padding: 10px;\n  font-family: \"Rubik\", sans-serif !important;\n}\n.row.filter-content .search-text[data-v-48ad9a74],\n.save-text[data-v-48ad9a74] {\n  border: 0;\n  box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n  font-size: 12px;\n  font-family: \"Rubik\", sans-serif;\n  font-weight: 300;\n  font-style: italic;\n  border-radius: 15px;\n  padding: 10px;\n}\n.row.filter-content\n  .search-text::-webkit-input-placeholder\n  .save-text[data-v-48ad9a74]::-webkit-input-placeholder {\n  font-size: 12px !important;\n  font-family: \"Rubik\", sans-serif !important;\n  color: rgba(0, 0, 0, 0.65) !important;\n}\n.save-text[data-v-48ad9a74]::-webkit-input-placeholder {\n  font-size: 10px !important;\n  font-family: \"Rubik\", sans-serif !important;\n  color: #b3b3b3 !important;\n  font-style: italic;\n}\n.filter-results[data-v-48ad9a74] {\n  max-height: 200px;\n  overflow: auto;\n  margin-top: 20px;\n}\n.saved-results[data-v-48ad9a74] {\n  font-size: 12px !important;\n  font-family: \"Rubik\", sans-serif;\n}\n.px-6[data-v-48ad9a74] {\n  padding: 0px 8%;\n}\n.px-6-hide[data-v-48ad9a74] {\n  padding: 0px 8%;\n}\n.filter-container[data-v-48ad9a74] {\n  overflow: auto;\n}\n@media screen and (max-width: 1368px) {\n.filter-container[data-v-48ad9a74] {\n    max-height: 450px;\n}\n.px-6-hide[data-v-48ad9a74], .description[data-v-48ad9a74], label.task-deadline.terms-text[data-v-48ad9a74] {\n  padding:0;\n}\n.small-margin[data-v-48ad9a74] {\n    margin: 10px 10px 0px 9px;\n}\n}\n@media screen and (min-width: 1400px) {\n.filter-container[data-v-48ad9a74] {\n    max-height: 650px;\n}\n}\ninput.search-text[data-v-48ad9a74]:focus,\ninput.save-text[data-v-48ad9a74]:focus {\n  outline: 0 !important;\n  border: 0 !important;\n}\n.custom-filter-name-save[data-v-48ad9a74] {\n  border-color: #cdcdcf;\n}\n/*End Right Component*/\n", ""]);
 
 // exports
 
@@ -251386,7 +251863,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n\r\n/*Right Component*/\n.main-header.navbar.navbar-expand[data-v-6ec57eb6] {\r\n  padding: 13px 4% 1.55%;\r\n  position: relative;\r\n  top: 10px;\n}\n.navbar-nav li.title[data-v-6ec57eb6]{\r\n  line-height: 20px;\n}\n.nav-link.top-link.d-block.text-center[data-v-6ec57eb6] {\r\n  box-shadow: 0 0 7px rgba(0,0,0,0.1);\r\n  height: auto !important;\r\n  font-size: 0.73vw;\n}\n.nav-link.top-link.d-block.text-center[data-v-6ec57eb6]:hover {\r\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow:0 0 5px rgba(0, 0, 0, 0.1);\r\n  -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  background: #ffffff;\n}\na.add-new[data-v-6ec57eb6] {\r\n\tborder-radius: 50rem !important;\r\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  background: #ffffff;\r\n  font-size: 16px;\r\n  color: #989899;\r\n  font-weight: 600;\n}\nli.title a strong[data-v-6ec57eb6]{\r\n  color: #003549;\r\n  font-size: 1.68vw;\r\n  letter-spacing: 0.1em;\n}\na.top-link[data-v-6ec57eb6]{    \r\n  border-radius: 26px;\r\n  height: 30px !important;\r\n  padding: 6px 17px 6px !important;\r\n  font-family: 'Rubik', sans-serif;\r\n  letter-spacing: 1px;\n}\na.active[data-v-6ec57eb6]{    \r\n  border-radius: 26px;\r\n  background: #F98B39 !important;\r\n  border-color: #F98B39 !important;\r\n  color: #fff !important;\r\n  padding: 6px 17px 6px !important;\n}\nselect[data-v-6ec57eb6]{\r\n  font-family: 'Rubik', sans-serif;\r\n  border-radius: 26px;\r\n  border:0;\r\n  margin: 5px 8px 8px 55px !important;\r\n  height: 30px !important;\r\n  background: #fff !important;\r\n  color: #003549 !important;\r\n  padding: 0 16px 0 !important;\r\n  box-shadow: 0 0 5px rgba(0,0,0,0.1);\r\n  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.1);\r\n  -moz-box-shadow: 0 0 5px rgba(0,0,0,0.1);\r\n  -o-box-shadow: 0 0 5px rgba(0,0,0,0.1);\r\n  letter-spacing: 1px;\r\n  font-size: 14px;\n}\nselect.month-selector[data-v-6ec57eb6] {\r\n  margin-left: 0!important;\r\n  margin-right: 0!important;\n}\n.callIcons li a[data-v-6ec57eb6]{\r\n  color: black;\r\n  background-size: 59px !important;\r\n  background-repeat: no-repeat !important;\r\n  background-position: center center !important;\n}\n.searchBar li a[data-v-6ec57eb6]{\r\n  color: black;\r\n  background-size: 13px !important;\r\n  background-repeat: no-repeat !important;\r\n  background-position: center center !important;\n}\n.searchBar a[data-v-6ec57eb6]{\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/top-nav/Search.svg') !important;\r\n  background-size: 15px!important;\r\n  background-repeat: no-repeat;\r\n  border-radius: 50rem;\r\n\tbox-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n\twidth: 40px;\r\n  height: 40px;\n}\n.searchBar a[data-v-6ec57eb6]:hover{\r\n  background-image: url('/images/icons/Asset 61.svg') !important;\r\n  background-size: 170%!important;\r\n  background-repeat: no-repeat;\n}\n.searchBar input[data-v-6ec57eb6] {\r\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  padding:14px 0 14px;\r\n  right: -40px;\r\n  position: absolute;\r\n  top: -24px;\r\n  width:0;\r\n  transition: width 2s;\n}\n.searchBar:hover input[data-v-6ec57eb6] {\r\n  width:auto;\r\n  padding:14px 40px 14px 15px;\n}\n.searchBar:hover input[data-v-6ec57eb6]:focus {\r\n  outline: 0 !important;\n}\n.searchBar input[data-v-6ec57eb6]::-webkit-input-placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: 'Rubik', sans-serif;\r\n  font-style: italic;\n}\n.searchBar input[data-v-6ec57eb6]::-moz-placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: 'Rubik', sans-serif;\r\n  font-style: italic;\n}\n.searchBar input[data-v-6ec57eb6]:-ms-input-placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: 'Rubik', sans-serif;\r\n  font-style: italic;\n}\n.searchBar input[data-v-6ec57eb6]::-ms-input-placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: 'Rubik', sans-serif;\r\n  font-style: italic;\n}\n.searchBar input[data-v-6ec57eb6]::placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: 'Rubik', sans-serif;\r\n  font-style: italic;\n}\n.callIcons li.idle .status[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 55.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li.on-call .status[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 56.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li.offline .status[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 57.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/top-nav/Start_Call.svg') !important;\r\n  background-size: 20px;\r\n  background-position: center;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]:hover{\r\n  background-image: url('/images/icons/Call/Start Call Hover.svg') !important;\r\n  background-size: 170%;\r\n  background-repeat: no-repeat;\n}\n.callIcons li button.call[data-v-6ec57eb6],\r\n.callIcons button.status[data-v-6ec57eb6],\r\n.callIcons button.end-call[data-v-6ec57eb6] {\r\n    border-radius: 50rem;\r\n    box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n    width: 40px;\r\n    height: 40px;\n}\n.callIcons li .end-call[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/top-nav/End_Call.svg') !important;\r\n  background-size: 25px;\r\n  background-position: center;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .end-call[data-v-6ec57eb6]:hover{\r\n  background-image: url('/images/icons/Call/End Call Hover.svg') !important;\r\n  background-size: 170%;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .add-call-back-btn[data-v-6ec57eb6]{\r\n  background-image: url('/images/workstation/Asset 28@4x.png') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-color: transparent;\r\n  border: none;\r\n  padding: 14px;\r\n  margin-top: 5px;\r\n  margin-left: 20px;\n}\n.modal-content[data-v-6ec57eb6]{\r\n  background: linear-gradient(to right, rgba(255,128,51,1) 0%, rgba(255,147,58,1) 100%);\n}\r\n/*is error being used?*/\n.error[data-v-6ec57eb6]{\r\n  color:#F98B39;\n}\r\n/*End Right Component*/\r\n", ""]);
+exports.push([module.i, "\n\n/*Right Component*/\n.main-header.navbar.navbar-expand[data-v-6ec57eb6] {\n  padding: 13px 4% 0.45%;\n  position: relative;\n}\n.navbar-nav li.title[data-v-6ec57eb6]{\n  line-height: 20px;\n}\n.nav-link.top-link.d-block.text-center[data-v-6ec57eb6] {\n  box-shadow: 0 0 7px rgba(0,0,0,0.1);\n  height: auto !important;\n  font-size: 0.73vw;\n}\n.nav-link.top-link.d-block.text-center[data-v-6ec57eb6]:hover {\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow:0 0 5px rgba(0, 0, 0, 0.1);\n  -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n  background: #ffffff;\n}\na.add-new[data-v-6ec57eb6] {\n\tborder-radius: 50rem !important;\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n  -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\n  background: #ffffff;\n  font-size: 16px;\n  color: #989899;\n  font-weight: 600;\n}\nli.title a strong[data-v-6ec57eb6]{\n  color: #003549;\n  font-size: 1.68vw;\n  letter-spacing: 0.1em;\n}\na.top-link[data-v-6ec57eb6]{    \n  border-radius: 26px;\n  height: 30px !important;\n  padding: 6px 17px 6px !important;\n  font-family: 'Rubik', sans-serif;\n  letter-spacing: 1px;\n}\na.active[data-v-6ec57eb6]{    \n  border-radius: 26px;\n  background: #F98B39 !important;\n  border-color: #F98B39 !important;\n  color: #fff !important;\n  padding: 6px 17px 6px !important;\n}\nselect[data-v-6ec57eb6]{\n  font-family: 'Rubik', sans-serif;\n  border-radius: 26px;\n  border:0;\n  margin: 5px 8px 8px 55px !important;\n  height: 30px !important;\n  background: #fff !important;\n  color: #003549 !important;\n  padding: 0 16px 0 !important;\n  box-shadow: 0 0 5px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 5px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 5px rgba(0,0,0,0.1);\n  letter-spacing: 1px;\n  font-size: 14px;\n}\nselect.month-selector[data-v-6ec57eb6] {\n  margin-left: 0!important;\n  margin-right: 0!important;\n}\n.callIcons li a[data-v-6ec57eb6]{\n  color: black;\n  background-size: 59px !important;\n  background-repeat: no-repeat !important;\n  background-position: center center !important;\n}\n.searchBar li a[data-v-6ec57eb6]{\n  color: black;\n  background-size: 13px !important;\n  background-repeat: no-repeat !important;\n  background-position: center center !important;\n}\n.searchBar a[data-v-6ec57eb6]{\n  background-color: #fff;\n  background-image: url('/images/icons/top-nav/Search.svg') !important;\n  background-size: 15px!important;\n  background-repeat: no-repeat;\n  border-radius: 50rem;\n\tbox-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n\twidth: 40px;\n  height: 40px;\n}\n.searchBar a[data-v-6ec57eb6]:hover{\n  background-image: url('/images/icons/Asset 61.svg') !important;\n  background-size: 170%!important;\n  background-repeat: no-repeat;\n}\n.searchBar input[data-v-6ec57eb6] {\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding:14px 0 14px;\n  right: -40px;\n  position: absolute;\n  top: -24px;\n  width:0;\n  transition: width 2s;\n}\n.searchBar:hover input[data-v-6ec57eb6] {\n  width:auto;\n  padding:14px 40px 14px 15px;\n}\n.searchBar:hover input[data-v-6ec57eb6]:focus {\n  outline: 0 !important;\n}\n.searchBar input[data-v-6ec57eb6]::-webkit-input-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.searchBar input[data-v-6ec57eb6]::-moz-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.searchBar input[data-v-6ec57eb6]:-ms-input-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.searchBar input[data-v-6ec57eb6]::-ms-input-placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.searchBar input[data-v-6ec57eb6]::placeholder {\n  font-size: 12px;\n  font-weight: 300;\n  font-family: 'Rubik', sans-serif;\n  font-style: italic;\n}\n.callIcons li.idle .status[data-v-6ec57eb6]{\n  background-image: url('/images/icons/Asset 55.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.callIcons li.on-call .status[data-v-6ec57eb6]{\n  background-image: url('/images/icons/Asset 56.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.callIcons li.offline .status[data-v-6ec57eb6]{\n  background-image: url('/images/icons/Asset 57.svg') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]{\n  background-image: url('/images/icons/top-nav/Start_Call.svg') !important;\n  background-size: 20px;\n  background-position: center;\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]:hover{\n  background-image: url('/images/icons/Call/Start Call Hover.svg') !important;\n  background-size: 170%;\n  background-repeat: no-repeat;\n}\n.callIcons li button.call[data-v-6ec57eb6],\n.callIcons button.status[data-v-6ec57eb6],\n.callIcons button.end-call[data-v-6ec57eb6] {\n    border-radius: 50rem;\n    box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    width: 40px;\n    height: 40px;\n}\n.callIcons li .end-call[data-v-6ec57eb6]{\n  background-image: url('/images/icons/top-nav/End_Call.svg') !important;\n  background-size: 25px;\n  background-position: center;\n  background-repeat: no-repeat;\n}\n.callIcons li .end-call[data-v-6ec57eb6]:hover{\n  background-image: url('/images/icons/Call/End Call Hover.svg') !important;\n  background-size: 170%;\n  background-repeat: no-repeat;\n}\n.callIcons li .add-call-back-btn[data-v-6ec57eb6]{\n  background-image: url('/images/workstation/Asset 28@4x.png') !important;\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-color: transparent;\n  border: none;\n  padding: 14px;\n  margin-top: 5px;\n  margin-left: 20px;\n}\n.modal-content[data-v-6ec57eb6]{\n  background: linear-gradient(to right, rgba(255,128,51,1) 0%, rgba(255,147,58,1) 100%);\n}\n/*is error being used?*/\n.error[data-v-6ec57eb6]{\n  color:#F98B39;\n}\n/*End Right Component*/\n", ""]);
 
 // exports
 
@@ -251405,7 +251882,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n*[data-v-26869335] {\r\n  will-change: height;\r\n  transform: translateZ(0);\r\n  -webkit-backface-visibility: hidden;\r\n          backface-visibility: hidden;\r\n  perspective: 1000px;\n}\n.expand-enter-active[data-v-26869335],\r\n.expand-leave-active[data-v-26869335] {\r\n  transition: height 0.5s ease-in-out;\r\n  overflow: hidden;\n}\n.expand-enter[data-v-26869335],\r\n.expand-leave-to[data-v-26869335] {\r\n  height: 0;\n}\r\n", ""]);
+exports.push([module.i, "\n*[data-v-26869335] {\n  will-change: height;\n  transform: translateZ(0);\n  -webkit-backface-visibility: hidden;\n          backface-visibility: hidden;\n  perspective: 1000px;\n}\n.expand-enter-active[data-v-26869335],\n.expand-leave-active[data-v-26869335] {\n  transition: height 0.5s ease-in-out;\n  overflow: hidden;\n}\n.expand-enter[data-v-26869335],\n.expand-leave-to[data-v-26869335] {\n  height: 0;\n}\n", ""]);
 
 // exports
 
@@ -251424,7 +251901,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.tab-pane[data-v-e8b89162]{\n  padding: 4.4% 5.6% 6.8%;\n}\n.help-block[data-v-e8b89162]{\n  color: #dc3545;\n  font-size: 12px;\n}\n.b-container[data-v-e8b89162]{\n  margin-bottom: 25px\n}\n.col[data-v-e8b89162] {\n  padding-right: 1.3%;\n  padding-left: 1.3%;\n}\ntable[data-v-e8b89162] {\n  width:-webkit-max-content;\n  width:-moz-max-content;\n  width:max-content;\n}\ntd[data-v-e8b89162] {\n  vertical-align:baseline;\n  padding-bottom:1.1%;\n}\n.scrollable[data-v-e8b89162]{\n  height: 789px;\n  overflow: overlay;\n}\n.add-fields[data-v-e8b89162] {\n  border-color: #ccc;\n}\n.add-fields[data-v-e8b89162]:last-child {\n  border: 0!important;\n}\n.col-sm-6 input[data-v-e8b89162] {\n  border-radius: 50rem;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding: 11px 18px!important;\n  font-size: 12px;\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height: auto!important;\n}\n.col input[data-v-e8b89162], .col-sm-1[data-v-e8b89162], .col-sm-2[data-v-e8b89162], .col-sm-3 input[data-v-e8b89162] {\n  font-size: 12px;\n  color: #003449;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n  border:0;\n}\nlabel[data-v-e8b89162] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom:7px;\n  margin-left: 17px;\n}\nh5[data-v-e8b89162] {\n  font-size: 0.83vw;\n}\n.fields-divider[data-v-e8b89162] {\n  margin-top:3.7%;\n  margin-bottom:2.45%;\n}\n.btn-primary[data-v-e8b89162] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 10px;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n.icon.btn-secondary[data-v-e8b89162] {\n  line-height: 1em;\n  background: transparent;\n  border: none;\n}\n", ""]);
+exports.push([module.i, "\n.tab-pane[data-v-e8b89162]{\n  padding: 4.4% 5.6%;\n}\n.help-block[data-v-e8b89162]{\n  color: #dc3545;\n  font-size: 12px;\n}\n.b-container[data-v-e8b89162]{\n  margin-bottom: 25px\n}\n.col[data-v-e8b89162] {\n  padding-right: 1.3%;\n  padding-left: 1.3%;\n}\ntable[data-v-e8b89162] {\n  width:-webkit-max-content;\n  width:-moz-max-content;\n  width:max-content;\n}\ntd[data-v-e8b89162] {\n  vertical-align:baseline;\n  padding-bottom:1.1%;\n}\n.scrollable[data-v-e8b89162]{\n  height: 789px;\n  overflow: overlay;\n}\n.add-fields[data-v-e8b89162] {\n  border-color: #ccc;\n}\n.add-fields[data-v-e8b89162]:last-child {\n  border: 0!important;\n}\n.col-sm-6 input[data-v-e8b89162] {\n  border-radius: 50rem;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding: 11px 18px!important;\n  font-size: 12px;\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height: auto!important;\n}\n.col input[data-v-e8b89162], .col-sm-1[data-v-e8b89162], .col-sm-2[data-v-e8b89162], .col-sm-3 input[data-v-e8b89162] {\n  font-size: 12px;\n  color: #003449;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n  border:0;\n}\nlabel[data-v-e8b89162] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom:7px;\n  margin-left: 17px;\n}\nh5[data-v-e8b89162] {\n  font-size: 0.83vw;\n}\n.fields-divider[data-v-e8b89162] {\n  margin-top:3.7%;\n  margin-bottom:2.45%;\n}\n.btn-primary[data-v-e8b89162] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 10px;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n.icon.btn-secondary[data-v-e8b89162] {\n  line-height: 1em;\n  background: transparent;\n  border: none;\n}\n", ""]);
 
 // exports
 
@@ -251462,7 +251939,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.tab-pane.card-body[data-v-390d5e68]{\n  padding: 4.4% 5.6% 6.8%;\n}\n.form-control[data-v-390d5e68] {\n  border-radius: 50rem;\n  padding: 11px 18px!important;\n  font-size: 12px;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n}\nlabel[data-v-390d5e68] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom:7px;\n  margin-left: 17px;\n}\n.btn-default[data-v-390d5e68]{\n  background: #fff;\n  color: #999999;    \n  border: none!important;\n  padding: 11px 14px 10px;\n  font-size: 10px;\n  text-transform:uppercase;\n  border-radius: 50rem!important;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n  -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-390d5e68] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 10px;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n.api-checkbox[data-v-390d5e68] {\n  margin-left:20px;\n}\n", ""]);
+exports.push([module.i, "\n.tab-pane.card-body[data-v-390d5e68]{\n  padding: 4.4% 5.6%;\n}\n.form-control[data-v-390d5e68] {\n  border-radius: 50rem;\n  padding: 11px 18px!important;\n  font-size: 12px;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n}\nlabel[data-v-390d5e68] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom:7px;\n  margin-left: 17px;\n}\n.btn-default[data-v-390d5e68]{\n  background: #fff;\n  color: #999999;    \n  border: none!important;\n  padding: 11px 14px 10px;\n  font-size: 10px;\n  text-transform:uppercase;\n  border-radius: 50rem!important;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n  -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-390d5e68] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 10px;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n.api-checkbox[data-v-390d5e68] {\n  margin-left:20px;\n}\n", ""]);
 
 // exports
 
@@ -251481,7 +251958,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.tab-pane.card-body[data-v-21fdf7aa]{\n  padding: 4.4% 5.6% 6.8%;\n}\n.form-control[data-v-21fdf7aa] {\n  border-radius: 50rem;\n  padding: 11px 18px!important;\n  font-size: 0.63vw;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  color: #003449;\n  border-color: #ccc;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n}\nlabel[data-v-21fdf7aa] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom:7px;\n  margin-left: 17px;\n}\n.btn-default[data-v-21fdf7aa]{\n  background: #fff;\n  color: #999999;    \n  border: none!important;\n  padding: 11px 14px 10px;\n  font-size: 10px;\n  text-transform:uppercase;\n  border-radius: 50rem!important;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n  -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-21fdf7aa] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 10px;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n.permissions-divider[data-v-21fdf7aa] {\n  margin-top:3.7%;\n  margin-bottom:3.1%;\n}\nh5[data-v-21fdf7aa] {\n  font-size: 0.83vw;\n}\np[data-v-21fdf7aa] {\n  color: #999999;\n  font-family: 'Rubik', sans-serif;\n  font-size: 14px;\n}\n.btn-secondary[data-v-21fdf7aa] {\n  background: transparent;\n  border: 0;\n  box-shadow: none;\n  -webkit-box-shadow: none;\n  -moz-box-shadow: none;\n  -o-box-shadow: none;\n}\n", ""]);
+exports.push([module.i, "\n.tab-pane.card-body[data-v-21fdf7aa]{\n  padding: 4.4% 5.6%;\n}\n.form-control[data-v-21fdf7aa] {\n  border-radius: 50rem;\n  padding: 11px 18px!important;\n  font-size: 0.63vw;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  color: #003449;\n  border-color: #ccc;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n}\nlabel[data-v-21fdf7aa] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom:7px;\n  margin-left: 17px;\n}\n.btn-default[data-v-21fdf7aa]{\n  background: #fff;\n  color: #999999;    \n  border: none!important;\n  padding: 11px 14px 10px;\n  font-size: 10px;\n  text-transform:uppercase;\n  border-radius: 50rem!important;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n  -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-21fdf7aa] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 10px;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n.permissions-divider[data-v-21fdf7aa] {\n  margin-top:3.7%;\n  margin-bottom:3.1%;\n}\nh5[data-v-21fdf7aa] {\n  font-size: 0.83vw;\n}\np[data-v-21fdf7aa] {\n  color: #999999;\n  font-family: 'Rubik', sans-serif;\n  font-size: 14px;\n}\n.btn-secondary[data-v-21fdf7aa] {\n  background: transparent;\n  border: 0;\n  box-shadow: none;\n  -webkit-box-shadow: none;\n  -moz-box-shadow: none;\n  -o-box-shadow: none;\n}\n", ""]);
 
 // exports
 
@@ -251500,7 +251977,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n#preferences[data-v-37c5ed24] {\n  height:100vh;\n  overflow-y: auto;\n}\n.tab-pane[data-v-37c5ed24]{\n  padding: 4.4% 5.6% 6.8%;\n}\n.help-block[data-v-37c5ed24]{\n  color: #dc3545;\n  font-size: 12px;\n}\n.b-container[data-v-37c5ed24]{\n  margin-bottom: 25px\n}\n.col[data-v-37c5ed24], .col-sm-1[data-v-37c5ed24], .col-sm-2[data-v-37c5ed24], .col-sm-3[data-v-37c5ed24], td[data-v-37c5ed24] {\n  padding-right: 1.2%;\n  padding-left: 1.2%;\n}\ntable[data-v-37c5ed24] {\n  width:-webkit-max-content;\n  width:-moz-max-content;\n  width:max-content;\n}\ntd[data-v-37c5ed24] {\n  vertical-align:baseline;\n  padding-top:1%;\n  padding-bottom:1.1%;\n}\n.scrollable[data-v-37c5ed24]{\n  height: 500px;\n  overflow: auto;\n}\n.nav-link a[data-v-37c5ed24] {\n  color: #1A1C43;\n}\n.add-fields[data-v-37c5ed24] {\n  margin-top:1.6%;\n}\n.col-sm-6 input[data-v-37c5ed24] {\n  border-radius: 50rem;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding: 11px 18px!important;\n  font-size: 12px;\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n}\n.scrollable input[data-v-37c5ed24]{\n  font-size: 12px;\n  color: #003449;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n  border:0;\n  margin-left:8px;\n}\nlabel[data-v-37c5ed24] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom:7px;\n  margin-left:17px;\n}\nh5[data-v-37c5ed24] {\n  font-size: 16px;\n}\n.fields-divider[data-v-37c5ed24] {\n  margin-top:3.7%;\n  margin-bottom:2.45%;\n}\n.btn-default[data-v-37c5ed24]{\n  background: #fff;\n  color: #999999;    \n  border: none!important;\n  padding: 11px 14px 10px;\n  font-size: 10px;\n  text-transform:uppercase;\n  border-radius: 50rem!important;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n  -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-37c5ed24] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 10px;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n.icon.btn-secondary[data-v-37c5ed24] {\n  line-height: 1em;\n  background: transparent;\n  border: none;\n}\n.nav-link.active img[data-v-37c5ed24] {\n  margin-left:20px;\n  box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  border-radius: 50rem;\n}\ntr[data-v-37c5ed24] {\n  border-bottom: 1px solid #ccc;\n}\ntr[data-v-37c5ed24]:last-child {\n  border-bottom: 0;\n}\n.truncate[data-v-37c5ed24] {\n  max-width: 200px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n", ""]);
+exports.push([module.i, "\n#preferences[data-v-37c5ed24] {\n  height:100vh;\n  overflow-y: auto;\n}\n.tab-pane[data-v-37c5ed24]{\n  padding: 4.4% 5.6%;\n}\n.help-block[data-v-37c5ed24]{\n  color: #dc3545;\n  font-size: 12px;\n}\n.b-container[data-v-37c5ed24]{\n  margin-bottom: 25px\n}\n.col[data-v-37c5ed24], .col-sm-1[data-v-37c5ed24], .col-sm-2[data-v-37c5ed24], .col-sm-3[data-v-37c5ed24], td[data-v-37c5ed24] {\n  padding-right: 1.2%;\n  padding-left: 1.2%;\n}\ntable[data-v-37c5ed24] {\n  width:-webkit-max-content;\n  width:-moz-max-content;\n  width:max-content;\n}\ntd[data-v-37c5ed24] {\n  vertical-align:baseline;\n  padding-top:1%;\n  padding-bottom:1.1%;\n}\n.scrollable[data-v-37c5ed24]{\n  height: 500px;\n  overflow: auto;\n}\n.nav-link a[data-v-37c5ed24] {\n  color: #1A1C43;\n}\n.add-fields[data-v-37c5ed24] {\n  margin-top:1.6%;\n}\n.col-sm-6 input[data-v-37c5ed24] {\n  border-radius: 50rem;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding: 11px 18px!important;\n  font-size: 12px;\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n}\n.scrollable input[data-v-37c5ed24]{\n  font-size: 12px;\n  color: #003449;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n  border:0;\n  margin-left:8px;\n}\nlabel[data-v-37c5ed24] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom:7px;\n  margin-left:17px;\n}\nh5[data-v-37c5ed24] {\n  font-size: 16px;\n}\n.fields-divider[data-v-37c5ed24] {\n  margin-top:3.7%;\n  margin-bottom:2.45%;\n}\n.btn-default[data-v-37c5ed24]{\n  background: #fff;\n  color: #999999;    \n  border: none!important;\n  padding: 11px 14px 10px;\n  font-size: 10px;\n  text-transform:uppercase;\n  border-radius: 50rem!important;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n  -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n  box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-37c5ed24] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 10px;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n.icon.btn-secondary[data-v-37c5ed24] {\n  line-height: 1em;\n  background: transparent;\n  border: none;\n}\n.nav-link.active img[data-v-37c5ed24] {\n  margin-left:20px;\n  box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  border-radius: 50rem;\n}\ntr[data-v-37c5ed24] {\n  border-bottom: 1px solid #ccc;\n}\ntr[data-v-37c5ed24]:last-child {\n  border-bottom: 0;\n}\n.truncate[data-v-37c5ed24] {\n  max-width: 200px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n", ""]);
 
 // exports
 
@@ -251538,7 +252015,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.top-nav[data-v-d4042370], .row.stats[data-v-d4042370] {\n    padding-left: 5.2%!important;\n    padding-right: 5.2%!important;\n}\n.top-menu[data-v-d4042370] {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n}\n\t/*Right Component*/\ndiv.top-nav[data-v-d4042370]{\n    margin-top: 15px;\n}\nul.top-menu[data-v-d4042370]{\n    list-style: none;\n    padding: 0;\n}\nul.top-menu li.item[data-v-d4042370]{\n    float: left;\n    margin-left: 1.6%;\n    margin-right: 1.6%;\n    margin-bottom: 8px;\n}\nul.top-menu li.item a[data-v-d4042370]{\n    color: rgba(0, 0, 0, 0.5);\n    border-radius: 20px;\n    padding: 4px 22px;\n    text-decoration: none;\n    box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    font-size:0.73vw;\n}\nul.top-menu li.item a.active[data-v-d4042370]{\n    background: linear-gradient(to right, rgba(255,128,51,1) 0%,  rgba(255,147, 58,1) 100%) !important;\n    color: #fff !important;\n    text-decoration: none;\n    font-weight: 500;\n}\n.user-roles .tab-pane .row[data-v-d4042370]{\n    margin-right: 0;\n    margin-left: 0;\n}\nh5[data-v-d4042370] {\n    font-size: 0.83vw;\n}\n.btn-default[data-v-d4042370]{\n    background: #fff;\n    color: #999999;    \n    border: none!important;\n    padding: 11px 14px 10px;\n    font-size: 10px;\n    text-transform:uppercase;\n    border-radius: 50rem!important;\n    line-height:1em;\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n    -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n    box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-d4042370] {\n    border-radius: 50rem!important;\n    text-transform:uppercase;\n    font-size: 10px;\n    padding: 11px 14px 10px;\n    line-height:1em;\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n}\n.btn-block[data-v-d4042370] {\n    display: block;\n    width: 98%;\n}\n.nav-link.active img[data-v-d4042370] {\n    margin-left:20px;\n    display: inline-block!important;\n    box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    border-radius: 50rem;\n}\n.add-module-btn[data-v-d4042370] {\n    box-shadow:none!important;\n    -webkit-box-shadow:none!important;\n    -moz-box-shadow:none!important;\n    -o-box-shadow:none!important;\n}\n.tab-pane.card-body[data-v-d4042370] {\n    padding:4.4% 5.6% 6.8%;\n}\n.card-body .form-group[data-v-d4042370]{\n    margin-left: 0%;\n}\n.expand-toggle[data-v-d4042370] {\n    background: #fff;\n    box-shadow: none;\n    -webkit-box-shadow: none;\n    -moz-box-shadow: none;\n    -o-box-shadow: none;\n    text-align: left;\n    border-radius: 0!important;\n    border-top: 0;\n    border-left: 0;\n    border-right: 0;\n    border-color: #ccc;\n    font-family: 'Rubik', sans-serif;\n    font-size:0.73vw;\n    color: #999999;\n    margin-top: 4.6%;\n    padding-left:0;\n    margin-left: 20px;\n}\n.expand-toggle.btn-secondary[data-v-d4042370]:not(:disabled):not(.disabled):active, \n  .expand-toggle.btn-secondary:not(:disabled):not(.disabled).active[data-v-d4042370], \n  .show > .expand-toggle.btn-secondary.dropdown-toggle[data-v-d4042370] {\n    background: #fff;\n    border-color: #fff;\n    color: #999999;\n}\n.expand-toggle[aria-expanded=\"true\"][data-v-d4042370] {\n    border-bottom: 0;\n}\n.expand-toggle[aria-expanded=\"true\"] .toggle-icon[data-v-d4042370] {\n    transform: rotate(0deg);\n    transition: transform .5s ease;\n}\n.expand-toggle[aria-expanded=\"false\"] .toggle-icon[data-v-d4042370] {\n    transform: rotate(180deg);\n    transition: transform .5s ease;\n}\n.custom-control-label[data-v-d4042370] {\n    color: #999999;\n    font-family: 'Rubik', sans-serif;\n    font-size:14px;\n}\n.custom-checkbox .custom-control-label[data-v-d4042370] {\n    font-weight: 0.73vw;\n}\n.collapse.show .card[data-v-d4042370] {\n    border-radius: 25px;\n    border: 1px solid #ccc!important;\n}\n.collapse.show .card-body[data-v-d4042370]{\n    padding: 1.15% 2.5% 1.85%;\n}\n.edit-role[data-v-d4042370] {\n    margin-bottom:1.7%;\n}\n.permissions-divider[data-v-d4042370] {\n    margin-top:3.7%;\n    margin-bottom:3.1%;\n}\n.permissions[data-v-d4042370] {\n    margin-top: 0.5%;\n}\n.permissions label[data-v-d4042370]{\n    font-size: 12px;\n    margin-left: 17px;\n}\n", ""]);
+exports.push([module.i, "\n.top-nav[data-v-d4042370], .row.stats[data-v-d4042370] {\n    padding-left: 5.2%!important;\n    padding-right: 5.2%!important;\n}\n.top-menu[data-v-d4042370] {\n    display: flex;\n    flex-wrap: wrap;\n    align-items: center;\n}\n\t/*Right Component*/\ndiv.top-nav[data-v-d4042370]{\n    margin-top: 15px;\n}\nul.top-menu[data-v-d4042370]{\n    list-style: none;\n    padding: 0;\n}\nul.top-menu li.item[data-v-d4042370]{\n    float: left;\n    margin-left: 1.6%;\n    margin-right: 1.6%;\n    margin-bottom: 8px;\n}\nul.top-menu li.item a[data-v-d4042370]{\n    color: rgba(0, 0, 0, 0.5);\n    border-radius: 20px;\n    padding: 4px 22px;\n    text-decoration: none;\n    box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 7px rgba(0,0,0,0.1);\n    font-size:0.73vw;\n}\nul.top-menu li.item a.active[data-v-d4042370]{\n    background: linear-gradient(to right, rgba(255,128,51,1) 0%,  rgba(255,147, 58,1) 100%) !important;\n    color: #fff !important;\n    text-decoration: none;\n    font-weight: 500;\n}\n.user-roles .tab-pane .row[data-v-d4042370]{\n    margin-right: 0;\n    margin-left: 0;\n}\nh5[data-v-d4042370] {\n    font-size: 0.83vw;\n}\n.btn-default[data-v-d4042370]{\n    background: #fff;\n    color: #999999;    \n    border: none!important;\n    padding: 11px 14px 10px;\n    font-size: 10px;\n    text-transform:uppercase;\n    border-radius: 50rem!important;\n    line-height:1em;\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n    -o-box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n    box-shadow: 0px 0px 5px rgba(0,0,0,0.05);\n}\n.btn-primary[data-v-d4042370] {\n    border-radius: 50rem!important;\n    text-transform:uppercase;\n    font-size: 10px;\n    padding: 11px 14px 10px;\n    line-height:1em;\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n}\n.btn-block[data-v-d4042370] {\n    display: block;\n    width: 98%;\n}\n.nav-link.active img[data-v-d4042370] {\n    margin-left:20px;\n    display: inline-block!important;\n    box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n    border-radius: 50rem;\n}\n.add-module-btn[data-v-d4042370] {\n    box-shadow:none!important;\n    -webkit-box-shadow:none!important;\n    -moz-box-shadow:none!important;\n    -o-box-shadow:none!important;\n}\n.tab-pane.card-body[data-v-d4042370] {\n    padding:4.4% 5.6%;\n}\n.card-body .form-group[data-v-d4042370]{\n    margin-left: 0%;\n}\n.expand-toggle[data-v-d4042370] {\n    background: #fff;\n    box-shadow: none;\n    -webkit-box-shadow: none;\n    -moz-box-shadow: none;\n    -o-box-shadow: none;\n    text-align: left;\n    border-radius: 0!important;\n    border-top: 0;\n    border-left: 0;\n    border-right: 0;\n    border-color: #ccc;\n    font-family: 'Rubik', sans-serif;\n    font-size:0.73vw;\n    color: #999999;\n    margin-top: 4.6%;\n    padding-left:0;\n    margin-left: 20px;\n    width: calc(100% - 20px)!important;\n}\n.expand-toggle.btn-secondary[data-v-d4042370]:not(:disabled):not(.disabled):active, \n  .expand-toggle.btn-secondary:not(:disabled):not(.disabled).active[data-v-d4042370], \n  .show > .expand-toggle.btn-secondary.dropdown-toggle[data-v-d4042370] {\n    background: #fff;\n    border-color: #fff;\n    color: #999999;\n}\n.expand-toggle[aria-expanded=\"true\"][data-v-d4042370] {\n    border-bottom: 0;\n}\n.expand-toggle[aria-expanded=\"true\"] .toggle-icon[data-v-d4042370] {\n    transform: rotate(0deg);\n    transition: transform .5s ease;\n}\n.expand-toggle[aria-expanded=\"false\"] .toggle-icon[data-v-d4042370] {\n    transform: rotate(180deg);\n    transition: transform .5s ease;\n}\n.custom-control-label[data-v-d4042370] {\n    color: #999999;\n    font-family: 'Rubik', sans-serif;\n    font-size:14px;\n}\n.custom-checkbox .custom-control-label[data-v-d4042370] {\n    font-weight: 0.73vw;\n}\n.collapse.show .card[data-v-d4042370] {\n    border-radius: 25px;\n    border: 1px solid #ccc!important;\n}\n.collapse.show .card-body[data-v-d4042370]{\n    padding: 1.15% 2.5% 1.85%;\n}\n.edit-role[data-v-d4042370] {\n    margin-bottom:1.7%;\n}\n.permissions-divider[data-v-d4042370] {\n    margin-top:3.7%;\n    margin-bottom:3.1%;\n}\n.permissions[data-v-d4042370] {\n    margin-top: 0.5%;\n}\n.permissions label[data-v-d4042370]{\n    font-size: 12px;\n    margin-left: 17px;\n}\n", ""]);
 
 // exports
 
@@ -251576,7 +252053,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.trans-tabs[data-v-32a11c9a] {\r\n  padding-left:5.2%;\r\n  padding-right:5.2%;\n}\n.tab-pane.card-body[data-v-32a11c9a] {\r\n  padding:4.4% 5.6% 6.8%;\n}\n.nav-link.active img[data-v-32a11c9a] {\r\n  display:inline-block!important;\r\n  margin-left: 20px;\n}\n.deal-name[data-v-32a11c9a] {\r\n  font-size: 0.83vw;\r\n  margin-bottom:3.9%;\n}\r\n", ""]);
+exports.push([module.i, "\n.trans-tabs[data-v-32a11c9a] {\n  padding-left:5.2%;\n  padding-right:5.2%;\n}\n.tab-pane.card-body[data-v-32a11c9a] {\n  padding:4.4% 5.6%;\n}\n.nav-link.active img[data-v-32a11c9a] {\n  display:inline-block!important;\n  margin-left: 20px;\n}\n.table-responsive[data-v-32a11c9a] {\n  margin-bottom:20px;\n}\n.deal-name[data-v-32a11c9a] {\n  font-size: 0.83vw;\n  margin-bottom:3.9%;\n}\n", ""]);
 
 // exports
 
@@ -251595,7 +252072,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\ninput[data-v-8da0a4ca], textarea[data-v-8da0a4ca], select[data-v-8da0a4ca] {\r\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  padding: 11px 18px!important;\r\n  font-size: 12px;\r\n  color: #003449;\r\n  border-color: #ccc;\r\n  margin-bottom: 17px;\r\n  font-family: 'Rubik', sans-serif;\r\n  height: auto!important;\n}\ntextarea[data-v-8da0a4ca] {\r\n  border-radius: 10px;\r\n  height: 124px!important;\n}\n.custom-select[data-v-8da0a4ca] {\r\n  height: auto;\n}\nlabel[data-v-8da0a4ca]{\r\n  font-family: 'Rubik', sans-serif;\r\n  font-size: 10px;\r\n  color: #999999;\r\n  margin-bottom: 7px;\r\n  margin-left: 17px;\n}\n.col.align-self-end[data-v-8da0a4ca] {\r\n  margin-bottom:17px;\n}\n.cancel-deal[data-v-8da0a4ca] {\r\n  border-radius: 50rem!important;\r\n  font-size: 10px;\r\n  text-transform: uppercase;\r\n  box-shadow: 0 0 4px rgba(0,0,0,0.05);\r\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.05);\r\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.05);\r\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.05);\r\n  color: #999999;\r\n  padding: 11px 14px 10px;\r\n  line-height: 1em;\n}\n.save-deal[data-v-8da0a4ca] {\r\n  font-size: 10px;\r\n  text-transform:uppercase;\r\n  font-weight: 700;\r\n  padding: 11px 14px 10px;\r\n  line-height: 1em;\n}\n@media screen and (max-width:1643px) {\n.col .row[data-v-8da0a4ca] {\r\n    justify-content: flex-end;\n}\n.col-7[data-v-8da0a4ca] {\r\n    flex: 0 0 66.666667%!important;\r\n    max-width: 66.666667%!important;\n}\n.col-3[data-v-8da0a4ca] {\r\n    flex: 0 0 33.333332%!important;\r\n    max-width: 33.333332%!important;\r\n    padding-right: 0!important;\n}\n}\r\n", ""]);
+exports.push([module.i, "\ninput[data-v-8da0a4ca], textarea[data-v-8da0a4ca], select[data-v-8da0a4ca] {\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  padding: 11px 18px!important;\n  font-size: 12px;\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height: auto!important;\n}\ntextarea[data-v-8da0a4ca] {\n  border-radius: 10px;\n  height: 124px!important;\n}\n.custom-select[data-v-8da0a4ca] {\n  height: auto;\n}\nlabel[data-v-8da0a4ca]{\n  font-family: 'Rubik', sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom: 7px;\n  margin-left: 17px;\n}\n.col.align-self-end[data-v-8da0a4ca] {\n  margin-bottom:17px;\n}\n.cancel-deal[data-v-8da0a4ca] {\n  border-radius: 50rem!important;\n  font-size: 10px;\n  text-transform: uppercase;\n  box-shadow: 0 0 4px rgba(0,0,0,0.05);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.05);\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.05);\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.05);\n  color: #999999;\n  padding: 11px 14px 10px;\n  line-height: 1em;\n}\n.save-deal[data-v-8da0a4ca] {\n  font-size: 10px;\n  text-transform:uppercase;\n  font-weight: 700;\n  padding: 11px 14px 10px;\n  line-height: 1em;\n}\n@media screen and (max-width:1643px) {\n.col .row[data-v-8da0a4ca] {\n    justify-content: flex-end;\n}\n.col-7[data-v-8da0a4ca] {\n    flex: 0 0 66.666667%!important;\n    max-width: 66.666667%!important;\n}\n.col-3[data-v-8da0a4ca] {\n    flex: 0 0 33.333332%!important;\n    max-width: 33.333332%!important;\n    padding-right: 0!important;\n}\n}\n", ""]);
 
 // exports
 
@@ -251614,7 +252091,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.horizontal-scroll[data-v-d5c2b830]::-webkit-scrollbar-thumb,\r\n.horizontal-scroll-thinner[data-v-d5c2b830]::-webkit-scrollbar-thumb {\r\n  background: #b3b3b3 !important;\r\n  border-radius: 5px !important;\n}\n.horizontal-scroll[data-v-d5c2b830]::-webkit-scrollbar {\r\n  width: 5px !important;\r\n  height: 5px;\n}\n.horizontal-scroll-thinner[data-v-d5c2b830]::-webkit-scrollbar {\r\n  width: 5px !important;\r\n  height: 3px;\n}\n.horizontal-scroll-thinner[data-v-d5c2b830] {\r\n  overflow: auto;\r\n  flex-wrap: nowrap;\n}\n.grey-bg-color[data-v-d5c2b830] {\r\n  background-color: #ebeff3 !important;\r\n  height: 99px;\n}\n.row[data-v-d5c2b830] {\r\n  margin-bottom: 1%;\n}\n.top-section[data-v-d5c2b830] {\r\n  list-style: none;\n}\n.top-section li[data-v-d5c2b830] {\r\n  float: left;\r\n  margin-right: 52px;\r\n  padding: 6px 83px 3px 15px;\r\n  border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-d5c2b830] {\r\n  margin-bottom: 0;\r\n  font-size: 19px;\r\n  font-weight: 900;\n}\n.card[data-v-d5c2b830] {\r\n  border: none;\r\n  border-radius: 10px;\r\n  border: none;\r\n  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);\r\n  -o-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);\r\n  min-width: 150px;\n}\n.card-body[data-v-d5c2b830] {\r\n  text-align: center;\n}\n.card-body p[data-v-d5c2b830] {\r\n  color: #fff;\r\n  width: 100%;\r\n  margin-right: 0;\r\n  text-align: right;\r\n  float: left;\r\n  margin-bottom: -6px;\r\n  line-height: 14px;\n}\n.card-title[data-v-d5c2b830] {\r\n  margin-bottom: 0.75rem;\r\n  padding-bottom: 0.75rem;\r\n  border-bottom: 1px solid #fff;\n}\n.calls[data-v-d5c2b830] {\r\n  background: linear-gradient(\r\n    to right,\r\n    rgba(255, 164, 128, 1) 0%,\r\n    rgba(255, 128, 134, 1) 100%\r\n  );\r\n  color: #fff;\n}\n.sales[data-v-d5c2b830] {\r\n  background: linear-gradient(\r\n    to right,\r\n    rgba(159, 204, 226, 1) 0%,\r\n    rgba(4, 149, 240, 1) 100%\r\n  );\r\n  color: #fff;\n}\n.sales-amount[data-v-d5c2b830] {\r\n  background: linear-gradient(\r\n    to right,\r\n    rgba(221, 192, 241, 1) 0%,\r\n    rgba(160, 117, 209, 1) 100%\r\n  );\r\n  color: #fff;\n}\n.call-backs[data-v-d5c2b830] {\r\n  background: linear-gradient(\r\n    to right,\r\n    rgba(101, 215, 207, 1) 0%,\r\n    rgba(111, 148, 211, 1) 100%\r\n  );\r\n  color: #fff;\n}\n.ave-time[data-v-d5c2b830] {\r\n  background: linear-gradient(\r\n    to right,\r\n    rgba(226, 111, 145, 1) 0%,\r\n    rgba(239, 84, 128, 1) 100%\r\n  );\r\n  color: #fff;\n}\n.con-ratio[data-v-d5c2b830] {\r\n  background: linear-gradient(\r\n    to right,\r\n    rgba(97, 167, 221, 1) 0%,\r\n    rgba(99, 101, 202, 1) 100%\r\n  );\r\n  color: #fff;\n}\nh5[data-v-d5c2b830] {\r\n  color: #fff;\n}\nh5 .icon[data-v-d5c2b830] {\r\n  width: 15px;\r\n  margin: -5px 15px 0 0;\n}\np.card-text[data-v-d5c2b830] {\r\n  color: #fff;\r\n  font-weight: bolder;\r\n  margin: 0;\r\n  width: 100%;\r\n  float: right;\r\n  font-family: \"Montserrat bold\", sans-serif;\n}\np.card-text span[data-v-d5c2b830] {\r\n  font-size: 19px;\r\n  color: #333333;\r\n  font-weight: bolder;\n}\np.card-link[data-v-d5c2b830] {\r\n  font-size: 22px;\r\n  color: #333333;\n}\n.stats .card[data-v-d5c2b830] {\r\n  border-radius: 10px;\n}\n.stats .card h5[data-v-d5c2b830] {\r\n  color: #818284;\n}\n.stats .card h5 .icon[data-v-d5c2b830] {\r\n  width: 25px;\r\n  margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-d5c2b830] {\r\n  margin-bottom: 0.75rem;\r\n  padding-bottom: 0.75rem;\r\n  border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-d5c2b830], .right[data-v-d5c2b830] {\r\n  float: right;\n}\n.truncate[data-v-d5c2b830] {\r\n  width: 250px;\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\n}\n.list-group-item p[data-v-d5c2b830] {\r\n  margin: 0;\n}\n.list-group-item p strong[data-v-d5c2b830] {\r\n  font-size: 25px;\r\n  margin-right: 30px;\n}\n.choose-comment-type[data-v-d5c2b830] {\r\n  float: left;\r\n  display: block;\r\n  height: 50px;\r\n  width: 50px;\r\n  padding: 11px;\r\n  margin: 10px 10px 10px 0;\r\n  background: #f6f8f9;\r\n  border-radius: 9px;\r\n  cursor: pointer;\n}\n.comment-desc[data-v-d5c2b830] {\r\n  display: block;\r\n  height: 50px;\r\n  width: 75%;\r\n  padding: 11px;\r\n  margin: 10px 10px 10px 0;\r\n  background: #f6f8f9;\r\n  border-radius: 9px;\r\n  border: none;\r\n  cursor: pointer;\r\n  float: left;\n}\n#send-btn[data-v-d5c2b830] {\r\n  height: 50px;\r\n  margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-d5c2b830] {\r\n  color: #fff;\r\n  background-color: #f6f8f9;\r\n  border-color: #f6f8f9;\n}\n.btn-secondary[data-v-d5c2b830]:not(:disabled):not(.disabled):active,\r\n.btn-secondary:not(:disabled):not(.disabled).active[data-v-d5c2b830],\r\n.show > .btn-secondary.dropdown-toggle[data-v-d5c2b830] {\r\n  color: #fff;\r\n  background-color: #f6f8f9;\r\n  border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-d5c2b830] {\r\n  height: 318px !important;\n}\nselect.form-control[data-v-d5c2b830],\r\ninput.form-control[data-v-d5c2b830]  {\r\n  border-radius: 50rem;\r\n  margin-top: 5px;\n}\ntextarea.form-control[data-v-d5c2b830] {\r\n   border-radius: 20px;\r\n    margin-top: 5px\n}\n.btn[data-v-d5c2b830] {\r\n  font-size: 14px !important;\r\n  padding: 4px 17px 6px !important;\n}\nlabel[data-v-d5c2b830] {\r\n  font-family: \"Rubik\", sans-serif;\r\n  font-size: 10px;\r\n  color: #999999;\r\n  margin-bottom: 20px;\n}\n.add-box-shadow[data-v-d5c2b830] {\r\n  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);\r\n  -o-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);\r\n  border-bottom-left-radius: 25px;\r\n  border-bottom-right-radius: 25px;\r\n  border: 0;\r\n  padding: 4.4% 5.6% 6.8%;\n}\n@media screen and (max-width: 1400px) {\n.add-box-shadow .small-screen-hide[data-v-d5c2b830] {\r\n    display: none;\n}\n}\n.add-box-shadow .add-user-form input[data-v-d5c2b830],\r\nselect[data-v-d5c2b830],\r\ntextarea[data-v-d5c2b830] {\r\n  font-size: 12px;\r\n  color: #003449;\r\n  font-family: \"Rubik\", sans-serif;\n}\n.label-text[data-v-d5c2b830] {\r\n  margin-bottom: 7px;\r\n  margin-left: 17px;\n}\n.green[data-v-d5c2b830] {\r\n  color: #00a25a !important;\n}\n.red[data-v-d5c2b830] {\r\n  color: red !important;\n}\n.card .card-text[data-v-d5c2b830] {\r\n  font-size: 32px;\r\n  line-height: 1em;\n}\n.card-text-small[data-v-d5c2b830] {\r\n  margin-top: -7px;\r\n  color: #3b3b3b;\r\n  font-family: \"Rubik\", sans-serif !important;\n}\n.badge[data-v-d5c2b830] {\r\n  width: 12%;\n}\n.badge img[data-v-d5c2b830] {\r\n  width: 100%;\n}\nul.filters[data-v-d5c2b830] {\r\n  list-style: none;\r\n  padding: 0;\n}\nul.filters li[data-v-d5c2b830] {\r\n  width: 10%;\n}\nul.headings[data-v-d5c2b830] {\r\n  list-style: none;\r\n  padding-left: 90px;\r\n  display: block;\r\n  width: 100%;\r\n  height: 39px;\r\n  margin-bottom: 0;\n}\nul.headings li[data-v-d5c2b830] {\r\n  float: left;\r\n  font-weight: 700;\r\n  color: #9fb3bb;\r\n  width: 15%;\r\n  text-align: left;\n}\nul.items[data-v-d5c2b830] {\r\n  list-style: none;\r\n  padding-left: 1px;\r\n  display: block;\r\n  width: 100%;\r\n  height: 39px;\r\n  margin-bottom: 0;\n}\nul.items li[data-v-d5c2b830] {\r\n  float: left;\r\n  font-weight: 700;\r\n  color: #003449;\r\n  width: 14%;\r\n  text-align: left;\n}\nul.items li.actions[data-v-d5c2b830] {\r\n  padding-left: 22px;\r\n  width: 10%;\r\n  text-align: right;\n}\nul.items li.active[data-v-d5c2b830] {\r\n  padding-left: 16px;\r\n  width: 12%;\n}\nul.items li.name[data-v-d5c2b830] {\r\n  width: 20%;\r\n  padding-top: 4px;\n}\nul.items li.role[data-v-d5c2b830] {\r\n  padding-top: 7px;\n}\nul.items li.mobile[data-v-d5c2b830] {\r\n  padding-left: 17px;\r\n  padding-top: 7px;\n}\nul.items li.check[data-v-d5c2b830] {\r\n  width: 1%;\r\n  margin-right: 10px;\r\n  margin-top: 10px;\n}\nul.items li.active-date[data-v-d5c2b830] {\r\n  padding-left: 11px;\r\n  padding-top: 7px;\n}\nul.items li a[data-v-d5c2b830]:hover {\r\n  text-decoration: none;\n}\n.scroll-hidden[data-v-d5c2b830] {\r\n  overflow: auto;\r\n  height: 70vh;\r\n  padding-top: 6px;\r\n  padding-right: 6px;\r\n  width: 100%;\r\n  margin-left: -4px !important;\n}\ntable.listing[data-v-d5c2b830] {\r\n  width: 100%;\n}\ntable.listing tr th[data-v-d5c2b830] {\r\n  float: left;\r\n  font-weight: 700;\r\n  color: #9fb3bb;\r\n  padding: 0 69px 20px 70px;\n}\n#top-section .col-lg-2[data-v-d5c2b830] {\r\n  cursor: pointer;\n}\n.plr-3[data-v-d5c2b830] {\r\n  padding: 23px 0 0 4%;\n}\n.control-label[data-v-d5c2b830] {\r\n  float: left;\n}\n.help-block[data-v-d5c2b830] {\r\n  color: red;\r\n  font-weight: normal;\n}\n.modal-body[data-v-d5c2b830] {\r\n  background: orange !important;\n}\n.add-new-top-section .dropdown[data-v-d5c2b830] {\r\n  top: -20px;\n}\n@media screen and (max-width: 1500px) {\n.add-new-top-section img.icon[data-v-d5c2b830] {\r\n    width: 36px !important;\n}\n.add-new-top-section .dropdown[data-v-d5c2b830] {\r\n    top: -10px;\r\n    right: 10px;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.horizontal-scroll[data-v-d5c2b830]::-webkit-scrollbar-thumb,\n.horizontal-scroll-thinner[data-v-d5c2b830]::-webkit-scrollbar-thumb {\n  background: #b3b3b3 !important;\n  border-radius: 5px !important;\n}\n.horizontal-scroll[data-v-d5c2b830]::-webkit-scrollbar {\n  width: 5px !important;\n  height: 5px;\n}\n.horizontal-scroll-thinner[data-v-d5c2b830]::-webkit-scrollbar {\n  width: 5px !important;\n  height: 5px;\n}\n.horizontal-scroll-thinner[data-v-d5c2b830] {\n  overflow: auto;\n  flex-wrap: nowrap;\n}\n.grey-bg-color[data-v-d5c2b830] {\n  background-color: #ebeff3 !important;\n}\n.row[data-v-d5c2b830] {\n  margin-bottom: 1%;\n}\n.top-section[data-v-d5c2b830] {\n  list-style: none;\n}\n.top-section li[data-v-d5c2b830] {\n  float: left;\n  margin-right: 52px;\n  padding: 6px 83px 3px 15px;\n  border-right: 1px solid #e3e3e3;\n}\nli p.bottom[data-v-d5c2b830] {\n  margin-bottom: 0;\n  font-size: 19px;\n  font-weight: 900;\n}\n.card[data-v-d5c2b830] {\n  border: none;\n  border-radius: 10px;\n  border: none;\n  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);\n  -o-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);\n  min-width: 150px;\n}\n.card-body[data-v-d5c2b830] {\n  text-align: center;\n  cursor: pointer;\n}\n.card-body p[data-v-d5c2b830] {\n  color: #fff;\n  width: 100%;\n  margin-right: 0;\n  text-align: right;\n  float: left;\n  margin-bottom: -6px;\n  line-height: 14px;\n}\n.card-title[data-v-d5c2b830] {\n  margin-bottom: 0.75rem;\n  padding-bottom: 0.75rem;\n  border-bottom: 1px solid #fff;\n}\n.calls[data-v-d5c2b830] {\n  background: linear-gradient(\n    to right,\n    rgba(255, 164, 128, 1) 0%,\n    rgba(255, 128, 134, 1) 100%\n  );\n  color: #fff;\n}\n.sales[data-v-d5c2b830] {\n  background: linear-gradient(\n    to right,\n    rgba(159, 204, 226, 1) 0%,\n    rgba(4, 149, 240, 1) 100%\n  );\n  color: #fff;\n}\n.sales-amount[data-v-d5c2b830] {\n  background: linear-gradient(\n    to right,\n    rgba(221, 192, 241, 1) 0%,\n    rgba(160, 117, 209, 1) 100%\n  );\n  color: #fff;\n}\n.call-backs[data-v-d5c2b830] {\n  background: linear-gradient(\n    to right,\n    rgba(101, 215, 207, 1) 0%,\n    rgba(111, 148, 211, 1) 100%\n  );\n  color: #fff;\n}\n.ave-time[data-v-d5c2b830] {\n  background: linear-gradient(\n    to right,\n    rgba(226, 111, 145, 1) 0%,\n    rgba(239, 84, 128, 1) 100%\n  );\n  color: #fff;\n}\n.con-ratio[data-v-d5c2b830] {\n  background: linear-gradient(\n    to right,\n    rgba(97, 167, 221, 1) 0%,\n    rgba(99, 101, 202, 1) 100%\n  );\n  color: #fff;\n}\nh5[data-v-d5c2b830] {\n  color: #fff;\n}\nh5 .icon[data-v-d5c2b830] {\n  width: 15px;\n  margin: -5px 15px 0 0;\n}\np.card-text[data-v-d5c2b830] {\n  color: #fff;\n  font-weight: bolder;\n  margin: 0;\n  width: 100%;\n  float: right;\n  font-family: \"Montserrat bold\", sans-serif;\n}\np.card-text span[data-v-d5c2b830] {\n  font-size: 19px;\n  color: #333333;\n  font-weight: bolder;\n}\np.card-link[data-v-d5c2b830] {\n  font-size: 22px;\n  color: #333333;\n}\n.stats .card[data-v-d5c2b830] {\n  border-radius: 10px;\n}\n.stats .card h5[data-v-d5c2b830] {\n  color: #818284;\n}\n.stats .card h5 .icon[data-v-d5c2b830] {\n  width: 25px;\n  margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-d5c2b830] {\n  margin-bottom: 0.75rem;\n  padding-bottom: 0.75rem;\n  border-bottom: 1px solid #bfccd2;\n}\nspan.right[data-v-d5c2b830], .right[data-v-d5c2b830] {\n  float: right;\n}\n.truncate[data-v-d5c2b830] {\n  width: 250px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.list-group-item p[data-v-d5c2b830] {\n  margin: 0;\n}\n.list-group-item p strong[data-v-d5c2b830] {\n  font-size: 25px;\n  margin-right: 30px;\n}\n.choose-comment-type[data-v-d5c2b830] {\n  float: left;\n  display: block;\n  height: 50px;\n  width: 50px;\n  padding: 11px;\n  margin: 10px 10px 10px 0;\n  background: #f6f8f9;\n  border-radius: 9px;\n  cursor: pointer;\n}\n.comment-desc[data-v-d5c2b830] {\n  display: block;\n  height: 50px;\n  width: 75%;\n  padding: 11px;\n  margin: 10px 10px 10px 0;\n  background: #f6f8f9;\n  border-radius: 9px;\n  border: none;\n  cursor: pointer;\n  float: left;\n}\n#send-btn[data-v-d5c2b830] {\n  height: 50px;\n  margin: 10px 0px 10px 0;\n}\n.btn-secondary[data-v-d5c2b830] {\n  color: #fff;\n  background-color: #f6f8f9;\n  border-color: #f6f8f9;\n}\n.btn-secondary[data-v-d5c2b830]:not(:disabled):not(.disabled):active,\n.btn-secondary:not(:disabled):not(.disabled).active[data-v-d5c2b830],\n.show > .btn-secondary.dropdown-toggle[data-v-d5c2b830] {\n  color: #fff;\n  background-color: #f6f8f9;\n  border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-d5c2b830] {\n  height: 318px !important;\n}\nselect.form-control[data-v-d5c2b830],\ninput.form-control[data-v-d5c2b830]  {\n  border-radius: 50rem;\n  margin-top: 5px;\n}\ntextarea.form-control[data-v-d5c2b830] {\n   border-radius: 20px;\n    margin-top: 5px\n}\n.btn[data-v-d5c2b830] {\n  font-size: 14px !important;\n  padding: 4px 17px 6px !important;\n}\nlabel[data-v-d5c2b830] {\n  font-family: \"Rubik\", sans-serif;\n  font-size: 10px;\n  color: #999999;\n  margin-bottom: 20px;\n}\n.add-box-shadow[data-v-d5c2b830] {\n  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);\n  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);\n  -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);\n  -o-box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);\n  border-bottom-left-radius: 25px;\n  border-bottom-right-radius: 25px;\n  border: 0;\n  padding: 4.4% 5.6% 6.8%;\n}\n@media screen and (max-width: 1400px) {\n.add-box-shadow .small-screen-hide[data-v-d5c2b830] {\n    display: none;\n}\n}\n.add-box-shadow .add-user-form input[data-v-d5c2b830],\nselect[data-v-d5c2b830],\ntextarea[data-v-d5c2b830] {\n  font-size: 12px;\n  color: #003449;\n  font-family: \"Rubik\", sans-serif;\n}\n.label-text[data-v-d5c2b830] {\n  margin-bottom: 7px;\n  margin-left: 17px;\n}\n.green[data-v-d5c2b830] {\n  color: #00a25a !important;\n}\n.red[data-v-d5c2b830] {\n  color: red !important;\n}\n.card .card-text[data-v-d5c2b830] {\n  font-size: 1.65vw;\n  line-height: 1em;\n}\n.card-text-small[data-v-d5c2b830] {\n  margin-top: -7px;\n  color: #3b3b3b;\n  font-family: \"Rubik\", sans-serif !important;\n  font-size: 0.73vw;\n}\n.badge[data-v-d5c2b830] {\n  width: 12%;\n}\n.badge img[data-v-d5c2b830] {\n  width: 100%;\n}\nul.filters[data-v-d5c2b830] {\n  list-style: none;\n  padding: 0;\n}\nul.filters li[data-v-d5c2b830] {\n  width: 10%;\n}\nul.headings[data-v-d5c2b830] {\n  list-style: none;\n  padding-left: 90px;\n  display: block;\n  width: 100%;\n  height: 39px;\n  margin-bottom: 0;\n}\nul.headings li[data-v-d5c2b830] {\n  float: left;\n  font-weight: 700;\n  color: #9fb3bb;\n  width: 15%;\n  text-align: left;\n}\nul.items[data-v-d5c2b830] {\n  list-style: none;\n  padding-left: 1px;\n  display: block;\n  width: 100%;\n  height: 39px;\n  margin-bottom: 0;\n}\nul.items li[data-v-d5c2b830] {\n  float: left;\n  font-weight: 700;\n  color: #003449;\n  width: 14%;\n  text-align: left;\n}\nul.items li.actions[data-v-d5c2b830] {\n  padding-left: 22px;\n  width: 10%;\n  text-align: right;\n}\nul.items li.active[data-v-d5c2b830] {\n  padding-left: 16px;\n  width: 12%;\n}\nul.items li.name[data-v-d5c2b830] {\n  width: 20%;\n  padding-top: 4px;\n}\nul.items li.role[data-v-d5c2b830] {\n  padding-top: 7px;\n}\nul.items li.mobile[data-v-d5c2b830] {\n  padding-left: 17px;\n  padding-top: 7px;\n}\nul.items li.check[data-v-d5c2b830] {\n  width: 1%;\n  margin-right: 10px;\n  margin-top: 10px;\n}\nul.items li.active-date[data-v-d5c2b830] {\n  padding-left: 11px;\n  padding-top: 7px;\n}\nul.items li a[data-v-d5c2b830]:hover {\n  text-decoration: none;\n}\n.scroll-hidden[data-v-d5c2b830] {\n  overflow:visible;\n  padding-top: 6px;\n  padding-right: 6px;\n  width: 100%;\n}\ntable.listing[data-v-d5c2b830] {\n  width: 100%;\n}\ntable.listing tr th[data-v-d5c2b830] {\n  float: left;\n  font-weight: 700;\n  color: #9fb3bb;\n  padding: 0 69px 20px 70px;\n}\n#top-section .col-lg-2[data-v-d5c2b830] {\n  cursor: pointer;\n}\n.plr-3[data-v-d5c2b830] {\n  padding: 10px 0 0 4%;\n}\n.control-label[data-v-d5c2b830] {\n  float: left;\n}\n.help-block[data-v-d5c2b830] {\n  color: red;\n  font-weight: normal;\n}\n.modal-body[data-v-d5c2b830] {\n  background: orange !important;\n}\n.add-new-top-section .dropdown[data-v-d5c2b830] {\n  top: -20px;\n}\n.pb-10[data-v-d5c2b830] {\n    padding-bottom: 10px;\n}\n@media screen and (max-width: 1500px) {\n.add-new-top-section img.icon[data-v-d5c2b830] {\n    width: 36px !important;\n}\n.add-new-top-section .dropdown[data-v-d5c2b830] {\n    top: -10px;\n    right: 10px;\n}\n}\ntable tr td span a[data-v-d5c2b830] {\n  color: #1c2331 !important\n}\ntable tr td span a[data-v-d5c2b830]:hover {\n  color: #1890ff !important\n}\n", ""]);
 
 // exports
 
@@ -251633,7 +252110,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.idle-education .col-lg-10[data-v-0ce57c56]{ \r\n  max-width: 80.333333%;\n}\n.idle-education .col-lg-4 p[data-v-0ce57c56]{ \r\n  color: #1c2331;\n}\n.idle-education .col-lg-4[data-v-0ce57c56]{ \r\n  float: left; \r\n  display: block; \r\n  border-radius: 25px; \r\n  box-shadow: 0px 1px 6px 0px #4a4a4a; \r\n  -webkit-box-shadow: 0px 1px 6px 0px #4a4a4a; \r\n  -moz-box-shadow: 0px 1px 6px 0px #4a4a4a; \r\n  -o-box-shadow: 0px 1px 6px 0px #4a4a4a; \r\n  margin: 0 10px 19px 10px; \r\n  max-width: 30.333333%; \r\n  padding: 25px;\n} \r\n", ""]);
+exports.push([module.i, "\n.idle-education .col-lg-10[data-v-0ce57c56]{ \n  max-width: 80.333333%;\n}\n.idle-education .col-lg-4 p[data-v-0ce57c56]{ \n  color: #1c2331;\n}\n.idle-education .col-lg-4[data-v-0ce57c56]{ \n  float: left; \n  display: block; \n  border-radius: 25px; \n  box-shadow: 0px 1px 6px 0px #4a4a4a; \n  -webkit-box-shadow: 0px 1px 6px 0px #4a4a4a; \n  -moz-box-shadow: 0px 1px 6px 0px #4a4a4a; \n  -o-box-shadow: 0px 1px 6px 0px #4a4a4a; \n  margin: 0 10px 19px 10px; \n  max-width: 30.333333%; \n  padding: 25px;\n} \n", ""]);
 
 // exports
 
@@ -251652,7 +252129,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.general-section-stats .agent-stats-1[data-v-f3210f20] {\r\n  padding-left: 5%; \r\n  padding-right: 5%;\n}\n.general-section-stats .agent-stats-2[data-v-f3210f20] { \r\n  padding-left: 5%; \r\n  padding-right: 5%; \r\n  padding-bottom: 30px;\n}\n.scripts[data-v-f3210f20] { \r\n  padding-left: 3%; \r\n  padding-right: 3%;\n}\n.top-section .col[data-v-f3210f20] { \r\n  padding: 0 10px; \r\n  /* border-left: 1px solid rgba(0,52,73,1);   \r\n  min-height: 71px;  \r\n  margin-bottom: 57px; */ \r\n  min-width: 150px;\n}\n.top-section .bottom[data-v-f3210f20] { \r\n  font-size: 12px; \r\n  font-weight: 700; \r\n  letter-spacing: 0.05em; \r\n  color: #1e2253; \r\n  font-family: \"Rubik\", sans-serif;\r\n  padding: 5px 15px;\n}\n.top-section .top[data-v-f3210f20] { \r\n  font-size: 12px; \r\n  color: #747577; \r\n  letter-spacing: 0.05em; \r\n  font-family: \"Rubik\", sans-serif; \r\n  margin-bottom: 0;\n}\n.border-top-grey[data-v-f3210f20] { \r\n  border-top: 1px solid #ededee;\n}\n.border-left-grey[data-v-f3210f20] { \r\n  border-left: 1px solid #ededee;\n}\ndiv.col-6:last-child .inner-div .row[data-v-f3210f20], div.col-6:nth-last-child(2) .inner-div .row[data-v-f3210f20] { \r\n  border-bottom: 1px solid #ededee;\n}\n.p10-25[data-v-f3210f20] { \r\n  padding: 10px 25px;\n}\n@media screen and (max-width: 1400px) {\n.p10-25[data-v-f3210f20] { \r\n  padding: 10px 10px;\n}\n}\n.mr-22[data-v-f3210f20] {\r\n  margin-right: 22%;\n}\n.mr-12[data-v-f3210f20] {\r\n  margin-right: 12%;\n}\n.card[data-v-f3210f20] { \r\n  border-radius: 25px;\n}\n.client-details .card-title[data-v-f3210f20] { \r\n  margin-bottom: 0.75rem; \r\n  padding-bottom: 0.5rem; \r\n  border-bottom: 1px solid #fff; \r\n  font-size: 14px; \r\n  font-family: \"Rubik\", sans-serif; \r\n  letter-spacing: 0.05em;\n}\n.client[data-v-f3210f20] { \r\n  background: linear-gradient( \r\n    to right, \r\n    rgba(255, 164, 128, 1) 0%, \r\n    rgba(255, 128, 134, 1) 100% \r\n  );\n}\n.product[data-v-f3210f20] { \r\n  background: linear-gradient( \r\n    to right, \r\n    rgba(159, 204, 226, 1) 0%, \r\n    rgba(4, 149, 240, 1) 100% \r\n  );\n}\n.activity[data-v-f3210f20] { \r\n  background: linear-gradient( \r\n    to right, \r\n    rgba(221, 192, 241, 1) 0%, \r\n    rgba(160, 117, 209, 1) 100% \r\n  );\n}\n.time[data-v-f3210f20] { \r\n  background: linear-gradient( \r\n    to right, \r\n    rgba(101, 215, 207, 1) 0%, \r\n    rgba(111, 148, 211, 1) 100% \r\n  );\n}\nh5[data-v-f3210f20] { \r\n  color: #fff;\n}\nh5 .icon[data-v-f3210f20] { \r\n  width: 15px; \r\n  margin: -5px 15px 0 0;\n}\np.card-text[data-v-f3210f20] { \r\n  font-size: 32px; \r\n  color: #fff; \r\n  font-weight: bolder; \r\n  line-height: 1em;\n}\np.card-link[data-v-f3210f20] { \r\n  font-size: 16px; \r\n  color: #fff;\n}\n.client-details[data-v-f3210f20] { \r\n  background-image: linear-gradient(180deg, #fff 30%, #f6f8f9 30%); \r\n  padding-left: 3%; \r\n  padding-right: 3%; \r\n  padding-bottom: 30px;\n}\n.client-details .card[data-v-f3210f20] { \r\n  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); \r\n  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);\n}\n.client-details .card-body[data-v-f3210f20] { \r\n  padding: 1.25rem;\n}\n.stats.final-modal[data-v-f3210f20] { \r\n  background-color: #f6f8f9; \r\n  padding-left: 3%; \r\n  padding-right: 3%; \r\n  padding-bottom: 3%;\n}\n.stats .card h5[data-v-f3210f20] { \r\n  color: #818284;\n}\n.stats .card h5 .icon[data-v-f3210f20] { \r\n  width: 25px; \r\n  margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-f3210f20] { \r\n  margin-bottom: 0.75rem; \r\n  padding-bottom: 0.75rem; \r\n  border-bottom: 1px solid #cdcdcf;\n}\nspan.right[data-v-f3210f20] { \r\n  float: right;\n}\n.truncate[data-v-f3210f20] { \r\n  white-space: nowrap; \r\n  overflow: hidden; \r\n  text-overflow: ellipsis;\n}\n.comments-list[data-v-f3210f20] { \r\n  max-height: 218px; \r\n  overflow-y: auto;\n}\n.stats-bars[data-v-f3210f20] { \r\n  max-height: 319px; \r\n  overflow-y: auto;\n}\n.agent-comments[data-v-f3210f20] { \r\n  border-color: #cdcdcf; \r\n  padding: 10px 0;\n}\n.comment-abbr[data-v-f3210f20] { \r\n  font-size: 0.95vw; \r\n  color: #003449; \r\n  letter-spacing: 0.1em;\n}\n.comments-length[data-v-f3210f20] { \r\n  font-family: \"Rubik\", sans-serif; \r\n  font-size: 0.7vw; \r\n  color: #999999;\n}\n.comment-notes[data-v-f3210f20] { \r\n  font-size: 0.63vw; \r\n  font-family: \"Rubik\", sans-serif; \r\n  color: #7f99a4;\n}\n.author[data-v-f3210f20] { \r\n  font-size: 10px; \r\n  color: #7f99a4;\n}\n.notes-capture[data-v-f3210f20], \r\n.callback-capture[data-v-f3210f20] { \r\n  background: #f4f4f4; \r\n  border-radius: 50rem; \r\n  height: 50px;\n}\n.notes-capture[data-v-f3210f20] { \r\n  margin-top: 8.7%;\n}\n.choose-comment-type[data-v-f3210f20] { \r\n  height: 50px; \r\n  width: 50px; \r\n  padding: 11px; \r\n  margin: 0 10px 0 0; \r\n  background: #f4f4f4; \r\n  border-radius: 50rem !important; \r\n  cursor: pointer;\n}\n.comment-desc[data-v-f3210f20] { \r\n  height: 50px; \r\n  padding: 11px; \r\n  margin: 0; \r\n  border-radius: 9px; \r\n  background: #f4f4f4; \r\n  cursor: pointer; \r\n  float: left;\n}\n.comment-desc[data-v-f3210f20]::-webkit-input-placeholder { \r\n  font-size: 0.63vw; \r\n  font-family: \"Rubik\", sans-serif; \r\n  color: #999; \r\n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]::-moz-placeholder { \r\n  font-size: 0.63vw; \r\n  font-family: \"Rubik\", sans-serif; \r\n  color: #999; \r\n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]:-ms-input-placeholder { \r\n  font-size: 0.63vw; \r\n  font-family: \"Rubik\", sans-serif; \r\n  color: #999; \r\n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]::-ms-input-placeholder { \r\n  font-size: 0.63vw; \r\n  font-family: \"Rubik\", sans-serif; \r\n  color: #999; \r\n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]::placeholder { \r\n  font-size: 0.63vw; \r\n  font-family: \"Rubik\", sans-serif; \r\n  color: #999; \r\n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]:focus, textarea.form-control[data-v-f3210f20]:focus {\r\n  outline: 0 !important;\r\n  box-shadow: none !important; \r\n  -webkit-box-shadow: none !important; \r\n  -moz-ox-shadow: none !important; \r\n  -o-box-shadow: none !important;\n}\n.keys[data-v-f3210f20] { \r\n  letter-spacing: 0.05em; \r\n  font-family: \"Rubik\", sans-serif; \r\n  font-size: 8px; \r\n  color: #808080;\n}\n.callback-label[data-v-f3210f20] { \r\n  color: #666; \r\n  letter-spacing: 0.05em; \r\n  font-size: 12px; \r\n  font-family: \"Rubik\", sans-serif;\n}\n#submit-btn img[data-v-f3210f20] { \r\n  margin-top: -15px; \r\n  margin-right: -15px;\n}\n.btn-secondary[data-v-f3210f20] { \r\n  color: #fff; \r\n  background-color: #f6f8f9; \r\n  border-color: #f6f8f9;\n}\n.btn-secondary[data-v-f3210f20]:not(:disabled):not(.disabled):active, \r\n.btn-secondary:not(:disabled):not(.disabled).active[data-v-f3210f20], \r\n.show > .btn-secondary.dropdown-toggle[data-v-f3210f20] { \r\n  color: #fff; \r\n  background-color: #f6f8f9; \r\n  border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-f3210f20] { \r\n  height: 318px !important;\n}\n.call-progress-div[data-v-f3210f20] { \r\n  margin-left: -54px; \r\n  margin-right: -65px; \r\n  padding: 3% 34px 0; \r\n  background-image: url(/images/call/Call_Background.svg) !important; \r\n  background-size: cover; \r\n  background-repeat: no-repeat; \r\n  max-height: 120vh; \r\n  transition: all 500ms ease;\n}\n.call-progress-div .top-animation[data-v-f3210f20] { \r\n  padding: 7px; \r\n  background-image: url(/images/call/Call_Logo.svg) !important; \r\n  background-size: 75%; \r\n  background-position: center; \r\n  background-repeat: no-repeat; \r\n  height: 186px;\n}\n.tip[data-v-f3210f20] { \r\n  margin-bottom: 40px; \r\n  background-size: 20%; \r\n  background-repeat: no-repeat; \r\n  background-position: center 1px; \r\n  margin-bottom: 40px; \r\n  padding-top: 30px;\n}\n.tip p.step[data-v-f3210f20] { \r\n  border-bottom: 1px solid #fff; \r\n  margin-bottom: 10px; \r\n  color: #fff; \r\n  margin: 0; \r\n  letter-spacing: 3px;\n}\n.tip p.tip-text[data-v-f3210f20] { \r\n  margin-bottom: 20px;\n}\n.tip h1[data-v-f3210f20] { \r\n  color: #fff; \r\n  font-size: 1.6rem; \r\n  letter-spacing: 6px; \r\n  margin-top: 19px;\n}\n.tip p.tip-text[data-v-f3210f20] { \r\n  margin-bottom: 10px; \r\n  color: #fff; \r\n  margin: 0; \r\n  letter-spacing: 3px;\n}\n.tip-a[data-v-f3210f20] { \r\n  background-image: url(\"/images/call/1@4x.png\") !important; \r\n  background-size: 12% !important;\n}\n.tip-b[data-v-f3210f20] { \r\n  background-image: url(\"/images/call/2@4x.png\") !important;\n}\n.tip-c[data-v-f3210f20] { \r\n  background-image: url(\"/images/call/3@4x.png\") !important;\n}\n.tip-d[data-v-f3210f20] { \r\n  background-image: url(\"/images/call/4@4x.png\") !important;\n}\n.tip-e[data-v-f3210f20] { \r\n  background-image: url(\"/images/call/5@4x.png\") !important;\n}\n.tip-f[data-v-f3210f20] { \r\n  background-image: url(\"/images/call/6@4x.png\") !important;\n}\n.verticalChart[data-v-f3210f20] { \r\n  background-image: url(\"/images/graph_grid.png\") !important; \r\n  background-repeat: repeat-x; \r\n  padding-top: 36px;\n}\n.verticalChart .singleBar[data-v-f3210f20] { \r\n  width: 14%; \r\n  float: left; \r\n  margin-left: 6.5%; \r\n  margin-right: 1.5%;\n}\n.verticalChart .singleBar .bar[data-v-f3210f20] { \r\n  position: relative; \r\n  height: 220px; \r\n  background: rgba(255, 255, 255, 0.2); \r\n  overflow: hidden;\n}\n.verticalChart .singleBar .bar .value[data-v-f3210f20] { \r\n  position: absolute; \r\n  bottom: 0; \r\n  background: #89cff0; \r\n  color: #003449;\n}\n.verticalChart .singleBar .bar .value span[data-v-f3210f20] { \r\n  position: absolute; \r\n  font-size: 12px; \r\n  bottom: 0; \r\n  height: 20px; \r\n  color: #003449; \r\n  display: none; \r\n  text-align: center;\n}\n.verticalChart .singleBar .title[data-v-f3210f20] { \r\n  margin-top: 5px; \r\n  text-align: center; \r\n  color: #003449; \r\n  font-size: 18px; \r\n  font-weight: 900; \r\n  letter-spacing: 2.2px; \r\n  font-family: \"Montserrat\", sans-serif;\n}\ndiv.scripts-div[data-v-f3210f20] { \r\n  max-height: 880.84px; \r\n  transition: all 500ms ease;\n}\ndiv.collapsed[data-v-f3210f20] { \r\n  max-height: 35px; \r\n  overflow: hidden; \r\n  padding: 0px; \r\n  background-color: transparent;\n}\np.minimize[data-v-f3210f20] { \r\n  position: relative; \r\n  text-align: right; \r\n  width: 100%; \r\n  top: -38px; \r\n  right: -62px; \r\n  color: #fff;\n}\ndiv.collapsed p.minimize[data-v-f3210f20] { \r\n  position: relative; \r\n  text-align: right; \r\n  width: 100%; \r\n  top: -1px; \r\n  right: 14px; \r\n  color: #fff;\n}\np.minimize a[data-v-f3210f20], \r\np.maximize a[data-v-f3210f20] { \r\n  color: #fff; \r\n  font-weight: 900;\n}\n.scripts p.heading[data-v-f3210f20] { \r\n  font-size: 17px; \r\n  border-bottom: 1px solid #003449; \r\n  margin-bottom: 18px; \r\n  color: #003449; \r\n  letter-spacing: 1.42px; \r\n  padding-bottom: 9px;\n}\n.scripts .card[data-v-f3210f20] { \r\n  border: 0; \r\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n}\n.scripts .card-body[data-v-f3210f20] { \r\n  flex: 1 1 auto; \r\n  padding: 3.25rem; \r\n  text-align: center;\n}\n.scripts .card-body p[data-v-f3210f20] { \r\n  color: #fff; \r\n  border-bottom: 1px solid #fff; \r\n  padding-bottom: 5px; \r\n  font-size: 32px; \r\n  letter-spacing: 4.42px;\n}\n.idle-div[data-v-f3210f20] { \r\n  margin-left: -54px; \r\n  margin-right: -65px; \r\n  padding: 3% 6%; \r\n  /* background-image: url('/images/call/Call_Background.svg') !important; */ \r\n  background-size: 100%; \r\n  background-repeat: no-repeat; \r\n  transition: all 500ms ease;\n}\n.idle-div .top-animation[data-v-f3210f20] { \r\n  padding: 7px; \r\n  background-image: url(\"/images/Idle_Pages_Assest/Asset 11900.svg\") !important; \r\n  background-size: 100%; \r\n  background-position: center; \r\n  background-repeat: no-repeat; \r\n  height: 600px;\n}\n.top-animation-minimized[data-v-f3210f20] { \r\n  padding: 7px; \r\n  background-image: url(\"/images/Idle_Pages_Assest/Asset 11900.svg\") !important; \r\n  background-size: 33%; \r\n  background-position: center; \r\n  background-repeat: no-repeat; \r\n  height: 133px;\n}\n.idle-footer[data-v-f3210f20] { \r\n  margin: 0 auto; \r\n  text-align: center;\n}\n.idle-footer p[data-v-f3210f20] { \r\n  margin: 0 auto; \r\n  text-align: center; \r\n  font-size: 12px; \r\n  color: #9fb3bb;\n}\na.down-scroll[data-v-f3210f20] { \r\n  transition: all 200ms ease;\n}\na.down-scroll[data-v-f3210f20]:hover { \r\n  margin-top: 5px;\n}\n.btn-active[data-v-f3210f20]:hover { \r\n  background: #00344a; \r\n  color: #ffffff; \r\n  border: none !important; \r\n  padding: 6px 25px 6px 18px; \r\n  font-size: 12px; \r\n  font-weight: 700; \r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-active[data-v-f3210f20] { \r\n  background: #ffffff; \r\n  color: #00344a; \r\n  padding: 6px 25px 6px 18px; \r\n  font-size: 12px; \r\n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.pulse-round[data-v-f3210f20] { \r\n  border-radius: 50%; \r\n  -webkit-animation: pulse-data-v-f3210f20 2s infinite; \r\n          animation: pulse-data-v-f3210f20 2s infinite;\n}\n.pulse-round[data-v-f3210f20]:hover { \r\n  -webkit-animation: none; \r\n          animation: none;\n}\n.pulse[data-v-f3210f20] { \r\n  -webkit-animation: pulse-data-v-f3210f20 2s infinite; \r\n          animation: pulse-data-v-f3210f20 2s infinite;\n}\n.pulse[data-v-f3210f20]:hover { \r\n  -webkit-animation: none; \r\n          animation: none;\n}\n@-webkit-keyframes pulse-data-v-f3210f20 {\n0% { \r\n    -webkit-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);\n}\n70% { \r\n    -webkit-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);\n}\n100% { \r\n    -webkit-box-shadow: 0 0 0 0 rgba(255, 147, 58, 1);\n}\n}\n@keyframes pulse-data-v-f3210f20 {\n0% { \r\n    box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);\n}\n70% { \r\n    box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);\n}\n100% { \r\n    box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);\n}\n}\n.stats.final-modal .card[data-v-f3210f20] { \r\n  border-radius: 0; \r\n  background: transparent;\n}\n.stats.final-modal .tab-card-header[data-v-f3210f20] { \r\n  background: transparent;\n}\n.stats.final-modal .tab-content[data-v-f3210f20] { \r\n  padding-top: 12px; \r\n  border-bottom-left-radius: 25px; \r\n  border-bottom-right-radius: 25px; \r\n  background-color: #fff; \r\n  box-shadow: 0 0 20px 10px #e6e6e6; \r\n  -webkit-box-shadow: 0 0 20px 10px #e6e6e6; \r\n  -moz-box-shadow: 0 0 20px 10px #e6e6e6; \r\n  -o-box-shadow: 0 0 20px 10px #e6e6e6;\n}\n.stats.final-modal .tab-pane[data-v-f3210f20] { \r\n  padding: 2.5% 8.5% 5%;\n}\n.final-modal .row-a[data-v-f3210f20] { \r\n  border-bottom: 1px solid #e3e3e3;\n}\n.final-modal label button img[data-v-f3210f20] { \r\n  width: 20px; \r\n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-f3210f20] { \r\n  font-size: 55px; \r\n  color: #ff933a;\n}\n.final-modal .card-header[data-v-f3210f20] { \r\n  border-top-left-radius: 19px; \r\n  border-top-right-radius: 19px; \r\n  padding: 0 0 11px 0; \r\n  border-color: transparent;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-f3210f20] { \r\n  border-bottom: none;\n}\n.final-modal .nav.nav-tabs.card-header-tabs .nav-link .icon[data-v-f3210f20] { \r\n  padding-top: 18px; \r\n  padding-bottom: 18px;\n}\n.nav.nav-tabs.card-header-tabs li a[data-v-f3210f20] { \r\n  border: 0; \r\n  color: #7f8080; \r\n  letter-spacing: 0.05em; \r\n  text-align: center; \r\n  padding-top: 0; \r\n  padding-bottom: 0;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][data-v-f3210f20] { \r\n  box-shadow: -0 -10px 20px rgba(0,0,0,0.05); \r\n  -webkit-box-shadow: -0 -10px 20px rgba(0,0,0,0.05); \r\n  -moz-box-shadow: -0 -10px 20px rgba(0,0,0,0.05); \r\n  -o-box-shadow: -0 -10px 20px rgba(0,0,0,0.05); \r\n  background-color: #fff; \r\n  border-top-left-radius: 25px; \r\n  border-top-right-radius: 25px;\n}\n.nav-link.active img.add-activity[data-v-f3210f20] {\r\n  margin-left:20px;\r\n  display: inline-block!important;\r\n  box-shadow: 0 0 2px rgba(0,0,0,0.15);\r\n  -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);\r\n  -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);\r\n  -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);\r\n  border-radius: 50rem;\r\n  cursor:pointer;\n}\n.activities .card-header[data-v-f3210f20], \r\n.deals .card-header[data-v-f3210f20] { \r\n  background: #fff;\n}\n.activities .card-header-tabs[data-v-f3210f20], \r\n.deals .card-header-tabs[data-v-f3210f20] { \r\n  box-shadow: inset 0 -10px 10px #f5f5f5;\n}\n.activities input[data-v-f3210f20] {\r\n  font-family: 'Rubik', sans-serif;\r\n  font-size: 12px;\r\n  color: #999999;\n}\n.deals #seven input[data-v-f3210f20],\r\n.deals #seven textarea[data-v-f3210f20] {\r\n  font-family: 'Rubik', sans-serif;\r\n  font-size: 12px;\r\n  color: #999999;\r\n  white-space: nowrap;\r\n  padding: 5px 10px !important;\r\n  max-height: 33px;\n}\n.deals #eight p[data-v-f3210f20] { \r\n  font-size: 10px; \r\n  letter-spacing: 0.05em; \r\n  color: 808080;\n}\n.deals #eight label[data-v-f3210f20] { \r\n  font-size: 10px; \r\n  letter-spacing: 0.05em; \r\n  color: #999999; \r\n  font-family: \"Rubik\", sans-serif;\n}\n.deals #eight input[data-v-f3210f20], \r\n.deals #eight textarea[data-v-f3210f20], \r\n.deals #eight select[data-v-f3210f20] { \r\n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); \r\n  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); \r\n  color: #003449; \r\n  letter-spacing: 0.05em; \r\n  font-family: \"Rubik\", sans-serif; \r\n  font-size: 12px; \r\n  padding: 10px 20px !important;\n}\n.deals #eight textarea[data-v-f3210f20] { \r\n  border-radius: 25px; \r\n  height: 94px !important;\n}\n.deals #eight .custom-select[data-v-f3210f20] { \r\n  height: auto;\n}\n.deals #eight .cancel-deal[data-v-f3210f20] { \r\n  border-radius: 50rem !important; \r\n  font-size: 10px; \r\n  text-transform: uppercase; \r\n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.05); \r\n  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.05); \r\n  letter-spacing: 0.05em; \r\n  color: #999999; \r\n  padding: 9px;\n}\n.deals #eight .save-deal[data-v-f3210f20] { \r\n  font-size: 10px; \r\n  text-transform: uppercase; \r\n  letter-spacing: 0.05em; \r\n  font-weight: 700; \r\n  padding: 9px;\n}\n.nav-tabs .nav-link span[data-v-f3210f20] { \r\n  font-size: 0.73vw; \r\n  padding-left: 10px;\n}\n#two .col-lg-4[data-v-f3210f20] { \r\n  margin-top: 6.5%;\n}\n#two .callback-legend[data-v-f3210f20] { \r\n  margin-bottom: 18.5%;\n}\n#two .col-lg-4 .today[data-v-f3210f20], \r\n#two .col-lg-4 .recommended-call[data-v-f3210f20] { \r\n  margin-bottom: 14px;\n}\n#two label[data-v-f3210f20] { \r\n  color: rgb(129, 130, 132); \r\n  font-size: 0.68vw; \r\n  font-weight: 200;\n}\n#two .col-lg-8[data-v-f3210f20] { \r\n  padding-left: 7.8%;\n}\n@media screen and (max-width: 1771px) {\n#two .callback-legend[data-v-f3210f20] {\r\n    margin-bottom: 0;\n}\n#two .callback-legend .col-5[data-v-f3210f20]{ \r\n    padding-left: 0;\r\n    flex: 0 0 100%;\r\n    max-width: 100%;\n}\n#two .callback-legend .col-7[data-v-f3210f20] {\r\n    order:1;\r\n    flex: 0 0 100%;\r\n    max-width: 100%;\n}\n#two .callback-legend .row[data-v-f3210f20] {\r\n    margin-bottom:14px;\n}\n#two .callback-legend .calendar-items .col-auto[data-v-f3210f20] {\r\n    height: 10px;\n}\n}\n.vc-reset[data-v-f3210f20], \r\n.vc-reset *[data-v-f3210f20] { \r\n  border-style: none !important; \r\n  border-color: transparent !important;\n}\n.vc-h-full .vc-rounded-full[data-v-f3210f20] { \r\n  border-radius: 5px !important;\n}\n.summary p[data-v-f3210f20] { \r\n  font-family: \"Rubik\", sans-serif; \r\n  font-size: 0.7vw; \r\n  color: #999999;\n}\n.stat-perc[data-v-f3210f20] { \r\n  letter-spacing: 0.1em; \r\n  font-size: 0.85vw; \r\n  color: #808080;\n}\n.summary-abr[data-v-f3210f20] { \r\n  letter-spacing: 0.05em; \r\n  color: #333333; \r\n  font-family: \"Rubik\", sans-serif; \r\n  font-size: 0.95vw;\n}\n.progress-bar[data-v-f3210f20] { \r\n  background: #e6e6e6; \r\n  border-radius: 5px; \r\n  height: 12px;\n}\n.tank[data-v-f3210f20] { \r\n  background: linear-gradient(to right, #00ffdd 0%, #5a6ff0 100%) !important; \r\n  border-radius: 5px; \r\n  background: rgb(114, 218, 126); \r\n  height: 12px; \r\n  transition: all 0.5s ease 0s;\n}\n.email-desc[data-v-f3210f20] { \r\n  letter-spacing: 0.05em; \r\n  color: #999999; \r\n  font-size: 0.63vw; \r\n  font-family: \"Rubik\", sans-serif;\n}\n#four .text-uppercase.font-weight-bold[data-v-f3210f20] { \r\n  color: #808080; \r\n  letter-spacing: 0.05em; \r\n  font-size: 0.73vw;\n}\n#four .btn-default[data-v-f3210f20] { \r\n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); \r\n  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); \r\n  font-family: \"Rubik\", sans-serif; \r\n  font-size: 0.63vw; \r\n  letter-spacing: 0.05em; \r\n  border-radius: 50rem !important;\n}\n#four textarea[data-v-f3210f20] { \r\n  background-color: #f9f9f9; \r\n  border-radius: 10px; \r\n  height: 163px !important; \r\n  overflow-y: auto;\n}\n#four textarea[data-v-f3210f20]::-webkit-input-placeholder { \r\n  color: #999999; \r\n  font-size: 0.63vw; \r\n  font-family: \"Rubik\", sans-serif; \r\n  font-style: italic;\n}\n#four textarea[data-v-f3210f20]::-moz-placeholder { \r\n  color: #999999; \r\n  font-size: 0.63vw; \r\n  font-family: \"Rubik\", sans-serif; \r\n  font-style: italic;\n}\n#four textarea[data-v-f3210f20]:-ms-input-placeholder { \r\n  color: #999999; \r\n  font-size: 0.63vw; \r\n  font-family: \"Rubik\", sans-serif; \r\n  font-style: italic;\n}\n#four textarea[data-v-f3210f20]::-ms-input-placeholder { \r\n  color: #999999; \r\n  font-size: 0.63vw; \r\n  font-family: \"Rubik\", sans-serif; \r\n  font-style: italic;\n}\n#four textarea[data-v-f3210f20]::placeholder { \r\n  color: #999999; \r\n  font-size: 0.63vw; \r\n  font-family: \"Rubik\", sans-serif; \r\n  font-style: italic;\n}\n.scroll-hidden[data-v-f3210f20] { \r\n  overflow: auto; \r\n  padding-right: 6px; \r\n  width: 100%; \r\n  padding-bottom: 6px;\n}\n.left-padding-4[data-v-f3210f20] {\r\n    padding-left: 4%;\n}\n.dropdown-menu[data-v-f3210f20] { \r\n  width: 191px; \r\n  padding: 17px; \r\n  font-size: 13px;\n}\n.comment_review p[data-v-f3210f20] { \r\n  width: 100%;\n}\n.calendar-heading[data-v-f3210f20] { \r\n  font-size: 0.73vw; \r\n  letter-spacing: 0.05em; \r\n  color: #666666; \r\n  border-color: #ccc;\n}\n.dropdown-menu.show[data-v-f3210f20] { \r\n  border-radius: 25px; \r\n  border: 0; \r\n  padding: 10px 20px 15px 15px; \r\n  color: #818284; \r\n  font-family: \"Rubik\", sans-serif; \r\n  font-size: 16px;\n}\n.new-activity h5[data-v-f3210f20] {\r\n  font-size: 0.83vw;\r\n  color: #1e2253!important;\n}\n.permissions-divider[data-v-f3210f20] {\r\n  margin-top:3.7%;\r\n  margin-bottom:3.1%;\n}\n.btn-primary[data-v-f3210f20] {\r\n  border-radius: 50rem!important;\r\n  text-transform:uppercase;\r\n  font-size: 10px;\r\n  padding: 11px 14px 10px;\r\n  line-height:1em;\r\n  margin-left: 0.9%;\r\n  margin-right: 0.9%;\n}\n.new-activity label[data-v-f3210f20] {\r\n  font-family: 'Rubik', sans-serif;\r\n  font-size: 0.52vw;;\r\n  color: #999999;\r\n  margin-bottom:7px;\r\n  margin-left: 17px;\n}\n.new-activity .activity-subject[data-v-f3210f20] {\r\n  border-radius: 50rem;\r\n  padding: 11px 18px!important;\r\n  font-size: 0.63vw;\r\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  color: #003449;\r\n  border-color: #ccc;\r\n  margin-bottom: 17px;\r\n  font-family: 'Rubik', sans-serif;\r\n  height:auto!important;\n}\n.activity-status[data-v-f3210f20] {\r\n  width:12px;\r\n  height: 12px;\r\n  border-radius: 50rem;\n}\n.finished-activity[data-v-f3210f20] {\r\n  background-color: #00D58E;\r\n  margin-right: 10px;\n}\n.in-progress-activity[data-v-f3210f20] {\r\n  background-color: #FF933A;\r\n  margin-right: 10px;\n}\n.not-started-activity[data-v-f3210f20] {\r\n  background-color: #F42222; \r\n  margin-right: 10px;\n}\n.activity-status-input[data-v-f3210f20] {\r\n  min-width:134px;\n}\n.type-input[data-v-f3210f20] {\r\n  min-width: 127px;\n}\n.stage-input[data-v-f3210f20] {\r\n  min-width: 135px;\n}\n.lead-source-input[data-v-f3210f20] {\r\n  min-width:146px;\n}\n.status-input[data-v-f3210f20] {\r\n  min-width:69px;\n}\r\n", ""]);
+exports.push([module.i, "\n.general-section-stats .agent-stats-1[data-v-f3210f20] {\n  padding-left: 5%; \n  padding-right: 5%;\n}\n.general-section-stats .agent-stats-2[data-v-f3210f20] { \n  padding-left: 5%; \n  padding-right: 5%; \n  padding-bottom: 30px;\n}\n.scripts[data-v-f3210f20] { \n  padding-left: 3%; \n  padding-right: 3%;\n}\n.top-section .col[data-v-f3210f20] { \n  padding: 0 10px; \n  /* border-left: 1px solid rgba(0,52,73,1);   \n  min-height: 71px;  \n  margin-bottom: 57px; */ \n  min-width: 150px;\n}\n.top-section .bottom[data-v-f3210f20] { \n  font-size: 12px; \n  font-weight: 700; \n  letter-spacing: 0.05em; \n  color: #1e2253; \n  font-family: \"Rubik\", sans-serif;\n  padding: 5px 15px;\n}\n.top-section .top[data-v-f3210f20] { \n  font-size: 12px; \n  color: #747577; \n  letter-spacing: 0.05em; \n  font-family: \"Rubik\", sans-serif; \n  margin-bottom: 0;\n}\n.border-top-grey[data-v-f3210f20] { \n  border-top: 1px solid #ededee;\n}\n.border-left-grey[data-v-f3210f20] { \n  border-left: 1px solid #ededee;\n}\ndiv.col-6:last-child .inner-div .row[data-v-f3210f20], div.col-6:nth-last-child(2) .inner-div .row[data-v-f3210f20] { \n  border-bottom: 1px solid #ededee;\n}\n.p10-25[data-v-f3210f20] { \n  padding: 10px 25px;\n}\n@media screen and (max-width: 1400px) {\n.p10-25[data-v-f3210f20] { \n  padding: 10px 10px;\n}\n}\n.mr-22[data-v-f3210f20] {\n  margin-right: 22%;\n}\n.mr-12[data-v-f3210f20] {\n  margin-right: 12%;\n}\n.card[data-v-f3210f20] { \n  border-radius: 25px;\n}\n.client-details .card-title[data-v-f3210f20] { \n  margin-bottom: 0.75rem; \n  padding-bottom: 0.5rem; \n  border-bottom: 1px solid #fff; \n  font-size: 14px; \n  font-family: \"Rubik\", sans-serif; \n  letter-spacing: 0.05em;\n}\n.client[data-v-f3210f20] { \n  background: linear-gradient( \n    to right, \n    rgba(255, 164, 128, 1) 0%, \n    rgba(255, 128, 134, 1) 100% \n  );\n}\n.product[data-v-f3210f20] { \n  background: linear-gradient( \n    to right, \n    rgba(159, 204, 226, 1) 0%, \n    rgba(4, 149, 240, 1) 100% \n  );\n}\n.activity[data-v-f3210f20] { \n  background: linear-gradient( \n    to right, \n    rgba(221, 192, 241, 1) 0%, \n    rgba(160, 117, 209, 1) 100% \n  );\n}\n.time[data-v-f3210f20] { \n  background: linear-gradient( \n    to right, \n    rgba(101, 215, 207, 1) 0%, \n    rgba(111, 148, 211, 1) 100% \n  );\n}\nh5[data-v-f3210f20] { \n  color: #fff;\n}\nh5 .icon[data-v-f3210f20] { \n  width: 15px; \n  margin: -5px 15px 0 0;\n}\np.card-text[data-v-f3210f20] { \n  font-size: 32px; \n  color: #fff; \n  font-weight: bolder; \n  line-height: 1em;\n}\np.card-link[data-v-f3210f20] { \n  font-size: 16px; \n  color: #fff;\n}\n.client-details[data-v-f3210f20] { \n  background-image: linear-gradient(180deg, #fff 30%, #f6f8f9 30%); \n  padding-left: 3%; \n  padding-right: 3%; \n  padding-bottom: 30px;\n}\n.client-details .card[data-v-f3210f20] { \n  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); \n  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);\n}\n.client-details .card-body[data-v-f3210f20] { \n  padding: 1.25rem;\n}\n.stats.final-modal[data-v-f3210f20] { \n  background-color: #f6f8f9; \n  padding-left: 3%; \n  padding-right: 3%; \n  padding-bottom: 3%;\n}\n.stats .card h5[data-v-f3210f20] { \n  color: #818284;\n}\n.stats .card h5 .icon[data-v-f3210f20] { \n  width: 25px; \n  margin: -5px 15px 0 0;\n}\n.stats .card .card-title[data-v-f3210f20] { \n  margin-bottom: 0.75rem; \n  padding-bottom: 0.75rem; \n  border-bottom: 1px solid #cdcdcf;\n}\nspan.right[data-v-f3210f20] { \n  float: right;\n}\n.truncate[data-v-f3210f20] { \n  white-space: nowrap; \n  overflow: hidden; \n  text-overflow: ellipsis;\n}\n.comments-list[data-v-f3210f20] { \n  max-height: 247px; \n  overflow-y: auto;\n}\n.stats-bars[data-v-f3210f20] { \n  max-height: 319px; \n  overflow-y: auto;\n}\n.agent-comments[data-v-f3210f20] { \n  border-color: #cdcdcf; \n  padding: 10px 0;\n}\n.comment-abbr[data-v-f3210f20] { \n  font-size: 0.95vw; \n  color: #003449; \n  letter-spacing: 0.1em;\n}\n.comments-length[data-v-f3210f20] { \n  font-family: \"Rubik\", sans-serif; \n  font-size: 0.7vw; \n  color: #999999;\n}\n.comment-notes[data-v-f3210f20] { \n  font-size: 0.63vw; \n  font-family: \"Rubik\", sans-serif; \n  color: #7f99a4;\n}\n.author[data-v-f3210f20] { \n  font-size: 10px; \n  color: #7f99a4;\n}\n.notes-capture[data-v-f3210f20], \n.callback-capture[data-v-f3210f20] { \n  background: #f4f4f4; \n  border-radius: 50rem; \n  height: 50px;\n}\n.notes-capture[data-v-f3210f20] { \n  margin-top: 3.7%;\n}\n.choose-comment-type[data-v-f3210f20] { \n  height: 50px; \n  width: 50px; \n  padding: 11px; \n  margin: 0 10px 0 0; \n  background: #f4f4f4; \n  border-radius: 50rem !important; \n  cursor: pointer;\n}\n.comment-desc[data-v-f3210f20] { \n  height: 50px; \n  padding: 11px; \n  margin: 0; \n  border-radius: 9px; \n  background: #f4f4f4; \n  cursor: pointer; \n  float: left;\n}\n.comment-desc[data-v-f3210f20]::-webkit-input-placeholder { \n  font-size: 0.63vw; \n  font-family: \"Rubik\", sans-serif; \n  color: #999; \n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]::-moz-placeholder { \n  font-size: 0.63vw; \n  font-family: \"Rubik\", sans-serif; \n  color: #999; \n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]:-ms-input-placeholder { \n  font-size: 0.63vw; \n  font-family: \"Rubik\", sans-serif; \n  color: #999; \n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]::-ms-input-placeholder { \n  font-size: 0.63vw; \n  font-family: \"Rubik\", sans-serif; \n  color: #999; \n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]::placeholder { \n  font-size: 0.63vw; \n  font-family: \"Rubik\", sans-serif; \n  color: #999; \n  font-style: italic;\n}\n.comment-desc[data-v-f3210f20]:focus, textarea.form-control[data-v-f3210f20]:focus {\n  outline: 0 !important;\n  box-shadow: none !important; \n  -webkit-box-shadow: none !important; \n  -moz-ox-shadow: none !important; \n  -o-box-shadow: none !important;\n}\n.keys[data-v-f3210f20] { \n  letter-spacing: 0.05em; \n  font-family: \"Rubik\", sans-serif; \n  font-size: 8px; \n  color: #808080;\n}\n.callback-label[data-v-f3210f20] { \n  color: #666; \n  letter-spacing: 0.05em; \n  font-size: 12px; \n  font-family: \"Rubik\", sans-serif;\n}\n#submit-btn img[data-v-f3210f20] { \n  margin-top: -15px; \n  margin-right: -15px;\n}\n.btn-secondary[data-v-f3210f20] { \n  color: #fff; \n  background-color: #f6f8f9; \n  border-color: #f6f8f9;\n}\n.btn-secondary[data-v-f3210f20]:not(:disabled):not(.disabled):active, \n.btn-secondary:not(:disabled):not(.disabled).active[data-v-f3210f20], \n.show > .btn-secondary.dropdown-toggle[data-v-f3210f20] { \n  color: #fff; \n  background-color: #f6f8f9; \n  border-color: #f6f8f9;\n}\n#chartjs-size-monitor #bar-chart[data-v-f3210f20] { \n  height: 318px !important;\n}\n.call-progress-div[data-v-f3210f20] { \n  margin-left: -54px; \n  margin-right: -65px; \n  padding: 3% 34px 0; \n  background-image: url(/images/call/Call_Background.svg) !important; \n  background-size: cover; \n  background-repeat: no-repeat; \n  max-height: 120vh; \n  transition: all 500ms ease;\n}\n.call-progress-div .top-animation[data-v-f3210f20] { \n  padding: 7px; \n  background-image: url(/images/call/Call_Logo.svg) !important; \n  background-size: 75%; \n  background-position: center; \n  background-repeat: no-repeat; \n  height: 186px;\n}\n.tip[data-v-f3210f20] { \n  margin-bottom: 40px; \n  background-size: 20%; \n  background-repeat: no-repeat; \n  background-position: center 1px; \n  margin-bottom: 40px; \n  padding-top: 30px;\n}\n.tip p.step[data-v-f3210f20] { \n  border-bottom: 1px solid #fff; \n  margin-bottom: 10px; \n  color: #fff; \n  margin: 0; \n  letter-spacing: 3px;\n}\n.tip p.tip-text[data-v-f3210f20] { \n  margin-bottom: 20px;\n}\n.tip h1[data-v-f3210f20] { \n  color: #fff; \n  font-size: 1.6rem; \n  letter-spacing: 6px; \n  margin-top: 19px;\n}\n.tip p.tip-text[data-v-f3210f20] { \n  margin-bottom: 10px; \n  color: #fff; \n  margin: 0; \n  letter-spacing: 3px;\n}\n.tip-a[data-v-f3210f20] { \n  background-image: url(\"/images/call/1@4x.png\") !important; \n  background-size: 12% !important;\n}\n.tip-b[data-v-f3210f20] { \n  background-image: url(\"/images/call/2@4x.png\") !important;\n}\n.tip-c[data-v-f3210f20] { \n  background-image: url(\"/images/call/3@4x.png\") !important;\n}\n.tip-d[data-v-f3210f20] { \n  background-image: url(\"/images/call/4@4x.png\") !important;\n}\n.tip-e[data-v-f3210f20] { \n  background-image: url(\"/images/call/5@4x.png\") !important;\n}\n.tip-f[data-v-f3210f20] { \n  background-image: url(\"/images/call/6@4x.png\") !important;\n}\n.verticalChart[data-v-f3210f20] { \n  background-image: url(\"/images/graph_grid.png\") !important; \n  background-repeat: repeat-x; \n  padding-top: 36px;\n}\n.verticalChart .singleBar[data-v-f3210f20] { \n  width: 14%; \n  float: left; \n  margin-left: 6.5%; \n  margin-right: 1.5%;\n}\n.verticalChart .singleBar .bar[data-v-f3210f20] { \n  position: relative; \n  height: 220px; \n  background: rgba(255, 255, 255, 0.2); \n  overflow: hidden;\n}\n.verticalChart .singleBar .bar .value[data-v-f3210f20] { \n  position: absolute; \n  bottom: 0; \n  background: #89cff0; \n  color: #003449;\n}\n.verticalChart .singleBar .bar .value span[data-v-f3210f20] { \n  position: absolute; \n  font-size: 12px; \n  bottom: 0; \n  height: 20px; \n  color: #003449; \n  display: none; \n  text-align: center;\n}\n.verticalChart .singleBar .title[data-v-f3210f20] { \n  margin-top: 5px; \n  text-align: center; \n  color: #003449; \n  font-size: 18px; \n  font-weight: 900; \n  letter-spacing: 2.2px; \n  font-family: \"Montserrat\", sans-serif;\n}\ndiv.scripts-div[data-v-f3210f20] { \n  max-height: 880.84px; \n  transition: all 500ms ease;\n}\ndiv.collapsed[data-v-f3210f20] { \n  max-height: 35px; \n  overflow: hidden; \n  padding: 0px; \n  background-color: transparent;\n}\np.minimize[data-v-f3210f20] { \n  position: relative; \n  text-align: right; \n  width: 100%; \n  top: -38px; \n  right: -62px; \n  color: #fff;\n}\ndiv.collapsed p.minimize[data-v-f3210f20] { \n  position: relative; \n  text-align: right; \n  width: 100%; \n  top: -1px; \n  right: 14px; \n  color: #fff;\n}\np.minimize a[data-v-f3210f20], \np.maximize a[data-v-f3210f20] { \n  color: #fff; \n  font-weight: 900;\n}\n.scripts p.heading[data-v-f3210f20] { \n  font-size: 17px; \n  border-bottom: 1px solid #003449; \n  margin-bottom: 18px; \n  color: #003449; \n  letter-spacing: 1.42px; \n  padding-bottom: 9px;\n}\n.scripts .card[data-v-f3210f20] { \n  border: 0; \n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n}\n.scripts .card-body[data-v-f3210f20] { \n  flex: 1 1 auto; \n  padding: 3.25rem; \n  text-align: center;\n}\n.scripts .card-body p[data-v-f3210f20] { \n  color: #fff; \n  border-bottom: 1px solid #fff; \n  padding-bottom: 5px; \n  font-size: 32px; \n  letter-spacing: 4.42px;\n}\n.idle-div[data-v-f3210f20] { \n  margin-left: -54px; \n  margin-right: -65px; \n  padding: 3% 6%; \n  /* background-image: url('/images/call/Call_Background.svg') !important; */ \n  background-size: 100%; \n  background-repeat: no-repeat; \n  transition: all 500ms ease;\n}\n.idle-div .top-animation[data-v-f3210f20] { \n  padding: 7px; \n  background-image: url(\"/images/Idle_Pages_Assest/Asset 11900.svg\") !important; \n  background-size: 100%; \n  background-position: center; \n  background-repeat: no-repeat; \n  height: 600px;\n}\n.top-animation-minimized[data-v-f3210f20] { \n  padding: 7px; \n  background-image: url(\"/images/Idle_Pages_Assest/Asset 11900.svg\") !important; \n  background-size: 33%; \n  background-position: center; \n  background-repeat: no-repeat; \n  height: 133px;\n}\n.idle-footer[data-v-f3210f20] { \n  margin: 0 auto; \n  text-align: center;\n}\n.idle-footer p[data-v-f3210f20] { \n  margin: 0 auto; \n  text-align: center; \n  font-size: 12px; \n  color: #9fb3bb;\n}\na.down-scroll[data-v-f3210f20] { \n  transition: all 200ms ease;\n}\na.down-scroll[data-v-f3210f20]:hover { \n  margin-top: 5px;\n}\n.btn-active[data-v-f3210f20]:hover { \n  background: #00344a; \n  color: #ffffff; \n  border: none !important; \n  padding: 6px 25px 6px 18px; \n  font-size: 12px; \n  font-weight: 700; \n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.btn-active[data-v-f3210f20] { \n  background: #ffffff; \n  color: #00344a; \n  padding: 6px 25px 6px 18px; \n  font-size: 12px; \n  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);\n}\n.pulse-round[data-v-f3210f20] { \n  border-radius: 50%; \n  -webkit-animation: pulse-data-v-f3210f20 2s infinite; \n          animation: pulse-data-v-f3210f20 2s infinite;\n}\n.pulse-round[data-v-f3210f20]:hover { \n  -webkit-animation: none; \n          animation: none;\n}\n.pulse[data-v-f3210f20] { \n  -webkit-animation: pulse-data-v-f3210f20 2s infinite; \n          animation: pulse-data-v-f3210f20 2s infinite;\n}\n.pulse[data-v-f3210f20]:hover { \n  -webkit-animation: none; \n          animation: none;\n}\n@-webkit-keyframes pulse-data-v-f3210f20 {\n0% { \n    -webkit-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);\n}\n70% { \n    -webkit-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);\n}\n100% { \n    -webkit-box-shadow: 0 0 0 0 rgba(255, 147, 58, 1);\n}\n}\n@keyframes pulse-data-v-f3210f20 {\n0% { \n    box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);\n}\n70% { \n    box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);\n}\n100% { \n    box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);\n}\n}\n.stats.final-modal .card[data-v-f3210f20] { \n  border-radius: 0; \n  background: transparent;\n}\n.stats.final-modal .tab-card-header[data-v-f3210f20] { \n  background: transparent;\n}\n.stats.final-modal .tab-content[data-v-f3210f20] { \n  padding-top: 12px; \n  border-bottom-left-radius: 25px; \n  border-bottom-right-radius: 25px; \n  background-color: #fff; \n  box-shadow: 0 0 20px 10px #e6e6e6; \n  -webkit-box-shadow: 0 0 20px 10px #e6e6e6; \n  -moz-box-shadow: 0 0 20px 10px #e6e6e6; \n  -o-box-shadow: 0 0 20px 10px #e6e6e6;\n}\n.stats.final-modal .tab-pane[data-v-f3210f20] { \n  padding: 2.5% 8.5% 5%;\n}\n.activities .tab-pane[data-v-f3210f20],\n.deals .tab-pane[data-v-f3210f20]  { \n  padding: 2.5% 8.5%;\n}\n.final-modal .row-a[data-v-f3210f20] { \n  border-bottom: 1px solid #e3e3e3;\n}\n.final-modal label button img[data-v-f3210f20] { \n  width: 20px; \n  margin-right: 15px;\n}\n.final-modal .navbar-nav .nav-item[data-v-f3210f20] { \n  font-size: 55px; \n  color: #ff933a;\n}\n.final-modal .card-header[data-v-f3210f20] { \n  border-top-left-radius: 19px; \n  border-top-right-radius: 19px; \n  padding: 0 0 11px 0; \n  border-color: transparent;\n}\n.final-modal .card-header a[aria-selected=\"true\"][data-v-f3210f20] { \n  border-bottom: none;\n}\n.final-modal .nav.nav-tabs.card-header-tabs .nav-link .icon[data-v-f3210f20] { \n  padding-top: 18px; \n  padding-bottom: 18px;\n}\n.nav.nav-tabs.card-header-tabs li a[data-v-f3210f20] { \n  border: 0; \n  color: #7f8080; \n  letter-spacing: 0.05em; \n  text-align: center; \n  padding-top: 0; \n  padding-bottom: 0;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][data-v-f3210f20] { \n  box-shadow: -0 -17px 20px rgba(0,0,0,0.05); \n  -webkit-box-shadow: -0 -17px 20px rgba(0,0,0,0.05); \n  -moz-box-shadow: -0 -17px 20px rgba(0,0,0,0.05); \n  -o-box-shadow: -0 -17px 20px rgba(0,0,0,0.05); \n  background-color: #fff; \n  border-top-left-radius: 25px; \n  border-top-right-radius: 25px;\n}\n.activities .nav.nav-tabs.card-header-tabs .nav-link[data-v-f3210f20],\n.deals .nav.nav-tabs.card-header-tabs .nav-link[data-v-f3210f20] {\n  padding-left: 2rem;\n  padding-right: 2rem;\n}\n.nav-link.active img.add-activity[data-v-f3210f20] {\n  margin-left:20px;\n  display: inline-block!important;\n  box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  -moz-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  -o-box-shadow: 0 0 2px rgba(0,0,0,0.15);\n  border-radius: 50rem;\n  cursor:pointer;\n}\n.activities .card-header[data-v-f3210f20], \n.deals .card-header[data-v-f3210f20] { \n  background: #fff;\n}\n.activities .card-header-tabs[data-v-f3210f20], \n.deals .card-header-tabs[data-v-f3210f20] { \n  box-shadow: inset 0 -10px 10px #f5f5f5;\n}\n.activities input[data-v-f3210f20] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 12px;\n  color: #999999;\n}\n.deals #seven input[data-v-f3210f20],\n.deals #seven textarea[data-v-f3210f20] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 12px;\n  color: #999999;\n  white-space: nowrap;\n  padding: 5px 10px !important;\n  max-height: 33px;\n}\n.deals #eight p[data-v-f3210f20] { \n  font-size: 10px; \n  letter-spacing: 0.05em; \n  color: 808080;\n}\n.deals #eight label[data-v-f3210f20] { \n  font-size: 10px; \n  letter-spacing: 0.05em; \n  color: #999999; \n  font-family: \"Rubik\", sans-serif;\n}\n.deals #eight input[data-v-f3210f20], \n.deals #eight textarea[data-v-f3210f20], \n.deals #eight select[data-v-f3210f20] { \n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); \n  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); \n  color: #003449; \n  letter-spacing: 0.05em; \n  font-family: \"Rubik\", sans-serif; \n  font-size: 12px; \n  padding: 10px 20px !important;\n}\n.deals #eight textarea[data-v-f3210f20] { \n  border-radius: 25px; \n  height: 94px !important;\n}\n.deals #eight .custom-select[data-v-f3210f20] { \n  height: auto;\n}\n.deals #eight .cancel-deal[data-v-f3210f20] { \n  border-radius: 50rem !important; \n  font-size: 10px; \n  text-transform: uppercase; \n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.05); \n  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.05); \n  letter-spacing: 0.05em; \n  color: #999999; \n  padding: 9px;\n}\n.deals #eight .save-deal[data-v-f3210f20] { \n  font-size: 10px; \n  text-transform: uppercase; \n  letter-spacing: 0.05em; \n  font-weight: 700; \n  padding: 9px;\n}\n.nav-tabs .nav-link span[data-v-f3210f20] { \n  font-size: 0.73vw; \n  padding-left: 10px;\n}\n#two .col-lg-4[data-v-f3210f20] { \n  margin-top: 6.5%;\n}\n#two .callback-legend[data-v-f3210f20] { \n  margin-bottom: 18.5%;\n}\n#two .col-lg-4 .today[data-v-f3210f20], \n#two .col-lg-4 .recommended-call[data-v-f3210f20] { \n  margin-bottom: 14px;\n}\n#two label[data-v-f3210f20] { \n  color: rgb(129, 130, 132); \n  font-size: 0.68vw; \n  font-weight: 200;\n}\n#two .col-lg-8[data-v-f3210f20] { \n  padding-left: 7.8%;\n}\n@media screen and (max-width: 1771px) {\n#two .callback-legend[data-v-f3210f20] {\n    margin-bottom: 0;\n}\n#two .callback-legend .col-5[data-v-f3210f20]{ \n    padding-left: 0;\n    flex: 0 0 100%;\n    max-width: 100%;\n}\n#two .callback-legend .col-5 .col-auto[data-v-f3210f20],\n  #two .callback-legend .col-5 .keys[data-v-f3210f20]{\n    margin-left: 4px;\n}\n#two .callback-legend .col-7[data-v-f3210f20] {\n    order:1;\n    flex: 0 0 100%;\n    max-width: 100%;\n}\n#two .callback-legend .row[data-v-f3210f20] {\n    margin-bottom:14px;\n}\n#two .callback-legend .calendar-items .col-auto[data-v-f3210f20] {\n    height: 10px;\n}\n}\n.vc-reset[data-v-f3210f20], \n.vc-reset *[data-v-f3210f20] { \n  border-style: none !important; \n  border-color: transparent !important;\n}\n.vc-h-full .vc-rounded-full[data-v-f3210f20] { \n  border-radius: 5px !important;\n}\n.summary p[data-v-f3210f20] { \n  font-family: \"Rubik\", sans-serif; \n  font-size: 0.7vw; \n  color: #999999;\n}\n.stat-perc[data-v-f3210f20] { \n  letter-spacing: 0.1em; \n  font-size: 0.85vw; \n  color: #808080;\n}\n.summary-abr[data-v-f3210f20] { \n  letter-spacing: 0.05em; \n  color: #333333; \n  font-family: \"Rubik\", sans-serif; \n  font-size: 0.95vw;\n}\n.progress-bar[data-v-f3210f20] { \n  background: #e6e6e6; \n  border-radius: 5px; \n  height: 12px;\n}\n.tank[data-v-f3210f20] { \n  background: linear-gradient(to right, #00ffdd 0%, #5a6ff0 100%) !important; \n  border-radius: 5px; \n  background: rgb(114, 218, 126); \n  height: 12px; \n  transition: all 0.5s ease 0s;\n}\n.email-desc[data-v-f3210f20] { \n  letter-spacing: 0.05em; \n  color: #999999; \n  font-size: 0.63vw; \n  font-family: \"Rubik\", sans-serif;\n}\n#four .text-uppercase.font-weight-bold[data-v-f3210f20] { \n  color: #808080; \n  letter-spacing: 0.05em; \n  font-size: 0.73vw;\n}\n#four .btn-default[data-v-f3210f20] { \n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); \n  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1); \n  font-family: \"Rubik\", sans-serif; \n  font-size: 0.63vw; \n  letter-spacing: 0.05em; \n  border-radius: 50rem !important;\n}\n#four textarea[data-v-f3210f20] { \n  background-color: #f9f9f9; \n  border-radius: 10px; \n  height: 163px !important; \n  overflow-y: auto;\n}\n#four textarea[data-v-f3210f20]::-webkit-input-placeholder { \n  color: #999999; \n  font-size: 0.63vw; \n  font-family: \"Rubik\", sans-serif; \n  font-style: italic;\n}\n#four textarea[data-v-f3210f20]::-moz-placeholder { \n  color: #999999; \n  font-size: 0.63vw; \n  font-family: \"Rubik\", sans-serif; \n  font-style: italic;\n}\n#four textarea[data-v-f3210f20]:-ms-input-placeholder { \n  color: #999999; \n  font-size: 0.63vw; \n  font-family: \"Rubik\", sans-serif; \n  font-style: italic;\n}\n#four textarea[data-v-f3210f20]::-ms-input-placeholder { \n  color: #999999; \n  font-size: 0.63vw; \n  font-family: \"Rubik\", sans-serif; \n  font-style: italic;\n}\n#four textarea[data-v-f3210f20]::placeholder { \n  color: #999999; \n  font-size: 0.63vw; \n  font-family: \"Rubik\", sans-serif; \n  font-style: italic;\n}\n.scroll-hidden[data-v-f3210f20] { \n  overflow: auto; \n  padding-right: 6px; \n  width: 100%; \n  padding-bottom: 6px;\n}\n.left-padding-4[data-v-f3210f20] {\n    padding-left: 4%;\n}\n.dropdown-menu[data-v-f3210f20] { \n  width: 191px; \n  padding: 17px; \n  font-size: 13px;\n}\n.comment_review p[data-v-f3210f20] { \n  width: 100%;\n}\n.calendar-heading[data-v-f3210f20] { \n  font-size: 0.73vw; \n  letter-spacing: 0.05em; \n  color: #666666; \n  border-color: #ccc;\n}\n.dropdown-menu.show[data-v-f3210f20] { \n  border-radius: 25px; \n  border: 0; \n  padding: 10px 20px; \n  color: #818284; \n  font-family: \"Rubik\", sans-serif; \n  font-size: 16px;\n}\n.new-activity h5[data-v-f3210f20] {\n  font-size: 0.83vw;\n  color: #1e2253!important;\n}\n.permissions-divider[data-v-f3210f20] {\n  margin-top:3.7%;\n  margin-bottom:3.1%;\n}\n.btn-primary[data-v-f3210f20] {\n  border-radius: 50rem!important;\n  text-transform:uppercase;\n  font-size: 10px;\n  padding: 11px 14px 10px;\n  line-height:1em;\n  margin-left: 0.9%;\n  margin-right: 0.9%;\n}\n.new-activity label[data-v-f3210f20] {\n  font-family: 'Rubik', sans-serif;\n  font-size: 0.52vw;;\n  color: #999999;\n  margin-bottom:7px;\n  margin-left: 17px;\n}\n.new-activity .activity-subject[data-v-f3210f20] {\n  border-radius: 50rem;\n  padding: 11px 18px!important;\n  font-size: 0.63vw;\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n  color: #003449;\n  border-color: #ccc;\n  margin-bottom: 17px;\n  font-family: 'Rubik', sans-serif;\n  height:auto!important;\n}\n.activity-status[data-v-f3210f20] {\n  width:12px;\n  height: 12px;\n  border-radius: 50rem;\n  margin-left:10px;\n}\n.deals .activity-status[data-v-f3210f20] {\n  margin-right: 10px;\n}\n.finished-activity[data-v-f3210f20] {\n  background-color: #00D58E;\n  margin-right: 10px;\n}\n.in-progress-activity[data-v-f3210f20] {\n  background-color: #FF933A;\n  margin-right: 10px;\n}\n.not-started-activity[data-v-f3210f20] {\n  background-color: #F42222; \n  margin-right: 10px;\n}\n.activity-status-input[data-v-f3210f20] {\n  min-width:134px;\n}\n.type-input[data-v-f3210f20] {\n  min-width: 127px;\n}\n.stage-input[data-v-f3210f20] {\n  min-width: 135px;\n}\n.lead-source-input[data-v-f3210f20] {\n  min-width:146px;\n}\n.status-input[data-v-f3210f20] {\n  min-width:69px;\n}\n", ""]);
 
 // exports
 
@@ -342600,6 +343077,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/BranchesListingTable.vue?vue&type=style&index=0&id=2370a533&scoped=true&lang=css&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/DataTables/BranchesListingTable.vue?vue&type=style&index=0&id=2370a533&scoped=true&lang=css& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./BranchesListingTable.vue?vue&type=style&index=0&id=2370a533&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/BranchesListingTable.vue?vue&type=style&index=0&id=2370a533&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/CallLogsDataTable.vue?vue&type=style&index=0&id=ccb78764&scoped=true&lang=css&":
 /*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/DataTables/CallLogsDataTable.vue?vue&type=style&index=0&id=ccb78764&scoped=true&lang=css& ***!
@@ -342609,6 +343116,36 @@ if(false) {}
 
 
 var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./CallLogsDataTable.vue?vue&type=style&index=0&id=ccb78764&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/CallLogsDataTable.vue?vue&type=style&index=0&id=ccb78764&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/CategoryListingTable.vue?vue&type=style&index=0&id=4b72173e&scoped=true&lang=css&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/DataTables/CategoryListingTable.vue?vue&type=style&index=0&id=4b72173e&scoped=true&lang=css& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./CategoryListingTable.vue?vue&type=style&index=0&id=4b72173e&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/CategoryListingTable.vue?vue&type=style&index=0&id=4b72173e&scoped=true&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -342669,6 +343206,36 @@ if(false) {}
 
 
 var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./OrdersListingTable.vue?vue&type=style&index=0&id=c75b0ef0&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/OrdersListingTable.vue?vue&type=style&index=0&id=c75b0ef0&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/ProductListingTable.vue?vue&type=style&index=0&id=021dfba0&scoped=true&lang=css&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/DataTables/ProductListingTable.vue?vue&type=style&index=0&id=021dfba0&scoped=true&lang=css& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ProductListingTable.vue?vue&type=style&index=0&id=021dfba0&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/ProductListingTable.vue?vue&type=style&index=0&id=021dfba0&scoped=true&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -352766,10 +353333,10 @@ exports.default = WSTransport;
 /*!*************************************************!*\
   !*** ./node_modules/twilio-client/package.json ***!
   \*************************************************/
-/*! exports provided: _args, _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _spec, _where, browser, bugs, dependencies, description, devDependencies, homepage, keywords, license, main, name, pre-commit, repository, scripts, version, default */
+/*! exports provided: _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _shasum, _spec, _where, browser, bugs, bundleDependencies, dependencies, deprecated, description, devDependencies, homepage, keywords, license, main, name, pre-commit, repository, scripts, version, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"_args\":[[\"twilio-client@1.7.5\",\"C:\\\\xampp\\\\uhustle-app\"]],\"_from\":\"twilio-client@1.7.5\",\"_id\":\"twilio-client@1.7.5\",\"_inBundle\":false,\"_integrity\":\"sha512-U6Ovwt70lO3m6XwVTlqp9idxTM0aWj3pyJsdVdIAvaIDlOUDy394jo5sSggxuVwXND5KuStesFlQoVplQoZvXQ==\",\"_location\":\"/twilio-client\",\"_phantomChildren\":{\"async-limiter\":\"1.0.0\"},\"_requested\":{\"type\":\"version\",\"registry\":true,\"raw\":\"twilio-client@1.7.5\",\"name\":\"twilio-client\",\"escapedName\":\"twilio-client\",\"rawSpec\":\"1.7.5\",\"saveSpec\":null,\"fetchSpec\":\"1.7.5\"},\"_requiredBy\":[\"/\"],\"_resolved\":\"https://registry.npmjs.org/twilio-client/-/twilio-client-1.7.5.tgz\",\"_spec\":\"1.7.5\",\"_where\":\"C:\\\\xampp\\\\uhustle-app\",\"browser\":{\"xmlhttprequest\":\"./browser/xmlhttprequest.js\",\"ws\":\"./browser/ws.js\"},\"bugs\":{\"url\":\"https://github.com/twilio/twilio-client.js/issues\"},\"dependencies\":{\"@twilio/audioplayer\":\"1.0.4\",\"backoff\":\"2.5.0\",\"rtcpeerconnection-shim\":\"1.2.8\",\"ws\":\"6.1.3\",\"xmlhttprequest\":\"1.8.0\"},\"description\":\"Javascript SDK for Twilio Client\",\"devDependencies\":{\"@types/mocha\":\"5.0.0\",\"@types/node\":\"9.6.5\",\"@types/sinon\":\"5.0.1\",\"@types/ws\":\"4.0.2\",\"babel-cli\":\"6.26.0\",\"babel-eslint\":\"8.2.2\",\"babel-plugin-envify\":\"1.2.1\",\"babel-plugin-transform-class-properties\":\"6.24.1\",\"babel-plugin-transform-inline-environment-variables\":\"0.4.3\",\"babel-preset-es2015\":\"6.24.1\",\"browserify\":\"16.2.2\",\"buffer\":\"5.2.0\",\"chromedriver\":\"2.31.0\",\"envify\":\"2.0.1\",\"es-check\":\"2.0.3\",\"eslint\":\"4.19.1\",\"eslint-plugin-babel\":\"4.1.2\",\"express\":\"4.14.1\",\"geckodriver\":\"1.8.1\",\"js-yaml\":\"3.13.1\",\"jsdoc\":\"3.5.5\",\"jsonwebtoken\":\"7.4.3\",\"karma\":\"3.0.0\",\"karma-chrome-launcher\":\"2.2.0\",\"karma-firefox-launcher\":\"1.1.0\",\"karma-mocha\":\"1.3.0\",\"karma-safaritechpreview-launcher\":\"0.0.6\",\"karma-spec-reporter\":\"0.0.32\",\"karma-typescript\":\"3.0.13\",\"karma-typescript-es6-transform\":\"1.0.4\",\"lodash\":\"4.17.11\",\"mocha\":\"3.5.0\",\"npm-run-all\":\"4.1.2\",\"nyc\":\"10.1.2\",\"pre-commit\":\"1.2.2\",\"querystring\":\"0.2.0\",\"release-tool\":\"0.2.2\",\"selenium-webdriver\":\"3.5.0\",\"sinon\":\"4.0.0\",\"travis-multirunner\":\"4.5.0\",\"ts-node\":\"6.0.0\",\"tslint\":\"5.9.1\",\"twilio\":\"3.17.0\",\"typedoc\":\"github:ryan-rowland/typedoc#twilio\",\"typedoc-plugin-as-member-of\":\"1.0.2\",\"typedoc-plugin-external-module-name\":\"1.1.3\",\"typedoc-plugin-internal-external\":\"1.0.10\",\"typedoc-twilio-theme\":\"1.0.0\",\"typescript\":\"2.8.1\",\"uglify-js\":\"3.3.11\",\"vinyl-fs\":\"3.0.2\",\"vinyl-source-stream\":\"2.0.0\"},\"homepage\":\"https://github.com/twilio/twilio-client.js#readme\",\"keywords\":[\"twilio\",\"client\",\"voice\",\"voip\"],\"license\":\"Apache-2.0\",\"main\":\"./es5/twilio.js\",\"name\":\"twilio-client\",\"pre-commit\":[\"lint\",\"test:unit\",\"docs:ts\"],\"repository\":{\"type\":\"git\",\"url\":\"git+ssh://git@github.com/twilio/twilio-client.js.git\"},\"scripts\":{\"build\":\"npm-run-all clean docs:ts build:es5 build:ts build:dist build:dist-min\",\"build:dev\":\"ENV=dev npm run build\",\"build:dist\":\"node ./scripts/build.js ./lib/browser.js ./LICENSE.md ./dist/twilio.js\",\"build:dist-min\":\"uglifyjs ./dist/twilio.js -o ./dist/twilio.min.js --comments \\\"/^! twilio-client.js/\\\" -b beautify=false,ascii_only=true\",\"build:es5\":\"rimraf ./es5 && babel lib -d es5\",\"build:release\":\"npm-run-all lint build test:unit test:integration test:webpack test:es5 status\",\"build:ts\":\"tsc\",\"clean\":\"rimraf ./coverage ./dist ./es5\",\"coverage\":\"nyc ./node_modules/mocha/bin/mocha -r ts-node/register ./tests/index.ts\",\"coverage:check\":\"nyc check-coverage --lines 60 --branches 60 --functions 60\",\"docs:clean\":\"rimraf ./docs\",\"docs:js\":\"jsdoc -r -d dist/docs/js lib/twilio\",\"docs:json\":\"typedoc --json dist/docs/raw.json --internal-aliases internal,publicapi --external-aliases external,internalapi --excludePrivate --excludeProtected\",\"docs:ts\":\"typedoc --out docs --internal-aliases internal,publicapi --external-aliases external,internalapi --excludePrivate --excludeProtected --theme ./node_modules/typedoc-twilio-theme/bin/default\",\"extension\":\"browserify -t brfs extension/token/index.js > extension/token.js\",\"lint\":\"npm-run-all lint:js lint:ts\",\"lint:js\":\"eslint lib\",\"lint:ts\":\"tslint -c tslint.json --project tsconfig.json -t stylish\",\"release\":\"release\",\"start\":\"node server.js\",\"status\":\"git status\",\"test\":\"npm-run-all test:unit test:frameworks\",\"test:es5\":\"es-check es5 \\\"./es5/**/*.js\\\" ./dist/*.js\",\"test:framework:no-framework\":\"mocha tests/framework/no-framework.js\",\"test:framework:react\":\"npm-run-all test:framework:react:*\",\"test:framework:react:build\":\"cd ./tests/framework/react && npm run build\",\"test:framework:react:install\":\"cd ./tests/framework/react && rimraf ./node_modules package-lock.json && npm install\",\"test:framework:react:run\":\"mocha ./tests/framework/react.js\",\"test:frameworks\":\"npm-run-all test:framework:no-framework test:framework:react\",\"test:integration\":\"karma start karma.conf.ts\",\"test:selenium\":\"mocha tests/browser/index.js\",\"test:unit\":\"nyc mocha -r ts-node/register ./tests/index.ts\",\"test:webpack\":\"cd ./tests/webpack && npm install && npm test\"},\"version\":\"1.7.5\"}");
+module.exports = JSON.parse("{\"_from\":\"twilio-client\",\"_id\":\"twilio-client@1.7.5\",\"_inBundle\":false,\"_integrity\":\"sha512-U6Ovwt70lO3m6XwVTlqp9idxTM0aWj3pyJsdVdIAvaIDlOUDy394jo5sSggxuVwXND5KuStesFlQoVplQoZvXQ==\",\"_location\":\"/twilio-client\",\"_phantomChildren\":{\"async-limiter\":\"1.0.0\"},\"_requested\":{\"type\":\"tag\",\"registry\":true,\"raw\":\"twilio-client\",\"name\":\"twilio-client\",\"escapedName\":\"twilio-client\",\"rawSpec\":\"\",\"saveSpec\":null,\"fetchSpec\":\"latest\"},\"_requiredBy\":[\"#USER\",\"/\"],\"_resolved\":\"https://registry.npmjs.org/twilio-client/-/twilio-client-1.7.5.tgz\",\"_shasum\":\"4784f78e0e58e55e460f6b388676c9dc79a70d53\",\"_spec\":\"twilio-client\",\"_where\":\"/var/www/uhustle-app\",\"browser\":{\"xmlhttprequest\":\"./browser/xmlhttprequest.js\",\"ws\":\"./browser/ws.js\"},\"bugs\":{\"url\":\"https://github.com/twilio/twilio-client.js/issues\"},\"bundleDependencies\":false,\"dependencies\":{\"@twilio/audioplayer\":\"1.0.4\",\"backoff\":\"2.5.0\",\"rtcpeerconnection-shim\":\"1.2.8\",\"ws\":\"6.1.3\",\"xmlhttprequest\":\"1.8.0\"},\"deprecated\":false,\"description\":\"Javascript SDK for Twilio Client\",\"devDependencies\":{\"@types/mocha\":\"5.0.0\",\"@types/node\":\"9.6.5\",\"@types/sinon\":\"5.0.1\",\"@types/ws\":\"4.0.2\",\"babel-cli\":\"6.26.0\",\"babel-eslint\":\"8.2.2\",\"babel-plugin-envify\":\"1.2.1\",\"babel-plugin-transform-class-properties\":\"6.24.1\",\"babel-plugin-transform-inline-environment-variables\":\"0.4.3\",\"babel-preset-es2015\":\"6.24.1\",\"browserify\":\"16.2.2\",\"buffer\":\"5.2.0\",\"chromedriver\":\"2.31.0\",\"envify\":\"2.0.1\",\"es-check\":\"2.0.3\",\"eslint\":\"4.19.1\",\"eslint-plugin-babel\":\"4.1.2\",\"express\":\"4.14.1\",\"geckodriver\":\"1.8.1\",\"js-yaml\":\"3.13.1\",\"jsdoc\":\"3.5.5\",\"jsonwebtoken\":\"7.4.3\",\"karma\":\"3.0.0\",\"karma-chrome-launcher\":\"2.2.0\",\"karma-firefox-launcher\":\"1.1.0\",\"karma-mocha\":\"1.3.0\",\"karma-safaritechpreview-launcher\":\"0.0.6\",\"karma-spec-reporter\":\"0.0.32\",\"karma-typescript\":\"3.0.13\",\"karma-typescript-es6-transform\":\"1.0.4\",\"lodash\":\"4.17.11\",\"mocha\":\"3.5.0\",\"npm-run-all\":\"4.1.2\",\"nyc\":\"10.1.2\",\"pre-commit\":\"1.2.2\",\"querystring\":\"0.2.0\",\"release-tool\":\"0.2.2\",\"selenium-webdriver\":\"3.5.0\",\"sinon\":\"4.0.0\",\"travis-multirunner\":\"4.5.0\",\"ts-node\":\"6.0.0\",\"tslint\":\"5.9.1\",\"twilio\":\"3.17.0\",\"typedoc\":\"github:ryan-rowland/typedoc#twilio\",\"typedoc-plugin-as-member-of\":\"1.0.2\",\"typedoc-plugin-external-module-name\":\"1.1.3\",\"typedoc-plugin-internal-external\":\"1.0.10\",\"typedoc-twilio-theme\":\"1.0.0\",\"typescript\":\"2.8.1\",\"uglify-js\":\"3.3.11\",\"vinyl-fs\":\"3.0.2\",\"vinyl-source-stream\":\"2.0.0\"},\"homepage\":\"https://github.com/twilio/twilio-client.js#readme\",\"keywords\":[\"twilio\",\"client\",\"voice\",\"voip\"],\"license\":\"Apache-2.0\",\"main\":\"./es5/twilio.js\",\"name\":\"twilio-client\",\"pre-commit\":[\"lint\",\"test:unit\",\"docs:ts\"],\"repository\":{\"type\":\"git\",\"url\":\"git+ssh://git@github.com/twilio/twilio-client.js.git\"},\"scripts\":{\"build\":\"npm-run-all clean docs:ts build:es5 build:ts build:dist build:dist-min\",\"build:dev\":\"ENV=dev npm run build\",\"build:dist\":\"node ./scripts/build.js ./lib/browser.js ./LICENSE.md ./dist/twilio.js\",\"build:dist-min\":\"uglifyjs ./dist/twilio.js -o ./dist/twilio.min.js --comments \\\"/^! twilio-client.js/\\\" -b beautify=false,ascii_only=true\",\"build:es5\":\"rimraf ./es5 && babel lib -d es5\",\"build:release\":\"npm-run-all lint build test:unit test:integration test:webpack test:es5 status\",\"build:ts\":\"tsc\",\"clean\":\"rimraf ./coverage ./dist ./es5\",\"coverage\":\"nyc ./node_modules/mocha/bin/mocha -r ts-node/register ./tests/index.ts\",\"coverage:check\":\"nyc check-coverage --lines 60 --branches 60 --functions 60\",\"docs:clean\":\"rimraf ./docs\",\"docs:js\":\"jsdoc -r -d dist/docs/js lib/twilio\",\"docs:json\":\"typedoc --json dist/docs/raw.json --internal-aliases internal,publicapi --external-aliases external,internalapi --excludePrivate --excludeProtected\",\"docs:ts\":\"typedoc --out docs --internal-aliases internal,publicapi --external-aliases external,internalapi --excludePrivate --excludeProtected --theme ./node_modules/typedoc-twilio-theme/bin/default\",\"extension\":\"browserify -t brfs extension/token/index.js > extension/token.js\",\"lint\":\"npm-run-all lint:js lint:ts\",\"lint:js\":\"eslint lib\",\"lint:ts\":\"tslint -c tslint.json --project tsconfig.json -t stylish\",\"release\":\"release\",\"start\":\"node server.js\",\"status\":\"git status\",\"test\":\"npm-run-all test:unit test:frameworks\",\"test:es5\":\"es-check es5 \\\"./es5/**/*.js\\\" ./dist/*.js\",\"test:framework:no-framework\":\"mocha tests/framework/no-framework.js\",\"test:framework:react\":\"npm-run-all test:framework:react:*\",\"test:framework:react:build\":\"cd ./tests/framework/react && npm run build\",\"test:framework:react:install\":\"cd ./tests/framework/react && rimraf ./node_modules package-lock.json && npm install\",\"test:framework:react:run\":\"mocha ./tests/framework/react.js\",\"test:frameworks\":\"npm-run-all test:framework:no-framework test:framework:react\",\"test:integration\":\"karma start karma.conf.ts\",\"test:selenium\":\"mocha tests/browser/index.js\",\"test:unit\":\"nyc mocha -r ts-node/register ./tests/index.ts\",\"test:webpack\":\"cd ./tests/webpack && npm install && npm test\"},\"version\":\"1.7.5\"}");
 
 /***/ }),
 
@@ -367561,9 +368128,7 @@ var render = function() {
               ])
             ]
           )
-        ]),
-        _vm._v(" "),
-        _vm._m(6)
+        ])
       ]
     ),
     _vm._v(" "),
@@ -367591,7 +368156,7 @@ var render = function() {
               ])
             ]
           )
-        : _c("div", { staticClass: "row stats mt-4 mx-0" }, [_vm._m(7)])
+        : _c("div", { staticClass: "row stats mt-4 mx-0" }, [_vm._m(6)])
     ])
   ])
 }
@@ -367647,76 +368212,6 @@ var staticRenderFns = [
     return _c("div", { staticClass: "col pl-0" }, [
       _c("p", { staticClass: "card-text-small text-left" }, [
         _vm._v("Con. Ratio")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-1" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-12 pr-0" }, [
-          _c("div", { staticClass: "mb-0 add-new-top-section" }, [
-            _c(
-              "div",
-              {
-                staticClass:
-                  "card-body row right align-items-center justify-content-between mx-0 p-0"
-              },
-              [
-                _c("div", { staticClass: "col pl-0 dropdown" }, [
-                  _c(
-                    "a",
-                    {
-                      attrs: {
-                        "data-toggle": "dropdown",
-                        "aria-haspopup": "true",
-                        "aria-expanded": "false"
-                      }
-                    },
-                    [
-                      _c("img", {
-                        staticClass: "icon",
-                        staticStyle: { width: "60px" },
-                        attrs: {
-                          src: "/images/icons/Call-History-Add-Icon.svg",
-                          alt: "Add call history Icon"
-                        }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "dropdown-menu" }, [
-                    _c(
-                      "a",
-                      { staticClass: "dropdown-item", attrs: { href: "#" } },
-                      [_vm._v("Calls")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      { staticClass: "dropdown-item", attrs: { href: "#" } },
-                      [_vm._v("Sales")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      { staticClass: "dropdown-item", attrs: { href: "#" } },
-                      [_vm._v("Calls")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      { staticClass: "dropdown-item", attrs: { href: "#" } },
-                      [_vm._v("Sales")]
-                    )
-                  ])
-                ])
-              ]
-            )
-          ])
-        ])
       ])
     ])
   },
@@ -368748,8 +369243,6 @@ var render = function() {
   return _c("div", { attrs: { id: "dashboard" } }, [
     _c("div", { attrs: { id: "dash-container" } }, [
       _c("div", { staticClass: "row mx-0", attrs: { id: "top-section" } }, [
-        _vm._m(0),
-        _vm._v(" "),
         _c("div", { staticClass: "col-12 px-0 agent-stats" }, [
           _c("div", { staticClass: "card-deck w-100 mx-0 px-0" }, [
             _c("div", { staticClass: "card border-0 mb-0 ml-0" }, [
@@ -368765,7 +369258,7 @@ var render = function() {
                 _vm._v("Calls made")
               ]),
               _vm._v(" "),
-              _vm._m(1)
+              _vm._m(0)
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "card border-0 mb-0" }, [
@@ -368781,7 +369274,7 @@ var render = function() {
                 _vm._v("Sales Quantity")
               ]),
               _vm._v(" "),
-              _vm._m(2)
+              _vm._m(1)
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "card border-0 mb-0" }, [
@@ -368797,7 +369290,7 @@ var render = function() {
                 _vm._v("Sales amount")
               ]),
               _vm._v(" "),
-              _vm._m(3)
+              _vm._m(2)
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "card border-0 mb-0" }, [
@@ -368813,7 +369306,7 @@ var render = function() {
                 _vm._v("Conversion Ratio")
               ]),
               _vm._v(" "),
-              _vm._m(4)
+              _vm._m(3)
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "card border-0 mr-0 mb-0" }, [
@@ -368829,20 +369322,20 @@ var render = function() {
                 _vm._v("Commission")
               ]),
               _vm._v(" "),
-              _vm._m(5)
+              _vm._m(4)
             ])
           ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-12 px-0 agent-graphs" }, [
           _c("div", { staticClass: "card-deck mx-0" }, [
-            _vm._m(6),
+            _vm._m(5),
             _vm._v(" "),
             _c(
               "div",
               { staticClass: "card my-0 mr-0 border-0 shadow-none tab-card" },
               [
-                _vm._m(7),
+                _vm._m(6),
                 _vm._v(" "),
                 _c(
                   "div",
@@ -368862,7 +369355,7 @@ var render = function() {
                         }
                       },
                       [
-                        _vm._m(8),
+                        _vm._m(7),
                         _vm._v(" "),
                         _c(
                           "div",
@@ -368927,7 +369420,7 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
-                    _vm._m(9)
+                    _vm._m(8)
                   ]
                 )
               ]
@@ -368935,7 +369428,7 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _vm._m(10)
+        _vm._m(9)
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "divider-line w-100" }),
@@ -368947,7 +369440,7 @@ var render = function() {
               "div",
               { staticClass: "col border-right pl-0 calendar" },
               [
-                _c("h4", { staticClass: "font-weight-regular" }, [
+                _c("h4", { staticClass: "font-weight-regular mb-0" }, [
                   _vm._v("Filter")
                 ]),
                 _vm._v(" "),
@@ -369044,7 +369537,7 @@ var render = function() {
                                 ),
                                 _vm._v(" "),
                                 _c("a-date-picker", {
-                                  staticClass: "rounded-pill",
+                                  staticClass: "rounded-pill pl-0",
                                   attrs: { format: "DD-MM", allowEmpty: false },
                                   on: {
                                     change: function($event) {
@@ -369180,11 +369673,13 @@ var render = function() {
             ),
             _vm._v(" "),
             _c("div", { staticClass: "col border-right to-dos" }, [
-              _c("h4", { staticClass: "mb-2 font-weight-regular" }, [
-                _vm._v("Callbacks")
-              ]),
+              _c(
+                "h4",
+                { staticClass: "text-uppercase font-weight-regular mb-0" },
+                [_vm._v("Callbacks")]
+              ),
               _vm._v(" "),
-              _c("h4", { staticClass: "font-weight-regular" }, [
+              _c("h5", { staticClass: "font-weight-bold" }, [
                 _vm._v(
                   _vm._s(_vm.moment(_vm.attrs[0].dates).format("dddd MM/DD"))
                 )
@@ -369206,7 +369701,23 @@ var render = function() {
                     "row mx-0 justify-content-between align-items-center"
                 },
                 [
-                  _vm._m(11),
+                  _c("div", { staticClass: "col pl-0" }, [
+                    _c(
+                      "h4",
+                      {
+                        staticClass: "text-uppercase font-weight-regular mb-0"
+                      },
+                      [_vm._v("Reminders")]
+                    ),
+                    _vm._v(" "),
+                    _c("h5", { staticClass: "font-weight-bold" }, [
+                      _vm._v(
+                        _vm._s(
+                          _vm.moment(_vm.attrs[0].dates).format("dddd MM/DD")
+                        )
+                      )
+                    ])
+                  ]),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -369235,16 +369746,10 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _c("h4", { staticClass: "font-weight-regular" }, [
-                _vm._v(
-                  _vm._s(_vm.moment(_vm.attrs[0].dates).format("dddd MM/DD"))
-                )
-              ]),
-              _vm._v(" "),
               _vm.reminders.length > 0 && !_vm.add_task
                 ? _c(
                     "ul",
-                    { staticClass: "border-top pl-0" },
+                    { staticClass: "border-top pl-0 mb-0" },
                     _vm._l(_vm.reminders, function(task, i) {
                       return _c(
                         "li",
@@ -369710,30 +370215,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 px-0" }, [
-      _c("div", { staticClass: "row mx-0 align-items-center" }, [
-        _c(
-          "div",
-          { staticClass: "col-auto pl-0", staticStyle: { display: "none" } },
-          [
-            _c("select", { staticClass: "rounded-pill border-0" }, [
-              _c("option", { attrs: { selected: "" } }, [
-                _vm._v("Filter by date")
-              ])
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "col pr-0" }, [
-          _c("div", { staticClass: "divider-line" })
-        ])
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -370239,16 +370720,6 @@ var staticRenderFns = [
         ])
       ])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-auto pl-0" }, [
-      _c("h4", { staticClass: "text-uppercase font-weight-regular mb-0" }, [
-        _vm._v("Reminders")
-      ])
-    ])
   }
 ]
 render._withStripped = true
@@ -370257,10 +370728,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/BranchesListingTable.vue?vue&type=template&id=2370a533&":
-/*!*****************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/DataTables/BranchesListingTable.vue?vue&type=template&id=2370a533& ***!
-  \*****************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/BranchesListingTable.vue?vue&type=template&id=2370a533&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/DataTables/BranchesListingTable.vue?vue&type=template&id=2370a533&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -371055,10 +371526,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/CategoryListingTable.vue?vue&type=template&id=4b72173e&":
-/*!*****************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/DataTables/CategoryListingTable.vue?vue&type=template&id=4b72173e& ***!
-  \*****************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/CategoryListingTable.vue?vue&type=template&id=4b72173e&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/DataTables/CategoryListingTable.vue?vue&type=template&id=4b72173e&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -371076,7 +371547,13 @@ var render = function() {
     [
       _c("b-table", {
         staticClass: "category-listing",
-        attrs: { items: _vm.categoryListing },
+        attrs: {
+          items: _vm.categoryListing,
+          responsive: "",
+          "sticky-header": "",
+          "per-page": _vm.perPage,
+          "current-page": _vm.currentPage
+        },
         scopedSlots: _vm._u([
           {
             key: "name",
@@ -371180,6 +371657,23 @@ var render = function() {
             }
           }
         ])
+      }),
+      _vm._v(" "),
+      _c("b-pagination", {
+        staticClass: "products-pagination",
+        attrs: {
+          "per-page": _vm.perPage,
+          align: "center",
+          size: "sm",
+          "total-rows": _vm.rows
+        },
+        model: {
+          value: _vm.currentPage,
+          callback: function($$v) {
+            _vm.currentPage = $$v
+          },
+          expression: "currentPage"
+        }
       })
     ],
     1
@@ -372492,10 +372986,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/ProductListingTable.vue?vue&type=template&id=021dfba0&":
-/*!****************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/DataTables/ProductListingTable.vue?vue&type=template&id=021dfba0& ***!
-  \****************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/ProductListingTable.vue?vue&type=template&id=021dfba0&scoped=true&":
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/DataTables/ProductListingTable.vue?vue&type=template&id=021dfba0&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -372518,7 +373012,9 @@ var render = function() {
               attrs: {
                 items: _vm.productListing,
                 "per-page": _vm.perPage,
-                "current-page": _vm.currentPage
+                "current-page": _vm.currentPage,
+                "sticky-header": "",
+                responsive: ""
               },
               scopedSlots: _vm._u(
                 [
@@ -373511,7 +374007,7 @@ var render = function() {
             "button",
             {
               staticClass:
-                "btn btn-primary font-weight-bold rounded-pill mt-2 mb-0 mx-auto d-block",
+                "btn btn-primary font-weight-bold rounded-pill mt-2 mb-0 ml-auto d-block",
               attrs: { type: "submit" },
               on: {
                 click: function($event) {
@@ -376793,7 +377289,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "inventory" } }, [
-    _c("div", { staticClass: "row mx-0 my-0 top-nav" }, [
+    _c("div", { staticClass: "row mx-0 top-nav" }, [
       _c("ul", { staticClass: "top-menu w-100" }, [
         _vm.current_user.role_id == 1
           ? _c("li", { staticClass: "item ml-0" }, [
@@ -377499,7 +377995,7 @@ var staticRenderFns = [
                       "a",
                       {
                         staticClass: "font-weight-bold btn-primary",
-                        attrs: { href: "#" }
+                        attrs: { href: "/register" }
                       },
                       [_vm._v("Sign Up Now")]
                     )
@@ -377607,7 +378103,7 @@ var staticRenderFns = [
               "a",
               {
                 staticClass: "font-weight-bold btn-primary",
-                attrs: { href: "#" }
+                attrs: { href: "/register" }
               },
               [_vm._v("Get Started")]
             )
@@ -377911,7 +378407,7 @@ var staticRenderFns = [
                 "a",
                 {
                   staticClass: "font-weight-bold btn-primary",
-                  attrs: { href: "#" }
+                  attrs: { href: "/register" }
                 },
                 [_vm._v("Sign Up Now")]
               )
@@ -377984,7 +378480,7 @@ var staticRenderFns = [
                   "a",
                   {
                     staticClass: "font-weight-bold btn-primary",
-                    attrs: { href: "#" }
+                    attrs: { href: "/register" }
                   },
                   [_vm._v("Get Started")]
                 )
@@ -378111,7 +378607,7 @@ var staticRenderFns = [
                       "a",
                       {
                         staticClass: "font-weight-bold btn-primary",
-                        attrs: { href: "#" }
+                        attrs: { href: "/register" }
                       },
                       [_vm._v("Sign Up Now")]
                     )
@@ -378194,7 +378690,7 @@ var render = function() {
                 "b-nav-item",
                 {
                   staticClass: "btn-primary p-2 text-uppercase white",
-                  attrs: { href: "#" }
+                  attrs: { href: "/register" }
                 },
                 [_vm._v("Sign Up Now")]
               )
@@ -379072,6 +379568,365 @@ var render = function() {
                       {
                         name: "show",
                         rawName: "v-show",
+                        value: field.name == "name",
+                        expression: "field.name == 'name'"
+                      }
+                    ],
+                    staticClass: "m-2",
+                    attrs: { span: 7 }
+                  },
+                  [
+                    _c(
+                      "label",
+                      [
+                        _vm._v("Name  "),
+                        _c(
+                          "span",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.errors.has("Name"),
+                                expression: "errors.has('Name')"
+                              }
+                            ],
+                            staticClass: "help-block",
+                            attrs: { id: "error" }
+                          },
+                          [_vm._v(_vm._s(_vm.errors.first("Name")))]
+                        ),
+                        _vm._v(" "),
+                        _c("a-input", {
+                          directives: [
+                            {
+                              name: "validate",
+                              rawName: "v-validate",
+                              value: "required|min:1",
+                              expression: "'required|min:1'"
+                            }
+                          ],
+                          attrs: { name: "Name", type: "text", id: "name" },
+                          model: {
+                            value: field.value,
+                            callback: function($$v) {
+                              _vm.$set(field, "value", $$v)
+                            },
+                            expression: "field.value"
+                          }
+                        })
+                      ],
+                      1
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a-col",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: field.name == "surname",
+                        expression: "field.name == 'surname'"
+                      }
+                    ],
+                    staticClass: "m-2",
+                    attrs: { span: 7 }
+                  },
+                  [
+                    _c(
+                      "label",
+                      [
+                        _vm._v("Surname  "),
+                        _c(
+                          "span",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.errors.has("Surname"),
+                                expression: "errors.has('Surname')"
+                              }
+                            ],
+                            staticClass: "help-block",
+                            attrs: { id: "error" }
+                          },
+                          [_vm._v(_vm._s(_vm.errors.first("Surname")))]
+                        ),
+                        _vm._v(" "),
+                        _c("a-input", {
+                          directives: [
+                            {
+                              name: "validate",
+                              rawName: "v-validate",
+                              value: "required|min:1",
+                              expression: "'required|min:1'"
+                            }
+                          ],
+                          attrs: {
+                            name: "Surname",
+                            type: "text",
+                            id: "surname"
+                          },
+                          model: {
+                            value: field.value,
+                            callback: function($$v) {
+                              _vm.$set(field, "value", $$v)
+                            },
+                            expression: "field.value"
+                          }
+                        })
+                      ],
+                      1
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a-col",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: field.name == "phone_number",
+                        expression: "field.name == 'phone_number'"
+                      }
+                    ],
+                    staticClass: "m-2",
+                    attrs: { span: 7 }
+                  },
+                  [
+                    _c(
+                      "label",
+                      [
+                        _vm._v("Phone Number  "),
+                        _c(
+                          "span",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.errors.has("Phone Number"),
+                                expression: "errors.has('Phone Number')"
+                              }
+                            ],
+                            staticClass: "help-block",
+                            attrs: { id: "error" }
+                          },
+                          [_vm._v(_vm._s(_vm.errors.first("Phone Number")))]
+                        ),
+                        _vm._v(" "),
+                        _c("a-input", {
+                          directives: [
+                            {
+                              name: "validate",
+                              rawName: "v-validate",
+                              value: "required|min:10",
+                              expression: "'required|min:10'"
+                            }
+                          ],
+                          attrs: {
+                            name: "Phone Number",
+                            type: "tel",
+                            id: "phone_number"
+                          },
+                          model: {
+                            value: field.value,
+                            callback: function($$v) {
+                              _vm.$set(field, "value", $$v)
+                            },
+                            expression: "field.value"
+                          }
+                        })
+                      ],
+                      1
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a-col",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: field.name == "email",
+                        expression: "field.name == 'email'"
+                      }
+                    ],
+                    staticClass: "m-2",
+                    attrs: { span: 7 }
+                  },
+                  [
+                    _c(
+                      "label",
+                      [
+                        _vm._v("Email  "),
+                        _c(
+                          "span",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.errors.has("Email"),
+                                expression: "errors.has('Email')"
+                              }
+                            ],
+                            staticClass: "help-block",
+                            attrs: { id: "error" }
+                          },
+                          [_vm._v(_vm._s(_vm.errors.first("Email")))]
+                        ),
+                        _vm._v(" "),
+                        _c("a-input", {
+                          directives: [
+                            {
+                              name: "validate",
+                              rawName: "v-validate",
+                              value: "required|email",
+                              expression: "'required|email'"
+                            }
+                          ],
+                          attrs: { type: "text", id: "email", name: "Email" },
+                          model: {
+                            value: field.value,
+                            callback: function($$v) {
+                              _vm.$set(field, "value", $$v)
+                            },
+                            expression: "field.value"
+                          }
+                        })
+                      ],
+                      1
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a-col",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: field.name == "gender",
+                        expression: "field.name == 'gender'"
+                      }
+                    ],
+                    staticClass: "m-2",
+                    attrs: { span: 7 }
+                  },
+                  [
+                    _c(
+                      "label",
+                      [
+                        _vm._v("Gender\n            "),
+                        _c(
+                          "a-select",
+                          {
+                            staticStyle: { width: "100%" },
+                            attrs: { defaultValue: "Please Select" },
+                            model: {
+                              value: field.value,
+                              callback: function($$v) {
+                                _vm.$set(field, "value", $$v)
+                              },
+                              expression: "field.value"
+                            }
+                          },
+                          [
+                            _c(
+                              "a-select-option",
+                              { attrs: { value: "Male" } },
+                              [_vm._v("Male")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a-select-option",
+                              { attrs: { value: "Female" } },
+                              [_vm._v("Female")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a-select-option",
+                              { attrs: { value: "Other" } },
+                              [_vm._v("Other")]
+                            )
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a-col",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: field.name == "age",
+                        expression: "field.name == 'age'"
+                      }
+                    ],
+                    staticClass: "m-2",
+                    attrs: { span: 7 }
+                  },
+                  [
+                    _c(
+                      "label",
+                      [
+                        _vm._v("Age "),
+                        _c(
+                          "span",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.errors.has("Age"),
+                                expression: "errors.has('Age')"
+                              }
+                            ],
+                            staticClass: "help-block",
+                            attrs: { id: "error" }
+                          },
+                          [_vm._v(_vm._s(_vm.errors.first("Age")))]
+                        ),
+                        _vm._v(" "),
+                        _c("a-input", {
+                          attrs: { type: "number", id: "age", name: "Age" },
+                          model: {
+                            value: field.value,
+                            callback: function($$v) {
+                              _vm.$set(field, "value", $$v)
+                            },
+                            expression: "field.value"
+                          }
+                        })
+                      ],
+                      1
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a-col",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
                         value: field.name == "title",
                         expression: "field.name == 'title'"
                       }
@@ -379119,117 +379974,6 @@ var render = function() {
                             )
                           ],
                           1
-                        )
-                      ],
-                      1
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "a-col",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value:
-                          field.name !== "owner" &&
-                          field.name !== "assignee" &&
-                          field.name !== "status" &&
-                          field.name !== "title" &&
-                          field.name !== "source",
-                        expression:
-                          "field.name !== 'owner' \n        && field.name !== 'assignee' \n        && field.name !== 'status'\n        && field.name !== 'title'\n        && field.name !== 'source'"
-                      }
-                    ],
-                    staticClass: "m-2",
-                    attrs: { span: 7 }
-                  },
-                  [
-                    _c(
-                      "label",
-                      [
-                        _vm._v(
-                          "\n            " +
-                            _vm._s(field.display_name) +
-                            "\n            "
-                        ),
-                        field.required == 1 && field.type == "email"
-                          ? _c("a-input", {
-                              directives: [
-                                {
-                                  name: "validate",
-                                  rawName: "v-validate",
-                                  value: "required|email",
-                                  expression: "'required|email'"
-                                }
-                              ],
-                              attrs: {
-                                id: field.name,
-                                name: field.display_name,
-                                value: field.value
-                              },
-                              model: {
-                                value: field.value,
-                                callback: function($$v) {
-                                  _vm.$set(field, "value", $$v)
-                                },
-                                expression: "field.value"
-                              }
-                            })
-                          : field.required == 1
-                          ? _c("a-input", {
-                              directives: [
-                                {
-                                  name: "validate",
-                                  rawName: "v-validate",
-                                  value: "required",
-                                  expression: "'required'"
-                                }
-                              ],
-                              attrs: {
-                                id: field.name,
-                                name: field.display_name
-                              },
-                              model: {
-                                value: field.value,
-                                callback: function($$v) {
-                                  _vm.$set(field, "value", $$v)
-                                },
-                                expression: "field.value"
-                              }
-                            })
-                          : field.required == 0 || field.required === null
-                          ? _c("a-input", {
-                              attrs: {
-                                id: field.name,
-                                name: field.display_name
-                              },
-                              model: {
-                                value: field.value,
-                                callback: function($$v) {
-                                  _vm.$set(field, "value", $$v)
-                                },
-                                expression: "field.value"
-                              }
-                            })
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _c(
-                          "span",
-                          {
-                            directives: [
-                              {
-                                name: "show",
-                                rawName: "v-show",
-                                value: _vm.errors.has(field.display_name),
-                                expression: "errors.has(field.display_name)"
-                              }
-                            ],
-                            staticClass: "help-block"
-                          },
-                          [_vm._v(_vm._s(_vm.errors.first(field.display_name)))]
                         )
                       ],
                       1
@@ -379302,10 +380046,35 @@ var render = function() {
                     _c(
                       "label",
                       [
-                        _vm._v("Owner\n            "),
+                        _vm._v("Owner "),
+                        _c(
+                          "span",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.errors.has("Owner"),
+                                expression: "errors.has('Owner')"
+                              }
+                            ],
+                            staticClass: "help-block",
+                            attrs: { id: "error" }
+                          },
+                          [_vm._v(_vm._s(_vm.errors.first("Owner")))]
+                        ),
+                        _vm._v(" "),
                         _c(
                           "a-select",
                           {
+                            directives: [
+                              {
+                                name: "validate",
+                                rawName: "v-validate",
+                                value: "required|min:1",
+                                expression: "'required|min:1'"
+                              }
+                            ],
                             staticStyle: { width: "100%" },
                             attrs: { defaultValue: "Please Select" },
                             model: {
@@ -379349,18 +380118,43 @@ var render = function() {
                     _c(
                       "label",
                       [
-                        _vm._v("Assign To\n            "),
+                        _vm._v("Assign To "),
+                        _c(
+                          "span",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.errors.has("Assign To"),
+                                expression: "errors.has('Assign To')"
+                              }
+                            ],
+                            staticClass: "help-block",
+                            attrs: { id: "error" }
+                          },
+                          [_vm._v(_vm._s(_vm.errors.first("Assign To")))]
+                        ),
+                        _vm._v(" "),
                         _c(
                           "a-select",
                           {
+                            directives: [
+                              {
+                                name: "validate",
+                                rawName: "v-validate",
+                                value: "required|min:1",
+                                expression: "'required|min:1'"
+                              }
+                            ],
                             staticStyle: { width: "100%" },
                             attrs: { defaultValue: "Please Select" },
                             model: {
-                              value: field.valye,
+                              value: field.value,
                               callback: function($$v) {
-                                _vm.$set(field, "valye", $$v)
+                                _vm.$set(field, "value", $$v)
                               },
-                              expression: "field.valye"
+                              expression: "field.value"
                             }
                           },
                           _vm._l(_vm.users, function(item, i) {
@@ -379396,10 +380190,35 @@ var render = function() {
                     _c(
                       "label",
                       [
-                        _vm._v("Status\n            "),
+                        _vm._v("Status  "),
+                        _c(
+                          "span",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.errors.has("Status"),
+                                expression: "errors.has('Status')"
+                              }
+                            ],
+                            staticClass: "help-block",
+                            attrs: { id: "error" }
+                          },
+                          [_vm._v(_vm._s(_vm.errors.first("Status")))]
+                        ),
+                        _vm._v(" "),
                         _c(
                           "a-select",
                           {
+                            directives: [
+                              {
+                                name: "validate",
+                                rawName: "v-validate",
+                                value: "required|min:1",
+                                expression: "'required|min:1'"
+                              }
+                            ],
                             staticStyle: { width: "100%" },
                             attrs: { defaultValue: "Please Select" },
                             model: {
@@ -379429,6 +380248,122 @@ var render = function() {
                           ],
                           1
                         )
+                      ],
+                      1
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a-col",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value:
+                          field.name !== "owner" &&
+                          field.name !== "assignee" &&
+                          field.name !== "status" &&
+                          field.name !== "title" &&
+                          field.name !== "source" &&
+                          field.name !== "email" &&
+                          field.name !== "phone_number" &&
+                          field.name !== "name" &&
+                          field.name !== "surname" &&
+                          field.name !== "age" &&
+                          field.name !== "gender",
+                        expression:
+                          "field.name !== 'owner' \n        && field.name !== 'assignee' \n        && field.name !== 'status'\n        && field.name !== 'title'\n        && field.name !== 'source'\n        && field.name !== 'email'\n        && field.name !== 'phone_number'\n        && field.name !== 'name'\n        && field.name !== 'surname'\n        && field.name !== 'age'\n         && field.name !== 'gender'"
+                      }
+                    ],
+                    staticClass: "m-2",
+                    attrs: { span: 7 }
+                  },
+                  [
+                    _c(
+                      "label",
+                      [
+                        _vm._v(
+                          "\n            " + _vm._s(field.display_name) + "  "
+                        ),
+                        _c(
+                          "span",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.errors.has(field.display_name),
+                                expression: "errors.has(field.display_name)"
+                              }
+                            ],
+                            staticClass: "help-block",
+                            attrs: { id: "error" }
+                          },
+                          [_vm._v(_vm._s(_vm.errors.first(field.display_name)))]
+                        ),
+                        _vm._v(" "),
+                        field.required == 1 && field.type == "email"
+                          ? _c("a-input", {
+                              directives: [
+                                {
+                                  name: "validate",
+                                  rawName: "v-validate",
+                                  value: "required|email",
+                                  expression: "'required|email'"
+                                }
+                              ],
+                              attrs: {
+                                id: field.name,
+                                name: field.display_name,
+                                value: field.value
+                              },
+                              model: {
+                                value: field.value,
+                                callback: function($$v) {
+                                  _vm.$set(field, "value", $$v)
+                                },
+                                expression: "field.value"
+                              }
+                            })
+                          : field.required == 1
+                          ? _c("a-input", {
+                              directives: [
+                                {
+                                  name: "validate",
+                                  rawName: "v-validate",
+                                  value: "required",
+                                  expression: "'required'"
+                                }
+                              ],
+                              attrs: {
+                                id: field.name,
+                                name: field.display_name
+                              },
+                              model: {
+                                value: field.value,
+                                callback: function($$v) {
+                                  _vm.$set(field, "value", $$v)
+                                },
+                                expression: "field.value"
+                              }
+                            })
+                          : field.required == 0 || field.required === null
+                          ? _c("a-input", {
+                              attrs: {
+                                id: field.name,
+                                name: field.display_name
+                              },
+                              model: {
+                                value: field.value,
+                                callback: function($$v) {
+                                  _vm.$set(field, "value", $$v)
+                                },
+                                expression: "field.value"
+                              }
+                            })
+                          : _vm._e()
                       ],
                       1
                     )
@@ -379702,7 +380637,7 @@ var render = function() {
                         src:
                           "/images/icons/left-sidebar/no-shadows/Dashboard.svg",
                         alt: "nav icon",
-                        width: "52"
+                        width: "51"
                       }
                     }),
                     _vm._v(" "),
@@ -379729,7 +380664,7 @@ var render = function() {
                         src:
                           "/images/icons/left-sidebar/no-shadows/Workstation.svg",
                         alt: "nav icon",
-                        width: "52"
+                        width: "51"
                       }
                     }),
                     _vm._v(" "),
@@ -379756,7 +380691,7 @@ var render = function() {
                         src:
                           "/images/icons/left-sidebar/no-shadows/Contacts.svg",
                         alt: "nav icon",
-                        width: "52"
+                        width: "51"
                       }
                     }),
                     _vm._v(" "),
@@ -379781,7 +380716,7 @@ var render = function() {
                       attrs: {
                         src: "/images/icons/left-sidebar/no-shadows/Leads.svg",
                         alt: "nav icon",
-                        width: "52"
+                        width: "51"
                       }
                     }),
                     _vm._v(" "),
@@ -379808,7 +380743,7 @@ var render = function() {
                         src:
                           "/images/icons/left-sidebar/no-shadows/Call history.svg",
                         alt: "nav icon",
-                        width: "52"
+                        width: "51"
                       }
                     }),
                     _vm._v(" "),
@@ -379835,7 +380770,7 @@ var render = function() {
                         src:
                           "/images/icons/left-sidebar/no-shadows/Inventory.svg",
                         alt: "nav icon",
-                        width: "52"
+                        width: "51"
                       }
                     }),
                     _vm._v(" "),
@@ -379863,7 +380798,7 @@ var render = function() {
                             src:
                               "/images/icons/left-sidebar/no-shadows/Transactions.svg",
                             alt: "nav icon",
-                            width: "52"
+                            width: "51"
                           }
                         }),
                         _vm._v(" "),
@@ -379894,7 +380829,7 @@ var render = function() {
                           src:
                             "/images/icons/left-sidebar/no-shadows/Leads.svg",
                           alt: "nav icon",
-                          width: "52"
+                          width: "51"
                         }
                       }),
                       _vm._v(" "),
@@ -379923,7 +380858,7 @@ var render = function() {
                             src:
                               "/images/icons/left-sidebar/no-shadows/Users.svg",
                             alt: "nav icon",
-                            width: "52"
+                            width: "51"
                           }
                         }),
                         _vm._v(" "),
@@ -379952,7 +380887,7 @@ var render = function() {
                             src:
                               "/images/icons/left-sidebar/no-shadows/System Pref.svg",
                             alt: "nav icon",
-                            width: "52"
+                            width: "51"
                           }
                         }),
                         _vm._v(" "),
@@ -380170,7 +381105,7 @@ var render = function() {
             _vm._v(" "),
             _c("div", { staticClass: "open-sidenav mt-3" }, [
               _vm.settings_on == true
-                ? _c("div", { staticClass: "settings px-6-hide ml-2" }, [
+                ? _c("div", { staticClass: "settings px-6" }, [
                     _c(
                       "div",
                       { staticClass: "row mx-0 pt-0 border-bottom" },
@@ -382657,7 +383592,7 @@ var render = function() {
                               _vm._v(" "),
                               _c("p", [
                                 _c("span", { staticClass: "value" }, [
-                                  _vm._v(_vm._s(_vm.call_log.commission))
+                                  _vm._v("$" + _vm._s(_vm.call_log.commission))
                                 ])
                               ])
                             ]),
@@ -382701,12 +383636,12 @@ var render = function() {
                               { staticClass: "col-lg-6 text-right pr-0" },
                               [
                                 _c("p", { staticClass: "description" }, [
-                                  _vm._v("Value")
+                                  _vm._v("Amount")
                                 ]),
                                 _vm._v(" "),
                                 _c("p", [
                                   _c("span", { staticClass: "value" }, [
-                                    _vm._v(_vm._s(_vm.call_log.sum_sales))
+                                    _vm._v("$" + _vm._s(_vm.call_log.sum_sales))
                                   ])
                                 ])
                               ]
@@ -382919,6 +383854,8 @@ var render = function() {
                                                                   _c(
                                                                     "a",
                                                                     {
+                                                                      staticClass:
+                                                                        "callback-name",
                                                                       attrs: {
                                                                         href:
                                                                           "/workstation/" +
@@ -383074,7 +384011,7 @@ var render = function() {
                                                                 "div",
                                                                 {
                                                                   staticClass:
-                                                                    "col pl-0 custom-control custom-checkbox"
+                                                                    "col-12 px-0 custom-control custom-checkbox"
                                                                 },
                                                                 [
                                                                   _c("input", {
@@ -383261,15 +384198,27 @@ var render = function() {
                                                                     },
                                                                     [
                                                                       _vm._v(
-                                                                        _vm._s(
-                                                                          _vm
-                                                                            .moment(
-                                                                              task.deadline
-                                                                            )
-                                                                            .format(
-                                                                              "DD MMM"
-                                                                            )
-                                                                        )
+                                                                        "\n                                    " +
+                                                                          _vm._s(
+                                                                            _vm
+                                                                              .moment(
+                                                                                task.deadline
+                                                                              )
+                                                                              .format(
+                                                                                "DD MMM"
+                                                                              )
+                                                                          ) +
+                                                                          " " +
+                                                                          _vm._s(
+                                                                            _vm
+                                                                              .moment(
+                                                                                task.time
+                                                                              )
+                                                                              .format(
+                                                                                "HH:mm"
+                                                                              )
+                                                                          ) +
+                                                                          "\n                                  "
                                                                       )
                                                                     ]
                                                                   )
@@ -383420,7 +384369,58 @@ var render = function() {
                                                                     "div",
                                                                     {
                                                                       staticClass:
-                                                                        "col-6 pr-0 custom-control"
+                                                                        "col-6 pr-0 text-right w-auto custom-control",
+                                                                      attrs: {
+                                                                        for:
+                                                                          "task" +
+                                                                          i
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "a-time-picker",
+                                                                        {
+                                                                          staticClass:
+                                                                            "shadow-none",
+                                                                          attrs: {
+                                                                            defaultValue: _vm.moment(
+                                                                              task.time,
+                                                                              "HH:mm"
+                                                                            ),
+                                                                            allowEmpty: false,
+                                                                            use24Hours:
+                                                                              "",
+                                                                            format:
+                                                                              "HH:mm"
+                                                                          },
+                                                                          model: {
+                                                                            value:
+                                                                              task.time,
+                                                                            callback: function(
+                                                                              $$v
+                                                                            ) {
+                                                                              _vm.$set(
+                                                                                task,
+                                                                                "time",
+                                                                                $$v
+                                                                              )
+                                                                            },
+                                                                            expression:
+                                                                              "task.time"
+                                                                          }
+                                                                        }
+                                                                      )
+                                                                    ],
+                                                                    1
+                                                                  ),
+                                                                  _vm._v(" "),
+                                                                  _c("br"),
+                                                                  _vm._v(" "),
+                                                                  _c(
+                                                                    "div",
+                                                                    {
+                                                                      staticClass:
+                                                                        "col-12 px-0 custom-control"
                                                                     },
                                                                     [
                                                                       _c(
@@ -383430,10 +384430,7 @@ var render = function() {
                                                                             "btn btn-primary update-user w-100 rounded-pill m-0",
                                                                           attrs: {
                                                                             type:
-                                                                              "submit",
-                                                                            disabled:
-                                                                              task.title ==
-                                                                              ""
+                                                                              "submit"
                                                                           },
                                                                           on: {
                                                                             click: function(
@@ -383469,280 +384466,332 @@ var render = function() {
                                         : _vm._e(),
                                       _vm._v(" "),
                                       _vm.tasks.length == 0 || _vm.add_task
-                                        ? _c("ul", { staticClass: "pl-0" }, [
-                                            _c(
-                                              "li",
-                                              {
-                                                staticClass:
-                                                  "my-2 mx-3 p-2 align-items-center reminders-border-bottom custom-control"
-                                              },
-                                              [
-                                                _c(
-                                                  "transition",
-                                                  { attrs: { name: "bounce" } },
-                                                  [
-                                                    _c(
-                                                      "div",
-                                                      {
-                                                        staticClass:
-                                                          "col-12 px-0"
-                                                      },
-                                                      [
-                                                        _c(
-                                                          "div",
-                                                          {
-                                                            staticClass:
-                                                              "row mx-0"
-                                                          },
-                                                          [
-                                                            _c(
-                                                              "div",
-                                                              {
-                                                                staticClass:
-                                                                  "col-12 px-0 custom-control"
-                                                              },
-                                                              [
-                                                                _c(
-                                                                  "label",
-                                                                  {
-                                                                    staticClass:
-                                                                      "w-100 terms-text",
-                                                                    attrs: {
-                                                                      for:
-                                                                        "task1"
-                                                                    }
-                                                                  },
-                                                                  [
-                                                                    _c(
-                                                                      "input",
-                                                                      {
-                                                                        directives: [
-                                                                          {
-                                                                            name:
-                                                                              "model",
-                                                                            rawName:
-                                                                              "v-model",
-                                                                            value:
-                                                                              _vm
-                                                                                .new_task
-                                                                                .title,
-                                                                            expression:
-                                                                              "new_task.title"
-                                                                          }
-                                                                        ],
-                                                                        staticClass:
-                                                                          "border-0 pl-0 list-input",
-                                                                        attrs: {
-                                                                          maxlength:
-                                                                            "35",
-                                                                          placeholder:
-                                                                            "Title",
-                                                                          type:
-                                                                            "text"
-                                                                        },
-                                                                        domProps: {
-                                                                          value:
-                                                                            _vm
-                                                                              .new_task
-                                                                              .title
-                                                                        },
-                                                                        on: {
-                                                                          input: function(
-                                                                            $event
-                                                                          ) {
-                                                                            if (
-                                                                              $event
-                                                                                .target
-                                                                                .composing
-                                                                            ) {
-                                                                              return
-                                                                            }
-                                                                            _vm.$set(
-                                                                              _vm.new_task,
-                                                                              "title",
-                                                                              $event
-                                                                                .target
-                                                                                .value
-                                                                            )
-                                                                          }
-                                                                        }
+                                        ? _c(
+                                            "ul",
+                                            { staticClass: "pl-0 new-task" },
+                                            [
+                                              _c(
+                                                "li",
+                                                {
+                                                  staticClass:
+                                                    "my-2 mx-3 p-2 align-items-center reminders-border-bottom custom-control"
+                                                },
+                                                [
+                                                  _c(
+                                                    "transition",
+                                                    {
+                                                      attrs: { name: "bounce" }
+                                                    },
+                                                    [
+                                                      _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "col-12 px-0"
+                                                        },
+                                                        [
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "row mx-0"
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "div",
+                                                                {
+                                                                  staticClass:
+                                                                    "col-12 px-0 custom-control"
+                                                                },
+                                                                [
+                                                                  _c(
+                                                                    "label",
+                                                                    {
+                                                                      staticClass:
+                                                                        "w-100",
+                                                                      attrs: {
+                                                                        for:
+                                                                          "task1"
                                                                       }
-                                                                    )
-                                                                  ]
-                                                                ),
-                                                                _vm._v(" "),
-                                                                _c(
-                                                                  "label",
-                                                                  {
-                                                                    staticClass:
-                                                                      "w-100 terms-text",
-                                                                    attrs: {
-                                                                      for:
-                                                                        "task1"
-                                                                    }
-                                                                  },
-                                                                  [
-                                                                    _c(
-                                                                      "input",
-                                                                      {
-                                                                        directives: [
-                                                                          {
-                                                                            name:
-                                                                              "model",
-                                                                            rawName:
-                                                                              "v-model",
-                                                                            value:
-                                                                              _vm
-                                                                                .new_task
-                                                                                .description,
-                                                                            expression:
-                                                                              "new_task.description"
-                                                                          }
-                                                                        ],
-                                                                        staticClass:
-                                                                          "description-text",
-                                                                        attrs: {
-                                                                          maxlength:
-                                                                            "35",
-                                                                          placeholder:
-                                                                            "Description",
-                                                                          autosize:
-                                                                            ""
-                                                                        },
-                                                                        domProps: {
-                                                                          value:
-                                                                            _vm
-                                                                              .new_task
-                                                                              .description
-                                                                        },
-                                                                        on: {
-                                                                          input: function(
-                                                                            $event
-                                                                          ) {
-                                                                            if (
-                                                                              $event
-                                                                                .target
-                                                                                .composing
-                                                                            ) {
-                                                                              return
-                                                                            }
-                                                                            _vm.$set(
-                                                                              _vm.new_task,
-                                                                              "description",
-                                                                              $event
-                                                                                .target
-                                                                                .value
-                                                                            )
-                                                                          }
-                                                                        }
-                                                                      }
-                                                                    )
-                                                                  ]
-                                                                )
-                                                              ]
-                                                            )
-                                                          ]
-                                                        ),
-                                                        _vm._v(" "),
-                                                        _c(
-                                                          "div",
-                                                          {
-                                                            staticClass:
-                                                              "row mx-0 justify-content-between"
-                                                          },
-                                                          [
-                                                            _c(
-                                                              "div",
-                                                              {
-                                                                staticClass:
-                                                                  "col-6 pl-0 custom-control pl-34"
-                                                              },
-                                                              [
-                                                                _c(
-                                                                  "label",
-                                                                  {
-                                                                    staticClass:
-                                                                      "task-deadline terms-text",
-                                                                    attrs: {
-                                                                      for:
-                                                                        "task1"
-                                                                    }
-                                                                  },
-                                                                  [
-                                                                    _c(
-                                                                      "a-date-picker",
-                                                                      {
-                                                                        staticClass:
-                                                                          "w-100 reminder-date-picker",
-                                                                        model: {
-                                                                          value:
-                                                                            _vm
-                                                                              .new_task
-                                                                              .date,
-                                                                          callback: function(
-                                                                            $$v
-                                                                          ) {
-                                                                            _vm.$set(
-                                                                              _vm.new_task,
-                                                                              "date",
-                                                                              $$v
-                                                                            )
-                                                                          },
-                                                                          expression:
-                                                                            "new_task.date"
-                                                                        }
-                                                                      }
-                                                                    )
-                                                                  ],
-                                                                  1
-                                                                )
-                                                              ]
-                                                            ),
-                                                            _vm._v(" "),
-                                                            _c(
-                                                              "div",
-                                                              {
-                                                                staticClass:
-                                                                  "col-6 pr-0 custom-control"
-                                                              },
-                                                              [
-                                                                _c(
-                                                                  "button",
-                                                                  {
-                                                                    staticClass:
-                                                                      "btn btn-primary update-user w-100 rounded-pill m-0",
-                                                                    attrs: {
-                                                                      type:
-                                                                        "submit",
-                                                                      disabled:
-                                                                        _vm
-                                                                          .new_task
-                                                                          .title ==
-                                                                        ""
                                                                     },
-                                                                    on: {
-                                                                      click:
-                                                                        _vm.submitTask
+                                                                    [
+                                                                      _c(
+                                                                        "input",
+                                                                        {
+                                                                          directives: [
+                                                                            {
+                                                                              name:
+                                                                                "model",
+                                                                              rawName:
+                                                                                "v-model",
+                                                                              value:
+                                                                                _vm
+                                                                                  .new_task
+                                                                                  .title,
+                                                                              expression:
+                                                                                "new_task.title"
+                                                                            }
+                                                                          ],
+                                                                          staticClass:
+                                                                            "border-0 pl-0 list-input",
+                                                                          attrs: {
+                                                                            maxlength:
+                                                                              "35",
+                                                                            placeholder:
+                                                                              "Title",
+                                                                            type:
+                                                                              "text"
+                                                                          },
+                                                                          domProps: {
+                                                                            value:
+                                                                              _vm
+                                                                                .new_task
+                                                                                .title
+                                                                          },
+                                                                          on: {
+                                                                            input: function(
+                                                                              $event
+                                                                            ) {
+                                                                              if (
+                                                                                $event
+                                                                                  .target
+                                                                                  .composing
+                                                                              ) {
+                                                                                return
+                                                                              }
+                                                                              _vm.$set(
+                                                                                _vm.new_task,
+                                                                                "title",
+                                                                                $event
+                                                                                  .target
+                                                                                  .value
+                                                                              )
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      )
+                                                                    ]
+                                                                  ),
+                                                                  _vm._v(" "),
+                                                                  _c(
+                                                                    "label",
+                                                                    {
+                                                                      staticClass:
+                                                                        "w-100",
+                                                                      attrs: {
+                                                                        for:
+                                                                          "task1"
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "input",
+                                                                        {
+                                                                          directives: [
+                                                                            {
+                                                                              name:
+                                                                                "model",
+                                                                              rawName:
+                                                                                "v-model",
+                                                                              value:
+                                                                                _vm
+                                                                                  .new_task
+                                                                                  .description,
+                                                                              expression:
+                                                                                "new_task.description"
+                                                                            }
+                                                                          ],
+                                                                          staticClass:
+                                                                            "w-100 description-text",
+                                                                          attrs: {
+                                                                            maxlength:
+                                                                              "35",
+                                                                            placeholder:
+                                                                              "Description",
+                                                                            autosize:
+                                                                              ""
+                                                                          },
+                                                                          domProps: {
+                                                                            value:
+                                                                              _vm
+                                                                                .new_task
+                                                                                .description
+                                                                          },
+                                                                          on: {
+                                                                            input: function(
+                                                                              $event
+                                                                            ) {
+                                                                              if (
+                                                                                $event
+                                                                                  .target
+                                                                                  .composing
+                                                                              ) {
+                                                                                return
+                                                                              }
+                                                                              _vm.$set(
+                                                                                _vm.new_task,
+                                                                                "description",
+                                                                                $event
+                                                                                  .target
+                                                                                  .value
+                                                                              )
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ]
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "row mx-0 justify-content-between"
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "div",
+                                                                {
+                                                                  staticClass:
+                                                                    "col-6 pl-0 custom-control pl-34"
+                                                                },
+                                                                [
+                                                                  _c(
+                                                                    "label",
+                                                                    {
+                                                                      staticClass:
+                                                                        "task-deadline",
+                                                                      attrs: {
+                                                                        for:
+                                                                          "task1"
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "a-date-picker",
+                                                                        {
+                                                                          staticClass:
+                                                                            "w-100 reminder-date-picker",
+                                                                          model: {
+                                                                            value:
+                                                                              _vm
+                                                                                .new_task
+                                                                                .date,
+                                                                            callback: function(
+                                                                              $$v
+                                                                            ) {
+                                                                              _vm.$set(
+                                                                                _vm.new_task,
+                                                                                "date",
+                                                                                $$v
+                                                                              )
+                                                                            },
+                                                                            expression:
+                                                                              "new_task.date"
+                                                                          }
+                                                                        }
+                                                                      )
+                                                                    ],
+                                                                    1
+                                                                  )
+                                                                ]
+                                                              ),
+                                                              _vm._v(" "),
+                                                              _c(
+                                                                "div",
+                                                                {
+                                                                  staticClass:
+                                                                    "col-6 pr-0 text-right custom-control"
+                                                                },
+                                                                [
+                                                                  _c(
+                                                                    "a-time-picker",
+                                                                    {
+                                                                      staticClass:
+                                                                        "w-auto shadow-none",
+                                                                      attrs: {
+                                                                        allowEmpty: false,
+                                                                        use24Hours:
+                                                                          "",
+                                                                        format:
+                                                                          "HH:mm"
+                                                                      },
+                                                                      model: {
+                                                                        value:
+                                                                          _vm
+                                                                            .new_task
+                                                                            .selected_time,
+                                                                        callback: function(
+                                                                          $$v
+                                                                        ) {
+                                                                          _vm.$set(
+                                                                            _vm.new_task,
+                                                                            "selected_time",
+                                                                            $$v
+                                                                          )
+                                                                        },
+                                                                        expression:
+                                                                          "new_task.selected_time"
+                                                                      }
                                                                     }
-                                                                  },
-                                                                  [
-                                                                    _vm._v(
-                                                                      "Save"
-                                                                    )
-                                                                  ]
-                                                                )
-                                                              ]
-                                                            )
-                                                          ]
-                                                        )
-                                                      ]
-                                                    )
-                                                  ]
-                                                )
-                                              ],
-                                              1
-                                            )
-                                          ])
+                                                                  )
+                                                                ],
+                                                                1
+                                                              )
+                                                            ]
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "div",
+                                                            {
+                                                              staticClass:
+                                                                "row mx-0 justify-content-between"
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "div",
+                                                                {
+                                                                  staticClass:
+                                                                    "col-12 px-0 custom-control"
+                                                                },
+                                                                [
+                                                                  _c(
+                                                                    "button",
+                                                                    {
+                                                                      staticClass:
+                                                                        "btn btn-primary update-user w-100 rounded-pill m-0",
+                                                                      attrs: {
+                                                                        type:
+                                                                          "submit"
+                                                                      },
+                                                                      on: {
+                                                                        click:
+                                                                          _vm.submitTask
+                                                                      }
+                                                                    },
+                                                                    [
+                                                                      _vm._v(
+                                                                        "Save"
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ]
+                                                          )
+                                                        ]
+                                                      )
+                                                    ]
+                                                  )
+                                                ],
+                                                1
+                                              )
+                                            ]
+                                          )
                                         : _vm._e(),
                                       _vm._v(" "),
                                       _c(
@@ -383787,7 +384836,7 @@ var render = function() {
             _vm._v(" "),
             _vm.filters_on == true
               ? _c("div", [
-                  _c("h3", { staticClass: "px-6-hide mt-2 mx-2" }, [
+                  _c("h3", { staticClass: "px-6 mt-2 mx-2" }, [
                     _vm._v("Filter")
                   ]),
                   _vm._v(" "),
@@ -385573,90 +386622,8 @@ var render = function() {
                   ? _c(
                       "li",
                       { staticClass: "nav-item d-none d-sm-inline-block px-3" },
-                      [
-                        _c(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.month,
-                                expression: "month"
-                              }
-                            ],
-                            staticClass: "form-control month-selector m-0",
-                            on: {
-                              change: [
-                                function($event) {
-                                  var $$selectedVal = Array.prototype.filter
-                                    .call($event.target.options, function(o) {
-                                      return o.selected
-                                    })
-                                    .map(function(o) {
-                                      var val =
-                                        "_value" in o ? o._value : o.value
-                                      return val
-                                    })
-                                  _vm.month = $event.target.multiple
-                                    ? $$selectedVal
-                                    : $$selectedVal[0]
-                                },
-                                _vm.topMonthFilterChange
-                              ]
-                            }
-                          },
-                          [
-                            _c("option", { attrs: { value: "1" } }, [
-                              _vm._v("January " + _vm._s(_vm.getFullYear()))
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "2" } }, [
-                              _vm._v("February " + _vm._s(_vm.getFullYear()))
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "3" } }, [
-                              _vm._v("March " + _vm._s(_vm.getFullYear()))
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "4" } }, [
-                              _vm._v("April " + _vm._s(_vm.getFullYear()))
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "5" } }, [
-                              _vm._v("May " + _vm._s(_vm.getFullYear()))
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "6" } }, [
-                              _vm._v("June " + _vm._s(_vm.getFullYear()))
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "7" } }, [
-                              _vm._v("July " + _vm._s(_vm.getFullYear()))
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "8" } }, [
-                              _vm._v("August " + _vm._s(_vm.getFullYear()))
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "9" } }, [
-                              _vm._v("September " + _vm._s(_vm.getFullYear()))
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "10" } }, [
-                              _vm._v("October " + _vm._s(_vm.getFullYear()))
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "11" } }, [
-                              _vm._v("November " + _vm._s(_vm.getFullYear()))
-                            ]),
-                            _vm._v(" "),
-                            _c("option", { attrs: { value: "13" } }, [
-                              _vm._v("December " + _vm._s(_vm.getFullYear()))
-                            ])
-                          ]
-                        )
-                      ]
+                      [_c("a-range-picker", { on: { change: _vm.onChange } })],
+                      1
                     )
                   : _vm._e(),
                 _vm._v(" "),
@@ -385762,45 +386729,9 @@ var render = function() {
                 : _vm._e(),
               _vm._v(" "),
               _vm.active == "workstation"
-                ? _c(
-                    "ul",
-                    { staticClass: "d-inline-block navbar-nav callIcons" },
-                    [
-                      _vm.auto_dialer_settings.disabled == 1
-                        ? _c(
-                            "li",
-                            { staticClass: "nav-item d-sm-inline-block" },
-                            [
-                              !_vm.is_oncall
-                                ? _c("button", {
-                                    staticClass:
-                                      "nav-link border-0 bg-transparent call",
-                                    attrs: { id: "show-btn" },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.startCall()
-                                      }
-                                    }
-                                  })
-                                : _vm._e(),
-                              _vm._v(" "),
-                              _vm.is_oncall
-                                ? _c("button", {
-                                    staticClass:
-                                      "nav-link border-0 bg-transparent end-call",
-                                    attrs: { id: "show-btn" },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.endCall()
-                                      }
-                                    }
-                                  })
-                                : _vm._e()
-                            ]
-                          )
-                        : _vm._e()
-                    ]
-                  )
+                ? _c("ul", {
+                    staticClass: "d-inline-block navbar-nav callIcons"
+                  })
                 : _vm._e()
             ])
           ]
@@ -388457,7 +389388,7 @@ var render = function() {
                                                   }
                                                 ],
                                                 staticClass:
-                                                  "w-100 mr-0 py-0 pr-0 expand-toggle",
+                                                  "mr-0 py-0 pr-0 expand-toggle",
                                                 attrs: {
                                                   block: "",
                                                   href: "#",
@@ -388704,7 +389635,7 @@ var render = function() {
                                                   }
                                                 ],
                                                 staticClass:
-                                                  "w-100 mr-0 py-0 pr-0 expand-toggle",
+                                                  "mr-0 py-0 pr-0 expand-toggle",
                                                 attrs: {
                                                   block: "",
                                                   href: "#",
@@ -388940,7 +389871,7 @@ var render = function() {
                                                         }
                                                       ],
                                                       staticClass:
-                                                        "w-100 mr-0 py-0 pr-0 expand-toggle",
+                                                        "mr-0 py-0 pr-0 expand-toggle",
                                                       attrs: {
                                                         block: "",
                                                         href: "#",
@@ -390806,7 +391737,7 @@ var render = function() {
                                 attrs: {
                                   src: "images/icons/transactions/Paid.svg",
                                   alt: "Paid icon",
-                                  width: "16"
+                                  width: "12"
                                 }
                               })
                             ]
@@ -390817,16 +391748,71 @@ var render = function() {
                     },
                     [
                       _vm._v(" "),
-                      _c(
-                        "transition",
-                        { attrs: { name: "fade" } },
-                        [
-                          _c("b-table", {
-                            attrs: { hover: "", items: _vm.paidItems }
-                          })
-                        ],
-                        1
-                      )
+                      _c("transition", { attrs: { name: "fade" } }, [
+                        _c(
+                          "div",
+                          [
+                            _c("b-table", {
+                              staticClass: "paid-transactions",
+                              attrs: {
+                                hover: "",
+                                items: _vm.paidItems,
+                                "per-page": _vm.perPage,
+                                "current-page": _vm.currentPage,
+                                responsive: ""
+                              },
+                              scopedSlots: _vm._u([
+                                {
+                                  key: "updated_at",
+                                  fn: function(data) {
+                                    return [
+                                      _c("p", [
+                                        _vm._v(
+                                          _vm._s(
+                                            _vm.getDaysAgo(data.item.updated_at)
+                                          )
+                                        )
+                                      ])
+                                    ]
+                                  }
+                                },
+                                {
+                                  key: "created_at",
+                                  fn: function(data) {
+                                    return [
+                                      _c("p", [
+                                        _vm._v(
+                                          _vm._s(
+                                            _vm.getDaysAgo(data.item.created_at)
+                                          )
+                                        )
+                                      ])
+                                    ]
+                                  }
+                                }
+                              ])
+                            }),
+                            _vm._v(" "),
+                            _c("b-pagination", {
+                              staticClass: "paid-pagination",
+                              attrs: {
+                                "per-page": _vm.perPage,
+                                align: "center",
+                                size: "sm",
+                                "total-rows": _vm.paidRows
+                              },
+                              model: {
+                                value: _vm.currentPage,
+                                callback: function($$v) {
+                                  _vm.currentPage = $$v
+                                },
+                                expression: "currentPage"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ])
                     ],
                     1
                   ),
@@ -390848,7 +391834,7 @@ var render = function() {
                                 attrs: {
                                   src: "images/icons/transactions/Pending.svg",
                                   alt: "Pending icon",
-                                  width: "16"
+                                  width: "12"
                                 }
                               })
                             ]
@@ -390859,16 +391845,71 @@ var render = function() {
                     },
                     [
                       _vm._v(" "),
-                      _c(
-                        "transition",
-                        { attrs: { name: "fade" } },
-                        [
-                          _c("b-table", {
-                            attrs: { hover: "", items: _vm.pendingItems }
-                          })
-                        ],
-                        1
-                      )
+                      _c("transition", { attrs: { name: "fade" } }, [
+                        _c(
+                          "div",
+                          [
+                            _c("b-table", {
+                              staticClass: "pending-transactions",
+                              attrs: {
+                                hover: "",
+                                items: _vm.pendingItems,
+                                "per-page": _vm.perPage,
+                                "current-page": _vm.currentPage,
+                                responsive: ""
+                              },
+                              scopedSlots: _vm._u([
+                                {
+                                  key: "updated_at",
+                                  fn: function(data) {
+                                    return [
+                                      _c("p", [
+                                        _vm._v(
+                                          _vm._s(
+                                            _vm.getDaysAgo(data.item.updated_at)
+                                          )
+                                        )
+                                      ])
+                                    ]
+                                  }
+                                },
+                                {
+                                  key: "created_at",
+                                  fn: function(data) {
+                                    return [
+                                      _c("p", [
+                                        _vm._v(
+                                          _vm._s(
+                                            _vm.getDaysAgo(data.item.created_at)
+                                          )
+                                        )
+                                      ])
+                                    ]
+                                  }
+                                }
+                              ])
+                            }),
+                            _vm._v(" "),
+                            _c("b-pagination", {
+                              staticClass: "pending-pagination",
+                              attrs: {
+                                "per-page": _vm.perPage,
+                                align: "center",
+                                size: "sm",
+                                "total-rows": _vm.pendingRows
+                              },
+                              model: {
+                                value: _vm.currentPage,
+                                callback: function($$v) {
+                                  _vm.currentPage = $$v
+                                },
+                                expression: "currentPage"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ])
                     ],
                     1
                   ),
@@ -390890,7 +391931,7 @@ var render = function() {
                                 attrs: {
                                   src: "images/icons/transactions/Pending.svg",
                                   alt: "Pending icon",
-                                  width: "16"
+                                  width: "12"
                                 }
                               })
                             ]
@@ -390901,16 +391942,71 @@ var render = function() {
                     },
                     [
                       _vm._v(" "),
-                      _c(
-                        "transition",
-                        { attrs: { name: "fade" } },
-                        [
-                          _c("b-table", {
-                            attrs: { hover: "", items: _vm.dueItems }
-                          })
-                        ],
-                        1
-                      )
+                      _c("transition", { attrs: { name: "fade" } }, [
+                        _c(
+                          "div",
+                          [
+                            _c("b-table", {
+                              staticClass: "due-transactions",
+                              attrs: {
+                                hover: "",
+                                items: _vm.dueItems,
+                                "per-page": _vm.perPage,
+                                "current-page": _vm.currentPage,
+                                responsive: ""
+                              },
+                              scopedSlots: _vm._u([
+                                {
+                                  key: "updated_at",
+                                  fn: function(data) {
+                                    return [
+                                      _c("p", [
+                                        _vm._v(
+                                          _vm._s(
+                                            _vm.getDaysAgo(data.item.updated_at)
+                                          )
+                                        )
+                                      ])
+                                    ]
+                                  }
+                                },
+                                {
+                                  key: "created_at",
+                                  fn: function(data) {
+                                    return [
+                                      _c("p", [
+                                        _vm._v(
+                                          _vm._s(
+                                            _vm.getDaysAgo(data.item.created_at)
+                                          )
+                                        )
+                                      ])
+                                    ]
+                                  }
+                                }
+                              ])
+                            }),
+                            _vm._v(" "),
+                            _c("b-pagination", {
+                              staticClass: "due-pagination",
+                              attrs: {
+                                "per-page": _vm.perPage,
+                                align: "center",
+                                size: "sm",
+                                "total-rows": _vm.dueRows
+                              },
+                              model: {
+                                value: _vm.currentPage,
+                                callback: function($$v) {
+                                  _vm.currentPage = $$v
+                                },
+                                expression: "currentPage"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ])
                     ],
                     1
                   ),
@@ -390932,7 +392028,7 @@ var render = function() {
                                 attrs: {
                                   src: "images/icons/transactions/Rejected.svg",
                                   alt: "Rejected icon",
-                                  width: "16"
+                                  width: "12"
                                 }
                               })
                             ]
@@ -390943,16 +392039,71 @@ var render = function() {
                     },
                     [
                       _vm._v(" "),
-                      _c(
-                        "transition",
-                        { attrs: { name: "fade" } },
-                        [
-                          _c("b-table", {
-                            attrs: { hover: "", items: _vm.rejectedItems }
-                          })
-                        ],
-                        1
-                      )
+                      _c("transition", { attrs: { name: "fade" } }, [
+                        _c(
+                          "div",
+                          [
+                            _c("b-table", {
+                              staticClass: "rejected-transactions",
+                              attrs: {
+                                hover: "",
+                                items: _vm.rejectedItems,
+                                "per-page": _vm.perPage,
+                                "current-page": _vm.currentPage,
+                                responsive: ""
+                              },
+                              scopedSlots: _vm._u([
+                                {
+                                  key: "updated_at",
+                                  fn: function(data) {
+                                    return [
+                                      _c("p", [
+                                        _vm._v(
+                                          _vm._s(
+                                            _vm.getDaysAgo(data.item.updated_at)
+                                          )
+                                        )
+                                      ])
+                                    ]
+                                  }
+                                },
+                                {
+                                  key: "created_at",
+                                  fn: function(data) {
+                                    return [
+                                      _c("p", [
+                                        _vm._v(
+                                          _vm._s(
+                                            _vm.getDaysAgo(data.item.created_at)
+                                          )
+                                        )
+                                      ])
+                                    ]
+                                  }
+                                }
+                              ])
+                            }),
+                            _vm._v(" "),
+                            _c("b-pagination", {
+                              staticClass: "rejected-pagination",
+                              attrs: {
+                                "per-page": _vm.perPage,
+                                align: "center",
+                                size: "sm",
+                                "total-rows": _vm.rejectedRows
+                              },
+                              model: {
+                                value: _vm.currentPage,
+                                callback: function($$v) {
+                                  _vm.currentPage = $$v
+                                },
+                                expression: "currentPage"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ])
                     ],
                     1
                   ),
@@ -391623,193 +392774,182 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", { staticClass: "grey-bg-color" }, [
-      _c(
-        "div",
-        {
-          staticClass: "row plr-3",
-          staticStyle: { "margin-top": "2%" },
-          attrs: { id: "top-section" }
-        },
-        [
-          _c("div", { staticClass: "col-11" }, [
+      _c("div", { staticClass: "row plr-3", attrs: { id: "top-section" } }, [
+        _c("div", { staticClass: "col-11" }, [
+          _c("div", { staticClass: "row mb-0 horizontal-scroll-thinner" }, [
             _c(
               "div",
-              { staticClass: "row mb-0 pb-4 horizontal-scroll-thinner" },
+              {
+                staticClass: "col-auto pb-10 pl-0",
+                on: {
+                  click: function($event) {
+                    return _vm.getUsers()
+                  }
+                }
+              },
               [
-                _c(
-                  "div",
-                  {
-                    staticClass: "col-auto pl-0",
-                    on: {
-                      click: function($event) {
-                        return _vm.getUsers()
-                      }
-                    }
-                  },
-                  [
-                    _c("div", { staticClass: "card mb-0 call-backs" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "card-body row align-items-center justify-content-between mx-0 mb-0 py-2"
-                        },
-                        [
-                          _vm._m(0),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-auto pr-0" }, [
-                            _c("p", { staticClass: "card-text" }, [
-                              _vm._v(_vm._s(_vm.users.count_all))
-                            ])
-                          ])
-                        ]
-                      )
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "col-auto",
-                    on: {
-                      click: function($event) {
-                        return _vm.getUsers(1)
-                      }
-                    }
-                  },
-                  [
-                    _c("div", { staticClass: "card mb-0 call-backs" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "card-body row align-items-center justify-content-between mx-0 mb-0 py-2"
-                        },
-                        [
-                          _vm._m(1),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-auto pr-0" }, [
-                            _c("p", { staticClass: "card-text" }, [
-                              _vm._v(_vm._s(_vm.users.manager))
-                            ])
-                          ])
-                        ]
-                      )
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "col-auto",
-                    on: {
-                      click: function($event) {
-                        return _vm.getUsers(2)
-                      }
-                    }
-                  },
-                  [
-                    _c("div", { staticClass: "card mb-0 sales-amount" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "card-body row align-items-center justify-content-between mx-0 mb-0 py-2"
-                        },
-                        [
-                          _vm._m(2),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-auto pr-0" }, [
-                            _c("p", { staticClass: "card-text" }, [
-                              _vm._v(_vm._s(_vm.users.account_manager))
-                            ])
-                          ])
-                        ]
-                      )
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "col-auto",
-                    on: {
-                      click: function($event) {
-                        return _vm.getUsers(3)
-                      }
-                    }
-                  },
-                  [
-                    _c("div", { staticClass: "card mb-0 ave-time" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "card-body row align-items-center justify-content-between mx-0 mb-0 py-2"
-                        },
-                        [
-                          _vm._m(3),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-auto pr-0" }, [
-                            _c("p", { staticClass: "card-text" }, [
-                              _vm._v(_vm._s(_vm.users.team_leader))
-                            ])
-                          ])
-                        ]
-                      )
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "col-auto",
-                    on: {
-                      click: function($event) {
-                        return _vm.getUsers(4)
-                      }
-                    }
-                  },
-                  [
-                    _c("div", { staticClass: "card mb-0 con-ratio" }, [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "card-body row align-items-center justify-content-between mx-0 mb-0 py-2"
-                        },
-                        [
-                          _vm._m(4),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "col-auto pr-0" }, [
-                            _c("p", { staticClass: "card-text" }, [
-                              _vm._v(_vm._s(_vm.users.agent))
-                            ])
-                          ])
-                        ]
-                      )
-                    ])
-                  ]
-                )
+                _c("div", { staticClass: "card mb-0 call-backs" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "card-body row align-items-center justify-content-between mx-0 mb-0 py-2"
+                    },
+                    [
+                      _vm._m(0),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-auto pr-0" }, [
+                        _c("p", { staticClass: "card-text" }, [
+                          _vm._v(_vm._s(_vm.users.count_all))
+                        ])
+                      ])
+                    ]
+                  )
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "col-auto pb-10",
+                on: {
+                  click: function($event) {
+                    return _vm.getUsers(1)
+                  }
+                }
+              },
+              [
+                _c("div", { staticClass: "card mb-0 call-backs" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "card-body row align-items-center justify-content-between mx-0 mb-0 py-2"
+                    },
+                    [
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-auto pr-0" }, [
+                        _c("p", { staticClass: "card-text" }, [
+                          _vm._v(_vm._s(_vm.users.manager))
+                        ])
+                      ])
+                    ]
+                  )
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "col-auto pb-10",
+                on: {
+                  click: function($event) {
+                    return _vm.getUsers(2)
+                  }
+                }
+              },
+              [
+                _c("div", { staticClass: "card mb-0 sales-amount" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "card-body row align-items-center justify-content-between mx-0 mb-0 py-2"
+                    },
+                    [
+                      _vm._m(2),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-auto pr-0" }, [
+                        _c("p", { staticClass: "card-text" }, [
+                          _vm._v(_vm._s(_vm.users.account_manager))
+                        ])
+                      ])
+                    ]
+                  )
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "col-auto pb-10",
+                on: {
+                  click: function($event) {
+                    return _vm.getUsers(3)
+                  }
+                }
+              },
+              [
+                _c("div", { staticClass: "card mb-0 ave-time" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "card-body row align-items-center justify-content-between mx-0 mb-0 py-2"
+                    },
+                    [
+                      _vm._m(3),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-auto pr-0" }, [
+                        _c("p", { staticClass: "card-text" }, [
+                          _vm._v(_vm._s(_vm.users.team_leader))
+                        ])
+                      ])
+                    ]
+                  )
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "col-auto pb-10",
+                on: {
+                  click: function($event) {
+                    return _vm.getUsers(4)
+                  }
+                }
+              },
+              [
+                _c("div", { staticClass: "card mb-0 con-ratio" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "card-body row align-items-center justify-content-between mx-0 mb-0 py-2"
+                    },
+                    [
+                      _vm._m(4),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-auto pr-0" }, [
+                        _c("p", { staticClass: "card-text" }, [
+                          _vm._v(_vm._s(_vm.users.agent))
+                        ])
+                      ])
+                    ]
+                  )
+                ])
               ]
             )
-          ]),
-          _vm._v(" "),
-          _vm._m(5)
-        ]
-      )
+          ])
+        ])
+      ])
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "plr-3" }, [
+    _c("div", { staticClass: "plr-3 mt-4" }, [
       !_vm.add_user && !_vm.edit_user
         ? _c("div", [
             _c(
               "div",
-              { staticClass: "row stats pt-0 scroll-hidden horizontal-scroll" },
+              {
+                staticClass:
+                  "row stats mx-0 pt-0 scroll-hidden horizontal-scroll"
+              },
               [
                 _c(
                   "div",
@@ -392965,76 +394105,6 @@ var staticRenderFns = [
     return _c("div", { staticClass: "col-auto pl-0" }, [
       _c("p", { staticClass: "card-text-small text-left" }, [_vm._v("Agents")])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-1" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-12 pr-0" }, [
-          _c("div", { staticClass: "mb-0 add-new-top-section" }, [
-            _c(
-              "div",
-              {
-                staticClass:
-                  "card-body row right align-items-center justify-content-between mx-0 p-3"
-              },
-              [
-                _c("div", { staticClass: "col pl-0 dropdown" }, [
-                  _c(
-                    "a",
-                    {
-                      attrs: {
-                        "data-toggle": "dropdown",
-                        "aria-haspopup": "true",
-                        "aria-expanded": "false"
-                      }
-                    },
-                    [
-                      _c("img", {
-                        staticClass: "icon",
-                        staticStyle: { width: "60px" },
-                        attrs: {
-                          src: "/images/icons/Call-History-Add-Icon.svg",
-                          alt: "Add Call history Icon"
-                        }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "dropdown-menu" }, [
-                    _c(
-                      "a",
-                      { staticClass: "dropdown-item", attrs: { href: "#" } },
-                      [_vm._v("Calls")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      { staticClass: "dropdown-item", attrs: { href: "#" } },
-                      [_vm._v("Sales")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      { staticClass: "dropdown-item", attrs: { href: "#" } },
-                      [_vm._v("Calls")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      { staticClass: "dropdown-item", attrs: { href: "#" } },
-                      [_vm._v("Sales")]
-                    )
-                  ])
-                ])
-              ]
-            )
-          ])
-        ])
-      ])
-    ])
   }
 ]
 render._withStripped = true
@@ -394024,6 +395094,129 @@ var render = function() {
             0
           ),
           _vm._v(" "),
+          _c("div", { staticClass: "card-deck client-details mx-0" }, [
+            _c("div", { staticClass: "card border-0 mb-0 ml-0 client" }, [
+              _c("div", { staticClass: "card-body" }, [
+                _vm._m(0),
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    staticClass: "card-text truncate mb-2",
+                    attrs: {
+                      title:
+                        _vm.module_item.item_meta[2].custom_field_value +
+                        " " +
+                        _vm.module_item.item_meta[3].custom_field_value
+                    }
+                  },
+                  [
+                    _vm._v(
+                      _vm._s(
+                        _vm.module_item.item_meta[2].custom_field_value +
+                          " " +
+                          _vm.module_item.item_meta[3].custom_field_value
+                      )
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "truncate w-100" }, [
+                  _vm.module_item.item_meta[5].custom_field_value
+                    ? _c(
+                        "p",
+                        {
+                          staticClass:
+                            "card-link d-inline border-right border-white pb-3 pr-3"
+                        },
+                        [
+                          _vm._v(
+                            _vm._s(
+                              _vm.module_item.item_meta[5].custom_field_value
+                            )
+                          )
+                        ]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.module_item.item_meta[9].custom_field_value
+                    ? _c(
+                        "p",
+                        {
+                          staticClass:
+                            "card-link d-inline border-right border-white ml-0 pb-3 px-3"
+                        },
+                        [
+                          _vm._v(
+                            _vm._s(
+                              _vm.module_item.item_meta[9].custom_field_value
+                            )
+                          )
+                        ]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.module_item.item_meta[8].custom_field_value
+                    ? _c(
+                        "p",
+                        { staticClass: "card-link d-inline ml-0 pb-3 pl-3" },
+                        [
+                          _vm._v(
+                            _vm._s(
+                              _vm.module_item.item_meta[8].custom_field_value
+                            )
+                          )
+                        ]
+                      )
+                    : _vm._e()
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "card border-0 mb-0 mr-0 time" }, [
+              _c("div", { staticClass: "card-body" }, [
+                _vm._m(2),
+                _vm._v(" "),
+                _c("p", { staticClass: "card-text mb-2" }, [_vm._v("11:20")]),
+                _vm._v(" "),
+                _c("div", { staticClass: "truncate" }, [
+                  _vm.module_item.item_meta[8].custom_field_value
+                    ? _c(
+                        "p",
+                        {
+                          staticClass:
+                            "card-link d-inline border-right border-white pb-3 pr-3"
+                        },
+                        [
+                          _vm._v(
+                            _vm._s(
+                              _vm.module_item.item_meta[8].custom_field_value
+                            )
+                          )
+                        ]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.module_item.item_meta[9].custom_field_value
+                    ? _c(
+                        "p",
+                        { staticClass: "card-link d-inline ml-0 pb-3 pl-3" },
+                        [
+                          _vm._v(
+                            _vm._s(
+                              _vm.module_item.item_meta[8].custom_field_value
+                            )
+                          )
+                        ]
+                      )
+                    : _vm._e()
+                ])
+              ])
+            ])
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "stats final-modal" }, [
             _c("div", { staticClass: "card-deck mx-0 mb-0" }, [
               _c(
@@ -394033,7 +395226,7 @@ var render = function() {
                     "card mt-3 border-0 shadow-none mr-4 ml-0 tab-card"
                 },
                 [
-                  _vm._m(0),
+                  _vm._m(3),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -394128,7 +395321,9 @@ var render = function() {
                                                   _vm._v(
                                                     " \n                        " +
                                                       _vm._s(
-                                                        comment.created_at
+                                                        _vm._f("toDate")(
+                                                          comment.created_at
+                                                        )
                                                       ) +
                                                       " \n                        "
                                                   ),
@@ -394358,7 +395553,7 @@ var render = function() {
                                                         {
                                                           key: index,
                                                           staticClass:
-                                                            "col-lg-12"
+                                                            "col-lg-12 px-0"
                                                         },
                                                         [
                                                           _c(
@@ -394497,7 +395692,7 @@ var render = function() {
                         [
                           _c("div", { staticClass: "row mx-0 mb-0" }, [
                             _c("div", { staticClass: "col-lg-4 px-0" }, [
-                              _vm._m(1),
+                              _vm._m(4),
                               _vm._v(" "),
                               _c(
                                 "div",
@@ -394570,7 +395765,7 @@ var render = function() {
                                         attrs: {
                                           allowEmpty: false,
                                           use24Hours: "",
-                                          format: "hh:mm"
+                                          format: "HH:mm"
                                         },
                                         model: {
                                           value: _vm.selected_time,
@@ -394699,7 +395894,7 @@ var render = function() {
                     "card shadow-none mt-3 mr-0 ml-4 border-0 tab-card"
                 },
                 [
-                  _vm._m(2),
+                  _vm._m(5),
                   _vm._v(" "),
                   _c(
                     "div",
@@ -394894,7 +396089,7 @@ var render = function() {
                             "div",
                             { staticClass: "row mx-0 align-items-center" },
                             [
-                              _vm._m(3),
+                              _vm._m(6),
                               _vm._v(" "),
                               _c(
                                 "div",
@@ -395068,7 +396263,7 @@ var render = function() {
                               )
                             ]),
                             _vm._v(" "),
-                            _vm._m(4)
+                            _vm._m(7)
                           ]
                         )
                       ]
@@ -395097,7 +396292,7 @@ var render = function() {
                                   "div",
                                   { staticClass: "mb-5 new-activity" },
                                   [
-                                    _vm._m(5),
+                                    _vm._m(8),
                                     _vm._v(" "),
                                     _c("div", { staticClass: "row mx-0" }, [
                                       _c(
@@ -395338,7 +396533,7 @@ var render = function() {
                                 items: _vm.activityItems,
                                 "per-page": _vm.perPage,
                                 "current-page": _vm.currentPage,
-                                "sticky-header": "190px",
+                                "sticky-header": "",
                                 responsive: ""
                               },
                               scopedSlots: _vm._u(
@@ -395526,11 +396721,27 @@ var render = function() {
                                         })
                                       ]
                                     }
+                                  },
+                                  {
+                                    key: "timeModified",
+                                    fn: function(data) {
+                                      return [
+                                        _c("p", [
+                                          _vm._v(
+                                            _vm._s(
+                                              _vm._f("toDate")(
+                                                data.item.timeModified
+                                              )
+                                            )
+                                          )
+                                        ])
+                                      ]
+                                    }
                                   }
                                 ],
                                 null,
                                 false,
-                                3529181899
+                                262151578
                               )
                             }),
                             _vm._v(" "),
@@ -395566,10 +396777,11 @@ var render = function() {
                           },
                           [
                             _c("b-table", {
+                              staticClass: "closed-activities",
                               attrs: {
                                 hover: "",
                                 items: _vm.closedActivityItems,
-                                "sticky-header": "190px",
+                                "sticky-header": "",
                                 "per-page": _vm.perPage,
                                 responsive: ""
                               },
@@ -395593,43 +396805,9 @@ var render = function() {
                                     key: "subject",
                                     fn: function(data) {
                                       return [
-                                        _c("input", {
-                                          directives: [
-                                            {
-                                              name: "model",
-                                              rawName: "v-model",
-                                              value: data.item.subject,
-                                              expression: "data.item.subject"
-                                            }
-                                          ],
-                                          staticClass:
-                                            "form-control border-0 rounded-pill",
-                                          attrs: {
-                                            type: "text",
-                                            id: "deal-name",
-                                            name: "DealName"
-                                          },
-                                          domProps: {
-                                            value: data.item.subject
-                                          },
-                                          on: {
-                                            blur: function($event) {
-                                              return _vm.updateActivity(
-                                                data.item
-                                              )
-                                            },
-                                            input: function($event) {
-                                              if ($event.target.composing) {
-                                                return
-                                              }
-                                              _vm.$set(
-                                                data.item,
-                                                "subject",
-                                                $event.target.value
-                                              )
-                                            }
-                                          }
-                                        })
+                                        _c("p", [
+                                          _vm._v(_vm._s(data.item.subject))
+                                        ])
                                       ]
                                     }
                                   },
@@ -395637,69 +396815,9 @@ var render = function() {
                                     key: "status",
                                     fn: function(data) {
                                       return [
-                                        _c(
-                                          "a-select",
-                                          {
-                                            staticClass:
-                                              "activity-status-input",
-                                            on: {
-                                              change: function($event) {
-                                                return _vm.updateActivity(
-                                                  data.item
-                                                )
-                                              }
-                                            },
-                                            model: {
-                                              value: data.item.status,
-                                              callback: function($$v) {
-                                                _vm.$set(
-                                                  data.item,
-                                                  "status",
-                                                  $$v
-                                                )
-                                              },
-                                              expression: "data.item.status"
-                                            }
-                                          },
-                                          [
-                                            _c(
-                                              "a-select-option",
-                                              { attrs: { value: 0 } },
-                                              [
-                                                _c("div", {
-                                                  staticClass:
-                                                    "d-inline-block activity-status finished-activity"
-                                                }),
-                                                _vm._v("Finished")
-                                              ]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "a-select-option",
-                                              { attrs: { value: 1 } },
-                                              [
-                                                _c("div", {
-                                                  staticClass:
-                                                    "d-inline-block activity-status in-progress-activity"
-                                                }),
-                                                _vm._v("In Progress")
-                                              ]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "a-select-option",
-                                              { attrs: { value: 2 } },
-                                              [
-                                                _c("div", {
-                                                  staticClass:
-                                                    "d-inline-block activity-status not-started-activity"
-                                                }),
-                                                _vm._v("Not Started")
-                                              ]
-                                            )
-                                          ],
-                                          1
-                                        )
+                                        _c("p", [
+                                          _vm._v(_vm._s(data.item.status))
+                                        ])
                                       ]
                                     }
                                   },
@@ -395707,27 +396825,15 @@ var render = function() {
                                     key: "dueDate",
                                     fn: function(data) {
                                       return [
-                                        _c("a-date-picker", {
-                                          attrs: { name: "Due Date" },
-                                          on: {
-                                            change: function($event) {
-                                              return _vm.updateActivity(
-                                                data.item
+                                        _c("p", [
+                                          _vm._v(
+                                            _vm._s(
+                                              _vm._f("toDate")(
+                                                data.item.dueDate
                                               )
-                                            }
-                                          },
-                                          model: {
-                                            value: data.item.dueDate,
-                                            callback: function($$v) {
-                                              _vm.$set(
-                                                data.item,
-                                                "dueDate",
-                                                $$v
-                                              )
-                                            },
-                                            expression: "data.item.dueDate"
-                                          }
-                                        })
+                                            )
+                                          )
+                                        ])
                                       ]
                                     }
                                   },
@@ -395735,34 +396841,32 @@ var render = function() {
                                     key: "time",
                                     fn: function(data) {
                                       return [
-                                        _c("a-time-picker", {
-                                          attrs: {
-                                            name: "Time",
-                                            use24Hours: "",
-                                            format: "HH:mm"
-                                          },
-                                          on: {
-                                            change: function($event) {
-                                              return _vm.updateActivity(
-                                                data.item
+                                        _c("p", [
+                                          _vm._v(_vm._s(data.item.time))
+                                        ])
+                                      ]
+                                    }
+                                  },
+                                  {
+                                    key: "timeModified",
+                                    fn: function(data) {
+                                      return [
+                                        _c("p", [
+                                          _vm._v(
+                                            _vm._s(
+                                              _vm._f("toDate")(
+                                                data.item.timeModified
                                               )
-                                            }
-                                          },
-                                          model: {
-                                            value: data.item.time,
-                                            callback: function($$v) {
-                                              _vm.$set(data.item, "time", $$v)
-                                            },
-                                            expression: "data.item.time"
-                                          }
-                                        })
+                                            )
+                                          )
+                                        ])
                                       ]
                                     }
                                   }
                                 ],
                                 null,
                                 false,
-                                3529181899
+                                3441748816
                               )
                             }),
                             _vm._v(" "),
@@ -395798,7 +396902,7 @@ var render = function() {
                   "div",
                   { staticClass: "card shadow-none mt-3 border-0 tab-card" },
                   [
-                    _vm._m(6),
+                    _vm._m(9),
                     _vm._v(" "),
                     _c(
                       "div",
@@ -395822,10 +396926,11 @@ var render = function() {
                               staticClass: "deals-table",
                               attrs: {
                                 hover: "",
+                                fields: _vm.dealHeaders,
                                 items: _vm.dealItems,
                                 "per-page": _vm.perPage,
                                 "current-page": _vm.currentPage,
-                                "sticky-header": "190px",
+                                "sticky-header": "",
                                 responsive: ""
                               },
                               scopedSlots: _vm._u(
@@ -396354,6 +397459,16 @@ var render = function() {
                                     key: "status",
                                     fn: function(data) {
                                       return [
+                                        _c("div", {
+                                          staticClass:
+                                            "d-inline-block activity-status",
+                                          style: {
+                                            backgroundColor: _vm.dealStatColor(
+                                              data.item.status
+                                            )
+                                          }
+                                        }),
+                                        _vm._v(" "),
                                         _c(
                                           "a-select",
                                           {
@@ -396385,25 +397500,25 @@ var render = function() {
                                             _vm._v(" "),
                                             _c(
                                               "a-select-option",
-                                              { attrs: { value: "1" } },
+                                              { attrs: { value: 1 } },
                                               [_vm._v("Paid")]
                                             ),
                                             _vm._v(" "),
                                             _c(
                                               "a-select-option",
-                                              { attrs: { value: "2" } },
+                                              { attrs: { value: 2 } },
                                               [_vm._v("Pending")]
                                             ),
                                             _vm._v(" "),
                                             _c(
                                               "a-select-option",
-                                              { attrs: { value: "3" } },
+                                              { attrs: { value: 3 } },
                                               [_vm._v("Due")]
                                             ),
                                             _vm._v(" "),
                                             _c(
                                               "a-select-option",
-                                              { attrs: { value: "4" } },
+                                              { attrs: { value: 4 } },
                                               [_vm._v("Rejected")]
                                             )
                                           ],
@@ -396411,11 +397526,27 @@ var render = function() {
                                         )
                                       ]
                                     }
+                                  },
+                                  {
+                                    key: "created_at",
+                                    fn: function(data) {
+                                      return [
+                                        _c("p", [
+                                          _vm._v(
+                                            _vm._s(
+                                              _vm._f("toDate")(
+                                                data.item.created_at
+                                              )
+                                            )
+                                          )
+                                        ])
+                                      ]
+                                    }
                                   }
                                 ],
                                 null,
                                 false,
-                                1928499262
+                                1902466667
                               )
                             }),
                             _vm._v(" "),
@@ -396757,6 +397888,50 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h5", { staticClass: "card-title" }, [
+      _c("img", {
+        staticClass: "icon",
+        attrs: { src: "/images/workstation/D_A@4x.png", alt: "Icon" }
+      }),
+      _vm._v("  \n            Client  \n          ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card border-0 mb-0 activity" }, [
+      _c("div", { staticClass: "card-body" }, [
+        _c("h5", { staticClass: "card-title" }, [
+          _c("img", {
+            staticClass: "icon",
+            attrs: { src: "/images/workstation/S_A@4x.png", alt: "Icon" }
+          }),
+          _vm._v(" \n            Last Called by\n          ")
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "card-text mb-2" }, [_vm._v("John Hill")]),
+        _vm._v(" "),
+        _c("p", { staticClass: "card-link mb-0" }, [_vm._v("21-05-2019")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h5", { staticClass: "card-title" }, [
+      _c("img", {
+        staticClass: "icon",
+        attrs: { src: "/images/workstation/Time_Icon@4x.png", alt: "Icon" }
+      }),
+      _vm._v(" \n            Time \n          ")
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -409359,51 +410534,6 @@ if (false) {} else {
   module.exports = __webpack_require__(/*! ./vue.common.dev.js */ "./node_modules/vue/dist/vue.common.dev.js")
 }
 
-
-/***/ }),
-
-/***/ "./node_modules/vue2-circle-progress/dist/vue-circle-progress.js":
-/*!***********************************************************************!*\
-  !*** ./node_modules/vue2-circle-progress/dist/vue-circle-progress.js ***!
-  \***********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-!function(e,t){ true?module.exports=t():undefined}(this,function(){return function(e){function t(r){if(n[r])return n[r].exports;var i=n[r]={exports:{},id:r,loaded:!1};return e[r].call(i.exports,i,i.exports,t),i.loaded=!0,i.exports}var n={};return t.m=e,t.c=n,t.p="",t(0)}([function(e,t,n){var r,i,o={};n(9),r=n(2),i=n(7),e.exports=r||{},e.exports.__esModule&&(e.exports=e.exports.default);var a="function"==typeof e.exports?e.exports.options||(e.exports.options={}):e.exports;i&&(a.template=i),a.computed||(a.computed={}),Object.keys(o).forEach(function(e){var t=o[e];a.computed[e]=function(){return t}})},function(e,t,n){var r,i;/*!
-	 * jQuery JavaScript Library v3.2.1
-	 * https://jquery.com/
-	 *
-	 * Includes Sizzle.js
-	 * https://sizzlejs.com/
-	 *
-	 * Copyright JS Foundation and other contributors
-	 * Released under the MIT license
-	 * https://jquery.org/license
-	 *
-	 * Date: 2017-03-20T18:59Z
-	 */
-!function(t,n){"use strict";"object"==typeof e&&"object"==typeof e.exports?e.exports=t.document?n(t,!0):function(e){if(!e.document)throw new Error("jQuery requires a window with a document");return n(e)}:n(t)}("undefined"!=typeof window?window:this,function(n,o){"use strict";function a(e,t){t=t||ae;var n=t.createElement("script");n.text=e,t.head.appendChild(n).parentNode.removeChild(n)}function s(e){var t=!!e&&"length"in e&&e.length,n=xe.type(e);return"function"!==n&&!xe.isWindow(e)&&("array"===n||0===t||"number"==typeof t&&t>0&&t-1 in e)}function u(e,t){return e.nodeName&&e.nodeName.toLowerCase()===t.toLowerCase()}function c(e,t,n){return xe.isFunction(t)?xe.grep(e,function(e,r){return!!t.call(e,r,e)!==n}):t.nodeType?xe.grep(e,function(e){return e===t!==n}):"string"!=typeof t?xe.grep(e,function(e){return fe.call(t,e)>-1!==n}):je.test(t)?xe.filter(t,e,n):(t=xe.filter(t,e),xe.grep(e,function(e){return fe.call(t,e)>-1!==n&&1===e.nodeType}))}function l(e,t){for(;(e=e[t])&&1!==e.nodeType;);return e}function f(e){var t={};return xe.each(e.match(Pe)||[],function(e,n){t[n]=!0}),t}function p(e){return e}function d(e){throw e}function h(e,t,n,r){var i;try{e&&xe.isFunction(i=e.promise)?i.call(e).done(t).fail(n):e&&xe.isFunction(i=e.then)?i.call(e,t,n):t.apply(void 0,[e].slice(r))}catch(e){n.apply(void 0,[e])}}function g(){ae.removeEventListener("DOMContentLoaded",g),n.removeEventListener("load",g),xe.ready()}function v(){this.expando=xe.expando+v.uid++}function m(e){return"true"===e||"false"!==e&&("null"===e?null:e===+e+""?+e:$e.test(e)?JSON.parse(e):e)}function y(e,t,n){var r;if(void 0===n&&1===e.nodeType)if(r="data-"+t.replace(_e,"-$&").toLowerCase(),n=e.getAttribute(r),"string"==typeof n){try{n=m(n)}catch(e){}We.set(e,t,n)}else n=void 0;return n}function x(e,t,n,r){var i,o=1,a=20,s=r?function(){return r.cur()}:function(){return xe.css(e,t,"")},u=s(),c=n&&n[3]||(xe.cssNumber[t]?"":"px"),l=(xe.cssNumber[t]||"px"!==c&&+u)&&Ve.exec(xe.css(e,t));if(l&&l[3]!==c){c=c||l[3],n=n||[],l=+u||1;do o=o||".5",l/=o,xe.style(e,t,l+c);while(o!==(o=s()/u)&&1!==o&&--a)}return n&&(l=+l||+u||0,i=n[1]?l+(n[1]+1)*n[2]:+n[2],r&&(r.unit=c,r.start=l,r.end=i)),i}function b(e){var t,n=e.ownerDocument,r=e.nodeName,i=Ge[r];return i?i:(t=n.body.appendChild(n.createElement(r)),i=xe.css(t,"display"),t.parentNode.removeChild(t),"none"===i&&(i="block"),Ge[r]=i,i)}function w(e,t){for(var n,r,i=[],o=0,a=e.length;o<a;o++)r=e[o],r.style&&(n=r.style.display,t?("none"===n&&(i[o]=Be.get(r,"display")||null,i[o]||(r.style.display="")),""===r.style.display&&Xe(r)&&(i[o]=b(r))):"none"!==n&&(i[o]="none",Be.set(r,"display",n)));for(o=0;o<a;o++)null!=i[o]&&(e[o].style.display=i[o]);return e}function T(e,t){var n;return n="undefined"!=typeof e.getElementsByTagName?e.getElementsByTagName(t||"*"):"undefined"!=typeof e.querySelectorAll?e.querySelectorAll(t||"*"):[],void 0===t||t&&u(e,t)?xe.merge([e],n):n}function C(e,t){for(var n=0,r=e.length;n<r;n++)Be.set(e[n],"globalEval",!t||Be.get(t[n],"globalEval"))}function k(e,t,n,r,i){for(var o,a,s,u,c,l,f=t.createDocumentFragment(),p=[],d=0,h=e.length;d<h;d++)if(o=e[d],o||0===o)if("object"===xe.type(o))xe.merge(p,o.nodeType?[o]:o);else if(et.test(o)){for(a=a||f.appendChild(t.createElement("div")),s=(Je.exec(o)||["",""])[1].toLowerCase(),u=Ze[s]||Ze._default,a.innerHTML=u[1]+xe.htmlPrefilter(o)+u[2],l=u[0];l--;)a=a.lastChild;xe.merge(p,a.childNodes),a=f.firstChild,a.textContent=""}else p.push(t.createTextNode(o));for(f.textContent="",d=0;o=p[d++];)if(r&&xe.inArray(o,r)>-1)i&&i.push(o);else if(c=xe.contains(o.ownerDocument,o),a=T(f.appendChild(o),"script"),c&&C(a),n)for(l=0;o=a[l++];)Ke.test(o.type||"")&&n.push(o);return f}function S(){return!0}function E(){return!1}function N(){try{return ae.activeElement}catch(e){}}function A(e,t,n,r,i,o){var a,s;if("object"==typeof t){"string"!=typeof n&&(r=r||n,n=void 0);for(s in t)A(e,s,n,r,t[s],o);return e}if(null==r&&null==i?(i=n,r=n=void 0):null==i&&("string"==typeof n?(i=r,r=void 0):(i=r,r=n,n=void 0)),i===!1)i=E;else if(!i)return e;return 1===o&&(a=i,i=function(e){return xe().off(e),a.apply(this,arguments)},i.guid=a.guid||(a.guid=xe.guid++)),e.each(function(){xe.event.add(this,t,i,r,n)})}function j(e,t){return u(e,"table")&&u(11!==t.nodeType?t:t.firstChild,"tr")?xe(">tbody",e)[0]||e:e}function D(e){return e.type=(null!==e.getAttribute("type"))+"/"+e.type,e}function M(e){var t=ut.exec(e.type);return t?e.type=t[1]:e.removeAttribute("type"),e}function q(e,t){var n,r,i,o,a,s,u,c;if(1===t.nodeType){if(Be.hasData(e)&&(o=Be.access(e),a=Be.set(t,o),c=o.events)){delete a.handle,a.events={};for(i in c)for(n=0,r=c[i].length;n<r;n++)xe.event.add(t,i,c[i][n])}We.hasData(e)&&(s=We.access(e),u=xe.extend({},s),We.set(t,u))}}function O(e,t){var n=t.nodeName.toLowerCase();"input"===n&&Ye.test(e.type)?t.checked=e.checked:"input"!==n&&"textarea"!==n||(t.defaultValue=e.defaultValue)}function L(e,t,n,r){t=ce.apply([],t);var i,o,s,u,c,l,f=0,p=e.length,d=p-1,h=t[0],g=xe.isFunction(h);if(g||p>1&&"string"==typeof h&&!me.checkClone&&st.test(h))return e.each(function(i){var o=e.eq(i);g&&(t[0]=h.call(this,i,o.html())),L(o,t,n,r)});if(p&&(i=k(t,e[0].ownerDocument,!1,e,r),o=i.firstChild,1===i.childNodes.length&&(i=o),o||r)){for(s=xe.map(T(i,"script"),D),u=s.length;f<p;f++)c=i,f!==d&&(c=xe.clone(c,!0,!0),u&&xe.merge(s,T(c,"script"))),n.call(e[f],c,f);if(u)for(l=s[s.length-1].ownerDocument,xe.map(s,M),f=0;f<u;f++)c=s[f],Ke.test(c.type||"")&&!Be.access(c,"globalEval")&&xe.contains(l,c)&&(c.src?xe._evalUrl&&xe._evalUrl(c.src):a(c.textContent.replace(ct,""),l))}return e}function P(e,t,n){for(var r,i=t?xe.filter(t,e):e,o=0;null!=(r=i[o]);o++)n||1!==r.nodeType||xe.cleanData(T(r)),r.parentNode&&(n&&xe.contains(r.ownerDocument,r)&&C(T(r,"script")),r.parentNode.removeChild(r));return e}function F(e,t,n){var r,i,o,a,s=e.style;return n=n||pt(e),n&&(a=n.getPropertyValue(t)||n[t],""!==a||xe.contains(e.ownerDocument,e)||(a=xe.style(e,t)),!me.pixelMarginRight()&&ft.test(a)&&lt.test(t)&&(r=s.width,i=s.minWidth,o=s.maxWidth,s.minWidth=s.maxWidth=s.width=a,a=n.width,s.width=r,s.minWidth=i,s.maxWidth=o)),void 0!==a?a+"":a}function I(e,t){return{get:function(){return e()?void delete this.get:(this.get=t).apply(this,arguments)}}}function H(e){if(e in yt)return e;for(var t=e[0].toUpperCase()+e.slice(1),n=mt.length;n--;)if(e=mt[n]+t,e in yt)return e}function R(e){var t=xe.cssProps[e];return t||(t=xe.cssProps[e]=H(e)||e),t}function B(e,t,n){var r=Ve.exec(t);return r?Math.max(0,r[2]-(n||0))+(r[3]||"px"):t}function W(e,t,n,r,i){var o,a=0;for(o=n===(r?"border":"content")?4:"width"===t?1:0;o<4;o+=2)"margin"===n&&(a+=xe.css(e,n+Ue[o],!0,i)),r?("content"===n&&(a-=xe.css(e,"padding"+Ue[o],!0,i)),"margin"!==n&&(a-=xe.css(e,"border"+Ue[o]+"Width",!0,i))):(a+=xe.css(e,"padding"+Ue[o],!0,i),"padding"!==n&&(a+=xe.css(e,"border"+Ue[o]+"Width",!0,i)));return a}function $(e,t,n){var r,i=pt(e),o=F(e,t,i),a="border-box"===xe.css(e,"boxSizing",!1,i);return ft.test(o)?o:(r=a&&(me.boxSizingReliable()||o===e.style[t]),"auto"===o&&(o=e["offset"+t[0].toUpperCase()+t.slice(1)]),o=parseFloat(o)||0,o+W(e,t,n||(a?"border":"content"),r,i)+"px")}function _(e,t,n,r,i){return new _.prototype.init(e,t,n,r,i)}function z(){bt&&(ae.hidden===!1&&n.requestAnimationFrame?n.requestAnimationFrame(z):n.setTimeout(z,xe.fx.interval),xe.fx.tick())}function V(){return n.setTimeout(function(){xt=void 0}),xt=xe.now()}function U(e,t){var n,r=0,i={height:e};for(t=t?1:0;r<4;r+=2-t)n=Ue[r],i["margin"+n]=i["padding"+n]=e;return t&&(i.opacity=i.width=e),i}function X(e,t,n){for(var r,i=(Y.tweeners[t]||[]).concat(Y.tweeners["*"]),o=0,a=i.length;o<a;o++)if(r=i[o].call(n,t,e))return r}function Q(e,t,n){var r,i,o,a,s,u,c,l,f="width"in t||"height"in t,p=this,d={},h=e.style,g=e.nodeType&&Xe(e),v=Be.get(e,"fxshow");n.queue||(a=xe._queueHooks(e,"fx"),null==a.unqueued&&(a.unqueued=0,s=a.empty.fire,a.empty.fire=function(){a.unqueued||s()}),a.unqueued++,p.always(function(){p.always(function(){a.unqueued--,xe.queue(e,"fx").length||a.empty.fire()})}));for(r in t)if(i=t[r],wt.test(i)){if(delete t[r],o=o||"toggle"===i,i===(g?"hide":"show")){if("show"!==i||!v||void 0===v[r])continue;g=!0}d[r]=v&&v[r]||xe.style(e,r)}if(u=!xe.isEmptyObject(t),u||!xe.isEmptyObject(d)){f&&1===e.nodeType&&(n.overflow=[h.overflow,h.overflowX,h.overflowY],c=v&&v.display,null==c&&(c=Be.get(e,"display")),l=xe.css(e,"display"),"none"===l&&(c?l=c:(w([e],!0),c=e.style.display||c,l=xe.css(e,"display"),w([e]))),("inline"===l||"inline-block"===l&&null!=c)&&"none"===xe.css(e,"float")&&(u||(p.done(function(){h.display=c}),null==c&&(l=h.display,c="none"===l?"":l)),h.display="inline-block")),n.overflow&&(h.overflow="hidden",p.always(function(){h.overflow=n.overflow[0],h.overflowX=n.overflow[1],h.overflowY=n.overflow[2]})),u=!1;for(r in d)u||(v?"hidden"in v&&(g=v.hidden):v=Be.access(e,"fxshow",{display:c}),o&&(v.hidden=!g),g&&w([e],!0),p.done(function(){g||w([e]),Be.remove(e,"fxshow");for(r in d)xe.style(e,r,d[r])})),u=X(g?v[r]:0,r,p),r in v||(v[r]=u.start,g&&(u.end=u.start,u.start=0))}}function G(e,t){var n,r,i,o,a;for(n in e)if(r=xe.camelCase(n),i=t[r],o=e[n],Array.isArray(o)&&(i=o[1],o=e[n]=o[0]),n!==r&&(e[r]=o,delete e[n]),a=xe.cssHooks[r],a&&"expand"in a){o=a.expand(o),delete e[r];for(n in o)n in e||(e[n]=o[n],t[n]=i)}else t[r]=i}function Y(e,t,n){var r,i,o=0,a=Y.prefilters.length,s=xe.Deferred().always(function(){delete u.elem}),u=function(){if(i)return!1;for(var t=xt||V(),n=Math.max(0,c.startTime+c.duration-t),r=n/c.duration||0,o=1-r,a=0,u=c.tweens.length;a<u;a++)c.tweens[a].run(o);return s.notifyWith(e,[c,o,n]),o<1&&u?n:(u||s.notifyWith(e,[c,1,0]),s.resolveWith(e,[c]),!1)},c=s.promise({elem:e,props:xe.extend({},t),opts:xe.extend(!0,{specialEasing:{},easing:xe.easing._default},n),originalProperties:t,originalOptions:n,startTime:xt||V(),duration:n.duration,tweens:[],createTween:function(t,n){var r=xe.Tween(e,c.opts,t,n,c.opts.specialEasing[t]||c.opts.easing);return c.tweens.push(r),r},stop:function(t){var n=0,r=t?c.tweens.length:0;if(i)return this;for(i=!0;n<r;n++)c.tweens[n].run(1);return t?(s.notifyWith(e,[c,1,0]),s.resolveWith(e,[c,t])):s.rejectWith(e,[c,t]),this}}),l=c.props;for(G(l,c.opts.specialEasing);o<a;o++)if(r=Y.prefilters[o].call(c,e,l,c.opts))return xe.isFunction(r.stop)&&(xe._queueHooks(c.elem,c.opts.queue).stop=xe.proxy(r.stop,r)),r;return xe.map(l,X,c),xe.isFunction(c.opts.start)&&c.opts.start.call(e,c),c.progress(c.opts.progress).done(c.opts.done,c.opts.complete).fail(c.opts.fail).always(c.opts.always),xe.fx.timer(xe.extend(u,{elem:e,anim:c,queue:c.opts.queue})),c}function J(e){var t=e.match(Pe)||[];return t.join(" ")}function K(e){return e.getAttribute&&e.getAttribute("class")||""}function Z(e,t,n,r){var i;if(Array.isArray(t))xe.each(t,function(t,i){n||qt.test(e)?r(e,i):Z(e+"["+("object"==typeof i&&null!=i?t:"")+"]",i,n,r)});else if(n||"object"!==xe.type(t))r(e,t);else for(i in t)Z(e+"["+i+"]",t[i],n,r)}function ee(e){return function(t,n){"string"!=typeof t&&(n=t,t="*");var r,i=0,o=t.toLowerCase().match(Pe)||[];if(xe.isFunction(n))for(;r=o[i++];)"+"===r[0]?(r=r.slice(1)||"*",(e[r]=e[r]||[]).unshift(n)):(e[r]=e[r]||[]).push(n)}}function te(e,t,n,r){function i(s){var u;return o[s]=!0,xe.each(e[s]||[],function(e,s){var c=s(t,n,r);return"string"!=typeof c||a||o[c]?a?!(u=c):void 0:(t.dataTypes.unshift(c),i(c),!1)}),u}var o={},a=e===zt;return i(t.dataTypes[0])||!o["*"]&&i("*")}function ne(e,t){var n,r,i=xe.ajaxSettings.flatOptions||{};for(n in t)void 0!==t[n]&&((i[n]?e:r||(r={}))[n]=t[n]);return r&&xe.extend(!0,e,r),e}function re(e,t,n){for(var r,i,o,a,s=e.contents,u=e.dataTypes;"*"===u[0];)u.shift(),void 0===r&&(r=e.mimeType||t.getResponseHeader("Content-Type"));if(r)for(i in s)if(s[i]&&s[i].test(r)){u.unshift(i);break}if(u[0]in n)o=u[0];else{for(i in n){if(!u[0]||e.converters[i+" "+u[0]]){o=i;break}a||(a=i)}o=o||a}if(o)return o!==u[0]&&u.unshift(o),n[o]}function ie(e,t,n,r){var i,o,a,s,u,c={},l=e.dataTypes.slice();if(l[1])for(a in e.converters)c[a.toLowerCase()]=e.converters[a];for(o=l.shift();o;)if(e.responseFields[o]&&(n[e.responseFields[o]]=t),!u&&r&&e.dataFilter&&(t=e.dataFilter(t,e.dataType)),u=o,o=l.shift())if("*"===o)o=u;else if("*"!==u&&u!==o){if(a=c[u+" "+o]||c["* "+o],!a)for(i in c)if(s=i.split(" "),s[1]===o&&(a=c[u+" "+s[0]]||c["* "+s[0]])){a===!0?a=c[i]:c[i]!==!0&&(o=s[0],l.unshift(s[1]));break}if(a!==!0)if(a&&e.throws)t=a(t);else try{t=a(t)}catch(e){return{state:"parsererror",error:a?e:"No conversion from "+u+" to "+o}}}return{state:"success",data:t}}var oe=[],ae=n.document,se=Object.getPrototypeOf,ue=oe.slice,ce=oe.concat,le=oe.push,fe=oe.indexOf,pe={},de=pe.toString,he=pe.hasOwnProperty,ge=he.toString,ve=ge.call(Object),me={},ye="3.2.1",xe=function(e,t){return new xe.fn.init(e,t)},be=/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,we=/^-ms-/,Te=/-([a-z])/g,Ce=function(e,t){return t.toUpperCase()};xe.fn=xe.prototype={jquery:ye,constructor:xe,length:0,toArray:function(){return ue.call(this)},get:function(e){return null==e?ue.call(this):e<0?this[e+this.length]:this[e]},pushStack:function(e){var t=xe.merge(this.constructor(),e);return t.prevObject=this,t},each:function(e){return xe.each(this,e)},map:function(e){return this.pushStack(xe.map(this,function(t,n){return e.call(t,n,t)}))},slice:function(){return this.pushStack(ue.apply(this,arguments))},first:function(){return this.eq(0)},last:function(){return this.eq(-1)},eq:function(e){var t=this.length,n=+e+(e<0?t:0);return this.pushStack(n>=0&&n<t?[this[n]]:[])},end:function(){return this.prevObject||this.constructor()},push:le,sort:oe.sort,splice:oe.splice},xe.extend=xe.fn.extend=function(){var e,t,n,r,i,o,a=arguments[0]||{},s=1,u=arguments.length,c=!1;for("boolean"==typeof a&&(c=a,a=arguments[s]||{},s++),"object"==typeof a||xe.isFunction(a)||(a={}),s===u&&(a=this,s--);s<u;s++)if(null!=(e=arguments[s]))for(t in e)n=a[t],r=e[t],a!==r&&(c&&r&&(xe.isPlainObject(r)||(i=Array.isArray(r)))?(i?(i=!1,o=n&&Array.isArray(n)?n:[]):o=n&&xe.isPlainObject(n)?n:{},a[t]=xe.extend(c,o,r)):void 0!==r&&(a[t]=r));return a},xe.extend({expando:"jQuery"+(ye+Math.random()).replace(/\D/g,""),isReady:!0,error:function(e){throw new Error(e)},noop:function(){},isFunction:function(e){return"function"===xe.type(e)},isWindow:function(e){return null!=e&&e===e.window},isNumeric:function(e){var t=xe.type(e);return("number"===t||"string"===t)&&!isNaN(e-parseFloat(e))},isPlainObject:function(e){var t,n;return!(!e||"[object Object]"!==de.call(e))&&(!(t=se(e))||(n=he.call(t,"constructor")&&t.constructor,"function"==typeof n&&ge.call(n)===ve))},isEmptyObject:function(e){var t;for(t in e)return!1;return!0},type:function(e){return null==e?e+"":"object"==typeof e||"function"==typeof e?pe[de.call(e)]||"object":typeof e},globalEval:function(e){a(e)},camelCase:function(e){return e.replace(we,"ms-").replace(Te,Ce)},each:function(e,t){var n,r=0;if(s(e))for(n=e.length;r<n&&t.call(e[r],r,e[r])!==!1;r++);else for(r in e)if(t.call(e[r],r,e[r])===!1)break;return e},trim:function(e){return null==e?"":(e+"").replace(be,"")},makeArray:function(e,t){var n=t||[];return null!=e&&(s(Object(e))?xe.merge(n,"string"==typeof e?[e]:e):le.call(n,e)),n},inArray:function(e,t,n){return null==t?-1:fe.call(t,e,n)},merge:function(e,t){for(var n=+t.length,r=0,i=e.length;r<n;r++)e[i++]=t[r];return e.length=i,e},grep:function(e,t,n){for(var r,i=[],o=0,a=e.length,s=!n;o<a;o++)r=!t(e[o],o),r!==s&&i.push(e[o]);return i},map:function(e,t,n){var r,i,o=0,a=[];if(s(e))for(r=e.length;o<r;o++)i=t(e[o],o,n),null!=i&&a.push(i);else for(o in e)i=t(e[o],o,n),null!=i&&a.push(i);return ce.apply([],a)},guid:1,proxy:function(e,t){var n,r,i;if("string"==typeof t&&(n=e[t],t=e,e=n),xe.isFunction(e))return r=ue.call(arguments,2),i=function(){return e.apply(t||this,r.concat(ue.call(arguments)))},i.guid=e.guid=e.guid||xe.guid++,i},now:Date.now,support:me}),"function"==typeof Symbol&&(xe.fn[Symbol.iterator]=oe[Symbol.iterator]),xe.each("Boolean Number String Function Array Date RegExp Object Error Symbol".split(" "),function(e,t){pe["[object "+t+"]"]=t.toLowerCase()});var ke=/*!
-	 * Sizzle CSS Selector Engine v2.3.3
-	 * https://sizzlejs.com/
-	 *
-	 * Copyright jQuery Foundation and other contributors
-	 * Released under the MIT license
-	 * http://jquery.org/license
-	 *
-	 * Date: 2016-08-08
-	 */
-function(e){function t(e,t,n,r){var i,o,a,s,u,c,l,p=t&&t.ownerDocument,h=t?t.nodeType:9;if(n=n||[],"string"!=typeof e||!e||1!==h&&9!==h&&11!==h)return n;if(!r&&((t?t.ownerDocument||t:W)!==O&&q(t),t=t||O,P)){if(11!==h&&(u=me.exec(e)))if(i=u[1]){if(9===h){if(!(a=t.getElementById(i)))return n;if(a.id===i)return n.push(a),n}else if(p&&(a=p.getElementById(i))&&R(t,a)&&a.id===i)return n.push(a),n}else{if(u[2])return K.apply(n,t.getElementsByTagName(e)),n;if((i=u[3])&&T.getElementsByClassName&&t.getElementsByClassName)return K.apply(n,t.getElementsByClassName(i)),n}if(T.qsa&&!U[e+" "]&&(!F||!F.test(e))){if(1!==h)p=t,l=e;else if("object"!==t.nodeName.toLowerCase()){for((s=t.getAttribute("id"))?s=s.replace(we,Te):t.setAttribute("id",s=B),c=E(e),o=c.length;o--;)c[o]="#"+s+" "+d(c[o]);l=c.join(","),p=ye.test(e)&&f(t.parentNode)||t}if(l)try{return K.apply(n,p.querySelectorAll(l)),n}catch(e){}finally{s===B&&t.removeAttribute("id")}}}return A(e.replace(se,"$1"),t,n,r)}function n(){function e(n,r){return t.push(n+" ")>C.cacheLength&&delete e[t.shift()],e[n+" "]=r}var t=[];return e}function r(e){return e[B]=!0,e}function i(e){var t=O.createElement("fieldset");try{return!!e(t)}catch(e){return!1}finally{t.parentNode&&t.parentNode.removeChild(t),t=null}}function o(e,t){for(var n=e.split("|"),r=n.length;r--;)C.attrHandle[n[r]]=t}function a(e,t){var n=t&&e,r=n&&1===e.nodeType&&1===t.nodeType&&e.sourceIndex-t.sourceIndex;if(r)return r;if(n)for(;n=n.nextSibling;)if(n===t)return-1;return e?1:-1}function s(e){return function(t){var n=t.nodeName.toLowerCase();return"input"===n&&t.type===e}}function u(e){return function(t){var n=t.nodeName.toLowerCase();return("input"===n||"button"===n)&&t.type===e}}function c(e){return function(t){return"form"in t?t.parentNode&&t.disabled===!1?"label"in t?"label"in t.parentNode?t.parentNode.disabled===e:t.disabled===e:t.isDisabled===e||t.isDisabled!==!e&&ke(t)===e:t.disabled===e:"label"in t&&t.disabled===e}}function l(e){return r(function(t){return t=+t,r(function(n,r){for(var i,o=e([],n.length,t),a=o.length;a--;)n[i=o[a]]&&(n[i]=!(r[i]=n[i]))})})}function f(e){return e&&"undefined"!=typeof e.getElementsByTagName&&e}function p(){}function d(e){for(var t=0,n=e.length,r="";t<n;t++)r+=e[t].value;return r}function h(e,t,n){var r=t.dir,i=t.next,o=i||r,a=n&&"parentNode"===o,s=_++;return t.first?function(t,n,i){for(;t=t[r];)if(1===t.nodeType||a)return e(t,n,i);return!1}:function(t,n,u){var c,l,f,p=[$,s];if(u){for(;t=t[r];)if((1===t.nodeType||a)&&e(t,n,u))return!0}else for(;t=t[r];)if(1===t.nodeType||a)if(f=t[B]||(t[B]={}),l=f[t.uniqueID]||(f[t.uniqueID]={}),i&&i===t.nodeName.toLowerCase())t=t[r]||t;else{if((c=l[o])&&c[0]===$&&c[1]===s)return p[2]=c[2];if(l[o]=p,p[2]=e(t,n,u))return!0}return!1}}function g(e){return e.length>1?function(t,n,r){for(var i=e.length;i--;)if(!e[i](t,n,r))return!1;return!0}:e[0]}function v(e,n,r){for(var i=0,o=n.length;i<o;i++)t(e,n[i],r);return r}function m(e,t,n,r,i){for(var o,a=[],s=0,u=e.length,c=null!=t;s<u;s++)(o=e[s])&&(n&&!n(o,r,i)||(a.push(o),c&&t.push(s)));return a}function y(e,t,n,i,o,a){return i&&!i[B]&&(i=y(i)),o&&!o[B]&&(o=y(o,a)),r(function(r,a,s,u){var c,l,f,p=[],d=[],h=a.length,g=r||v(t||"*",s.nodeType?[s]:s,[]),y=!e||!r&&t?g:m(g,p,e,s,u),x=n?o||(r?e:h||i)?[]:a:y;if(n&&n(y,x,s,u),i)for(c=m(x,d),i(c,[],s,u),l=c.length;l--;)(f=c[l])&&(x[d[l]]=!(y[d[l]]=f));if(r){if(o||e){if(o){for(c=[],l=x.length;l--;)(f=x[l])&&c.push(y[l]=f);o(null,x=[],c,u)}for(l=x.length;l--;)(f=x[l])&&(c=o?ee(r,f):p[l])>-1&&(r[c]=!(a[c]=f))}}else x=m(x===a?x.splice(h,x.length):x),o?o(null,a,x,u):K.apply(a,x)})}function x(e){for(var t,n,r,i=e.length,o=C.relative[e[0].type],a=o||C.relative[" "],s=o?1:0,u=h(function(e){return e===t},a,!0),c=h(function(e){return ee(t,e)>-1},a,!0),l=[function(e,n,r){var i=!o&&(r||n!==j)||((t=n).nodeType?u(e,n,r):c(e,n,r));return t=null,i}];s<i;s++)if(n=C.relative[e[s].type])l=[h(g(l),n)];else{if(n=C.filter[e[s].type].apply(null,e[s].matches),n[B]){for(r=++s;r<i&&!C.relative[e[r].type];r++);return y(s>1&&g(l),s>1&&d(e.slice(0,s-1).concat({value:" "===e[s-2].type?"*":""})).replace(se,"$1"),n,s<r&&x(e.slice(s,r)),r<i&&x(e=e.slice(r)),r<i&&d(e))}l.push(n)}return g(l)}function b(e,n){var i=n.length>0,o=e.length>0,a=function(r,a,s,u,c){var l,f,p,d=0,h="0",g=r&&[],v=[],y=j,x=r||o&&C.find.TAG("*",c),b=$+=null==y?1:Math.random()||.1,w=x.length;for(c&&(j=a===O||a||c);h!==w&&null!=(l=x[h]);h++){if(o&&l){for(f=0,a||l.ownerDocument===O||(q(l),s=!P);p=e[f++];)if(p(l,a||O,s)){u.push(l);break}c&&($=b)}i&&((l=!p&&l)&&d--,r&&g.push(l))}if(d+=h,i&&h!==d){for(f=0;p=n[f++];)p(g,v,a,s);if(r){if(d>0)for(;h--;)g[h]||v[h]||(v[h]=Y.call(u));v=m(v)}K.apply(u,v),c&&!r&&v.length>0&&d+n.length>1&&t.uniqueSort(u)}return c&&($=b,j=y),g};return i?r(a):a}var w,T,C,k,S,E,N,A,j,D,M,q,O,L,P,F,I,H,R,B="sizzle"+1*new Date,W=e.document,$=0,_=0,z=n(),V=n(),U=n(),X=function(e,t){return e===t&&(M=!0),0},Q={}.hasOwnProperty,G=[],Y=G.pop,J=G.push,K=G.push,Z=G.slice,ee=function(e,t){for(var n=0,r=e.length;n<r;n++)if(e[n]===t)return n;return-1},te="checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped",ne="[\\x20\\t\\r\\n\\f]",re="(?:\\\\.|[\\w-]|[^\0-\\xa0])+",ie="\\["+ne+"*("+re+")(?:"+ne+"*([*^$|!~]?=)"+ne+"*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|("+re+"))|)"+ne+"*\\]",oe=":("+re+")(?:\\((('((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\")|((?:\\\\.|[^\\\\()[\\]]|"+ie+")*)|.*)\\)|)",ae=new RegExp(ne+"+","g"),se=new RegExp("^"+ne+"+|((?:^|[^\\\\])(?:\\\\.)*)"+ne+"+$","g"),ue=new RegExp("^"+ne+"*,"+ne+"*"),ce=new RegExp("^"+ne+"*([>+~]|"+ne+")"+ne+"*"),le=new RegExp("="+ne+"*([^\\]'\"]*?)"+ne+"*\\]","g"),fe=new RegExp(oe),pe=new RegExp("^"+re+"$"),de={ID:new RegExp("^#("+re+")"),CLASS:new RegExp("^\\.("+re+")"),TAG:new RegExp("^("+re+"|[*])"),ATTR:new RegExp("^"+ie),PSEUDO:new RegExp("^"+oe),CHILD:new RegExp("^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\("+ne+"*(even|odd|(([+-]|)(\\d*)n|)"+ne+"*(?:([+-]|)"+ne+"*(\\d+)|))"+ne+"*\\)|)","i"),bool:new RegExp("^(?:"+te+")$","i"),needsContext:new RegExp("^"+ne+"*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\("+ne+"*((?:-\\d)?\\d*)"+ne+"*\\)|)(?=[^-]|$)","i")},he=/^(?:input|select|textarea|button)$/i,ge=/^h\d$/i,ve=/^[^{]+\{\s*\[native \w/,me=/^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/,ye=/[+~]/,xe=new RegExp("\\\\([\\da-f]{1,6}"+ne+"?|("+ne+")|.)","ig"),be=function(e,t,n){var r="0x"+t-65536;return r!==r||n?t:r<0?String.fromCharCode(r+65536):String.fromCharCode(r>>10|55296,1023&r|56320)},we=/([\0-\x1f\x7f]|^-?\d)|^-$|[^\0-\x1f\x7f-\uFFFF\w-]/g,Te=function(e,t){return t?"\0"===e?"�":e.slice(0,-1)+"\\"+e.charCodeAt(e.length-1).toString(16)+" ":"\\"+e},Ce=function(){q()},ke=h(function(e){return e.disabled===!0&&("form"in e||"label"in e)},{dir:"parentNode",next:"legend"});try{K.apply(G=Z.call(W.childNodes),W.childNodes),G[W.childNodes.length].nodeType}catch(e){K={apply:G.length?function(e,t){J.apply(e,Z.call(t))}:function(e,t){for(var n=e.length,r=0;e[n++]=t[r++];);e.length=n-1}}}T=t.support={},S=t.isXML=function(e){var t=e&&(e.ownerDocument||e).documentElement;return!!t&&"HTML"!==t.nodeName},q=t.setDocument=function(e){var t,n,r=e?e.ownerDocument||e:W;return r!==O&&9===r.nodeType&&r.documentElement?(O=r,L=O.documentElement,P=!S(O),W!==O&&(n=O.defaultView)&&n.top!==n&&(n.addEventListener?n.addEventListener("unload",Ce,!1):n.attachEvent&&n.attachEvent("onunload",Ce)),T.attributes=i(function(e){return e.className="i",!e.getAttribute("className")}),T.getElementsByTagName=i(function(e){return e.appendChild(O.createComment("")),!e.getElementsByTagName("*").length}),T.getElementsByClassName=ve.test(O.getElementsByClassName),T.getById=i(function(e){return L.appendChild(e).id=B,!O.getElementsByName||!O.getElementsByName(B).length}),T.getById?(C.filter.ID=function(e){var t=e.replace(xe,be);return function(e){return e.getAttribute("id")===t}},C.find.ID=function(e,t){if("undefined"!=typeof t.getElementById&&P){var n=t.getElementById(e);return n?[n]:[]}}):(C.filter.ID=function(e){var t=e.replace(xe,be);return function(e){var n="undefined"!=typeof e.getAttributeNode&&e.getAttributeNode("id");return n&&n.value===t}},C.find.ID=function(e,t){if("undefined"!=typeof t.getElementById&&P){var n,r,i,o=t.getElementById(e);if(o){if(n=o.getAttributeNode("id"),n&&n.value===e)return[o];for(i=t.getElementsByName(e),r=0;o=i[r++];)if(n=o.getAttributeNode("id"),n&&n.value===e)return[o]}return[]}}),C.find.TAG=T.getElementsByTagName?function(e,t){return"undefined"!=typeof t.getElementsByTagName?t.getElementsByTagName(e):T.qsa?t.querySelectorAll(e):void 0}:function(e,t){var n,r=[],i=0,o=t.getElementsByTagName(e);if("*"===e){for(;n=o[i++];)1===n.nodeType&&r.push(n);return r}return o},C.find.CLASS=T.getElementsByClassName&&function(e,t){if("undefined"!=typeof t.getElementsByClassName&&P)return t.getElementsByClassName(e)},I=[],F=[],(T.qsa=ve.test(O.querySelectorAll))&&(i(function(e){L.appendChild(e).innerHTML="<a id='"+B+"'></a><select id='"+B+"-\r\\' msallowcapture=''><option selected=''></option></select>",e.querySelectorAll("[msallowcapture^='']").length&&F.push("[*^$]="+ne+"*(?:''|\"\")"),e.querySelectorAll("[selected]").length||F.push("\\["+ne+"*(?:value|"+te+")"),e.querySelectorAll("[id~="+B+"-]").length||F.push("~="),e.querySelectorAll(":checked").length||F.push(":checked"),e.querySelectorAll("a#"+B+"+*").length||F.push(".#.+[+~]")}),i(function(e){e.innerHTML="<a href='' disabled='disabled'></a><select disabled='disabled'><option/></select>";var t=O.createElement("input");t.setAttribute("type","hidden"),e.appendChild(t).setAttribute("name","D"),e.querySelectorAll("[name=d]").length&&F.push("name"+ne+"*[*^$|!~]?="),2!==e.querySelectorAll(":enabled").length&&F.push(":enabled",":disabled"),L.appendChild(e).disabled=!0,2!==e.querySelectorAll(":disabled").length&&F.push(":enabled",":disabled"),e.querySelectorAll("*,:x"),F.push(",.*:")})),(T.matchesSelector=ve.test(H=L.matches||L.webkitMatchesSelector||L.mozMatchesSelector||L.oMatchesSelector||L.msMatchesSelector))&&i(function(e){T.disconnectedMatch=H.call(e,"*"),H.call(e,"[s!='']:x"),I.push("!=",oe)}),F=F.length&&new RegExp(F.join("|")),I=I.length&&new RegExp(I.join("|")),t=ve.test(L.compareDocumentPosition),R=t||ve.test(L.contains)?function(e,t){var n=9===e.nodeType?e.documentElement:e,r=t&&t.parentNode;return e===r||!(!r||1!==r.nodeType||!(n.contains?n.contains(r):e.compareDocumentPosition&&16&e.compareDocumentPosition(r)))}:function(e,t){if(t)for(;t=t.parentNode;)if(t===e)return!0;return!1},X=t?function(e,t){if(e===t)return M=!0,0;var n=!e.compareDocumentPosition-!t.compareDocumentPosition;return n?n:(n=(e.ownerDocument||e)===(t.ownerDocument||t)?e.compareDocumentPosition(t):1,1&n||!T.sortDetached&&t.compareDocumentPosition(e)===n?e===O||e.ownerDocument===W&&R(W,e)?-1:t===O||t.ownerDocument===W&&R(W,t)?1:D?ee(D,e)-ee(D,t):0:4&n?-1:1)}:function(e,t){if(e===t)return M=!0,0;var n,r=0,i=e.parentNode,o=t.parentNode,s=[e],u=[t];if(!i||!o)return e===O?-1:t===O?1:i?-1:o?1:D?ee(D,e)-ee(D,t):0;if(i===o)return a(e,t);for(n=e;n=n.parentNode;)s.unshift(n);for(n=t;n=n.parentNode;)u.unshift(n);for(;s[r]===u[r];)r++;return r?a(s[r],u[r]):s[r]===W?-1:u[r]===W?1:0},O):O},t.matches=function(e,n){return t(e,null,null,n)},t.matchesSelector=function(e,n){if((e.ownerDocument||e)!==O&&q(e),n=n.replace(le,"='$1']"),T.matchesSelector&&P&&!U[n+" "]&&(!I||!I.test(n))&&(!F||!F.test(n)))try{var r=H.call(e,n);if(r||T.disconnectedMatch||e.document&&11!==e.document.nodeType)return r}catch(e){}return t(n,O,null,[e]).length>0},t.contains=function(e,t){return(e.ownerDocument||e)!==O&&q(e),R(e,t)},t.attr=function(e,t){(e.ownerDocument||e)!==O&&q(e);var n=C.attrHandle[t.toLowerCase()],r=n&&Q.call(C.attrHandle,t.toLowerCase())?n(e,t,!P):void 0;return void 0!==r?r:T.attributes||!P?e.getAttribute(t):(r=e.getAttributeNode(t))&&r.specified?r.value:null},t.escape=function(e){return(e+"").replace(we,Te)},t.error=function(e){throw new Error("Syntax error, unrecognized expression: "+e)},t.uniqueSort=function(e){var t,n=[],r=0,i=0;if(M=!T.detectDuplicates,D=!T.sortStable&&e.slice(0),e.sort(X),M){for(;t=e[i++];)t===e[i]&&(r=n.push(i));for(;r--;)e.splice(n[r],1)}return D=null,e},k=t.getText=function(e){var t,n="",r=0,i=e.nodeType;if(i){if(1===i||9===i||11===i){if("string"==typeof e.textContent)return e.textContent;for(e=e.firstChild;e;e=e.nextSibling)n+=k(e)}else if(3===i||4===i)return e.nodeValue}else for(;t=e[r++];)n+=k(t);return n},C=t.selectors={cacheLength:50,createPseudo:r,match:de,attrHandle:{},find:{},relative:{">":{dir:"parentNode",first:!0}," ":{dir:"parentNode"},"+":{dir:"previousSibling",first:!0},"~":{dir:"previousSibling"}},preFilter:{ATTR:function(e){return e[1]=e[1].replace(xe,be),e[3]=(e[3]||e[4]||e[5]||"").replace(xe,be),"~="===e[2]&&(e[3]=" "+e[3]+" "),e.slice(0,4)},CHILD:function(e){return e[1]=e[1].toLowerCase(),"nth"===e[1].slice(0,3)?(e[3]||t.error(e[0]),e[4]=+(e[4]?e[5]+(e[6]||1):2*("even"===e[3]||"odd"===e[3])),e[5]=+(e[7]+e[8]||"odd"===e[3])):e[3]&&t.error(e[0]),e},PSEUDO:function(e){var t,n=!e[6]&&e[2];return de.CHILD.test(e[0])?null:(e[3]?e[2]=e[4]||e[5]||"":n&&fe.test(n)&&(t=E(n,!0))&&(t=n.indexOf(")",n.length-t)-n.length)&&(e[0]=e[0].slice(0,t),e[2]=n.slice(0,t)),e.slice(0,3))}},filter:{TAG:function(e){var t=e.replace(xe,be).toLowerCase();return"*"===e?function(){return!0}:function(e){return e.nodeName&&e.nodeName.toLowerCase()===t}},CLASS:function(e){var t=z[e+" "];return t||(t=new RegExp("(^|"+ne+")"+e+"("+ne+"|$)"))&&z(e,function(e){return t.test("string"==typeof e.className&&e.className||"undefined"!=typeof e.getAttribute&&e.getAttribute("class")||"")})},ATTR:function(e,n,r){return function(i){var o=t.attr(i,e);return null==o?"!="===n:!n||(o+="","="===n?o===r:"!="===n?o!==r:"^="===n?r&&0===o.indexOf(r):"*="===n?r&&o.indexOf(r)>-1:"$="===n?r&&o.slice(-r.length)===r:"~="===n?(" "+o.replace(ae," ")+" ").indexOf(r)>-1:"|="===n&&(o===r||o.slice(0,r.length+1)===r+"-"))}},CHILD:function(e,t,n,r,i){var o="nth"!==e.slice(0,3),a="last"!==e.slice(-4),s="of-type"===t;return 1===r&&0===i?function(e){return!!e.parentNode}:function(t,n,u){var c,l,f,p,d,h,g=o!==a?"nextSibling":"previousSibling",v=t.parentNode,m=s&&t.nodeName.toLowerCase(),y=!u&&!s,x=!1;if(v){if(o){for(;g;){for(p=t;p=p[g];)if(s?p.nodeName.toLowerCase()===m:1===p.nodeType)return!1;h=g="only"===e&&!h&&"nextSibling"}return!0}if(h=[a?v.firstChild:v.lastChild],a&&y){for(p=v,f=p[B]||(p[B]={}),l=f[p.uniqueID]||(f[p.uniqueID]={}),c=l[e]||[],d=c[0]===$&&c[1],x=d&&c[2],p=d&&v.childNodes[d];p=++d&&p&&p[g]||(x=d=0)||h.pop();)if(1===p.nodeType&&++x&&p===t){l[e]=[$,d,x];break}}else if(y&&(p=t,f=p[B]||(p[B]={}),l=f[p.uniqueID]||(f[p.uniqueID]={}),c=l[e]||[],d=c[0]===$&&c[1],x=d),x===!1)for(;(p=++d&&p&&p[g]||(x=d=0)||h.pop())&&((s?p.nodeName.toLowerCase()!==m:1!==p.nodeType)||!++x||(y&&(f=p[B]||(p[B]={}),l=f[p.uniqueID]||(f[p.uniqueID]={}),l[e]=[$,x]),p!==t)););return x-=i,x===r||x%r===0&&x/r>=0}}},PSEUDO:function(e,n){var i,o=C.pseudos[e]||C.setFilters[e.toLowerCase()]||t.error("unsupported pseudo: "+e);return o[B]?o(n):o.length>1?(i=[e,e,"",n],C.setFilters.hasOwnProperty(e.toLowerCase())?r(function(e,t){for(var r,i=o(e,n),a=i.length;a--;)r=ee(e,i[a]),e[r]=!(t[r]=i[a])}):function(e){return o(e,0,i)}):o}},pseudos:{not:r(function(e){var t=[],n=[],i=N(e.replace(se,"$1"));return i[B]?r(function(e,t,n,r){for(var o,a=i(e,null,r,[]),s=e.length;s--;)(o=a[s])&&(e[s]=!(t[s]=o))}):function(e,r,o){return t[0]=e,i(t,null,o,n),t[0]=null,!n.pop()}}),has:r(function(e){return function(n){return t(e,n).length>0}}),contains:r(function(e){return e=e.replace(xe,be),function(t){return(t.textContent||t.innerText||k(t)).indexOf(e)>-1}}),lang:r(function(e){return pe.test(e||"")||t.error("unsupported lang: "+e),e=e.replace(xe,be).toLowerCase(),function(t){var n;do if(n=P?t.lang:t.getAttribute("xml:lang")||t.getAttribute("lang"))return n=n.toLowerCase(),n===e||0===n.indexOf(e+"-");while((t=t.parentNode)&&1===t.nodeType);return!1}}),target:function(t){var n=e.location&&e.location.hash;return n&&n.slice(1)===t.id},root:function(e){return e===L},focus:function(e){return e===O.activeElement&&(!O.hasFocus||O.hasFocus())&&!!(e.type||e.href||~e.tabIndex)},enabled:c(!1),disabled:c(!0),checked:function(e){var t=e.nodeName.toLowerCase();return"input"===t&&!!e.checked||"option"===t&&!!e.selected},selected:function(e){return e.parentNode&&e.parentNode.selectedIndex,e.selected===!0},empty:function(e){for(e=e.firstChild;e;e=e.nextSibling)if(e.nodeType<6)return!1;return!0},parent:function(e){return!C.pseudos.empty(e)},header:function(e){return ge.test(e.nodeName)},input:function(e){return he.test(e.nodeName)},button:function(e){var t=e.nodeName.toLowerCase();return"input"===t&&"button"===e.type||"button"===t},text:function(e){var t;return"input"===e.nodeName.toLowerCase()&&"text"===e.type&&(null==(t=e.getAttribute("type"))||"text"===t.toLowerCase())},first:l(function(){return[0]}),last:l(function(e,t){return[t-1]}),eq:l(function(e,t,n){return[n<0?n+t:n]}),even:l(function(e,t){for(var n=0;n<t;n+=2)e.push(n);return e}),odd:l(function(e,t){for(var n=1;n<t;n+=2)e.push(n);return e}),lt:l(function(e,t,n){for(var r=n<0?n+t:n;--r>=0;)e.push(r);return e}),gt:l(function(e,t,n){for(var r=n<0?n+t:n;++r<t;)e.push(r);return e})}},C.pseudos.nth=C.pseudos.eq;for(w in{radio:!0,checkbox:!0,file:!0,password:!0,image:!0})C.pseudos[w]=s(w);for(w in{submit:!0,reset:!0})C.pseudos[w]=u(w);return p.prototype=C.filters=C.pseudos,C.setFilters=new p,E=t.tokenize=function(e,n){var r,i,o,a,s,u,c,l=V[e+" "];if(l)return n?0:l.slice(0);for(s=e,u=[],c=C.preFilter;s;){r&&!(i=ue.exec(s))||(i&&(s=s.slice(i[0].length)||s),u.push(o=[])),r=!1,(i=ce.exec(s))&&(r=i.shift(),o.push({value:r,type:i[0].replace(se," ")}),s=s.slice(r.length));for(a in C.filter)!(i=de[a].exec(s))||c[a]&&!(i=c[a](i))||(r=i.shift(),o.push({value:r,type:a,matches:i}),s=s.slice(r.length));if(!r)break}return n?s.length:s?t.error(e):V(e,u).slice(0)},N=t.compile=function(e,t){var n,r=[],i=[],o=U[e+" "];if(!o){for(t||(t=E(e)),n=t.length;n--;)o=x(t[n]),o[B]?r.push(o):i.push(o);o=U(e,b(i,r)),o.selector=e}return o},A=t.select=function(e,t,n,r){var i,o,a,s,u,c="function"==typeof e&&e,l=!r&&E(e=c.selector||e);if(n=n||[],1===l.length){if(o=l[0]=l[0].slice(0),o.length>2&&"ID"===(a=o[0]).type&&9===t.nodeType&&P&&C.relative[o[1].type]){if(t=(C.find.ID(a.matches[0].replace(xe,be),t)||[])[0],!t)return n;c&&(t=t.parentNode),e=e.slice(o.shift().value.length)}for(i=de.needsContext.test(e)?0:o.length;i--&&(a=o[i],!C.relative[s=a.type]);)if((u=C.find[s])&&(r=u(a.matches[0].replace(xe,be),ye.test(o[0].type)&&f(t.parentNode)||t))){if(o.splice(i,1),e=r.length&&d(o),!e)return K.apply(n,r),n;break}}return(c||N(e,l))(r,t,!P,n,!t||ye.test(e)&&f(t.parentNode)||t),n},T.sortStable=B.split("").sort(X).join("")===B,T.detectDuplicates=!!M,q(),T.sortDetached=i(function(e){return 1&e.compareDocumentPosition(O.createElement("fieldset"))}),i(function(e){return e.innerHTML="<a href='#'></a>","#"===e.firstChild.getAttribute("href")})||o("type|href|height|width",function(e,t,n){if(!n)return e.getAttribute(t,"type"===t.toLowerCase()?1:2)}),T.attributes&&i(function(e){return e.innerHTML="<input/>",e.firstChild.setAttribute("value",""),""===e.firstChild.getAttribute("value")})||o("value",function(e,t,n){if(!n&&"input"===e.nodeName.toLowerCase())return e.defaultValue}),i(function(e){return null==e.getAttribute("disabled")})||o(te,function(e,t,n){var r;if(!n)return e[t]===!0?t.toLowerCase():(r=e.getAttributeNode(t))&&r.specified?r.value:null}),t}(n);xe.find=ke,xe.expr=ke.selectors,xe.expr[":"]=xe.expr.pseudos,xe.uniqueSort=xe.unique=ke.uniqueSort,xe.text=ke.getText,xe.isXMLDoc=ke.isXML,xe.contains=ke.contains,xe.escapeSelector=ke.escape;var Se=function(e,t,n){for(var r=[],i=void 0!==n;(e=e[t])&&9!==e.nodeType;)if(1===e.nodeType){if(i&&xe(e).is(n))break;r.push(e)}return r},Ee=function(e,t){for(var n=[];e;e=e.nextSibling)1===e.nodeType&&e!==t&&n.push(e);return n},Ne=xe.expr.match.needsContext,Ae=/^<([a-z][^\/\0>:\x20\t\r\n\f]*)[\x20\t\r\n\f]*\/?>(?:<\/\1>|)$/i,je=/^.[^:#\[\.,]*$/;xe.filter=function(e,t,n){var r=t[0];return n&&(e=":not("+e+")"),1===t.length&&1===r.nodeType?xe.find.matchesSelector(r,e)?[r]:[]:xe.find.matches(e,xe.grep(t,function(e){return 1===e.nodeType}))},xe.fn.extend({find:function(e){var t,n,r=this.length,i=this;if("string"!=typeof e)return this.pushStack(xe(e).filter(function(){for(t=0;t<r;t++)if(xe.contains(i[t],this))return!0}));for(n=this.pushStack([]),t=0;t<r;t++)xe.find(e,i[t],n);return r>1?xe.uniqueSort(n):n},filter:function(e){return this.pushStack(c(this,e||[],!1))},not:function(e){return this.pushStack(c(this,e||[],!0))},is:function(e){return!!c(this,"string"==typeof e&&Ne.test(e)?xe(e):e||[],!1).length}});var De,Me=/^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]+))$/,qe=xe.fn.init=function(e,t,n){var r,i;if(!e)return this;if(n=n||De,"string"==typeof e){if(r="<"===e[0]&&">"===e[e.length-1]&&e.length>=3?[null,e,null]:Me.exec(e),!r||!r[1]&&t)return!t||t.jquery?(t||n).find(e):this.constructor(t).find(e);if(r[1]){if(t=t instanceof xe?t[0]:t,xe.merge(this,xe.parseHTML(r[1],t&&t.nodeType?t.ownerDocument||t:ae,!0)),Ae.test(r[1])&&xe.isPlainObject(t))for(r in t)xe.isFunction(this[r])?this[r](t[r]):this.attr(r,t[r]);return this}return i=ae.getElementById(r[2]),i&&(this[0]=i,this.length=1),this}return e.nodeType?(this[0]=e,this.length=1,this):xe.isFunction(e)?void 0!==n.ready?n.ready(e):e(xe):xe.makeArray(e,this)};qe.prototype=xe.fn,De=xe(ae);var Oe=/^(?:parents|prev(?:Until|All))/,Le={children:!0,contents:!0,next:!0,prev:!0};xe.fn.extend({has:function(e){var t=xe(e,this),n=t.length;return this.filter(function(){for(var e=0;e<n;e++)if(xe.contains(this,t[e]))return!0})},closest:function(e,t){var n,r=0,i=this.length,o=[],a="string"!=typeof e&&xe(e);if(!Ne.test(e))for(;r<i;r++)for(n=this[r];n&&n!==t;n=n.parentNode)if(n.nodeType<11&&(a?a.index(n)>-1:1===n.nodeType&&xe.find.matchesSelector(n,e))){o.push(n);break}return this.pushStack(o.length>1?xe.uniqueSort(o):o)},index:function(e){return e?"string"==typeof e?fe.call(xe(e),this[0]):fe.call(this,e.jquery?e[0]:e):this[0]&&this[0].parentNode?this.first().prevAll().length:-1},add:function(e,t){return this.pushStack(xe.uniqueSort(xe.merge(this.get(),xe(e,t))))},addBack:function(e){return this.add(null==e?this.prevObject:this.prevObject.filter(e))}}),xe.each({parent:function(e){var t=e.parentNode;return t&&11!==t.nodeType?t:null},parents:function(e){return Se(e,"parentNode")},parentsUntil:function(e,t,n){return Se(e,"parentNode",n)},next:function(e){return l(e,"nextSibling")},prev:function(e){return l(e,"previousSibling")},nextAll:function(e){return Se(e,"nextSibling")},prevAll:function(e){return Se(e,"previousSibling")},nextUntil:function(e,t,n){return Se(e,"nextSibling",n)},prevUntil:function(e,t,n){return Se(e,"previousSibling",n)},siblings:function(e){return Ee((e.parentNode||{}).firstChild,e)},children:function(e){return Ee(e.firstChild)},contents:function(e){return u(e,"iframe")?e.contentDocument:(u(e,"template")&&(e=e.content||e),xe.merge([],e.childNodes))}},function(e,t){xe.fn[e]=function(n,r){var i=xe.map(this,t,n);return"Until"!==e.slice(-5)&&(r=n),r&&"string"==typeof r&&(i=xe.filter(r,i)),this.length>1&&(Le[e]||xe.uniqueSort(i),Oe.test(e)&&i.reverse()),this.pushStack(i)}});var Pe=/[^\x20\t\r\n\f]+/g;xe.Callbacks=function(e){e="string"==typeof e?f(e):xe.extend({},e);var t,n,r,i,o=[],a=[],s=-1,u=function(){for(i=i||e.once,r=t=!0;a.length;s=-1)for(n=a.shift();++s<o.length;)o[s].apply(n[0],n[1])===!1&&e.stopOnFalse&&(s=o.length,n=!1);e.memory||(n=!1),t=!1,i&&(o=n?[]:"")},c={add:function(){return o&&(n&&!t&&(s=o.length-1,a.push(n)),function t(n){xe.each(n,function(n,r){xe.isFunction(r)?e.unique&&c.has(r)||o.push(r):r&&r.length&&"string"!==xe.type(r)&&t(r)})}(arguments),n&&!t&&u()),this},remove:function(){return xe.each(arguments,function(e,t){for(var n;(n=xe.inArray(t,o,n))>-1;)o.splice(n,1),n<=s&&s--}),this},has:function(e){return e?xe.inArray(e,o)>-1:o.length>0},empty:function(){return o&&(o=[]),this},disable:function(){return i=a=[],o=n="",this},disabled:function(){return!o},lock:function(){return i=a=[],n||t||(o=n=""),this},locked:function(){return!!i},fireWith:function(e,n){return i||(n=n||[],n=[e,n.slice?n.slice():n],a.push(n),t||u()),this},fire:function(){return c.fireWith(this,arguments),this},fired:function(){return!!r}};return c},xe.extend({Deferred:function(e){var t=[["notify","progress",xe.Callbacks("memory"),xe.Callbacks("memory"),2],["resolve","done",xe.Callbacks("once memory"),xe.Callbacks("once memory"),0,"resolved"],["reject","fail",xe.Callbacks("once memory"),xe.Callbacks("once memory"),1,"rejected"]],r="pending",i={state:function(){return r},always:function(){return o.done(arguments).fail(arguments),this},catch:function(e){return i.then(null,e)},pipe:function(){var e=arguments;return xe.Deferred(function(n){xe.each(t,function(t,r){var i=xe.isFunction(e[r[4]])&&e[r[4]];o[r[1]](function(){var e=i&&i.apply(this,arguments);e&&xe.isFunction(e.promise)?e.promise().progress(n.notify).done(n.resolve).fail(n.reject):n[r[0]+"With"](this,i?[e]:arguments)})}),e=null}).promise()},then:function(e,r,i){function o(e,t,r,i){return function(){var s=this,u=arguments,c=function(){var n,c;if(!(e<a)){if(n=r.apply(s,u),n===t.promise())throw new TypeError("Thenable self-resolution");c=n&&("object"==typeof n||"function"==typeof n)&&n.then,xe.isFunction(c)?i?c.call(n,o(a,t,p,i),o(a,t,d,i)):(a++,c.call(n,o(a,t,p,i),o(a,t,d,i),o(a,t,p,t.notifyWith))):(r!==p&&(s=void 0,u=[n]),(i||t.resolveWith)(s,u))}},l=i?c:function(){try{c()}catch(n){xe.Deferred.exceptionHook&&xe.Deferred.exceptionHook(n,l.stackTrace),e+1>=a&&(r!==d&&(s=void 0,u=[n]),t.rejectWith(s,u))}};e?l():(xe.Deferred.getStackHook&&(l.stackTrace=xe.Deferred.getStackHook()),n.setTimeout(l))}}var a=0;return xe.Deferred(function(n){t[0][3].add(o(0,n,xe.isFunction(i)?i:p,n.notifyWith)),t[1][3].add(o(0,n,xe.isFunction(e)?e:p)),t[2][3].add(o(0,n,xe.isFunction(r)?r:d))}).promise()},promise:function(e){return null!=e?xe.extend(e,i):i}},o={};return xe.each(t,function(e,n){var a=n[2],s=n[5];i[n[1]]=a.add,s&&a.add(function(){r=s},t[3-e][2].disable,t[0][2].lock),a.add(n[3].fire),o[n[0]]=function(){return o[n[0]+"With"](this===o?void 0:this,arguments),this},o[n[0]+"With"]=a.fireWith}),i.promise(o),e&&e.call(o,o),o},when:function(e){var t=arguments.length,n=t,r=Array(n),i=ue.call(arguments),o=xe.Deferred(),a=function(e){return function(n){r[e]=this,i[e]=arguments.length>1?ue.call(arguments):n,--t||o.resolveWith(r,i)}};if(t<=1&&(h(e,o.done(a(n)).resolve,o.reject,!t),"pending"===o.state()||xe.isFunction(i[n]&&i[n].then)))return o.then();for(;n--;)h(i[n],a(n),o.reject);return o.promise()}});var Fe=/^(Eval|Internal|Range|Reference|Syntax|Type|URI)Error$/;xe.Deferred.exceptionHook=function(e,t){n.console&&n.console.warn&&e&&Fe.test(e.name)&&n.console.warn("jQuery.Deferred exception: "+e.message,e.stack,t)},xe.readyException=function(e){n.setTimeout(function(){throw e})};var Ie=xe.Deferred();xe.fn.ready=function(e){return Ie.then(e).catch(function(e){xe.readyException(e)}),this},xe.extend({isReady:!1,readyWait:1,ready:function(e){(e===!0?--xe.readyWait:xe.isReady)||(xe.isReady=!0,e!==!0&&--xe.readyWait>0||Ie.resolveWith(ae,[xe]))}}),xe.ready.then=Ie.then,"complete"===ae.readyState||"loading"!==ae.readyState&&!ae.documentElement.doScroll?n.setTimeout(xe.ready):(ae.addEventListener("DOMContentLoaded",g),n.addEventListener("load",g));var He=function(e,t,n,r,i,o,a){var s=0,u=e.length,c=null==n;if("object"===xe.type(n)){i=!0;for(s in n)He(e,t,s,n[s],!0,o,a)}else if(void 0!==r&&(i=!0,xe.isFunction(r)||(a=!0),c&&(a?(t.call(e,r),t=null):(c=t,t=function(e,t,n){return c.call(xe(e),n)})),t))for(;s<u;s++)t(e[s],n,a?r:r.call(e[s],s,t(e[s],n)));return i?e:c?t.call(e):u?t(e[0],n):o},Re=function(e){return 1===e.nodeType||9===e.nodeType||!+e.nodeType};v.uid=1,v.prototype={cache:function(e){var t=e[this.expando];return t||(t={},Re(e)&&(e.nodeType?e[this.expando]=t:Object.defineProperty(e,this.expando,{value:t,configurable:!0}))),t},set:function(e,t,n){var r,i=this.cache(e);if("string"==typeof t)i[xe.camelCase(t)]=n;else for(r in t)i[xe.camelCase(r)]=t[r];return i},get:function(e,t){return void 0===t?this.cache(e):e[this.expando]&&e[this.expando][xe.camelCase(t)]},access:function(e,t,n){return void 0===t||t&&"string"==typeof t&&void 0===n?this.get(e,t):(this.set(e,t,n),void 0!==n?n:t)},remove:function(e,t){var n,r=e[this.expando];if(void 0!==r){if(void 0!==t){Array.isArray(t)?t=t.map(xe.camelCase):(t=xe.camelCase(t),t=t in r?[t]:t.match(Pe)||[]),n=t.length;for(;n--;)delete r[t[n]]}(void 0===t||xe.isEmptyObject(r))&&(e.nodeType?e[this.expando]=void 0:delete e[this.expando])}},hasData:function(e){var t=e[this.expando];return void 0!==t&&!xe.isEmptyObject(t)}};var Be=new v,We=new v,$e=/^(?:\{[\w\W]*\}|\[[\w\W]*\])$/,_e=/[A-Z]/g;xe.extend({hasData:function(e){return We.hasData(e)||Be.hasData(e)},data:function(e,t,n){return We.access(e,t,n)},removeData:function(e,t){We.remove(e,t)},_data:function(e,t,n){return Be.access(e,t,n)},_removeData:function(e,t){Be.remove(e,t)}}),xe.fn.extend({data:function(e,t){var n,r,i,o=this[0],a=o&&o.attributes;if(void 0===e){if(this.length&&(i=We.get(o),1===o.nodeType&&!Be.get(o,"hasDataAttrs"))){for(n=a.length;n--;)a[n]&&(r=a[n].name,0===r.indexOf("data-")&&(r=xe.camelCase(r.slice(5)),y(o,r,i[r])));Be.set(o,"hasDataAttrs",!0)}return i}return"object"==typeof e?this.each(function(){We.set(this,e)}):He(this,function(t){var n;if(o&&void 0===t){if(n=We.get(o,e),void 0!==n)return n;if(n=y(o,e),void 0!==n)return n}else this.each(function(){We.set(this,e,t)})},null,t,arguments.length>1,null,!0)},removeData:function(e){return this.each(function(){We.remove(this,e)})}}),xe.extend({queue:function(e,t,n){var r;if(e)return t=(t||"fx")+"queue",r=Be.get(e,t),n&&(!r||Array.isArray(n)?r=Be.access(e,t,xe.makeArray(n)):r.push(n)),r||[]},dequeue:function(e,t){t=t||"fx";var n=xe.queue(e,t),r=n.length,i=n.shift(),o=xe._queueHooks(e,t),a=function(){xe.dequeue(e,t)};"inprogress"===i&&(i=n.shift(),r--),i&&("fx"===t&&n.unshift("inprogress"),delete o.stop,i.call(e,a,o)),!r&&o&&o.empty.fire()},_queueHooks:function(e,t){var n=t+"queueHooks";return Be.get(e,n)||Be.access(e,n,{empty:xe.Callbacks("once memory").add(function(){Be.remove(e,[t+"queue",n])})})}}),xe.fn.extend({queue:function(e,t){var n=2;return"string"!=typeof e&&(t=e,e="fx",n--),arguments.length<n?xe.queue(this[0],e):void 0===t?this:this.each(function(){var n=xe.queue(this,e,t);xe._queueHooks(this,e),"fx"===e&&"inprogress"!==n[0]&&xe.dequeue(this,e)})},dequeue:function(e){return this.each(function(){xe.dequeue(this,e)})},clearQueue:function(e){return this.queue(e||"fx",[])},promise:function(e,t){var n,r=1,i=xe.Deferred(),o=this,a=this.length,s=function(){--r||i.resolveWith(o,[o])};for("string"!=typeof e&&(t=e,e=void 0),e=e||"fx";a--;)n=Be.get(o[a],e+"queueHooks"),n&&n.empty&&(r++,n.empty.add(s));return s(),i.promise(t)}});var ze=/[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/.source,Ve=new RegExp("^(?:([+-])=|)("+ze+")([a-z%]*)$","i"),Ue=["Top","Right","Bottom","Left"],Xe=function(e,t){return e=t||e,"none"===e.style.display||""===e.style.display&&xe.contains(e.ownerDocument,e)&&"none"===xe.css(e,"display")},Qe=function(e,t,n,r){var i,o,a={};for(o in t)a[o]=e.style[o],e.style[o]=t[o];i=n.apply(e,r||[]);for(o in t)e.style[o]=a[o];return i},Ge={};xe.fn.extend({show:function(){return w(this,!0)},hide:function(){return w(this)},toggle:function(e){return"boolean"==typeof e?e?this.show():this.hide():this.each(function(){Xe(this)?xe(this).show():xe(this).hide()})}});var Ye=/^(?:checkbox|radio)$/i,Je=/<([a-z][^\/\0>\x20\t\r\n\f]+)/i,Ke=/^$|\/(?:java|ecma)script/i,Ze={option:[1,"<select multiple='multiple'>","</select>"],thead:[1,"<table>","</table>"],col:[2,"<table><colgroup>","</colgroup></table>"],tr:[2,"<table><tbody>","</tbody></table>"],td:[3,"<table><tbody><tr>","</tr></tbody></table>"],_default:[0,"",""]};Ze.optgroup=Ze.option,Ze.tbody=Ze.tfoot=Ze.colgroup=Ze.caption=Ze.thead,
-Ze.th=Ze.td;var et=/<|&#?\w+;/;!function(){var e=ae.createDocumentFragment(),t=e.appendChild(ae.createElement("div")),n=ae.createElement("input");n.setAttribute("type","radio"),n.setAttribute("checked","checked"),n.setAttribute("name","t"),t.appendChild(n),me.checkClone=t.cloneNode(!0).cloneNode(!0).lastChild.checked,t.innerHTML="<textarea>x</textarea>",me.noCloneChecked=!!t.cloneNode(!0).lastChild.defaultValue}();var tt=ae.documentElement,nt=/^key/,rt=/^(?:mouse|pointer|contextmenu|drag|drop)|click/,it=/^([^.]*)(?:\.(.+)|)/;xe.event={global:{},add:function(e,t,n,r,i){var o,a,s,u,c,l,f,p,d,h,g,v=Be.get(e);if(v)for(n.handler&&(o=n,n=o.handler,i=o.selector),i&&xe.find.matchesSelector(tt,i),n.guid||(n.guid=xe.guid++),(u=v.events)||(u=v.events={}),(a=v.handle)||(a=v.handle=function(t){return"undefined"!=typeof xe&&xe.event.triggered!==t.type?xe.event.dispatch.apply(e,arguments):void 0}),t=(t||"").match(Pe)||[""],c=t.length;c--;)s=it.exec(t[c])||[],d=g=s[1],h=(s[2]||"").split(".").sort(),d&&(f=xe.event.special[d]||{},d=(i?f.delegateType:f.bindType)||d,f=xe.event.special[d]||{},l=xe.extend({type:d,origType:g,data:r,handler:n,guid:n.guid,selector:i,needsContext:i&&xe.expr.match.needsContext.test(i),namespace:h.join(".")},o),(p=u[d])||(p=u[d]=[],p.delegateCount=0,f.setup&&f.setup.call(e,r,h,a)!==!1||e.addEventListener&&e.addEventListener(d,a)),f.add&&(f.add.call(e,l),l.handler.guid||(l.handler.guid=n.guid)),i?p.splice(p.delegateCount++,0,l):p.push(l),xe.event.global[d]=!0)},remove:function(e,t,n,r,i){var o,a,s,u,c,l,f,p,d,h,g,v=Be.hasData(e)&&Be.get(e);if(v&&(u=v.events)){for(t=(t||"").match(Pe)||[""],c=t.length;c--;)if(s=it.exec(t[c])||[],d=g=s[1],h=(s[2]||"").split(".").sort(),d){for(f=xe.event.special[d]||{},d=(r?f.delegateType:f.bindType)||d,p=u[d]||[],s=s[2]&&new RegExp("(^|\\.)"+h.join("\\.(?:.*\\.|)")+"(\\.|$)"),a=o=p.length;o--;)l=p[o],!i&&g!==l.origType||n&&n.guid!==l.guid||s&&!s.test(l.namespace)||r&&r!==l.selector&&("**"!==r||!l.selector)||(p.splice(o,1),l.selector&&p.delegateCount--,f.remove&&f.remove.call(e,l));a&&!p.length&&(f.teardown&&f.teardown.call(e,h,v.handle)!==!1||xe.removeEvent(e,d,v.handle),delete u[d])}else for(d in u)xe.event.remove(e,d+t[c],n,r,!0);xe.isEmptyObject(u)&&Be.remove(e,"handle events")}},dispatch:function(e){var t,n,r,i,o,a,s=xe.event.fix(e),u=new Array(arguments.length),c=(Be.get(this,"events")||{})[s.type]||[],l=xe.event.special[s.type]||{};for(u[0]=s,t=1;t<arguments.length;t++)u[t]=arguments[t];if(s.delegateTarget=this,!l.preDispatch||l.preDispatch.call(this,s)!==!1){for(a=xe.event.handlers.call(this,s,c),t=0;(i=a[t++])&&!s.isPropagationStopped();)for(s.currentTarget=i.elem,n=0;(o=i.handlers[n++])&&!s.isImmediatePropagationStopped();)s.rnamespace&&!s.rnamespace.test(o.namespace)||(s.handleObj=o,s.data=o.data,r=((xe.event.special[o.origType]||{}).handle||o.handler).apply(i.elem,u),void 0!==r&&(s.result=r)===!1&&(s.preventDefault(),s.stopPropagation()));return l.postDispatch&&l.postDispatch.call(this,s),s.result}},handlers:function(e,t){var n,r,i,o,a,s=[],u=t.delegateCount,c=e.target;if(u&&c.nodeType&&!("click"===e.type&&e.button>=1))for(;c!==this;c=c.parentNode||this)if(1===c.nodeType&&("click"!==e.type||c.disabled!==!0)){for(o=[],a={},n=0;n<u;n++)r=t[n],i=r.selector+" ",void 0===a[i]&&(a[i]=r.needsContext?xe(i,this).index(c)>-1:xe.find(i,this,null,[c]).length),a[i]&&o.push(r);o.length&&s.push({elem:c,handlers:o})}return c=this,u<t.length&&s.push({elem:c,handlers:t.slice(u)}),s},addProp:function(e,t){Object.defineProperty(xe.Event.prototype,e,{enumerable:!0,configurable:!0,get:xe.isFunction(t)?function(){if(this.originalEvent)return t(this.originalEvent)}:function(){if(this.originalEvent)return this.originalEvent[e]},set:function(t){Object.defineProperty(this,e,{enumerable:!0,configurable:!0,writable:!0,value:t})}})},fix:function(e){return e[xe.expando]?e:new xe.Event(e)},special:{load:{noBubble:!0},focus:{trigger:function(){if(this!==N()&&this.focus)return this.focus(),!1},delegateType:"focusin"},blur:{trigger:function(){if(this===N()&&this.blur)return this.blur(),!1},delegateType:"focusout"},click:{trigger:function(){if("checkbox"===this.type&&this.click&&u(this,"input"))return this.click(),!1},_default:function(e){return u(e.target,"a")}},beforeunload:{postDispatch:function(e){void 0!==e.result&&e.originalEvent&&(e.originalEvent.returnValue=e.result)}}}},xe.removeEvent=function(e,t,n){e.removeEventListener&&e.removeEventListener(t,n)},xe.Event=function(e,t){return this instanceof xe.Event?(e&&e.type?(this.originalEvent=e,this.type=e.type,this.isDefaultPrevented=e.defaultPrevented||void 0===e.defaultPrevented&&e.returnValue===!1?S:E,this.target=e.target&&3===e.target.nodeType?e.target.parentNode:e.target,this.currentTarget=e.currentTarget,this.relatedTarget=e.relatedTarget):this.type=e,t&&xe.extend(this,t),this.timeStamp=e&&e.timeStamp||xe.now(),void(this[xe.expando]=!0)):new xe.Event(e,t)},xe.Event.prototype={constructor:xe.Event,isDefaultPrevented:E,isPropagationStopped:E,isImmediatePropagationStopped:E,isSimulated:!1,preventDefault:function(){var e=this.originalEvent;this.isDefaultPrevented=S,e&&!this.isSimulated&&e.preventDefault()},stopPropagation:function(){var e=this.originalEvent;this.isPropagationStopped=S,e&&!this.isSimulated&&e.stopPropagation()},stopImmediatePropagation:function(){var e=this.originalEvent;this.isImmediatePropagationStopped=S,e&&!this.isSimulated&&e.stopImmediatePropagation(),this.stopPropagation()}},xe.each({altKey:!0,bubbles:!0,cancelable:!0,changedTouches:!0,ctrlKey:!0,detail:!0,eventPhase:!0,metaKey:!0,pageX:!0,pageY:!0,shiftKey:!0,view:!0,char:!0,charCode:!0,key:!0,keyCode:!0,button:!0,buttons:!0,clientX:!0,clientY:!0,offsetX:!0,offsetY:!0,pointerId:!0,pointerType:!0,screenX:!0,screenY:!0,targetTouches:!0,toElement:!0,touches:!0,which:function(e){var t=e.button;return null==e.which&&nt.test(e.type)?null!=e.charCode?e.charCode:e.keyCode:!e.which&&void 0!==t&&rt.test(e.type)?1&t?1:2&t?3:4&t?2:0:e.which}},xe.event.addProp),xe.each({mouseenter:"mouseover",mouseleave:"mouseout",pointerenter:"pointerover",pointerleave:"pointerout"},function(e,t){xe.event.special[e]={delegateType:t,bindType:t,handle:function(e){var n,r=this,i=e.relatedTarget,o=e.handleObj;return i&&(i===r||xe.contains(r,i))||(e.type=o.origType,n=o.handler.apply(this,arguments),e.type=t),n}}}),xe.fn.extend({on:function(e,t,n,r){return A(this,e,t,n,r)},one:function(e,t,n,r){return A(this,e,t,n,r,1)},off:function(e,t,n){var r,i;if(e&&e.preventDefault&&e.handleObj)return r=e.handleObj,xe(e.delegateTarget).off(r.namespace?r.origType+"."+r.namespace:r.origType,r.selector,r.handler),this;if("object"==typeof e){for(i in e)this.off(i,t,e[i]);return this}return t!==!1&&"function"!=typeof t||(n=t,t=void 0),n===!1&&(n=E),this.each(function(){xe.event.remove(this,e,n,t)})}});var ot=/<(?!area|br|col|embed|hr|img|input|link|meta|param)(([a-z][^\/\0>\x20\t\r\n\f]*)[^>]*)\/>/gi,at=/<script|<style|<link/i,st=/checked\s*(?:[^=]|=\s*.checked.)/i,ut=/^true\/(.*)/,ct=/^\s*<!(?:\[CDATA\[|--)|(?:\]\]|--)>\s*$/g;xe.extend({htmlPrefilter:function(e){return e.replace(ot,"<$1></$2>")},clone:function(e,t,n){var r,i,o,a,s=e.cloneNode(!0),u=xe.contains(e.ownerDocument,e);if(!(me.noCloneChecked||1!==e.nodeType&&11!==e.nodeType||xe.isXMLDoc(e)))for(a=T(s),o=T(e),r=0,i=o.length;r<i;r++)O(o[r],a[r]);if(t)if(n)for(o=o||T(e),a=a||T(s),r=0,i=o.length;r<i;r++)q(o[r],a[r]);else q(e,s);return a=T(s,"script"),a.length>0&&C(a,!u&&T(e,"script")),s},cleanData:function(e){for(var t,n,r,i=xe.event.special,o=0;void 0!==(n=e[o]);o++)if(Re(n)){if(t=n[Be.expando]){if(t.events)for(r in t.events)i[r]?xe.event.remove(n,r):xe.removeEvent(n,r,t.handle);n[Be.expando]=void 0}n[We.expando]&&(n[We.expando]=void 0)}}}),xe.fn.extend({detach:function(e){return P(this,e,!0)},remove:function(e){return P(this,e)},text:function(e){return He(this,function(e){return void 0===e?xe.text(this):this.empty().each(function(){1!==this.nodeType&&11!==this.nodeType&&9!==this.nodeType||(this.textContent=e)})},null,e,arguments.length)},append:function(){return L(this,arguments,function(e){if(1===this.nodeType||11===this.nodeType||9===this.nodeType){var t=j(this,e);t.appendChild(e)}})},prepend:function(){return L(this,arguments,function(e){if(1===this.nodeType||11===this.nodeType||9===this.nodeType){var t=j(this,e);t.insertBefore(e,t.firstChild)}})},before:function(){return L(this,arguments,function(e){this.parentNode&&this.parentNode.insertBefore(e,this)})},after:function(){return L(this,arguments,function(e){this.parentNode&&this.parentNode.insertBefore(e,this.nextSibling)})},empty:function(){for(var e,t=0;null!=(e=this[t]);t++)1===e.nodeType&&(xe.cleanData(T(e,!1)),e.textContent="");return this},clone:function(e,t){return e=null!=e&&e,t=null==t?e:t,this.map(function(){return xe.clone(this,e,t)})},html:function(e){return He(this,function(e){var t=this[0]||{},n=0,r=this.length;if(void 0===e&&1===t.nodeType)return t.innerHTML;if("string"==typeof e&&!at.test(e)&&!Ze[(Je.exec(e)||["",""])[1].toLowerCase()]){e=xe.htmlPrefilter(e);try{for(;n<r;n++)t=this[n]||{},1===t.nodeType&&(xe.cleanData(T(t,!1)),t.innerHTML=e);t=0}catch(e){}}t&&this.empty().append(e)},null,e,arguments.length)},replaceWith:function(){var e=[];return L(this,arguments,function(t){var n=this.parentNode;xe.inArray(this,e)<0&&(xe.cleanData(T(this)),n&&n.replaceChild(t,this))},e)}}),xe.each({appendTo:"append",prependTo:"prepend",insertBefore:"before",insertAfter:"after",replaceAll:"replaceWith"},function(e,t){xe.fn[e]=function(e){for(var n,r=[],i=xe(e),o=i.length-1,a=0;a<=o;a++)n=a===o?this:this.clone(!0),xe(i[a])[t](n),le.apply(r,n.get());return this.pushStack(r)}});var lt=/^margin/,ft=new RegExp("^("+ze+")(?!px)[a-z%]+$","i"),pt=function(e){var t=e.ownerDocument.defaultView;return t&&t.opener||(t=n),t.getComputedStyle(e)};!function(){function e(){if(s){s.style.cssText="box-sizing:border-box;position:relative;display:block;margin:auto;border:1px;padding:1px;top:1%;width:50%",s.innerHTML="",tt.appendChild(a);var e=n.getComputedStyle(s);t="1%"!==e.top,o="2px"===e.marginLeft,r="4px"===e.width,s.style.marginRight="50%",i="4px"===e.marginRight,tt.removeChild(a),s=null}}var t,r,i,o,a=ae.createElement("div"),s=ae.createElement("div");s.style&&(s.style.backgroundClip="content-box",s.cloneNode(!0).style.backgroundClip="",me.clearCloneStyle="content-box"===s.style.backgroundClip,a.style.cssText="border:0;width:8px;height:0;top:0;left:-9999px;padding:0;margin-top:1px;position:absolute",a.appendChild(s),xe.extend(me,{pixelPosition:function(){return e(),t},boxSizingReliable:function(){return e(),r},pixelMarginRight:function(){return e(),i},reliableMarginLeft:function(){return e(),o}}))}();var dt=/^(none|table(?!-c[ea]).+)/,ht=/^--/,gt={position:"absolute",visibility:"hidden",display:"block"},vt={letterSpacing:"0",fontWeight:"400"},mt=["Webkit","Moz","ms"],yt=ae.createElement("div").style;xe.extend({cssHooks:{opacity:{get:function(e,t){if(t){var n=F(e,"opacity");return""===n?"1":n}}}},cssNumber:{animationIterationCount:!0,columnCount:!0,fillOpacity:!0,flexGrow:!0,flexShrink:!0,fontWeight:!0,lineHeight:!0,opacity:!0,order:!0,orphans:!0,widows:!0,zIndex:!0,zoom:!0},cssProps:{float:"cssFloat"},style:function(e,t,n,r){if(e&&3!==e.nodeType&&8!==e.nodeType&&e.style){var i,o,a,s=xe.camelCase(t),u=ht.test(t),c=e.style;return u||(t=R(s)),a=xe.cssHooks[t]||xe.cssHooks[s],void 0===n?a&&"get"in a&&void 0!==(i=a.get(e,!1,r))?i:c[t]:(o=typeof n,"string"===o&&(i=Ve.exec(n))&&i[1]&&(n=x(e,t,i),o="number"),null!=n&&n===n&&("number"===o&&(n+=i&&i[3]||(xe.cssNumber[s]?"":"px")),me.clearCloneStyle||""!==n||0!==t.indexOf("background")||(c[t]="inherit"),a&&"set"in a&&void 0===(n=a.set(e,n,r))||(u?c.setProperty(t,n):c[t]=n)),void 0)}},css:function(e,t,n,r){var i,o,a,s=xe.camelCase(t),u=ht.test(t);return u||(t=R(s)),a=xe.cssHooks[t]||xe.cssHooks[s],a&&"get"in a&&(i=a.get(e,!0,n)),void 0===i&&(i=F(e,t,r)),"normal"===i&&t in vt&&(i=vt[t]),""===n||n?(o=parseFloat(i),n===!0||isFinite(o)?o||0:i):i}}),xe.each(["height","width"],function(e,t){xe.cssHooks[t]={get:function(e,n,r){if(n)return!dt.test(xe.css(e,"display"))||e.getClientRects().length&&e.getBoundingClientRect().width?$(e,t,r):Qe(e,gt,function(){return $(e,t,r)})},set:function(e,n,r){var i,o=r&&pt(e),a=r&&W(e,t,r,"border-box"===xe.css(e,"boxSizing",!1,o),o);return a&&(i=Ve.exec(n))&&"px"!==(i[3]||"px")&&(e.style[t]=n,n=xe.css(e,t)),B(e,n,a)}}}),xe.cssHooks.marginLeft=I(me.reliableMarginLeft,function(e,t){if(t)return(parseFloat(F(e,"marginLeft"))||e.getBoundingClientRect().left-Qe(e,{marginLeft:0},function(){return e.getBoundingClientRect().left}))+"px"}),xe.each({margin:"",padding:"",border:"Width"},function(e,t){xe.cssHooks[e+t]={expand:function(n){for(var r=0,i={},o="string"==typeof n?n.split(" "):[n];r<4;r++)i[e+Ue[r]+t]=o[r]||o[r-2]||o[0];return i}},lt.test(e)||(xe.cssHooks[e+t].set=B)}),xe.fn.extend({css:function(e,t){return He(this,function(e,t,n){var r,i,o={},a=0;if(Array.isArray(t)){for(r=pt(e),i=t.length;a<i;a++)o[t[a]]=xe.css(e,t[a],!1,r);return o}return void 0!==n?xe.style(e,t,n):xe.css(e,t)},e,t,arguments.length>1)}}),xe.Tween=_,_.prototype={constructor:_,init:function(e,t,n,r,i,o){this.elem=e,this.prop=n,this.easing=i||xe.easing._default,this.options=t,this.start=this.now=this.cur(),this.end=r,this.unit=o||(xe.cssNumber[n]?"":"px")},cur:function(){var e=_.propHooks[this.prop];return e&&e.get?e.get(this):_.propHooks._default.get(this)},run:function(e){var t,n=_.propHooks[this.prop];return this.options.duration?this.pos=t=xe.easing[this.easing](e,this.options.duration*e,0,1,this.options.duration):this.pos=t=e,this.now=(this.end-this.start)*t+this.start,this.options.step&&this.options.step.call(this.elem,this.now,this),n&&n.set?n.set(this):_.propHooks._default.set(this),this}},_.prototype.init.prototype=_.prototype,_.propHooks={_default:{get:function(e){var t;return 1!==e.elem.nodeType||null!=e.elem[e.prop]&&null==e.elem.style[e.prop]?e.elem[e.prop]:(t=xe.css(e.elem,e.prop,""),t&&"auto"!==t?t:0)},set:function(e){xe.fx.step[e.prop]?xe.fx.step[e.prop](e):1!==e.elem.nodeType||null==e.elem.style[xe.cssProps[e.prop]]&&!xe.cssHooks[e.prop]?e.elem[e.prop]=e.now:xe.style(e.elem,e.prop,e.now+e.unit)}}},_.propHooks.scrollTop=_.propHooks.scrollLeft={set:function(e){e.elem.nodeType&&e.elem.parentNode&&(e.elem[e.prop]=e.now)}},xe.easing={linear:function(e){return e},swing:function(e){return.5-Math.cos(e*Math.PI)/2},_default:"swing"},xe.fx=_.prototype.init,xe.fx.step={};var xt,bt,wt=/^(?:toggle|show|hide)$/,Tt=/queueHooks$/;xe.Animation=xe.extend(Y,{tweeners:{"*":[function(e,t){var n=this.createTween(e,t);return x(n.elem,e,Ve.exec(t),n),n}]},tweener:function(e,t){xe.isFunction(e)?(t=e,e=["*"]):e=e.match(Pe);for(var n,r=0,i=e.length;r<i;r++)n=e[r],Y.tweeners[n]=Y.tweeners[n]||[],Y.tweeners[n].unshift(t)},prefilters:[Q],prefilter:function(e,t){t?Y.prefilters.unshift(e):Y.prefilters.push(e)}}),xe.speed=function(e,t,n){var r=e&&"object"==typeof e?xe.extend({},e):{complete:n||!n&&t||xe.isFunction(e)&&e,duration:e,easing:n&&t||t&&!xe.isFunction(t)&&t};return xe.fx.off?r.duration=0:"number"!=typeof r.duration&&(r.duration in xe.fx.speeds?r.duration=xe.fx.speeds[r.duration]:r.duration=xe.fx.speeds._default),null!=r.queue&&r.queue!==!0||(r.queue="fx"),r.old=r.complete,r.complete=function(){xe.isFunction(r.old)&&r.old.call(this),r.queue&&xe.dequeue(this,r.queue)},r},xe.fn.extend({fadeTo:function(e,t,n,r){return this.filter(Xe).css("opacity",0).show().end().animate({opacity:t},e,n,r)},animate:function(e,t,n,r){var i=xe.isEmptyObject(e),o=xe.speed(t,n,r),a=function(){var t=Y(this,xe.extend({},e),o);(i||Be.get(this,"finish"))&&t.stop(!0)};return a.finish=a,i||o.queue===!1?this.each(a):this.queue(o.queue,a)},stop:function(e,t,n){var r=function(e){var t=e.stop;delete e.stop,t(n)};return"string"!=typeof e&&(n=t,t=e,e=void 0),t&&e!==!1&&this.queue(e||"fx",[]),this.each(function(){var t=!0,i=null!=e&&e+"queueHooks",o=xe.timers,a=Be.get(this);if(i)a[i]&&a[i].stop&&r(a[i]);else for(i in a)a[i]&&a[i].stop&&Tt.test(i)&&r(a[i]);for(i=o.length;i--;)o[i].elem!==this||null!=e&&o[i].queue!==e||(o[i].anim.stop(n),t=!1,o.splice(i,1));!t&&n||xe.dequeue(this,e)})},finish:function(e){return e!==!1&&(e=e||"fx"),this.each(function(){var t,n=Be.get(this),r=n[e+"queue"],i=n[e+"queueHooks"],o=xe.timers,a=r?r.length:0;for(n.finish=!0,xe.queue(this,e,[]),i&&i.stop&&i.stop.call(this,!0),t=o.length;t--;)o[t].elem===this&&o[t].queue===e&&(o[t].anim.stop(!0),o.splice(t,1));for(t=0;t<a;t++)r[t]&&r[t].finish&&r[t].finish.call(this);delete n.finish})}}),xe.each(["toggle","show","hide"],function(e,t){var n=xe.fn[t];xe.fn[t]=function(e,r,i){return null==e||"boolean"==typeof e?n.apply(this,arguments):this.animate(U(t,!0),e,r,i)}}),xe.each({slideDown:U("show"),slideUp:U("hide"),slideToggle:U("toggle"),fadeIn:{opacity:"show"},fadeOut:{opacity:"hide"},fadeToggle:{opacity:"toggle"}},function(e,t){xe.fn[e]=function(e,n,r){return this.animate(t,e,n,r)}}),xe.timers=[],xe.fx.tick=function(){var e,t=0,n=xe.timers;for(xt=xe.now();t<n.length;t++)e=n[t],e()||n[t]!==e||n.splice(t--,1);n.length||xe.fx.stop(),xt=void 0},xe.fx.timer=function(e){xe.timers.push(e),xe.fx.start()},xe.fx.interval=13,xe.fx.start=function(){bt||(bt=!0,z())},xe.fx.stop=function(){bt=null},xe.fx.speeds={slow:600,fast:200,_default:400},xe.fn.delay=function(e,t){return e=xe.fx?xe.fx.speeds[e]||e:e,t=t||"fx",this.queue(t,function(t,r){var i=n.setTimeout(t,e);r.stop=function(){n.clearTimeout(i)}})},function(){var e=ae.createElement("input"),t=ae.createElement("select"),n=t.appendChild(ae.createElement("option"));e.type="checkbox",me.checkOn=""!==e.value,me.optSelected=n.selected,e=ae.createElement("input"),e.value="t",e.type="radio",me.radioValue="t"===e.value}();var Ct,kt=xe.expr.attrHandle;xe.fn.extend({attr:function(e,t){return He(this,xe.attr,e,t,arguments.length>1)},removeAttr:function(e){return this.each(function(){xe.removeAttr(this,e)})}}),xe.extend({attr:function(e,t,n){var r,i,o=e.nodeType;if(3!==o&&8!==o&&2!==o)return"undefined"==typeof e.getAttribute?xe.prop(e,t,n):(1===o&&xe.isXMLDoc(e)||(i=xe.attrHooks[t.toLowerCase()]||(xe.expr.match.bool.test(t)?Ct:void 0)),void 0!==n?null===n?void xe.removeAttr(e,t):i&&"set"in i&&void 0!==(r=i.set(e,n,t))?r:(e.setAttribute(t,n+""),n):i&&"get"in i&&null!==(r=i.get(e,t))?r:(r=xe.find.attr(e,t),null==r?void 0:r))},attrHooks:{type:{set:function(e,t){if(!me.radioValue&&"radio"===t&&u(e,"input")){var n=e.value;return e.setAttribute("type",t),n&&(e.value=n),t}}}},removeAttr:function(e,t){var n,r=0,i=t&&t.match(Pe);if(i&&1===e.nodeType)for(;n=i[r++];)e.removeAttribute(n)}}),Ct={set:function(e,t,n){return t===!1?xe.removeAttr(e,n):e.setAttribute(n,n),n}},xe.each(xe.expr.match.bool.source.match(/\w+/g),function(e,t){var n=kt[t]||xe.find.attr;kt[t]=function(e,t,r){var i,o,a=t.toLowerCase();return r||(o=kt[a],kt[a]=i,i=null!=n(e,t,r)?a:null,kt[a]=o),i}});var St=/^(?:input|select|textarea|button)$/i,Et=/^(?:a|area)$/i;xe.fn.extend({prop:function(e,t){return He(this,xe.prop,e,t,arguments.length>1)},removeProp:function(e){return this.each(function(){delete this[xe.propFix[e]||e]})}}),xe.extend({prop:function(e,t,n){var r,i,o=e.nodeType;if(3!==o&&8!==o&&2!==o)return 1===o&&xe.isXMLDoc(e)||(t=xe.propFix[t]||t,i=xe.propHooks[t]),void 0!==n?i&&"set"in i&&void 0!==(r=i.set(e,n,t))?r:e[t]=n:i&&"get"in i&&null!==(r=i.get(e,t))?r:e[t]},propHooks:{tabIndex:{get:function(e){var t=xe.find.attr(e,"tabindex");return t?parseInt(t,10):St.test(e.nodeName)||Et.test(e.nodeName)&&e.href?0:-1}}},propFix:{for:"htmlFor",class:"className"}}),me.optSelected||(xe.propHooks.selected={get:function(e){var t=e.parentNode;return t&&t.parentNode&&t.parentNode.selectedIndex,null},set:function(e){var t=e.parentNode;t&&(t.selectedIndex,t.parentNode&&t.parentNode.selectedIndex)}}),xe.each(["tabIndex","readOnly","maxLength","cellSpacing","cellPadding","rowSpan","colSpan","useMap","frameBorder","contentEditable"],function(){xe.propFix[this.toLowerCase()]=this}),xe.fn.extend({addClass:function(e){var t,n,r,i,o,a,s,u=0;if(xe.isFunction(e))return this.each(function(t){xe(this).addClass(e.call(this,t,K(this)))});if("string"==typeof e&&e)for(t=e.match(Pe)||[];n=this[u++];)if(i=K(n),r=1===n.nodeType&&" "+J(i)+" "){for(a=0;o=t[a++];)r.indexOf(" "+o+" ")<0&&(r+=o+" ");s=J(r),i!==s&&n.setAttribute("class",s)}return this},removeClass:function(e){var t,n,r,i,o,a,s,u=0;if(xe.isFunction(e))return this.each(function(t){xe(this).removeClass(e.call(this,t,K(this)))});if(!arguments.length)return this.attr("class","");if("string"==typeof e&&e)for(t=e.match(Pe)||[];n=this[u++];)if(i=K(n),r=1===n.nodeType&&" "+J(i)+" "){for(a=0;o=t[a++];)for(;r.indexOf(" "+o+" ")>-1;)r=r.replace(" "+o+" "," ");s=J(r),i!==s&&n.setAttribute("class",s)}return this},toggleClass:function(e,t){var n=typeof e;return"boolean"==typeof t&&"string"===n?t?this.addClass(e):this.removeClass(e):xe.isFunction(e)?this.each(function(n){xe(this).toggleClass(e.call(this,n,K(this),t),t)}):this.each(function(){var t,r,i,o;if("string"===n)for(r=0,i=xe(this),o=e.match(Pe)||[];t=o[r++];)i.hasClass(t)?i.removeClass(t):i.addClass(t);else void 0!==e&&"boolean"!==n||(t=K(this),t&&Be.set(this,"__className__",t),this.setAttribute&&this.setAttribute("class",t||e===!1?"":Be.get(this,"__className__")||""))})},hasClass:function(e){var t,n,r=0;for(t=" "+e+" ";n=this[r++];)if(1===n.nodeType&&(" "+J(K(n))+" ").indexOf(t)>-1)return!0;return!1}});var Nt=/\r/g;xe.fn.extend({val:function(e){var t,n,r,i=this[0];{if(arguments.length)return r=xe.isFunction(e),this.each(function(n){var i;1===this.nodeType&&(i=r?e.call(this,n,xe(this).val()):e,null==i?i="":"number"==typeof i?i+="":Array.isArray(i)&&(i=xe.map(i,function(e){return null==e?"":e+""})),t=xe.valHooks[this.type]||xe.valHooks[this.nodeName.toLowerCase()],t&&"set"in t&&void 0!==t.set(this,i,"value")||(this.value=i))});if(i)return t=xe.valHooks[i.type]||xe.valHooks[i.nodeName.toLowerCase()],t&&"get"in t&&void 0!==(n=t.get(i,"value"))?n:(n=i.value,"string"==typeof n?n.replace(Nt,""):null==n?"":n)}}}),xe.extend({valHooks:{option:{get:function(e){var t=xe.find.attr(e,"value");return null!=t?t:J(xe.text(e))}},select:{get:function(e){var t,n,r,i=e.options,o=e.selectedIndex,a="select-one"===e.type,s=a?null:[],c=a?o+1:i.length;for(r=o<0?c:a?o:0;r<c;r++)if(n=i[r],(n.selected||r===o)&&!n.disabled&&(!n.parentNode.disabled||!u(n.parentNode,"optgroup"))){if(t=xe(n).val(),a)return t;s.push(t)}return s},set:function(e,t){for(var n,r,i=e.options,o=xe.makeArray(t),a=i.length;a--;)r=i[a],(r.selected=xe.inArray(xe.valHooks.option.get(r),o)>-1)&&(n=!0);return n||(e.selectedIndex=-1),o}}}}),xe.each(["radio","checkbox"],function(){xe.valHooks[this]={set:function(e,t){if(Array.isArray(t))return e.checked=xe.inArray(xe(e).val(),t)>-1}},me.checkOn||(xe.valHooks[this].get=function(e){return null===e.getAttribute("value")?"on":e.value})});var At=/^(?:focusinfocus|focusoutblur)$/;xe.extend(xe.event,{trigger:function(e,t,r,i){var o,a,s,u,c,l,f,p=[r||ae],d=he.call(e,"type")?e.type:e,h=he.call(e,"namespace")?e.namespace.split("."):[];if(a=s=r=r||ae,3!==r.nodeType&&8!==r.nodeType&&!At.test(d+xe.event.triggered)&&(d.indexOf(".")>-1&&(h=d.split("."),d=h.shift(),h.sort()),c=d.indexOf(":")<0&&"on"+d,e=e[xe.expando]?e:new xe.Event(d,"object"==typeof e&&e),e.isTrigger=i?2:3,e.namespace=h.join("."),e.rnamespace=e.namespace?new RegExp("(^|\\.)"+h.join("\\.(?:.*\\.|)")+"(\\.|$)"):null,e.result=void 0,e.target||(e.target=r),t=null==t?[e]:xe.makeArray(t,[e]),f=xe.event.special[d]||{},i||!f.trigger||f.trigger.apply(r,t)!==!1)){if(!i&&!f.noBubble&&!xe.isWindow(r)){for(u=f.delegateType||d,At.test(u+d)||(a=a.parentNode);a;a=a.parentNode)p.push(a),s=a;s===(r.ownerDocument||ae)&&p.push(s.defaultView||s.parentWindow||n)}for(o=0;(a=p[o++])&&!e.isPropagationStopped();)e.type=o>1?u:f.bindType||d,l=(Be.get(a,"events")||{})[e.type]&&Be.get(a,"handle"),l&&l.apply(a,t),l=c&&a[c],l&&l.apply&&Re(a)&&(e.result=l.apply(a,t),e.result===!1&&e.preventDefault());return e.type=d,i||e.isDefaultPrevented()||f._default&&f._default.apply(p.pop(),t)!==!1||!Re(r)||c&&xe.isFunction(r[d])&&!xe.isWindow(r)&&(s=r[c],s&&(r[c]=null),xe.event.triggered=d,r[d](),xe.event.triggered=void 0,s&&(r[c]=s)),e.result}},simulate:function(e,t,n){var r=xe.extend(new xe.Event,n,{type:e,isSimulated:!0});xe.event.trigger(r,null,t)}}),xe.fn.extend({trigger:function(e,t){return this.each(function(){xe.event.trigger(e,t,this)})},triggerHandler:function(e,t){var n=this[0];if(n)return xe.event.trigger(e,t,n,!0)}}),xe.each("blur focus focusin focusout resize scroll click dblclick mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave change select submit keydown keypress keyup contextmenu".split(" "),function(e,t){xe.fn[t]=function(e,n){return arguments.length>0?this.on(t,null,e,n):this.trigger(t)}}),xe.fn.extend({hover:function(e,t){return this.mouseenter(e).mouseleave(t||e)}}),me.focusin="onfocusin"in n,me.focusin||xe.each({focus:"focusin",blur:"focusout"},function(e,t){var n=function(e){xe.event.simulate(t,e.target,xe.event.fix(e))};xe.event.special[t]={setup:function(){var r=this.ownerDocument||this,i=Be.access(r,t);i||r.addEventListener(e,n,!0),Be.access(r,t,(i||0)+1)},teardown:function(){var r=this.ownerDocument||this,i=Be.access(r,t)-1;i?Be.access(r,t,i):(r.removeEventListener(e,n,!0),Be.remove(r,t))}}});var jt=n.location,Dt=xe.now(),Mt=/\?/;xe.parseXML=function(e){var t;if(!e||"string"!=typeof e)return null;try{t=(new n.DOMParser).parseFromString(e,"text/xml")}catch(e){t=void 0}return t&&!t.getElementsByTagName("parsererror").length||xe.error("Invalid XML: "+e),t};var qt=/\[\]$/,Ot=/\r?\n/g,Lt=/^(?:submit|button|image|reset|file)$/i,Pt=/^(?:input|select|textarea|keygen)/i;xe.param=function(e,t){var n,r=[],i=function(e,t){var n=xe.isFunction(t)?t():t;r[r.length]=encodeURIComponent(e)+"="+encodeURIComponent(null==n?"":n)};if(Array.isArray(e)||e.jquery&&!xe.isPlainObject(e))xe.each(e,function(){i(this.name,this.value)});else for(n in e)Z(n,e[n],t,i);return r.join("&")},xe.fn.extend({serialize:function(){return xe.param(this.serializeArray())},serializeArray:function(){return this.map(function(){var e=xe.prop(this,"elements");return e?xe.makeArray(e):this}).filter(function(){var e=this.type;return this.name&&!xe(this).is(":disabled")&&Pt.test(this.nodeName)&&!Lt.test(e)&&(this.checked||!Ye.test(e))}).map(function(e,t){var n=xe(this).val();return null==n?null:Array.isArray(n)?xe.map(n,function(e){return{name:t.name,value:e.replace(Ot,"\r\n")}}):{name:t.name,value:n.replace(Ot,"\r\n")}}).get()}});var Ft=/%20/g,It=/#.*$/,Ht=/([?&])_=[^&]*/,Rt=/^(.*?):[ \t]*([^\r\n]*)$/gm,Bt=/^(?:about|app|app-storage|.+-extension|file|res|widget):$/,Wt=/^(?:GET|HEAD)$/,$t=/^\/\//,_t={},zt={},Vt="*/".concat("*"),Ut=ae.createElement("a");Ut.href=jt.href,xe.extend({active:0,lastModified:{},etag:{},ajaxSettings:{url:jt.href,type:"GET",isLocal:Bt.test(jt.protocol),global:!0,processData:!0,async:!0,contentType:"application/x-www-form-urlencoded; charset=UTF-8",accepts:{"*":Vt,text:"text/plain",html:"text/html",xml:"application/xml, text/xml",json:"application/json, text/javascript"},contents:{xml:/\bxml\b/,html:/\bhtml/,json:/\bjson\b/},responseFields:{xml:"responseXML",text:"responseText",json:"responseJSON"},converters:{"* text":String,"text html":!0,"text json":JSON.parse,"text xml":xe.parseXML},flatOptions:{url:!0,context:!0}},ajaxSetup:function(e,t){return t?ne(ne(e,xe.ajaxSettings),t):ne(xe.ajaxSettings,e)},ajaxPrefilter:ee(_t),ajaxTransport:ee(zt),ajax:function(e,t){function r(e,t,r,s){var c,p,d,b,w,T=t;l||(l=!0,u&&n.clearTimeout(u),i=void 0,a=s||"",C.readyState=e>0?4:0,c=e>=200&&e<300||304===e,r&&(b=re(h,C,r)),b=ie(h,b,C,c),c?(h.ifModified&&(w=C.getResponseHeader("Last-Modified"),w&&(xe.lastModified[o]=w),w=C.getResponseHeader("etag"),w&&(xe.etag[o]=w)),204===e||"HEAD"===h.type?T="nocontent":304===e?T="notmodified":(T=b.state,p=b.data,d=b.error,c=!d)):(d=T,!e&&T||(T="error",e<0&&(e=0))),C.status=e,C.statusText=(t||T)+"",c?m.resolveWith(g,[p,T,C]):m.rejectWith(g,[C,T,d]),C.statusCode(x),x=void 0,f&&v.trigger(c?"ajaxSuccess":"ajaxError",[C,h,c?p:d]),y.fireWith(g,[C,T]),f&&(v.trigger("ajaxComplete",[C,h]),--xe.active||xe.event.trigger("ajaxStop")))}"object"==typeof e&&(t=e,e=void 0),t=t||{};var i,o,a,s,u,c,l,f,p,d,h=xe.ajaxSetup({},t),g=h.context||h,v=h.context&&(g.nodeType||g.jquery)?xe(g):xe.event,m=xe.Deferred(),y=xe.Callbacks("once memory"),x=h.statusCode||{},b={},w={},T="canceled",C={readyState:0,getResponseHeader:function(e){var t;if(l){if(!s)for(s={};t=Rt.exec(a);)s[t[1].toLowerCase()]=t[2];t=s[e.toLowerCase()]}return null==t?null:t},getAllResponseHeaders:function(){return l?a:null},setRequestHeader:function(e,t){return null==l&&(e=w[e.toLowerCase()]=w[e.toLowerCase()]||e,b[e]=t),this},overrideMimeType:function(e){return null==l&&(h.mimeType=e),this},statusCode:function(e){var t;if(e)if(l)C.always(e[C.status]);else for(t in e)x[t]=[x[t],e[t]];return this},abort:function(e){var t=e||T;return i&&i.abort(t),r(0,t),this}};if(m.promise(C),h.url=((e||h.url||jt.href)+"").replace($t,jt.protocol+"//"),h.type=t.method||t.type||h.method||h.type,h.dataTypes=(h.dataType||"*").toLowerCase().match(Pe)||[""],null==h.crossDomain){c=ae.createElement("a");try{c.href=h.url,c.href=c.href,h.crossDomain=Ut.protocol+"//"+Ut.host!=c.protocol+"//"+c.host}catch(e){h.crossDomain=!0}}if(h.data&&h.processData&&"string"!=typeof h.data&&(h.data=xe.param(h.data,h.traditional)),te(_t,h,t,C),l)return C;f=xe.event&&h.global,f&&0===xe.active++&&xe.event.trigger("ajaxStart"),h.type=h.type.toUpperCase(),h.hasContent=!Wt.test(h.type),o=h.url.replace(It,""),h.hasContent?h.data&&h.processData&&0===(h.contentType||"").indexOf("application/x-www-form-urlencoded")&&(h.data=h.data.replace(Ft,"+")):(d=h.url.slice(o.length),h.data&&(o+=(Mt.test(o)?"&":"?")+h.data,delete h.data),h.cache===!1&&(o=o.replace(Ht,"$1"),d=(Mt.test(o)?"&":"?")+"_="+Dt++ +d),h.url=o+d),h.ifModified&&(xe.lastModified[o]&&C.setRequestHeader("If-Modified-Since",xe.lastModified[o]),xe.etag[o]&&C.setRequestHeader("If-None-Match",xe.etag[o])),(h.data&&h.hasContent&&h.contentType!==!1||t.contentType)&&C.setRequestHeader("Content-Type",h.contentType),C.setRequestHeader("Accept",h.dataTypes[0]&&h.accepts[h.dataTypes[0]]?h.accepts[h.dataTypes[0]]+("*"!==h.dataTypes[0]?", "+Vt+"; q=0.01":""):h.accepts["*"]);for(p in h.headers)C.setRequestHeader(p,h.headers[p]);if(h.beforeSend&&(h.beforeSend.call(g,C,h)===!1||l))return C.abort();if(T="abort",y.add(h.complete),C.done(h.success),C.fail(h.error),i=te(zt,h,t,C)){if(C.readyState=1,f&&v.trigger("ajaxSend",[C,h]),l)return C;h.async&&h.timeout>0&&(u=n.setTimeout(function(){C.abort("timeout")},h.timeout));try{l=!1,i.send(b,r)}catch(e){if(l)throw e;r(-1,e)}}else r(-1,"No Transport");return C},getJSON:function(e,t,n){return xe.get(e,t,n,"json")},getScript:function(e,t){return xe.get(e,void 0,t,"script")}}),xe.each(["get","post"],function(e,t){xe[t]=function(e,n,r,i){return xe.isFunction(n)&&(i=i||r,r=n,n=void 0),xe.ajax(xe.extend({url:e,type:t,dataType:i,data:n,success:r},xe.isPlainObject(e)&&e))}}),xe._evalUrl=function(e){return xe.ajax({url:e,type:"GET",dataType:"script",cache:!0,async:!1,global:!1,throws:!0})},xe.fn.extend({wrapAll:function(e){var t;return this[0]&&(xe.isFunction(e)&&(e=e.call(this[0])),t=xe(e,this[0].ownerDocument).eq(0).clone(!0),this[0].parentNode&&t.insertBefore(this[0]),t.map(function(){for(var e=this;e.firstElementChild;)e=e.firstElementChild;return e}).append(this)),this},wrapInner:function(e){return xe.isFunction(e)?this.each(function(t){xe(this).wrapInner(e.call(this,t))}):this.each(function(){var t=xe(this),n=t.contents();n.length?n.wrapAll(e):t.append(e)})},wrap:function(e){var t=xe.isFunction(e);return this.each(function(n){xe(this).wrapAll(t?e.call(this,n):e)})},unwrap:function(e){return this.parent(e).not("body").each(function(){xe(this).replaceWith(this.childNodes)}),this}}),xe.expr.pseudos.hidden=function(e){return!xe.expr.pseudos.visible(e)},xe.expr.pseudos.visible=function(e){return!!(e.offsetWidth||e.offsetHeight||e.getClientRects().length);
-},xe.ajaxSettings.xhr=function(){try{return new n.XMLHttpRequest}catch(e){}};var Xt={0:200,1223:204},Qt=xe.ajaxSettings.xhr();me.cors=!!Qt&&"withCredentials"in Qt,me.ajax=Qt=!!Qt,xe.ajaxTransport(function(e){var t,r;if(me.cors||Qt&&!e.crossDomain)return{send:function(i,o){var a,s=e.xhr();if(s.open(e.type,e.url,e.async,e.username,e.password),e.xhrFields)for(a in e.xhrFields)s[a]=e.xhrFields[a];e.mimeType&&s.overrideMimeType&&s.overrideMimeType(e.mimeType),e.crossDomain||i["X-Requested-With"]||(i["X-Requested-With"]="XMLHttpRequest");for(a in i)s.setRequestHeader(a,i[a]);t=function(e){return function(){t&&(t=r=s.onload=s.onerror=s.onabort=s.onreadystatechange=null,"abort"===e?s.abort():"error"===e?"number"!=typeof s.status?o(0,"error"):o(s.status,s.statusText):o(Xt[s.status]||s.status,s.statusText,"text"!==(s.responseType||"text")||"string"!=typeof s.responseText?{binary:s.response}:{text:s.responseText},s.getAllResponseHeaders()))}},s.onload=t(),r=s.onerror=t("error"),void 0!==s.onabort?s.onabort=r:s.onreadystatechange=function(){4===s.readyState&&n.setTimeout(function(){t&&r()})},t=t("abort");try{s.send(e.hasContent&&e.data||null)}catch(e){if(t)throw e}},abort:function(){t&&t()}}}),xe.ajaxPrefilter(function(e){e.crossDomain&&(e.contents.script=!1)}),xe.ajaxSetup({accepts:{script:"text/javascript, application/javascript, application/ecmascript, application/x-ecmascript"},contents:{script:/\b(?:java|ecma)script\b/},converters:{"text script":function(e){return xe.globalEval(e),e}}}),xe.ajaxPrefilter("script",function(e){void 0===e.cache&&(e.cache=!1),e.crossDomain&&(e.type="GET")}),xe.ajaxTransport("script",function(e){if(e.crossDomain){var t,n;return{send:function(r,i){t=xe("<script>").prop({charset:e.scriptCharset,src:e.url}).on("load error",n=function(e){t.remove(),n=null,e&&i("error"===e.type?404:200,e.type)}),ae.head.appendChild(t[0])},abort:function(){n&&n()}}}});var Gt=[],Yt=/(=)\?(?=&|$)|\?\?/;xe.ajaxSetup({jsonp:"callback",jsonpCallback:function(){var e=Gt.pop()||xe.expando+"_"+Dt++;return this[e]=!0,e}}),xe.ajaxPrefilter("json jsonp",function(e,t,r){var i,o,a,s=e.jsonp!==!1&&(Yt.test(e.url)?"url":"string"==typeof e.data&&0===(e.contentType||"").indexOf("application/x-www-form-urlencoded")&&Yt.test(e.data)&&"data");if(s||"jsonp"===e.dataTypes[0])return i=e.jsonpCallback=xe.isFunction(e.jsonpCallback)?e.jsonpCallback():e.jsonpCallback,s?e[s]=e[s].replace(Yt,"$1"+i):e.jsonp!==!1&&(e.url+=(Mt.test(e.url)?"&":"?")+e.jsonp+"="+i),e.converters["script json"]=function(){return a||xe.error(i+" was not called"),a[0]},e.dataTypes[0]="json",o=n[i],n[i]=function(){a=arguments},r.always(function(){void 0===o?xe(n).removeProp(i):n[i]=o,e[i]&&(e.jsonpCallback=t.jsonpCallback,Gt.push(i)),a&&xe.isFunction(o)&&o(a[0]),a=o=void 0}),"script"}),me.createHTMLDocument=function(){var e=ae.implementation.createHTMLDocument("").body;return e.innerHTML="<form></form><form></form>",2===e.childNodes.length}(),xe.parseHTML=function(e,t,n){if("string"!=typeof e)return[];"boolean"==typeof t&&(n=t,t=!1);var r,i,o;return t||(me.createHTMLDocument?(t=ae.implementation.createHTMLDocument(""),r=t.createElement("base"),r.href=ae.location.href,t.head.appendChild(r)):t=ae),i=Ae.exec(e),o=!n&&[],i?[t.createElement(i[1])]:(i=k([e],t,o),o&&o.length&&xe(o).remove(),xe.merge([],i.childNodes))},xe.fn.load=function(e,t,n){var r,i,o,a=this,s=e.indexOf(" ");return s>-1&&(r=J(e.slice(s)),e=e.slice(0,s)),xe.isFunction(t)?(n=t,t=void 0):t&&"object"==typeof t&&(i="POST"),a.length>0&&xe.ajax({url:e,type:i||"GET",dataType:"html",data:t}).done(function(e){o=arguments,a.html(r?xe("<div>").append(xe.parseHTML(e)).find(r):e)}).always(n&&function(e,t){a.each(function(){n.apply(this,o||[e.responseText,t,e])})}),this},xe.each(["ajaxStart","ajaxStop","ajaxComplete","ajaxError","ajaxSuccess","ajaxSend"],function(e,t){xe.fn[t]=function(e){return this.on(t,e)}}),xe.expr.pseudos.animated=function(e){return xe.grep(xe.timers,function(t){return e===t.elem}).length},xe.offset={setOffset:function(e,t,n){var r,i,o,a,s,u,c,l=xe.css(e,"position"),f=xe(e),p={};"static"===l&&(e.style.position="relative"),s=f.offset(),o=xe.css(e,"top"),u=xe.css(e,"left"),c=("absolute"===l||"fixed"===l)&&(o+u).indexOf("auto")>-1,c?(r=f.position(),a=r.top,i=r.left):(a=parseFloat(o)||0,i=parseFloat(u)||0),xe.isFunction(t)&&(t=t.call(e,n,xe.extend({},s))),null!=t.top&&(p.top=t.top-s.top+a),null!=t.left&&(p.left=t.left-s.left+i),"using"in t?t.using.call(e,p):f.css(p)}},xe.fn.extend({offset:function(e){if(arguments.length)return void 0===e?this:this.each(function(t){xe.offset.setOffset(this,e,t)});var t,n,r,i,o=this[0];if(o)return o.getClientRects().length?(r=o.getBoundingClientRect(),t=o.ownerDocument,n=t.documentElement,i=t.defaultView,{top:r.top+i.pageYOffset-n.clientTop,left:r.left+i.pageXOffset-n.clientLeft}):{top:0,left:0}},position:function(){if(this[0]){var e,t,n=this[0],r={top:0,left:0};return"fixed"===xe.css(n,"position")?t=n.getBoundingClientRect():(e=this.offsetParent(),t=this.offset(),u(e[0],"html")||(r=e.offset()),r={top:r.top+xe.css(e[0],"borderTopWidth",!0),left:r.left+xe.css(e[0],"borderLeftWidth",!0)}),{top:t.top-r.top-xe.css(n,"marginTop",!0),left:t.left-r.left-xe.css(n,"marginLeft",!0)}}},offsetParent:function(){return this.map(function(){for(var e=this.offsetParent;e&&"static"===xe.css(e,"position");)e=e.offsetParent;return e||tt})}}),xe.each({scrollLeft:"pageXOffset",scrollTop:"pageYOffset"},function(e,t){var n="pageYOffset"===t;xe.fn[e]=function(r){return He(this,function(e,r,i){var o;return xe.isWindow(e)?o=e:9===e.nodeType&&(o=e.defaultView),void 0===i?o?o[t]:e[r]:void(o?o.scrollTo(n?o.pageXOffset:i,n?i:o.pageYOffset):e[r]=i)},e,r,arguments.length)}}),xe.each(["top","left"],function(e,t){xe.cssHooks[t]=I(me.pixelPosition,function(e,n){if(n)return n=F(e,t),ft.test(n)?xe(e).position()[t]+"px":n})}),xe.each({Height:"height",Width:"width"},function(e,t){xe.each({padding:"inner"+e,content:t,"":"outer"+e},function(n,r){xe.fn[r]=function(i,o){var a=arguments.length&&(n||"boolean"!=typeof i),s=n||(i===!0||o===!0?"margin":"border");return He(this,function(t,n,i){var o;return xe.isWindow(t)?0===r.indexOf("outer")?t["inner"+e]:t.document.documentElement["client"+e]:9===t.nodeType?(o=t.documentElement,Math.max(t.body["scroll"+e],o["scroll"+e],t.body["offset"+e],o["offset"+e],o["client"+e])):void 0===i?xe.css(t,n,s):xe.style(t,n,i,s)},t,a?i:void 0,a)}})}),xe.fn.extend({bind:function(e,t,n){return this.on(e,null,t,n)},unbind:function(e,t){return this.off(e,null,t)},delegate:function(e,t,n,r){return this.on(t,e,n,r)},undelegate:function(e,t,n){return 1===arguments.length?this.off(e,"**"):this.off(t,e||"**",n)}}),xe.holdReady=function(e){e?xe.readyWait++:xe.ready(!0)},xe.isArray=Array.isArray,xe.parseJSON=JSON.parse,xe.nodeName=u,r=[],i=function(){return xe}.apply(t,r),!(void 0!==i&&(e.exports=i));var Jt=n.jQuery,Kt=n.$;return xe.noConflict=function(e){return n.$===xe&&(n.$=Kt),e&&n.jQuery===xe&&(n.jQuery=Jt),xe},o||(n.jQuery=n.$=xe),xe})},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r=n(6);t.default={props:{progress:{type:Number,required:!0,default:.25},size:{type:Number,required:!1,default:150},startAngle:{type:Number},thickness:{type:Number},percentFontSize:{type:String,required:!1,default:function(){return(this.size/4).toString()+"px"}},animation:{required:!1,default:function(){return{duration:1200,easing:"circleProgressEasing"}},validator:function(e){return e instanceof Object||e===!1}},animationStartValue:{type:Number,required:!1,default:0},reverse:{type:Boolean,default:!1},lineCap:{type:String,default:"butt"},fill:{type:Object},emptyFill:{type:String},insertMode:{type:String},showPercent:{type:Boolean,default:!0}},mounted:function(){function e(e,n){n=n?n:t.progress,t.showPercent&&r(e).find("span.percent-text").html(Math.floor(100*n)+"%")}n(5);var t=this;r(t.$el).on("circle-inited",function(n){e(this,t.progress/100),t.$emit("vue-circle-init",n)}).circleProgress({value:this.convertedProgress(t.progress),size:t.size,startAngle:t.startAngle,reverse:t.reverse,lineCap:t.lineCap,fill:t.fill,emptyFill:t.emptyFill,animation:t.animation,animationStartValue:t.animationStartValue,insertMode:t.insertMode,thickness:t.thickness}).on("circle-animation-progress",function(n,r,i){e(this,i),t.$emit("vue-circle-progress",n,r,100*i)}).on("circle-animation-end",function(e){t.$emit("vue-circle-end",e)})},methods:{convertedProgress:function(e){return e/100},updateProgress:function(e){"number"===r.type(e)?r(this.$el).circleProgress("value",this.convertedProgress(e)):console.error("Passed Invalid Value. Number Expected. (Hint: use parseInt())")},updateFill:function(e){var t=r(this.$el).data("circle-progress");t.fill=e,t.initFill()}},beforeDestroy:function(){r(this.$el).remove()}}},function(e,t,n){t=e.exports=n(4)(),t.push([e.id,".circle[_v-31e92f67]{position:relative;display:inline-block}.circle-percent-text-body[_v-31e92f67]{position:absolute;width:100%;height:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.percent-text[_v-31e92f67]{font-weight:700}",""])},function(e,t){e.exports=function(){var e=[];return e.toString=function(){for(var e=[],t=0;t<this.length;t++){var n=this[t];n[2]?e.push("@media "+n[2]+"{"+n[1]+"}"):e.push(n[1])}return e.join("")},e.i=function(t,n){"string"==typeof t&&(t=[[null,t,""]]);for(var r={},i=0;i<this.length;i++){var o=this[i][0];"number"==typeof o&&(r[o]=!0)}for(i=0;i<t.length;i++){var a=t[i];"number"==typeof a[0]&&r[a[0]]||(n&&!a[2]?a[2]=n:n&&(a[2]="("+a[2]+") and ("+n+")"),e.push(a))}},e}},function(e,t,n){var r,i,o;/**
-	 * jquery-circle-progress - jQuery Plugin to draw animated circular progress bars:
-	 * {@link http://kottenator.github.io/jquery-circle-progress/}
-	 *
-	 * @author Rostyslav Bryzgunov <kottenator@gmail.com>
-	 * @version 1.2.2
-	 * @licence MIT
-	 * @preserve
-	 */
-!function(a){i=[n(1)],r=a,o="function"==typeof r?r.apply(t,i):r,!(void 0!==o&&(e.exports=o))}(function(e){function t(e){this.init(e)}t.prototype={value:0,size:100,startAngle:-Math.PI,thickness:"auto",fill:{gradient:["#3aeabb","#fdd250"]},emptyFill:"rgba(0, 0, 0, .1)",animation:{duration:1200,easing:"circleProgressEasing"},animationStartValue:0,reverse:!1,lineCap:"butt",insertMode:"prepend",constructor:t,el:null,canvas:null,ctx:null,radius:0,arcFill:null,lastFrameValue:0,init:function(t){e.extend(this,t),this.radius=this.size/2,this.initWidget(),this.initFill(),this.draw(),this.el.trigger("circle-inited")},initWidget:function(){this.canvas||(this.canvas=e("<canvas>")["prepend"==this.insertMode?"prependTo":"appendTo"](this.el)[0]);var t=this.canvas;if(t.width=this.size,t.height=this.size,this.ctx=t.getContext("2d"),window.devicePixelRatio>1){var n=window.devicePixelRatio;t.style.width=t.style.height=this.size+"px",t.width=t.height=this.size*n,this.ctx.scale(n,n)}},initFill:function(){function t(){var t=e("<canvas>")[0];t.width=n.size,t.height=n.size,t.getContext("2d").drawImage(d,0,0,o,o),n.arcFill=n.ctx.createPattern(t,"no-repeat"),n.drawFrame(n.lastFrameValue)}var n=this,r=this.fill,i=this.ctx,o=this.size;if(!r)throw Error("The fill is not specified!");if("string"==typeof r&&(r={color:r}),r.color&&(this.arcFill=r.color),r.gradient){var a=r.gradient;if(1==a.length)this.arcFill=a[0];else if(a.length>1){for(var s=r.gradientAngle||0,u=r.gradientDirection||[o/2*(1-Math.cos(s)),o/2*(1+Math.sin(s)),o/2*(1+Math.cos(s)),o/2*(1-Math.sin(s))],c=i.createLinearGradient.apply(i,u),l=0;l<a.length;l++){var f=a[l],p=l/(a.length-1);e.isArray(f)&&(p=f[1],f=f[0]),c.addColorStop(p,f)}this.arcFill=c}}if(r.image){var d;r.image instanceof Image?d=r.image:(d=new Image,d.src=r.image),d.complete?t():d.onload=t}},draw:function(){this.animation?this.drawAnimated(this.value):this.drawFrame(this.value)},drawFrame:function(e){this.lastFrameValue=e,this.ctx.clearRect(0,0,this.size,this.size),this.drawEmptyArc(e),this.drawArc(e)},drawArc:function(e){if(0!==e){var t=this.ctx,n=this.radius,r=this.getThickness(),i=this.startAngle;t.save(),t.beginPath(),this.reverse?t.arc(n,n,n-r/2,i-2*Math.PI*e,i):t.arc(n,n,n-r/2,i,i+2*Math.PI*e),t.lineWidth=r,t.lineCap=this.lineCap,t.strokeStyle=this.arcFill,t.stroke(),t.restore()}},drawEmptyArc:function(e){var t=this.ctx,n=this.radius,r=this.getThickness(),i=this.startAngle;e<1&&(t.save(),t.beginPath(),e<=0?t.arc(n,n,n-r/2,0,2*Math.PI):this.reverse?t.arc(n,n,n-r/2,i,i-2*Math.PI*e):t.arc(n,n,n-r/2,i+2*Math.PI*e,i),t.lineWidth=r,t.strokeStyle=this.emptyFill,t.stroke(),t.restore())},drawAnimated:function(t){var n=this,r=this.el,i=e(this.canvas);i.stop(!0,!1),r.trigger("circle-animation-start"),i.css({animationProgress:0}).animate({animationProgress:1},e.extend({},this.animation,{step:function(e){var i=n.animationStartValue*(1-e)+t*e;n.drawFrame(i),r.trigger("circle-animation-progress",[e,i])}})).promise().always(function(){r.trigger("circle-animation-end")})},getThickness:function(){return e.isNumeric(this.thickness)?this.thickness:this.size/14},getValue:function(){return this.value},setValue:function(e){this.animation&&(this.animationStartValue=this.lastFrameValue),this.value=e,this.draw()}},e.circleProgress={defaults:t.prototype},e.easing.circleProgressEasing=function(e){return e<.5?(e*=2,.5*e*e*e):(e=2-2*e,1-.5*e*e*e)},e.fn.circleProgress=function(n,r){var i="circle-progress",o=this.data(i);if("widget"==n){if(!o)throw Error('Calling "widget" method on not initialized instance is forbidden');return o.canvas}if("value"==n){if(!o)throw Error('Calling "value" method on not initialized instance is forbidden');if("undefined"==typeof r)return o.getValue();var a=arguments[1];return this.each(function(){e(this).data(i).setValue(a)})}return this.each(function(){var r=e(this),o=r.data(i),a=e.isPlainObject(n)?n:{};if(o)o.init(a);else{var s=e.extend({},r.data());"string"==typeof s.fill&&(s.fill=JSON.parse(s.fill)),"string"==typeof s.animation&&(s.animation=JSON.parse(s.animation)),a=e.extend(s,a),a.el=r,o=new t(a),r.data(i,o)}})}})},function(e,t,n){var r,i;!function(o,a){r=[n(1)],i=function(e){return o.jQuery=a(e)}.apply(t,r),!(void 0!==i&&(e.exports=i))}(this,function(e){return e.easing.jswing=e.easing.swing,e.extend(e.easing,{def:"easeOutQuad",swing:function(t,n,r,i,o){return e.easing[e.easing.def](t,n,r,i,o)},easeInQuad:function(e,t,n,r,i){return r*(t/=i)*t+n},easeOutQuad:function(e,t,n,r,i){return-r*(t/=i)*(t-2)+n},easeInOutQuad:function(e,t,n,r,i){return(t/=i/2)<1?r/2*t*t+n:-r/2*(--t*(t-2)-1)+n},easeInCubic:function(e,t,n,r,i){return r*(t/=i)*t*t+n},easeOutCubic:function(e,t,n,r,i){return r*((t=t/i-1)*t*t+1)+n},easeInOutCubic:function(e,t,n,r,i){return(t/=i/2)<1?r/2*t*t*t+n:r/2*((t-=2)*t*t+2)+n},easeInQuart:function(e,t,n,r,i){return r*(t/=i)*t*t*t+n},easeOutQuart:function(e,t,n,r,i){return-r*((t=t/i-1)*t*t*t-1)+n},easeInOutQuart:function(e,t,n,r,i){return(t/=i/2)<1?r/2*t*t*t*t+n:-r/2*((t-=2)*t*t*t-2)+n},easeInQuint:function(e,t,n,r,i){return r*(t/=i)*t*t*t*t+n},easeOutQuint:function(e,t,n,r,i){return r*((t=t/i-1)*t*t*t*t+1)+n},easeInOutQuint:function(e,t,n,r,i){return(t/=i/2)<1?r/2*t*t*t*t*t+n:r/2*((t-=2)*t*t*t*t+2)+n},easeInSine:function(e,t,n,r,i){return-r*Math.cos(t/i*(Math.PI/2))+r+n},easeOutSine:function(e,t,n,r,i){return r*Math.sin(t/i*(Math.PI/2))+n},easeInOutSine:function(e,t,n,r,i){return-r/2*(Math.cos(Math.PI*t/i)-1)+n},easeInExpo:function(e,t,n,r,i){return 0==t?n:r*Math.pow(2,10*(t/i-1))+n},easeOutExpo:function(e,t,n,r,i){return t==i?n+r:r*(-Math.pow(2,-10*t/i)+1)+n},easeInOutExpo:function(e,t,n,r,i){return 0==t?n:t==i?n+r:(t/=i/2)<1?r/2*Math.pow(2,10*(t-1))+n:r/2*(-Math.pow(2,-10*--t)+2)+n},easeInCirc:function(e,t,n,r,i){return-r*(Math.sqrt(1-(t/=i)*t)-1)+n},easeOutCirc:function(e,t,n,r,i){return r*Math.sqrt(1-(t=t/i-1)*t)+n},easeInOutCirc:function(e,t,n,r,i){return(t/=i/2)<1?-r/2*(Math.sqrt(1-t*t)-1)+n:r/2*(Math.sqrt(1-(t-=2)*t)+1)+n},easeInElastic:function(e,t,n,r,i){var o=1.70158,a=0,s=r;if(0==t)return n;if(1==(t/=i))return n+r;if(a||(a=.3*i),s<Math.abs(r)){s=r;var o=a/4}else var o=a/(2*Math.PI)*Math.asin(r/s);return-(s*Math.pow(2,10*(t-=1))*Math.sin((t*i-o)*(2*Math.PI)/a))+n},easeOutElastic:function(e,t,n,r,i){var o=1.70158,a=0,s=r;if(0==t)return n;if(1==(t/=i))return n+r;if(a||(a=.3*i),s<Math.abs(r)){s=r;var o=a/4}else var o=a/(2*Math.PI)*Math.asin(r/s);return s*Math.pow(2,-10*t)*Math.sin((t*i-o)*(2*Math.PI)/a)+r+n},easeInOutElastic:function(e,t,n,r,i){var o=1.70158,a=0,s=r;if(0==t)return n;if(2==(t/=i/2))return n+r;if(a||(a=i*(.3*1.5)),s<Math.abs(r)){s=r;var o=a/4}else var o=a/(2*Math.PI)*Math.asin(r/s);return t<1?-.5*(s*Math.pow(2,10*(t-=1))*Math.sin((t*i-o)*(2*Math.PI)/a))+n:s*Math.pow(2,-10*(t-=1))*Math.sin((t*i-o)*(2*Math.PI)/a)*.5+r+n},easeInBack:function(e,t,n,r,i,o){return void 0==o&&(o=1.70158),r*(t/=i)*t*((o+1)*t-o)+n},easeOutBack:function(e,t,n,r,i,o){return void 0==o&&(o=1.70158),r*((t=t/i-1)*t*((o+1)*t+o)+1)+n},easeInOutBack:function(e,t,n,r,i,o){return void 0==o&&(o=1.70158),(t/=i/2)<1?r/2*(t*t*(((o*=1.525)+1)*t-o))+n:r/2*((t-=2)*t*(((o*=1.525)+1)*t+o)+2)+n},easeInBounce:function(t,n,r,i,o){return i-e.easing.easeOutBounce(t,o-n,0,i,o)+r},easeOutBounce:function(e,t,n,r,i){return(t/=i)<1/2.75?r*(7.5625*t*t)+n:t<2/2.75?r*(7.5625*(t-=1.5/2.75)*t+.75)+n:t<2.5/2.75?r*(7.5625*(t-=2.25/2.75)*t+.9375)+n:r*(7.5625*(t-=2.625/2.75)*t+.984375)+n},easeInOutBounce:function(t,n,r,i,o){return n<o/2?.5*e.easing.easeInBounce(t,2*n,0,i,o)+r:.5*e.easing.easeOutBounce(t,2*n-o,0,i,o)+.5*i+r}}),e})},function(e,t){e.exports=' <div class=circle _v-31e92f67=""> <div class=circle-percent-text-body _v-31e92f67=""> <span class=percent-text :style="{ \'font-size\': percentFontSize }" _v-31e92f67=""></span> <slot _v-31e92f67=""></slot> </div> </div> '},function(e,t,n){function r(e,t){for(var n=0;n<e.length;n++){var r=e[n],i=f[r.id];if(i){i.refs++;for(var o=0;o<i.parts.length;o++)i.parts[o](r.parts[o]);for(;o<r.parts.length;o++)i.parts.push(u(r.parts[o],t))}else{for(var a=[],o=0;o<r.parts.length;o++)a.push(u(r.parts[o],t));f[r.id]={id:r.id,refs:1,parts:a}}}}function i(e){for(var t=[],n={},r=0;r<e.length;r++){var i=e[r],o=i[0],a=i[1],s=i[2],u=i[3],c={css:a,media:s,sourceMap:u};n[o]?n[o].parts.push(c):t.push(n[o]={id:o,parts:[c]})}return t}function o(e,t){var n=h(),r=m[m.length-1];if("top"===e.insertAt)r?r.nextSibling?n.insertBefore(t,r.nextSibling):n.appendChild(t):n.insertBefore(t,n.firstChild),m.push(t);else{if("bottom"!==e.insertAt)throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");n.appendChild(t)}}function a(e){e.parentNode.removeChild(e);var t=m.indexOf(e);t>=0&&m.splice(t,1)}function s(e){var t=document.createElement("style");return t.type="text/css",o(e,t),t}function u(e,t){var n,r,i;if(t.singleton){var o=v++;n=g||(g=s(t)),r=c.bind(null,n,o,!1),i=c.bind(null,n,o,!0)}else n=s(t),r=l.bind(null,n),i=function(){a(n)};return r(e),function(t){if(t){if(t.css===e.css&&t.media===e.media&&t.sourceMap===e.sourceMap)return;r(e=t)}else i()}}function c(e,t,n,r){var i=n?"":r.css;if(e.styleSheet)e.styleSheet.cssText=y(t,i);else{var o=document.createTextNode(i),a=e.childNodes;a[t]&&e.removeChild(a[t]),a.length?e.insertBefore(o,a[t]):e.appendChild(o)}}function l(e,t){var n=t.css,r=t.media,i=t.sourceMap;if(r&&e.setAttribute("media",r),i&&(n+="\n/*# sourceURL="+i.sources[0]+" */",n+="\n/*# sourceMappingURL=data:application/json;base64,"+btoa(unescape(encodeURIComponent(JSON.stringify(i))))+" */"),e.styleSheet)e.styleSheet.cssText=n;else{for(;e.firstChild;)e.removeChild(e.firstChild);e.appendChild(document.createTextNode(n))}}var f={},p=function(e){var t;return function(){return"undefined"==typeof t&&(t=e.apply(this,arguments)),t}},d=p(function(){return/msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase())}),h=p(function(){return document.head||document.getElementsByTagName("head")[0]}),g=null,v=0,m=[];e.exports=function(e,t){t=t||{},"undefined"==typeof t.singleton&&(t.singleton=d()),"undefined"==typeof t.insertAt&&(t.insertAt="bottom");var n=i(e);return r(n,t),function(e){for(var o=[],a=0;a<n.length;a++){var s=n[a],u=f[s.id];u.refs--,o.push(u)}if(e){var c=i(e);r(c,t)}for(var a=0;a<o.length;a++){var u=o[a];if(0===u.refs){for(var l=0;l<u.parts.length;l++)u.parts[l]();delete f[u.id]}}}};var y=function(){var e=[];return function(t,n){return e[t]=n,e.filter(Boolean).join("\n")}}()},function(e,t,n){var r=n(3);"string"==typeof r&&(r=[[e.id,r,""]]);n(8)(r,{});r.locals&&(e.exports=r.locals)}])});
 
 /***/ }),
 
@@ -427938,6 +429068,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ant_design_vue_dist_antd_css__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(ant_design_vue_dist_antd_css__WEBPACK_IMPORTED_MODULE_14__);
 /* harmony import */ var _syncfusion_ej2_vue_schedule__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @syncfusion/ej2-vue-schedule */ "./node_modules/@syncfusion/ej2-vue-schedule/index.js");
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./store */ "./resources/assets/js/store.js");
+/* harmony import */ var _filters__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./filters */ "./resources/assets/js/filters.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -427989,6 +429120,7 @@ Vue.use(ant_design_vue__WEBPACK_IMPORTED_MODULE_13__["default"]);
 window.moment = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 
 Vue.use(_syncfusion_ej2_vue_schedule__WEBPACK_IMPORTED_MODULE_15__["SchedulePlugin"]);
+
 
 /**
  * The following block of code may be used to automatically register your
@@ -428359,9 +429491,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _BranchesListingTable_vue_vue_type_template_id_2370a533___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BranchesListingTable.vue?vue&type=template&id=2370a533& */ "./resources/assets/js/components/DataTables/BranchesListingTable.vue?vue&type=template&id=2370a533&");
+/* harmony import */ var _BranchesListingTable_vue_vue_type_template_id_2370a533_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BranchesListingTable.vue?vue&type=template&id=2370a533&scoped=true& */ "./resources/assets/js/components/DataTables/BranchesListingTable.vue?vue&type=template&id=2370a533&scoped=true&");
 /* harmony import */ var _BranchesListingTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BranchesListingTable.vue?vue&type=script&lang=js& */ "./resources/assets/js/components/DataTables/BranchesListingTable.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _BranchesListingTable_vue_vue_type_style_index_0_id_2370a533_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./BranchesListingTable.vue?vue&type=style&index=0&id=2370a533&scoped=true&lang=css& */ "./resources/assets/js/components/DataTables/BranchesListingTable.vue?vue&type=style&index=0&id=2370a533&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -428369,13 +429503,13 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _BranchesListingTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _BranchesListingTable_vue_vue_type_template_id_2370a533___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _BranchesListingTable_vue_vue_type_template_id_2370a533___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _BranchesListingTable_vue_vue_type_template_id_2370a533_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _BranchesListingTable_vue_vue_type_template_id_2370a533_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  null,
+  "2370a533",
   null
   
 )
@@ -428401,19 +429535,35 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/assets/js/components/DataTables/BranchesListingTable.vue?vue&type=template&id=2370a533&":
-/*!***********************************************************************************************************!*\
-  !*** ./resources/assets/js/components/DataTables/BranchesListingTable.vue?vue&type=template&id=2370a533& ***!
-  \***********************************************************************************************************/
+/***/ "./resources/assets/js/components/DataTables/BranchesListingTable.vue?vue&type=style&index=0&id=2370a533&scoped=true&lang=css&":
+/*!*************************************************************************************************************************************!*\
+  !*** ./resources/assets/js/components/DataTables/BranchesListingTable.vue?vue&type=style&index=0&id=2370a533&scoped=true&lang=css& ***!
+  \*************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_BranchesListingTable_vue_vue_type_style_index_0_id_2370a533_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./BranchesListingTable.vue?vue&type=style&index=0&id=2370a533&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/BranchesListingTable.vue?vue&type=style&index=0&id=2370a533&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_BranchesListingTable_vue_vue_type_style_index_0_id_2370a533_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_BranchesListingTable_vue_vue_type_style_index_0_id_2370a533_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_BranchesListingTable_vue_vue_type_style_index_0_id_2370a533_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_BranchesListingTable_vue_vue_type_style_index_0_id_2370a533_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_BranchesListingTable_vue_vue_type_style_index_0_id_2370a533_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/DataTables/BranchesListingTable.vue?vue&type=template&id=2370a533&scoped=true&":
+/*!***********************************************************************************************************************!*\
+  !*** ./resources/assets/js/components/DataTables/BranchesListingTable.vue?vue&type=template&id=2370a533&scoped=true& ***!
+  \***********************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BranchesListingTable_vue_vue_type_template_id_2370a533___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./BranchesListingTable.vue?vue&type=template&id=2370a533& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/BranchesListingTable.vue?vue&type=template&id=2370a533&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BranchesListingTable_vue_vue_type_template_id_2370a533___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BranchesListingTable_vue_vue_type_template_id_2370a533_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./BranchesListingTable.vue?vue&type=template&id=2370a533&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/BranchesListingTable.vue?vue&type=template&id=2370a533&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BranchesListingTable_vue_vue_type_template_id_2370a533_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BranchesListingTable_vue_vue_type_template_id_2370a533___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BranchesListingTable_vue_vue_type_template_id_2370a533_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -428515,9 +429665,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _CategoryListingTable_vue_vue_type_template_id_4b72173e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CategoryListingTable.vue?vue&type=template&id=4b72173e& */ "./resources/assets/js/components/DataTables/CategoryListingTable.vue?vue&type=template&id=4b72173e&");
+/* harmony import */ var _CategoryListingTable_vue_vue_type_template_id_4b72173e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CategoryListingTable.vue?vue&type=template&id=4b72173e&scoped=true& */ "./resources/assets/js/components/DataTables/CategoryListingTable.vue?vue&type=template&id=4b72173e&scoped=true&");
 /* harmony import */ var _CategoryListingTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CategoryListingTable.vue?vue&type=script&lang=js& */ "./resources/assets/js/components/DataTables/CategoryListingTable.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _CategoryListingTable_vue_vue_type_style_index_0_id_4b72173e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CategoryListingTable.vue?vue&type=style&index=0&id=4b72173e&scoped=true&lang=css& */ "./resources/assets/js/components/DataTables/CategoryListingTable.vue?vue&type=style&index=0&id=4b72173e&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -428525,13 +429677,13 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _CategoryListingTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _CategoryListingTable_vue_vue_type_template_id_4b72173e___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _CategoryListingTable_vue_vue_type_template_id_4b72173e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _CategoryListingTable_vue_vue_type_template_id_4b72173e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _CategoryListingTable_vue_vue_type_template_id_4b72173e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  null,
+  "4b72173e",
   null
   
 )
@@ -428557,19 +429709,35 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/assets/js/components/DataTables/CategoryListingTable.vue?vue&type=template&id=4b72173e&":
-/*!***********************************************************************************************************!*\
-  !*** ./resources/assets/js/components/DataTables/CategoryListingTable.vue?vue&type=template&id=4b72173e& ***!
-  \***********************************************************************************************************/
+/***/ "./resources/assets/js/components/DataTables/CategoryListingTable.vue?vue&type=style&index=0&id=4b72173e&scoped=true&lang=css&":
+/*!*************************************************************************************************************************************!*\
+  !*** ./resources/assets/js/components/DataTables/CategoryListingTable.vue?vue&type=style&index=0&id=4b72173e&scoped=true&lang=css& ***!
+  \*************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CategoryListingTable_vue_vue_type_style_index_0_id_4b72173e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./CategoryListingTable.vue?vue&type=style&index=0&id=4b72173e&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/CategoryListingTable.vue?vue&type=style&index=0&id=4b72173e&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CategoryListingTable_vue_vue_type_style_index_0_id_4b72173e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CategoryListingTable_vue_vue_type_style_index_0_id_4b72173e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CategoryListingTable_vue_vue_type_style_index_0_id_4b72173e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CategoryListingTable_vue_vue_type_style_index_0_id_4b72173e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CategoryListingTable_vue_vue_type_style_index_0_id_4b72173e_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/DataTables/CategoryListingTable.vue?vue&type=template&id=4b72173e&scoped=true&":
+/*!***********************************************************************************************************************!*\
+  !*** ./resources/assets/js/components/DataTables/CategoryListingTable.vue?vue&type=template&id=4b72173e&scoped=true& ***!
+  \***********************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CategoryListingTable_vue_vue_type_template_id_4b72173e___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./CategoryListingTable.vue?vue&type=template&id=4b72173e& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/CategoryListingTable.vue?vue&type=template&id=4b72173e&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CategoryListingTable_vue_vue_type_template_id_4b72173e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CategoryListingTable_vue_vue_type_template_id_4b72173e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./CategoryListingTable.vue?vue&type=template&id=4b72173e&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/CategoryListingTable.vue?vue&type=template&id=4b72173e&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CategoryListingTable_vue_vue_type_template_id_4b72173e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CategoryListingTable_vue_vue_type_template_id_4b72173e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CategoryListingTable_vue_vue_type_template_id_4b72173e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -428827,9 +429995,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ProductListingTable_vue_vue_type_template_id_021dfba0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ProductListingTable.vue?vue&type=template&id=021dfba0& */ "./resources/assets/js/components/DataTables/ProductListingTable.vue?vue&type=template&id=021dfba0&");
+/* harmony import */ var _ProductListingTable_vue_vue_type_template_id_021dfba0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ProductListingTable.vue?vue&type=template&id=021dfba0&scoped=true& */ "./resources/assets/js/components/DataTables/ProductListingTable.vue?vue&type=template&id=021dfba0&scoped=true&");
 /* harmony import */ var _ProductListingTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ProductListingTable.vue?vue&type=script&lang=js& */ "./resources/assets/js/components/DataTables/ProductListingTable.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _ProductListingTable_vue_vue_type_style_index_0_id_021dfba0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProductListingTable.vue?vue&type=style&index=0&id=021dfba0&scoped=true&lang=css& */ "./resources/assets/js/components/DataTables/ProductListingTable.vue?vue&type=style&index=0&id=021dfba0&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -428837,13 +430007,13 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _ProductListingTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ProductListingTable_vue_vue_type_template_id_021dfba0___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _ProductListingTable_vue_vue_type_template_id_021dfba0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _ProductListingTable_vue_vue_type_template_id_021dfba0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ProductListingTable_vue_vue_type_template_id_021dfba0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  null,
+  "021dfba0",
   null
   
 )
@@ -428869,19 +430039,35 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/assets/js/components/DataTables/ProductListingTable.vue?vue&type=template&id=021dfba0&":
-/*!**********************************************************************************************************!*\
-  !*** ./resources/assets/js/components/DataTables/ProductListingTable.vue?vue&type=template&id=021dfba0& ***!
-  \**********************************************************************************************************/
+/***/ "./resources/assets/js/components/DataTables/ProductListingTable.vue?vue&type=style&index=0&id=021dfba0&scoped=true&lang=css&":
+/*!************************************************************************************************************************************!*\
+  !*** ./resources/assets/js/components/DataTables/ProductListingTable.vue?vue&type=style&index=0&id=021dfba0&scoped=true&lang=css& ***!
+  \************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductListingTable_vue_vue_type_style_index_0_id_021dfba0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--6-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--6-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ProductListingTable.vue?vue&type=style&index=0&id=021dfba0&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/ProductListingTable.vue?vue&type=style&index=0&id=021dfba0&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductListingTable_vue_vue_type_style_index_0_id_021dfba0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductListingTable_vue_vue_type_style_index_0_id_021dfba0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductListingTable_vue_vue_type_style_index_0_id_021dfba0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductListingTable_vue_vue_type_style_index_0_id_021dfba0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductListingTable_vue_vue_type_style_index_0_id_021dfba0_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/DataTables/ProductListingTable.vue?vue&type=template&id=021dfba0&scoped=true&":
+/*!**********************************************************************************************************************!*\
+  !*** ./resources/assets/js/components/DataTables/ProductListingTable.vue?vue&type=template&id=021dfba0&scoped=true& ***!
+  \**********************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductListingTable_vue_vue_type_template_id_021dfba0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ProductListingTable.vue?vue&type=template&id=021dfba0& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/ProductListingTable.vue?vue&type=template&id=021dfba0&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductListingTable_vue_vue_type_template_id_021dfba0___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductListingTable_vue_vue_type_template_id_021dfba0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ProductListingTable.vue?vue&type=template&id=021dfba0&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/DataTables/ProductListingTable.vue?vue&type=template&id=021dfba0&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductListingTable_vue_vue_type_template_id_021dfba0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductListingTable_vue_vue_type_template_id_021dfba0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductListingTable_vue_vue_type_template_id_021dfba0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -432400,6 +433586,53 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/assets/js/filters.js":
+/*!****************************************!*\
+  !*** ./resources/assets/js/filters.js ***!
+  \****************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.filter("toDate", function (value) {
+  //   var date = Date.parse(value)
+  //   var formatter = new Intl.DateTimeFormat('en-GB', {
+  //     year: 'numeric',
+  //     month: 'short',
+  //     day: 'numeric'
+  //   })
+  //   return formatter.format(date)
+  var date_string = "";
+  var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds  
+
+  var firstDate = new Date();
+  var secondDate = new Date(value);
+  var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime()) / oneDay));
+  var formatter = new Intl.DateTimeFormat("en-GB", {
+    year: "numeric",
+    month: "short",
+    day: "numeric"
+  });
+
+  if (diffDays <= 1) {
+    date_string = "Today";
+  } else if (diffDays > 1 && diffDays <= 7) {
+    date_string = diffDays + " Days ago";
+  } else if (diffDays == 7) {
+    date_string = "1 Week ago";
+  } else if (diffDays >= 7) {
+    date_string = formatter.format(date_string);
+  }
+
+  return date_string;
+});
+
+/***/ }),
+
 /***/ "./resources/assets/js/store.js":
 /*!**************************************!*\
   !*** ./resources/assets/js/store.js ***!
@@ -432447,8 +433680,8 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\uhustle-app\resources\assets\js\app.js */"./resources/assets/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\uhustle-app\resources\assets\sass\app.scss */"./resources/assets/sass/app.scss");
+__webpack_require__(/*! /var/www/uhustle-app/resources/assets/js/app.js */"./resources/assets/js/app.js");
+module.exports = __webpack_require__(/*! /var/www/uhustle-app/resources/assets/sass/app.scss */"./resources/assets/sass/app.scss");
 
 
 /***/ })

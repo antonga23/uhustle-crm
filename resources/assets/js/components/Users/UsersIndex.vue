@@ -10,7 +10,7 @@
 }
 .horizontal-scroll-thinner::-webkit-scrollbar {
   width: 5px !important;
-  height: 3px;
+  height: 5px;
 }
 
 .horizontal-scroll-thinner {
@@ -20,7 +20,6 @@
 
 .grey-bg-color {
   background-color: #ebeff3 !important;
-  height: 99px;
 }
 
 .row {
@@ -52,6 +51,7 @@ li p.bottom {
 }
 .card-body {
   text-align: center;
+  cursor: pointer;
 }
 .card-body p {
   color: #fff;
@@ -276,7 +276,7 @@ textarea {
 }
 
 .card .card-text {
-  font-size: 32px;
+  font-size: 1.65vw;
   line-height: 1em;
 }
 
@@ -284,6 +284,7 @@ textarea {
   margin-top: -7px;
   color: #3b3b3b;
   font-family: "Rubik", sans-serif !important;
+  font-size: 0.73vw;
 }
 .badge {
   width: 12%;
@@ -362,12 +363,10 @@ ul.items li a:hover {
   text-decoration: none;
 }
 .scroll-hidden {
-  overflow: auto;
-  height: 70vh;
+  overflow:visible;
   padding-top: 6px;
   padding-right: 6px;
   width: 100%;
-  margin-left: -4px !important;
 }
 table.listing {
   width: 100%;
@@ -382,7 +381,7 @@ table.listing tr th {
   cursor: pointer;
 }
 .plr-3 {
-  padding: 23px 0 0 4%;
+  padding: 10px 0 0 4%;
 }
 .control-label {
   float: left;
@@ -398,6 +397,9 @@ table.listing tr th {
 .add-new-top-section .dropdown {
   top: -20px;
 }
+.pb-10 {
+    padding-bottom: 10px;
+  }
 
 @media screen and (max-width: 1500px) {
   .add-new-top-section img.icon {
@@ -409,15 +411,22 @@ table.listing tr th {
     right: 10px;
   }
 }
+
+table tr td span a {
+  color: #1c2331 !important
+}
+table tr td span a:hover {
+  color: #1890ff !important
+}
 </style> 
 
 <template>
   <div>
     <div class="grey-bg-color">
-      <div id="top-section" class="row plr-3" style="margin-top:2%;">
+      <div id="top-section" class="row plr-3">
         <div class="col-11">
-          <div class="row mb-0 pb-4 horizontal-scroll-thinner">
-            <div class="col-auto pl-0" @click="getUsers()">
+          <div class="row mb-0 horizontal-scroll-thinner">
+            <div class="col-auto pb-10 pl-0" @click="getUsers()">
               <div class="card mb-0 call-backs">
                 <div class="card-body row align-items-center justify-content-between mx-0 mb-0 py-2"
                 >
@@ -430,7 +439,7 @@ table.listing tr th {
                 </div>
               </div>
             </div>
-            <div class="col-auto" @click="getUsers(1)">
+            <div class="col-auto pb-10" @click="getUsers(1)">
               <div class="card mb-0 call-backs">
                 <div
                   class="card-body row align-items-center justify-content-between mx-0 mb-0 py-2"
@@ -444,7 +453,7 @@ table.listing tr th {
                 </div>
               </div>
             </div>
-            <div class="col-auto" @click="getUsers(2)">
+            <div class="col-auto pb-10" @click="getUsers(2)">
               <div class="card mb-0 sales-amount">
                 <div
                   class="card-body row align-items-center justify-content-between mx-0 mb-0 py-2"
@@ -458,7 +467,7 @@ table.listing tr th {
                 </div>
               </div>
             </div>
-            <div class="col-auto" @click="getUsers(3)">
+            <div class="col-auto pb-10" @click="getUsers(3)">
               <div class="card mb-0 ave-time">
                 <div
                   class="card-body row align-items-center justify-content-between mx-0 mb-0 py-2"
@@ -472,7 +481,7 @@ table.listing tr th {
                 </div>
               </div>
             </div>
-            <div class="col-auto" @click="getUsers(4)">
+            <div class="col-auto pb-10" @click="getUsers(4)">
               <div class="card mb-0 con-ratio">
                 <div
                   class="card-body row align-items-center justify-content-between mx-0 mb-0 py-2"
@@ -489,7 +498,7 @@ table.listing tr th {
           </div>
         </div>
 
-        <div class="col-1">
+        <!-- <div class="col-1">
           <div class="row">
             <div class="col-12 pr-0">
               <div class="mb-0 add-new-top-section">
@@ -516,12 +525,12 @@ table.listing tr th {
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
-    <div class="plr-3">
+    <div class="plr-3 mt-4">
       <div v-if="!add_user && !edit_user">
-        <div class="row stats pt-0 scroll-hidden horizontal-scroll">
+        <div class="row stats mx-0 pt-0 scroll-hidden horizontal-scroll">
           <div class="col-lg-12">
             <vcl-table v-if="show_page_loader"></vcl-table>
             <datatable

@@ -158,7 +158,7 @@ span.right {
   text-overflow: ellipsis; 
 } 
 .comments-list { 
-  max-height: 218px; 
+  max-height: 247px; 
   overflow-y: auto; 
 } 
 .stats-bars { 
@@ -195,7 +195,7 @@ span.right {
   height: 50px; 
 } 
 .notes-capture { 
-  margin-top: 8.7%; 
+  margin-top: 3.7%; 
 } 
 .choose-comment-type { 
   height: 50px; 
@@ -547,6 +547,10 @@ a.down-scroll:hover {
 .stats.final-modal .tab-pane { 
   padding: 2.5% 8.5% 5%; 
 } 
+.activities .tab-pane,
+.deals .tab-pane  { 
+  padding: 2.5% 8.5%; 
+} 
 .final-modal .row-a { 
   border-bottom: 1px solid #e3e3e3; 
 } 
@@ -580,14 +584,19 @@ a.down-scroll:hover {
   padding-bottom: 0; 
 } 
 .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"] { 
-  box-shadow: -0 -10px 20px rgba(0,0,0,0.05); 
-  -webkit-box-shadow: -0 -10px 20px rgba(0,0,0,0.05); 
-  -moz-box-shadow: -0 -10px 20px rgba(0,0,0,0.05); 
-  -o-box-shadow: -0 -10px 20px rgba(0,0,0,0.05); 
+  box-shadow: -0 -17px 20px rgba(0,0,0,0.05); 
+  -webkit-box-shadow: -0 -17px 20px rgba(0,0,0,0.05); 
+  -moz-box-shadow: -0 -17px 20px rgba(0,0,0,0.05); 
+  -o-box-shadow: -0 -17px 20px rgba(0,0,0,0.05); 
   background-color: #fff; 
   border-top-left-radius: 25px; 
   border-top-right-radius: 25px; 
 } 
+.activities .nav.nav-tabs.card-header-tabs .nav-link,
+.deals .nav.nav-tabs.card-header-tabs .nav-link {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
 .nav-link.active img.add-activity {
   margin-left:20px;
   display: inline-block!important;
@@ -697,6 +706,10 @@ a.down-scroll:hover {
     flex: 0 0 100%;
     max-width: 100%; 
   } 
+  #two .callback-legend .col-5 .col-auto,
+  #two .callback-legend .col-5 .keys{
+    margin-left: 4px;
+  }
   #two .callback-legend .col-7 {
     order:1;
     flex: 0 0 100%;
@@ -805,7 +818,7 @@ a.down-scroll:hover {
 .dropdown-menu.show { 
   border-radius: 25px; 
   border: 0; 
-  padding: 10px 20px 15px 15px; 
+  padding: 10px 20px; 
   color: #818284; 
   font-family: "Rubik", sans-serif; 
   font-size: 16px; 
@@ -850,6 +863,10 @@ a.down-scroll:hover {
   width:12px;
   height: 12px;
   border-radius: 50rem;
+  margin-left:10px;
+}
+.deals .activity-status {
+  margin-right: 10px;
 }
 .finished-activity {
   background-color: #00D58E;
@@ -891,7 +908,7 @@ a.down-scroll:hover {
     <div class="general-section-stats" v-if="general == true"> 
       <div class="row mx-0 pb-5 justify-content-between top-section agent-stats-1"> 
         <div class="col-6" v-for="(item, name, i) in module_item.item_meta" :key="i">  
-          <div class="2" v-for="(custom_field, index) in item_custom_fields" :key="index"  v-if="item.custom_field_id == custom_field.id">  
+          <div class="2" v-for="(custom_field, index) in item_custom_fields" :key="index" v-if="item.custom_field_id == custom_field.id">  
             <div class="inner-div" v-if="item.custom_field_id == custom_field.id && item.custom_field_value !== null">  
               
               <div  
@@ -1066,7 +1083,26 @@ a.down-scroll:hover {
         </div> 
       </div> 
 
-        <!--Note <div class="card border-0 product mb-0"> 
+      <div class="card-deck client-details mx-0">
+        <div class="card border-0 mb-0 ml-0 client">  
+          <div class="card-body">  
+            <h5 class="card-title">  
+              <img src="/images/workstation/D_A@4x.png" alt="Icon" class="icon" />  
+              Client  
+            </h5>  
+            <p  
+              class="card-text truncate mb-2"  
+              :title="module_item.item_meta[2].custom_field_value + ' ' + module_item.item_meta[3].custom_field_value" 
+            >{{ module_item.item_meta[2].custom_field_value + ' ' + module_item.item_meta[3].custom_field_value }}</p>  
+            <div class="truncate w-100"> 
+              <p v-if="module_item.item_meta[5].custom_field_value" class="card-link d-inline border-right border-white pb-3 pr-3">{{ module_item.item_meta[5].custom_field_value }}</p> 
+              <p v-if="module_item.item_meta[9].custom_field_value" class="card-link d-inline border-right border-white ml-0 pb-3 px-3">{{ module_item.item_meta[9].custom_field_value }}</p> 
+              <p v-if="module_item.item_meta[8].custom_field_value" class="card-link d-inline ml-0 pb-3 pl-3">{{ module_item.item_meta[8].custom_field_value }}</p>  
+            </div>  
+          </div>  
+        </div> 
+
+        <!-- <div class="card border-0 product mb-0"> 
           <div class="card-body"> 
             <h5 class="card-title"> 
               <img src="/images/workstation/Stock_Icon@4x.png" alt="Icon" class="icon" /> 
@@ -1081,7 +1117,7 @@ a.down-scroll:hover {
               :title="module_item.product.meta_value.description + '. ' + module_item.product.meta_value.currency + module_item.product.meta_value.price"
             >{{ module_item.product.meta_value.description + '. ' + module_item.product.meta_value.currency + module_item.product.meta_value.price  }}</p>  
           </div> 
-        </div>
+        </div> -->
 
         <div class="card border-0 mb-0 activity"> 
           <div class="card-body"> 
@@ -1102,12 +1138,12 @@ a.down-scroll:hover {
             </h5> 
             <p class="card-text mb-2">11:20</p>
             <div class="truncate"> 
-              <p v-if="module_item.city.meta_value" class="card-link d-inline border-right border-white pb-3 pr-3">{{ module_item.city.meta_value }}</p> 
-              <p v-if="module_item.country.meta_value" class="card-link d-inline ml-0 pb-3 pl-3">{{ module_item.country.meta_value }}</p>  
+              <p v-if="module_item.item_meta[8].custom_field_value" class="card-link d-inline border-right border-white pb-3 pr-3">{{ module_item.item_meta[8].custom_field_value }}</p> 
+              <p v-if="module_item.item_meta[9].custom_field_value" class="card-link d-inline ml-0 pb-3 pl-3">{{ module_item.item_meta[8].custom_field_value }}</p>  
             </div>
           </div> 
         </div>
-      </div> End Beatrice Note -->
+      </div>
       
       <div class="stats final-modal"> 
         <div class="card-deck mx-0 mb-0"> 
@@ -1181,7 +1217,7 @@ a.down-scroll:hover {
  
                       <div class="col-auto"> 
                         <p class="mb-0 author"> 
-                          {{ comment.created_at }} 
+                          {{ comment.created_at | toDate }} 
                           <br /> 
                         </p> 
                       </div> 
@@ -1245,7 +1281,7 @@ a.down-scroll:hover {
                         <div class="d-block"> 
                           <div class="row mx-0"> 
                             <div 
-                              class="col-lg-12" 
+                              class="col-lg-12 px-0" 
                               v-for="(type, index) in comment_types" 
                               :key="index" 
                             > 
@@ -1377,7 +1413,7 @@ a.down-scroll:hover {
                           v-model="selected_time" 
                           :allowEmpty="false" 
                           use24Hours 
-                          format="hh:mm" 
+                          format="HH:mm" 
                           class="shadow-none"
                         /> 
                       </label> 
@@ -1694,7 +1730,7 @@ a.down-scroll:hover {
                     :items="activityItems"    
                     :per-page="perPage"   
                     :current-page="currentPage"   
-                    sticky-header="190px"  
+                    sticky-header  
                     responsive 
                   >
                     <template slot="statusColor" slot-scope="data">   
@@ -1726,6 +1762,10 @@ a.down-scroll:hover {
                     <template slot="time" slot-scope="data">   
                       <a-time-picker v-model="data.item.time" name="Time" use24Hours format="HH:mm" @change="updateActivity(data.item)" /> 
                     </template>
+
+                    <template slot="timeModified" slot-scope="data">   
+                      <p>{{ data.item.timeModified | toDate}}</p>
+                    </template>
                   </b-table>   
    
                   <b-pagination   
@@ -1747,40 +1787,34 @@ a.down-scroll:hover {
                   <b-table 
                     hover 
                     :items="closedActivityItems" 
-                    sticky-header="190px" 
+                    sticky-header
                     :per-page="perPage"
                     responsive
+                    class="closed-activities"
                   > 
                     <template slot="statusColor" slot-scope="data">   
                       <div class="activity-status" :style="{backgroundColor: data.item.statusColor}"></div>   
                     </template>
 
                     <template slot="subject" slot-scope="data">   
-                      <input
-                        @blur="updateActivity(data.item)"
-                        v-model="data.item.subject"     
-                        type="text"    
-                        id="deal-name"     
-                        name="DealName"   
-                        class="form-control border-0 rounded-pill"/> 
+                      <p>{{data.item.subject}}</p> 
                     </template> 
 
                     <template slot="status" slot-scope="data">   
-                      <a-select v-model="data.item.status" class="activity-status-input" @change="updateActivity(data.item)">
-                        <a-select-option :value="0"><div class="d-inline-block activity-status finished-activity"></div>Finished</a-select-option>
-                        <a-select-option :value="1"><div class="d-inline-block activity-status in-progress-activity"></div>In Progress</a-select-option>
-                        <a-select-option :value="2"><div class="d-inline-block activity-status not-started-activity"></div>Not Started</a-select-option>
-                      </a-select> 
+                      <p>{{data.item.status}}</p> 
                     </template> 
 
                     <template slot="dueDate" slot-scope="data">   
-                      <a-date-picker v-model="data.item.dueDate" name="Due Date" @change="updateActivity(data.item)" /> 
+                      <p>{{data.item.dueDate | toDate }}</p> 
                     </template>
 
                     <template slot="time" slot-scope="data">   
-                      <a-time-picker v-model="data.item.time" name="Time" use24Hours format="HH:mm"  @change="updateActivity(data.item)" /> 
+                      <p>{{data.item.time}}</p> 
                     </template>
 
+                    <template slot="timeModified" slot-scope="data">   
+                      <p>{{ data.item.timeModified | toDate }}</p>
+                    </template>
                   </b-table>  
 
                   <b-pagination   
@@ -1854,10 +1888,11 @@ a.down-scroll:hover {
                 >    
                   <b-table 
                     hover 
+                    :fields="dealHeaders"
                     :items="dealItems" 
                     :per-page="perPage"   
                     :current-page="currentPage"   
-                    sticky-header="190px"
+                    sticky-header
                     responsive
                     class="deals-table"
                   >
@@ -1970,14 +2005,20 @@ a.down-scroll:hover {
                         class="form-control rounded-pill border-0"/> 
                     </template>
 
-                     <template slot="status" slot-scope="data">   
+                    <template slot="status" slot-scope="data">     
+                      <div class="d-inline-block activity-status" :style="{backgroundColor: dealStatColor(data.item.status)}"></div>
+
                       <a-select v-model="data.item.status" class="custom-select rounded-pill border-0 status-input">   
                         <a-select-option value="-None-" selected>-None-</a-select-option>   
-                        <a-select-option value="1">Paid</a-select-option>   
-                        <a-select-option value="2">Pending</a-select-option>   
-                        <a-select-option value="3">Due</a-select-option>   
-                        <a-select-option value="4">Rejected</a-select-option>     
+                        <a-select-option :value="1">Paid</a-select-option>   
+                        <a-select-option :value="2">Pending</a-select-option>   
+                        <a-select-option :value="3">Due</a-select-option>   
+                        <a-select-option :value="4">Rejected</a-select-option>     
                       </a-select> 
+                    </template>
+
+                    <template slot="created_at" slot-scope="data">   
+                      <p>{{ data.item.created_at | toDate }}</p> 
                     </template>
                   </b-table>   
 
@@ -2435,6 +2476,9 @@ export default {
       }, 
       deal_items: [],
       dealItems: [],
+      dealHeaders: [
+        'status', 'deal_name', 'type', 'description', 'amount', 'contact_name', 'contact_number', 'expected_revenue', 'probability', 'stage', 'lead_source', 'agent_name', 'closing_date', 'created_at'
+      ],
       perPage: 10,  
       currentPage: 1,
       radioStyle: {
@@ -2464,6 +2508,31 @@ export default {
         // ToDo: Push for slots
 
         vm.deal_items.map( (item) => {
+
+            var color = '';
+            var status = '';
+
+            if(item.status == '-None-'){
+              color = '#ccc';
+              status = '-None-';
+            }
+            if(item.status == 1){
+              color = '#00d58e';
+              status = 'Paid';
+            }
+            if(item.status == 2){
+              color = '#FF933A';
+              status = 'Pending';
+            }
+            if(item.status == 3){
+              color = '#f42222';
+              status = 'Due';
+            }
+            
+            if(item.status == 4){
+              color = '#f42222';
+              status = 'Rejected';
+            }
 
           vm.dealItems.push({ 
             id: item.id,
@@ -2580,6 +2649,7 @@ export default {
                   title: 'Activity added successfully'
               }); 
               vm.getActivities(); 
+              vm.addActivityCollapse();
               vm.$Progress.finish(); 
           } else { 
               vm.$Progress.fail(); 
@@ -2590,6 +2660,7 @@ export default {
       vm.activity.duedate =  '',
       vm.activity.status = 2,
       this.edit_task = false; 
+      
     },
     getActivities(){
       var vm = this; 
@@ -3041,7 +3112,18 @@ export default {
         date_string = second_date;  
       }  
       return date_string;  
-    }  
+    },
+    dealStatColor(status) {
+      if (status == 1) {
+        return '#00D58E'
+      } else if (status == 2 || status == 3) {
+        return '#FF933A'
+      } else if (status == 4) {
+        return '#F42222'
+      } else {
+        return '#ccc'
+      }
+    }
   }  
 };  
 </script>   

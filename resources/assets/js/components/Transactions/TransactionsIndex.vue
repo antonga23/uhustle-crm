@@ -4,11 +4,14 @@
   padding-right:5.2%;
 }
 .tab-pane.card-body {
-  padding:4.4% 5.6% 6.8%;
+  padding:4.4% 5.6%;
 }
 .nav-link.active img {
   display:inline-block!important;
   margin-left: 20px;
+}
+.table-responsive {
+  margin-bottom:20px;
 }
 .deal-name {
   font-size: 0.83vw;
@@ -24,44 +27,148 @@
             <b-tab active>
               <template v-slot:title>
                 <h5 class="d-inline-block">Paid</h5>
-                <img src="images/icons/transactions/Paid.svg" alt="Paid icon" width="16" class="d-none"/>
+                <img src="images/icons/transactions/Paid.svg" alt="Paid icon" width="12" class="d-none"/>
               </template>
 
               <transition name="fade">
-                <b-table hover :items="paidItems"></b-table>
+                <div>
+                  <b-table 
+                    hover 
+                    :items="paidItems" 
+                    class="paid-transactions" 
+                    :per-page="perPage" 
+                    :current-page="currentPage" 
+                    responsive
+                  >
+                    <template slot="updated_at" slot-scope="data">   
+                      <p>{{getDaysAgo(data.item.updated_at)}}</p>
+                    </template>
+
+                    <template slot="created_at" slot-scope="data">   
+                      <p>{{getDaysAgo(data.item.created_at)}}</p> 
+                    </template>
+                  </b-table>
+
+                  <b-pagination
+                    class="paid-pagination"
+                    v-model="currentPage"
+                    :per-page="perPage"
+                    align="center"
+                    size="sm"
+                    :total-rows="paidRows"
+                  ></b-pagination> 
+                </div>
               </transition>
             </b-tab>
 
             <b-tab>
               <template v-slot:title>
                 <h5 class="d-inline-block">Pending</h5>
-                <img src="images/icons/transactions/Pending.svg" alt="Pending icon" width="16" class="d-none"/>
+                <img src="images/icons/transactions/Pending.svg" alt="Pending icon" width="12" class="d-none"/>
               </template>
 
               <transition name="fade">
-                <b-table hover :items="pendingItems"></b-table>
+                <div>
+                  <b-table 
+                    hover 
+                    :items="pendingItems" 
+                    class="pending-transactions" 
+                    :per-page="perPage" 
+                    :current-page="currentPage" 
+                    responsive
+                  >
+                    <template slot="updated_at" slot-scope="data">   
+                      <p>{{getDaysAgo(data.item.updated_at)}}</p>
+                    </template>
+
+                    <template slot="created_at" slot-scope="data">   
+                      <p>{{getDaysAgo(data.item.created_at)}}</p> 
+                    </template>
+                  </b-table>
+
+                  <b-pagination
+                    class="pending-pagination"
+                    v-model="currentPage"
+                    :per-page="perPage"
+                    align="center"
+                    size="sm"
+                    :total-rows="pendingRows"
+                  ></b-pagination>
+                </div>
               </transition>
             </b-tab>
 
             <b-tab>
               <template v-slot:title>
                 <h5 class="d-inline-block">Due</h5>
-                <img src="images/icons/transactions/Pending.svg" alt="Pending icon" width="16" class="d-none"/>
+                <img src="images/icons/transactions/Pending.svg" alt="Pending icon" width="12" class="d-none"/>
               </template>
 
               <transition name="fade">
-                <b-table hover :items="dueItems"></b-table>
+                <div>
+                  <b-table 
+                    hover 
+                    :items="dueItems" 
+                    class="due-transactions" 
+                    :per-page="perPage" 
+                    :current-page="currentPage" 
+                    responsive
+                  >
+                    <template slot="updated_at" slot-scope="data">   
+                      <p>{{getDaysAgo(data.item.updated_at)}}</p>
+                    </template>
+
+                    <template slot="created_at" slot-scope="data">   
+                      <p>{{getDaysAgo(data.item.created_at)}}</p> 
+                    </template>
+                  </b-table>
+
+                  <b-pagination
+                    class="due-pagination"
+                    v-model="currentPage"
+                    :per-page="perPage"
+                    align="center"
+                    size="sm"
+                    :total-rows="dueRows"
+                  ></b-pagination>
+                </div>
               </transition>
             </b-tab>
 
-            <b-tab>
+            <b-tab> 
               <template v-slot:title>
                 <h5 class="d-inline-block">Rejected</h5>
-                <img src="images/icons/transactions/Rejected.svg" alt="Rejected icon" width="16" class="d-none"/>
+                <img src="images/icons/transactions/Rejected.svg" alt="Rejected icon" width="12" class="d-none"/>
               </template>
 
               <transition name="fade">
-                <b-table hover :items="rejectedItems"></b-table>
+                <div>
+                  <b-table 
+                    hover 
+                    :items="rejectedItems" 
+                    class="rejected-transactions" 
+                    :per-page="perPage" 
+                    :current-page="currentPage" 
+                    responsive
+                  >
+                    <template slot="updated_at" slot-scope="data">   
+                      <p>{{getDaysAgo(data.item.updated_at)}}</p>
+                    </template>
+
+                    <template slot="created_at" slot-scope="data">   
+                      <p>{{getDaysAgo(data.item.created_at)}}</p> 
+                    </template>
+                  </b-table>
+
+                  <b-pagination
+                    class="rejected-pagination"
+                    v-model="currentPage"
+                    :per-page="perPage"
+                    align="center"
+                    size="sm"
+                    :total-rows="rejectedRows"
+                  ></b-pagination>
+                </div>
               </transition>
             </b-tab>
 
@@ -179,6 +286,8 @@
         pendingItems: [],
         dueItems: [],
         rejectedItems: [],
+        perPage: 20, 
+        currentPage: 1
       }
     },
     methods: {
@@ -219,6 +328,41 @@
             vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again','warning');
           }
         });
+      },
+      getDaysAgo(second_date) {  
+        var date_string = "";  
+        var oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds  
+        var firstDate = new Date();  
+        var secondDate = new Date(second_date);  
+    
+        var diffDays = Math.round(  
+          Math.abs((firstDate.getTime() - secondDate.getTime()) / oneDay)  
+        );  
+    
+        if (diffDays <= 1) {  
+          date_string = "Today";  
+        } else if (diffDays > 1 && diffDays <= 7) {  
+          date_string = diffDays + " Days ago";  
+        } else if (diffDays == 7) {  
+          date_string = "1 Week ago";  
+        } else if (diffDays >= 7) {  
+          date_string = second_date;  
+        }  
+        return date_string;  
+      }  
+    },
+    computed: {
+      paidRows() {
+        return this.paidItems.length
+      },
+      pendingRows() {
+        return this.pendingItems.length
+      },
+      dueRows() {
+        return this.dueItems.length
+      },
+      rejectedRows() {
+        return this.rejectedItems.length
       }
     }
   }

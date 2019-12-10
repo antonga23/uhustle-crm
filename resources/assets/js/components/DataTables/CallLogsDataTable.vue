@@ -985,9 +985,9 @@ table td:first-child {
 .add-columns {  
   position: fixed;  
   z-index: 100;  
-  background-color: #fff;  
-  padding-right: 20px;  
-  left:75px;  
+  /* background-color: #fff;   */
+  /* padding-right: 20px;   */
+  left:62px;  
 }  
 .show > .btn-secondary.dropdown-toggle {  
   background-color: #f6f8f9;  

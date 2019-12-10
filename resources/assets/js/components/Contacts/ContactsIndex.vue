@@ -357,7 +357,7 @@ table.listing tr  th{
                                 <option :value="item" v-for="(item,index) in users.sources" :key="index">{{ item.name}}</option>
                             </select>
                         </label>
-                        <label class="col-lg-4 control-label">Country
+                          <label class="col-lg-4 control-label">Country
                             <input type="text" id="Country"  name="Country" v-model="user.country" class="form-control">
                         </label>
                         <label class="col-lg-4 control-label">City
