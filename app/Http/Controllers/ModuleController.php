@@ -544,7 +544,6 @@ class ModuleController extends Controller
 
   public function addItem(Request $request){
     $item = $request->item;
-
     try{
       DB::beginTransaction();
 
@@ -552,6 +551,16 @@ class ModuleController extends Controller
         'module_id' => $item['id']
       ]);
       foreach($item['module_fields'] as $key => $value){
+        if($value['name'] == "assignee")
+        {
+          $m_item->assignee = $value['valye'];
+          $m_item->save();
+        }
+        else if($value['name'] == "owner")
+        {
+          $m_item->owner = $value['value'];
+          $m_item->save();
+        }
         $meta = ModuleItemMeta::create([
           'item_id' => $m_item->id,
           'custom_field_id' => $value['id'],
