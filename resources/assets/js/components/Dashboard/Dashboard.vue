@@ -103,10 +103,10 @@
   }
 
   .nav.nav-tabs.card-header-tabs .nav-link[aria-selected="true"]{ 
-    box-shadow: -0 -10px 20px rgba(0,0,0,0.05);
-    -webkit-box-shadow: -0 -10px 20px rgba(0,0,0,0.05);
-    -moz-box-shadow: -0 -10px 20px rgba(0,0,0,0.05);
-    -o-box-shadow: -0 -10px 20px rgba(0,0,0,0.05); 
+    box-shadow: -0 -17px 20px rgba(0,0,0,0.05);
+    -webkit-box-shadow: -0 -17px 20px rgba(0,0,0,0.05);
+    -moz-box-shadow: -0 -17px 20px rgba(0,0,0,0.05);
+    -o-box-shadow: -0 -17px 20px rgba(0,0,0,0.05); 
     border-top-left-radius: 25px; 
     border-top-right-radius: 25px; 
   } 
@@ -270,7 +270,7 @@
     color: #333333;
   }
   .reminders ul {
-    max-height:448px;
+    max-height: 550px;
     overflow-y: auto;
     margin-top: 20px;
     border-top: 1px solid #CDCDCF;
@@ -348,6 +348,9 @@ margin-left: 35px;
     margin-top: -15px;
     margin-right: -15px;
   }
+  .callbacks-to-dos {
+    padding-top:20px;
+  }
   .callbacks-to-dos .border-top {
     border-color: #CDCDCF;
   }
@@ -363,6 +366,12 @@ margin-left: 35px;
     font-family: 'Rubik', sans-serif;
     color: #6B6B6B;
     padding-left:3.5%;
+  }
+
+  #dash-activities h5 {
+    font-family: 'Rubik', sans-serif;
+    font-size: 0.68vw;
+    color: rgba(28, 35, 49, 0.5);
   }
 
   .active-task {
@@ -400,7 +409,7 @@ margin-left: 35px;
   .custom-control-label::before { 
     width: 20px;
     height: 20px;
-    top: 19px;
+    top: 9px;
     left: 0.2rem;
     cursor: pointer; 
   }
@@ -451,23 +460,8 @@ border-top: 1px solid #f7f7f7;
 </style>
 <template>
   <div id="dashboard">
-    <!-- <h1><span class="font-weight-bold">Hi Peter</span>, your analytics are all set</h1> -->
     <div id="dash-container">
       <div id="top-section" class="row mx-0">
-        <div class="col-12 px-0">
-          <div class="row mx-0 align-items-center">
-            <div class="col-auto pl-0" style="display:none">
-              <select class="rounded-pill border-0"> 
-                <option selected>Filter by date</option> 
-              </select>
-            </div>
-
-            <div class="col pr-0">
-              <div class="divider-line"></div>
-            </div>
-          </div>
-        </div>
-
         <div class="col-12 px-0 agent-stats">
           <div class="card-deck w-100 mx-0 px-0">
             <div class="card border-0 mb-0 ml-0">
@@ -751,7 +745,7 @@ border-top: 1px solid #f7f7f7;
         <div class="card border-0">
           <div class="row mx-0">
             <div class="col border-right pl-0 calendar">
-              <h4 class="font-weight-regular">Filter</h4>
+              <h4 class="font-weight-regular mb-0">Filter</h4>
               <vc-calendar 
                 class="border-0" 
                 :attributes='attrs'
@@ -786,7 +780,7 @@ border-top: 1px solid #f7f7f7;
                         format="DD-MM" 
                         :allowEmpty="false"
                         @change="checkCBDate(call_back_date)"
-                        class="rounded-pill"
+                        class="rounded-pill pl-0"
                         @defaultValue="moment(call_back_date).format( 'DD MMM' )"
                       /> 
                     </div>
@@ -836,8 +830,8 @@ border-top: 1px solid #f7f7f7;
             </div>
 
             <div class="col border-right to-dos">
-              <h4 class="mb-2 font-weight-regular">Callbacks</h4>
-              <h4 class="font-weight-regular">{{ moment(attrs[0].dates).format( 'dddd MM/DD')  }}</h4>
+              <h4 class="text-uppercase font-weight-regular mb-0">Callbacks</h4>
+              <h5 class="font-weight-bold">{{ moment(attrs[0].dates).format( 'dddd MM/DD')  }}</h5>
 
               <div class="callbacks-to-dos">
                 <schedule :call_backs="call_backs" ></schedule>
@@ -846,8 +840,9 @@ border-top: 1px solid #f7f7f7;
 
             <div class="col pr-0 reminders">
               <div class="row mx-0 justify-content-between align-items-center"> 
-                <div class="col-auto pl-0"> 
+                <div class="col pl-0"> 
                   <h4 class="text-uppercase font-weight-regular mb-0">Reminders</h4> 
+                  <h5 class="font-weight-bold">{{ moment(attrs[0].dates).format( 'dddd MM/DD')  }}</h5>
                 </div> 
                 <div class="col-auto pr-0"> 
                   <b-button class="m-0 p-0 rounded-circle border-0" @click="addTask">  
@@ -855,9 +850,8 @@ border-top: 1px solid #f7f7f7;
                   </b-button> 
                 </div> 
               </div> 
-              <h4 class="font-weight-regular">{{ moment(attrs[0].dates).format( 'dddd MM/DD')  }}</h4>
 
-              <ul class="border-top pl-0"  v-if="reminders.length > 0 && !add_task"> 
+              <ul class="border-top pl-0 mb-0"  v-if="reminders.length > 0 && !add_task"> 
                 <!--When adding a new task, the whole li tag should be added and change input ids --> 
                 <li v-for="(task, i) in reminders" :key="i" class="row m-2 pt-0 pl-0 align-items-center reminders-border-bottom custom-control custom-checkbox"> 
                   <transition name="bounce">  

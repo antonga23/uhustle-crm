@@ -78,7 +78,7 @@ ul.items li a:hover{
 }
 
 ::-webkit-scrollbar {
-width: 3px;
+width: 5px;
 }
 
 table.listing{

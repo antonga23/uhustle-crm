@@ -4,7 +4,7 @@
     overflow-y: auto;
   }
   .tab-pane{
-    padding: 4.4% 5.6% 6.8%;
+    padding: 4.4% 5.6%;
   }
   .help-block{
     color: #dc3545;

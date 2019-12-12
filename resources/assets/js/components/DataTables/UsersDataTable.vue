@@ -30,7 +30,7 @@
         <button  
           type="submit"  
           @click="handleChange()"  
-          class="btn btn-primary font-weight-bold rounded-pill mt-2 mb-0 mx-auto d-block" 
+          class="btn btn-primary font-weight-bold rounded-pill mt-2 mb-0 ml-auto d-block" 
         >Apply</button> 
       </div> 
     </div> 
@@ -793,11 +793,9 @@ table td:first-child {
     padding-left: 25px;  
 } */  
 .add-columns { 
-  position: fixed; 
+  position: absolute; 
   z-index: 100; 
-  background-color: #fff; 
-  padding-right: 20px; 
-  left:75px; 
+  left:-40px; 
 } 
 .show > .btn-secondary.dropdown-toggle { 
   background-color: #f6f8f9; 

@@ -300,3 +300,8 @@
       }
   }
 </script>
+<style scoped>
+.companies-listing {
+  margin-bottom: 20px;
+}
+</style>

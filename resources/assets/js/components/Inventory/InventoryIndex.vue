@@ -143,7 +143,7 @@
     -o-box-shadow:none!important;
   }
   .tab-pane.card-body {
-    padding:4.4% 5.6% 6.8%;
+    padding:4.4% 5.6%;
   }
   .card-body .form-group{
     margin-left: 0%;
@@ -205,7 +205,7 @@
 </style>
 <template>
   <div id="inventory">
-    <div class="row mx-0 my-0 top-nav">
+    <div class="row mx-0 top-nav">
       <ul class="top-menu w-100">
         <li class="item ml-0" v-if="current_user.role_id == 1">
           <a 

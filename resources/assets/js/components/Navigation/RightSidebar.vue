@@ -185,11 +185,16 @@ h3 img {
   font-size: 10px;
   font-family: "Rubik", sans-serif;
   color: #1e2331;
-  padding-bottom: 10px;
+  padding-bottom: 7px;
 }
 .description-text {
   font-size: 0.73vw !important;
   color: #808080 !important;
+}
+
+input.description-text:focus {
+  outline: 0 !important;
+  box-shadow: none !important;
 }
 
 .position {
@@ -580,10 +585,11 @@ p.heading {
   padding-right: 10px;
 }
 .callback-cal p {
-  font-size: 0.73vw;
-  color: #666666;
+  font-size: 10px;
+  color: #757575;
   border-color: #ccc;
-  margin-top: 25px;
+  margin-top: 13.5%;
+  font-family: "Rubik", sans-serif;
 }
 .final-modal .card-header {
   padding: 0 11px 0;
@@ -684,7 +690,7 @@ textarea.form-control {
 }
 
 .stats-section .commission {
-  padding: 7% 0;
+  padding: 5.5% 0;
 }
 
 .stats-section .sales,
@@ -699,7 +705,7 @@ textarea.form-control {
 .stats-section .sales .col-lg-12 p,
 p.badges {
   border-bottom: 0.5px solid #f4f4f5;
-  margin-bottom: 5px;
+  margin-bottom: 5.6%;
   padding-bottom: 2px;
 }
 
@@ -721,10 +727,14 @@ p.badges {
   color: #003449;
 }
 
-.nav-item .nav-link img.active-icon, .nav-item .nav-link.generalIcon:hover,.nav-item .nav-link.filterIcon:hover, .nav-item .nav-link.notificationsIcon:hover, .nav-item .nav-link.settingsIcon:hover,.nav-item .nav-link.notificationsIcon img.inactive-icon:hover {
+.nav-item .nav-link img.active-icon, 
+.nav-item .nav-link.generalIcon:hover,
+.nav-item .nav-link.filterIcon:hover, 
+.nav-item .nav-link.notificationsIcon:hover, 
+.nav-item .nav-link.settingsIcon:hover,
+.nav-item .nav-link.notificationsIcon img.inactive-icon:hover {
   border-radius: 50%;
   box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);
-  
 }
 
 .reminders .nav-link[aria-posinset="2"] {
@@ -761,9 +771,16 @@ p.badges {
 .reminders .custom-control-label::before {
   width: 20px;
   height: 20px;
-  top: 19px;
+  top: 10px;
   left: 0.2rem;
   cursor: pointer;
+}
+
+.reminders .custom-control-label a.callback-name:hover {
+  text-decoration: underline; 
+}
+.reminders .custom-control-label a.callback-name {
+font-size: 0.83vw;
 }
 
 .reminders input.list-input {
@@ -786,23 +803,32 @@ p.badges {
 
 .reminders .btn-primary {
   width: auto !important;
-    float: right;
+  float: right;
   line-height: 1em;
 }
 .reminders .terms-text input {
-    border-left: 0;
-    border-top: 0;
-    border-right: 0;
-    border-bottom: 1px solid #f7f7f7;
-    width: 100%;
+  border-left: 0;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 1px solid #f7f7f7;
+  width: 100%;
+  color: #8E8E8E;
 }
 .terms-text {
   padding-left: 37px;
 }
-.reminders .terms-text input:focus {
-   outline: 0 !important;
+.new-task input {
+  border-left: 0;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 1px solid #f7f7f7;
+  color: #8E8E8E;
 }
-.reminders .terms-text input::placeholder {
+.reminders .terms-text input:focus {
+  outline: 0 !important;
+}
+.reminders .terms-text input::placeholder,
+.new-task input::placeholder {
   font-style: italic;
   font-weight: 300;
 }
@@ -1139,7 +1165,7 @@ input.save-text:focus {
           </div>
 
           <div class="open-sidenav mt-3">
-            <div v-if="settings_on == true" class="settings px-6-hide ml-2">
+            <div v-if="settings_on == true" class="settings px-6">
               <div class="row mx-0 pt-0 border-bottom">
                 <div class="row mx-0 justify-content-between align-items-center w-100 p-0">
                   <div class>
@@ -1854,7 +1880,7 @@ input.save-text:focus {
                   <div class="row mx-0 commission"> 
                     <div class="col-lg-6 pl-0"> 
                       <p class="description">Commission</p> 
-                      <p><span class="value">{{ call_log.commission }}</span></p> 
+                      <p><span class="value">${{ call_log.commission }}</span></p> 
                     </div> 
 
                     <div class="col-lg-6 text-right pr-0"> 
@@ -1888,8 +1914,8 @@ input.save-text:focus {
                       <p><span class="value">{{ call_log.total_sales }}</span></p> 
                     </div> 
                     <div class="col-lg-6 text-right pr-0"> 
-                      <p class="description">Value</p> 
-                      <p><span class="value">{{ call_log.sum_sales }}</span></p> 
+                      <p class="description">Amount</p> 
+                      <p><span class="value">${{ call_log.sum_sales }}</span></p> 
                     </div> 
                   </div> 
                 </div> 
@@ -1926,7 +1952,7 @@ input.save-text:focus {
                                   <label
                                     class="pl-34 custom-control-label"
                                     :for="'callback' + i"
-                                  >{{ call_back.lead.name + ' ' +call_back.lead.surname }}</label>
+                                  ><a class="callback-name" :href="'/workstation/' + call_back.lead.id" >{{ call_back.lead.name + ' ' +call_back.lead.surname }}</a></label>
                                   <br><span
                                     class="tasks-date"
                                   >{{ call_back.call_date }} {{ call_back.call_time }}</span>
@@ -1968,7 +1994,7 @@ input.save-text:focus {
                             <transition name="bounce">
                               <div class="col-12 p-2">
                                 <div class="row mx-0 align-items-center">
-                                  <div class="col pl-0 custom-control custom-checkbox">
+                                  <div class="col-12 px-0 custom-control custom-checkbox">
                                     <input
                                       class="custom-control-input"
                                       v-model="task.status"
@@ -1987,16 +2013,11 @@ input.save-text:focus {
                                         @focus="editTaskCollapes(task.id)"
                                       />
                                     </label>
-                                    <br> <span
-                                      class="tasks-date"
-                                    >{{ moment(task.deadline).format( 'DD MMM') }}</span>
+                                    <br> 
+                                    <span class="tasks-date">
+                                      {{ moment(task.deadline).format( 'DD MMM') }} {{ moment(task.time).format( 'HH:mm') }}
+                                    </span>
                                   </div>
-
-                                  <!-- <div class="col-auto pr-0">
-                                    <span
-                                      class="tasks-date"
-                                    >{{ moment(task.deadline).format( 'DD MMM') }}</span>
-                                  </div> -->
                                 </div>
 
                                 <div
@@ -2024,12 +2045,23 @@ input.save-text:focus {
                                     </label>
                                   </div>
 
-                                  <div class="col-6 pr-0 custom-control">
+                                  <div class="col-6 pr-0 text-right w-auto custom-control" :for="'task' + i">
+                                    <a-time-picker 
+                                      v-model="task.time" 
+                                      :defaultValue="moment(task.time, 'HH:mm')"
+                                      :allowEmpty="false" 
+                                      use24Hours 
+                                      format="HH:mm" 
+                                      class="shadow-none"
+                                    /> 
+                                  </div>
+
+                                  <br>
+                                  <div class="col-12 px-0 custom-control">
                                     <button
                                       type="submit"
                                       class="btn btn-primary update-user w-100 rounded-pill m-0"
                                       @click="editTask(task)"
-                                      :disabled="task.title==''"
                                     >Update</button>
                                   </div>
                                 </div>
@@ -2038,7 +2070,7 @@ input.save-text:focus {
                           </li>
                         </ul>
 
-                        <ul class="pl-0" v-if="tasks.length == 0 || add_task">
+                        <ul class="pl-0 new-task" v-if="tasks.length == 0 || add_task">
                           <!--When adding a new task, the whole li tag should be added and change input ids -->
                           <li
                             class="my-2 mx-3 p-2 align-items-center reminders-border-bottom custom-control"
@@ -2047,8 +2079,9 @@ input.save-text:focus {
                               <div class="col-12 px-0">
                                 <div class="row mx-0">
                                   <div class="col-12 px-0 custom-control">
-                                    <label class="w-100 terms-text" for="task1">
-                                      <input maxlength="35"
+                                    <label class="w-100" for="task1">
+                                      <input 
+                                        maxlength="35"
                                         v-model="new_task.title"
                                         placeholder="Title"
                                         type="text"
@@ -2056,12 +2089,12 @@ input.save-text:focus {
                                       />
                                     </label>
 
-                                    <label class="w-100 terms-text" for="task1">
+                                    <label class="w-100" for="task1">
                                       <input maxlength="35"
                                         v-model="new_task.description"
                                         placeholder="Description"
                                         autosize
-                                        class="description-text"
+                                        class="w-100 description-text"
                                       />
                                     </label>
                                   </div>
@@ -2069,17 +2102,27 @@ input.save-text:focus {
 
                                 <div class="row mx-0 justify-content-between">
                                   <div class="col-6 pl-0 custom-control pl-34">
-                                    <label class="task-deadline terms-text" for="task1">
+                                    <label class="task-deadline" for="task1">
                                       <a-date-picker v-model="new_task.date" class="w-100 reminder-date-picker" />
                                     </label>
                                   </div>
 
-                                  <div class="col-6 pr-0 custom-control">
+                                  <div class="col-6 pr-0 text-right custom-control">
+                                    <a-time-picker 
+                                      v-model="new_task.selected_time" 
+                                      :allowEmpty="false" 
+                                      use24Hours 
+                                      format="HH:mm" 
+                                      class="w-auto shadow-none"
+                                    /> 
+                                  </div>
+                                </div>
+                                 <div class="row mx-0 justify-content-between">
+                                  <div class="col-12 px-0 custom-control">
                                     <button
                                       type="submit"
                                       class="btn btn-primary update-user w-100 rounded-pill m-0"
                                       @click="submitTask"
-                                      :disabled="new_task.title ==''"
                                     >Save</button>
                                   </div>
                                 </div>
@@ -2101,7 +2144,7 @@ input.save-text:focus {
           </div> 
 
           <div v-if="filters_on == true">
-            <h3 class="px-6-hide mt-2 mx-2">Filter</h3> 
+            <h3 class="px-6 mt-2 mx-2">Filter</h3> 
             <div class="row mx-0 filter-content">   
               <b-tabs content-class="mt-3 px-2">  
                 <b-tab title="New">  
@@ -2454,7 +2497,7 @@ input.save-text:focus {
           key: 'today', 
           highlight: true, 
           class: 'today_date', 
-          dates: new Date(), 
+          dates: new Date(),
         }],
         call_log : {
           commission: '',
@@ -2479,8 +2522,9 @@ input.save-text:focus {
         add_task: false, 
         new_task: { 
           title: '', 
-          description: '', 
-          date: moment() 
+          description: '',
+          date: moment(),
+          selected_time: moment(), 
         }, 
         avatarUrl: '/images/avatars/', 
         noImageUrl: '/images/icons/user_icon@4x.png', 
@@ -2673,14 +2717,15 @@ input.save-text:focus {
             key: 'today', 
             highlight: true, 
             class: 'today_date', 
-            dates: new Date(), 
+            dates: new Date(),
           }]; 
 
           vm.call_backs.forEach(function(call_back) { 
 
             vm.attrs.push({ 
               key: 'call_back' + call_back.id, 
-              highlight: 'red', 
+              highlight: 'blue', 
+              dot: 'blue',
               class: 'call_back_date', 
               dates: new Date(call_back.call_date), 
               popover: { 
@@ -2724,6 +2769,29 @@ input.save-text:focus {
       var vm = this;
       axios.get("/tasks/get-user-tasks").then(function(response) {
         vm.tasks = response.data.tasks;
+
+        vm.attrs = [{ 
+            key: 'today', 
+            highlight: true, 
+            class: 'today_date', 
+            dates: new Date(),
+          }]; 
+
+          vm.tasks.forEach(function(task) { 
+
+            vm.attrs.push({ 
+              key: 'task' + task.id,
+              dot: 'orange',
+              class: 'task_date', 
+              dates: new Date(
+                task.deadline
+              ),
+              popover: { 
+                label: task.title, 
+              }, 
+            }); 
+          }); 
+
         Fire.$emit("AfterTaskkRequest", { tasks: vm.tasks });
       });
     },
@@ -2731,18 +2799,26 @@ input.save-text:focus {
       this.new_task.title = "";
       this.new_task.description = "";
       this.new_task.date = moment();
+      this.new_task.selected_time = moment();
       this.add_task = !this.add_task;
     },
     submitTask() {
       var vm = this;
-
+      if (this.new_task.title == "") {  
+        this.$swal(  
+          "Oops",  
+          "Please add a title.",  
+          "warning"  
+        );  
+      } else {
       vm.$Progress.start();
-
       axios
         .post("/tasks/create", {
           title: vm.new_task.title,
           description: vm.new_task.description,
-          date: vm.new_task.date.format("YYYY-MM-DD")
+          date: vm.new_task.date.format("YYYY-MM-DD"),
+          time: vm.new_task.selected_time.format("hh:mm") 
+          
         })
         .then(function(response) {
           if (response.data.success == true) {
@@ -2762,10 +2838,10 @@ input.save-text:focus {
             );
           }
         });
+      }
     },
     editTask(task, mode) {
       var vm = this;
-
       vm.$Progress.start();
 
       var status = !task.status ? 1 : 0;
@@ -2775,29 +2851,38 @@ input.save-text:focus {
       if (mode === undefined) {
         status = 0;
       }
-
+      if (task.title === '') {
+        this.edit_task = false;
+         vm.$swal(
+              "Failed",
+              "Opps, please add a title.",
+              "warning"
+            );
+      }
+      else {
       axios
         .post("/tasks/update", {
           id: task.id,
           title: task.title,
           status: status,
           description: task.description, 
-          date: task.deadline 
+          date: task.deadline,
+          time: task.time
         }).then(function(response) { 
-
-          if (response.data.success == true) { 
-            vm.Toast.fire({ 
-                type: 'success', 
-                title: response.data.message 
-            }); 
-            vm.getUserTasks(); 
-            vm.edit_task = false; 
-            vm.$Progress.finish(); 
-          } else { 
-            vm.$Progress.fail(); 
-            vm.$swal('Failed', 'Opps, something went wrong while updating data, please try again', 'warning'); 
-          } 
-        }); 
+            if (response.data.success == true) { 
+              vm.Toast.fire({ 
+                  type: 'success', 
+                  title: response.data.message 
+              }); 
+              vm.getUserTasks(); 
+              vm.edit_task = false; 
+              vm.$Progress.finish(); 
+            } else { 
+              vm.$Progress.fail(); 
+              vm.$swal('Failed', 'Opps, something went wrong while updating data, please try again', 'warning'); 
+            } 
+          });
+        }
         this.edit_task = false; 
       },
       editTaskCollapes(id){ 

@@ -2,9 +2,8 @@
 <style scoped>
 /*Right Component*/
 .main-header.navbar.navbar-expand {
-  padding: 13px 4% 1.55%;
+  padding: 13px 4% 0.45%;
   position: relative;
-  top: 10px;
 }
 .navbar-nav li.title{
   line-height: 20px;
@@ -250,7 +249,7 @@ select.month-selector {
 						</li>
 
 						<li v-if="active == 'dashboard' || active == 'call-history' || active == 'social-board'" class="nav-item d-none d-sm-inline-block px-3">
-							<select class="form-control month-selector m-0" v-model="month" @change="topMonthFilterChange">
+							<!-- <select class="form-control month-selector m-0" v-model="month" @change="topMonthFilterChange">
 								<option value="1">January {{ getFullYear() }}</option>
 								<option value="2">February {{ getFullYear() }}</option>
 								<option value="3">March {{ getFullYear() }}</option>
@@ -263,7 +262,8 @@ select.month-selector {
 								<option value="10">October {{ getFullYear() }}</option>
 								<option value="11">November {{ getFullYear() }}</option>
 								<option value="13">December {{ getFullYear() }}</option>
-							</select>
+							</select> -->
+              <a-range-picker @change="onChange" />
 						</li>
 
 						<li v-if="(active == 'users' || active == 'leads' || active == 'contacts')" class="nav-item d-none d-sm-inline-block pl-3">
@@ -312,10 +312,10 @@ select.month-selector {
 						<!-- <li :class="{ 'nav-item d-sm-inline-block' : true, 'idle' : is_idle, 'on-call' : is_oncall, 'offline' : is_offline }">
 		    			<button id="toggle-btn" class="nav-link border-0 bg-transparent status"  @click="switchState()"></button>
 						</li> -->
-						<li class="nav-item d-sm-inline-block" v-if="auto_dialer_settings.disabled == 1">
+						<!-- <li class="nav-item d-sm-inline-block" v-if="auto_dialer_settings.disabled == 1">
 		    			<button v-if="!is_oncall" id="show-btn" class="nav-link border-0 bg-transparent call" @click="startCall()"></button>
 		    			<button v-if="is_oncall" id="show-btn" class="nav-link border-0 bg-transparent end-call" @click="endCall()"></button>
-						</li>
+						</li> -->
 					</ul>			
 				</div>
 			</div>

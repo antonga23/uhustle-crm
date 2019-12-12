@@ -54,8 +54,8 @@ class TaskController extends Controller
         $description = ( isset($data['description']) )? $data['description'] : null;
         $status = ( isset($data['status']) )? $data['status'] : null;
         $user_created_id = Auth::user()->id;
-        $deadline = $data['date'];
-        $time = $data['time'];
+        $deadline = ( isset($data['date']) )? $data['date'] : null;
+        $time = ( isset($data['time']) )? $data['time'] : null;
 
         try{
             DB::beginTransaction();

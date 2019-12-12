@@ -9,7 +9,7 @@
   }
   .horizontal-scroll::-webkit-scrollbar {
     width: 5px !important;
-    height: 3px;
+    height: 5px;
   }
   
   .horizontal-scroll::-webkit-scrollbar-track {
@@ -132,6 +132,9 @@
   h5 .icon {
     width: 15px;
     margin: -5px 15px 0 0;
+  }
+  .card-body {
+    cursor: pointer;
   }
   
   .card-body p {
@@ -502,7 +505,7 @@ p.card-text {
         </div>
       </div>
       
-      <div class="col-1">
+      <!-- <div class="col-1">
         <div class="row">
           <div class="col-12 pr-0">
             <div class="mb-0 add-new-top-section">
@@ -523,7 +526,7 @@ p.card-text {
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
 
     <div class="table-section">
