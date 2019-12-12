@@ -7,11 +7,15 @@
 
       <div class="col-6 text-center pr-0">
         <div class="row mx-0 justify-content-center">
-          <img src="/images/SVG_Images/siarem-logo.svg" alt="Siarem logo" width="62.7%"/>
+          <div class="col-12">
+            <img src="/images/SVG_Images/siarem-logo.svg" alt="Siarem logo" width="62.7%"/>
+          </div>
         </div>
 
         <div class="row mx-0 justify-content-center text-center">
-          <a href="/register" class="font-weight-bold btn-primary">Get Started</a>
+          <div class="col-12">
+            <button href="/register" class="font-weight-bold btn-primary">Get Started</button>
+          </div>
         </div>
       </div>
     </div>
@@ -53,6 +57,10 @@ export default {
     background-size: auto 100%;
     background-repeat: no-repeat;
     background-position: left center;
+  }
+
+  .col-6 .row .col-12 img {
+    margin-bottom: 3.4%;
   }
 </style>
 

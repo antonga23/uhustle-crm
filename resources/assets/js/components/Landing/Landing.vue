@@ -1,16 +1,16 @@
 <template>
   <div id="landing"> 
-    <b-navbar type="light" variant="light" sticky class="navHeader justify-content-between">
-      <b-navbar-brand>
+    <b-navbar fixed="top" class="justify-content-between">
+      <b-navbar-brand class="py-0">
         <img src="/images/SVG_Images/siarem-logo.svg" alt="Siarem logo" width="66.5%">
       </b-navbar-brand>
 
-      <b-navbar-nav class="align-items-center">
+      <b-navbar-nav class="align-items-center" @scroll="handleSCroll">
         <b-nav-item href="#">About</b-nav-item>
         <b-nav-item href="#">Features</b-nav-item>
         <b-nav-item href="#">Pricing</b-nav-item>
         <b-nav-item href="#">Support</b-nav-item>
-        <b-nav-item href="/register" class="btn-primary text-uppercase white">Sign Up Now</b-nav-item>
+        <b-nav-item href="/register" class="sign-up-btn text-uppercase white pr-0">Sign Up Now</b-nav-item>
         <!-- <b-nav-item href="#" class="pl-4">LA/EN</b-nav-item> -->
       </b-navbar-nav>
     </b-navbar>
@@ -78,6 +78,26 @@ export default {
     PricingPage,
     ContactPage
   },
+  methods: {
+    handleSCroll (event) {
+      console.log('fired')
+      let header = document.getElementsByClassName(".navbar.justify-content-between.navbar-light.fixed-top.navbar-expand");
+      console.log('happening')
+      if (window.scrollY > 50 && !header.className.includes('navbar-scroll')) {
+        console.log('no')
+        header.classList.add('navbar-scroll'); 
+      } else if (window.scrollY < 50) {
+        console.log('yes')
+        header.classList.remove('navbar-scroll');
+      }
+    }
+  },
+  created () {
+    window.addEventListener('scroll', this.handleSCroll);
+  },
+  destroyed () {
+    window.removeEventListener('scroll', this.handleSCroll);
+  } 
   // mounted() {
 
   // },
@@ -204,15 +224,28 @@ export default {
   margin: 0;
   overflow: hidden;
   background-color: #fff;
+  position:relative;
 }
 
-#landing .navHeader {
+#landing .navbar-expand .navbar-nav {
+  flex-direction: unset;
+}
+
+#landing .navbar {
   background-color: #fff !important;
   -webkit-box-shadow: 0px 0px 9.51px 0px rgba(0,0,0,0.1);
   -moz-box-shadow: 0px 0px 9.51px 0px rgba(0,0,0,0.1);
   box-shadow: 0px 0px 9.51px 0px rgba(0,0,0,0.1);
   padding-left: 3.95%;
   padding-right: 3.95%;
+}
+
+#landing .navbar-scroll {
+  background-color: #009D95;
+}
+
+#landing .navbar-brand img {
+  width: 10.4vw!important;
 }
 
 #landing .nav-item {
@@ -225,6 +258,18 @@ export default {
 
 #landing .nav-link {
   padding: 0;
+}
+
+#landing .nav-item.sign-up-btn a {
+  font-size: 0.94vw;
+  text-transform : uppercase;
+  background: linear-gradient(to right, rgba(255,129,51,1) 0%,  rgba(255,147, 58,1) 100%) !important;
+  border-radius:50rem;
+  padding: 9% 13%;
+  box-shadow:none;
+  line-height:1em;
+  white-space: nowrap;
+  display: flex;
 }
 
 #landing .sections-menu {
