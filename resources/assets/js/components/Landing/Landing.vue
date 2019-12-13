@@ -1,15 +1,15 @@
 <template>
   <div id="landing"> 
-    <b-navbar fixed="top" class="justify-content-between">
+    <b-navbar fixed="top" class="justify-content-between" @scroll="handleSCroll">
       <b-navbar-brand class="py-0">
         <img src="/images/SVG_Images/siarem-logo.svg" alt="Siarem logo" width="66.5%">
       </b-navbar-brand>
 
-      <b-navbar-nav class="align-items-center" @scroll="handleSCroll">
-        <b-nav-item href="#">About</b-nav-item>
-        <b-nav-item href="#">Features</b-nav-item>
-        <b-nav-item href="#">Pricing</b-nav-item>
-        <b-nav-item href="#">Support</b-nav-item>
+      <b-navbar-nav class="align-items-center">
+        <b-nav-item href="#about">About</b-nav-item>
+        <b-nav-item href="#features">Features</b-nav-item>
+        <b-nav-item href="#pricing">Pricing</b-nav-item>
+        <b-nav-item href="#support">Support</b-nav-item>
         <b-nav-item href="/register" class="sign-up-btn text-uppercase white pr-0">Sign Up Now</b-nav-item>
         <!-- <b-nav-item href="#" class="pl-4">LA/EN</b-nav-item> -->
       </b-navbar-nav>
@@ -83,20 +83,20 @@ export default {
       console.log('fired')
       let header = document.getElementsByClassName(".navbar.justify-content-between.navbar-light.fixed-top.navbar-expand");
       console.log('happening')
-      if (window.scrollY > 50 && !header.className.includes('navbar-scroll')) {
+      if (document.body.scrollY > 50 && !header.className.includes('navbar-scroll')) {
         console.log('no')
         header.classList.add('navbar-scroll'); 
-      } else if (window.scrollY < 50) {
+      } else if (document.body.scrollY < 50) {
         console.log('yes')
         header.classList.remove('navbar-scroll');
       }
     }
   },
   created () {
-    window.addEventListener('scroll', this.handleSCroll);
+    document.body.addEventListener('scroll', this.handleSCroll);
   },
   destroyed () {
-    window.removeEventListener('scroll', this.handleSCroll);
+    document.body.removeEventListener('scroll', this.handleSCroll);
   } 
   // mounted() {
 
@@ -296,12 +296,20 @@ export default {
 }
 
 #landing .fullpage {
-  height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  padding-top: 4.38%;
+}
+
+@media screen and (min-width: 1200px) {
+  #landing .fullpage {
+    min-height: 100vh;
+  }
+  #landing .container-row {
+    min-height: 100vh; 
+  }
 }
 
 #landing h1 {
@@ -323,11 +331,17 @@ export default {
 
 #landing p {
   color: #3A3A3A;
-  font-size: 0.84vw;;
+  font-size: 16px;
   font-family: 'Rubik', sans-serif;
   line-height: 30px;
   margin-bottom: 4%;
 } 
+
+@media screen and (max-width: 1199px){
+  #landing p {
+    font-size: 14px;
+  }
+}
 
 #landing .btn-primary {
   font-size: 0.94vw;

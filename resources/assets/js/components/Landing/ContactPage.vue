@@ -1,7 +1,8 @@
 <template>
   <div class="contact-page-container">
-    <div class="row mx-0 justify-content-center h-100">
-      <div class="col-12 pl-0">
+    <a name="support"></a>
+    <div class="row mx-0 justify-content-center container-row">
+      <div class="col-12 px-0">
         <div class="row mx-0 justify-content-center align-items-center">
           <div class="col-6 text-center pl-0">
             <img src="/images/landing/Dev_1.png" alt="map" class="contact" />
@@ -41,41 +42,37 @@
           </div>
         </div>
 
-        <div class="row mx-0 justify-content-between align-items-center">
-          <div class="col-12">
-            <div class="row m-7">
-              <div class="col-6 text-left">
-                <img
-                  src="/images/SVG_images/siarem-logo-icon.svg"
-                  alt="checked"
-                  width="46"
-                  class="d-inline-block"
-                />
-                <p class="d-inline-block">@ {{ getYear() }} Siarem All rights reserved.</p>
-              </div>
+        <div class="row mx-0 justify-content-between align-items-center footer-row">
+          <div class="col-auto pl-0">
+            <img
+              src="/images/SVG_images/siarem-logo-icon.svg"
+              alt="checked"
+              width="11.9%"
+              class="d-inline-block"
+            />
+            <p class="d-inline-block mb-0">@ {{ getYear() }} Siarem All rights reserved.</p>
+          </div>
 
-              <div class="col-6 text-right">
-                <ul class="mt-3">
-                  <li class="d-inline-block">
-                    <a href="#">
-                      <img src="/images/landing/Linkedin.svg" alt="Linkedin" width="21" />
-                    </a>
-                  </li>
+          <div class="col-auto pr-0">
+            <ul class="mt-3">
+              <li class="d-inline-block">
+                <a href="#">
+                  <img src="/images/landing/Linkedin.svg" alt="Linkedin" width="21" />
+                </a>
+              </li>
 
-                  <li class="d-inline-block">
-                    <a href="#">
-                      <img src="/images/landing/instagram.svg" alt="instagram" width="24" />
-                    </a>
-                  </li>
+              <li class="d-inline-block">
+                <a href="#">
+                  <img src="/images/landing/instagram.svg" alt="instagram" width="24" />
+                </a>
+              </li>
 
-                  <li class="d-inline-block">
-                    <a href="#">
-                      <img src="/images/landing/facebook.svg" alt="facebook" width="14" />
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
+              <li class="d-inline-block">
+                <a href="#">
+                  <img src="/images/landing/facebook.svg" alt="facebook" width="14" />
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -108,7 +105,12 @@ export default {
 <style scoped>
 .contact-page-container {
   width: 100%;
-  height: 100%;
+}
+
+@media screen and (min-width: 1200px) {
+  .contact-page-container {
+    min-height: 100vh;
+  }
 }
 
 h5 {
@@ -120,8 +122,14 @@ h5 {
 }
 
 .footer-text {
-  font-size: 0.73vw !important;
+  font-size: 14 !important;
   color: inherit;
+}
+
+@media screen and (max-width:1199px) {
+  .footer-text {
+  font-size:12px !important;
+}
 }
 
 li {
@@ -142,5 +150,15 @@ li {
 
 img.contact {
   width: 100%;
+}
+
+.footer-row {
+  padding-left: 3.95%;
+  padding-right: 3.95%;
+  margin-bottom: 17px;
+}
+
+.footer-row p {
+  margin-left: 12%;
 }
 </style>

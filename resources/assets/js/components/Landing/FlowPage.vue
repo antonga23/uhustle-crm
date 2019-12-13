@@ -1,8 +1,8 @@
 <template>
   <div class="flow-page-container">
-    <div class="row mx-0 align-items-center justify-content-center h-100">
-      <div class="col-6 align-items-center">
-         <div class="row ml-20">
+    <div class="row mx-0 align-items-center justify-content-center container-row">
+      <div class="col-xl-6 align-items-center">
+        <div class="row ml-20">
           <div class="col-12">
             <h1>Eliminate Agent Mistakes</h1>
             <h2>Easy System Flow</h2>
@@ -49,8 +49,8 @@
         </div>
         </div>
 
-      <div class="col-6 pr-0">
-        <img src="/images/landing/Eliminate Agent Mistakes ILL.svg" width="74.7%" class="d-block mx-auto"/>
+      <div class="col-xl-6 pr-0">
+        <img src="/images/landing/Eliminate Agent Mistakes ILL.svg" width="65.2%" class="d-block mx-auto"/>
       </div>
     </div>
   </div>
@@ -86,11 +86,16 @@ export default {
 .flow-page-container {
   /* background-color: #00C3FF; */
   width: 100%;
-  height:100%;
   background-image: url('/images/landing/Pages_3_(2).png');
   background-size: auto 100%;
   background-repeat: no-repeat;
   background-position: right center;
+}
+
+@media screen and (min-width: 1200px) {
+  .flow-page-container {
+    min-height:100vh;
+  }
 }
 
 .col-auto {

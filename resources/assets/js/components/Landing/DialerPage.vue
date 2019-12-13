@@ -1,6 +1,6 @@
 <template>
   <div class="dialer-page-container">
-    <div class="row mx-0 justify-content-center h-100">
+    <div class="row mx-0 justify-content-center align-items-center container-row">
       <div class="col-12">
         <img src="/images/landing/Automated Dialier ILL.svg" width="74.7%" class="d-block mx-auto" />
         <h1 class="text-center">Fully Automated Dialer</h1>
@@ -67,8 +67,14 @@ export default {
 <style scoped>
 .crm-page-container {
   width: 100%;
-  height: 100%;
 }
+
+@media screen and (min-width: 1200px) {
+  .crm-page-container {
+    min-height: 100vh;
+  }
+}
+
 .ml-7 {
   margin-left: 7%;
 }

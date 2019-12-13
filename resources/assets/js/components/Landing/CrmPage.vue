@@ -1,6 +1,7 @@
 <template>
   <div class="crm-page-container">
-    <div class="row mx-0 justify-content-center h-100">
+    <a name="about"></a>
+    <div class="row mx-0 justify-content-center container-row">
       <div class="col-12 text-center">
         <h1 class="mt-3">Customer Relationship Management. Simplified.</h1>
         <p>SIAREM is streamlined to increase the speed of your sales department. All processes are optimized to guide your agents and focus on the most important: closing deals. SIAREM is used and tested by thousands of sales agents; we redesigned and tested our modules until perfection.</p>
@@ -48,7 +49,12 @@ export default {
 <style scoped>
 .crm-page-container {
   width: 100%;
-  height:100%;
+}
+
+@media screen and (min-width: 1200px) {
+  .crm-page-container {
+    min-height:100vh;
+  }
 }
 
 .col-12 {

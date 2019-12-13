@@ -1,11 +1,11 @@
 <template>
   <div class="analytics-page-container">
-    <div class="row mx-0 align-items-center justify-content-center h-100">
-      <div class="col-6 align-items-center pl-0">
+    <div class="row mx-0 align-items-center justify-content-center container-row">
+      <div class="col-xl-6 align-items-center pl-0">
         <img src="/images/landing/Guided to success ILL.svg" width="74.7%" class="d-block mx-auto" />
       </div>
 
-      <div class="col-6 pr-0">
+      <div class="col-xl-6 pr-0">
         <div class="row my-20">
           <div class="col-12">
             <h1>Guided to Success</h1>
@@ -75,11 +75,16 @@ export default {
 .analytics-page-container {
   /* background-color: #00c3ff; */
   width: 100%;
-  height: 100%;
   background-image: url("/images/landing/Pages_2_(2).png");
   background-size: auto 100%;
   background-repeat: no-repeat;
   background-position: left center;
+}
+
+@media screen and (min-width: 1200px) {
+  .analytics-page-container {
+    min-height: 100vh;
+  }
 }
 
 .col-auto {

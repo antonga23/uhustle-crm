@@ -1,6 +1,7 @@
 <template>
   <div class="why-crm-page-container">
-    <div class="row mx-0 justify-content-center h-100">
+    <a name="features"></a>
+    <div class="row mx-0 justify-content-center container-row">
       <div class="col-12 text-center">
         <h1 class>WHY USE SIAREM</h1>
       </div>
@@ -11,7 +12,7 @@
         <img src="/images/icons/Orange Dot_Big.svg" alt="dots" width="8" class="mx-5" />
       </div>
 
-      <div class="col-8">
+      <div class="col-md-10 col-xl-8">
         <div class="row mx-0 justify-content-center">
           <div class="col-4 pl-0">
             <h2>FEATURES</h2>
@@ -189,11 +190,17 @@ export default {
 <style scoped>
 .why-crm-page-container {
   width: 100%;
-  height: 100%;
 }
-img {
-  margin-top: 17px;
-  margin-bottom: 17px;
+
+@media screen and (min-width: 1200px) {
+  .why-crm-page-container {
+    min-height: 100vh;
+  }
+}
+
+.col-4 img {
+  margin-top: 4.1%;
+  margin-bottom: 4.1%;
 }
 h1 {
   margin-top: 1.5rem !important;

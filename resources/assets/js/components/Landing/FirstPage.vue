@@ -1,11 +1,11 @@
 <template>
   <div class="first-page-container">
-    <div class="row mx-0 align-items-center justify-content-center h-100">
-      <div class="col-6 align-items-center pl-0">
+    <div class="row mx-0 align-items-center justify-content-center container-row">
+      <div class="col-xl-6 align-items-center pl-0">
         <img src="/images/landing/Computer ILL.svg" width="74.7%" class="d-block mx-auto"/>
       </div>
 
-      <div class="col-6 text-center pr-0">
+      <div class="col-xl-6 text-center pr-0">
         <div class="row mx-0 justify-content-center">
           <div class="col-12">
             <img src="/images/SVG_Images/siarem-logo.svg" alt="Siarem logo" width="62.7%"/>
@@ -52,14 +52,26 @@ export default {
   .first-page-container {
     /* background-color: #00C3FF; */
     width: 100%;
-    height:100%;
     background-image: url('/images/landing/Pages_1_reduced_2.png');
     background-size: auto 100%;
     background-repeat: no-repeat;
     background-position: left center;
   }
 
-  .col-6 .row .col-12 img {
+  @media screen and (max-width: 1199px) {
+    .first-page-container {
+      background-size: 150% auto;
+      background-position: top left;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    .first-page-container {
+      min-height: 100vh; 
+    }
+  }
+
+  .col-xl-6 .row .col-12 img {
     margin-bottom: 3.4%;
   }
 </style>

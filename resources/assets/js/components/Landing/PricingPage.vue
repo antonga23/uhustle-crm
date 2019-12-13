@@ -1,7 +1,8 @@
 <template>
   <div class="pricing-page-container">
-    <div class="row mx-0 justify-content-center h-100">
-      <div class="col-8 text-center">
+    <a name="pricing"></a>
+    <div class="row mx-0 justify-content-center container-row">
+      <div class="col-xl-8 text-center">
         <table width="100%" height="90%">
           <thead>
             <tr>
@@ -205,7 +206,12 @@ export default {
 <style scoped>
 .pricing-page-container {
   width: 100%;
-  height:100%;
+}
+
+@media screen and (min-width: 1200px) {
+  .pricing-page-container {
+    min-height:100vh;
+  }
 }
 
 h3 {
@@ -269,13 +275,20 @@ td {
   color: #999999;
   font-family: 'Rubik', sans-serif !important;
   border:1px solid #CCCCCC;
-  font-size: 0.72vw;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 1199px) {
+  td {
+    font-size: 12px;
+  }
 }
 
 td:first-child {
   width: 23%;
   padding-left: 40px;
-  font-size: 0.72vw;
+  padding-top: 1%;
+  padding-bottom: 1%;
 }
 th {
   padding: 1%;
@@ -296,8 +309,8 @@ span.small-text {
 
 @media screen and (max-width: 1440px) {
   img.checkMarks {
-  width: 10px;
-}
+    width: 10px;
+  }
 }
 
 </style>
