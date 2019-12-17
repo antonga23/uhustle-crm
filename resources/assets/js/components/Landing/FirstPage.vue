@@ -1,14 +1,20 @@
 <template>
   <div class="first-page-container">
-    <div class="row mx-0 align-items-center justify-content-center container-row">
+    <div class="row mx-0 align-items-center justify-content-center container-row" :resize="onResize()">
       <div class="col-xl-6 align-items-center pl-0">
+        <img 
+          src="/images/SVG_Images/siarem-logo.svg" 
+          alt="Siarem logo"
+          width="62.7%" 
+          class="d-block mx-auto" 
+          v-if="isMobile"/>
         <img src="/images/landing/Computer ILL.svg" width="74.7%" class="d-block mx-auto"/>
       </div>
 
       <div class="col-xl-6 text-center pr-0">
         <div class="row mx-0 justify-content-center">
           <div class="col-12">
-            <img src="/images/SVG_Images/siarem-logo.svg" alt="Siarem logo" width="62.7%"/>
+            <img src="/images/SVG_Images/siarem-logo.svg" alt="Siarem logo" width="62.7%" v-if="!isMobile"/>
           </div>
         </div>
 
@@ -23,6 +29,7 @@
 </template>
 
 <script>
+import onResize from '../../on_resize.js'
 export default {
   components: {},
   mounted() {
@@ -31,11 +38,11 @@ export default {
   props: [],
   data: function(){
     return { 
-      
+      isMobile: false
     }
   },
-  created() {
-    
+  created () {
+    this.onResize = onResize.onResize
   },
 
   destroyed() {
@@ -52,10 +59,6 @@ export default {
   .first-page-container {
     /* background-color: #00C3FF; */
     width: 100%;
-    background-image: url('/images/landing/Pages_1_reduced_2.png');
-    background-size: auto 100%;
-    background-repeat: no-repeat;
-    background-position: left center;
   }
 
   @media screen and (max-width: 1199px) {
@@ -68,6 +71,10 @@ export default {
   @media screen and (min-width: 1200px) {
     .first-page-container {
       min-height: 100vh; 
+      background-image: url('/images/landing/Pages_1_reduced_2.png');
+      background-size: auto 100%;
+      background-repeat: no-repeat;
+      background-position: left center;
     }
   }
 

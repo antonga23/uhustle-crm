@@ -1,7 +1,12 @@
 <template>
   <div id="landing"> 
-    <b-navbar fixed="top" class="justify-content-between" @scroll="handleSCroll">
-      <b-navbar-brand class="py-0">
+    <b-navbar 
+      fixed="top" 
+      class="justify-content-between" 
+      @scroll="handleSCroll" 
+      :resize="onResize()"
+    >
+      <b-navbar-brand class="py-0" v-if="!isMobile">
         <img src="/images/SVG_Images/siarem-logo.svg" alt="Siarem logo" width="66.5%">
       </b-navbar-brand>
 
@@ -59,6 +64,7 @@
 </template>
 
 <script>
+import onResize from '../../on_resize.js'
 import FirstPage from './FirstPage';
 import CrmPage from './CrmPage';
 import AnalyticsPage from './AnalyticsPage';
@@ -78,25 +84,31 @@ export default {
     PricingPage,
     ContactPage
   },
+  data: function(){
+    return { 
+      isMobile: false
+    }
+  },
   methods: {
     handleSCroll (event) {
       console.log('fired')
-      let header = document.getElementsByClassName(".navbar.justify-content-between.navbar-light.fixed-top.navbar-expand");
-      console.log('happening')
-      if (document.body.scrollY > 50 && !header.className.includes('navbar-scroll')) {
+      let header = document.querySelector(".navbar");
+      console.log(document.scrollY)
+      if (document.scrollY > 50 && !header.className.includes('navbar-scroll')) {
         console.log('no')
         header.classList.add('navbar-scroll'); 
-      } else if (document.body.scrollY < 50) {
+      } else if (document.scrollY < 50) {
         console.log('yes')
         header.classList.remove('navbar-scroll');
       }
     }
   },
   created () {
-    document.body.addEventListener('scroll', this.handleSCroll);
+    document.addEventListener('scroll', this.handleSCroll);
+    this.onResize = onResize.onResize
   },
   destroyed () {
-    document.body.removeEventListener('scroll', this.handleSCroll);
+    document.removeEventListener('scroll', this.handleSCroll);
   } 
   // mounted() {
 

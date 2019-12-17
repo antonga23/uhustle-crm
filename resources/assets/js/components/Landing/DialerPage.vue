@@ -6,9 +6,9 @@
         <h1 class="text-center">Fully Automated Dialer</h1>
         <h2 class="text-center">Less Work, More Talk</h2>
 
-        <div class="row ml-7">
+        <div class="row ml-7 mr-0">
           <div class="col-12 ">
-            <div class="row">
+            <div class="row mx-0">
               <div class="col-auto pl-0">
                 <img src="/images/landing/Paragraph-Check.svg" alt="checked" width="13" />
               </div>
@@ -18,7 +18,7 @@
               </div>
             </div>
 
-            <div class="row">
+            <div class="row mx-0">
               <div class="col-auto pl-0">
                 <img src="/images/landing/Paragraph-Check.svg" alt="checked" width="13" />
               </div>
@@ -28,7 +28,7 @@
               </div>
             </div>
 
-            <div class="row">
+            <div class="row mx-0">
               <div class="col-auto pl-0">
                 <img src="/images/landing/Paragraph-Check.svg" alt="checked" width="13" />
               </div>

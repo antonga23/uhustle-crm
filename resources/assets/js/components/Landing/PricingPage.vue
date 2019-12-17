@@ -1,9 +1,9 @@
 <template>
   <div class="pricing-page-container">
     <a name="pricing"></a>
-    <div class="row mx-0 justify-content-center container-row">
+    <div class="row mx-0 justify-content-center container-row" :resize="onResize()">
       <div class="col-xl-8 text-center">
-        <table width="100%" height="90%">
+        <table width="100%" height="90%" v-if="!isMobile">
           <thead>
             <tr>
               <th>
@@ -172,12 +172,362 @@
             </tr>
           </tbody>
         </table>
+
+        <div v-else class="row mx-0">
+          <div class="col-12">
+            <h1>SIAREM</h1>
+            <h2 class="text-tuppercase">Pricing table</h2>
+          </div>
+
+          <div class="col-12">
+            <div class="row mx-0 justify-space-between align-items-center start">
+              <div class="col text-left">
+                <h3 class="text-white text-uppercase font-weight-bold">Start</h3>
+              </div>
+
+              <div class="col-auto text-right">
+                <p class="text-white mb-0 font-weight-bold">$29.99
+                  <span class="p-month">p/m</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="row mx-0 align-items-center">
+              <div class="col-7 text-left">
+                <p class="mb-0">Consectetur adipiscing</p>
+              </div>
+
+              <div class="col-5 text-center border-bottom">
+                <img src="/images/landing/Price Cross.svg" class="checkMarks" alt="unchecked" width="15"/>
+              </div>
+            </div>
+
+            <div class="row mx-0 align-items-center">
+              <div class="col-7 text-left">
+                <p class="mb-0">Adipiscing consectetur</p>
+              </div>
+
+              <div class="col-5 text-center border-bottom">
+                <p class="text-uppercase">Unlimited</p>
+              </div>
+            </div>
+
+            <div class="row mx-0 align-items-center">
+              <div class="col-7 text-left">
+                <p class="mb-0">Pellentesque</p>
+              </div>
+
+              <div class="col-5 text-center border-bottom">
+                <p class="text-uppercase">50 contacts</p>
+              </div>
+            </div>
+
+            <div class="row mx-0 align-items-center">
+              <div class="col-7 text-left">
+                <p class="mb-0">Vitae purus</p>
+              </div>
+
+              <div class="col-5 text-center border-bottom">
+                <img src="/images/landing/Price Tick.svg" class="checkMarks" alt="checked" width="15"/>
+              </div>
+            </div>
+
+            <div class="row mx-0 align-items-center">
+              <div class="col-7 text-left">
+                <p class="mb-0">Donec egestas nec</p>
+              </div>
+
+              <div class="col-5 text-center border-bottom">
+                <img src="/images/landing/Price Cross.svg" class="checkMarks" alt="unchecked" width="15"/>
+              </div>
+            </div>
+
+            <div class="row mx-0 align-items-center">
+              <div class="col-7 text-left">
+                <p class="mb-0">Mauris interdum</p>
+              </div>
+
+              <div class="col-5 text-center border-bottom">
+                <img src="/images/landing/Price Cross.svg" class="checkMarks" alt="unchecked" width="15"/>
+              </div>
+            </div>
+
+            <div class="row mx-0 align-items-center">
+              <div class="col-7 text-left">
+                <p class="mb-0">lacus in nisi molestie</p>
+              </div>
+
+              <div class="col-5 text-center border-bottom">
+                <p class="mb-0">>10 person</p>
+              </div>
+            </div>
+
+            <div class="row mx-0 align-items-center">
+              <div class="col-7 text-left">
+                <p class="mb-0">lacus in nisi molestie</p>
+              </div>
+
+              <div class="col-5 text-center border-bottom">
+                <img src="/images/landing/Price Cross.svg" class="checkMarks" alt="unchecked" width="15"/>
+              </div>
+            </div>
+
+            <div class="row mx-0 align-items-center">
+              <div class="col-7 text-left">
+                <p class="mb-0">Mauris ultrices</p>
+              </div>
+
+              <div class="col-5 text-center border-bottom">
+                <img src="/images/landing/Price Tick.svg" class="checkMarks" alt="checked" width="15"/>
+              </div>
+            </div>
+
+            <div class="row mx-0 align-items-center">
+              <div class="col-7 text-left">
+                <p class="mb-0">Pellentesque</p>
+              </div>
+
+              <div class="col-5 text-center border-bottom">
+                <p class="text-uppercase">Unlimited</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="row mx-0 justify-space-between align-items-center basic">
+              <div class="col text-left">
+                <h3 class="text-white text-uppercase font-weight-bold">Basic</h3>
+              </div>
+
+              <div class="col-auto text-right">
+                <p class="text-white mb-0 font-weight-bold">$49.99
+                  <span class="p-month">p/m</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="row mx-0 align-items-center">
+              <div class="col-7 text-left">
+                <p class="mb-0">Consectetur adipiscing</p>
+              </div>
+
+              <div class="col-5 text-center border-bottom">
+                <img src="/images/landing/Price Cross.svg" class="checkMarks" alt="unchecked" width="15"/>
+              </div>
+            </div>
+
+            <div class="row mx-0 align-items-center">
+              <div class="col-7 text-left">
+                <p class="mb-0">Adipiscing consectetur</p>
+              </div>
+
+              <div class="col-5 text-center border-bottom">
+                <p class="text-uppercase">Unlimited</p>
+              </div>
+            </div>
+
+            <div class="row mx-0 align-items-center">
+              <div class="col-7 text-left">
+                <p class="mb-0">Pellentesque</p>
+              </div>
+
+              <div class="col-5 text-center border-bottom">
+                <p class="text-uppercase">50 contacts</p>
+              </div>
+            </div>
+
+            <div class="row mx-0 align-items-center">
+              <div class="col-7 text-left">
+                <p class="mb-0">Vitae purus</p>
+              </div>
+
+              <div class="col-5 text-center border-bottom">
+                <img src="/images/landing/Price Tick.svg" class="checkMarks" alt="checked" width="15"/>
+              </div>
+            </div>
+
+            <div class="row mx-0 align-items-center">
+              <div class="col-7 text-left">
+                <p class="mb-0">Donec egestas nec</p>
+              </div>
+
+              <div class="col-5 text-center border-bottom">
+                <img src="/images/landing/Price Cross.svg" class="checkMarks" alt="unchecked" width="15"/>
+              </div>
+            </div>
+
+            <div class="row mx-0 align-items-center">
+              <div class="col-7 text-left">
+                <p class="mb-0">Mauris interdum</p>
+              </div>
+
+              <div class="col-5 text-center border-bottom">
+                <img src="/images/landing/Price Cross.svg" class="checkMarks" alt="unchecked" width="15"/>
+              </div>
+            </div>
+
+            <div class="row mx-0 align-items-center">
+              <div class="col-7 text-left">
+                <p class="mb-0">lacus in nisi molestie</p>
+              </div>
+
+              <div class="col-5 text-center border-bottom">
+                <p class="mb-0">>10 person</p>
+              </div>
+            </div>
+
+            <div class="row mx-0 align-items-center">
+              <div class="col-7 text-left">
+                <p class="mb-0">lacus in nisi molestie</p>
+              </div>
+
+              <div class="col-5 text-center border-bottom">
+                <img src="/images/landing/Price Cross.svg" class="checkMarks" alt="unchecked" width="15"/>
+              </div>
+            </div>
+
+            <div class="row mx-0 align-items-center">
+              <div class="col-7 text-left">
+                <p class="mb-0">Mauris ultrices</p>
+              </div>
+
+              <div class="col-5 text-center border-bottom">
+                <img src="/images/landing/Price Tick.svg" class="checkMarks" alt="checked" width="15"/>
+              </div>
+            </div>
+
+            <div class="row mx-0 align-items-center">
+              <div class="col-7 text-left">
+                <p class="mb-0">Pellentesque</p>
+              </div>
+
+              <div class="col-5 text-center border-bottom">
+                <p class="text-uppercase">Unlimited</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="row mx-0 justify-space-between align-items-center premium">
+              <div class="col text-left">
+                <h3 class="text-white text-uppercase font-weight-bold">Premium</h3>
+              </div>
+
+              <div class="col-auto text-right">
+                <p class="text-white mb-0 font-weight-bold">$69.99
+                  <span class="p-month">p/m</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="row mx-0 align-items-center">
+              <div class="col-7 text-left">
+                <p class="mb-0">Consectetur adipiscing</p>
+              </div>
+
+              <div class="col-5 text-center border-bottom">
+                <img src="/images/landing/Price Cross.svg" class="checkMarks" alt="unchecked" width="15"/>
+              </div>
+            </div>
+
+            <div class="row mx-0 align-items-center">
+              <div class="col-7 text-left">
+                <p class="mb-0">Adipiscing consectetur</p>
+              </div>
+
+              <div class="col-5 text-center border-bottom">
+                <p class="text-uppercase">Unlimited</p>
+              </div>
+            </div>
+
+            <div class="row mx-0 align-items-center">
+              <div class="col-7 text-left">
+                <p class="mb-0">Pellentesque</p>
+              </div>
+
+              <div class="col-5 text-center border-bottom">
+                <p class="text-uppercase">50 contacts</p>
+              </div>
+            </div>
+
+            <div class="row mx-0 align-items-center">
+              <div class="col-7 text-left">
+                <p class="mb-0">Vitae purus</p>
+              </div>
+
+              <div class="col-5 text-center border-bottom">
+                <img src="/images/landing/Price Tick.svg" class="checkMarks" alt="checked" width="15"/>
+              </div>
+            </div>
+
+            <div class="row mx-0 align-items-center">
+              <div class="col-7 text-left">
+              <p class="mb-0">Donec egestas nec</p>
+              </div>
+
+              <div class="col-5 text-center border-bottom">
+                <img src="/images/landing/Price Cross.svg" class="checkMarks" alt="unchecked" width="15"/>
+              </div>
+            </div>
+
+          <div class="row mx-0 align-items-center">
+              <div class="col-7 text-left">
+                <p class="mb-0">Mauris interdum</p>
+              </div>
+
+              <div class="col-5 text-center border-bottom">
+                <img src="/images/landing/Price Cross.svg" class="checkMarks" alt="unchecked" width="15"/>
+              </div>
+            </div>
+
+            <div class="row mx-0 align-items-center">
+              <div class="col-7 text-left">
+                <p class="mb-0">lacus in nisi molestie</p>
+              </div>
+
+            <div class="col-5 text-center border-bottom">
+                <p class="mb-0">>10 person</p>
+              </div>
+            </div>
+
+            <div class="row mx-0 align-items-center">
+              <div class="col-7 text-left">
+                <p class="mb-0">lacus in nisi molestie</p>
+              </div>
+
+              <div class="col-5 text-center border-bottom">
+                <img src="/images/landing/Price Cross.svg" class="checkMarks" alt="unchecked" width="15"/>
+              </div>
+            </div>
+
+            <div class="row mx-0 align-items-center">
+              <div class="col-7 text-left">
+                <p class="mb-0">Mauris ultrices</p>
+              </div>
+
+              <div class="col-5 text-center border-bottom">
+                <img src="/images/landing/Price Tick.svg" class="checkMarks" alt="checked" width="15"/>
+              </div>
+            </div>
+
+            <div class="row mx-0 align-items-center">
+              <div class="col-7 text-left">
+                <p class="mb-0">Pellentesque</p>
+              </div>
+
+              <div class="col-5 text-center border-bottom">
+                <p class="text-uppercase">Unlimited</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import onResize from '../../on_resize.js'
 export default {
   components: {},
   mounted() {
@@ -186,11 +536,11 @@ export default {
   props: [],
   data: function(){
     return { 
-      
+      isMobile: false
     }
   },
-  created() {
-    
+  created () {
+    this.onResize = onResize.onResize
   },
 
   destroyed() {
@@ -204,14 +554,14 @@ export default {
 </script>
 
 <style scoped>
-.pricing-page-container {
-  width: 100%;
-}
-
 @media screen and (min-width: 1200px) {
   .pricing-page-container {
     min-height:100vh;
   }
+}
+
+.pricing-page-container {
+  width: 100%;
 }
 
 h3 {
@@ -278,10 +628,8 @@ td {
   font-size: 14px;
 }
 
-@media screen and (max-width: 1199px) {
-  td {
-    font-size: 12px;
-  }
+.col-6.border-bottom {
+  border-color:#CCCCCC;
 }
 
 td:first-child {
@@ -305,6 +653,39 @@ th {
 span.small-text {
   font-size: 8px;
   color: #999999;
+}
+
+@media screen and (max-width: 1199px) {
+  td {
+    font-size: 12px;
+  }
+  .start, 
+  .basic,
+  .premium {
+    border-radius: 15px;
+  }
+  h3 {
+    font-size: 30px;
+  }
+  p {
+    font-family: 'Rubik', sans-serif !important;
+    color: #999999!important;
+  }
+  .p-month {
+    font-size: 14px;
+  }
+  .col-5 img {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .col-5 p {
+    line-height: 1em!important;
+    margin-top: 20px;
+    margin-bottom: 20px!important;
+  }
+  .text-white {
+    color: #fff!important;
+  }
 }
 
 @media screen and (max-width: 1440px) {

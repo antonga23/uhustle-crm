@@ -2,7 +2,7 @@
   <div class="flow-page-container">
     <div class="row mx-0 align-items-center justify-content-center container-row">
       <div class="col-xl-6 align-items-center">
-        <div class="row ml-20">
+        <div class="row ml-20 mr-0">
           <div class="col-12">
             <h1>Eliminate Agent Mistakes</h1>
             <h2>Easy System Flow</h2>
@@ -10,7 +10,7 @@
         </div>
 
 
-         <div class="row my-20">
+         <div class="row mx-20">
           <div class="col-12 ml-9">
             <div class="row mx-0">
               <div class="col-auto pl-0">
@@ -86,15 +86,15 @@ export default {
 .flow-page-container {
   /* background-color: #00C3FF; */
   width: 100%;
-  background-image: url('/images/landing/Pages_3_(2).png');
-  background-size: auto 100%;
-  background-repeat: no-repeat;
-  background-position: right center;
 }
 
 @media screen and (min-width: 1200px) {
   .flow-page-container {
     min-height:100vh;
+    background-image: url('/images/landing/Pages_3_(2).png');
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: right center;
   }
 }
 
@@ -107,11 +107,22 @@ export default {
   margin-left: 9%;
 }
 
-.my-20 {
+.mx-20 {
   margin: 0px 20%;
 }
 
 .ml-20 {
   margin: 0 0 0 20%;
+}
+
+@media screen and (max-width: 1199px) {
+  .col-xl-6.align-items-center {
+    order: 1;
+  }
+  .mx-20, 
+  .ml-20, 
+  .ml-9 {
+    margin: 0;
+  }
 }
 </style>

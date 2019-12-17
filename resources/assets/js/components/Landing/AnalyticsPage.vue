@@ -6,14 +6,14 @@
       </div>
 
       <div class="col-xl-6 pr-0">
-        <div class="row my-20">
+        <div class="row mx-20 mx-0">
           <div class="col-12">
             <h1>Guided to Success</h1>
             <h2>Simplified Analytics</h2>
           </div>
         </div>
 
-        <div class="row my-20">
+        <div class="row my-20 mx-0">
           <div class="col-12 ml-9">
             <div class="row mx-0">
               <div class="col-auto pl-0">
@@ -75,15 +75,15 @@ export default {
 .analytics-page-container {
   /* background-color: #00c3ff; */
   width: 100%;
-  background-image: url("/images/landing/Pages_2_(2).png");
-  background-size: auto 100%;
-  background-repeat: no-repeat;
-  background-position: left center;
 }
 
 @media screen and (min-width: 1200px) {
   .analytics-page-container {
     min-height: 100vh;
+    background-image: url("/images/landing/Pages_2_(2).png");
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: left center;
   }
 }
 
@@ -100,8 +100,19 @@ export default {
   margin: 9%;
 }
 
-.my-20 {
+.mx-20 {
   margin: 0 20%;
+}
+
+@media screen and (max-width: 1199px) {
+  .col-xl-6.align-items-center {
+    order: 
+  }
+  .my-9, 
+  .mx-20, 
+  .ml-9 {
+    margin: 0;
+  }
 }
 
 </style>
