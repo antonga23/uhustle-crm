@@ -1,12 +1,12 @@
 <template>
-  <div class="why-crm-page-container">
+  <div class="why-crm-page-container" :resize="onResize()">
     <a name="features"></a>
-    <div class="row mx-0 justify-content-center container-row" :resize="onResize()">
-      <div class="col-12 text-center">
+    <div class="row mx-0 justify-content-center container-row">
+      <div class="col-12 text-center px-0">
         <h1 class>WHY USE SIAREM</h1>
       </div>
 
-      <div class="col-12 text-center">
+      <div class="col-12 text-center px-0">
         <img src="/images/icons/Orange Dot_Big.svg" alt="dots" width="8" class="mx-5" />
         <img src="/images/icons/Orange Dot_Big.svg" alt="dots" width="8" class="mx-5" />
         <img src="/images/icons/Orange Dot_Big.svg" alt="dots" width="8" class="mx-5" />
@@ -217,7 +217,7 @@ export default {
 .border-bottom,
 .border-left, 
 .border-right {
-  border-color:
+  border-color: #ccc;
 }
 
 @media screen and (min-width: 1200px) {
@@ -237,6 +237,11 @@ h1 {
 @media screen and (max-width: 1199px) {
   p {
     line-height: 1.3em!important;
+  }
+  .col-12, 
+  .col-md-10 {
+    padding-left: 40px!important;
+    padding-right: 40px!important;
   }
   .col {
     height: 100%;

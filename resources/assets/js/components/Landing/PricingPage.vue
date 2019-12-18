@@ -1,8 +1,8 @@
 <template>
-  <div class="pricing-page-container">
+  <div class="pricing-page-container" :resize="onResize()">
     <a name="pricing"></a>
-    <div class="row mx-0 justify-content-center container-row" :resize="onResize()">
-      <div class="col-xl-8 text-center">
+    <div class="row mx-0 justify-content-center container-row">
+      <div class="col-xl-8 text-center px-0">
         <table width="100%" height="90%" v-if="!isMobile">
           <thead>
             <tr>
@@ -174,18 +174,18 @@
         </table>
 
         <div v-else class="row mx-0">
-          <div class="col-12">
+          <div class="col-12 px-0">
             <h1>SIAREM</h1>
             <h2 class="text-tuppercase">Pricing table</h2>
           </div>
 
-          <div class="col-12">
+          <div class="col-12 px-0">
             <div class="row mx-0 justify-space-between align-items-center start">
-              <div class="col text-left">
+              <div class="col text-left pl-0">
                 <h3 class="text-white text-uppercase font-weight-bold">Start</h3>
               </div>
 
-              <div class="col-auto text-right">
+              <div class="col-auto text-right pr-0">
                 <p class="text-white mb-0 font-weight-bold">$29.99
                   <span class="p-month">p/m</span>
                 </p>
@@ -293,13 +293,13 @@
             </div>
           </div>
 
-          <div class="col-12">
+          <div class="col-12 px-0">
             <div class="row mx-0 justify-space-between align-items-center basic">
-              <div class="col text-left">
+              <div class="col text-left pl-0">
                 <h3 class="text-white text-uppercase font-weight-bold">Basic</h3>
               </div>
 
-              <div class="col-auto text-right">
+              <div class="col-auto text-right pr-0">
                 <p class="text-white mb-0 font-weight-bold">$49.99
                   <span class="p-month">p/m</span>
                 </p>
@@ -407,13 +407,13 @@
             </div>
           </div>
 
-          <div class="col-12">
+          <div class="col-12 px-0">
             <div class="row mx-0 justify-space-between align-items-center premium">
-              <div class="col text-left">
+              <div class="col text-left pl-0">
                 <h3 class="text-white text-uppercase font-weight-bold">Premium</h3>
               </div>
 
-              <div class="col-auto text-right">
+              <div class="col-auto text-right pr-0">
                 <p class="text-white mb-0 font-weight-bold">$69.99
                   <span class="p-month">p/m</span>
                 </p>
@@ -617,7 +617,7 @@ h5 {
   border-radius: 13px;
   font-size: 1.5vw;
   padding: 17px;
-   width: 100%;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -662,17 +662,22 @@ span.small-text {
   .start, 
   .basic,
   .premium {
-    border-radius: 15px;
+    border-radius: 5px;
+    padding: 10px 20px;
   }
   h3 {
-    font-size: 30px;
+    font-size: 14px;
   }
   p {
     font-family: 'Rubik', sans-serif !important;
     color: #999999!important;
   }
   .p-month {
-    font-size: 14px;
+    font-size: 8px;
+  }
+  .col-12 {
+    padding-left: 40px!important;
+    padding-right: 40px!important;
   }
   .col-5 img {
     margin-top: 20px;

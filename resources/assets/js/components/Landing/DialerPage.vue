@@ -1,13 +1,13 @@
 <template>
   <div class="dialer-page-container">
     <div class="row mx-0 justify-content-center align-items-center container-row">
-      <div class="col-12">
+      <div class="col-12 px-0 container-col">
         <img src="/images/landing/Automated Dialier ILL.svg" width="74.7%" class="d-block mx-auto" />
         <h1 class="text-center">Fully Automated Dialer</h1>
         <h2 class="text-center">Less Work, More Talk</h2>
 
         <div class="row ml-7 mr-0">
-          <div class="col-12 ">
+          <div class="col-12 px-0">
             <div class="row mx-0">
               <div class="col-auto pl-0">
                 <img src="/images/landing/Paragraph-Check.svg" alt="checked" width="13" />
@@ -72,6 +72,16 @@ export default {
 @media screen and (min-width: 1200px) {
   .crm-page-container {
     min-height: 100vh;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .container-col {
+    padding-left: 40px!important;
+    padding-right: 40px!important;
+  }
+  .ml-7 {
+    margin-left: 0;
   }
 }
 

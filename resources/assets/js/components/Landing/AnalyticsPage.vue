@@ -1,5 +1,5 @@
 <template>
-  <div class="analytics-page-container">
+  <div class="analytics-page-container" :resize="onResize()">
     <div class="row mx-0 align-items-center justify-content-center container-row">
       <div class="col-xl-6 align-items-center pl-0">
         <img src="/images/landing/Guided to success ILL.svg" width="74.7%" class="d-block mx-auto" />
@@ -7,14 +7,14 @@
 
       <div class="col-xl-6 pr-0">
         <div class="row mx-20 mx-0">
-          <div class="col-12">
+          <div class="col-12 px-0">
             <h1>Guided to Success</h1>
             <h2>Simplified Analytics</h2>
           </div>
         </div>
 
         <div class="row my-20 mx-0">
-          <div class="col-12 ml-9">
+          <div class="col-12 ml-9 px-0">
             <div class="row mx-0">
               <div class="col-auto pl-0">
                 <img src="/images/landing/Paragraph-Check.svg" alt="checked" width="13" />
@@ -45,7 +45,7 @@
               </div>
             </div>
 
-            <div class="row mx-0 justify-content-end text-right">
+            <div class="row mx-0 justify-content-end" :class="alignText()">
               <button href="/register" class="font-weight-bold btn-primary">Sign Up Now</button>
             </div>
           </div>
@@ -56,18 +56,33 @@
 </template>
 
 <script>
+import onResize from '../../on_resize.js'
 export default {
   components: {},
-  mounted() {},
-  props: [],
-  data: function() {
-    return {};
+  mounted() {
+
   },
-  created() {},
+  props: [],
+  data: function(){
+    return { 
+      isMobile: false
+    }
+  },
+  created () {
+    this.onResize = onResize.onResize
+  },
 
   destroyed() {},
 
-  methods: {}
+  methods: {
+    alignText() {
+      if (this.isMobile == false) {
+        return 'text-right'
+      } else {
+        return 'text-center'
+      }
+    }
+  }
 };
 </script>
 
@@ -105,13 +120,13 @@ export default {
 }
 
 @media screen and (max-width: 1199px) {
-  .col-xl-6.align-items-center {
-    order: 
-  }
   .my-9, 
   .mx-20, 
   .ml-9 {
     margin: 0;
+  }
+  .text-center button {
+    margin: 0 auto;
   }
 }
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="crm-page-container">
+  <div class="crm-page-container" :resize="onResize()">
     <a name="about"></a>
     <div class="row mx-0 justify-content-center container-row">
       <div class="col-12 text-center">
@@ -7,7 +7,7 @@
         <p>SIAREM is streamlined to increase the speed of your sales department. All processes are optimized to guide your agents and focus on the most important: closing deals. SIAREM is used and tested by thousands of sales agents; we redesigned and tested our modules until perfection.</p>
       </div>
 
-      <div class="col-12 text-center">
+      <div class="col-12 text-center" v-if="!isMobile">
         <img src="/images/icons/Orange Dot_Big.svg" alt="dots" width="8" class="mx-5"/>
         <img src="/images/icons/Orange Dot_Big.svg" alt="dots" width="8" class="mx-5"/>
         <img src="/images/icons/Orange Dot_Big.svg" alt="dots" width="8" class="mx-5"/>
@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import onResize from '../../on_resize.js'
 export default {
   components: {},
   mounted() {
@@ -29,11 +30,11 @@ export default {
   props: [],
   data: function(){
     return { 
-      
+      isMobile: false
     }
   },
-  created() {
-    
+  created () {
+    this.onResize = onResize.onResize
   },
 
   destroyed() {
@@ -54,6 +55,13 @@ export default {
 @media screen and (min-width: 1200px) {
   .crm-page-container {
     min-height:100vh;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .col-12 {
+    padding-left: 40px!important;
+    padding-right: 40px!important;
   }
 }
 

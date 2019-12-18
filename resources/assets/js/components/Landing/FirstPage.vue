@@ -1,6 +1,6 @@
 <template>
-  <div class="first-page-container">
-    <div class="row mx-0 align-items-center justify-content-center container-row" :resize="onResize()">
+  <div class="first-page-container" :resize="onResize()">
+    <div class="row mx-0 align-items-center justify-content-center container-row">
       <div class="col-xl-6 align-items-center pl-0">
         <img 
           src="/images/SVG_Images/siarem-logo.svg" 
@@ -65,6 +65,10 @@ export default {
     .first-page-container {
       background-size: 150% auto;
       background-position: top left;
+    }
+    #landing .btn-primary {
+      font-size:12px!important;
+      padding: 12px 25px!important;
     }
   }
 

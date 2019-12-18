@@ -1,23 +1,28 @@
 <template>
-  <div id="landing"> 
+  <div id="landing" :resize="onResize()"> 
     <b-navbar 
+      toggleable="xl"
+      type="light"
       fixed="top" 
       class="justify-content-between" 
-      @scroll="handleSCroll" 
-      :resize="onResize()"
+      @scroll="handleSCroll"
     >
       <b-navbar-brand class="py-0" v-if="!isMobile">
         <img src="/images/SVG_Images/siarem-logo.svg" alt="Siarem logo" width="66.5%">
       </b-navbar-brand>
 
-      <b-navbar-nav class="align-items-center">
-        <b-nav-item href="#about">About</b-nav-item>
-        <b-nav-item href="#features">Features</b-nav-item>
-        <b-nav-item href="#pricing">Pricing</b-nav-item>
-        <b-nav-item href="#support">Support</b-nav-item>
-        <b-nav-item href="/register" class="sign-up-btn text-uppercase white pr-0">Sign Up Now</b-nav-item>
-        <!-- <b-nav-item href="#" class="pl-4">LA/EN</b-nav-item> -->
-      </b-navbar-nav>
+      <b-navbar-toggle target="nav-collapse" class="border-0 ml-auto"></b-navbar-toggle>
+
+      <b-collapse id="nav-collapse" is-nav class="justify-content-end">
+        <b-navbar-nav class="align-items-center">
+          <b-nav-item href="#about">About</b-nav-item>
+          <b-nav-item href="#features">Features</b-nav-item>
+          <b-nav-item href="#pricing">Pricing</b-nav-item>
+          <b-nav-item href="#support">Support</b-nav-item>
+          <b-nav-item href="/register" class="sign-up-btn text-uppercase white pr-0">Sign Up Now</b-nav-item>
+          <!-- <b-nav-item href="#" class="pl-4">LA/EN</b-nav-item> -->
+        </b-navbar-nav>
+      </b-collapse>
     </b-navbar>
 
     <!-- <div class="sections-menu">
@@ -252,6 +257,10 @@ export default {
   padding-right: 3.95%;
 }
 
+#landing .navbar-light .navbar-toggler-icon {
+  background-image: url('/images/landing/hamburger.svg');
+}
+
 #landing .navbar-scroll {
   background-color: #009D95;
 }
@@ -350,8 +359,32 @@ export default {
 } 
 
 @media screen and (max-width: 1199px){
+  #landing .fullpage {
+    padding-top: 54px;
+  }
   #landing p {
-    font-size: 14px;
+    font-size: 12px;
+    line-height: 1.7em;
+  }
+  #landing #nav-collapse.collapse.show {
+    text-align:right;
+  }
+  #landing .nav-item {
+    padding: 8px 0.75rem;
+  }
+  #landing .nav-item.sign-up-btn a {
+    width: fit-content;
+    margin-left: auto;
+    font-size:11px!important;
+    padding: 9px 22px!important;
+  }
+  #landing .btn-primary {
+    font-size:11px!important;
+    padding: 9px 22px!important;
+  }
+  #landing .col-xl-6 {
+    padding-left: 40px!important;
+    padding-right: 40px!important;
   }
 }
 

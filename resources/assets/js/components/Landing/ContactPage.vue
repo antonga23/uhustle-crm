@@ -1,7 +1,7 @@
 <template>
-  <div class="contact-page-container">
+  <div class="contact-page-container" :resize="onResize()">
     <a name="support"></a>
-    <div class="row mx-0 justify-content-center container-row" :resize="onResize()">
+    <div class="row mx-0 justify-content-center container-row">
       <div class="col-12 px-0">
         <div class="row mx-0 justify-content-center align-items-center">
           <div class="col-6 text-center pl-0" v-if="!isMobile">
@@ -35,14 +35,15 @@
 
               <div class="col-4">
                 <h5 class="text-uppercase">Contact</h5>
-                <a href="mailto:info@siarem.com" class="footer-text mb-1">info@siarem.com</a>
-                <a href="tel:+27987832728" class="footer-text">+27 98 783 2728</a>
+                <a href="mailto:info@siarem.com" class="footer-text d-block mb-1">info@siarem.com</a>
+                <a href="tel:+27987832728" class="footer-text d-block mb-1">+27 98 783 2728</a>
+                <p class="footer-text">Larende LTD 5 Secretary's Ln Gibraltar GX11 1AA, Gibraltar</p>
               </div>
             </div>
           </div>
         </div>
 
-        <div v-else>
+        <div v-else class="mobile-contact">
           <div class="row mx-0 border-bottom align-items-center">
             <div class="col-6 pl-0">
               <h5 class="text-uppercase">ABOUT</h5>
@@ -73,9 +74,9 @@
             </div>
 
             <div class="col-6 pr-0">
-              <a href="mailto:info@siarem.com" class="footer-text mb-1">info@siarem.com</a>
-              <a href="tel:+27987832728" class="footer-text mb-1">+27 98 783 2728</a>
-              <p class="footer-text">Amsterdam</p>
+              <a href="mailto:info@siarem.com" class="footer-text d-block mb-1">info@siarem.com</a>
+              <a href="tel:+27987832728" class="footer-text d-block mb-1">+27 98 783 2728</a>
+              <p class="footer-text">Larende LTD 5 Secretary's Ln Gibraltar GX11 1AA, Gibraltar</p>
             </div>
           </div>
         </div>
@@ -167,7 +168,10 @@ h5 {
 }
 
 .footer-text {
-  font-size: 14 !important;
+  font-size: 14px !important;
+  font-family: 'Rubik', sans-serif;
+  line-height: 30px;
+  color: #3A3A3A;
   color: inherit;
 }
 
@@ -177,6 +181,10 @@ h5 {
   }
   .footer-text {
     font-size:12px !important;
+  }
+  .mobile-contact .row {
+    padding-left: 40px!important;
+    padding-right: 40px!important;
   }
 }
 

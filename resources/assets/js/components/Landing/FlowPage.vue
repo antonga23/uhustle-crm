@@ -1,9 +1,9 @@
 <template>
-  <div class="flow-page-container">
+  <div class="flow-page-container" :resize="onResize()">
     <div class="row mx-0 align-items-center justify-content-center container-row">
       <div class="col-xl-6 align-items-center">
         <div class="row ml-20 mr-0">
-          <div class="col-12">
+          <div class="col-12 px-0">
             <h1>Eliminate Agent Mistakes</h1>
             <h2>Easy System Flow</h2>
           </div>
@@ -11,7 +11,7 @@
 
 
          <div class="row mx-20">
-          <div class="col-12 ml-9">
+          <div class="col-12 px-0 ml-9">
             <div class="row mx-0">
               <div class="col-auto pl-0">
                 <img src="/images/landing/Paragraph-Check.svg" alt="checked" width="13" />
@@ -42,7 +42,7 @@
               </div>
             </div>
 
-            <div class="row mx-0 justify-content-end text-right ">
+            <div class="row mx-0 justify-content-end" :class="alignText()">
               <button href="/register" class="font-weight-bold btn-primary">Sign Up Now</button>
             </div>
           </div>
@@ -57,6 +57,7 @@
 </template>
 
 <script>
+import onResize from '../../on_resize.js'
 export default {
   components: {},
   mounted() {
@@ -65,19 +66,23 @@ export default {
   props: [],
   data: function(){
     return { 
-      
+      isMobile: false
     }
   },
-  created() {
-    
+  created () {
+    this.onResize = onResize.onResize
   },
 
-  destroyed() {
-    
-  },
-  
+  destroyed() {},
+
   methods: {
-    
+    alignText() {
+      if (this.isMobile == false) {
+        return 'text-right'
+      } else {
+        return 'text-center'
+      }
+    }
   }
 }
 </script>
@@ -123,6 +128,9 @@ export default {
   .ml-20, 
   .ml-9 {
     margin: 0;
+  }
+  .text-center button {
+    margin: 0 auto;
   }
 }
 </style>
