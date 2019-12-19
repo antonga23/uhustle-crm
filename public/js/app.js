@@ -186379,6 +186379,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _on_resize_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../on_resize.js */ "./resources/assets/js/on_resize.js");
 //
 //
 //
@@ -186436,16 +186437,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   mounted: function mounted() {},
   props: [],
   data: function data() {
-    return {};
+    return {
+      isMobile: false
+    };
   },
-  created: function created() {},
+  created: function created() {
+    this.onResize = _on_resize_js__WEBPACK_IMPORTED_MODULE_0__["default"].onResize;
+  },
   destroyed: function destroyed() {},
-  methods: {}
+  methods: {
+    alignText: function alignText() {
+      if (this.isMobile == false) {
+        return 'text-right';
+      } else {
+        return 'text-center';
+      }
+    }
+  }
 });
 
 /***/ }),
@@ -186460,6 +186474,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _on_resize_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../on_resize.js */ "./resources/assets/js/on_resize.js");
+//
 //
 //
 //
@@ -186614,6 +186629,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _on_resize_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../on_resize.js */ "./resources/assets/js/on_resize.js");
 //
 //
 //
@@ -186636,14 +186652,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   mounted: function mounted() {},
   props: [],
   data: function data() {
-    return {};
+    return {
+      isMobile: false
+    };
   },
-  created: function created() {},
+  created: function created() {
+    this.onResize = _on_resize_js__WEBPACK_IMPORTED_MODULE_0__["default"].onResize;
+  },
   destroyed: function destroyed() {},
   methods: {}
 });
@@ -186791,6 +186812,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _on_resize_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../on_resize.js */ "./resources/assets/js/on_resize.js");
 //
 //
 //
@@ -186849,16 +186871,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   mounted: function mounted() {},
   props: [],
   data: function data() {
-    return {};
+    return {
+      isMobile: false
+    };
   },
-  created: function created() {},
+  created: function created() {
+    this.onResize = _on_resize_js__WEBPACK_IMPORTED_MODULE_0__["default"].onResize;
+  },
   destroyed: function destroyed() {},
-  methods: {}
+  methods: {
+    alignText: function alignText() {
+      if (this.isMobile == false) {
+        return 'text-right';
+      } else {
+        return 'text-center';
+      }
+    }
+  }
 });
 
 /***/ }),
@@ -186881,6 +186916,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _WhyCrmPage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./WhyCrmPage */ "./resources/assets/js/components/Landing/WhyCrmPage.vue");
 /* harmony import */ var _PricingPage__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./PricingPage */ "./resources/assets/js/components/Landing/PricingPage.vue");
 /* harmony import */ var _ContactPage__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./ContactPage */ "./resources/assets/js/components/Landing/ContactPage.vue");
+//
+//
+//
+//
+//
 //
 //
 //
@@ -251998,7 +252038,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.analytics-page-container[data-v-6c42c8f6] {\r\n  /* background-color: #00c3ff; */\r\n  width: 100%;\n}\n@media screen and (min-width: 1200px) {\n.analytics-page-container[data-v-6c42c8f6] {\r\n    min-height: 100vh;\r\n    background-image: url(\"/images/landing/Pages_2_(2).png\");\r\n    background-size: auto 100%;\r\n    background-repeat: no-repeat;\r\n    background-position: left center;\n}\n}\n.col-auto[data-v-6c42c8f6] {\r\n  margin-right: 3%;\n}\r\n\r\n/* Equivalent of 50px is 9% */\n.ml-9[data-v-6c42c8f6] { \r\n  margin-left: 9%;\n}\n.my-9[data-v-6c42c8f6] {\r\n  margin: 9%;\n}\n.mx-20[data-v-6c42c8f6] {\r\n  margin: 0 20%;\n}\n@media screen and (max-width: 1199px) {\n.col-xl-6.align-items-center[data-v-6c42c8f6] {\r\n    order:\n}\n.my-9[data-v-6c42c8f6], \r\n  .mx-20[data-v-6c42c8f6], \r\n  .ml-9[data-v-6c42c8f6] {\r\n    margin: 0;\n}\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.analytics-page-container[data-v-6c42c8f6] {\r\n  /* background-color: #00c3ff; */\r\n  width: 100%;\n}\n@media screen and (min-width: 1200px) {\n.analytics-page-container[data-v-6c42c8f6] {\r\n    min-height: 100vh;\r\n    background-image: url(\"/images/landing/Pages_2_(2).png\");\r\n    background-size: auto 100%;\r\n    background-repeat: no-repeat;\r\n    background-position: left center;\n}\n}\n.col-auto[data-v-6c42c8f6] {\r\n  margin-right: 3%;\n}\r\n\r\n/* Equivalent of 50px is 9% */\n.pl-9[data-v-6c42c8f6] { \r\n  padding-left: 9%;\n}\n.my-9[data-v-6c42c8f6] {\r\n  margin: 9%;\n}\n.mx-20[data-v-6c42c8f6] {\r\n  margin: 0 20%;\n}\n@media screen and (max-width: 1199px) {\n.my-9[data-v-6c42c8f6], \r\n  .mx-20[data-v-6c42c8f6], \r\n  .pl-9[data-v-6c42c8f6] {\r\n    margin: 0;\n}\n.text-center button[data-v-6c42c8f6] {\r\n    margin: 0 auto;\n}\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -252017,7 +252057,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.contact-page-container[data-v-743a6dd0] {\r\n  width: 100%;\n}\n@media screen and (min-width: 1200px) {\n.contact-page-container[data-v-743a6dd0] {\r\n    min-height: 100vh;\n}\n}\nh5[data-v-743a6dd0] {\r\n  color: #1e2738;\r\n  font-weight: bold;\r\n  font-size: 0.96vw;\r\n  margin-bottom: 5%;\n}\n.footer-text[data-v-743a6dd0] {\r\n  font-size: 14 !important;\r\n  color: inherit;\n}\n@media screen and (max-width:1199px) {\n.container-row[data-v-743a6dd0] {\r\n    background-color: #F2F2F2;\n}\n.footer-text[data-v-743a6dd0] {\r\n    font-size:12px !important;\n}\n}\nli[data-v-743a6dd0] {\r\n  padding-left: 15px;\r\n  padding-right: 15px;\n}\n.mb-9[data-v-743a6dd0] {\r\n  margin-bottom: 9%;\n}\n.margin-footer[data-v-743a6dd0] {\r\n  margin: 3% 20% 3%;\n}\n.m-7[data-v-743a6dd0] {\r\n  margin: 0 7%;\n}\nimg.contact[data-v-743a6dd0] {\r\n  width: 100%;\n}\n.footer-row[data-v-743a6dd0] {\r\n  padding-left: 3.95%;\r\n  padding-right: 3.95%;\r\n  margin-bottom: 17px;\n}\n.footer-row p[data-v-743a6dd0] {\r\n  margin-left: 12%;\n}\r\n", ""]);
+exports.push([module.i, "\n.contact-page-container[data-v-743a6dd0] {\r\n  width: 100%;\n}\n@media screen and (min-width: 1200px) {\n.contact-page-container[data-v-743a6dd0] {\r\n    min-height: 100vh;\n}\n}\nh5[data-v-743a6dd0] {\r\n  color: #1e2738;\r\n  font-weight: bold;\r\n  font-size: 0.96vw;\r\n  margin-bottom: 5%;\n}\n.footer-text[data-v-743a6dd0] {\r\n  font-size: 14px !important;\r\n  font-family: 'Rubik', sans-serif;\r\n  line-height: 30px;\r\n  color: #3A3A3A;\r\n  color: inherit;\n}\n@media screen and (max-width:1199px) {\n.container-row[data-v-743a6dd0] {\r\n    background-color: #F2F2F2;\n}\n.footer-text[data-v-743a6dd0] {\r\n    font-size:12px !important;\n}\n.mobile-contact .row[data-v-743a6dd0] {\r\n    padding-left: 40px!important;\r\n    padding-right: 40px!important;\n}\n}\nli[data-v-743a6dd0] {\r\n  padding-left: 15px;\r\n  padding-right: 15px;\n}\n.mb-9[data-v-743a6dd0] {\r\n  margin-bottom: 9%;\n}\n.margin-footer[data-v-743a6dd0] {\r\n  margin: 3% 20% 3%;\n}\n.m-7[data-v-743a6dd0] {\r\n  margin: 0 7%;\n}\nimg.contact[data-v-743a6dd0] {\r\n  width: 100%;\n}\n.footer-row[data-v-743a6dd0] {\r\n  padding-left: 3.95%;\r\n  padding-right: 3.95%;\r\n  margin-bottom: 17px;\n}\n.footer-row p[data-v-743a6dd0] {\r\n  margin-left: 12%;\n}\r\n", ""]);
 
 // exports
 
@@ -252036,7 +252076,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.crm-page-container[data-v-28d08a0e] {\r\n  width: 100%;\n}\n@media screen and (min-width: 1200px) {\n.crm-page-container[data-v-28d08a0e] {\r\n    min-height:100vh;\n}\n}\n.col-12[data-v-28d08a0e] {\r\n  padding-left: 13%;\r\n  padding-right: 13%;\n}\n.mt-3[data-v-28d08a0e] {\r\n  margin-top: 3% !important;\n}\r\n", ""]);
+exports.push([module.i, "\n.crm-page-container[data-v-28d08a0e] {\r\n  width: 100%;\n}\n@media screen and (min-width: 1200px) {\n.crm-page-container[data-v-28d08a0e] {\r\n    min-height:100vh;\n}\n}\n@media screen and (max-width: 1199px) {\n.col-12[data-v-28d08a0e] {\r\n    padding-left: 40px!important;\r\n    padding-right: 40px!important;\n}\n}\n.col-12[data-v-28d08a0e] {\r\n  padding-left: 13%;\r\n  padding-right: 13%;\n}\n.mt-3[data-v-28d08a0e] {\r\n  margin-top: 3% !important;\n}\r\n", ""]);
 
 // exports
 
@@ -252055,7 +252095,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.crm-page-container[data-v-29ce37db] {\r\n  width: 100%;\n}\n@media screen and (min-width: 1200px) {\n.crm-page-container[data-v-29ce37db] {\r\n    min-height: 100vh;\n}\n}\n.ml-7[data-v-29ce37db] {\r\n  margin-left: 7%;\n}\r\n", ""]);
+exports.push([module.i, "\n.crm-page-container[data-v-29ce37db] {\r\n  width: 100%;\n}\n@media screen and (min-width: 1200px) {\n.crm-page-container[data-v-29ce37db] {\r\n    min-height: 100vh;\n}\n}\n@media screen and (max-width: 1199px) {\n.container-col[data-v-29ce37db] {\r\n    padding-left: 40px!important;\r\n    padding-right: 40px!important;\n}\n.ml-7[data-v-29ce37db] {\r\n    margin-left: 0;\n}\n}\n.ml-7[data-v-29ce37db] {\r\n  margin-left: 7%;\n}\r\n", ""]);
 
 // exports
 
@@ -252074,7 +252114,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.first-page-container[data-v-441772a0] {\n  /* background-color: #00C3FF; */\n  width: 100%;\n}\n@media screen and (max-width: 1199px) {\n.first-page-container[data-v-441772a0] {\n    background-size: 150% auto;\n    background-position: top left;\n}\n}\n@media screen and (min-width: 1200px) {\n.first-page-container[data-v-441772a0] {\n    min-height: 100vh; \n    background-image: url('/images/landing/Pages_1_reduced_2.png');\n    background-size: auto 100%;\n    background-repeat: no-repeat;\n    background-position: left center;\n}\n}\n.col-xl-6 .row .col-12 img[data-v-441772a0] {\n  margin-bottom: 3.4%;\n}\n", ""]);
+exports.push([module.i, "\n.first-page-container[data-v-441772a0] {\n  /* background-color: #00C3FF; */\n  width: 100%;\n}\n@media screen and (max-width: 1199px) {\n.first-page-container[data-v-441772a0] {\n    background-size: 150% auto;\n    background-position: top left;\n}\n#landing .btn-primary[data-v-441772a0] {\n    font-size:12px!important;\n    padding: 12px 25px!important;\n}\n}\n@media screen and (min-width: 1200px) {\n.first-page-container[data-v-441772a0] {\n    min-height: 100vh; \n    background-image: url('/images/landing/Pages_1_reduced_2.png');\n    background-size: auto 100%;\n    background-repeat: no-repeat;\n    background-position: left center;\n}\n}\n.col-xl-6 .row .col-12 img[data-v-441772a0] {\n  margin-bottom: 3.4%;\n}\n", ""]);
 
 // exports
 
@@ -252093,7 +252133,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.flow-page-container[data-v-262024a8] {\r\n  /* background-color: #00C3FF; */\r\n  width: 100%;\n}\n@media screen and (min-width: 1200px) {\n.flow-page-container[data-v-262024a8] {\r\n    min-height:100vh;\r\n    background-image: url('/images/landing/Pages_3_(2).png');\r\n    background-size: auto 100%;\r\n    background-repeat: no-repeat;\r\n    background-position: right center;\n}\n}\n.col-auto[data-v-262024a8] {\r\n  margin-right: 3%;\n}\r\n\r\n/* Equivalent of 50px is 9% */\n.ml-9[data-v-262024a8] { \r\n  margin-left: 9%;\n}\n.mx-20[data-v-262024a8] {\r\n  margin: 0px 20%;\n}\n.ml-20[data-v-262024a8] {\r\n  margin: 0 0 0 20%;\n}\n@media screen and (max-width: 1199px) {\n.col-xl-6.align-items-center[data-v-262024a8] {\r\n    order: 1;\n}\n.mx-20[data-v-262024a8], \r\n  .ml-20[data-v-262024a8], \r\n  .ml-9[data-v-262024a8] {\r\n    margin: 0;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.flow-page-container[data-v-262024a8] {\r\n  /* background-color: #00C3FF; */\r\n  width: 100%;\n}\n@media screen and (min-width: 1200px) {\n.flow-page-container[data-v-262024a8] {\r\n    min-height:100vh;\r\n    background-image: url('/images/landing/Pages_3_(2).png');\r\n    background-size: auto 100%;\r\n    background-repeat: no-repeat;\r\n    background-position: right center;\n}\n}\n.col-auto[data-v-262024a8] {\r\n  margin-right: 3%;\n}\r\n\r\n/* Equivalent of 50px is 9% */\n.ml-9[data-v-262024a8] { \r\n  margin-left: 9%;\n}\n.mx-20[data-v-262024a8] {\r\n  margin: 0px 20%;\n}\n.ml-20[data-v-262024a8] {\r\n  margin: 0 0 0 20%;\n}\n@media screen and (max-width: 1199px) {\n.col-xl-6.align-items-center[data-v-262024a8] {\r\n    order: 1;\n}\n.mx-20[data-v-262024a8], \r\n  .ml-20[data-v-262024a8], \r\n  .ml-9[data-v-262024a8] {\r\n    margin: 0;\n}\n.text-center button[data-v-262024a8] {\r\n    margin: 0 auto;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -252112,7 +252152,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n#landing {\r\n  margin: 0;\r\n  overflow: hidden;\r\n  background-color: #fff;\r\n  position:relative;\n}\n#landing .navbar-expand .navbar-nav {\r\n  flex-direction: unset;\n}\n#landing .navbar {\r\n  background-color: #fff !important;\r\n  box-shadow: 0px 0px 9.51px 0px rgba(0,0,0,0.1);\r\n  padding-left: 3.95%;\r\n  padding-right: 3.95%;\n}\n#landing .navbar-scroll {\r\n  background-color: #009D95;\n}\n#landing .navbar-brand img {\r\n  width: 10.4vw!important;\n}\n#landing .nav-item {\r\n  color: #535554;\r\n  font-size: 15px;\r\n  padding-left: 5.25%;\r\n  padding-right: 5.25%;\r\n  width:100%;\n}\n#landing .nav-link {\r\n  padding: 0;\n}\n#landing .nav-item.sign-up-btn a {\r\n  font-size: 0.94vw;\r\n  text-transform : uppercase;\r\n  background: linear-gradient(to right, rgba(255,129,51,1) 0%,  rgba(255,147, 58,1) 100%) !important;\r\n  border-radius:50rem;\r\n  padding: 9% 13%;\r\n  box-shadow:none;\r\n  line-height:1em;\r\n  white-space: nowrap;\r\n  display: flex;\n}\n#landing .sections-menu {\r\n  position: fixed;\r\n  right: 1rem;\r\n  top: 50%;\r\n  transform: translateY(-50%);\n}\n#landing .sections-menu .menu-point {\r\n  width: 10px;\r\n  height: 10px;\r\n  background-color: #FFF;\r\n  display: block;\r\n  margin: 1rem 0;\r\n  opacity: .6;\r\n  transition: .4s ease all;\r\n  cursor: pointer;\n}\n#landing .sections-menu .menu-point.active {\r\n  opacity: 1;\r\n  transform: scale(1.5);\n}\n#landing .fullpage {\r\n  width: 100%;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  padding-top: 4.38%;\n}\n@media screen and (min-width: 1200px) {\n#landing .fullpage {\r\n    min-height: 100vh;\n}\n#landing .container-row {\r\n    min-height: 100vh;\n}\n}\n#landing h1 {\r\n  color: #4D4D4D;\r\n  font-size: 2.71vw;\r\n  font-weight: bold;\r\n  text-transform: capitalize;\r\n  margin-bottom: 0.5rem !important;\n}\n#landing h2 {\r\n  color: #999999;\r\n  font-size: 1.62vw;\r\n  font-weight: bold;\r\n  text-transform: capitalize;\r\n  margin-bottom: 9%;\n}\n#landing p {\r\n  color: #3A3A3A;\r\n  font-size: 16px;\r\n  font-family: 'Rubik', sans-serif;\r\n  line-height: 30px;\r\n  margin-bottom: 4%;\n}\n@media screen and (max-width: 1199px){\n#landing p {\r\n    font-size: 14px;\n}\n}\n#landing .btn-primary {\r\n  font-size: 0.94vw;\r\n  text-transform : uppercase;\r\n  padding: 2.1% 3.7%;\r\n  box-shadow:none;\r\n  line-height:1em;\r\n  white-space: nowrap;\n}\n.nav-item.white a.nav-link {\r\n  color: #fff !important;\r\n  font-weight: 700;\n}\n#landing img {\r\n  max-height: 100vh;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n#landing {\r\n  margin: 0;\r\n  overflow: hidden;\r\n  background-color: #fff;\r\n  position:relative;\n}\n#landing .navbar-expand .navbar-nav {\r\n  flex-direction: unset;\n}\n#landing .navbar {\r\n  background-color: #fff !important;\r\n  box-shadow: 0px 0px 9.51px 0px rgba(0,0,0,0.1);\r\n  padding-left: 3.95%;\r\n  padding-right: 3.95%;\n}\n#landing .navbar-light .navbar-toggler-icon {\r\n  background-image: url('/images/landing/hamburger.svg');\n}\n#landing .navbar-scroll {\r\n  background-color: #009D95;\n}\n#landing .navbar-brand img {\r\n  width: 10.4vw!important;\n}\n#landing .nav-item {\r\n  color: #535554;\r\n  font-size: 15px;\r\n  padding-left: 5.25%;\r\n  padding-right: 5.25%;\r\n  width:100%;\n}\n#landing .nav-link {\r\n  padding: 0;\n}\n#landing .nav-item.sign-up-btn a {\r\n  font-size: 0.94vw;\r\n  text-transform : uppercase;\r\n  background: linear-gradient(to right, rgba(255,129,51,1) 0%,  rgba(255,147, 58,1) 100%) !important;\r\n  border-radius:50rem;\r\n  padding: 9% 13%;\r\n  box-shadow:none;\r\n  line-height:1em;\r\n  white-space: nowrap;\r\n  display: flex;\n}\n#landing .sections-menu {\r\n  position: fixed;\r\n  right: 1rem;\r\n  top: 50%;\r\n  transform: translateY(-50%);\n}\n#landing .sections-menu .menu-point {\r\n  width: 10px;\r\n  height: 10px;\r\n  background-color: #FFF;\r\n  display: block;\r\n  margin: 1rem 0;\r\n  opacity: .6;\r\n  transition: .4s ease all;\r\n  cursor: pointer;\n}\n#landing .sections-menu .menu-point.active {\r\n  opacity: 1;\r\n  transform: scale(1.5);\n}\n#landing .fullpage {\r\n  width: 100%;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  padding-top: 4.38%;\n}\n@media screen and (min-width: 1200px) {\n#landing .fullpage {\r\n    min-height: 100vh;\n}\n#landing .container-row {\r\n    min-height: 100vh;\n}\n}\n#landing h1 {\r\n  color: #4D4D4D;\r\n  font-size: 2.71vw;\r\n  font-weight: bold;\r\n  text-transform: capitalize;\r\n  margin-bottom: 0.5rem !important;\n}\n#landing h2 {\r\n  color: #999999;\r\n  font-size: 1.62vw;\r\n  font-weight: bold;\r\n  text-transform: capitalize;\r\n  margin-bottom: 9%;\n}\n#landing p {\r\n  color: #3A3A3A;\r\n  font-size: 16px;\r\n  font-family: 'Rubik', sans-serif;\r\n  line-height: 30px;\r\n  margin-bottom: 4%;\n}\n@media screen and (max-width: 1199px){\n#landing .fullpage {\r\n    padding-top: 54px;\n}\n#landing p {\r\n    font-size: 12px;\r\n    line-height: 1.7em;\n}\n#landing #nav-collapse.collapse.show {\r\n    text-align:right;\n}\n#landing .nav-item {\r\n    padding: 8px 0.75rem;\n}\n#landing .nav-item.sign-up-btn a {\r\n    width: -webkit-fit-content;\r\n    width: -moz-fit-content;\r\n    width: fit-content;\r\n    margin-left: auto;\r\n    font-size:11px!important;\r\n    padding: 9px 22px!important;\n}\n#landing .btn-primary {\r\n    font-size:11px!important;\r\n    padding: 9px 22px!important;\n}\n#landing .col-xl-6 {\r\n    padding-left: 40px!important;\r\n    padding-right: 40px!important;\n}\n}\n#landing .btn-primary {\r\n  font-size: 0.94vw;\r\n  text-transform : uppercase;\r\n  padding: 2.1% 3.7%;\r\n  box-shadow:none;\r\n  line-height:1em;\r\n  white-space: nowrap;\n}\n.nav-item.white a.nav-link {\r\n  color: #fff !important;\r\n  font-weight: 700;\n}\n#landing img {\r\n  max-height: 100vh;\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -252131,7 +252171,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n@media screen and (min-width: 1200px) {\n.pricing-page-container[data-v-1d70e376] {\r\n    min-height:100vh;\n}\n}\n.pricing-page-container[data-v-1d70e376] {\r\n  width: 100%;\n}\nh3[data-v-1d70e376] {\r\n  color: #4D4D4D;\r\n  font-size: 1.5vw;\r\n  font-weight: bold;\r\n  text-transform: uppercase;\r\n  margin-bottom: 0;\n}\nh3.siarem[data-v-1d70e376] {\r\n  color: #999999;\r\n  font-size: 1.5vw;\n}\nh3.price[data-v-1d70e376] {\r\n  font-size: 2vw;\n}\nh4[data-v-1d70e376] {\r\n  color: #999999;\r\n  font-size: 1.4vw;\r\n  font-weight: bold;\n}\nh5[data-v-1d70e376] {\r\n  color: #4D4D4D;\r\n  font-size: 10px;\r\n  font-weight: bold;\r\n  text-transform: uppercase;\n}\n.start[data-v-1d70e376] {\r\n  background: linear-gradient(to right, rgba(255,129,51,1) 0%, rgba(255,147, 58,1) 100%);\r\n  border-radius: 13px;\r\n  font-size: 1.5vw;\r\n  padding: 17px;\r\n  width: 100%;\r\n  margin: 0 auto;\n}\n.basic[data-v-1d70e376] {\r\n  background: linear-gradient(to right, #02E3F4 0%, #0496F0 100%);\r\n  border-radius: 13px;\r\n  font-size: 1.5vw;\r\n  padding: 17px;\r\n   width: 100%;\r\n  margin: 0 auto;\n}\n.premium[data-v-1d70e376] {\r\n  background: linear-gradient(to right, #C079D9 0%, #683EFC 100%);\r\n  border-radius: 13px;\r\n  font-size: 1.5vw;\r\n  padding: 17px;\r\n   width: 100%;\r\n  margin: 0 auto;\n}\ntd[data-v-1d70e376] {\r\n  color: #999999;\r\n  font-family: 'Rubik', sans-serif !important;\r\n  border:1px solid #CCCCCC;\r\n  font-size: 14px;\n}\n.col-6.border-bottom[data-v-1d70e376] {\r\n  border-color:#CCCCCC;\n}\ntd[data-v-1d70e376]:first-child {\r\n  width: 23%;\r\n  padding-left: 40px;\r\n  padding-top: 1%;\r\n  padding-bottom: 1%;\n}\nth[data-v-1d70e376] {\r\n  padding: 1%;\n}\n.left[data-v-1d70e376] {\r\n  text-align: left;\n}\n.extra-padding[data-v-1d70e376] {\r\n  padding-bottom: 3%;\n}\nspan.small-text[data-v-1d70e376] {\r\n  font-size: 8px;\r\n  color: #999999;\n}\n@media screen and (max-width: 1199px) {\ntd[data-v-1d70e376] {\r\n    font-size: 12px;\n}\n.start[data-v-1d70e376], \r\n  .basic[data-v-1d70e376],\r\n  .premium[data-v-1d70e376] {\r\n    border-radius: 15px;\n}\nh3[data-v-1d70e376] {\r\n    font-size: 30px;\n}\np[data-v-1d70e376] {\r\n    font-family: 'Rubik', sans-serif !important;\r\n    color: #999999!important;\n}\n.p-month[data-v-1d70e376] {\r\n    font-size: 14px;\n}\n.col-5 img[data-v-1d70e376] {\r\n    margin-top: 20px;\r\n    margin-bottom: 20px;\n}\n.col-5 p[data-v-1d70e376] {\r\n    line-height: 1em!important;\r\n    margin-top: 20px;\r\n    margin-bottom: 20px!important;\n}\n.text-white[data-v-1d70e376] {\r\n    color: #fff!important;\n}\n}\n@media screen and (max-width: 1440px) {\nimg.checkMarks[data-v-1d70e376] {\r\n    width: 10px;\n}\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n@media screen and (min-width: 1200px) {\n.pricing-page-container[data-v-1d70e376] {\r\n    min-height:100vh;\n}\n}\n.pricing-page-container[data-v-1d70e376] {\r\n  width: 100%;\n}\nh3[data-v-1d70e376] {\r\n  color: #4D4D4D;\r\n  font-size: 1.5vw;\r\n  font-weight: bold;\r\n  text-transform: uppercase;\r\n  margin-bottom: 0;\n}\nh3.siarem[data-v-1d70e376] {\r\n  color: #999999;\r\n  font-size: 1.5vw;\n}\nh3.price[data-v-1d70e376] {\r\n  font-size: 2vw;\n}\nh4[data-v-1d70e376] {\r\n  color: #999999;\r\n  font-size: 1.4vw;\r\n  font-weight: bold;\n}\nh5[data-v-1d70e376] {\r\n  color: #4D4D4D;\r\n  font-size: 10px;\r\n  font-weight: bold;\r\n  text-transform: uppercase;\n}\n.start[data-v-1d70e376] {\r\n  background: linear-gradient(to right, rgba(255,129,51,1) 0%, rgba(255,147, 58,1) 100%);\r\n  border-radius: 13px;\r\n  font-size: 1.5vw;\r\n  padding: 17px;\r\n  width: 100%;\r\n  margin: 0 auto;\n}\n.basic[data-v-1d70e376] {\r\n  background: linear-gradient(to right, #02E3F4 0%, #0496F0 100%);\r\n  border-radius: 13px;\r\n  font-size: 1.5vw;\r\n  padding: 17px;\r\n   width: 100%;\r\n  margin: 0 auto;\n}\n.premium[data-v-1d70e376] {\r\n  background: linear-gradient(to right, #C079D9 0%, #683EFC 100%);\r\n  border-radius: 13px;\r\n  font-size: 1.5vw;\r\n  padding: 17px;\r\n  width: 100%;\r\n  margin: 0 auto;\n}\ntd[data-v-1d70e376] {\r\n  color: #999999;\r\n  font-family: 'Rubik', sans-serif !important;\r\n  border:1px solid #CCCCCC;\r\n  font-size: 14px;\n}\n.col-6.border-bottom[data-v-1d70e376] {\r\n  border-color:#CCCCCC;\n}\ntd[data-v-1d70e376]:first-child {\r\n  width: 23%;\r\n  padding-left: 40px;\r\n  padding-top: 1%;\r\n  padding-bottom: 1%;\n}\nth[data-v-1d70e376] {\r\n  padding: 1%;\n}\n.left[data-v-1d70e376] {\r\n  text-align: left;\n}\n.extra-padding[data-v-1d70e376] {\r\n  padding-bottom: 3%;\n}\nspan.small-text[data-v-1d70e376] {\r\n  font-size: 8px;\r\n  color: #999999;\n}\n@media screen and (max-width: 1199px) {\ntd[data-v-1d70e376] {\r\n    font-size: 12px;\n}\n.start[data-v-1d70e376], \r\n  .basic[data-v-1d70e376],\r\n  .premium[data-v-1d70e376] {\r\n    border-radius: 5px;\r\n    padding: 10px 20px;\n}\nh3[data-v-1d70e376] {\r\n    font-size: 14px;\n}\np[data-v-1d70e376] {\r\n    font-family: 'Rubik', sans-serif !important;\r\n    color: #999999!important;\n}\n.p-month[data-v-1d70e376] {\r\n    font-size: 8px;\n}\n.col-12[data-v-1d70e376] {\r\n    padding-left: 40px!important;\r\n    padding-right: 40px!important;\n}\n.col-5 img[data-v-1d70e376] {\r\n    margin-top: 20px;\r\n    margin-bottom: 20px;\n}\n.col-5 p[data-v-1d70e376] {\r\n    line-height: 1em!important;\r\n    margin-top: 20px;\r\n    margin-bottom: 20px!important;\n}\n.text-white[data-v-1d70e376] {\r\n    color: #fff!important;\n}\n}\n@media screen and (max-width: 1440px) {\nimg.checkMarks[data-v-1d70e376] {\r\n    width: 10px;\n}\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -252150,7 +252190,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.why-crm-page-container[data-v-612c9bb4] {\r\n  width: 100%;\n}\n.border-bottom[data-v-612c9bb4],\r\n.border-left[data-v-612c9bb4], \r\n.border-right[data-v-612c9bb4] {\r\n  border-color:\n}\n@media screen and (min-width: 1200px) {\n.why-crm-page-container[data-v-612c9bb4] {\r\n    min-height: 100vh;\n}\n}\n.col img[data-v-612c9bb4] {\r\n  padding-top: 4.1%;\r\n  padding-bottom: 4.1%;\n}\nh1[data-v-612c9bb4] {\r\n  margin-top: 1.5rem !important;\n}\n@media screen and (max-width: 1199px) {\np[data-v-612c9bb4] {\r\n    line-height: 1.3em!important;\n}\n.col[data-v-612c9bb4] {\r\n    height: 100%;\n}\n.col img[data-v-612c9bb4] {\r\n    padding-top: 16px;\r\n    padding-bottom: 16px;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.why-crm-page-container[data-v-612c9bb4] {\r\n  width: 100%;\n}\n.border-bottom[data-v-612c9bb4],\r\n.border-left[data-v-612c9bb4], \r\n.border-right[data-v-612c9bb4] {\r\n  border-color: #ccc;\n}\n@media screen and (min-width: 1200px) {\n.why-crm-page-container[data-v-612c9bb4] {\r\n    min-height: 100vh;\n}\n}\n.col img[data-v-612c9bb4] {\r\n  padding-top: 4.1%;\r\n  padding-bottom: 4.1%;\n}\nh1[data-v-612c9bb4] {\r\n  margin-top: 1.5rem !important;\n}\n@media screen and (max-width: 1199px) {\np[data-v-612c9bb4] {\r\n    line-height: 1.3em!important;\n}\n.col-12[data-v-612c9bb4], \r\n  .col-md-10[data-v-612c9bb4] {\r\n    padding-left: 40px!important;\r\n    padding-right: 40px!important;\n}\n.col[data-v-612c9bb4] {\r\n    height: 100%;\n}\n.col img[data-v-612c9bb4] {\r\n    padding-top: 16px;\r\n    padding-bottom: 16px;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -378273,14 +378313,13 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "analytics-page-container" }, [
+  return _c(
+    "div",
+    {
+      staticClass: "analytics-page-container",
+      attrs: { resize: _vm.onResize() }
+    },
+    [
       _c(
         "div",
         {
@@ -378288,90 +378327,25 @@ var staticRenderFns = [
             "row mx-0 align-items-center justify-content-center container-row"
         },
         [
-          _c("div", { staticClass: "col-xl-6 align-items-center pl-0" }, [
-            _c("img", {
-              staticClass: "d-block mx-auto",
-              attrs: {
-                src: "/images/landing/Guided to success ILL.svg",
-                width: "74.7%"
-              }
-            })
-          ]),
+          _vm._m(0),
           _vm._v(" "),
           _c("div", { staticClass: "col-xl-6 pr-0" }, [
-            _c("div", { staticClass: "row mx-20 mx-0" }, [
-              _c("div", { staticClass: "col-12" }, [
-                _c("h1", [_vm._v("Guided to Success")]),
-                _vm._v(" "),
-                _c("h2", [_vm._v("Simplified Analytics")])
-              ])
-            ]),
+            _vm._m(1),
             _vm._v(" "),
-            _c("div", { staticClass: "row my-20 mx-0" }, [
-              _c("div", { staticClass: "col-12 ml-9" }, [
-                _c("div", { staticClass: "row mx-0" }, [
-                  _c("div", { staticClass: "col-auto pl-0" }, [
-                    _c("img", {
-                      attrs: {
-                        src: "/images/landing/Paragraph-Check.svg",
-                        alt: "checked",
-                        width: "13"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col pr-0 " }, [
-                    _c("p", [
-                      _vm._v(
-                        "Create monthly sales targets and key performance goals specific to the individual."
-                      )
-                    ])
-                  ])
-                ]),
+            _c("div", { staticClass: "row mx-20" }, [
+              _c("div", { staticClass: "col-12 pl-9 px-0" }, [
+                _vm._m(2),
                 _vm._v(" "),
-                _c("div", { staticClass: "row mx-0" }, [
-                  _c("div", { staticClass: "col-auto pl-0" }, [
-                    _c("img", {
-                      attrs: {
-                        src: "/images/landing/Paragraph-Check.svg",
-                        alt: "checked",
-                        width: "13"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col pr-0 " }, [
-                    _c("p", [
-                      _vm._v(
-                        "Advanced AI systems allow managers to keep track of the performance of individual client profiles."
-                      )
-                    ])
-                  ])
-                ]),
+                _vm._m(3),
                 _vm._v(" "),
-                _c("div", { staticClass: "row mx-0" }, [
-                  _c("div", { staticClass: "col-auto pl-0" }, [
-                    _c("img", {
-                      attrs: {
-                        src: "/images/landing/Paragraph-Check.svg",
-                        alt: "checked",
-                        width: "13"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col pr-0 " }, [
-                    _c("p", [
-                      _vm._v(
-                        "Automatic Lead assigning to specific agents and teams."
-                      )
-                    ])
-                  ])
-                ]),
+                _vm._m(4),
                 _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "row mx-0 justify-content-end text-right" },
+                  {
+                    staticClass: "row mx-0 justify-content-end",
+                    class: _vm.alignText()
+                  },
                   [
                     _c(
                       "button",
@@ -378388,6 +378362,104 @@ var staticRenderFns = [
           ])
         ]
       )
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-xl-6 align-items-center pl-0" }, [
+      _c("img", {
+        staticClass: "d-block mx-auto",
+        attrs: {
+          src: "/images/landing/Guided to success ILL.svg",
+          width: "74.7%"
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row mx-20" }, [
+      _c("div", { staticClass: "col-12 px-0" }, [
+        _c("h1", [_vm._v("Guided to Success")]),
+        _vm._v(" "),
+        _c("h2", [_vm._v("Simplified Analytics")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row mx-0" }, [
+      _c("div", { staticClass: "col-auto pl-0" }, [
+        _c("img", {
+          attrs: {
+            src: "/images/landing/Paragraph-Check.svg",
+            alt: "checked",
+            width: "13"
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col pr-0 " }, [
+        _c("p", [
+          _vm._v(
+            "Create monthly sales targets and key performance goals specific to the individual."
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row mx-0" }, [
+      _c("div", { staticClass: "col-auto pl-0" }, [
+        _c("img", {
+          attrs: {
+            src: "/images/landing/Paragraph-Check.svg",
+            alt: "checked",
+            width: "13"
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col pr-0 " }, [
+        _c("p", [
+          _vm._v(
+            "Advanced AI systems allow managers to keep track of the performance of individual client profiles."
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row mx-0" }, [
+      _c("div", { staticClass: "col-auto pl-0" }, [
+        _c("img", {
+          attrs: {
+            src: "/images/landing/Paragraph-Check.svg",
+            alt: "checked",
+            width: "13"
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col pr-0 " }, [
+        _c("p", [
+          _vm._v("Automatic Lead assigning to specific agents and teams.")
+        ])
+      ])
     ])
   }
 ]
@@ -378412,81 +378484,86 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "contact-page-container" }, [
-    _c("a", { attrs: { name: "support" } }),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass: "row mx-0 justify-content-center container-row",
-        attrs: { resize: _vm.onResize() }
-      },
-      [
-        _c("div", { staticClass: "col-12 px-0" }, [
-          _c(
-            "div",
-            {
-              staticClass: "row mx-0 justify-content-center align-items-center"
-            },
-            [
-              !_vm.isMobile
-                ? _c("div", { staticClass: "col-6 text-center pl-0" }, [
-                    _c("img", {
-                      staticClass: "contact",
-                      attrs: { src: "/images/landing/Dev_1.png", alt: "map" }
-                    })
+  return _c(
+    "div",
+    {
+      staticClass: "contact-page-container",
+      attrs: { resize: _vm.onResize() }
+    },
+    [
+      _c("a", { attrs: { name: "support" } }),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "row mx-0 justify-content-center container-row" },
+        [
+          _c("div", { staticClass: "col-12 px-0" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "row mx-0 justify-content-center align-items-center"
+              },
+              [
+                !_vm.isMobile
+                  ? _c("div", { staticClass: "col-6 text-center pl-0" }, [
+                      _c("img", {
+                        staticClass: "contact",
+                        attrs: { src: "/images/landing/Dev_1.png", alt: "map" }
+                      })
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm._m(0)
+              ]
+            ),
+            _vm._v(" "),
+            !_vm.isMobile
+              ? _c("div", { staticClass: "row mx-0" }, [_vm._m(1)])
+              : _c("div", { staticClass: "mobile-contact" }, [
+                  _vm._m(2),
+                  _vm._v(" "),
+                  _vm._m(3),
+                  _vm._v(" "),
+                  _vm._m(4)
+                ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "row mx-0 justify-content-between align-items-center footer-row"
+              },
+              [
+                _c("div", { staticClass: "col-auto pl-0" }, [
+                  _c("img", {
+                    staticClass: "d-inline-block",
+                    attrs: {
+                      src: "/images/SVG_images/siarem-logo-icon.svg",
+                      alt: "checked",
+                      width: "11.9%"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "d-inline-block mb-0" }, [
+                    _vm._v(
+                      "@ " +
+                        _vm._s(_vm.getYear()) +
+                        " Siarem All rights reserved."
+                    )
                   ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm._m(0)
-            ]
-          ),
-          _vm._v(" "),
-          !_vm.isMobile
-            ? _c("div", { staticClass: "row mx-0" }, [_vm._m(1)])
-            : _c("div", [
-                _vm._m(2),
+                ]),
                 _vm._v(" "),
-                _vm._m(3),
-                _vm._v(" "),
-                _vm._m(4)
-              ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass:
-                "row mx-0 justify-content-between align-items-center footer-row"
-            },
-            [
-              _c("div", { staticClass: "col-auto pl-0" }, [
-                _c("img", {
-                  staticClass: "d-inline-block",
-                  attrs: {
-                    src: "/images/SVG_images/siarem-logo-icon.svg",
-                    alt: "checked",
-                    width: "11.9%"
-                  }
-                }),
-                _vm._v(" "),
-                _c("p", { staticClass: "d-inline-block mb-0" }, [
-                  _vm._v(
-                    "@ " +
-                      _vm._s(_vm.getYear()) +
-                      " Siarem All rights reserved."
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              !_vm.isMobile
-                ? _c("div", { staticClass: "col-auto pr-0" }, [_vm._m(5)])
-                : _vm._e()
-            ]
-          )
-        ])
-      ]
-    )
-  ])
+                !_vm.isMobile
+                  ? _c("div", { staticClass: "col-auto pr-0" }, [_vm._m(5)])
+                  : _vm._e()
+              ]
+            )
+          ])
+        ]
+      )
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
@@ -378548,7 +378625,7 @@ var staticRenderFns = [
           _c(
             "a",
             {
-              staticClass: "footer-text mb-1",
+              staticClass: "footer-text d-block mb-1",
               attrs: { href: "mailto:info@siarem.com" }
             },
             [_vm._v("info@siarem.com")]
@@ -378556,9 +378633,16 @@ var staticRenderFns = [
           _vm._v(" "),
           _c(
             "a",
-            { staticClass: "footer-text", attrs: { href: "tel:+27987832728" } },
+            {
+              staticClass: "footer-text d-block mb-1",
+              attrs: { href: "tel:+27987832728" }
+            },
             [_vm._v("+27 98 783 2728")]
-          )
+          ),
+          _vm._v(" "),
+          _c("p", { staticClass: "footer-text" }, [
+            _vm._v("Larende LTD 5 Secretary's Ln Gibraltar GX11 1AA, Gibraltar")
+          ])
         ])
       ])
     ])
@@ -378624,7 +378708,7 @@ var staticRenderFns = [
         _c(
           "a",
           {
-            staticClass: "footer-text mb-1",
+            staticClass: "footer-text d-block mb-1",
             attrs: { href: "mailto:info@siarem.com" }
           },
           [_vm._v("info@siarem.com")]
@@ -378633,13 +378717,15 @@ var staticRenderFns = [
         _c(
           "a",
           {
-            staticClass: "footer-text mb-1",
+            staticClass: "footer-text d-block mb-1",
             attrs: { href: "tel:+27987832728" }
           },
           [_vm._v("+27 98 783 2728")]
         ),
         _vm._v(" "),
-        _c("p", { staticClass: "footer-text" }, [_vm._v("Amsterdam")])
+        _c("p", { staticClass: "footer-text" }, [
+          _vm._v("Larende LTD 5 Secretary's Ln Gibraltar GX11 1AA, Gibraltar")
+        ])
       ])
     ])
   },
@@ -378707,72 +378793,84 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "crm-page-container" }, [
+  return _c(
+    "div",
+    { staticClass: "crm-page-container", attrs: { resize: _vm.onResize() } },
+    [
       _c("a", { attrs: { name: "about" } }),
       _vm._v(" "),
       _c(
         "div",
         { staticClass: "row mx-0 justify-content-center container-row" },
         [
-          _c("div", { staticClass: "col-12 text-center" }, [
-            _c("h1", { staticClass: "mt-3" }, [
-              _vm._v("Customer Relationship Management. Simplified.")
-            ]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "SIAREM is streamlined to increase the speed of your sales department. All processes are optimized to guide your agents and focus on the most important: closing deals. SIAREM is used and tested by thousands of sales agents; we redesigned and tested our modules until perfection."
-              )
-            ])
-          ]),
+          _vm._m(0),
           _vm._v(" "),
-          _c("div", { staticClass: "col-12 text-center" }, [
-            _c("img", {
-              staticClass: "mx-5",
-              attrs: {
-                src: "/images/icons/Orange Dot_Big.svg",
-                alt: "dots",
-                width: "8"
-              }
-            }),
-            _vm._v(" "),
-            _c("img", {
-              staticClass: "mx-5",
-              attrs: {
-                src: "/images/icons/Orange Dot_Big.svg",
-                alt: "dots",
-                width: "8"
-              }
-            }),
-            _vm._v(" "),
-            _c("img", {
-              staticClass: "mx-5",
-              attrs: {
-                src: "/images/icons/Orange Dot_Big.svg",
-                alt: "dots",
-                width: "8"
-              }
-            })
-          ]),
+          !_vm.isMobile
+            ? _c("div", { staticClass: "col-12 text-center" }, [
+                _c("img", {
+                  staticClass: "mx-5",
+                  attrs: {
+                    src: "/images/icons/Orange Dot_Big.svg",
+                    alt: "dots",
+                    width: "8"
+                  }
+                }),
+                _vm._v(" "),
+                _c("img", {
+                  staticClass: "mx-5",
+                  attrs: {
+                    src: "/images/icons/Orange Dot_Big.svg",
+                    alt: "dots",
+                    width: "8"
+                  }
+                }),
+                _vm._v(" "),
+                _c("img", {
+                  staticClass: "mx-5",
+                  attrs: {
+                    src: "/images/icons/Orange Dot_Big.svg",
+                    alt: "dots",
+                    width: "8"
+                  }
+                })
+              ])
+            : _vm._e(),
           _vm._v(" "),
-          _c("div", { staticClass: "col-12 text-center" }, [
-            _c("img", {
-              attrs: {
-                src: "/images/landing/MockUp-tiny.png",
-                alt: "mockup",
-                width: "63%"
-              }
-            })
-          ])
+          _vm._m(1)
         ]
       )
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12 text-center" }, [
+      _c("h1", { staticClass: "mt-3" }, [
+        _vm._v("Customer Relationship Management. Simplified.")
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "SIAREM is streamlined to increase the speed of your sales department. All processes are optimized to guide your agents and focus on the most important: closing deals. SIAREM is used and tested by thousands of sales agents; we redesigned and tested our modules until perfection."
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12 text-center" }, [
+      _c("img", {
+        attrs: {
+          src: "/images/landing/MockUp-tiny.png",
+          alt: "mockup",
+          width: "63%"
+        }
+      })
     ])
   }
 ]
@@ -378812,7 +378910,7 @@ var staticRenderFns = [
             "row mx-0 justify-content-center align-items-center container-row"
         },
         [
-          _c("div", { staticClass: "col-12" }, [
+          _c("div", { staticClass: "col-12 px-0 container-col" }, [
             _c("img", {
               staticClass: "d-block mx-auto",
               attrs: {
@@ -378830,7 +378928,7 @@ var staticRenderFns = [
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "row ml-7 mr-0" }, [
-              _c("div", { staticClass: "col-12 " }, [
+              _c("div", { staticClass: "col-12 px-0" }, [
                 _c("div", { staticClass: "row mx-0" }, [
                   _c("div", { staticClass: "col-auto pl-0" }, [
                     _c("img", {
@@ -378932,53 +379030,56 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "first-page-container" }, [
-    _c(
-      "div",
-      {
-        staticClass:
-          "row mx-0 align-items-center justify-content-center container-row",
-        attrs: { resize: _vm.onResize() }
-      },
-      [
-        _c("div", { staticClass: "col-xl-6 align-items-center pl-0" }, [
-          _vm.isMobile
-            ? _c("img", {
-                staticClass: "d-block mx-auto",
-                attrs: {
-                  src: "/images/SVG_Images/siarem-logo.svg",
-                  alt: "Siarem logo",
-                  width: "62.7%"
-                }
-              })
-            : _vm._e(),
-          _vm._v(" "),
-          _c("img", {
-            staticClass: "d-block mx-auto",
-            attrs: { src: "/images/landing/Computer ILL.svg", width: "74.7%" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-xl-6 text-center pr-0" }, [
-          _c("div", { staticClass: "row mx-0 justify-content-center" }, [
-            _c("div", { staticClass: "col-12" }, [
-              !_vm.isMobile
-                ? _c("img", {
-                    attrs: {
-                      src: "/images/SVG_Images/siarem-logo.svg",
-                      alt: "Siarem logo",
-                      width: "62.7%"
-                    }
-                  })
-                : _vm._e()
-            ])
+  return _c(
+    "div",
+    { staticClass: "first-page-container", attrs: { resize: _vm.onResize() } },
+    [
+      _c(
+        "div",
+        {
+          staticClass:
+            "row mx-0 align-items-center justify-content-center container-row"
+        },
+        [
+          _c("div", { staticClass: "col-xl-6 align-items-center pl-0" }, [
+            _vm.isMobile
+              ? _c("img", {
+                  staticClass: "d-block mx-auto",
+                  attrs: {
+                    src: "/images/SVG_Images/siarem-logo.svg",
+                    alt: "Siarem logo",
+                    width: "62.7%"
+                  }
+                })
+              : _vm._e(),
+            _vm._v(" "),
+            _c("img", {
+              staticClass: "d-block mx-auto",
+              attrs: { src: "/images/landing/Computer ILL.svg", width: "74.7%" }
+            })
           ]),
           _vm._v(" "),
-          _vm._m(0)
-        ])
-      ]
-    )
-  ])
+          _c("div", { staticClass: "col-xl-6 text-center pr-0" }, [
+            _c("div", { staticClass: "row mx-0 justify-content-center" }, [
+              _c("div", { staticClass: "col-12" }, [
+                !_vm.isMobile
+                  ? _c("img", {
+                      attrs: {
+                        src: "/images/SVG_Images/siarem-logo.svg",
+                        alt: "Siarem logo",
+                        width: "62.7%"
+                      }
+                    })
+                  : _vm._e()
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(0)
+          ])
+        ]
+      )
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
@@ -379024,14 +379125,10 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flow-page-container" }, [
+  return _c(
+    "div",
+    { staticClass: "flow-page-container", attrs: { resize: _vm.onResize() } },
+    [
       _c(
         "div",
         {
@@ -379040,79 +379137,22 @@ var staticRenderFns = [
         },
         [
           _c("div", { staticClass: "col-xl-6 align-items-center" }, [
-            _c("div", { staticClass: "row ml-20 mr-0" }, [
-              _c("div", { staticClass: "col-12" }, [
-                _c("h1", [_vm._v("Eliminate Agent Mistakes")]),
-                _vm._v(" "),
-                _c("h2", [_vm._v("Easy System Flow")])
-              ])
-            ]),
+            _vm._m(0),
             _vm._v(" "),
             _c("div", { staticClass: "row mx-20" }, [
-              _c("div", { staticClass: "col-12 ml-9" }, [
-                _c("div", { staticClass: "row mx-0" }, [
-                  _c("div", { staticClass: "col-auto pl-0" }, [
-                    _c("img", {
-                      attrs: {
-                        src: "/images/landing/Paragraph-Check.svg",
-                        alt: "checked",
-                        width: "13"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col pr-0 " }, [
-                    _c("p", [
-                      _vm._v(
-                        "Create daily tasks synced with your calendar & stay up-to-date with your scheduled callbacks."
-                      )
-                    ])
-                  ])
-                ]),
+              _c("div", { staticClass: "col-12 px-0 ml-9" }, [
+                _vm._m(1),
                 _vm._v(" "),
-                _c("div", { staticClass: "row mx-0" }, [
-                  _c("div", { staticClass: "col-auto pl-0" }, [
-                    _c("img", {
-                      attrs: {
-                        src: "/images/landing/Paragraph-Check.svg",
-                        alt: "checked",
-                        width: "13"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col pr-0 " }, [
-                    _c("p", [
-                      _vm._v(
-                        "Quick and effortless creation of notes and appointments linked to specific contacts."
-                      )
-                    ])
-                  ])
-                ]),
+                _vm._m(2),
                 _vm._v(" "),
-                _c("div", { staticClass: "row mx-0" }, [
-                  _c("div", { staticClass: "col-auto pl-0" }, [
-                    _c("img", {
-                      attrs: {
-                        src: "/images/landing/Paragraph-Check.svg",
-                        alt: "checked",
-                        width: "13"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col pr-0 " }, [
-                    _c("p", [
-                      _vm._v(
-                        "Advanced integrated calendar allows users the ability to receive on-the-go reminders and immediate callback appointments."
-                      )
-                    ])
-                  ])
-                ]),
+                _vm._m(3),
                 _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "row mx-0 justify-content-end text-right " },
+                  {
+                    staticClass: "row mx-0 justify-content-end",
+                    class: _vm.alignText()
+                  },
                   [
                     _c(
                       "button",
@@ -379128,17 +379168,109 @@ var staticRenderFns = [
             ])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-xl-6 pr-0" }, [
-            _c("img", {
-              staticClass: "d-block mx-auto",
-              attrs: {
-                src: "/images/landing/Eliminate Agent Mistakes ILL.svg",
-                width: "65.2%"
-              }
-            })
-          ])
+          _vm._m(4)
         ]
       )
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row ml-20 mr-0" }, [
+      _c("div", { staticClass: "col-12 px-0" }, [
+        _c("h1", [_vm._v("Eliminate Agent Mistakes")]),
+        _vm._v(" "),
+        _c("h2", [_vm._v("Easy System Flow")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row mx-0" }, [
+      _c("div", { staticClass: "col-auto pl-0" }, [
+        _c("img", {
+          attrs: {
+            src: "/images/landing/Paragraph-Check.svg",
+            alt: "checked",
+            width: "13"
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col pr-0 " }, [
+        _c("p", [
+          _vm._v(
+            "Create daily tasks synced with your calendar & stay up-to-date with your scheduled callbacks."
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row mx-0" }, [
+      _c("div", { staticClass: "col-auto pl-0" }, [
+        _c("img", {
+          attrs: {
+            src: "/images/landing/Paragraph-Check.svg",
+            alt: "checked",
+            width: "13"
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col pr-0 " }, [
+        _c("p", [
+          _vm._v(
+            "Quick and effortless creation of notes and appointments linked to specific contacts."
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row mx-0" }, [
+      _c("div", { staticClass: "col-auto pl-0" }, [
+        _c("img", {
+          attrs: {
+            src: "/images/landing/Paragraph-Check.svg",
+            alt: "checked",
+            width: "13"
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col pr-0 " }, [
+        _c("p", [
+          _vm._v(
+            "Advanced integrated calendar allows users the ability to receive on-the-go reminders and immediate callback appointments."
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-xl-6 pr-0" }, [
+      _c("img", {
+        staticClass: "d-block mx-auto",
+        attrs: {
+          src: "/images/landing/Eliminate Agent Mistakes ILL.svg",
+          width: "65.2%"
+        }
+      })
     ])
   }
 ]
@@ -379165,13 +379297,13 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { attrs: { id: "landing" } },
+    { attrs: { id: "landing", resize: _vm.onResize() } },
     [
       _c(
         "b-navbar",
         {
           staticClass: "justify-content-between",
-          attrs: { fixed: "top", resize: _vm.onResize() },
+          attrs: { toggleable: "xl", type: "light", fixed: "top" },
           on: { scroll: _vm.handleSCroll }
         },
         [
@@ -379187,33 +379319,48 @@ var render = function() {
               ])
             : _vm._e(),
           _vm._v(" "),
+          _c("b-navbar-toggle", {
+            staticClass: "border-0 ml-auto",
+            attrs: { target: "nav-collapse" }
+          }),
+          _vm._v(" "),
           _c(
-            "b-navbar-nav",
-            { staticClass: "align-items-center" },
+            "b-collapse",
+            {
+              staticClass: "justify-content-end",
+              attrs: { id: "nav-collapse", "is-nav": "" }
+            },
             [
-              _c("b-nav-item", { attrs: { href: "#about" } }, [
-                _vm._v("About")
-              ]),
-              _vm._v(" "),
-              _c("b-nav-item", { attrs: { href: "#features" } }, [
-                _vm._v("Features")
-              ]),
-              _vm._v(" "),
-              _c("b-nav-item", { attrs: { href: "#pricing" } }, [
-                _vm._v("Pricing")
-              ]),
-              _vm._v(" "),
-              _c("b-nav-item", { attrs: { href: "#support" } }, [
-                _vm._v("Support")
-              ]),
-              _vm._v(" "),
               _c(
-                "b-nav-item",
-                {
-                  staticClass: "sign-up-btn text-uppercase white pr-0",
-                  attrs: { href: "/register" }
-                },
-                [_vm._v("Sign Up Now")]
+                "b-navbar-nav",
+                { staticClass: "align-items-center" },
+                [
+                  _c("b-nav-item", { attrs: { href: "#about" } }, [
+                    _vm._v("About")
+                  ]),
+                  _vm._v(" "),
+                  _c("b-nav-item", { attrs: { href: "#features" } }, [
+                    _vm._v("Features")
+                  ]),
+                  _vm._v(" "),
+                  _c("b-nav-item", { attrs: { href: "#pricing" } }, [
+                    _vm._v("Pricing")
+                  ]),
+                  _vm._v(" "),
+                  _c("b-nav-item", { attrs: { href: "#support" } }, [
+                    _vm._v("Support")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "b-nav-item",
+                    {
+                      staticClass: "sign-up-btn text-uppercase white pr-0",
+                      attrs: { href: "/register" }
+                    },
+                    [_vm._v("Sign Up Now")]
+                  )
+                ],
+                1
               )
             ],
             1
@@ -379263,36 +379410,40 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "pricing-page-container" }, [
-    _c("a", { attrs: { name: "pricing" } }),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass: "row mx-0 justify-content-center container-row",
-        attrs: { resize: _vm.onResize() }
-      },
-      [
-        _c("div", { staticClass: "col-xl-8 text-center" }, [
-          !_vm.isMobile
-            ? _c("table", { attrs: { width: "100%", height: "90%" } }, [
-                _vm._m(0),
-                _vm._v(" "),
-                _vm._m(1)
-              ])
-            : _c("div", { staticClass: "row mx-0" }, [
-                _vm._m(2),
-                _vm._v(" "),
-                _vm._m(3),
-                _vm._v(" "),
-                _vm._m(4),
-                _vm._v(" "),
-                _vm._m(5)
-              ])
-        ])
-      ]
-    )
-  ])
+  return _c(
+    "div",
+    {
+      staticClass: "pricing-page-container",
+      attrs: { resize: _vm.onResize() }
+    },
+    [
+      _c("a", { attrs: { name: "pricing" } }),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "row mx-0 justify-content-center container-row" },
+        [
+          _c("div", { staticClass: "col-xl-8 text-center px-0" }, [
+            !_vm.isMobile
+              ? _c("table", { attrs: { width: "100%", height: "90%" } }, [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _vm._m(1)
+                ])
+              : _c("div", { staticClass: "row mx-0" }, [
+                  _vm._m(2),
+                  _vm._v(" "),
+                  _vm._m(3),
+                  _vm._v(" "),
+                  _vm._m(4),
+                  _vm._v(" "),
+                  _vm._m(5)
+                ])
+          ])
+        ]
+      )
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
@@ -379647,7 +379798,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12" }, [
+    return _c("div", { staticClass: "col-12 px-0" }, [
       _c("h1", [_vm._v("SIAREM")]),
       _vm._v(" "),
       _c("h2", { staticClass: "text-tuppercase" }, [_vm._v("Pricing table")])
@@ -379657,14 +379808,14 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12" }, [
+    return _c("div", { staticClass: "col-12 px-0" }, [
       _c(
         "div",
         {
           staticClass: "row mx-0 justify-space-between align-items-center start"
         },
         [
-          _c("div", { staticClass: "col text-left" }, [
+          _c("div", { staticClass: "col text-left pl-0" }, [
             _c(
               "h3",
               { staticClass: "text-white text-uppercase font-weight-bold" },
@@ -379672,7 +379823,7 @@ var staticRenderFns = [
             )
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-auto text-right" }, [
+          _c("div", { staticClass: "col-auto text-right pr-0" }, [
             _c("p", { staticClass: "text-white mb-0 font-weight-bold" }, [
               _vm._v("$29.99\n                "),
               _c("span", { staticClass: "p-month" }, [_vm._v("p/m")])
@@ -379828,14 +379979,14 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12" }, [
+    return _c("div", { staticClass: "col-12 px-0" }, [
       _c(
         "div",
         {
           staticClass: "row mx-0 justify-space-between align-items-center basic"
         },
         [
-          _c("div", { staticClass: "col text-left" }, [
+          _c("div", { staticClass: "col text-left pl-0" }, [
             _c(
               "h3",
               { staticClass: "text-white text-uppercase font-weight-bold" },
@@ -379843,7 +379994,7 @@ var staticRenderFns = [
             )
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-auto text-right" }, [
+          _c("div", { staticClass: "col-auto text-right pr-0" }, [
             _c("p", { staticClass: "text-white mb-0 font-weight-bold" }, [
               _vm._v("$49.99\n                "),
               _c("span", { staticClass: "p-month" }, [_vm._v("p/m")])
@@ -379999,7 +380150,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12" }, [
+    return _c("div", { staticClass: "col-12 px-0" }, [
       _c(
         "div",
         {
@@ -380007,7 +380158,7 @@ var staticRenderFns = [
             "row mx-0 justify-space-between align-items-center premium"
         },
         [
-          _c("div", { staticClass: "col text-left" }, [
+          _c("div", { staticClass: "col text-left pl-0" }, [
             _c(
               "h3",
               { staticClass: "text-white text-uppercase font-weight-bold" },
@@ -380015,7 +380166,7 @@ var staticRenderFns = [
             )
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-auto text-right" }, [
+          _c("div", { staticClass: "col-auto text-right pr-0" }, [
             _c("p", { staticClass: "text-white mb-0 font-weight-bold" }, [
               _vm._v("$69.99\n                "),
               _c("span", { staticClass: "p-month" }, [_vm._v("p/m")])
@@ -380189,496 +380340,511 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "why-crm-page-container" }, [
-    _c("a", { attrs: { name: "features" } }),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass: "row mx-0 justify-content-center container-row",
-        attrs: { resize: _vm.onResize() }
-      },
-      [
-        _vm._m(0),
-        _vm._v(" "),
-        _vm._m(1),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-10 col-xl-8" }, [
-          _c(
-            "div",
-            {
-              staticClass: "row mx-0 justify-content-center align-items-center"
-            },
-            [
-              _vm._m(2),
-              _vm._v(" "),
-              _vm._m(3),
-              _vm._v(" "),
-              _c("div", { staticClass: "col px-0 text-center" }, [
-                !_vm.isMobile
-                  ? _c("h2", [_vm._v("SIAREM")])
-                  : _c("img", {
-                      staticClass: "logo mx-auto",
+  return _c(
+    "div",
+    {
+      staticClass: "why-crm-page-container",
+      attrs: { resize: _vm.onResize() }
+    },
+    [
+      _c("a", { attrs: { name: "features" } }),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "row mx-0 justify-content-center container-row" },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._m(1),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-md-10 col-xl-8" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "row mx-0 justify-content-center align-items-center"
+              },
+              [
+                _vm._m(2),
+                _vm._v(" "),
+                _vm._m(3),
+                _vm._v(" "),
+                _c("div", { staticClass: "col px-0 text-center" }, [
+                  !_vm.isMobile
+                    ? _c("h2", [_vm._v("SIAREM")])
+                    : _c("img", {
+                        staticClass: "logo mx-auto",
+                        attrs: {
+                          src: "/images/SVG_Images/siarem-logo-icon.svg",
+                          alt: "logo",
+                          width: "30"
+                        }
+                      })
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "row mx-0 justify-content-center align-items-center"
+              },
+              [
+                _vm._m(4),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col px-0 text-center",
+                    class: _vm.assignBorder()
+                  },
+                  [
+                    _c("img", {
                       attrs: {
-                        src: "/images/SVG_Images/siarem-logo-icon.svg",
-                        alt: "logo",
-                        width: "30"
+                        src: "/images/icons/right-sidebar/Task_Check.svg",
+                        alt: "unchecked",
+                        width: "20"
                       }
                     })
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "row mx-0 justify-content-center align-items-center"
-            },
-            [
-              _vm._m(4),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "col px-0 text-center",
-                  class: _vm.assignBorder()
-                },
-                [
-                  _c("img", {
-                    attrs: {
-                      src: "/images/icons/right-sidebar/Task_Check.svg",
-                      alt: "unchecked",
-                      width: "20"
-                    }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "col px-0 text-center border-left-0",
-                  class: _vm.assignBorder()
-                },
-                [
-                  _c("img", {
-                    attrs: {
-                      src: "/images/landing/Blue Check.svg",
-                      alt: "checked",
-                      width: "20"
-                    }
-                  })
-                ]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "row mx-0 justify-content-center align-items-center"
-            },
-            [
-              _vm._m(5),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "col px-0 text-center",
-                  class: _vm.assignBorder()
-                },
-                [
-                  _c("img", {
-                    attrs: {
-                      src: "/images/icons/right-sidebar/Task_Check.svg",
-                      alt: "unchecked",
-                      width: "20"
-                    }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "col px-0 text-center border-left-0",
-                  class: _vm.assignBorder()
-                },
-                [
-                  _c("img", {
-                    attrs: {
-                      src: "/images/landing/Blue Check.svg",
-                      alt: "checked",
-                      width: "20"
-                    }
-                  })
-                ]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "row mx-0 justify-content-center align-items-center"
-            },
-            [
-              _vm._m(6),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "col px-0 text-center",
-                  class: _vm.assignBorder()
-                },
-                [
-                  _c("img", {
-                    attrs: {
-                      src: "/images/icons/right-sidebar/Task_Check.svg",
-                      alt: "unchecked",
-                      width: "20"
-                    }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "col px-0 text-center border-left-0",
-                  class: _vm.assignBorder()
-                },
-                [
-                  _c("img", {
-                    attrs: {
-                      src: "/images/landing/Blue Check.svg",
-                      alt: "checked",
-                      width: "20"
-                    }
-                  })
-                ]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "row mx-0 justify-content-center align-items-center"
-            },
-            [
-              _vm._m(7),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "col px-0 text-center",
-                  class: _vm.assignBorder()
-                },
-                [
-                  _c("img", {
-                    attrs: {
-                      src: "/images/landing/Blue Check.svg",
-                      alt: "checked",
-                      width: "20"
-                    }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "col px-0 text-center border-left-0",
-                  class: _vm.assignBorder()
-                },
-                [
-                  _c("img", {
-                    attrs: {
-                      src: "/images/landing/Blue Check.svg",
-                      alt: "checked",
-                      width: "20"
-                    }
-                  })
-                ]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "row mx-0 justify-content-center align-items-center"
-            },
-            [
-              _vm._m(8),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "col px-0 text-center",
-                  class: _vm.assignBorder()
-                },
-                [
-                  _c("img", {
-                    attrs: {
-                      src: "/images/icons/right-sidebar/Task_Check.svg",
-                      alt: "unchecked",
-                      width: "20"
-                    }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "col px-0 text-center border-left-0",
-                  class: _vm.assignBorder()
-                },
-                [
-                  _c("img", {
-                    attrs: {
-                      src: "/images/landing/Blue Check.svg",
-                      alt: "checked",
-                      width: "20"
-                    }
-                  })
-                ]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "row mx-0 justify-content-center align-items-center"
-            },
-            [
-              _vm._m(9),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "col px-0 text-center",
-                  class: _vm.assignBorder()
-                },
-                [
-                  _c("img", {
-                    attrs: {
-                      src: "/images/icons/right-sidebar/Task_Check.svg",
-                      alt: "unchecked",
-                      width: "20"
-                    }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "col px-0 text-center border-left-0",
-                  class: _vm.assignBorder()
-                },
-                [
-                  _c("img", {
-                    attrs: {
-                      src: "/images/landing/Blue Check.svg",
-                      alt: "checked",
-                      width: "20"
-                    }
-                  })
-                ]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "row mx-0 justify-content-center align-items-center"
-            },
-            [
-              _vm._m(10),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "col px-0 text-center",
-                  class: _vm.assignBorder()
-                },
-                [
-                  _c("img", {
-                    attrs: {
-                      src: "/images/landing/Blue Check.svg",
-                      alt: "checked",
-                      width: "20"
-                    }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "col px-0 text-center border-left-0",
-                  class: _vm.assignBorder()
-                },
-                [
-                  _c("img", {
-                    attrs: {
-                      src: "/images/landing/Blue Check.svg",
-                      alt: "checked",
-                      width: "20"
-                    }
-                  })
-                ]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "row mx-0 justify-content-center align-items-center"
-            },
-            [
-              _vm._m(11),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "col px-0 text-center",
-                  class: _vm.assignBorder()
-                },
-                [
-                  _c("img", {
-                    attrs: {
-                      src: "/images/landing/Blue Check.svg",
-                      alt: "checked",
-                      width: "20"
-                    }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "col px-0 text-center border-left-0",
-                  class: _vm.assignBorder()
-                },
-                [
-                  _c("img", {
-                    attrs: {
-                      src: "/images/landing/Blue Check.svg",
-                      alt: "checked",
-                      width: "20"
-                    }
-                  })
-                ]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "row mx-0 justify-content-center align-items-center"
-            },
-            [
-              _vm._m(12),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "col px-0 text-center",
-                  class: _vm.assignBorder()
-                },
-                [
-                  _c("img", {
-                    attrs: {
-                      src: "/images/icons/right-sidebar/Task_Check.svg",
-                      alt: "unchecked",
-                      width: "20"
-                    }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "col px-0 text-center border-left-0",
-                  class: _vm.assignBorder()
-                },
-                [
-                  _c("img", {
-                    attrs: {
-                      src: "/images/landing/Blue Check.svg",
-                      alt: "checked",
-                      width: "20"
-                    }
-                  })
-                ]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "row mx-0 justify-content-center align-items-center"
-            },
-            [
-              _vm._m(13),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "col px-0 text-center",
-                  class: _vm.assignBorder()
-                },
-                [
-                  _c("img", {
-                    attrs: {
-                      src: "/images/icons/right-sidebar/Task_Check.svg",
-                      alt: "unchecked",
-                      width: "20"
-                    }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "col px-0 text-center border-left-0",
-                  class: _vm.assignBorder()
-                },
-                [
-                  _c("img", {
-                    attrs: {
-                      src: "/images/landing/Blue Check.svg",
-                      alt: "checked",
-                      width: "20"
-                    }
-                  })
-                ]
-              )
-            ]
-          )
-        ])
-      ]
-    )
-  ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col px-0 text-center border-left-0",
+                    class: _vm.assignBorder()
+                  },
+                  [
+                    _c("img", {
+                      attrs: {
+                        src: "/images/landing/Blue Check.svg",
+                        alt: "checked",
+                        width: "20"
+                      }
+                    })
+                  ]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "row mx-0 justify-content-center align-items-center"
+              },
+              [
+                _vm._m(5),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col px-0 text-center",
+                    class: _vm.assignBorder()
+                  },
+                  [
+                    _c("img", {
+                      attrs: {
+                        src: "/images/icons/right-sidebar/Task_Check.svg",
+                        alt: "unchecked",
+                        width: "20"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col px-0 text-center border-left-0",
+                    class: _vm.assignBorder()
+                  },
+                  [
+                    _c("img", {
+                      attrs: {
+                        src: "/images/landing/Blue Check.svg",
+                        alt: "checked",
+                        width: "20"
+                      }
+                    })
+                  ]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "row mx-0 justify-content-center align-items-center"
+              },
+              [
+                _vm._m(6),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col px-0 text-center",
+                    class: _vm.assignBorder()
+                  },
+                  [
+                    _c("img", {
+                      attrs: {
+                        src: "/images/icons/right-sidebar/Task_Check.svg",
+                        alt: "unchecked",
+                        width: "20"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col px-0 text-center border-left-0",
+                    class: _vm.assignBorder()
+                  },
+                  [
+                    _c("img", {
+                      attrs: {
+                        src: "/images/landing/Blue Check.svg",
+                        alt: "checked",
+                        width: "20"
+                      }
+                    })
+                  ]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "row mx-0 justify-content-center align-items-center"
+              },
+              [
+                _vm._m(7),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col px-0 text-center",
+                    class: _vm.assignBorder()
+                  },
+                  [
+                    _c("img", {
+                      attrs: {
+                        src: "/images/landing/Blue Check.svg",
+                        alt: "checked",
+                        width: "20"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col px-0 text-center border-left-0",
+                    class: _vm.assignBorder()
+                  },
+                  [
+                    _c("img", {
+                      attrs: {
+                        src: "/images/landing/Blue Check.svg",
+                        alt: "checked",
+                        width: "20"
+                      }
+                    })
+                  ]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "row mx-0 justify-content-center align-items-center"
+              },
+              [
+                _vm._m(8),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col px-0 text-center",
+                    class: _vm.assignBorder()
+                  },
+                  [
+                    _c("img", {
+                      attrs: {
+                        src: "/images/icons/right-sidebar/Task_Check.svg",
+                        alt: "unchecked",
+                        width: "20"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col px-0 text-center border-left-0",
+                    class: _vm.assignBorder()
+                  },
+                  [
+                    _c("img", {
+                      attrs: {
+                        src: "/images/landing/Blue Check.svg",
+                        alt: "checked",
+                        width: "20"
+                      }
+                    })
+                  ]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "row mx-0 justify-content-center align-items-center"
+              },
+              [
+                _vm._m(9),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col px-0 text-center",
+                    class: _vm.assignBorder()
+                  },
+                  [
+                    _c("img", {
+                      attrs: {
+                        src: "/images/icons/right-sidebar/Task_Check.svg",
+                        alt: "unchecked",
+                        width: "20"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col px-0 text-center border-left-0",
+                    class: _vm.assignBorder()
+                  },
+                  [
+                    _c("img", {
+                      attrs: {
+                        src: "/images/landing/Blue Check.svg",
+                        alt: "checked",
+                        width: "20"
+                      }
+                    })
+                  ]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "row mx-0 justify-content-center align-items-center"
+              },
+              [
+                _vm._m(10),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col px-0 text-center",
+                    class: _vm.assignBorder()
+                  },
+                  [
+                    _c("img", {
+                      attrs: {
+                        src: "/images/landing/Blue Check.svg",
+                        alt: "checked",
+                        width: "20"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col px-0 text-center border-left-0",
+                    class: _vm.assignBorder()
+                  },
+                  [
+                    _c("img", {
+                      attrs: {
+                        src: "/images/landing/Blue Check.svg",
+                        alt: "checked",
+                        width: "20"
+                      }
+                    })
+                  ]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "row mx-0 justify-content-center align-items-center"
+              },
+              [
+                _vm._m(11),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col px-0 text-center",
+                    class: _vm.assignBorder()
+                  },
+                  [
+                    _c("img", {
+                      attrs: {
+                        src: "/images/landing/Blue Check.svg",
+                        alt: "checked",
+                        width: "20"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col px-0 text-center border-left-0",
+                    class: _vm.assignBorder()
+                  },
+                  [
+                    _c("img", {
+                      attrs: {
+                        src: "/images/landing/Blue Check.svg",
+                        alt: "checked",
+                        width: "20"
+                      }
+                    })
+                  ]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "row mx-0 justify-content-center align-items-center"
+              },
+              [
+                _vm._m(12),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col px-0 text-center",
+                    class: _vm.assignBorder()
+                  },
+                  [
+                    _c("img", {
+                      attrs: {
+                        src: "/images/icons/right-sidebar/Task_Check.svg",
+                        alt: "unchecked",
+                        width: "20"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col px-0 text-center border-left-0",
+                    class: _vm.assignBorder()
+                  },
+                  [
+                    _c("img", {
+                      attrs: {
+                        src: "/images/landing/Blue Check.svg",
+                        alt: "checked",
+                        width: "20"
+                      }
+                    })
+                  ]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "row mx-0 justify-content-center align-items-center"
+              },
+              [
+                _vm._m(13),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col px-0 text-center",
+                    class: _vm.assignBorder()
+                  },
+                  [
+                    _c("img", {
+                      attrs: {
+                        src: "/images/icons/right-sidebar/Task_Check.svg",
+                        alt: "unchecked",
+                        width: "20"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col px-0 text-center border-left-0",
+                    class: _vm.assignBorder()
+                  },
+                  [
+                    _c("img", {
+                      attrs: {
+                        src: "/images/landing/Blue Check.svg",
+                        alt: "checked",
+                        width: "20"
+                      }
+                    })
+                  ]
+                )
+              ]
+            )
+          ])
+        ]
+      )
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 text-center" }, [
+    return _c("div", { staticClass: "col-12 text-center px-0" }, [
       _c("h1", {}, [_vm._v("WHY USE SIAREM")])
     ])
   },
@@ -380686,7 +380852,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 text-center" }, [
+    return _c("div", { staticClass: "col-12 text-center px-0" }, [
       _c("img", {
         staticClass: "mx-5",
         attrs: {

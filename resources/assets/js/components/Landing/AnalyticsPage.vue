@@ -6,15 +6,15 @@
       </div>
 
       <div class="col-xl-6 pr-0">
-        <div class="row mx-20 mx-0">
+        <div class="row mx-20">
           <div class="col-12 px-0">
             <h1>Guided to Success</h1>
             <h2>Simplified Analytics</h2>
           </div>
         </div>
 
-        <div class="row my-20 mx-0">
-          <div class="col-12 ml-9 px-0">
+        <div class="row mx-20">
+          <div class="col-12 pl-9 px-0">
             <div class="row mx-0">
               <div class="col-auto pl-0">
                 <img src="/images/landing/Paragraph-Check.svg" alt="checked" width="13" />
@@ -107,8 +107,8 @@ export default {
 }
 
 /* Equivalent of 50px is 9% */
-.ml-9 { 
-  margin-left: 9%;
+.pl-9 { 
+  padding-left: 9%;
 }
 
 .my-9 {
@@ -122,7 +122,7 @@ export default {
 @media screen and (max-width: 1199px) {
   .my-9, 
   .mx-20, 
-  .ml-9 {
+  .pl-9 {
     margin: 0;
   }
   .text-center button {
