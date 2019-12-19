@@ -132,5 +132,12 @@ export default {
   .text-center button {
     margin: 0 auto;
   }
+  h1, 
+  h2 {
+    text-align:center!important;
+  }
+  .row.mx-0.justify-content-end {
+    margin-top: 5%;
+  }
 }
 </style>

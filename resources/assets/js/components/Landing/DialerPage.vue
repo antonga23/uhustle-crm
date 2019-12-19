@@ -81,7 +81,10 @@ export default {
     padding-right: 40px!important;
   }
   .ml-7 {
-    margin-left: 0;
+    margin-left: 0!important;
+  }
+  .row.mx-0.justify-content-center.text-center {
+    margin-top: 5%;
   }
 }
 

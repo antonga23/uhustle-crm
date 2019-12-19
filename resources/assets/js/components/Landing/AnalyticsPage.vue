@@ -5,16 +5,16 @@
         <img src="/images/landing/Guided to success ILL.svg" width="74.7%" class="d-block mx-auto" />
       </div>
 
-      <div class="col-xl-6 pr-0">
-        <div class="row mx-20">
+      <div class="col-xl-6 px-20">
+        <div class="row mx-0">
           <div class="col-12 px-0">
             <h1>Guided to Success</h1>
             <h2>Simplified Analytics</h2>
           </div>
         </div>
 
-        <div class="row mx-20">
-          <div class="col-12 pl-9 px-0">
+        <div class="row mx-0">
+          <div class="col-12 pl-9 pr-0">
             <div class="row mx-0">
               <div class="col-auto pl-0">
                 <img src="/images/landing/Paragraph-Check.svg" alt="checked" width="13" />
@@ -115,18 +115,27 @@ export default {
   margin: 9%;
 }
 
-.mx-20 {
-  margin: 0 20%;
+.px-20 {
+  padding: 0 7.8%;
 }
 
 @media screen and (max-width: 1199px) {
-  .my-9, 
-  .mx-20, 
-  .pl-9 {
+  .my-9 {
     margin: 0;
+  }
+  .px-20, 
+  .pl-9 {
+    padding: 0;
   }
   .text-center button {
     margin: 0 auto;
+  }
+  h1, 
+  h2 {
+    text-align:center!important;
+  }
+  .row.mx-0.justify-content-end.text-center {
+    margin-top: 5%;
   }
 }
 

@@ -45,8 +45,8 @@
 
         <div v-else class="mobile-contact">
           <div class="row mx-0 border-bottom align-items-center">
-            <div class="col-6 pl-0">
-              <h5 class="text-uppercase">ABOUT</h5>
+            <div class="col-6">
+              <h5 class="text-uppercase font-weight-bold">ABOUT</h5>
             </div>
 
             <div class="col-6 pr-0">
@@ -57,8 +57,8 @@
           </div>
 
           <div class="row mx-0 border-bottom align-items-center">
-            <div class="col-6 pl-0">
-              <h5 class="text-uppercase">Connect</h5>
+            <div class="col-6">
+              <h5 class="text-uppercase font-weight-bold">Connect</h5>
             </div>
 
             <div class="col-6 pr-0">
@@ -69,8 +69,8 @@
           </div>
 
           <div class="row mx-0 align-items-center">
-            <div class="col-6 pl-0">
-              <h5 class="text-uppercase">Contact</h5>
+            <div class="col-6">
+              <h5 class="text-uppercase font-weight-bold">Contact</h5>
             </div>
 
             <div class="col-6 pr-0">
@@ -82,7 +82,7 @@
         </div>
 
         <div class="row mx-0 justify-content-between align-items-center footer-row">
-          <div class="col-auto pl-0">
+          <div class="col-xl-auto pl-0">
             <img
               src="/images/SVG_images/siarem-logo-icon.svg"
               alt="checked"
@@ -176,15 +176,39 @@ h5 {
 }
 
 @media screen and (max-width:1199px) {
+  h5 {
+    font-size: 2.76vw;
+  }
   .container-row {
     background-color: #F2F2F2;
+  }
+  .row.mx-0.justify-content-center.align-items-center {
+    margin-top: 15%;
+    margin-bottom: 20%;
   }
   .footer-text {
     font-size:12px !important;
   }
   .mobile-contact .row {
-    padding-left: 40px!important;
-    padding-right: 40px!important;
+    margin-left: 40px!important;
+    margin-right: 40px!important;
+    padding-top: 5%;
+    padding-bottom: 5%;
+  }
+  .mobile-contact .row .col-6:first-child{
+    padding-left: 30px!important;
+  }
+  .footer-row {
+    padding-top: 5%;
+  }
+  .footer-row .col-xl-auto {
+    text-align: center;
+  }
+  .footer-row img {
+    width: 7%;
+  }
+  .footer-row p{
+    margin-left: 6%!important;
   }
 }
 

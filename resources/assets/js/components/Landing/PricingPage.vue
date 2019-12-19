@@ -25,7 +25,7 @@
 
             <tr>
               <th class="extra-padding">
-                <h4 class="text-uppercase mb-0">Pricing Table</h4>
+                <h4 class="text-capitalize mb-0">Pricing Table</h4>
                 <span class="text-uppercase small-text">We have three different packages</span>
               </th>
               
@@ -176,7 +176,7 @@
         <div v-else class="row mx-0">
           <div class="col-12 px-0">
             <h1>SIAREM</h1>
-            <h2 class="text-tuppercase">Pricing table</h2>
+            <h2 class="text-capitalize">Pricing table</h2>
           </div>
 
           <div class="col-12 px-0">
@@ -678,6 +678,12 @@ span.small-text {
   .col-12 {
     padding-left: 40px!important;
     padding-right: 40px!important;
+  }
+  .col-7 {
+    padding-left: 20px;
+  }
+  .col-5 {
+    padding-left: 20px;
   }
   .col-5 img {
     margin-top: 20px;

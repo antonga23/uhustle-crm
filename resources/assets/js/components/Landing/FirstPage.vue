@@ -70,6 +70,13 @@ export default {
       font-size:12px!important;
       padding: 12px 25px!important;
     }
+    .col-xl-6 img:first-child {
+      margin-top: 15%;
+      margin-bottom: 15%;
+    }
+    .col-xl-6 img:nth-child(2) {
+      margin-bottom: 15%;
+    }
   }
 
   @media screen and (min-width: 1200px) {

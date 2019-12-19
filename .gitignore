@@ -9,4 +9,6 @@ yarn-error.log
 access.log
 error.log
 .env
+/public/app.js
+/public/app.css
 

@@ -16,6 +16,10 @@
       <div class="col-12 text-center">
         <img src="/images/landing/MockUp-tiny.png" alt="mockup" width="63%"/>
       </div>
+
+      <div class="row mx-0 justify-content-end" v-if="isMobile">
+        <button href="/register" class="font-weight-bold btn-primary">Sign Up Now</button>
+      </div>
     </div>
   </div>
 </template>
@@ -62,6 +66,13 @@ export default {
   .col-12 {
     padding-left: 40px!important;
     padding-right: 40px!important;
+  }
+  p {
+    margin-top: 10%;
+    margin-bottom: 10%!important;
+  }
+  img {
+    margin-bottom: 7%;
   }
 }
 

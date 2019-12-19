@@ -346,6 +346,7 @@ export default {
   font-size: 1.62vw;
   font-weight: bold;
   text-transform: capitalize;
+  font-family: 'Rubik', sans-serif;
   margin-bottom: 9%;
   
 }
@@ -360,7 +361,13 @@ export default {
 
 @media screen and (max-width: 1199px){
   #landing .fullpage {
-    padding-top: 54px;
+    padding-top: 24%;
+  }
+  #landing h1 {
+    font-size: 5.71vw;
+  }
+  #landing h2 {
+    font-size: 4.02vw;
   }
   #landing p {
     font-size: 12px;

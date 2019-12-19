@@ -15,11 +15,11 @@
       <div class="col-md-10 col-xl-8">
         <div class="row mx-0 justify-content-center align-items-center">
           <div class="col-5 col-xl-4 pl-0">
-            <h2>FEATURES</h2>
+            <h2>Features</h2>
           </div>
 
           <div class="col pr-0 text-center">
-            <h2>OTHER CRMS</h2>
+            <h2>Other CRMs</h2>
           </div>
 
           <div class="col px-0 text-center">
