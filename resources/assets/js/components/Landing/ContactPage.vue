@@ -175,6 +175,11 @@ h5 {
   color: inherit;
 }
 
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .row.mx-0.justify-content-center.align-items-center {
+    margin-bottom: 15%;
+  }
+}
 @media screen and (max-width:1199px) {
   h5 {
     font-size: 2.76vw;
@@ -184,7 +189,6 @@ h5 {
   }
   .row.mx-0.justify-content-center.align-items-center {
     margin-top: 15%;
-    margin-bottom: 20%;
   }
   .footer-text {
     font-size:12px !important;
@@ -209,6 +213,11 @@ h5 {
   }
   .footer-row p{
     margin-left: 6%!important;
+  }
+}
+@media screen and (max-width: 767px) {
+  .row.mx-0.justify-content-center.align-items-center {
+    margin-bottom: 20%;
   }
 }
 

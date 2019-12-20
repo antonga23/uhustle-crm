@@ -61,20 +61,30 @@ export default {
     width: 100%;
   }
 
+  @media screen and (min-width: 769px) and (max-width: 1200px) {
+    .col-xl-6 img:first-child {
+      margin-top: 0;
+      margin-bottom: 5%;
+    }
+  }
+
   @media screen and (max-width: 1199px) {
     .first-page-container {
       background-size: 150% auto;
       background-position: top left;
     }
+    .col-xl-6 img:nth-child(2) {
+      margin-bottom: 15%;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
     #landing .btn-primary {
       font-size:12px!important;
       padding: 12px 25px!important;
     }
     .col-xl-6 img:first-child {
       margin-top: 15%;
-      margin-bottom: 15%;
-    }
-    .col-xl-6 img:nth-child(2) {
       margin-bottom: 15%;
     }
   }

@@ -173,13 +173,13 @@
           </tbody>
         </table>
 
-        <div v-else class="row mx-0">
+        <div v-else class="row mx-0 justify-content-center">
           <div class="col-12 px-0">
             <h1>SIAREM</h1>
             <h2 class="text-capitalize">Pricing table</h2>
           </div>
 
-          <div class="col-12 px-0">
+          <div class="col-md-10 col-xl-8">
             <div class="row mx-0 justify-space-between align-items-center start">
               <div class="col text-left pl-0">
                 <h3 class="text-white text-uppercase font-weight-bold">Start</h3>
@@ -293,7 +293,7 @@
             </div>
           </div>
 
-          <div class="col-12 px-0">
+          <div class="col-md-10 col-xl-8">
             <div class="row mx-0 justify-space-between align-items-center basic">
               <div class="col text-left pl-0">
                 <h3 class="text-white text-uppercase font-weight-bold">Basic</h3>
@@ -407,7 +407,7 @@
             </div>
           </div>
 
-          <div class="col-12 px-0">
+          <div class="col-md-10 col-xl-8">
             <div class="row mx-0 justify-space-between align-items-center premium">
               <div class="col text-left pl-0">
                 <h3 class="text-white text-uppercase font-weight-bold">Premium</h3>
@@ -663,7 +663,7 @@ span.small-text {
   .basic,
   .premium {
     border-radius: 5px;
-    padding: 10px 20px;
+    padding: 10px 6%;
   }
   h3 {
     font-size: 14px;
@@ -675,15 +675,20 @@ span.small-text {
   .p-month {
     font-size: 8px;
   }
-  .col-12 {
+  .col-md-12 {
     padding-left: 40px!important;
     padding-right: 40px!important;
   }
+  .col-md-10 {
+    padding-left: 40px!important;
+    padding-right: 40px!important;
+    margin-bottom: 10%;
+  }
   .col-7 {
-    padding-left: 20px;
+    padding-left: 6%;
   }
   .col-5 {
-    padding-left: 20px;
+    padding-right: 6%;
   }
   .col-5 img {
     margin-top: 20px;

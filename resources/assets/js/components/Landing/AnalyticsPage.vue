@@ -137,6 +137,10 @@ export default {
   .row.mx-0.justify-content-end.text-center {
     margin-top: 5%;
   }
+  .analytics-page-container .col-xl-6 {
+    max-width: 621px;
+    margin: 0 auto;
+  }
 }
 
 </style>

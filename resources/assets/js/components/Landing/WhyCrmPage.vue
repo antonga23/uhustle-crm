@@ -3,10 +3,10 @@
     <a name="features"></a>
     <div class="row mx-0 justify-content-center container-row">
       <div class="col-12 text-center px-0">
-        <h1 class>WHY USE SIAREM</h1>
+        <h1 class>Why Use SIAREM</h1>
       </div>
 
-      <div class="col-12 text-center px-0">
+      <div class="col-12 text-center px-0 dots">
         <img src="/images/icons/Orange Dot_Big.svg" alt="dots" width="8" class="mx-5" />
         <img src="/images/icons/Orange Dot_Big.svg" alt="dots" width="8" class="mx-5" />
         <img src="/images/icons/Orange Dot_Big.svg" alt="dots" width="8" class="mx-5" />
@@ -249,6 +249,10 @@ h1 {
   .col img {
     padding-top: 16px;
     padding-bottom: 16px;
+  }
+  .dots {
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 }
 </style>

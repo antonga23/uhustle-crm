@@ -286,7 +286,7 @@ export default {
   text-transform : uppercase;
   background: linear-gradient(to right, rgba(255,129,51,1) 0%,  rgba(255,147, 58,1) 100%) !important;
   border-radius:50rem;
-  padding: 9% 13%;
+  padding: 15px 25px;
   box-shadow:none;
   line-height:1em;
   white-space: nowrap;
@@ -359,19 +359,22 @@ export default {
   margin-bottom: 4%;
 } 
 
-@media screen and (max-width: 1199px){
+@media screen and (min-width: 768px) and (max-width: 1199px) {
   #landing .fullpage {
-    padding-top: 24%;
+    padding-top: 12%;
   }
+}
+
+@media screen and (max-width: 1199px){
   #landing h1 {
     font-size: 5.71vw;
   }
   #landing h2 {
     font-size: 4.02vw;
   }
-  #landing p {
-    font-size: 12px;
-    line-height: 1.7em;
+  #landing .nav-item.sign-up-btn a {
+    width: fit-content;
+    margin-left: auto;
   }
   #landing #nav-collapse.collapse.show {
     text-align:right;
@@ -379,26 +382,34 @@ export default {
   #landing .nav-item {
     padding: 8px 0.75rem;
   }
-  #landing .nav-item.sign-up-btn a {
-    width: fit-content;
-    margin-left: auto;
-    font-size:11px!important;
-    padding: 9px 22px!important;
-  }
-  #landing .btn-primary {
-    font-size:11px!important;
-    padding: 9px 22px!important;
-  }
   #landing .col-xl-6 {
     padding-left: 40px!important;
     padding-right: 40px!important;
   }
 }
 
+@media screen and (max-width: 767px){
+  #landing .fullpage {
+    padding-top: 24%;
+  }
+  #landing p {
+    font-size: 12px;
+    line-height: 1.7em;
+  }
+  #landing .btn-primary {
+    font-size:11px!important;
+    padding: 9px 22px!important;
+  }
+  #landing .nav-item.sign-up-btn a {
+    font-size:11px!important;
+    padding: 9px 22px!important;
+  }
+}
+
 #landing .btn-primary {
-  font-size: 0.94vw;
+  font-size: 18px;
   text-transform : uppercase;
-  padding: 2.1% 3.7%;
+  padding: 15px 25px;
   box-shadow:none;
   line-height:1em;
   white-space: nowrap;
