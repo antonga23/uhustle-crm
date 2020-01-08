@@ -175355,7 +175355,7 @@ var _package_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpac
 /*! exports provided: _args, _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _spec, _where, bugs, dependencies, description, devDependencies, files, homepage, keywords, license, main, module, name, peerDependencies, pre-commit, repository, scripts, sideEffects, title, typings, version, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"_args\":[[\"ant-design-vue@1.3.13\",\"C:\\\\xampp\\\\htdocs\\\\uhustle\"]],\"_from\":\"ant-design-vue@1.3.13\",\"_id\":\"ant-design-vue@1.3.13\",\"_inBundle\":false,\"_integrity\":\"sha512-PMPoVcnM5Ygn8CqdCmlPK9w4i/LdxwDkZ72knPMZ1hrHUcHfWoKxZG6NW2XxxyR0vnXheEAa/4ojNaQkEAbSrQ==\",\"_location\":\"/ant-design-vue\",\"_phantomChildren\":{},\"_requested\":{\"type\":\"version\",\"registry\":true,\"raw\":\"ant-design-vue@1.3.13\",\"name\":\"ant-design-vue\",\"escapedName\":\"ant-design-vue\",\"rawSpec\":\"1.3.13\",\"saveSpec\":null,\"fetchSpec\":\"1.3.13\"},\"_requiredBy\":[\"/\"],\"_resolved\":\"https://registry.npmjs.org/ant-design-vue/-/ant-design-vue-1.3.13.tgz\",\"_spec\":\"1.3.13\",\"_where\":\"C:\\\\xampp\\\\htdocs\\\\uhustle\",\"bugs\":{\"url\":\"https://github.com/vueComponent/ant-design-vue/issues\"},\"dependencies\":{\"@ant-design/icons\":\"^2.1.1\",\"@ant-design/icons-vue\":\"^2.0.0\",\"add-dom-event-listener\":\"^1.0.2\",\"array-tree-filter\":\"^2.1.0\",\"async-validator\":\"^1.8.2\",\"babel-helper-vue-jsx-merge-props\":\"^2.0.3\",\"babel-runtime\":\"6.x\",\"classnames\":\"^2.2.5\",\"component-classes\":\"^1.2.6\",\"dom-align\":\"^1.7.0\",\"dom-closest\":\"^0.2.0\",\"dom-scroll-into-view\":\"^1.2.1\",\"enquire.js\":\"^2.1.6\",\"intersperse\":\"^1.0.0\",\"is-negative-zero\":\"^2.0.0\",\"ismobilejs\":\"^0.5.1\",\"json2mq\":\"^0.2.0\",\"lodash\":\"^4.17.5\",\"moment\":\"^2.21.0\",\"mutationobserver-shim\":\"^0.3.2\",\"omit.js\":\"^1.0.0\",\"raf\":\"^3.4.0\",\"resize-observer-polyfill\":\"^1.5.1\",\"shallow-equal\":\"^1.0.0\",\"shallowequal\":\"^1.0.2\",\"vue-ref\":\"^1.0.4\",\"warning\":\"^3.0.0\"},\"description\":\"An enterprise-class UI design language and Vue-based implementation\",\"devDependencies\":{\"@commitlint/cli\":\"^6.2.0\",\"@commitlint/config-conventional\":\"^6.1.3\",\"@octokit/rest\":\"^15.4.1\",\"@vue/cli-plugin-eslint\":\"^3.0.5\",\"@vue/server-test-utils\":\"1.0.0-beta.16\",\"@vue/test-utils\":\"1.0.0-beta.16\",\"acorn\":\"^6.0.5\",\"autoprefixer\":\"^9.6.0\",\"axios\":\"^0.18.0\",\"babel-cli\":\"^6.26.0\",\"babel-core\":\"^6.26.0\",\"babel-eslint\":\"^10.0.1\",\"babel-helper-vue-jsx-merge-props\":\"^2.0.3\",\"babel-jest\":\"^23.6.0\",\"babel-loader\":\"^7.1.2\",\"babel-plugin-import\":\"^1.1.1\",\"babel-plugin-inline-import-data-uri\":\"^1.0.1\",\"babel-plugin-istanbul\":\"^4.1.1\",\"babel-plugin-syntax-dynamic-import\":\"^6.18.0\",\"babel-plugin-syntax-jsx\":\"^6.18.0\",\"babel-plugin-transform-class-properties\":\"^6.24.1\",\"babel-plugin-transform-decorators\":\"^6.24.1\",\"babel-plugin-transform-decorators-legacy\":\"^1.3.4\",\"babel-plugin-transform-es3-member-expression-literals\":\"^6.22.0\",\"babel-plugin-transform-es3-property-literals\":\"^6.22.0\",\"babel-plugin-transform-object-assign\":\"^6.22.0\",\"babel-plugin-transform-object-rest-spread\":\"^6.26.0\",\"babel-plugin-transform-runtime\":\"~6.23.0\",\"babel-plugin-transform-vue-jsx\":\"^3.7.0\",\"babel-polyfill\":\"^6.26.0\",\"babel-preset-env\":\"^1.6.1\",\"case-sensitive-paths-webpack-plugin\":\"^2.1.2\",\"chalk\":\"^2.3.2\",\"cheerio\":\"^1.0.0-rc.2\",\"codecov\":\"^3.0.0\",\"colorful\":\"^2.1.0\",\"commander\":\"^2.15.0\",\"compare-versions\":\"^3.3.0\",\"cross-env\":\"^5.1.4\",\"css-loader\":\"^0.28.7\",\"deep-assign\":\"^2.0.0\",\"enquire-js\":\"^0.2.1\",\"eslint\":\"^5.8.0\",\"eslint-config-prettier\":\"^3.0.1\",\"eslint-plugin-html\":\"^3.2.2\",\"eslint-plugin-vue\":\"^5.1.0\",\"fetch-jsonp\":\"^1.1.3\",\"fs-extra\":\"^7.0.0\",\"glob\":\"^7.1.2\",\"gulp\":\"^4.0.1\",\"gulp-babel\":\"^7.0.0\",\"gulp-strip-code\":\"^0.1.4\",\"highlight.js\":\"^9.12.0\",\"html-webpack-plugin\":\"^3.2.0\",\"husky\":\"^0.14.3\",\"istanbul-instrumenter-loader\":\"^3.0.0\",\"jest\":\"^24.0.0\",\"jest-serializer-vue\":\"^1.0.0\",\"js-base64\":\"^2.4.8\",\"jsonp\":\"^0.2.1\",\"less\":\"^3.9.0\",\"less-loader\":\"^4.1.0\",\"less-plugin-npm-import\":\"^2.1.0\",\"lint-staged\":\"^7.2.2\",\"markdown-it\":\"^8.4.0\",\"markdown-it-anchor\":\"^4.0.0\",\"marked\":\"^0.3.7\",\"merge2\":\"^1.2.1\",\"mini-css-extract-plugin\":\"^0.5.0\",\"minimist\":\"^1.2.0\",\"mkdirp\":\"^0.5.1\",\"mockdate\":\"^2.0.2\",\"node-emoji\":\"^1.10.0\",\"nprogress\":\"^0.2.0\",\"optimize-css-assets-webpack-plugin\":\"^5.0.1\",\"postcss\":\"^7.0.6\",\"postcss-loader\":\"^3.0.0\",\"pre-commit\":\"^1.2.2\",\"prettier\":\"^1.15.3\",\"querystring\":\"^0.2.0\",\"raw-loader\":\"^1.0.0-beta.0\",\"reqwest\":\"^2.0.5\",\"rimraf\":\"^2.6.2\",\"rucksack-css\":\"^1.0.2\",\"selenium-server\":\"^3.0.1\",\"semver\":\"^5.3.0\",\"style-loader\":\"^0.18.2\",\"stylelint\":\"^9.10.1\",\"stylelint-config-prettier\":\"^4.0.0\",\"stylelint-config-standard\":\"^18.2.0\",\"through2\":\"^2.0.3\",\"uglifyjs-webpack-plugin\":\"^2.1.1\",\"url-loader\":\"^1.1.2\",\"vue\":\"^2.5.16\",\"vue-antd-md-loader\":\"^1.1.0\",\"vue-clipboard2\":\"0.0.8\",\"vue-eslint-parser\":\"^5.0.0\",\"vue-i18n\":\"^8.3.2\",\"vue-infinite-scroll\":\"^2.0.2\",\"vue-jest\":\"^2.5.0\",\"vue-loader\":\"^15.5.1\",\"vue-router\":\"^3.0.1\",\"vue-server-renderer\":\"^2.5.16\",\"vue-template-compiler\":\"^2.5.16\",\"vue-virtual-scroller\":\"^0.12.0\",\"vuex\":\"^3.1.0\",\"webpack\":\"^4.28.4\",\"webpack-cli\":\"^3.2.1\",\"webpack-dev-server\":\"^3.1.14\",\"webpack-merge\":\"^4.1.1\",\"webpackbar\":\"^3.1.5\"},\"files\":[\"dist\",\"lib\",\"es\",\"types\",\"scripts\"],\"homepage\":\"https://vue.ant.design/\",\"keywords\":[\"ant\",\"design\",\"antd\",\"vue\",\"vueComponent\",\"component\",\"components\",\"ui\",\"framework\",\"frontend\"],\"license\":\"MIT\",\"main\":\"lib/index.js\",\"module\":\"es/index.js\",\"name\":\"ant-design-vue\",\"peerDependencies\":{\"vue\":\">=2.5.0\",\"vue-template-compiler\":\">=2.5.0\"},\"pre-commit\":[\"lint\",\"prettier\"],\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/vueComponent/ant-design-vue.git\"},\"scripts\":{\"codecov\":\"codecov\",\"commitmsg\":\"commitlint -x @commitlint/config-conventional -e $GIT_PARAMS\",\"compile\":\"node antd-tools/cli/run.js compile\",\"copy\":\"node scripts/run.js copy-html\",\"dev\":\"cross-env NODE_ENV=development ENTRY_INDEX=dev ./node_modules/.bin/webpack-dev-server --open --hot --port 3001\",\"dist\":\"node antd-tools/cli/run.js dist\",\"lint\":\"eslint -c ./.eslintrc --fix --ext .jsx,.js,.vue ./components\",\"lint:style\":\"stylelint \\\"{site,components}/**/*.less\\\" --syntax less\",\"postinstall\":\"node scripts/postinstall || echo \\\"ignore\\\"\",\"pre-publish\":\"node ./scripts/prepub\",\"prepublish\":\"node antd-tools/cli/run.js guard\",\"prettier\":\"node ./scripts/prettier.js\",\"pub\":\"node antd-tools/cli/run.js pub\",\"pub-with-ci\":\"node antd-tools/cli/run.js pub-with-ci\",\"site\":\"node scripts/run.js _site\",\"start\":\"cross-env NODE_ENV=development ./node_modules/.bin/webpack-dev-server --open --hot\",\"test\":\"cross-env NODE_ENV=test jest --config .jest.js\"},\"sideEffects\":[\"site/*\",\"components/style.js\",\"components/**/style/*\",\"*.vue\",\"*.md\",\"dist/*\",\"es/**/style/*\",\"lib/**/style/*\",\"*.less\"],\"title\":\"Ant Design Vue\",\"typings\":\"types/index.d.ts\",\"version\":\"1.3.13\"}");
+module.exports = JSON.parse("{\"_args\":[[\"ant-design-vue@1.3.13\",\"C:\\\\xampp\\\\uhustle-app\"]],\"_from\":\"ant-design-vue@1.3.13\",\"_id\":\"ant-design-vue@1.3.13\",\"_inBundle\":false,\"_integrity\":\"sha512-PMPoVcnM5Ygn8CqdCmlPK9w4i/LdxwDkZ72knPMZ1hrHUcHfWoKxZG6NW2XxxyR0vnXheEAa/4ojNaQkEAbSrQ==\",\"_location\":\"/ant-design-vue\",\"_phantomChildren\":{},\"_requested\":{\"type\":\"version\",\"registry\":true,\"raw\":\"ant-design-vue@1.3.13\",\"name\":\"ant-design-vue\",\"escapedName\":\"ant-design-vue\",\"rawSpec\":\"1.3.13\",\"saveSpec\":null,\"fetchSpec\":\"1.3.13\"},\"_requiredBy\":[\"/\"],\"_resolved\":\"https://registry.npmjs.org/ant-design-vue/-/ant-design-vue-1.3.13.tgz\",\"_spec\":\"1.3.13\",\"_where\":\"C:\\\\xampp\\\\uhustle-app\",\"bugs\":{\"url\":\"https://github.com/vueComponent/ant-design-vue/issues\"},\"dependencies\":{\"@ant-design/icons\":\"^2.1.1\",\"@ant-design/icons-vue\":\"^2.0.0\",\"add-dom-event-listener\":\"^1.0.2\",\"array-tree-filter\":\"^2.1.0\",\"async-validator\":\"^1.8.2\",\"babel-helper-vue-jsx-merge-props\":\"^2.0.3\",\"babel-runtime\":\"6.x\",\"classnames\":\"^2.2.5\",\"component-classes\":\"^1.2.6\",\"dom-align\":\"^1.7.0\",\"dom-closest\":\"^0.2.0\",\"dom-scroll-into-view\":\"^1.2.1\",\"enquire.js\":\"^2.1.6\",\"intersperse\":\"^1.0.0\",\"is-negative-zero\":\"^2.0.0\",\"ismobilejs\":\"^0.5.1\",\"json2mq\":\"^0.2.0\",\"lodash\":\"^4.17.5\",\"moment\":\"^2.21.0\",\"mutationobserver-shim\":\"^0.3.2\",\"omit.js\":\"^1.0.0\",\"raf\":\"^3.4.0\",\"resize-observer-polyfill\":\"^1.5.1\",\"shallow-equal\":\"^1.0.0\",\"shallowequal\":\"^1.0.2\",\"vue-ref\":\"^1.0.4\",\"warning\":\"^3.0.0\"},\"description\":\"An enterprise-class UI design language and Vue-based implementation\",\"devDependencies\":{\"@commitlint/cli\":\"^6.2.0\",\"@commitlint/config-conventional\":\"^6.1.3\",\"@octokit/rest\":\"^15.4.1\",\"@vue/cli-plugin-eslint\":\"^3.0.5\",\"@vue/server-test-utils\":\"1.0.0-beta.16\",\"@vue/test-utils\":\"1.0.0-beta.16\",\"acorn\":\"^6.0.5\",\"autoprefixer\":\"^9.6.0\",\"axios\":\"^0.18.0\",\"babel-cli\":\"^6.26.0\",\"babel-core\":\"^6.26.0\",\"babel-eslint\":\"^10.0.1\",\"babel-helper-vue-jsx-merge-props\":\"^2.0.3\",\"babel-jest\":\"^23.6.0\",\"babel-loader\":\"^7.1.2\",\"babel-plugin-import\":\"^1.1.1\",\"babel-plugin-inline-import-data-uri\":\"^1.0.1\",\"babel-plugin-istanbul\":\"^4.1.1\",\"babel-plugin-syntax-dynamic-import\":\"^6.18.0\",\"babel-plugin-syntax-jsx\":\"^6.18.0\",\"babel-plugin-transform-class-properties\":\"^6.24.1\",\"babel-plugin-transform-decorators\":\"^6.24.1\",\"babel-plugin-transform-decorators-legacy\":\"^1.3.4\",\"babel-plugin-transform-es3-member-expression-literals\":\"^6.22.0\",\"babel-plugin-transform-es3-property-literals\":\"^6.22.0\",\"babel-plugin-transform-object-assign\":\"^6.22.0\",\"babel-plugin-transform-object-rest-spread\":\"^6.26.0\",\"babel-plugin-transform-runtime\":\"~6.23.0\",\"babel-plugin-transform-vue-jsx\":\"^3.7.0\",\"babel-polyfill\":\"^6.26.0\",\"babel-preset-env\":\"^1.6.1\",\"case-sensitive-paths-webpack-plugin\":\"^2.1.2\",\"chalk\":\"^2.3.2\",\"cheerio\":\"^1.0.0-rc.2\",\"codecov\":\"^3.0.0\",\"colorful\":\"^2.1.0\",\"commander\":\"^2.15.0\",\"compare-versions\":\"^3.3.0\",\"cross-env\":\"^5.1.4\",\"css-loader\":\"^0.28.7\",\"deep-assign\":\"^2.0.0\",\"enquire-js\":\"^0.2.1\",\"eslint\":\"^5.8.0\",\"eslint-config-prettier\":\"^3.0.1\",\"eslint-plugin-html\":\"^3.2.2\",\"eslint-plugin-vue\":\"^5.1.0\",\"fetch-jsonp\":\"^1.1.3\",\"fs-extra\":\"^7.0.0\",\"glob\":\"^7.1.2\",\"gulp\":\"^4.0.1\",\"gulp-babel\":\"^7.0.0\",\"gulp-strip-code\":\"^0.1.4\",\"highlight.js\":\"^9.12.0\",\"html-webpack-plugin\":\"^3.2.0\",\"husky\":\"^0.14.3\",\"istanbul-instrumenter-loader\":\"^3.0.0\",\"jest\":\"^24.0.0\",\"jest-serializer-vue\":\"^1.0.0\",\"js-base64\":\"^2.4.8\",\"jsonp\":\"^0.2.1\",\"less\":\"^3.9.0\",\"less-loader\":\"^4.1.0\",\"less-plugin-npm-import\":\"^2.1.0\",\"lint-staged\":\"^7.2.2\",\"markdown-it\":\"^8.4.0\",\"markdown-it-anchor\":\"^4.0.0\",\"marked\":\"^0.3.7\",\"merge2\":\"^1.2.1\",\"mini-css-extract-plugin\":\"^0.5.0\",\"minimist\":\"^1.2.0\",\"mkdirp\":\"^0.5.1\",\"mockdate\":\"^2.0.2\",\"node-emoji\":\"^1.10.0\",\"nprogress\":\"^0.2.0\",\"optimize-css-assets-webpack-plugin\":\"^5.0.1\",\"postcss\":\"^7.0.6\",\"postcss-loader\":\"^3.0.0\",\"pre-commit\":\"^1.2.2\",\"prettier\":\"^1.15.3\",\"querystring\":\"^0.2.0\",\"raw-loader\":\"^1.0.0-beta.0\",\"reqwest\":\"^2.0.5\",\"rimraf\":\"^2.6.2\",\"rucksack-css\":\"^1.0.2\",\"selenium-server\":\"^3.0.1\",\"semver\":\"^5.3.0\",\"style-loader\":\"^0.18.2\",\"stylelint\":\"^9.10.1\",\"stylelint-config-prettier\":\"^4.0.0\",\"stylelint-config-standard\":\"^18.2.0\",\"through2\":\"^2.0.3\",\"uglifyjs-webpack-plugin\":\"^2.1.1\",\"url-loader\":\"^1.1.2\",\"vue\":\"^2.5.16\",\"vue-antd-md-loader\":\"^1.1.0\",\"vue-clipboard2\":\"0.0.8\",\"vue-eslint-parser\":\"^5.0.0\",\"vue-i18n\":\"^8.3.2\",\"vue-infinite-scroll\":\"^2.0.2\",\"vue-jest\":\"^2.5.0\",\"vue-loader\":\"^15.5.1\",\"vue-router\":\"^3.0.1\",\"vue-server-renderer\":\"^2.5.16\",\"vue-template-compiler\":\"^2.5.16\",\"vue-virtual-scroller\":\"^0.12.0\",\"vuex\":\"^3.1.0\",\"webpack\":\"^4.28.4\",\"webpack-cli\":\"^3.2.1\",\"webpack-dev-server\":\"^3.1.14\",\"webpack-merge\":\"^4.1.1\",\"webpackbar\":\"^3.1.5\"},\"files\":[\"dist\",\"lib\",\"es\",\"types\",\"scripts\"],\"homepage\":\"https://vue.ant.design/\",\"keywords\":[\"ant\",\"design\",\"antd\",\"vue\",\"vueComponent\",\"component\",\"components\",\"ui\",\"framework\",\"frontend\"],\"license\":\"MIT\",\"main\":\"lib/index.js\",\"module\":\"es/index.js\",\"name\":\"ant-design-vue\",\"peerDependencies\":{\"vue\":\">=2.5.0\",\"vue-template-compiler\":\">=2.5.0\"},\"pre-commit\":[\"lint\",\"prettier\"],\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/vueComponent/ant-design-vue.git\"},\"scripts\":{\"codecov\":\"codecov\",\"commitmsg\":\"commitlint -x @commitlint/config-conventional -e $GIT_PARAMS\",\"compile\":\"node antd-tools/cli/run.js compile\",\"copy\":\"node scripts/run.js copy-html\",\"dev\":\"cross-env NODE_ENV=development ENTRY_INDEX=dev ./node_modules/.bin/webpack-dev-server --open --hot --port 3001\",\"dist\":\"node antd-tools/cli/run.js dist\",\"lint\":\"eslint -c ./.eslintrc --fix --ext .jsx,.js,.vue ./components\",\"lint:style\":\"stylelint \\\"{site,components}/**/*.less\\\" --syntax less\",\"postinstall\":\"node scripts/postinstall || echo \\\"ignore\\\"\",\"pre-publish\":\"node ./scripts/prepub\",\"prepublish\":\"node antd-tools/cli/run.js guard\",\"prettier\":\"node ./scripts/prettier.js\",\"pub\":\"node antd-tools/cli/run.js pub\",\"pub-with-ci\":\"node antd-tools/cli/run.js pub-with-ci\",\"site\":\"node scripts/run.js _site\",\"start\":\"cross-env NODE_ENV=development ./node_modules/.bin/webpack-dev-server --open --hot\",\"test\":\"cross-env NODE_ENV=test jest --config .jest.js\"},\"sideEffects\":[\"site/*\",\"components/style.js\",\"components/**/style/*\",\"*.vue\",\"*.md\",\"dist/*\",\"es/**/style/*\",\"lib/**/style/*\",\"*.less\"],\"title\":\"Ant Design Vue\",\"typings\":\"types/index.d.ts\",\"version\":\"1.3.13\"}");
 
 /***/ }),
 
@@ -186630,6 +186630,10 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _on_resize_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../on_resize.js */ "./resources/assets/js/on_resize.js");
+//
+//
+//
+//
 //
 //
 //
@@ -252038,7 +252042,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.analytics-page-container[data-v-6c42c8f6] {\r\n  /* background-color: #00c3ff; */\r\n  width: 100%;\n}\n@media screen and (min-width: 1200px) {\n.analytics-page-container[data-v-6c42c8f6] {\r\n    min-height: 100vh;\r\n    background-image: url(\"/images/landing/Pages_2_(2).png\");\r\n    background-size: auto 100%;\r\n    background-repeat: no-repeat;\r\n    background-position: left center;\n}\n}\n.col-auto[data-v-6c42c8f6] {\r\n  margin-right: 3%;\n}\r\n\r\n/* Equivalent of 50px is 9% */\n.pl-9[data-v-6c42c8f6] { \r\n  padding-left: 9%;\n}\n.my-9[data-v-6c42c8f6] {\r\n  margin: 9%;\n}\n.mx-20[data-v-6c42c8f6] {\r\n  margin: 0 20%;\n}\n@media screen and (max-width: 1199px) {\n.my-9[data-v-6c42c8f6], \r\n  .mx-20[data-v-6c42c8f6], \r\n  .pl-9[data-v-6c42c8f6] {\r\n    margin: 0;\n}\n.text-center button[data-v-6c42c8f6] {\r\n    margin: 0 auto;\n}\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.analytics-page-container[data-v-6c42c8f6] {\r\n  /* background-color: #00c3ff; */\r\n  width: 100%;\n}\n@media screen and (min-width: 1200px) {\n.analytics-page-container[data-v-6c42c8f6] {\r\n    min-height: 100vh;\r\n    background-image: url(\"/images/landing/Pages_2_(2).png\");\r\n    background-size: auto 100%;\r\n    background-repeat: no-repeat;\r\n    background-position: left center;\n}\n}\n.col-auto[data-v-6c42c8f6] {\r\n  margin-right: 3%;\n}\r\n\r\n/* Equivalent of 50px is 9% */\n.pl-9[data-v-6c42c8f6] { \r\n  padding-left: 9%;\n}\n.my-9[data-v-6c42c8f6] {\r\n  margin: 9%;\n}\n.px-20[data-v-6c42c8f6] {\r\n  padding: 0 7.8%;\n}\n@media screen and (max-width: 1199px) {\n.my-9[data-v-6c42c8f6] {\r\n    margin: 0;\n}\n.px-20[data-v-6c42c8f6], \r\n  .pl-9[data-v-6c42c8f6] {\r\n    padding: 0;\n}\n.text-center button[data-v-6c42c8f6] {\r\n    margin: 0 auto;\n}\nh1[data-v-6c42c8f6], \r\n  h2[data-v-6c42c8f6] {\r\n    text-align:center!important;\n}\n.row.mx-0.justify-content-end.text-center[data-v-6c42c8f6] {\r\n    margin-top: 5%;\n}\n.analytics-page-container .col-xl-6[data-v-6c42c8f6] {\r\n    max-width: 621px;\r\n    margin: 0 auto;\n}\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -252057,7 +252061,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.contact-page-container[data-v-743a6dd0] {\r\n  width: 100%;\n}\n@media screen and (min-width: 1200px) {\n.contact-page-container[data-v-743a6dd0] {\r\n    min-height: 100vh;\n}\n}\nh5[data-v-743a6dd0] {\r\n  color: #1e2738;\r\n  font-weight: bold;\r\n  font-size: 0.96vw;\r\n  margin-bottom: 5%;\n}\n.footer-text[data-v-743a6dd0] {\r\n  font-size: 14px !important;\r\n  font-family: 'Rubik', sans-serif;\r\n  line-height: 30px;\r\n  color: #3A3A3A;\r\n  color: inherit;\n}\n@media screen and (max-width:1199px) {\n.container-row[data-v-743a6dd0] {\r\n    background-color: #F2F2F2;\n}\n.footer-text[data-v-743a6dd0] {\r\n    font-size:12px !important;\n}\n.mobile-contact .row[data-v-743a6dd0] {\r\n    padding-left: 40px!important;\r\n    padding-right: 40px!important;\n}\n}\nli[data-v-743a6dd0] {\r\n  padding-left: 15px;\r\n  padding-right: 15px;\n}\n.mb-9[data-v-743a6dd0] {\r\n  margin-bottom: 9%;\n}\n.margin-footer[data-v-743a6dd0] {\r\n  margin: 3% 20% 3%;\n}\n.m-7[data-v-743a6dd0] {\r\n  margin: 0 7%;\n}\nimg.contact[data-v-743a6dd0] {\r\n  width: 100%;\n}\n.footer-row[data-v-743a6dd0] {\r\n  padding-left: 3.95%;\r\n  padding-right: 3.95%;\r\n  margin-bottom: 17px;\n}\n.footer-row p[data-v-743a6dd0] {\r\n  margin-left: 12%;\n}\r\n", ""]);
+exports.push([module.i, "\n.contact-page-container[data-v-743a6dd0] {\r\n  width: 100%;\n}\n@media screen and (min-width: 1200px) {\n.contact-page-container[data-v-743a6dd0] {\r\n    min-height: 100vh;\n}\n}\nh5[data-v-743a6dd0] {\r\n  color: #1e2738;\r\n  font-weight: bold;\r\n  font-size: 0.96vw;\r\n  margin-bottom: 5%;\n}\n.footer-text[data-v-743a6dd0] {\r\n  font-size: 14px !important;\r\n  font-family: 'Rubik', sans-serif;\r\n  line-height: 30px;\r\n  color: #3A3A3A;\r\n  color: inherit;\n}\n@media screen and (min-width: 768px) and (max-width: 1199px) {\n.row.mx-0.justify-content-center.align-items-center[data-v-743a6dd0] {\r\n    margin-bottom: 15%;\n}\n}\n@media screen and (max-width:1199px) {\nh5[data-v-743a6dd0] {\r\n    font-size: 2.76vw;\n}\n.container-row[data-v-743a6dd0] {\r\n    background-color: #F2F2F2;\n}\n.row.mx-0.justify-content-center.align-items-center[data-v-743a6dd0] {\r\n    margin-top: 15%;\n}\n.footer-text[data-v-743a6dd0] {\r\n    font-size:12px !important;\n}\n.mobile-contact .row[data-v-743a6dd0] {\r\n    margin-left: 40px!important;\r\n    margin-right: 40px!important;\r\n    padding-top: 5%;\r\n    padding-bottom: 5%;\n}\n.mobile-contact .row .col-6[data-v-743a6dd0]:first-child{\r\n    padding-left: 30px!important;\n}\n.footer-row[data-v-743a6dd0] {\r\n    padding-top: 5%;\n}\n.footer-row .col-xl-auto[data-v-743a6dd0] {\r\n    text-align: center;\n}\n.footer-row img[data-v-743a6dd0] {\r\n    width: 7%;\n}\n.footer-row p[data-v-743a6dd0]{\r\n    margin-left: 6%!important;\n}\n}\n@media screen and (max-width: 767px) {\n.row.mx-0.justify-content-center.align-items-center[data-v-743a6dd0] {\r\n    margin-bottom: 20%;\n}\n}\nli[data-v-743a6dd0] {\r\n  padding-left: 15px;\r\n  padding-right: 15px;\n}\n.mb-9[data-v-743a6dd0] {\r\n  margin-bottom: 9%;\n}\n.margin-footer[data-v-743a6dd0] {\r\n  margin: 3% 20% 3%;\n}\n.m-7[data-v-743a6dd0] {\r\n  margin: 0 7%;\n}\nimg.contact[data-v-743a6dd0] {\r\n  width: 100%;\n}\n.footer-row[data-v-743a6dd0] {\r\n  padding-left: 3.95%;\r\n  padding-right: 3.95%;\r\n  margin-bottom: 17px;\n}\n.footer-row p[data-v-743a6dd0] {\r\n  margin-left: 12%;\n}\r\n", ""]);
 
 // exports
 
@@ -252076,7 +252080,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.crm-page-container[data-v-28d08a0e] {\r\n  width: 100%;\n}\n@media screen and (min-width: 1200px) {\n.crm-page-container[data-v-28d08a0e] {\r\n    min-height:100vh;\n}\n}\n@media screen and (max-width: 1199px) {\n.col-12[data-v-28d08a0e] {\r\n    padding-left: 40px!important;\r\n    padding-right: 40px!important;\n}\n}\n.col-12[data-v-28d08a0e] {\r\n  padding-left: 13%;\r\n  padding-right: 13%;\n}\n.mt-3[data-v-28d08a0e] {\r\n  margin-top: 3% !important;\n}\r\n", ""]);
+exports.push([module.i, "\n.crm-page-container[data-v-28d08a0e] {\r\n  width: 100%;\n}\n@media screen and (min-width: 1200px) {\n.crm-page-container[data-v-28d08a0e] {\r\n    min-height:100vh;\n}\n}\n@media screen and (max-width: 1199px) {\n.col-12[data-v-28d08a0e] {\r\n    padding-left: 40px!important;\r\n    padding-right: 40px!important;\n}\np[data-v-28d08a0e] {\r\n    margin-top: 10%;\r\n    margin-bottom: 10%!important;\n}\nimg[data-v-28d08a0e] {\r\n    margin-bottom: 7%;\n}\n}\n.col-12[data-v-28d08a0e] {\r\n  padding-left: 13%;\r\n  padding-right: 13%;\n}\n.mt-3[data-v-28d08a0e] {\r\n  margin-top: 3% !important;\n}\r\n", ""]);
 
 // exports
 
@@ -252095,7 +252099,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.crm-page-container[data-v-29ce37db] {\r\n  width: 100%;\n}\n@media screen and (min-width: 1200px) {\n.crm-page-container[data-v-29ce37db] {\r\n    min-height: 100vh;\n}\n}\n@media screen and (max-width: 1199px) {\n.container-col[data-v-29ce37db] {\r\n    padding-left: 40px!important;\r\n    padding-right: 40px!important;\n}\n.ml-7[data-v-29ce37db] {\r\n    margin-left: 0;\n}\n}\n.ml-7[data-v-29ce37db] {\r\n  margin-left: 7%;\n}\r\n", ""]);
+exports.push([module.i, "\n.dialer-page-container[data-v-29ce37db] {\r\n  width: 100%;\n}\n.dialer-page-container .row[data-v-29ce37db]:first-child {\r\n  max-width: 621px;\n}\n@media screen and (min-width: 1200px) {\n.dialer-page-container[data-v-29ce37db] {\r\n    min-height: 100vh;\n}\n}\n@media screen and (max-width: 1199px) {\n.container-col[data-v-29ce37db] {\r\n    padding-left: 40px!important;\r\n    padding-right: 40px!important;\n}\n.ml-7[data-v-29ce37db] {\r\n    margin-left: 0!important;\n}\n.row.mx-0.justify-content-center.text-center[data-v-29ce37db] {\r\n    margin-top: 5%;\n}\n}\n.ml-7[data-v-29ce37db] {\r\n  margin-left: 7%;\n}\r\n", ""]);
 
 // exports
 
@@ -252114,7 +252118,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.first-page-container[data-v-441772a0] {\n  /* background-color: #00C3FF; */\n  width: 100%;\n}\n@media screen and (max-width: 1199px) {\n.first-page-container[data-v-441772a0] {\n    background-size: 150% auto;\n    background-position: top left;\n}\n#landing .btn-primary[data-v-441772a0] {\n    font-size:12px!important;\n    padding: 12px 25px!important;\n}\n}\n@media screen and (min-width: 1200px) {\n.first-page-container[data-v-441772a0] {\n    min-height: 100vh; \n    background-image: url('/images/landing/Pages_1_reduced_2.png');\n    background-size: auto 100%;\n    background-repeat: no-repeat;\n    background-position: left center;\n}\n}\n.col-xl-6 .row .col-12 img[data-v-441772a0] {\n  margin-bottom: 3.4%;\n}\n", ""]);
+exports.push([module.i, "\n.first-page-container[data-v-441772a0] {\n  /* background-color: #00C3FF; */\n  width: 100%;\n}\n@media screen and (min-width: 769px) and (max-width: 1200px) {\n.col-xl-6 img[data-v-441772a0]:first-child {\n    margin-top: 0;\n    margin-bottom: 5%;\n}\n}\n@media screen and (max-width: 1199px) {\n.first-page-container[data-v-441772a0] {\n    background-size: 150% auto;\n    background-position: top left;\n}\n.col-xl-6 img[data-v-441772a0]:nth-child(2) {\n    margin-bottom: 15%;\n}\n}\n@media screen and (max-width: 768px) {\n#landing .btn-primary[data-v-441772a0] {\n    font-size:12px!important;\n    padding: 12px 25px!important;\n}\n.col-xl-6 img[data-v-441772a0]:first-child {\n    margin-top: 15%;\n    margin-bottom: 15%;\n}\n}\n@media screen and (min-width: 1200px) {\n.first-page-container[data-v-441772a0] {\n    min-height: 100vh; \n    background-image: url('/images/landing/Pages_1_reduced_2.png');\n    background-size: auto 100%;\n    background-repeat: no-repeat;\n    background-position: left center;\n}\n}\n.col-xl-6 .row .col-12 img[data-v-441772a0] {\n  margin-bottom: 3.4%;\n}\n", ""]);
 
 // exports
 
@@ -252133,7 +252137,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.flow-page-container[data-v-262024a8] {\r\n  /* background-color: #00C3FF; */\r\n  width: 100%;\n}\n@media screen and (min-width: 1200px) {\n.flow-page-container[data-v-262024a8] {\r\n    min-height:100vh;\r\n    background-image: url('/images/landing/Pages_3_(2).png');\r\n    background-size: auto 100%;\r\n    background-repeat: no-repeat;\r\n    background-position: right center;\n}\n}\n.col-auto[data-v-262024a8] {\r\n  margin-right: 3%;\n}\r\n\r\n/* Equivalent of 50px is 9% */\n.ml-9[data-v-262024a8] { \r\n  margin-left: 9%;\n}\n.mx-20[data-v-262024a8] {\r\n  margin: 0px 20%;\n}\n.ml-20[data-v-262024a8] {\r\n  margin: 0 0 0 20%;\n}\n@media screen and (max-width: 1199px) {\n.col-xl-6.align-items-center[data-v-262024a8] {\r\n    order: 1;\n}\n.mx-20[data-v-262024a8], \r\n  .ml-20[data-v-262024a8], \r\n  .ml-9[data-v-262024a8] {\r\n    margin: 0;\n}\n.text-center button[data-v-262024a8] {\r\n    margin: 0 auto;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.flow-page-container[data-v-262024a8] {\r\n  /* background-color: #00C3FF; */\r\n  width: 100%;\n}\n@media screen and (min-width: 1200px) {\n.flow-page-container[data-v-262024a8] {\r\n    min-height:100vh;\r\n    background-image: url('/images/landing/Pages_3_(2).png');\r\n    background-size: auto 100%;\r\n    background-repeat: no-repeat;\r\n    background-position: right center;\n}\n}\n.col-auto[data-v-262024a8] {\r\n  margin-right: 3%;\n}\r\n\r\n/* Equivalent of 50px is 9% */\n.ml-9[data-v-262024a8] { \r\n  margin-left: 9%;\n}\n.mx-20[data-v-262024a8] {\r\n  margin: 0px 20%;\n}\n.ml-20[data-v-262024a8] {\r\n  margin: 0 0 0 20%;\n}\n@media screen and (max-width: 1199px) {\n.col-xl-6.align-items-center[data-v-262024a8] {\r\n    order: 1;\n}\n.mx-20[data-v-262024a8], \r\n  .ml-20[data-v-262024a8], \r\n  .ml-9[data-v-262024a8] {\r\n    margin: 0;\n}\n.text-center button[data-v-262024a8] {\r\n    margin: 0 auto;\n}\nh1[data-v-262024a8], \r\n  h2[data-v-262024a8] {\r\n    text-align:center!important;\n}\n.row.mx-0.justify-content-end[data-v-262024a8] {\r\n    margin-top: 5%;\n}\n.flow-page-container .col-xl-6[data-v-262024a8] {\r\n    max-width: 621px;\r\n    margin: 0 auto;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -252152,7 +252156,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n#landing {\r\n  margin: 0;\r\n  overflow: hidden;\r\n  background-color: #fff;\r\n  position:relative;\n}\n#landing .navbar-expand .navbar-nav {\r\n  flex-direction: unset;\n}\n#landing .navbar {\r\n  background-color: #fff !important;\r\n  box-shadow: 0px 0px 9.51px 0px rgba(0,0,0,0.1);\r\n  padding-left: 3.95%;\r\n  padding-right: 3.95%;\n}\n#landing .navbar-light .navbar-toggler-icon {\r\n  background-image: url('/images/landing/hamburger.svg');\n}\n#landing .navbar-scroll {\r\n  background-color: #009D95;\n}\n#landing .navbar-brand img {\r\n  width: 10.4vw!important;\n}\n#landing .nav-item {\r\n  color: #535554;\r\n  font-size: 15px;\r\n  padding-left: 5.25%;\r\n  padding-right: 5.25%;\r\n  width:100%;\n}\n#landing .nav-link {\r\n  padding: 0;\n}\n#landing .nav-item.sign-up-btn a {\r\n  font-size: 0.94vw;\r\n  text-transform : uppercase;\r\n  background: linear-gradient(to right, rgba(255,129,51,1) 0%,  rgba(255,147, 58,1) 100%) !important;\r\n  border-radius:50rem;\r\n  padding: 9% 13%;\r\n  box-shadow:none;\r\n  line-height:1em;\r\n  white-space: nowrap;\r\n  display: flex;\n}\n#landing .sections-menu {\r\n  position: fixed;\r\n  right: 1rem;\r\n  top: 50%;\r\n  transform: translateY(-50%);\n}\n#landing .sections-menu .menu-point {\r\n  width: 10px;\r\n  height: 10px;\r\n  background-color: #FFF;\r\n  display: block;\r\n  margin: 1rem 0;\r\n  opacity: .6;\r\n  transition: .4s ease all;\r\n  cursor: pointer;\n}\n#landing .sections-menu .menu-point.active {\r\n  opacity: 1;\r\n  transform: scale(1.5);\n}\n#landing .fullpage {\r\n  width: 100%;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  padding-top: 4.38%;\n}\n@media screen and (min-width: 1200px) {\n#landing .fullpage {\r\n    min-height: 100vh;\n}\n#landing .container-row {\r\n    min-height: 100vh;\n}\n}\n#landing h1 {\r\n  color: #4D4D4D;\r\n  font-size: 2.71vw;\r\n  font-weight: bold;\r\n  text-transform: capitalize;\r\n  margin-bottom: 0.5rem !important;\n}\n#landing h2 {\r\n  color: #999999;\r\n  font-size: 1.62vw;\r\n  font-weight: bold;\r\n  text-transform: capitalize;\r\n  margin-bottom: 9%;\n}\n#landing p {\r\n  color: #3A3A3A;\r\n  font-size: 16px;\r\n  font-family: 'Rubik', sans-serif;\r\n  line-height: 30px;\r\n  margin-bottom: 4%;\n}\n@media screen and (max-width: 1199px){\n#landing .fullpage {\r\n    padding-top: 54px;\n}\n#landing p {\r\n    font-size: 12px;\r\n    line-height: 1.7em;\n}\n#landing #nav-collapse.collapse.show {\r\n    text-align:right;\n}\n#landing .nav-item {\r\n    padding: 8px 0.75rem;\n}\n#landing .nav-item.sign-up-btn a {\r\n    width: -webkit-fit-content;\r\n    width: -moz-fit-content;\r\n    width: fit-content;\r\n    margin-left: auto;\r\n    font-size:11px!important;\r\n    padding: 9px 22px!important;\n}\n#landing .btn-primary {\r\n    font-size:11px!important;\r\n    padding: 9px 22px!important;\n}\n#landing .col-xl-6 {\r\n    padding-left: 40px!important;\r\n    padding-right: 40px!important;\n}\n}\n#landing .btn-primary {\r\n  font-size: 0.94vw;\r\n  text-transform : uppercase;\r\n  padding: 2.1% 3.7%;\r\n  box-shadow:none;\r\n  line-height:1em;\r\n  white-space: nowrap;\n}\n.nav-item.white a.nav-link {\r\n  color: #fff !important;\r\n  font-weight: 700;\n}\n#landing img {\r\n  max-height: 100vh;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n#landing {\r\n  margin: 0;\r\n  overflow: hidden;\r\n  background-color: #fff;\r\n  position:relative;\n}\n#landing .navbar-expand .navbar-nav {\r\n  flex-direction: unset;\n}\n#landing .navbar {\r\n  background-color: #fff !important;\r\n  box-shadow: 0px 0px 9.51px 0px rgba(0,0,0,0.1);\r\n  padding-left: 3.95%;\r\n  padding-right: 3.95%;\n}\n#landing .navbar-light .navbar-toggler-icon {\r\n  background-image: url('/images/landing/hamburger.svg');\n}\n#landing .navbar-scroll {\r\n  background-color: #009D95;\n}\n#landing .navbar-brand img {\r\n  width: 10.4vw!important;\n}\n#landing .nav-item {\r\n  color: #535554;\r\n  font-size: 15px;\r\n  padding-left: 5.25%;\r\n  padding-right: 5.25%;\r\n  width:100%;\n}\n#landing .nav-link {\r\n  padding: 0;\n}\n#landing .nav-item.sign-up-btn a {\r\n  font-size: 0.94vw;\r\n  text-transform : uppercase;\r\n  background: linear-gradient(to right, rgba(255,129,51,1) 0%,  rgba(255,147, 58,1) 100%) !important;\r\n  border-radius:50rem;\r\n  padding: 15px 25px;\r\n  box-shadow:none;\r\n  line-height:1em;\r\n  white-space: nowrap;\r\n  display: flex;\n}\n#landing .sections-menu {\r\n  position: fixed;\r\n  right: 1rem;\r\n  top: 50%;\r\n  transform: translateY(-50%);\n}\n#landing .sections-menu .menu-point {\r\n  width: 10px;\r\n  height: 10px;\r\n  background-color: #FFF;\r\n  display: block;\r\n  margin: 1rem 0;\r\n  opacity: .6;\r\n  transition: .4s ease all;\r\n  cursor: pointer;\n}\n#landing .sections-menu .menu-point.active {\r\n  opacity: 1;\r\n  transform: scale(1.5);\n}\n#landing .fullpage {\r\n  width: 100%;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n  padding-top: 4.38%;\n}\n@media screen and (min-width: 1200px) {\n#landing .fullpage {\r\n    min-height: 100vh;\n}\n#landing .container-row {\r\n    min-height: 100vh;\n}\n}\n#landing h1 {\r\n  color: #4D4D4D;\r\n  font-size: 2.71vw;\r\n  font-weight: bold;\r\n  text-transform: capitalize;\r\n  margin-bottom: 0.5rem !important;\n}\n#landing h2 {\r\n  color: #999999;\r\n  font-size: 1.62vw;\r\n  font-weight: bold;\r\n  text-transform: capitalize;\r\n  font-family: 'Rubik', sans-serif;\r\n  margin-bottom: 9%;\n}\n#landing p {\r\n  color: #3A3A3A;\r\n  font-size: 16px;\r\n  font-family: 'Rubik', sans-serif;\r\n  line-height: 30px;\r\n  margin-bottom: 4%;\n}\n@media screen and (min-width: 768px) and (max-width: 1199px) {\n#landing .fullpage {\r\n    padding-top: 12%;\n}\n}\n@media screen and (max-width: 1199px){\n#landing h1 {\r\n    font-size: 5.71vw;\n}\n#landing h2 {\r\n    font-size: 4.02vw;\n}\n#landing .nav-item.sign-up-btn a {\r\n    width: -webkit-fit-content;\r\n    width: -moz-fit-content;\r\n    width: fit-content;\r\n    margin-left: auto;\n}\n#landing #nav-collapse.collapse.show {\r\n    text-align:right;\n}\n#landing .nav-item {\r\n    padding: 8px 0.75rem;\n}\n#landing .col-xl-6 {\r\n    padding-left: 40px!important;\r\n    padding-right: 40px!important;\n}\n}\n@media screen and (max-width: 767px){\n#landing .fullpage {\r\n    padding-top: 24%;\n}\n#landing p {\r\n    font-size: 12px;\r\n    line-height: 1.7em;\n}\n#landing .btn-primary {\r\n    font-size:11px!important;\r\n    padding: 9px 22px!important;\n}\n#landing .nav-item.sign-up-btn a {\r\n    font-size:11px!important;\r\n    padding: 9px 22px!important;\n}\n}\n#landing .btn-primary {\r\n  font-size: 18px;\r\n  text-transform : uppercase;\r\n  padding: 15px 25px;\r\n  box-shadow:none;\r\n  line-height:1em;\r\n  white-space: nowrap;\n}\n.nav-item.white a.nav-link {\r\n  color: #fff !important;\r\n  font-weight: 700;\n}\n#landing img {\r\n  max-height: 100vh;\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -252171,7 +252175,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n@media screen and (min-width: 1200px) {\n.pricing-page-container[data-v-1d70e376] {\r\n    min-height:100vh;\n}\n}\n.pricing-page-container[data-v-1d70e376] {\r\n  width: 100%;\n}\nh3[data-v-1d70e376] {\r\n  color: #4D4D4D;\r\n  font-size: 1.5vw;\r\n  font-weight: bold;\r\n  text-transform: uppercase;\r\n  margin-bottom: 0;\n}\nh3.siarem[data-v-1d70e376] {\r\n  color: #999999;\r\n  font-size: 1.5vw;\n}\nh3.price[data-v-1d70e376] {\r\n  font-size: 2vw;\n}\nh4[data-v-1d70e376] {\r\n  color: #999999;\r\n  font-size: 1.4vw;\r\n  font-weight: bold;\n}\nh5[data-v-1d70e376] {\r\n  color: #4D4D4D;\r\n  font-size: 10px;\r\n  font-weight: bold;\r\n  text-transform: uppercase;\n}\n.start[data-v-1d70e376] {\r\n  background: linear-gradient(to right, rgba(255,129,51,1) 0%, rgba(255,147, 58,1) 100%);\r\n  border-radius: 13px;\r\n  font-size: 1.5vw;\r\n  padding: 17px;\r\n  width: 100%;\r\n  margin: 0 auto;\n}\n.basic[data-v-1d70e376] {\r\n  background: linear-gradient(to right, #02E3F4 0%, #0496F0 100%);\r\n  border-radius: 13px;\r\n  font-size: 1.5vw;\r\n  padding: 17px;\r\n   width: 100%;\r\n  margin: 0 auto;\n}\n.premium[data-v-1d70e376] {\r\n  background: linear-gradient(to right, #C079D9 0%, #683EFC 100%);\r\n  border-radius: 13px;\r\n  font-size: 1.5vw;\r\n  padding: 17px;\r\n  width: 100%;\r\n  margin: 0 auto;\n}\ntd[data-v-1d70e376] {\r\n  color: #999999;\r\n  font-family: 'Rubik', sans-serif !important;\r\n  border:1px solid #CCCCCC;\r\n  font-size: 14px;\n}\n.col-6.border-bottom[data-v-1d70e376] {\r\n  border-color:#CCCCCC;\n}\ntd[data-v-1d70e376]:first-child {\r\n  width: 23%;\r\n  padding-left: 40px;\r\n  padding-top: 1%;\r\n  padding-bottom: 1%;\n}\nth[data-v-1d70e376] {\r\n  padding: 1%;\n}\n.left[data-v-1d70e376] {\r\n  text-align: left;\n}\n.extra-padding[data-v-1d70e376] {\r\n  padding-bottom: 3%;\n}\nspan.small-text[data-v-1d70e376] {\r\n  font-size: 8px;\r\n  color: #999999;\n}\n@media screen and (max-width: 1199px) {\ntd[data-v-1d70e376] {\r\n    font-size: 12px;\n}\n.start[data-v-1d70e376], \r\n  .basic[data-v-1d70e376],\r\n  .premium[data-v-1d70e376] {\r\n    border-radius: 5px;\r\n    padding: 10px 20px;\n}\nh3[data-v-1d70e376] {\r\n    font-size: 14px;\n}\np[data-v-1d70e376] {\r\n    font-family: 'Rubik', sans-serif !important;\r\n    color: #999999!important;\n}\n.p-month[data-v-1d70e376] {\r\n    font-size: 8px;\n}\n.col-12[data-v-1d70e376] {\r\n    padding-left: 40px!important;\r\n    padding-right: 40px!important;\n}\n.col-5 img[data-v-1d70e376] {\r\n    margin-top: 20px;\r\n    margin-bottom: 20px;\n}\n.col-5 p[data-v-1d70e376] {\r\n    line-height: 1em!important;\r\n    margin-top: 20px;\r\n    margin-bottom: 20px!important;\n}\n.text-white[data-v-1d70e376] {\r\n    color: #fff!important;\n}\n}\n@media screen and (max-width: 1440px) {\nimg.checkMarks[data-v-1d70e376] {\r\n    width: 10px;\n}\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n@media screen and (min-width: 1200px) {\n.pricing-page-container[data-v-1d70e376] {\r\n    min-height:100vh;\n}\n}\n.pricing-page-container[data-v-1d70e376] {\r\n  width: 100%;\n}\nh3[data-v-1d70e376] {\r\n  color: #4D4D4D;\r\n  font-size: 1.5vw;\r\n  font-weight: bold;\r\n  text-transform: uppercase;\r\n  margin-bottom: 0;\n}\nh3.siarem[data-v-1d70e376] {\r\n  color: #999999;\r\n  font-size: 1.5vw;\n}\nh3.price[data-v-1d70e376] {\r\n  font-size: 2vw;\n}\nh4[data-v-1d70e376] {\r\n  color: #999999;\r\n  font-size: 1.4vw;\r\n  font-weight: bold;\n}\nh5[data-v-1d70e376] {\r\n  color: #4D4D4D;\r\n  font-size: 10px;\r\n  font-weight: bold;\r\n  text-transform: uppercase;\n}\n.start[data-v-1d70e376] {\r\n  background: linear-gradient(to right, rgba(255,129,51,1) 0%, rgba(255,147, 58,1) 100%);\r\n  border-radius: 13px;\r\n  font-size: 1.5vw;\r\n  padding: 17px;\r\n  width: 100%;\r\n  margin: 0 auto;\n}\n.basic[data-v-1d70e376] {\r\n  background: linear-gradient(to right, #02E3F4 0%, #0496F0 100%);\r\n  border-radius: 13px;\r\n  font-size: 1.5vw;\r\n  padding: 17px;\r\n   width: 100%;\r\n  margin: 0 auto;\n}\n.premium[data-v-1d70e376] {\r\n  background: linear-gradient(to right, #C079D9 0%, #683EFC 100%);\r\n  border-radius: 13px;\r\n  font-size: 1.5vw;\r\n  padding: 17px;\r\n  width: 100%;\r\n  margin: 0 auto;\n}\ntd[data-v-1d70e376] {\r\n  color: #999999;\r\n  font-family: 'Rubik', sans-serif !important;\r\n  border:1px solid #CCCCCC;\r\n  font-size: 14px;\n}\n.col-6.border-bottom[data-v-1d70e376] {\r\n  border-color:#CCCCCC;\n}\ntd[data-v-1d70e376]:first-child {\r\n  width: 23%;\r\n  padding-left: 40px;\r\n  padding-top: 1%;\r\n  padding-bottom: 1%;\n}\nth[data-v-1d70e376] {\r\n  padding: 1%;\n}\n.left[data-v-1d70e376] {\r\n  text-align: left;\n}\n.extra-padding[data-v-1d70e376] {\r\n  padding-bottom: 3%;\n}\nspan.small-text[data-v-1d70e376] {\r\n  font-size: 8px;\r\n  color: #999999;\n}\n@media screen and (max-width: 1199px) {\ntd[data-v-1d70e376] {\r\n    font-size: 12px;\n}\n.start[data-v-1d70e376], \r\n  .basic[data-v-1d70e376],\r\n  .premium[data-v-1d70e376] {\r\n    border-radius: 5px;\r\n    padding: 10px 6%;\n}\nh3[data-v-1d70e376] {\r\n    font-size: 14px;\n}\np[data-v-1d70e376] {\r\n    font-family: 'Rubik', sans-serif !important;\r\n    color: #999999!important;\n}\n.p-month[data-v-1d70e376] {\r\n    font-size: 8px;\n}\n.col-md-12[data-v-1d70e376] {\r\n    padding-left: 40px!important;\r\n    padding-right: 40px!important;\n}\n.col-md-10[data-v-1d70e376] {\r\n    padding-left: 40px!important;\r\n    padding-right: 40px!important;\r\n    margin-bottom: 10%;\n}\n.col-7[data-v-1d70e376] {\r\n    padding-left: 6%;\n}\n.col-5[data-v-1d70e376] {\r\n    padding-right: 6%;\n}\n.col-5 img[data-v-1d70e376] {\r\n    margin-top: 20px;\r\n    margin-bottom: 20px;\n}\n.col-5 p[data-v-1d70e376] {\r\n    line-height: 1em!important;\r\n    margin-top: 20px;\r\n    margin-bottom: 20px!important;\n}\n.text-white[data-v-1d70e376] {\r\n    color: #fff!important;\n}\n}\n@media screen and (max-width: 1440px) {\nimg.checkMarks[data-v-1d70e376] {\r\n    width: 10px;\n}\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -252190,7 +252194,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.why-crm-page-container[data-v-612c9bb4] {\r\n  width: 100%;\n}\n.border-bottom[data-v-612c9bb4],\r\n.border-left[data-v-612c9bb4], \r\n.border-right[data-v-612c9bb4] {\r\n  border-color: #ccc;\n}\n@media screen and (min-width: 1200px) {\n.why-crm-page-container[data-v-612c9bb4] {\r\n    min-height: 100vh;\n}\n}\n.col img[data-v-612c9bb4] {\r\n  padding-top: 4.1%;\r\n  padding-bottom: 4.1%;\n}\nh1[data-v-612c9bb4] {\r\n  margin-top: 1.5rem !important;\n}\n@media screen and (max-width: 1199px) {\np[data-v-612c9bb4] {\r\n    line-height: 1.3em!important;\n}\n.col-12[data-v-612c9bb4], \r\n  .col-md-10[data-v-612c9bb4] {\r\n    padding-left: 40px!important;\r\n    padding-right: 40px!important;\n}\n.col[data-v-612c9bb4] {\r\n    height: 100%;\n}\n.col img[data-v-612c9bb4] {\r\n    padding-top: 16px;\r\n    padding-bottom: 16px;\n}\n}\r\n", ""]);
+exports.push([module.i, "\n.why-crm-page-container[data-v-612c9bb4] {\r\n  width: 100%;\n}\n.border-bottom[data-v-612c9bb4],\r\n.border-left[data-v-612c9bb4], \r\n.border-right[data-v-612c9bb4] {\r\n  border-color: #ccc;\n}\n@media screen and (min-width: 1200px) {\n.why-crm-page-container[data-v-612c9bb4] {\r\n    min-height: 100vh;\n}\n}\n.col img[data-v-612c9bb4] {\r\n  padding-top: 4.1%;\r\n  padding-bottom: 4.1%;\n}\nh1[data-v-612c9bb4] {\r\n  margin-top: 1.5rem !important;\n}\n@media screen and (max-width: 1199px) {\np[data-v-612c9bb4] {\r\n    line-height: 1.3em!important;\n}\n.col-12[data-v-612c9bb4], \r\n  .col-md-10[data-v-612c9bb4] {\r\n    padding-left: 40px!important;\r\n    padding-right: 40px!important;\n}\n.col[data-v-612c9bb4] {\r\n    height: 100%;\n}\n.col img[data-v-612c9bb4] {\r\n    padding-top: 16px;\r\n    padding-bottom: 16px;\n}\n.dots[data-v-612c9bb4] {\r\n    margin-top: 20px;\r\n    margin-bottom: 20px;\n}\n}\r\n", ""]);
 
 // exports
 
@@ -353758,7 +353762,7 @@ exports.default = WSTransport;
 /*! exports provided: _args, _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _spec, _where, browser, bugs, dependencies, description, devDependencies, homepage, keywords, license, main, name, pre-commit, repository, scripts, version, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"_args\":[[\"twilio-client@1.7.5\",\"C:\\\\xampp\\\\htdocs\\\\uhustle\"]],\"_from\":\"twilio-client@1.7.5\",\"_id\":\"twilio-client@1.7.5\",\"_inBundle\":false,\"_integrity\":\"sha512-U6Ovwt70lO3m6XwVTlqp9idxTM0aWj3pyJsdVdIAvaIDlOUDy394jo5sSggxuVwXND5KuStesFlQoVplQoZvXQ==\",\"_location\":\"/twilio-client\",\"_phantomChildren\":{\"async-limiter\":\"1.0.0\"},\"_requested\":{\"type\":\"version\",\"registry\":true,\"raw\":\"twilio-client@1.7.5\",\"name\":\"twilio-client\",\"escapedName\":\"twilio-client\",\"rawSpec\":\"1.7.5\",\"saveSpec\":null,\"fetchSpec\":\"1.7.5\"},\"_requiredBy\":[\"/\"],\"_resolved\":\"https://registry.npmjs.org/twilio-client/-/twilio-client-1.7.5.tgz\",\"_spec\":\"1.7.5\",\"_where\":\"C:\\\\xampp\\\\htdocs\\\\uhustle\",\"browser\":{\"xmlhttprequest\":\"./browser/xmlhttprequest.js\",\"ws\":\"./browser/ws.js\"},\"bugs\":{\"url\":\"https://github.com/twilio/twilio-client.js/issues\"},\"dependencies\":{\"@twilio/audioplayer\":\"1.0.4\",\"backoff\":\"2.5.0\",\"rtcpeerconnection-shim\":\"1.2.8\",\"ws\":\"6.1.3\",\"xmlhttprequest\":\"1.8.0\"},\"description\":\"Javascript SDK for Twilio Client\",\"devDependencies\":{\"@types/mocha\":\"5.0.0\",\"@types/node\":\"9.6.5\",\"@types/sinon\":\"5.0.1\",\"@types/ws\":\"4.0.2\",\"babel-cli\":\"6.26.0\",\"babel-eslint\":\"8.2.2\",\"babel-plugin-envify\":\"1.2.1\",\"babel-plugin-transform-class-properties\":\"6.24.1\",\"babel-plugin-transform-inline-environment-variables\":\"0.4.3\",\"babel-preset-es2015\":\"6.24.1\",\"browserify\":\"16.2.2\",\"buffer\":\"5.2.0\",\"chromedriver\":\"2.31.0\",\"envify\":\"2.0.1\",\"es-check\":\"2.0.3\",\"eslint\":\"4.19.1\",\"eslint-plugin-babel\":\"4.1.2\",\"express\":\"4.14.1\",\"geckodriver\":\"1.8.1\",\"js-yaml\":\"3.13.1\",\"jsdoc\":\"3.5.5\",\"jsonwebtoken\":\"7.4.3\",\"karma\":\"3.0.0\",\"karma-chrome-launcher\":\"2.2.0\",\"karma-firefox-launcher\":\"1.1.0\",\"karma-mocha\":\"1.3.0\",\"karma-safaritechpreview-launcher\":\"0.0.6\",\"karma-spec-reporter\":\"0.0.32\",\"karma-typescript\":\"3.0.13\",\"karma-typescript-es6-transform\":\"1.0.4\",\"lodash\":\"4.17.11\",\"mocha\":\"3.5.0\",\"npm-run-all\":\"4.1.2\",\"nyc\":\"10.1.2\",\"pre-commit\":\"1.2.2\",\"querystring\":\"0.2.0\",\"release-tool\":\"0.2.2\",\"selenium-webdriver\":\"3.5.0\",\"sinon\":\"4.0.0\",\"travis-multirunner\":\"4.5.0\",\"ts-node\":\"6.0.0\",\"tslint\":\"5.9.1\",\"twilio\":\"3.17.0\",\"typedoc\":\"github:ryan-rowland/typedoc#twilio\",\"typedoc-plugin-as-member-of\":\"1.0.2\",\"typedoc-plugin-external-module-name\":\"1.1.3\",\"typedoc-plugin-internal-external\":\"1.0.10\",\"typedoc-twilio-theme\":\"1.0.0\",\"typescript\":\"2.8.1\",\"uglify-js\":\"3.3.11\",\"vinyl-fs\":\"3.0.2\",\"vinyl-source-stream\":\"2.0.0\"},\"homepage\":\"https://github.com/twilio/twilio-client.js#readme\",\"keywords\":[\"twilio\",\"client\",\"voice\",\"voip\"],\"license\":\"Apache-2.0\",\"main\":\"./es5/twilio.js\",\"name\":\"twilio-client\",\"pre-commit\":[\"lint\",\"test:unit\",\"docs:ts\"],\"repository\":{\"type\":\"git\",\"url\":\"git+ssh://git@github.com/twilio/twilio-client.js.git\"},\"scripts\":{\"build\":\"npm-run-all clean docs:ts build:es5 build:ts build:dist build:dist-min\",\"build:dev\":\"ENV=dev npm run build\",\"build:dist\":\"node ./scripts/build.js ./lib/browser.js ./LICENSE.md ./dist/twilio.js\",\"build:dist-min\":\"uglifyjs ./dist/twilio.js -o ./dist/twilio.min.js --comments \\\"/^! twilio-client.js/\\\" -b beautify=false,ascii_only=true\",\"build:es5\":\"rimraf ./es5 && babel lib -d es5\",\"build:release\":\"npm-run-all lint build test:unit test:integration test:webpack test:es5 status\",\"build:ts\":\"tsc\",\"clean\":\"rimraf ./coverage ./dist ./es5\",\"coverage\":\"nyc ./node_modules/mocha/bin/mocha -r ts-node/register ./tests/index.ts\",\"coverage:check\":\"nyc check-coverage --lines 60 --branches 60 --functions 60\",\"docs:clean\":\"rimraf ./docs\",\"docs:js\":\"jsdoc -r -d dist/docs/js lib/twilio\",\"docs:json\":\"typedoc --json dist/docs/raw.json --internal-aliases internal,publicapi --external-aliases external,internalapi --excludePrivate --excludeProtected\",\"docs:ts\":\"typedoc --out docs --internal-aliases internal,publicapi --external-aliases external,internalapi --excludePrivate --excludeProtected --theme ./node_modules/typedoc-twilio-theme/bin/default\",\"extension\":\"browserify -t brfs extension/token/index.js > extension/token.js\",\"lint\":\"npm-run-all lint:js lint:ts\",\"lint:js\":\"eslint lib\",\"lint:ts\":\"tslint -c tslint.json --project tsconfig.json -t stylish\",\"release\":\"release\",\"start\":\"node server.js\",\"status\":\"git status\",\"test\":\"npm-run-all test:unit test:frameworks\",\"test:es5\":\"es-check es5 \\\"./es5/**/*.js\\\" ./dist/*.js\",\"test:framework:no-framework\":\"mocha tests/framework/no-framework.js\",\"test:framework:react\":\"npm-run-all test:framework:react:*\",\"test:framework:react:build\":\"cd ./tests/framework/react && npm run build\",\"test:framework:react:install\":\"cd ./tests/framework/react && rimraf ./node_modules package-lock.json && npm install\",\"test:framework:react:run\":\"mocha ./tests/framework/react.js\",\"test:frameworks\":\"npm-run-all test:framework:no-framework test:framework:react\",\"test:integration\":\"karma start karma.conf.ts\",\"test:selenium\":\"mocha tests/browser/index.js\",\"test:unit\":\"nyc mocha -r ts-node/register ./tests/index.ts\",\"test:webpack\":\"cd ./tests/webpack && npm install && npm test\"},\"version\":\"1.7.5\"}");
+module.exports = JSON.parse("{\"_args\":[[\"twilio-client@1.7.5\",\"C:\\\\xampp\\\\uhustle-app\"]],\"_from\":\"twilio-client@1.7.5\",\"_id\":\"twilio-client@1.7.5\",\"_inBundle\":false,\"_integrity\":\"sha512-U6Ovwt70lO3m6XwVTlqp9idxTM0aWj3pyJsdVdIAvaIDlOUDy394jo5sSggxuVwXND5KuStesFlQoVplQoZvXQ==\",\"_location\":\"/twilio-client\",\"_phantomChildren\":{\"async-limiter\":\"1.0.0\"},\"_requested\":{\"type\":\"version\",\"registry\":true,\"raw\":\"twilio-client@1.7.5\",\"name\":\"twilio-client\",\"escapedName\":\"twilio-client\",\"rawSpec\":\"1.7.5\",\"saveSpec\":null,\"fetchSpec\":\"1.7.5\"},\"_requiredBy\":[\"/\"],\"_resolved\":\"https://registry.npmjs.org/twilio-client/-/twilio-client-1.7.5.tgz\",\"_spec\":\"1.7.5\",\"_where\":\"C:\\\\xampp\\\\uhustle-app\",\"browser\":{\"xmlhttprequest\":\"./browser/xmlhttprequest.js\",\"ws\":\"./browser/ws.js\"},\"bugs\":{\"url\":\"https://github.com/twilio/twilio-client.js/issues\"},\"dependencies\":{\"@twilio/audioplayer\":\"1.0.4\",\"backoff\":\"2.5.0\",\"rtcpeerconnection-shim\":\"1.2.8\",\"ws\":\"6.1.3\",\"xmlhttprequest\":\"1.8.0\"},\"description\":\"Javascript SDK for Twilio Client\",\"devDependencies\":{\"@types/mocha\":\"5.0.0\",\"@types/node\":\"9.6.5\",\"@types/sinon\":\"5.0.1\",\"@types/ws\":\"4.0.2\",\"babel-cli\":\"6.26.0\",\"babel-eslint\":\"8.2.2\",\"babel-plugin-envify\":\"1.2.1\",\"babel-plugin-transform-class-properties\":\"6.24.1\",\"babel-plugin-transform-inline-environment-variables\":\"0.4.3\",\"babel-preset-es2015\":\"6.24.1\",\"browserify\":\"16.2.2\",\"buffer\":\"5.2.0\",\"chromedriver\":\"2.31.0\",\"envify\":\"2.0.1\",\"es-check\":\"2.0.3\",\"eslint\":\"4.19.1\",\"eslint-plugin-babel\":\"4.1.2\",\"express\":\"4.14.1\",\"geckodriver\":\"1.8.1\",\"js-yaml\":\"3.13.1\",\"jsdoc\":\"3.5.5\",\"jsonwebtoken\":\"7.4.3\",\"karma\":\"3.0.0\",\"karma-chrome-launcher\":\"2.2.0\",\"karma-firefox-launcher\":\"1.1.0\",\"karma-mocha\":\"1.3.0\",\"karma-safaritechpreview-launcher\":\"0.0.6\",\"karma-spec-reporter\":\"0.0.32\",\"karma-typescript\":\"3.0.13\",\"karma-typescript-es6-transform\":\"1.0.4\",\"lodash\":\"4.17.11\",\"mocha\":\"3.5.0\",\"npm-run-all\":\"4.1.2\",\"nyc\":\"10.1.2\",\"pre-commit\":\"1.2.2\",\"querystring\":\"0.2.0\",\"release-tool\":\"0.2.2\",\"selenium-webdriver\":\"3.5.0\",\"sinon\":\"4.0.0\",\"travis-multirunner\":\"4.5.0\",\"ts-node\":\"6.0.0\",\"tslint\":\"5.9.1\",\"twilio\":\"3.17.0\",\"typedoc\":\"github:ryan-rowland/typedoc#twilio\",\"typedoc-plugin-as-member-of\":\"1.0.2\",\"typedoc-plugin-external-module-name\":\"1.1.3\",\"typedoc-plugin-internal-external\":\"1.0.10\",\"typedoc-twilio-theme\":\"1.0.0\",\"typescript\":\"2.8.1\",\"uglify-js\":\"3.3.11\",\"vinyl-fs\":\"3.0.2\",\"vinyl-source-stream\":\"2.0.0\"},\"homepage\":\"https://github.com/twilio/twilio-client.js#readme\",\"keywords\":[\"twilio\",\"client\",\"voice\",\"voip\"],\"license\":\"Apache-2.0\",\"main\":\"./es5/twilio.js\",\"name\":\"twilio-client\",\"pre-commit\":[\"lint\",\"test:unit\",\"docs:ts\"],\"repository\":{\"type\":\"git\",\"url\":\"git+ssh://git@github.com/twilio/twilio-client.js.git\"},\"scripts\":{\"build\":\"npm-run-all clean docs:ts build:es5 build:ts build:dist build:dist-min\",\"build:dev\":\"ENV=dev npm run build\",\"build:dist\":\"node ./scripts/build.js ./lib/browser.js ./LICENSE.md ./dist/twilio.js\",\"build:dist-min\":\"uglifyjs ./dist/twilio.js -o ./dist/twilio.min.js --comments \\\"/^! twilio-client.js/\\\" -b beautify=false,ascii_only=true\",\"build:es5\":\"rimraf ./es5 && babel lib -d es5\",\"build:release\":\"npm-run-all lint build test:unit test:integration test:webpack test:es5 status\",\"build:ts\":\"tsc\",\"clean\":\"rimraf ./coverage ./dist ./es5\",\"coverage\":\"nyc ./node_modules/mocha/bin/mocha -r ts-node/register ./tests/index.ts\",\"coverage:check\":\"nyc check-coverage --lines 60 --branches 60 --functions 60\",\"docs:clean\":\"rimraf ./docs\",\"docs:js\":\"jsdoc -r -d dist/docs/js lib/twilio\",\"docs:json\":\"typedoc --json dist/docs/raw.json --internal-aliases internal,publicapi --external-aliases external,internalapi --excludePrivate --excludeProtected\",\"docs:ts\":\"typedoc --out docs --internal-aliases internal,publicapi --external-aliases external,internalapi --excludePrivate --excludeProtected --theme ./node_modules/typedoc-twilio-theme/bin/default\",\"extension\":\"browserify -t brfs extension/token/index.js > extension/token.js\",\"lint\":\"npm-run-all lint:js lint:ts\",\"lint:js\":\"eslint lib\",\"lint:ts\":\"tslint -c tslint.json --project tsconfig.json -t stylish\",\"release\":\"release\",\"start\":\"node server.js\",\"status\":\"git status\",\"test\":\"npm-run-all test:unit test:frameworks\",\"test:es5\":\"es-check es5 \\\"./es5/**/*.js\\\" ./dist/*.js\",\"test:framework:no-framework\":\"mocha tests/framework/no-framework.js\",\"test:framework:react\":\"npm-run-all test:framework:react:*\",\"test:framework:react:build\":\"cd ./tests/framework/react && npm run build\",\"test:framework:react:install\":\"cd ./tests/framework/react && rimraf ./node_modules package-lock.json && npm install\",\"test:framework:react:run\":\"mocha ./tests/framework/react.js\",\"test:frameworks\":\"npm-run-all test:framework:no-framework test:framework:react\",\"test:integration\":\"karma start karma.conf.ts\",\"test:selenium\":\"mocha tests/browser/index.js\",\"test:unit\":\"nyc mocha -r ts-node/register ./tests/index.ts\",\"test:webpack\":\"cd ./tests/webpack && npm install && npm test\"},\"version\":\"1.7.5\"}");
 
 /***/ }),
 
@@ -378329,11 +378333,11 @@ var render = function() {
         [
           _vm._m(0),
           _vm._v(" "),
-          _c("div", { staticClass: "col-xl-6 pr-0" }, [
+          _c("div", { staticClass: "col-xl-6 px-20" }, [
             _vm._m(1),
             _vm._v(" "),
-            _c("div", { staticClass: "row mx-20" }, [
-              _c("div", { staticClass: "col-12 pl-9 px-0" }, [
+            _c("div", { staticClass: "row mx-0" }, [
+              _c("div", { staticClass: "col-12 pl-9 pr-0" }, [
                 _vm._m(2),
                 _vm._v(" "),
                 _vm._m(3),
@@ -378384,7 +378388,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row mx-20" }, [
+    return _c("div", { staticClass: "row mx-0" }, [
       _c("div", { staticClass: "col-12 px-0" }, [
         _c("h1", [_vm._v("Guided to Success")]),
         _vm._v(" "),
@@ -378535,7 +378539,7 @@ var render = function() {
                   "row mx-0 justify-content-between align-items-center footer-row"
               },
               [
-                _c("div", { staticClass: "col-auto pl-0" }, [
+                _c("div", { staticClass: "col-xl-auto pl-0" }, [
                   _c("img", {
                     staticClass: "d-inline-block",
                     attrs: {
@@ -378655,8 +378659,10 @@ var staticRenderFns = [
       "div",
       { staticClass: "row mx-0 border-bottom align-items-center" },
       [
-        _c("div", { staticClass: "col-6 pl-0" }, [
-          _c("h5", { staticClass: "text-uppercase" }, [_vm._v("ABOUT")])
+        _c("div", { staticClass: "col-6" }, [
+          _c("h5", { staticClass: "text-uppercase font-weight-bold" }, [
+            _vm._v("ABOUT")
+          ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-6 pr-0" }, [
@@ -378681,8 +378687,10 @@ var staticRenderFns = [
       "div",
       { staticClass: "row mx-0 border-bottom align-items-center" },
       [
-        _c("div", { staticClass: "col-6 pl-0" }, [
-          _c("h5", { staticClass: "text-uppercase" }, [_vm._v("Connect")])
+        _c("div", { staticClass: "col-6" }, [
+          _c("h5", { staticClass: "text-uppercase font-weight-bold" }, [
+            _vm._v("Connect")
+          ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-6 pr-0" }, [
@@ -378700,8 +378708,10 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row mx-0 align-items-center" }, [
-      _c("div", { staticClass: "col-6 pl-0" }, [
-        _c("h5", { staticClass: "text-uppercase" }, [_vm._v("Contact")])
+      _c("div", { staticClass: "col-6" }, [
+        _c("h5", { staticClass: "text-uppercase font-weight-bold" }, [
+          _vm._v("Contact")
+        ])
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "col-6 pr-0" }, [
@@ -378836,7 +378846,20 @@ var render = function() {
               ])
             : _vm._e(),
           _vm._v(" "),
-          _vm._m(1)
+          _vm._m(1),
+          _vm._v(" "),
+          _vm.isMobile
+            ? _c("div", { staticClass: "row mx-0 justify-content-end" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "font-weight-bold btn-primary",
+                    attrs: { href: "/register" }
+                  },
+                  [_vm._v("Sign Up Now")]
+                )
+              ])
+            : _vm._e()
         ]
       )
     ]
@@ -378907,7 +378930,7 @@ var staticRenderFns = [
         "div",
         {
           staticClass:
-            "row mx-0 justify-content-center align-items-center container-row"
+            "row mx-auto justify-content-center align-items-center container-row"
         },
         [
           _c("div", { staticClass: "col-12 px-0 container-col" }, [
@@ -379430,7 +379453,7 @@ var render = function() {
                   _vm._v(" "),
                   _vm._m(1)
                 ])
-              : _c("div", { staticClass: "row mx-0" }, [
+              : _c("div", { staticClass: "row mx-0 justify-content-center" }, [
                   _vm._m(2),
                   _vm._v(" "),
                   _vm._m(3),
@@ -379479,7 +379502,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("tr", [
         _c("th", { staticClass: "extra-padding" }, [
-          _c("h4", { staticClass: "text-uppercase mb-0" }, [
+          _c("h4", { staticClass: "text-capitalize mb-0" }, [
             _vm._v("Pricing Table")
           ]),
           _vm._v(" "),
@@ -379801,14 +379824,14 @@ var staticRenderFns = [
     return _c("div", { staticClass: "col-12 px-0" }, [
       _c("h1", [_vm._v("SIAREM")]),
       _vm._v(" "),
-      _c("h2", { staticClass: "text-tuppercase" }, [_vm._v("Pricing table")])
+      _c("h2", { staticClass: "text-capitalize" }, [_vm._v("Pricing table")])
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 px-0" }, [
+    return _c("div", { staticClass: "col-md-10 col-xl-8" }, [
       _c(
         "div",
         {
@@ -379979,7 +380002,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 px-0" }, [
+    return _c("div", { staticClass: "col-md-10 col-xl-8" }, [
       _c(
         "div",
         {
@@ -380150,7 +380173,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 px-0" }, [
+    return _c("div", { staticClass: "col-md-10 col-xl-8" }, [
       _c(
         "div",
         {
@@ -380845,14 +380868,14 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-12 text-center px-0" }, [
-      _c("h1", {}, [_vm._v("WHY USE SIAREM")])
+      _c("h1", {}, [_vm._v("Why Use SIAREM")])
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 text-center px-0" }, [
+    return _c("div", { staticClass: "col-12 text-center px-0 dots" }, [
       _c("img", {
         staticClass: "mx-5",
         attrs: {
@@ -380886,7 +380909,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-5 col-xl-4 pl-0" }, [
-      _c("h2", [_vm._v("FEATURES")])
+      _c("h2", [_vm._v("Features")])
     ])
   },
   function() {
@@ -380894,7 +380917,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col pr-0 text-center" }, [
-      _c("h2", [_vm._v("OTHER CRMS")])
+      _c("h2", [_vm._v("Other CRMs")])
     ])
   },
   function() {
@@ -382143,58 +382166,6 @@ var render = function() {
                   {
                     staticClass: "w-100 m-0 p-0 rounded-0",
                     class: {
-                      "nav-link contacts": true,
-                      "active shadow-none":
-                        _vm.active == "contacts" ? true : false
-                    },
-                    attrs: { href: "/modules/contacts" }
-                  },
-                  [
-                    _c("img", {
-                      attrs: {
-                        src:
-                          "/images/icons/left-sidebar/no-shadows/Contacts.svg",
-                        alt: "nav icon",
-                        width: "51"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("Contacts")])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-item" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "w-100 m-0 p-0 rounded-0",
-                    class: {
-                      "nav-link leads": true,
-                      "active shadow-none": _vm.active == "leads" ? true : false
-                    },
-                    attrs: { href: "/modules/leads" }
-                  },
-                  [
-                    _c("img", {
-                      attrs: {
-                        src: "/images/icons/left-sidebar/no-shadows/Leads.svg",
-                        alt: "nav icon",
-                        width: "51"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("Leads")])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-item" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "w-100 m-0 p-0 rounded-0",
-                    class: {
                       "nav-link call-history": true,
                       "active shadow-none":
                         _vm.active == "call-history" ? true : false
@@ -382214,152 +382185,7 @@ var render = function() {
                     _c("span", [_vm._v("Call History")])
                   ]
                 )
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-item" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "w-100 m-0 p-0 rounded-0",
-                    class: {
-                      "nav-link inventory": true,
-                      "active shadow-none":
-                        _vm.active == "inventory" ? true : false
-                    },
-                    attrs: { href: "/inventory" }
-                  },
-                  [
-                    _c("img", {
-                      attrs: {
-                        src:
-                          "/images/icons/left-sidebar/no-shadows/Inventory.svg",
-                        alt: "nav icon",
-                        width: "51"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("Inventory")])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _vm.current_user.role_id == 1
-                ? _c("li", { staticClass: "nav-item" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "w-100 m-0 p-0 rounded-0",
-                        class: {
-                          "nav-link transactions": true,
-                          "active shadow-none":
-                            _vm.active == "transactions" ? true : false
-                        },
-                        attrs: { href: "/transactions" }
-                      },
-                      [
-                        _c("img", {
-                          attrs: {
-                            src:
-                              "/images/icons/left-sidebar/no-shadows/Transactions.svg",
-                            alt: "nav icon",
-                            width: "51"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("span", [_vm._v("Transactions")])
-                      ]
-                    )
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _c(
-                "li",
-                { staticClass: "nav-item", staticStyle: { display: "none" } },
-                [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "w-100 m-0 p-0 rounded-0",
-                      class: {
-                        "nav-link education": true,
-                        "active shadow-none":
-                          _vm.active == "education" ? true : false
-                      },
-                      attrs: { href: "/education", disabled: "" }
-                    },
-                    [
-                      _c("img", {
-                        attrs: {
-                          src:
-                            "/images/icons/left-sidebar/no-shadows/Leads.svg",
-                          alt: "nav icon",
-                          width: "51"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c("span", [_vm._v("Education")])
-                    ]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _vm.current_user.role_id == 1
-                ? _c("li", { staticClass: "nav-item" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "w-100 m-0 p-0 rounded-0",
-                        class: {
-                          "nav-link users": true,
-                          "active shadow-none":
-                            _vm.active == "users" ? true : false
-                        },
-                        attrs: { href: "/users" }
-                      },
-                      [
-                        _c("img", {
-                          attrs: {
-                            src:
-                              "/images/icons/left-sidebar/no-shadows/Users.svg",
-                            alt: "nav icon",
-                            width: "51"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("span", [_vm._v("Users")])
-                      ]
-                    )
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.current_user.role_id == 1
-                ? _c("li", { staticClass: "nav-item" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "w-100 m-0 p-0 rounded-0",
-                        class: {
-                          "nav-link preferences": true,
-                          "active shadow-none":
-                            _vm.active == "preferences" ? true : false
-                        },
-                        attrs: { href: "/preferences" }
-                      },
-                      [
-                        _c("img", {
-                          attrs: {
-                            src:
-                              "/images/icons/left-sidebar/no-shadows/System Pref.svg",
-                            alt: "nav icon",
-                            width: "51"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _c("span", [_vm._v("System Preferences")])
-                      ]
-                    )
-                  ])
-                : _vm._e()
+              ])
             ]
           )
         ])
@@ -382382,7 +382208,7 @@ var staticRenderFns = [
         _c("img", {
           staticClass: "logo mx-auto",
           attrs: {
-            src: "/images/SVG_Images/siarem-logo-icon.svg",
+            src: "/images/SVG_Images/Logo.svg",
             alt: "logo",
             width: "30"
           }
@@ -435165,8 +434991,8 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\uhustle\resources\assets\js\app.js */"./resources/assets/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\uhustle\resources\assets\sass\app.scss */"./resources/assets/sass/app.scss");
+__webpack_require__(/*! C:\xampp\uhustle-app\resources\assets\js\app.js */"./resources/assets/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\uhustle-app\resources\assets\sass\app.scss */"./resources/assets/sass/app.scss");
 
 
 /***/ })

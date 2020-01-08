@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Log;
 Route::get('/', function () {
     // return redirect('/login');
     // return view('/welcome');
-    return redirect('/landing');
+    return redirect('/login');
 });
 
 Route::get('/landing', function() {

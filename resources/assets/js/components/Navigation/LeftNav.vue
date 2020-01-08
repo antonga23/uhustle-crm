@@ -90,7 +90,7 @@
     <aside class="main-sidebar sidebar-dark-primary">
       <!-- Brand Logo -->
       <a href="/workstation" class="text-center brand-link">
-        <img class="logo mx-auto" src="/images/SVG_Images/siarem-logo-icon.svg" alt="logo" width="30">
+        <img class="logo mx-auto" src="/images/SVG_Images/Logo.svg" alt="logo" width="30">
       </a>
 
       <!-- Sidebar -->
@@ -121,7 +121,7 @@
               </a>
             </li>
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a 
                 href="/modules/contacts"
                 :class="{ 'nav-link contacts' : true, 'active shadow-none' : (active == 'contacts')? true : false }" 
@@ -139,7 +139,7 @@
                 <img src="/images/icons/left-sidebar/no-shadows/Leads.svg" alt="nav icon" width="51"/>
                 <span>Leads</span>
               </a>
-            </li>
+            </li> -->
 
             <li class="nav-item">
               <a 
@@ -151,7 +151,7 @@
               </a>
             </li>
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a 
                 href="/inventory" 
                 :class="{ 'nav-link inventory' : true, 'active shadow-none' : (active == 'inventory')? true : false }" 
@@ -169,7 +169,7 @@
                 <img src="/images/icons/left-sidebar/no-shadows/Transactions.svg" alt="nav icon" width="51"/>
                 <span>Transactions</span>
               </a>
-            </li>
+            </li> -->
 
             <!-- <li class="nav-item">
               <a 
@@ -181,7 +181,7 @@
               </a>
             </li> -->
 
-            <li class="nav-item" style="display:none;">
+            <!-- <li class="nav-item" style="display:none;">
               <a 
                 href="/education" 
                 :class="{ 'nav-link education' : true, 'active shadow-none' : (active == 'education')? true : false }" 
@@ -210,7 +210,7 @@
                 <img src="/images/icons/left-sidebar/no-shadows/System Pref.svg" alt="nav icon" width="51"/>
                 <span>System Preferences</span>
               </a>
-            </li>
+            </li> -->
           </ul>
         </nav>
         <!-- /.sidebar-menu -->

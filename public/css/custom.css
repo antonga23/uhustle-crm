@@ -81,7 +81,9 @@ html, body {
 .mt-10 {
   margin-top: 10% !important;
 }
-
+.mt-20 { 
+  margin-top: 10% !important; 
+} 
 #auth .card{
   border: none !important;
   box-shadow : none !important;
@@ -278,14 +280,68 @@ html, body {
 }
 /*end auth buttons styling*/
 
-/*login pages*/
-.main-wrapper {
+/*login pages uHustle*/
+.left-side{ 
+  background-image: url('/images/Sign_In/Assests/Left-Background.svg'); 
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-color: #F38912 !important; 
+} 
+.left-side img { 
+max-width:70%; 
+height:auto; 
+position: absolute; 
+top: 39%; 
+left: 15%; 
+}
+
+.inner-login-container { 
+  position: absolute; 
+  top: 47%; 
+  -ms-transform: translateY(-50%); 
+  /* transform: translateY(-50%); */ 
+  right: 0; 
+} 
+
+.outer-login-container.left-side .activeBtn{ 
+  /* border-bottom: 1px solid #fff!important; */ 
+  color: #F28821!important; 
+  font-size: 26px !important; 
+  font-family: 'Rubik', sans-serif !important; 
+  background-image: url('/images/Sign_In/Assests/White-space.svg'); 
+  background-repeat: no-repeat; 
+  background-position: 50%; 
+  position: relative; 
+  left: 31%; 
+  height: 84px; 
+} 
+.outer-login-container.left-side .btn:focus { 
+  outline: 0 !important; 
+  box-shadow: none !important; 
+} 
+.outer-login-container.left-side .inactiveBtn{ 
+  color: #F2F2F2!important; 
+  font-size: 26px !important; 
+  font-family: 'Rubik', sans-serif !important; 
+  position: relative; 
+  left: 31%; 
+  height: 84px; 
+} 
+.logo-title { 
+  color: #F38912; 
+  font-size: 77px; 
+} 
+.lp-logo { 
+  width: 217px !important; 
+} 
+
+/* .main-wrapper {
   background-image: url('/images/Sign_In/Assests/Landing_1.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: right top;
   background-color: #00c3ff;
-}
+} */
 .main-wrapper .row .col-6:first-child {
   padding-left: 10.2%!important;
 }
@@ -347,7 +403,6 @@ html, body {
   margin-top: 46%!important;
 }
 .copyright {
-  color: #fff !important;
   font-size: 0.78vw;
   padding-left:35px;
   padding-right:35px;
