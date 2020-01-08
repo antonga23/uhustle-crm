@@ -329,7 +329,7 @@ left: 15%;
 } 
 .logo-title { 
   color: #F38912; 
-  font-size: 77px; 
+  font-size: 3vw; 
 } 
 .lp-logo { 
   width: 217px !important; 
@@ -368,16 +368,6 @@ left: 15%;
   padding: 10px 16px;
   line-height:1em; 
 }
-.login .form-control {
-  padding: 10px 35px 11px!important;
-  height: auto!important;
-}
-.login .form-control::placeholder {
-  font-size: 0.73vw;
-  font-family: 'Rubik', sans-serif !important;
-  font-style: italic;
-  color: #999999;
-}
 .route-btns .col-auto:first-child{
   padding-left:35px;
 }
@@ -391,7 +381,6 @@ left: 15%;
 }
 .terms-text {
   font-size: 0.78vw!important;
-  color: #fff!important;
 }
 .pwd-link {
   font-size: 0.78vw!important;
@@ -399,6 +388,7 @@ left: 15%;
   text-align: right !important;
   text-decoration: underline !important;
 }
+
 .submit-btn {
   margin-top: 46%!important;
 }
@@ -1594,9 +1584,9 @@ max-height: 300px;
   background-color: #fff;
   border: 1px solid #444444 !important;
   border-radius: 50% !important;
-  padding-top:6px; 
-  height: 25px; 
-  width: 25px; 
+  padding-top:4px; 
+  height: 21px; 
+  width: 21px; 
   margin: auto;
   text-decoration: none;
 }

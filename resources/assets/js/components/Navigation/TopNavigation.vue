@@ -307,15 +307,18 @@ select.month-selector {
               </div>
 						</li>
 					</ul>		
-
           <ul v-if="active == 'workstation'" class="d-inline-block navbar-nav callIcons">
 						<!-- <li :class="{ 'nav-item d-sm-inline-block' : true, 'idle' : is_idle, 'on-call' : is_oncall, 'offline' : is_offline }">
 		    			<button id="toggle-btn" class="nav-link border-0 bg-transparent status"  @click="switchState()"></button>
 						</li> -->
-						<!-- <li class="nav-item d-sm-inline-block" v-if="auto_dialer_settings.disabled == 1">
-		    			<button v-if="!is_oncall" id="show-btn" class="nav-link border-0 bg-transparent call" @click="startCall()"></button>
-		    			<button v-if="is_oncall" id="show-btn" class="nav-link border-0 bg-transparent end-call" @click="endCall()"></button>
-						</li> -->
+						<li class="nav-item d-sm-inline-block" v-if="auto_dialer_settings.disabled == 1">
+              <div class="row mx-0 align-items-center">
+                <div class="col-auto px-0">
+                  <button v-if="!is_oncall" id="show-btn" class="nav-link border-0 bg-transparent call" @click="startCall()"></button>
+                  <button v-if="is_oncall" id="show-btn" class="nav-link border-0 bg-transparent end-call" @click="endCall()"></button>
+                </div>
+              </div>
+						</li>
 					</ul>			
 				</div>
 			</div>

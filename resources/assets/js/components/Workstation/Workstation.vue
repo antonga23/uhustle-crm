@@ -35,14 +35,11 @@
   margin-bottom: 0; 
 } 
  
-.border-top-grey { 
-  border-top: 1px solid #ededee; 
-} 
 .border-left-grey { 
   border-left: 1px solid #ededee; 
 } 
  
-div.col-6:last-child .inner-div .row, div.col-6:nth-last-child(2) .inner-div .row { 
+.border-bottom-grey { 
   border-bottom: 1px solid #ededee; 
 } 
  
@@ -909,7 +906,7 @@ a.down-scroll:hover {
       <div class="row mx-0 pb-5 justify-content-between top-section agent-stats-1"> 
         <div class="col-6" v-for="(item, name, i) in module_item.item_meta" :key="i">  
           <div class="2" v-for="(custom_field, index) in item_custom_fields" :key="index" v-if="item.custom_field_id == custom_field.id">  
-            <div class="inner-div" v-if="item.custom_field_id == custom_field.id && item.custom_field_value !== null">  
+            <div class="inner-div border-bottom-grey" v-if="item.custom_field_id == custom_field.id && item.custom_field_value !== null">  
               
               <div  
                 class="row mx-0 border-top-grey align-items-center"  
