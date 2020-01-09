@@ -294,7 +294,10 @@ select.month-selector {
             </a-select>
           </div>
 
-					<ul v-if="(active == 'workstation' || active == 'call-history' || active == 'transactions' || active == 'inventory')" class="d-inline-block navbar-nav searchBar">
+				  <div class="row">
+            <div class="col-12">
+              <div class="col-6">
+                <ul v-if="(active == 'workstation' || active == 'call-history' || active == 'transactions' || active == 'inventory')" class="d-inline-block navbar-nav searchBar">
 						<li class="nav-item d-sm-inline-block">
 							<div class="row mx-0 align-items-center">
                 <div class="col px-0">
@@ -307,7 +310,9 @@ select.month-selector {
               </div>
 						</li>
 					</ul>		
-          <ul v-if="active == 'workstation'" class="d-inline-block navbar-nav callIcons">
+              </div>
+              <div class="col-6">
+                   <ul v-if="active == 'workstation'" class="d-inline-block navbar-nav callIcons">
 						<!-- <li :class="{ 'nav-item d-sm-inline-block' : true, 'idle' : is_idle, 'on-call' : is_oncall, 'offline' : is_offline }">
 		    			<button id="toggle-btn" class="nav-link border-0 bg-transparent status"  @click="switchState()"></button>
 						</li> -->
@@ -320,6 +325,12 @@ select.month-selector {
               </div>
 						</li>
 					</ul>			
+              </div>
+            </div>
+          </div>
+
+					
+  
 				</div>
 			</div>
 		</nav>

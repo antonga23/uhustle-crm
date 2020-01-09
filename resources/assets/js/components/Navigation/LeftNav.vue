@@ -90,7 +90,7 @@
     <aside class="main-sidebar sidebar-dark-primary">
       <!-- Brand Logo -->
       <a href="/workstation" class="text-center brand-link">
-        <img class="logo mx-auto" src="/images/SVG_Images/Logo.svg" alt="logo" width="30">
+        <img class="logo mx-auto" title="Workstation" src="/images/SVG_Images/Logo.svg" alt="logo" width="30">
       </a>
 
       <!-- Sidebar -->

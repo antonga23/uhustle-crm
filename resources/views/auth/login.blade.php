@@ -85,7 +85,7 @@
                                             </div> 
                                         </form> 
                                         <hr class="my-4"> 
-                                        <p class="copyright">@ 2019 UHUSTLE. All rights reserve</p> 
+                                        <p class="copyright">@ <script>document.write(new Date().getFullYear())</script> UHUSTLE. All rights reserve</p>
                                     </div> 
                                 </div> 
                             </div> 

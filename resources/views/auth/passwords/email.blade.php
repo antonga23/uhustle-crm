@@ -45,14 +45,14 @@
                                           </div>
                                                 <div class="form-group row mb-0">
                                                     <div class="col-12">
-                                                        <button type="submit" class="btn btn-primary w-100">
+                                                        <button type="submit" class="btn btn-primary w-100 m-0">
                                                             {{ __('Send Password Reset Link') }}
                                                         </button>
                                                     </div>
                                                 </div>
                                         </form>
                                         <hr class="my-4">
-                                        <p class="copyright">@ 2019 UHUSTLE. All rights reserve</p>
+                                        <p class="copyright">@ <script>document.write(new Date().getFullYear())</script> UHUSTLE. All rights reserve</p>
                                         </div>
                                 </div>
                           </div>

@@ -192307,6 +192307,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['active', 'logged_user'],
@@ -382208,6 +382219,7 @@ var staticRenderFns = [
         _c("img", {
           staticClass: "logo mx-auto",
           attrs: {
+            title: "Workstation",
             src: "/images/SVG_Images/Logo.svg",
             alt: "logo",
             width: "30"
@@ -388007,66 +388019,85 @@ var render = function() {
                   )
                 : _vm._e(),
               _vm._v(" "),
-              _vm.active == "workstation" ||
-              _vm.active == "call-history" ||
-              _vm.active == "transactions" ||
-              _vm.active == "inventory"
-                ? _c(
-                    "ul",
-                    { staticClass: "d-inline-block navbar-nav searchBar" },
-                    [_vm._m(0)]
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.active == "workstation"
-                ? _c(
-                    "ul",
-                    { staticClass: "d-inline-block navbar-nav callIcons" },
-                    [
-                      _vm.auto_dialer_settings.disabled == 1
-                        ? _c(
-                            "li",
-                            { staticClass: "nav-item d-sm-inline-block" },
-                            [
-                              _c(
-                                "div",
-                                { staticClass: "row mx-0 align-items-center" },
-                                [
-                                  _c("div", { staticClass: "col-auto px-0" }, [
-                                    !_vm.is_oncall
-                                      ? _c("button", {
-                                          staticClass:
-                                            "nav-link border-0 bg-transparent call",
-                                          attrs: { id: "show-btn" },
-                                          on: {
-                                            click: function($event) {
-                                              return _vm.startCall()
-                                            }
-                                          }
-                                        })
-                                      : _vm._e(),
-                                    _vm._v(" "),
-                                    _vm.is_oncall
-                                      ? _c("button", {
-                                          staticClass:
-                                            "nav-link border-0 bg-transparent end-call",
-                                          attrs: { id: "show-btn" },
-                                          on: {
-                                            click: function($event) {
-                                              return _vm.endCall()
-                                            }
-                                          }
-                                        })
-                                      : _vm._e()
-                                  ])
-                                ]
-                              )
-                            ]
-                          )
-                        : _vm._e()
-                    ]
-                  )
-                : _vm._e()
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-12" }, [
+                  _c("div", { staticClass: "col-6" }, [
+                    _vm.active == "workstation" ||
+                    _vm.active == "call-history" ||
+                    _vm.active == "transactions" ||
+                    _vm.active == "inventory"
+                      ? _c(
+                          "ul",
+                          {
+                            staticClass: "d-inline-block navbar-nav searchBar"
+                          },
+                          [_vm._m(0)]
+                        )
+                      : _vm._e()
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-6" }, [
+                    _vm.active == "workstation"
+                      ? _c(
+                          "ul",
+                          {
+                            staticClass: "d-inline-block navbar-nav callIcons"
+                          },
+                          [
+                            _vm.auto_dialer_settings.disabled == 1
+                              ? _c(
+                                  "li",
+                                  { staticClass: "nav-item d-sm-inline-block" },
+                                  [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "row mx-0 align-items-center"
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          { staticClass: "col-auto px-0" },
+                                          [
+                                            !_vm.is_oncall
+                                              ? _c("button", {
+                                                  staticClass:
+                                                    "nav-link border-0 bg-transparent call",
+                                                  attrs: { id: "show-btn" },
+                                                  on: {
+                                                    click: function($event) {
+                                                      return _vm.startCall()
+                                                    }
+                                                  }
+                                                })
+                                              : _vm._e(),
+                                            _vm._v(" "),
+                                            _vm.is_oncall
+                                              ? _c("button", {
+                                                  staticClass:
+                                                    "nav-link border-0 bg-transparent end-call",
+                                                  attrs: { id: "show-btn" },
+                                                  on: {
+                                                    click: function($event) {
+                                                      return _vm.endCall()
+                                                    }
+                                                  }
+                                                })
+                                              : _vm._e()
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              : _vm._e()
+                          ]
+                        )
+                      : _vm._e()
+                  ])
+                ])
+              ])
             ])
           ]
         )
