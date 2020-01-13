@@ -67111,19 +67111,19 @@ function moveTo(from, to, targetIndexes, insertBefore) {
 /*!***********************************************************!*\
   !*** ./node_modules/@syncfusion/ej2-navigations/index.js ***!
   \***********************************************************/
-/*! exports provided: HScroll, VScroll, MenuAnimationSettings, MenuItem, Item, Toolbar, AccordionActionSettings, AccordionAnimationSettings, AccordionItem, Accordion, ContextMenu, Menu, TabActionSettings, TabAnimationSettings, Header, TabItem, Tab, FieldsSettings, ActionSettings, NodeAnimationSettings, TreeView, Sidebar */
+/*! exports provided: MenuAnimationSettings, MenuItem, HScroll, VScroll, Item, Toolbar, AccordionActionSettings, AccordionAnimationSettings, AccordionItem, Accordion, ContextMenu, Menu, TabActionSettings, TabAnimationSettings, Header, TabItem, Tab, FieldsSettings, ActionSettings, NodeAnimationSettings, TreeView, Sidebar */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _src_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./src/index */ "./node_modules/@syncfusion/ej2-navigations/src/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HScroll", function() { return _src_index__WEBPACK_IMPORTED_MODULE_0__["HScroll"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VScroll", function() { return _src_index__WEBPACK_IMPORTED_MODULE_0__["VScroll"]; });
-
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MenuAnimationSettings", function() { return _src_index__WEBPACK_IMPORTED_MODULE_0__["MenuAnimationSettings"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MenuItem", function() { return _src_index__WEBPACK_IMPORTED_MODULE_0__["MenuItem"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HScroll", function() { return _src_index__WEBPACK_IMPORTED_MODULE_0__["HScroll"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VScroll", function() { return _src_index__WEBPACK_IMPORTED_MODULE_0__["VScroll"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Item", function() { return _src_index__WEBPACK_IMPORTED_MODULE_0__["Item"]; });
 
@@ -68969,7 +68969,7 @@ var HScroll = /** @class */ (function (_super) {
 /*!**********************************************************************!*\
   !*** ./node_modules/@syncfusion/ej2-navigations/src/common/index.js ***!
   \**********************************************************************/
-/*! exports provided: HScroll, VScroll, MenuAnimationSettings, MenuItem */
+/*! exports provided: MenuAnimationSettings, MenuItem, HScroll, VScroll */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -71582,19 +71582,19 @@ __webpack_require__.r(__webpack_exports__);
 /*!***************************************************************!*\
   !*** ./node_modules/@syncfusion/ej2-navigations/src/index.js ***!
   \***************************************************************/
-/*! exports provided: HScroll, VScroll, MenuAnimationSettings, MenuItem, Item, Toolbar, AccordionActionSettings, AccordionAnimationSettings, AccordionItem, Accordion, ContextMenu, Menu, TabActionSettings, TabAnimationSettings, Header, TabItem, Tab, FieldsSettings, ActionSettings, NodeAnimationSettings, TreeView, Sidebar */
+/*! exports provided: MenuAnimationSettings, MenuItem, HScroll, VScroll, Item, Toolbar, AccordionActionSettings, AccordionAnimationSettings, AccordionItem, Accordion, ContextMenu, Menu, TabActionSettings, TabAnimationSettings, Header, TabItem, Tab, FieldsSettings, ActionSettings, NodeAnimationSettings, TreeView, Sidebar */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _common_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./common/index */ "./node_modules/@syncfusion/ej2-navigations/src/common/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HScroll", function() { return _common_index__WEBPACK_IMPORTED_MODULE_0__["HScroll"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VScroll", function() { return _common_index__WEBPACK_IMPORTED_MODULE_0__["VScroll"]; });
-
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MenuAnimationSettings", function() { return _common_index__WEBPACK_IMPORTED_MODULE_0__["MenuAnimationSettings"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MenuItem", function() { return _common_index__WEBPACK_IMPORTED_MODULE_0__["MenuItem"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HScroll", function() { return _common_index__WEBPACK_IMPORTED_MODULE_0__["HScroll"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VScroll", function() { return _common_index__WEBPACK_IMPORTED_MODULE_0__["VScroll"]; });
 
 /* harmony import */ var _toolbar_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./toolbar/index */ "./node_modules/@syncfusion/ej2-navigations/src/toolbar/index.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Item", function() { return _toolbar_index__WEBPACK_IMPORTED_MODULE_1__["Item"]; });
@@ -180905,6 +180905,132 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -180916,21 +181042,21 @@ __webpack_require__.r(__webpack_exports__);
     BarChart: vue_morris__WEBPACK_IMPORTED_MODULE_1__["BarChart"]
   },
   mounted: function mounted() {
-    console.log('Component mounted');
+    console.log("Component mounted");
     this.getDashboard();
     var vm = this;
-    Fire.$on('AfterCallBackRequest', function (data) {
+    Fire.$on("AfterCallBackRequest", function (data) {
       vm.call_backs = data.call_backs;
     });
-    Fire.$on('AfterTaskkRequest', function (data) {
+    Fire.$on("AfterTaskkRequest", function (data) {
       vm.reminders = data.tasks;
     });
-    Fire.$on('TopMonthFilterChange', function (data) {
+    Fire.$on("TopMonthFilterChange", function (data) {
       vm.getCallLog(data.month);
     });
     this.Toast = this.$swal.mixin({
       toast: true,
-      position: 'top-end',
+      position: "top-end",
       showConfirmButton: false,
       timer: 3000
     });
@@ -180940,19 +181066,19 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       call_log: {
-        commission: '',
-        total_calls: '',
-        total_sales: '',
-        con_ratio: '',
-        sum_sales: '',
-        call_history: '',
-        sum_call_back: '',
-        avg_time: ''
+        commission: "",
+        total_calls: "",
+        total_sales: "",
+        con_ratio: "",
+        sum_sales: "",
+        call_history: "",
+        sum_call_back: "",
+        avg_time: ""
       },
       attrs: [{
-        key: 'today',
+        key: "today",
         highlight: true,
-        "class": 'today_date',
+        "class": "today_date",
         dates: new Date()
       }],
       call_backs: [],
@@ -180962,15 +181088,15 @@ __webpack_require__.r(__webpack_exports__);
       add_task: false,
       edit_next_cb: false,
       new_task: {
-        title: '',
-        description: '',
+        title: "",
+        description: "",
         date: moment__WEBPACK_IMPORTED_MODULE_3___default()()
       },
-      call_back_id: '',
+      call_back_id: "",
       call_back_time: moment__WEBPACK_IMPORTED_MODULE_3___default()(),
       call_back_date: moment__WEBPACK_IMPORTED_MODULE_3___default()(),
       call_back_note: null,
-      call_back_name: '',
+      call_back_name: "",
       next_call_back_data: [],
       next_call_back_data_cache: [],
       Toast: null,
@@ -181008,13 +181134,13 @@ __webpack_require__.r(__webpack_exports__);
       this.edit_next_cb = !this.edit_next_cb;
     },
     getDashboard: function getDashboard() {
-      var month = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+      var month = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
       var vm = this;
 
-      if (month == '') {
-        var endpoint = '/calls/get-dashboard';
+      if (month == "") {
+        var endpoint = "/calls/get-dashboard";
       } else {
-        var endpoint = '/calls/get-dashboard/' + month;
+        var endpoint = "/calls/get-dashboard/" + month;
       }
 
       vm.$Progress.start();
@@ -181036,27 +181162,27 @@ __webpack_require__.r(__webpack_exports__);
           vm.$Progress.finish();
         } else {
           vm.$Progress.fail();
-          vm.$swal('Failed', 'Opps, something went wrong while retrieving call log, please try again', 'warning');
+          vm.$swal("Failed", "Opps, something went wrong while retrieving call log, please try again", "warning");
         }
       });
     },
     addTask: function addTask() {
-      this.new_task.title = '';
-      this.new_task.description = '';
+      this.new_task.title = "";
+      this.new_task.description = "";
       this.new_task.date = moment__WEBPACK_IMPORTED_MODULE_3___default()();
       this.add_task = !this.add_task;
     },
     submitTask: function submitTask() {
-      Fire.$emit('OnAddTask', {
+      Fire.$emit("OnAddTask", {
         new_task: this.new_task
       });
-      this.new_task.title = '';
-      this.new_task.description = '';
+      this.new_task.title = "";
+      this.new_task.description = "";
       this.new_task.date = moment__WEBPACK_IMPORTED_MODULE_3___default()();
       this.add_task = !this.add_task;
     },
     editTask: function editTask(task, mode) {
-      Fire.$emit('OnEditTask', {
+      Fire.$emit("OnEditTask", {
         task: task,
         mode: mode
       });
@@ -201193,30 +201319,31 @@ var Device = __webpack_require__(/*! twilio-client */ "./node_modules/twilio-cli
       var vm = this;
 
       if (!vm.activity.title || !vm.activity.status || !vm.activity.duedate || !vm.activity.time) {
+        vm.$Progress.fail();
         vm.$swal('Note', 'All fields are required', 'warning');
+      } else {
+        axios.post('/tasks/create', {
+          title: vm.activity.title,
+          status: vm.activity.status,
+          date: vm.activity.duedate,
+          time: vm.activity.time,
+          lead_id: vm.item_id
+        }).then(function (response) {
+          if (response.data.success == true) {
+            vm.Toast.fire({
+              type: 'success',
+              title: 'Activity added successfully'
+            });
+            vm.getActivities();
+            vm.addActivityCollapse();
+            vm.$Progress.finish();
+          } else {
+            vm.$Progress.fail();
+            vm.$swal('Failed', 'Opps, something went wrong while update, please try again', 'warning');
+          }
+        });
+        vm.activity.title = '', vm.activity.duedate = '', vm.activity.status = 2, this.edit_task = false;
       }
-
-      axios.post('/tasks/create', {
-        title: vm.activity.title,
-        status: vm.activity.status,
-        date: vm.activity.duedate,
-        time: vm.activity.time,
-        lead_id: vm.item_id
-      }).then(function (response) {
-        if (response.data.success == true) {
-          vm.Toast.fire({
-            type: 'success',
-            title: 'Activity added successfully'
-          });
-          vm.getActivities();
-          vm.addActivityCollapse();
-          vm.$Progress.finish();
-        } else {
-          vm.$Progress.fail();
-          vm.$swal('Failed', 'Opps, something went wrong while update, please try again', 'warning');
-        }
-      });
-      vm.activity.title = '', vm.activity.duedate = '', vm.activity.status = 2, this.edit_task = false;
     },
     getActivities: function getActivities() {
       var vm = this;
@@ -222623,7 +222750,7 @@ var VBTooltip = {
 /*!*************************************************!*\
   !*** ./node_modules/bootstrap-vue/esm/index.js ***!
   \*************************************************/
-/*! exports provided: componentsPlugin, BVModalPlugin, BVToastPlugin, AlertPlugin, BAlert, BadgePlugin, BBadge, BreadcrumbPlugin, BBreadcrumb, BBreadcrumbItem, ButtonPlugin, BButton, BButtonClose, ButtonGroupPlugin, BButtonGroup, ButtonToolbarPlugin, BButtonToolbar, CardPlugin, BCard, BCardBody, BCardFooter, BCardGroup, BCardHeader, BCardImg, BCardImgLazy, BCardSubTitle, BCardText, BCardTitle, CarouselPlugin, BCarousel, BCarouselSlide, CollapsePlugin, BCollapse, DropdownPlugin, BDropdown, BDropdownItem, BDropdownItemButton, BDropdownDivider, BDropdownForm, BDropdownGroup, BDropdownHeader, BDropdownText, EmbedPlugin, BEmbed, FormPlugin, BForm, BFormDatalist, BFormText, BFormInvalidFeedback, BFormValidFeedback, FormCheckboxPlugin, BFormCheckbox, BFormCheckboxGroup, FormFilePlugin, BFormFile, FormGroupPlugin, BFormGroup, FormInputPlugin, BFormInput, FormRadioPlugin, BFormRadio, BFormRadioGroup, FormSelectPlugin, BFormSelect, FormTextareaPlugin, BFormTextarea, ImagePlugin, BImg, BImgLazy, InputGroupPlugin, BInputGroup, BInputGroupAddon, BInputGroupAppend, BInputGroupPrepend, BInputGroupText, JumbotronPlugin, BJumbotron, LayoutPlugin, BContainer, BRow, BCol, BFormRow, LinkPlugin, BLink, ListGroupPlugin, BListGroup, BListGroupItem, MediaPlugin, BMedia, BMediaAside, BMediaBody, ModalPlugin, BModal, NavPlugin, BNav, BNavForm, BNavItem, BNavItemDropdown, BNavText, NavbarPlugin, BNavbar, BNavbarBrand, BNavbarNav, BNavbarToggle, PaginationPlugin, BPagination, PaginationNavPlugin, BPaginationNav, PopoverPlugin, BPopover, ProgressPlugin, BProgress, BProgressBar, SpinnerPlugin, BSpinner, TablePlugin, BTable, BTableLite, TabsPlugin, BTabs, BTab, ToastPlugin, BToast, BToaster, TooltipPlugin, BTooltip, directivesPlugin, VBModalPlugin, VBModal, VBPopoverPlugin, VBPopover, VBScrollspyPlugin, VBScrollspy, VBTogglePlugin, VBToggle, VBTooltipPlugin, VBTooltip, BVConfigPlugin, BVConfig, BootstrapVue, install, setConfig, default */
+/*! exports provided: BVConfigPlugin, BVConfig, BootstrapVue, install, setConfig, default, componentsPlugin, BVModalPlugin, BVToastPlugin, AlertPlugin, BAlert, BadgePlugin, BBadge, BreadcrumbPlugin, BBreadcrumb, BBreadcrumbItem, ButtonPlugin, BButton, BButtonClose, ButtonGroupPlugin, BButtonGroup, ButtonToolbarPlugin, BButtonToolbar, CardPlugin, BCard, BCardBody, BCardFooter, BCardGroup, BCardHeader, BCardImg, BCardImgLazy, BCardSubTitle, BCardText, BCardTitle, CarouselPlugin, BCarousel, BCarouselSlide, CollapsePlugin, BCollapse, DropdownPlugin, BDropdown, BDropdownItem, BDropdownItemButton, BDropdownDivider, BDropdownForm, BDropdownGroup, BDropdownHeader, BDropdownText, EmbedPlugin, BEmbed, FormPlugin, BForm, BFormDatalist, BFormText, BFormInvalidFeedback, BFormValidFeedback, FormCheckboxPlugin, BFormCheckbox, BFormCheckboxGroup, FormFilePlugin, BFormFile, FormGroupPlugin, BFormGroup, FormInputPlugin, BFormInput, FormRadioPlugin, BFormRadio, BFormRadioGroup, FormSelectPlugin, BFormSelect, FormTextareaPlugin, BFormTextarea, ImagePlugin, BImg, BImgLazy, InputGroupPlugin, BInputGroup, BInputGroupAddon, BInputGroupAppend, BInputGroupPrepend, BInputGroupText, JumbotronPlugin, BJumbotron, LayoutPlugin, BContainer, BRow, BCol, BFormRow, LinkPlugin, BLink, ListGroupPlugin, BListGroup, BListGroupItem, MediaPlugin, BMedia, BMediaAside, BMediaBody, ModalPlugin, BModal, NavPlugin, BNav, BNavForm, BNavItem, BNavItemDropdown, BNavText, NavbarPlugin, BNavbar, BNavbarBrand, BNavbarNav, BNavbarToggle, PaginationPlugin, BPagination, PaginationNavPlugin, BPaginationNav, PopoverPlugin, BPopover, ProgressPlugin, BProgress, BProgressBar, SpinnerPlugin, BSpinner, TablePlugin, BTable, BTableLite, TabsPlugin, BTabs, BTab, ToastPlugin, BToast, BToaster, TooltipPlugin, BTooltip, directivesPlugin, VBModalPlugin, VBModal, VBPopoverPlugin, VBPopover, VBScrollspyPlugin, VBScrollspy, VBTogglePlugin, VBToggle, VBTooltipPlugin, VBTooltip */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -251730,7 +251857,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\nh1[data-v-2c246ed2] {\n    font-size: 1.04vw;\n    font-family: 'Rubik', sans-serif;\n    padding-left: 5.2%;\n    padding-right: 5.2%;\n    margin-top:1%;\n}\n#dash-container[data-v-2c246ed2] {\n    padding-left: 5.2%;\n    padding-right: 5.2%;\n    background-color: #F7F7F7;\n}\n#top-section[data-v-2c246ed2] {\n    padding-top:1%;\n    margin-bottom: 5.5%;\n}\nselect.rounded-pill[data-v-2c246ed2]{\n    box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\n    font-size: 0.84vw;\n    font-family: 'Rubik', sans-serif;\n    padding:9px 17px 7px;\n    color: #333333;\n}\n.divider-line[data-v-2c246ed2] {\n    height: 1px;\n    background-color: #ccc;\n}\n#top-section .agent-stats[data-v-2c246ed2] {\n    margin-top:2.5%;\n}\n#top-section .agent-stats .card[data-v-2c246ed2]{    \n    border-radius: 25px;\n    padding: 1.3%;\n    box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    margin-left: 0.9%;\n    margin-right: 0.9%;\n}\n#top-section .agent-stats .card .card-numeral[data-v-2c246ed2] {\n    font-size: 1.58vw;\n    line-height: 1em;\n    letter-spacing: 0.1em;\n    color: #333333;\n}\n#top-section .agent-stats .card .card-desc[data-v-2c246ed2] {\n    font-size: 0.82vw;\n    font-family: 'Rubik', sans-serif;\n    line-height: 1em;\n    color: #333333;\n    margin-top: 8px;\n}\n#top-section .agent-stats .card .card-stat[data-v-2c246ed2] {\n    font-size: 0.71vw;\n    font-family: 'Rubik', sans-serif;\n    line-height: 1em;\n    letter-spacing: 0.1em;\n    margin-top: 12px;\n}\n.agent-graphs[data-v-2c246ed2] {\n    margin-top:3.4%;\n}\n.agent-graphs .card[data-v-2c246ed2] {\n    margin-left: 1.7%;\n    margin-right: 1.7%;\n    background-color: transparent;\n}\n.agent-graphs .tab-content[data-v-2c246ed2] {\n    padding-top:12px;\n    border-bottom-left-radius: 25px;\n    border-bottom-right-radius: 25px;\n    background-color: #fff;\n    box-shadow: 0 0 20px 10px #e6e6e6;\n    -webkit-box-shadow: 0 0 20px 10px #e6e6e6;\n    -moz-box-shadow: 0 0 20px 10px #e6e6e6;\n    -o-box-shadow: 0 0 20px 10px #e6e6e6;\n}\n.agent-graphs .tab-pane[data-v-2c246ed2] {\n    padding:2.5% 8.5% 5%;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[data-v-2c246ed2] {\n    color: #808080;\n    font-size: 0.73vw;\n    border: none;\n}\n.nav.nav-tabs.card-header-tabs .nav-link .icon[data-v-2c246ed2] {\n    padding-top:18px;\n    padding-bottom:18px;\n    margin-right: 5%;\n}\n@media screen and (max-width: 1643px) {\n.nav.nav-tabs.card-header-tabs .nav-link .icon[data-v-2c246ed2] {\n      width: 27px;\n}\n}\n.agent-graphs .nav-tabs .nav-item[data-v-2c246ed2] {\n    margin-bottom: 3px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][data-v-2c246ed2]{ \n    box-shadow: -0 -17px 20px rgba(0,0,0,0.05);\n    -webkit-box-shadow: -0 -17px 20px rgba(0,0,0,0.05);\n    -moz-box-shadow: -0 -17px 20px rgba(0,0,0,0.05);\n    -o-box-shadow: -0 -17px 20px rgba(0,0,0,0.05); \n    border-top-left-radius: 25px; \n    border-top-right-radius: 25px;\n}\n.card .card-header.tab-card-header[data-v-2c246ed2] {\n    background-color: transparent;\n    border-top-left-radius: 25px;\n    border-top-right-radius: 25px;\n}\n.agent-details[data-v-2c246ed2] {\n    margin-top: 3.1%;\n}\n.agent-details .container-row .col[data-v-2c246ed2], .agent-details .container-row .col-3[data-v-2c246ed2]{\n    padding-left: 1.3%;\n    padding-right: 1.3%;\n}\n.agent-details .top-row .col[data-v-2c246ed2] {\n    padding-left: 1.7%;\n    padding-right: 1.7%;\n}\n.agent-details .bottom-row[data-v-2c246ed2]{\n    margin-top: 3.8%;\n}\n.agent-details .bottom-row .col[data-v-2c246ed2] {\n    padding-left: 1.7%;\n    padding-right: 1.7%;\n}\n.agent-details .card[data-v-2c246ed2] {\n    padding: 5% 7% 5.7%!important;\n    border-radius: 15px!important;\n    box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n}\n.agent-details .card .heading[data-v-2c246ed2] {\n    font-size: 0.94vw;\n    font-family: 'Rubik', sans-serif;\n    color: #B3B3B3;\n    margin-bottom: 3%;\n}\n.agent-details .card .detail[data-v-2c246ed2] {\n    font-size: 1.57vw;\n    color: #1A1C43;\n    line-height: 1em;\n    margin-top:7px;\n}\n#three .col[data-v-2c246ed2] {\n    padding-left:3.6%;\n    padding-right:3.6%;\n}\n#three .col[data-v-2c246ed2]:first-child {\n    padding-left:0;\n}\n#three .col[data-v-2c246ed2]:last-child {\n    padding-right:0;\n}\n#three .col-6[data-v-2c246ed2] {\n    padding-left:5px;\n    padding-right:5px;\n}\n.legend[data-v-2c246ed2] {\n    margin-bottom:3.1%;\n}\n.legend p[data-v-2c246ed2] {\n    font-family: 'Rubik', sans-serif;\n    font-size: 0.7vw;\n    color:#999999;\n}\n.comparison-month[data-v-2c246ed2] {\n    color:#999999;;\n    font-size: 0.7vw;\n    font-family: 'Rubik', sans-serif;\n    margin-top:20%;\n}\n.progress-bar[data-v-2c246ed2]{\n    background: #F2F2F2;\n    min-height:100px;\n    max-width:20px;\n    justify-content: flex-end;\n    margin:0 auto;\n}\n.tank[data-v-2c246ed2]{\n    border-top-left-radius: 50rem;\n    border-top-right-radius: 50rem;\n    transition: all 0.5s ease 0s;\n}\n.tank.answers[data-v-2c246ed2] {\n    background:  linear-gradient(#02D3F4 0%, #0496F0 100%) !important;\n    background: #0496F0;\n}\n.tank.dialing[data-v-2c246ed2] {\n    background:  linear-gradient(#FFA380 0%, #FF8087 100%) !important;\n    background: #0496F0;\n}\n.card.target .card-text[data-v-2c246ed2]{\n    margin: auto;\n}\n.card.target.reached[data-v-2c246ed2] {\n    background:  linear-gradient(to right, rgba(160,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;\n}\n.card.target.not-reached[data-v-2c246ed2] {\n    background:  linear-gradient(to right, rgba(255,163,128,1) 0%, rgba(255,63,61,1) 100%) !important;\n}\n.card.target .heading[data-v-2c246ed2] {\n    font-size: 0.94vw;\n    color: #fff;\n    margin-bottom:8%;\n    font-family: Montserrat, sans-serif;\n}\n#dash-activities[data-v-2c246ed2] {\n    margin-top:5.2%;\n    padding-bottom: 65px;\n}\n#dash-activities .card[data-v-2c246ed2] {\n    border-radius: 25px;\n    box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n    padding:2.9% 3.7%;\n}\n#dash-activities .col[data-v-2c246ed2] {\n    padding-left: 3.4%;\n    padding-right: 3.4%;\n}\n#dash-activities .border-right[data-v-2c246ed2] {\n    border-color: #003449;\n}\n#dash-activities h4[data-v-2c246ed2] {\n    font-size: 0.84vw;\n    font-family: 'Rubik', sans-serif;\n}\n#dash-activities .calendar h4[data-v-2c246ed2] {\n    margin-left:4.3%;\n}\n.calendar .card[data-v-2c246ed2] {\n    padding: 6% 5%!important;\n}\n.calendar p[data-v-2c246ed2] {\n    font-size: 16px;\n    font-family: 'Rubik', sans-serif;\n}\n.calendar .card-title[data-v-2c246ed2] {\n    font-family: 'Rubik', sans-serif;\n    font-weight: 600;\n    font-size: 12px;\n}\n.calendar .col-6[data-v-2c246ed2],\n  .reminders .col-6[data-v-2c246ed2] {\n    padding-left: 4.5%;\n    padding-right: 4.5%;\n}\n.calendar p[data-v-2c246ed2] {\n    font-family: 'Rubik', sans-serif;\n    font-size: 10px;\n}\n.reminders p[data-v-2c246ed2] {\n    font-size: 16px;\n    font-family: 'Rubik', sans-serif;\n    color: #333333;\n}\n.reminders ul[data-v-2c246ed2] {\n    max-height: 550px;\n    overflow-y: auto;\n    margin-top: 20px;\n    border-top: 1px solid #CDCDCF;\n}\n.reminders ul li[data-v-2c246ed2] {\n    box-shadow: none !important;\n    padding:10px 15px;\n}\n.reminders ul li label[data-v-2c246ed2] {\n    font-size: 16px;\n    font-family: 'Rubik', sans-serif;\n    color: #808080;\n}\n.callback-label[data-v-2c246ed2],\n  .tasks-date[data-v-2c246ed2] {\n  font-size: 10px;\n  font-family: \"Rubik\", sans-serif !important;\n  color: #808080;\n}\n.tasks-date[data-v-2c246ed2] {\nmargin-left: 35px;\n}\n.reminders input.list-input[data-v-2c246ed2]{\n    font-size: 0.83vw;\n    font-family: 'Rubik', sans-serif;\n    color: #808080;\n    padding-left: 37px!important;\n    width: 100%;\n    text-overflow: ellipsis;\n}\n.reminders .terms-text input[data-v-2c246ed2] {\n    border-bottom: 1px solid #f7f7f7;\n    width: 100%;\n    border-left: 0;\n    border-top: 0;\n    border-right: 0;\n}\n.reminders .terms-text .desc-text[data-v-2c246ed2]::-webkit-input-placeholder, input.list-input[data-v-2c246ed2]::-webkit-input-placeholder  {\n    font-style: italic !important;\n    font-weight: 300 !important;\n}\n.reminders .terms-text .desc-text[data-v-2c246ed2]::-moz-placeholder, input.list-input[data-v-2c246ed2]::-moz-placeholder  {\n    font-style: italic !important;\n    font-weight: 300 !important;\n}\n.reminders .terms-text .desc-text[data-v-2c246ed2]:-ms-input-placeholder, input.list-input[data-v-2c246ed2]:-ms-input-placeholder  {\n    font-style: italic !important;\n    font-weight: 300 !important;\n}\n.reminders .terms-text .desc-text[data-v-2c246ed2]::-ms-input-placeholder, input.list-input[data-v-2c246ed2]::-ms-input-placeholder  {\n    font-style: italic !important;\n    font-weight: 300 !important;\n}\n.reminders .terms-text .desc-text[data-v-2c246ed2]::placeholder, input.list-input[data-v-2c246ed2]::placeholder  {\n    font-style: italic !important;\n    font-weight: 300 !important;\n}\na.Edit[data-v-2c246ed2]{\n    background-image: url('/images/DataTables/Edit_Icon.svg');\n    background-size: 20px;\n    background-repeat: no-repeat;\n    width:20px;\n    height:20px;\n}\na.Edit[data-v-2c246ed2]:hover,\n  a.Edit[data-v-2c246ed2]:active{\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');\n    background-size: 20px;\n    background-repeat: no-repeat;\n}\n.callback-capture[data-v-2c246ed2] {\n    background: #f4f4f4;\n    border-radius: 50rem;\n    height: 50px;\n}\n.comment-desc[data-v-2c246ed2] {\n    height: 50px;\n    padding: 11px;\n    margin: 0;\n    background: #f4f4f4;\n    cursor: pointer;\n    float: left;\n}\n.comment-desc[data-v-2c246ed2]::-webkit-input-placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n.comment-desc[data-v-2c246ed2]::-moz-placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n.comment-desc[data-v-2c246ed2]:-ms-input-placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n.comment-desc[data-v-2c246ed2]::-ms-input-placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n.comment-desc[data-v-2c246ed2]::placeholder {  \n    font-size: 0.63vw;  \n    font-family: \"Rubik\", sans-serif;  \n    color: #999;  \n    font-style: italic;\n}\n#submit-btn img[data-v-2c246ed2] {\n    margin-top: -15px;\n    margin-right: -15px;\n}\n.callbacks-to-dos[data-v-2c246ed2] {\n    padding-top:20px;\n}\n.callbacks-to-dos .border-top[data-v-2c246ed2] {\n    border-color: #CDCDCF;\n}\n.callbacks-to-dos .task-time[data-v-2c246ed2] {\n    font-size: 0.73vw;\n    color: #818284;\n    padding-right:3.5%;\n}\n.callbacks-to-dos .task-description[data-v-2c246ed2] {\n    height:22px;\n    font-size: 11px;\n    font-weight:500;\n    font-family: 'Rubik', sans-serif;\n    color: #6B6B6B;\n    padding-left:3.5%;\n}\n#dash-activities h5[data-v-2c246ed2] {\n    font-family: 'Rubik', sans-serif;\n    font-size: 0.68vw;\n    color: rgba(28, 35, 49, 0.5);\n}\n.active-task[data-v-2c246ed2] {\n    background-color:rgba(255,147,58,0.5);\n}\n\n  /* Custom checkbox */\n.main label.custom-control-label[data-v-2c246ed2] { \n    color: inherit; \n    font-weight: 200; \n    padding-top: 3px;\n}\n.custom-checkbox .custom-control-label[data-v-2c246ed2] { \n    padding-top: 5px;\n}\nli.custom-control.custom-checkbox[data-v-2c246ed2] { \n    box-shadow: 0 0 7px rgba(0, 0, 0, 0.05); \n    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n    -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n}\n.custom-control.custom-checkbox .custom-control-label[data-v-2c246ed2]:before { \n    border-radius: 50%!important; \n    border: 1px solid #ededed; \n    box-shadow: none; \n    -webkit-box-shadow: none;\n    -moz-box-shadow: none;\n    -o-box-shadow: none;\n    background-image: url('/images/icons/right-sidebar/Task_Check.svg') !important; \n    background-size: cover;\n}\n.custom-control-label[data-v-2c246ed2]::after, \n  .custom-control-label[data-v-2c246ed2]::before { \n    width: 20px;\n    height: 20px;\n    top: 9px;\n    left: 0.2rem;\n    cursor: pointer;\n}\n.btn-primary[data-v-2c246ed2] {\n    font-size: 10px;\n    background: linear-gradient( to right, rgb(255, 128, 51, 1) 0%, rgba(255, 147, 58, 1) 100% ) !important;\n    font-weight: 600;\n    text-transform: uppercase;\n    padding: 10px 20px;\n    letter-spacing: 0.05em;\n}\n.reminders .btn-primary[data-v-2c246ed2] {\n    width: auto !important;\n    float: right;\n    line-height: 1em;\n}\ninput.search-text[data-v-2c246ed2]:focus, \n  input.save-text[data-v-2c246ed2]:focus,\n  .reminders input.list-input[data-v-2c246ed2]:focus  { \n    outline: 0 !important; \n    border: 0 !important;\n}\ninput.desc-text[data-v-2c246ed2]:focus {\n     outline: 0 !important;\n}\n.reminders .terms-text .desc-text[data-v-2c246ed2] {\n    font-size: 0.73vw !important;\n    color: #808080 !important;\n}\nlabel.terms-text.desc-text-label[data-v-2c246ed2], .ant-calendar-picker[data-v-2c246ed2] {\n    padding-left: 37px;\n}\n.rounded-circle img.icon[data-v-2c246ed2] {\n  background-color: #fff !important;\n}\n.reminders-border-bottom[data-v-2c246ed2] {\n  border-bottom: 1px solid #f7f7f7;\n}\n@media screen and (max-width: 1368px) {\n.ant-calendar-picker[data-v-2c246ed2] {\n  padding-left: 0px;\n}\n}\n\n/* li.row.m-2.pl-0.align-items-center.reminders-border-bottom:first-child {\nborder-top: 1px solid #f7f7f7;\n} */\n", ""]);
+exports.push([module.i, "\nh1[data-v-2c246ed2] {\r\n  font-size: 1.04vw;\r\n  font-family: \"Rubik\", sans-serif;\r\n  padding-left: 5.2%;\r\n  padding-right: 5.2%;\r\n  margin-top: 1%;\n}\n#dash-container[data-v-2c246ed2] {\r\n  padding-left: 5.2%;\r\n  padding-right: 5.2%;\r\n  background-color: #f7f7f7;\n}\n#top-section[data-v-2c246ed2] {\r\n  padding-top: 1%;\r\n  margin-bottom: 5.5%;\n}\nselect.rounded-pill[data-v-2c246ed2] {\r\n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\r\n  -o-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\r\n  font-size: 0.84vw;\r\n  font-family: \"Rubik\", sans-serif;\r\n  padding: 9px 17px 7px;\r\n  color: #333333;\n}\n.divider-line[data-v-2c246ed2] {\r\n  height: 1px;\r\n  background-color: #ccc;\n}\n#top-section .agent-stats[data-v-2c246ed2] {\r\n  margin-top: 2.5%;\n}\n#top-section .agent-stats .card[data-v-2c246ed2] {\r\n  border-radius: 25px;\r\n  padding: 1.3%;\r\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\r\n  -o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\r\n  margin-left: 0.9%;\r\n  margin-right: 0.9%;\n}\n#top-section .agent-stats .card .card-numeral[data-v-2c246ed2] {\r\n  font-size: 1.58vw;\r\n  line-height: 1em;\r\n  letter-spacing: 0.1em;\r\n  color: #333333;\n}\n#top-section .agent-stats .card .card-desc[data-v-2c246ed2] {\r\n  font-size: 0.82vw;\r\n  font-family: \"Rubik\", sans-serif;\r\n  line-height: 1em;\r\n  color: #333333;\r\n  margin-top: 8px;\n}\n#top-section .agent-stats .card .card-stat[data-v-2c246ed2] {\r\n  font-size: 0.71vw;\r\n  font-family: \"Rubik\", sans-serif;\r\n  line-height: 1em;\r\n  letter-spacing: 0.1em;\r\n  margin-top: 12px;\n}\n.agent-graphs[data-v-2c246ed2] {\r\n  margin-top: 3.4%;\n}\n.agent-graphs .card[data-v-2c246ed2] {\r\n  margin-left: 1.7%;\r\n  margin-right: 1.7%;\r\n  background-color: transparent;\n}\n.agent-graphs .tab-content[data-v-2c246ed2] {\r\n  padding-top: 12px;\r\n  border-bottom-left-radius: 25px;\r\n  border-bottom-right-radius: 25px;\r\n  background-color: #fff;\r\n  box-shadow: 0 0 20px 10px #e6e6e6;\r\n  -webkit-box-shadow: 0 0 20px 10px #e6e6e6;\r\n  -moz-box-shadow: 0 0 20px 10px #e6e6e6;\r\n  -o-box-shadow: 0 0 20px 10px #e6e6e6;\n}\n.agent-graphs .tab-pane[data-v-2c246ed2] {\r\n  padding: 2.5% 8.5% 5%;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[data-v-2c246ed2] {\r\n  color: #808080;\r\n  font-size: 0.73vw;\r\n  border: none;\n}\n.nav.nav-tabs.card-header-tabs .nav-link .icon[data-v-2c246ed2] {\r\n  padding-top: 18px;\r\n  padding-bottom: 18px;\r\n  margin-right: 5%;\n}\n@media screen and (max-width: 1643px) {\n.nav.nav-tabs.card-header-tabs .nav-link .icon[data-v-2c246ed2] {\r\n    width: 27px;\n}\n}\n.agent-graphs .nav-tabs .nav-item[data-v-2c246ed2] {\r\n  margin-bottom: 3px;\n}\n.nav.nav-tabs.card-header-tabs .nav-link[aria-selected=\"true\"][data-v-2c246ed2]{ \r\n    box-shadow: -0 -17px 20px rgba(0,0,0,0.05);\r\n    -webkit-box-shadow: -0 -17px 20px rgba(0,0,0,0.05);\r\n    -moz-box-shadow: -0 -17px 20px rgba(0,0,0,0.05);\r\n    -o-box-shadow: -0 -17px 20px rgba(0,0,0,0.05); \r\n    border-top-left-radius: 25px; \r\n    border-top-right-radius: 25px;\n}\n.card .card-header.tab-card-header[data-v-2c246ed2] {\r\n    background-color: transparent;\r\n    border-top-left-radius: 25px;\r\n    border-top-right-radius: 25px;\n}\n.agent-details[data-v-2c246ed2] {\r\n    margin-top: 3.1%;\n}\n.agent-details .container-row .col[data-v-2c246ed2], .agent-details .container-row .col-3[data-v-2c246ed2]{\r\n    padding-left: 1.3%;\r\n    padding-right: 1.3%;\n}\n.agent-details .top-row .col[data-v-2c246ed2] {\r\n    padding-left: 1.7%;\r\n    padding-right: 1.7%;\n}\n.agent-details .bottom-row[data-v-2c246ed2]{\r\n    margin-top: 3.8%;\n}\n.agent-details .bottom-row .col[data-v-2c246ed2] {\r\n    padding-left: 1.7%;\r\n    padding-right: 1.7%;\n}\n.agent-details .card[data-v-2c246ed2] {\r\n    padding: 5% 7% 5.7%!important;\r\n    border-radius: 15px!important;\r\n    box-shadow: 0 0 10px rgba(0,0,0,0.1);\r\n    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\r\n    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);\r\n    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);\n}\n.agent-details .card .heading[data-v-2c246ed2] {\r\n    font-size: 0.94vw;\r\n    font-family: 'Rubik', sans-serif;\r\n    color: #B3B3B3;\r\n    margin-bottom: 3%;\n}\n.agent-details .card .detail[data-v-2c246ed2] {\r\n    font-size: 1.57vw;\r\n    color: #1A1C43;\r\n    line-height: 1em;\r\n    margin-top:7px;\n}\n#three .col[data-v-2c246ed2] {\r\n    padding-left:3.6%;\r\n    padding-right:3.6%;\n}\n#three .col[data-v-2c246ed2]:first-child {\r\n    padding-left:0;\n}\n#three .col[data-v-2c246ed2]:last-child {\r\n    padding-right:0;\n}\n#three .col-6[data-v-2c246ed2] {\r\n    padding-left:5px;\r\n    padding-right:5px;\n}\n.legend[data-v-2c246ed2] {\r\n    margin-bottom:3.1%;\n}\n.legend p[data-v-2c246ed2] {\r\n    font-family: 'Rubik', sans-serif;\r\n    font-size: 0.7vw;\r\n    color:#999999;\n}\n.comparison-month[data-v-2c246ed2] {\r\n    color:#999999;;\r\n    font-size: 0.7vw;\r\n    font-family: 'Rubik', sans-serif;\r\n    margin-top:20%;\n}\n.progress-bar[data-v-2c246ed2]{\r\n    background: #F2F2F2;\r\n    min-height:100px;\r\n    max-width:20px;\r\n    justify-content: flex-end;\r\n    margin:0 auto;\n}\n.tank[data-v-2c246ed2]{\r\n    border-top-left-radius: 50rem;\r\n    border-top-right-radius: 50rem;\r\n    transition: all 0.5s ease 0s;\n}\n.tank.answers[data-v-2c246ed2] {\r\n    background:  linear-gradient(#02D3F4 0%, #0496F0 100%) !important;\r\n    background: #0496F0;\n}\n.tank.dialing[data-v-2c246ed2] {\r\n    background:  linear-gradient(#FFA380 0%, #FF8087 100%) !important;\r\n    background: #0496F0;\n}\n.card.target .card-text[data-v-2c246ed2]{\r\n    margin: auto;\n}\n.card.target.reached[data-v-2c246ed2] {\r\n    background:  linear-gradient(to right, rgba(160,237,128,1) 0%, rgba(98,211,126,1) 100%) !important;\n}\n.card.target.not-reached[data-v-2c246ed2] {\r\n    background:  linear-gradient(to right, rgba(255,163,128,1) 0%, rgba(255,63,61,1) 100%) !important;\n}\n.card.target .heading[data-v-2c246ed2] {\r\n    font-size: 0.94vw;\r\n    color: #fff;\r\n    margin-bottom:8%;\r\n    font-family: Montserrat, sans-serif;\n}\n#dash-activities[data-v-2c246ed2] {\r\n    margin-top:5.2%;\r\n    padding-bottom: 65px;\n}\n#dash-activities .card[data-v-2c246ed2] {\r\n    border-radius: 25px;\r\n    box-shadow: 0 0 10px rgba(0,0,0,0.1);\r\n    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);\r\n    -moz-box-shadow: 0 0 10px rgba(0,0,0,0.1);\r\n    -o-box-shadow: 0 0 10px rgba(0,0,0,0.1);\r\n    padding:2.9% 3.7%;\n}\n#dash-activities .col[data-v-2c246ed2] {\r\n    padding-left: 3.4%;\r\n    padding-right: 3.4%;\n}\n#dash-activities .border-right[data-v-2c246ed2] {\r\n    border-color: #003449;\n}\n#dash-activities h4[data-v-2c246ed2] {\r\n    font-size: 0.84vw;\r\n    font-family: 'Rubik', sans-serif;\n}\n#dash-activities .calendar h4[data-v-2c246ed2] {\r\n    margin-left:4.3%;\n}\n.calendar .card[data-v-2c246ed2] {\r\n    padding: 6% 5%!important;\n}\n.calendar p[data-v-2c246ed2] {\r\n    font-size: 16px;\r\n    font-family: 'Rubik', sans-serif;\n}\n.calendar .card-title[data-v-2c246ed2] {\r\n    font-family: 'Rubik', sans-serif;\r\n    font-weight: 600;\r\n    font-size: 12px;\n}\n.calendar .col-6[data-v-2c246ed2],\r\n  .reminders .col-6[data-v-2c246ed2] {\r\n    padding-left: 4.5%;\r\n    padding-right: 4.5%;\n}\n.calendar p[data-v-2c246ed2] {\r\n    font-family: 'Rubik', sans-serif;\r\n    font-size: 10px;\n}\n.reminders p[data-v-2c246ed2] {\r\n    font-size: 16px;\r\n    font-family: 'Rubik', sans-serif;\r\n    color: #333333;\n}\n.reminders ul[data-v-2c246ed2] {\r\n    max-height: 550px;\r\n    overflow-y: auto;\r\n    margin-top: 20px;\r\n    border-top: 1px solid #CDCDCF;\n}\n.reminders ul li[data-v-2c246ed2] {\r\n    box-shadow: none !important;\r\n    padding:10px 15px;\n}\n.reminders ul li label[data-v-2c246ed2] {\r\n    font-size: 16px;\r\n    font-family: 'Rubik', sans-serif;\r\n    color: #808080;\n}\n.callback-label[data-v-2c246ed2],\r\n  .tasks-date[data-v-2c246ed2] {\r\n  font-size: 10px;\r\n  font-family: \"Rubik\", sans-serif !important;\r\n  color: #808080;\n}\n.tasks-date[data-v-2c246ed2] {\r\nmargin-left: 35px;\n}\n.reminders input.list-input[data-v-2c246ed2]{\r\n    font-size: 0.83vw;\r\n    font-family: 'Rubik', sans-serif;\r\n    color: #808080;\r\n    padding-left: 37px!important;\r\n    width: 100%;\r\n    text-overflow: ellipsis;\n}\n.reminders .terms-text input[data-v-2c246ed2] {\r\n    border-bottom: 1px solid #f7f7f7;\r\n    width: 100%;\r\n    border-left: 0;\r\n    border-top: 0;\r\n    border-right: 0;\n}\n.reminders .terms-text .desc-text[data-v-2c246ed2]::-webkit-input-placeholder, input.list-input[data-v-2c246ed2]::-webkit-input-placeholder  {\r\n    font-style: italic !important;\r\n    font-weight: 300 !important;\n}\n.reminders .terms-text .desc-text[data-v-2c246ed2]::-moz-placeholder, input.list-input[data-v-2c246ed2]::-moz-placeholder  {\r\n    font-style: italic !important;\r\n    font-weight: 300 !important;\n}\n.reminders .terms-text .desc-text[data-v-2c246ed2]:-ms-input-placeholder, input.list-input[data-v-2c246ed2]:-ms-input-placeholder  {\r\n    font-style: italic !important;\r\n    font-weight: 300 !important;\n}\n.reminders .terms-text .desc-text[data-v-2c246ed2]::-ms-input-placeholder, input.list-input[data-v-2c246ed2]::-ms-input-placeholder  {\r\n    font-style: italic !important;\r\n    font-weight: 300 !important;\n}\n.reminders .terms-text .desc-text[data-v-2c246ed2]::placeholder, input.list-input[data-v-2c246ed2]::placeholder  {\r\n    font-style: italic !important;\r\n    font-weight: 300 !important;\n}\na.Edit[data-v-2c246ed2]{\r\n    background-image: url('/images/DataTables/Edit_Icon.svg');\r\n    background-size: 20px;\r\n    background-repeat: no-repeat;\r\n    width:20px;\r\n    height:20px;\n}\na.Edit[data-v-2c246ed2]:hover,\r\n  a.Edit[data-v-2c246ed2]:active{\r\n    background-image: url('/images/DataTables/Edit_Icon_Active.svg');\r\n    background-size: 20px;\r\n    background-repeat: no-repeat;\n}\n.callback-capture[data-v-2c246ed2] {\r\n    background: #f4f4f4;\r\n    border-radius: 50rem;\r\n    height: 50px;\n}\n.comment-desc[data-v-2c246ed2] {\r\n    height: 50px;\r\n    padding: 11px;\r\n    margin: 0;\r\n    background: #f4f4f4;\r\n    cursor: pointer;\r\n    float: left;\n}\n.comment-desc[data-v-2c246ed2]::-webkit-input-placeholder {  \r\n    font-size: 0.63vw;  \r\n    font-family: \"Rubik\", sans-serif;  \r\n    color: #999;  \r\n    font-style: italic;\n}\n.comment-desc[data-v-2c246ed2]::-moz-placeholder {  \r\n    font-size: 0.63vw;  \r\n    font-family: \"Rubik\", sans-serif;  \r\n    color: #999;  \r\n    font-style: italic;\n}\n.comment-desc[data-v-2c246ed2]:-ms-input-placeholder {  \r\n    font-size: 0.63vw;  \r\n    font-family: \"Rubik\", sans-serif;  \r\n    color: #999;  \r\n    font-style: italic;\n}\n.comment-desc[data-v-2c246ed2]::-ms-input-placeholder {  \r\n    font-size: 0.63vw;  \r\n    font-family: \"Rubik\", sans-serif;  \r\n    color: #999;  \r\n    font-style: italic;\n}\n.comment-desc[data-v-2c246ed2]::placeholder {  \r\n    font-size: 0.63vw;  \r\n    font-family: \"Rubik\", sans-serif;  \r\n    color: #999;  \r\n    font-style: italic;\n}\n#submit-btn img[data-v-2c246ed2] {\r\n    margin-top: -15px;\r\n    margin-right: -15px;\n}\n.callbacks-to-dos[data-v-2c246ed2] {\r\n    padding-top:20px;\n}\n.callbacks-to-dos .border-top[data-v-2c246ed2] {\r\n    border-color: #CDCDCF;\n}\n.callbacks-to-dos .task-time[data-v-2c246ed2] {\r\n    font-size: 0.73vw;\r\n    color: #818284;\r\n    padding-right:3.5%;\n}\n.callbacks-to-dos .task-description[data-v-2c246ed2] {\r\n    height:22px;\r\n    font-size: 11px;\r\n    font-weight:500;\r\n    font-family: 'Rubik', sans-serif;\r\n    color: #6B6B6B;\r\n    padding-left:3.5%;\n}\n#dash-activities h5[data-v-2c246ed2] {\r\n    font-family: 'Rubik', sans-serif;\r\n    font-size: 0.68vw;\r\n    color: rgba(28, 35, 49, 0.5);\n}\n.active-task[data-v-2c246ed2] {\r\n    background-color:rgba(255,147,58,0.5);\n}\r\n\r\n  /* Custom checkbox */\n.main label.custom-control-label[data-v-2c246ed2] { \r\n    color: inherit; \r\n    font-weight: 200; \r\n    padding-top: 3px;\n}\n.custom-checkbox .custom-control-label[data-v-2c246ed2] { \r\n    padding-top: 5px;\n}\nli.custom-control.custom-checkbox[data-v-2c246ed2] { \r\n    box-shadow: 0 0 7px rgba(0, 0, 0, 0.05); \r\n    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\r\n    -moz-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\r\n    -o-box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);\n}\n.custom-control.custom-checkbox .custom-control-label[data-v-2c246ed2]:before { \r\n    border-radius: 50%!important; \r\n    border: 1px solid #ededed; \r\n    box-shadow: none; \r\n    -webkit-box-shadow: none;\r\n    -moz-box-shadow: none;\r\n    -o-box-shadow: none;\r\n    background-image: url('/images/icons/right-sidebar/Task_Check.svg') !important; \r\n    background-size: cover;\n}\n.custom-control-label[data-v-2c246ed2]::after, \r\n  .custom-control-label[data-v-2c246ed2]::before { \r\n    width: 20px;\r\n    height: 20px;\r\n    top: 9px;\r\n    left: 0.2rem;\r\n    cursor: pointer;\n}\n.btn-primary[data-v-2c246ed2] {\r\n    font-size: 10px;\r\n    background: linear-gradient( to right, rgb(255, 128, 51, 1) 0%, rgba(255, 147, 58, 1) 100% ) !important;\r\n    font-weight: 600;\r\n    text-transform: uppercase;\r\n    padding: 10px 20px;\r\n    letter-spacing: 0.05em;\n}\n.reminders .btn-primary[data-v-2c246ed2] {\r\n    width: auto !important;\r\n    float: right;\r\n    line-height: 1em;\n}\ninput.search-text[data-v-2c246ed2]:focus, \r\n  input.save-text[data-v-2c246ed2]:focus,\r\n  .reminders input.list-input[data-v-2c246ed2]:focus  { \r\n    outline: 0 !important; \r\n    border: 0 !important;\n}\ninput.desc-text[data-v-2c246ed2]:focus {\r\n     outline: 0 !important;\n}\n.reminders .terms-text .desc-text[data-v-2c246ed2] {\r\n    font-size: 0.73vw !important;\r\n    color: #808080 !important;\n}\nlabel.terms-text.desc-text-label[data-v-2c246ed2], .ant-calendar-picker[data-v-2c246ed2] {\r\n    padding-left: 37px;\n}\n.rounded-circle img.icon[data-v-2c246ed2] {\r\n  background-color: #fff !important;\n}\n.reminders-border-bottom[data-v-2c246ed2] {\r\n  border-bottom: 1px solid #f7f7f7;\n}\n@media screen and (max-width: 1368px) {\n.ant-calendar-picker[data-v-2c246ed2] {\r\n    padding-left: 0px;\n}\n}\r\n\r\n/* li.row.m-2.pl-0.align-items-center.reminders-border-bottom:first-child {\r\nborder-top: 1px solid #f7f7f7;\r\n} */\r\n", ""]);
 
 // exports
 
@@ -370023,7 +370150,7 @@ var render = function() {
                                   attrs: {
                                     allowEmpty: false,
                                     use24Hours: "",
-                                    format: "hh:mm"
+                                    format: "HH:mm"
                                   },
                                   model: {
                                     value: _vm.call_back_time,
@@ -370310,6 +370437,7 @@ var render = function() {
                                       ),
                                       _vm._v(" "),
                                       _c("br"),
+                                      _vm._v(" "),
                                       _c(
                                         "span",
                                         { staticClass: "tasks-date" },
@@ -370319,7 +370447,13 @@ var render = function() {
                                               _vm
                                                 .moment(task.deadline)
                                                 .format("DD MMM")
-                                            )
+                                            ) +
+                                              " " +
+                                              _vm._s(
+                                                _vm
+                                                  .moment(task.time)
+                                                  .format("HH:mm")
+                                              )
                                           )
                                         ]
                                       )
@@ -370430,13 +370564,46 @@ var render = function() {
                                         ]
                                       ),
                                       _vm._v(" "),
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "col-6 pr-0 text-right w-auto custom-control",
+                                          attrs: { for: "task" + i }
+                                        },
+                                        [
+                                          _c("a-time-picker", {
+                                            staticClass: "shadow-none",
+                                            attrs: {
+                                              defaultValue: _vm.moment(
+                                                task.time,
+                                                "HH:mm"
+                                              ),
+                                              allowEmpty: false,
+                                              use24Hours: "",
+                                              format: "HH:mm"
+                                            },
+                                            model: {
+                                              value: task.time,
+                                              callback: function($$v) {
+                                                _vm.$set(task, "time", $$v)
+                                              },
+                                              expression: "task.time"
+                                            }
+                                          })
+                                        ],
+                                        1
+                                      ),
+                                      _vm._v(" "),
+                                      _c("br"),
+                                      _vm._v(" "),
                                       _vm.edit_task &&
                                       _vm.active_task_id == task.id
                                         ? _c(
                                             "div",
                                             {
                                               staticClass:
-                                                "col-6 pr-0 custom-control"
+                                                "col-12 pr-0 custom-control"
                                             },
                                             [
                                               _c(
@@ -370618,17 +370785,52 @@ var render = function() {
                                 _vm._v(" "),
                                 _c(
                                   "div",
-                                  { staticClass: "col-6 pr-0 custom-control" },
+                                  {
+                                    staticClass:
+                                      "col-6 pr-0 text-right custom-control"
+                                  },
+                                  [
+                                    _c("a-time-picker", {
+                                      staticClass: "w-auto shadow-none",
+                                      attrs: {
+                                        allowEmpty: false,
+                                        use24Hours: "",
+                                        format: "HH:mm"
+                                      },
+                                      model: {
+                                        value: _vm.new_task.selected_time,
+                                        callback: function($$v) {
+                                          _vm.$set(
+                                            _vm.new_task,
+                                            "selected_time",
+                                            $$v
+                                          )
+                                        },
+                                        expression: "new_task.selected_time"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass: "row mx-0 justify-content-between"
+                              },
+                              [
+                                _c(
+                                  "div",
+                                  { staticClass: "col-12 px-0 custom-control" },
                                   [
                                     _c(
                                       "button",
                                       {
                                         staticClass:
                                           "btn btn-primary update-user w-100 rounded-pill m-0",
-                                        attrs: {
-                                          type: "submit",
-                                          disabled: _vm.new_task.title == ""
-                                        },
+                                        attrs: { type: "submit" },
                                         on: { click: _vm.submitTask }
                                       },
                                       [_vm._v("Save")]

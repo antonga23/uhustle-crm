@@ -2629,8 +2629,10 @@ export default {
       var vm = this;
 
       if(!vm.activity.title || !vm.activity.status || !vm.activity.duedate || !vm.activity.time){
+        vm.$Progress.fail(); 
         vm.$swal('Note', 'All fields are required', 'warning');
-      }  
+      } 
+      else { 
 
       axios.post('/tasks/create', { 
         title: vm.activity.title, 
@@ -2657,6 +2659,7 @@ export default {
       vm.activity.duedate =  '',
       vm.activity.status = 2,
       this.edit_task = false; 
+    }
       
     },
     getActivities(){

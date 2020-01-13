@@ -597,7 +597,6 @@ label:not(.form-check-label):not(.custom-file-label) {
 }
 .ant-calendar-today .ant-calendar-date {
   border-color: #ff931e!important;
-  color: #ff931e!important;
   border-radius: 50%;
 }
 
@@ -985,7 +984,7 @@ max-height: 300px;
   font-family: 'Rubik', sans-serif !important;
   color: #353C49;
   font-size: 0.71vw !important;
-  width: auto;
+  width: 110px;
 }
 
 .ant-calendar-picker-input.ant-input:hover, 
