@@ -98,7 +98,13 @@ label{
               type="text"    
               id="deal-name"     
               name="DealName"   
-              class="form-control rounded-pill"/> 
+              class="form-control rounded-pill"
+              v-validate="'required|min:1'"/>
+            <span
+                  id="error"
+                  v-show="errors.has('DealName')"
+                  class="help-block"
+                >{{ errors.first('DealName') }}</span>  
 
             <label class="col-lg-12 control-label w-100 p-0 mb-2">Closing Date</label>   
             <a-date-picker    
@@ -111,7 +117,7 @@ label{
           <div class="col-6 pr-0">   
             <label class="col-lg-12 control-label w-100 p-0 mb-2">Type</label>   
             <a-select v-model="deal.type" class="custom-select rounded-pill border-0">   
-              <a-select-option value="-None-" selected>-None-</a-select-option>   
+              <a-select-option value="-None-">-None-</a-select-option>   
               <a-select-option value="1">Existing Business</a-select-option>   
               <a-select-option value="2">New Business</a-select-option>   
             </a-select>   
@@ -128,7 +134,9 @@ label{
               type="number"    
               id="amount"     
               name="Amount"   
-              class="form-control rounded-pill"/>   
+              class="form-control rounded-pill"
+              v-validate="'required|min:1'"/>
+            <span id="error" v-show="errors.has('Amount')" class="help-block">{{ errors.first('Amount') }}</span>   
 
             <label class="col-lg-12 control-label w-100 p-0 mb-2">Stage</label> 
             <a-select v-model="deal.stage" class="custom-select rounded-pill border-0">   
@@ -147,7 +155,9 @@ label{
               v-model="deal.description"   
               id="info"     
               name="Info"   
-              class="form-control "/>   
+              class="form-control "
+              v-validate="'required|min:1'"/>
+            <span id="error" v-show="errors.has('Info')" class="help-block">{{ errors.first('Info') }}</span>   
           </div>   
         </div>   
       </div>   
@@ -156,10 +166,12 @@ label{
         <label class="col-lg-12 control-label w-100 p-0 mb-2">Probability (%)</label>   
         <input
           v-model="deal.probability"    
-          type="text"    
+          type="number"    
           id="probability"     
           name="Probability"   
-          class="form-control rounded-pill"/>   
+          class="form-control rounded-pill"
+           v-validate="'required|min:1'"/>
+          <span id="error" v-show="errors.has('Probability')" class="help-block">{{ errors.first('Probability') }}</span>     
 
         <label class="col-lg-12 control-label w-100 p-0 mb-2">Expected Revenue</label>   
         <input
@@ -167,7 +179,9 @@ label{
           type="number"    
           id="revenue"     
           name="Revenue"   
-          class="form-control rounded-pill"/> 
+          class="form-control rounded-pill"
+           v-validate="'required|min:1'"/>
+           <span id="error" v-show="errors.has('Revenue')" class="help-block">{{ errors.first('Revenue') }}</span>   
 
         <label class="col-lg-12 control-label w-100 p-0 mb-2">Terms</label>   
         <a-select class="custom-select rounded-pill border-0">   
@@ -185,15 +199,19 @@ label{
           type="text"    
           id="contact-name"     
           name="ContactName"   
-          class="form-control rounded-pill"/>  
+          class="form-control rounded-pill"
+           v-validate="'required|min:1'"/>
+            <span id="error" v-show="errors.has('ContactName')" class="help-block">{{ errors.first('ContactName') }}</span>    
 
-        <label class="col-lg-12 control-label w-100 p-0 mb-2">Contact Number</label> 
+        <label class="col-lg-12 control-label w-100 p-0 mb-2">Contact Number <span id="error" v-show="errors.has('ContactNumber')" class="help-block">{{ errors.first('ContactNumber') }}</span></label> 
         <input 
           v-model="deal.contact_number"    
-          type="tel"    
+          type="number"    
           id="contact-number"     
           name="ContactNumber"   
-          class="form-control rounded-pill"/>   
+          class="form-control rounded-pill"
+          v-validate="'required|min:10'"/>
+             
 
         <label class="col-lg-12 control-label w-100 p-0 mb-2">Status</label> 
         <a-select v-model="deal.status" class="custom-select rounded-pill border-0">   
@@ -291,6 +309,16 @@ export default {
     },
     createDeal(){
       var vm = this;
+     
+      this.$validator.validateAll().then((result) => {
+          if(!result){
+            vm.$Progress.fail();
+            vm.$swal(  
+            "Failed",  
+            "Please fill in all the fields",  
+            "warning"  
+          );  
+          }else{
       axios.post("/deals/create", vm.deal).then(function(response) {  
         if (response.data.success == true) {  
 
@@ -311,6 +339,8 @@ export default {
             "warning"  
           );  
         }  
+      });
+          }
       });
     },
     getLeads(){

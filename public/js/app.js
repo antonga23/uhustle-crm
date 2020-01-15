@@ -67111,19 +67111,19 @@ function moveTo(from, to, targetIndexes, insertBefore) {
 /*!***********************************************************!*\
   !*** ./node_modules/@syncfusion/ej2-navigations/index.js ***!
   \***********************************************************/
-/*! exports provided: MenuAnimationSettings, MenuItem, HScroll, VScroll, Item, Toolbar, AccordionActionSettings, AccordionAnimationSettings, AccordionItem, Accordion, ContextMenu, Menu, TabActionSettings, TabAnimationSettings, Header, TabItem, Tab, FieldsSettings, ActionSettings, NodeAnimationSettings, TreeView, Sidebar */
+/*! exports provided: HScroll, VScroll, MenuAnimationSettings, MenuItem, Item, Toolbar, AccordionActionSettings, AccordionAnimationSettings, AccordionItem, Accordion, ContextMenu, Menu, TabActionSettings, TabAnimationSettings, Header, TabItem, Tab, FieldsSettings, ActionSettings, NodeAnimationSettings, TreeView, Sidebar */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _src_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./src/index */ "./node_modules/@syncfusion/ej2-navigations/src/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MenuAnimationSettings", function() { return _src_index__WEBPACK_IMPORTED_MODULE_0__["MenuAnimationSettings"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MenuItem", function() { return _src_index__WEBPACK_IMPORTED_MODULE_0__["MenuItem"]; });
-
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HScroll", function() { return _src_index__WEBPACK_IMPORTED_MODULE_0__["HScroll"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VScroll", function() { return _src_index__WEBPACK_IMPORTED_MODULE_0__["VScroll"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MenuAnimationSettings", function() { return _src_index__WEBPACK_IMPORTED_MODULE_0__["MenuAnimationSettings"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MenuItem", function() { return _src_index__WEBPACK_IMPORTED_MODULE_0__["MenuItem"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Item", function() { return _src_index__WEBPACK_IMPORTED_MODULE_0__["Item"]; });
 
@@ -68969,7 +68969,7 @@ var HScroll = /** @class */ (function (_super) {
 /*!**********************************************************************!*\
   !*** ./node_modules/@syncfusion/ej2-navigations/src/common/index.js ***!
   \**********************************************************************/
-/*! exports provided: MenuAnimationSettings, MenuItem, HScroll, VScroll */
+/*! exports provided: HScroll, VScroll, MenuAnimationSettings, MenuItem */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -71582,19 +71582,19 @@ __webpack_require__.r(__webpack_exports__);
 /*!***************************************************************!*\
   !*** ./node_modules/@syncfusion/ej2-navigations/src/index.js ***!
   \***************************************************************/
-/*! exports provided: MenuAnimationSettings, MenuItem, HScroll, VScroll, Item, Toolbar, AccordionActionSettings, AccordionAnimationSettings, AccordionItem, Accordion, ContextMenu, Menu, TabActionSettings, TabAnimationSettings, Header, TabItem, Tab, FieldsSettings, ActionSettings, NodeAnimationSettings, TreeView, Sidebar */
+/*! exports provided: HScroll, VScroll, MenuAnimationSettings, MenuItem, Item, Toolbar, AccordionActionSettings, AccordionAnimationSettings, AccordionItem, Accordion, ContextMenu, Menu, TabActionSettings, TabAnimationSettings, Header, TabItem, Tab, FieldsSettings, ActionSettings, NodeAnimationSettings, TreeView, Sidebar */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _common_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./common/index */ "./node_modules/@syncfusion/ej2-navigations/src/common/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MenuAnimationSettings", function() { return _common_index__WEBPACK_IMPORTED_MODULE_0__["MenuAnimationSettings"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MenuItem", function() { return _common_index__WEBPACK_IMPORTED_MODULE_0__["MenuItem"]; });
-
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HScroll", function() { return _common_index__WEBPACK_IMPORTED_MODULE_0__["HScroll"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VScroll", function() { return _common_index__WEBPACK_IMPORTED_MODULE_0__["VScroll"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MenuAnimationSettings", function() { return _common_index__WEBPACK_IMPORTED_MODULE_0__["MenuAnimationSettings"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MenuItem", function() { return _common_index__WEBPACK_IMPORTED_MODULE_0__["MenuItem"]; });
 
 /* harmony import */ var _toolbar_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./toolbar/index */ "./node_modules/@syncfusion/ej2-navigations/src/toolbar/index.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Item", function() { return _toolbar_index__WEBPACK_IMPORTED_MODULE_1__["Item"]; });
@@ -192444,19 +192444,48 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['active', 'logged_user'],
+  props: ["active", "logged_user"],
   components: {},
   data: function data() {
     return {
-      lead_id: '',
-      status: 'active',
-      call_status: 'active',
-      month: '',
-      call_back_date: '',
-      call_back_time: '',
-      call_back_notes: '',
+      lead_id: "",
+      status: "active",
+      call_status: "active",
+      month: "",
+      call_back_date: "",
+      call_back_time: "",
+      call_back_notes: "",
       auto_dialer_settings: [],
       general_active: false,
       active_calls_active: false,
@@ -192473,40 +192502,40 @@ __webpack_require__.r(__webpack_exports__);
       editing_user: false,
       current_user: [],
       filter_data: [],
-      types: ['date', 'text']
+      types: ["date", "text"]
     };
   },
   created: function created() {
     var vm = this;
-    Fire.$on('AfterLeadEnqueue', function (data) {
+    Fire.$on("AfterLeadEnqueue", function (data) {
       vm.lead_id = data.lead_id;
       vm.phone_number = data.contact_number;
     });
-    Fire.$on('InitiateCall', function () {
+    Fire.$on("InitiateCall", function () {
       vm.dialer_active = true;
       vm.general_active = false;
       vm.scripts_active = false;
       vm.active_calls_active = false;
     });
-    Fire.$on('DoneAddingUser', function () {
+    Fire.$on("DoneAddingUser", function () {
       vm.adding_user = !vm.adding_user;
     });
-    Fire.$on('ShowGeneral', function () {
+    Fire.$on("ShowGeneral", function () {
       vm.general_active = true;
       vm.scripts_active = false;
       vm.dialer_active = false;
       vm.active_calls_active = false;
     });
-    Fire.$on('ShowScripts', function () {
+    Fire.$on("ShowScripts", function () {
       vm.showScripts();
     });
-    Fire.$on('ShowActiveCalls', function () {
+    Fire.$on("ShowActiveCalls", function () {
       vm.showActiveCalls();
     });
-    Fire.$on('ShowActiveCalls', function () {
+    Fire.$on("ShowActiveCalls", function () {
       vm.showActiveCalls();
     });
-    Fire.$on('ShowUserEdit', function (data) {
+    Fire.$on("ShowUserEdit", function (data) {
       vm.editUser();
     });
   },
@@ -192517,7 +192546,7 @@ __webpack_require__.r(__webpack_exports__);
     this.getDialerSettings();
     this.Toast = this.$swal.mixin({
       toast: true,
-      position: 'top-end',
+      position: "top-end",
       showConfirmButton: false,
       timer: 3000
     });
@@ -192526,39 +192555,39 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getDialerSettings: function getDialerSettings() {
       var vm = this;
-      axios.get('/roles/get-dialer-permissions/' + this.current_user.role_id).then(function (response) {
+      axios.get("/roles/get-dialer-permissions/" + this.current_user.role_id).then(function (response) {
         if (response.data.success == true) {
           vm.auto_dialer_settings = response.data.permissions;
         } else {
           vm.$Progress.fail();
-          vm.$swal('Failed', 'Opps, something went wrong while retrieving Dialer settings, please try again', 'warning');
+          vm.$swal("Failed", "Opps, something went wrong while retrieving Dialer settings, please try again", "warning");
         }
       });
     },
     showFilter: function showFilter() {
       this.top_nav_show_filter = !this.top_nav_show_filter;
-      Fire.$emit('ShowFilter');
+      Fire.$emit("ShowFilter");
     },
     endCall: function endCall() {
-      Fire.$emit('CallEnded');
+      Fire.$emit("CallEnded");
       this.is_oncall = false;
     },
     startCall: function startCall() {
-      Fire.$emit('CallStarted');
+      Fire.$emit("CallStarted");
       this.is_oncall = true;
     },
     hideModal: function hideModal() {
-      this.$refs['my-modal'].hide();
+      this.$refs["my-modal"].hide();
     },
     toggleModal: function toggleModal() {
       // We pass the ID of the button that we want to return focus to
       // when the modal has hidden
-      this.$refs['my-modal'].toggle('#toggle-btn');
+      this.$refs["my-modal"].toggle("#toggle-btn");
     },
     resetModal: function resetModal() {
-      this.call_back_date = '';
-      this.call_back_time = '';
-      this.call_back_notes = '';
+      this.call_back_date = "";
+      this.call_back_time = "";
+      this.call_back_notes = "";
     },
     handdleOk: function handdleOk(bvModalEvt) {
       // Prevent modal from closing
@@ -192567,8 +192596,8 @@ __webpack_require__.r(__webpack_exports__);
       this.handleSubmit();
     },
     topMonthFilterChange: function topMonthFilterChange() {
-      Fire.$emit('TopMonthFilterChange', {
-        'month': this.month
+      Fire.$emit("TopMonthFilterChange", {
+        month: this.month
       });
     },
     switchState: function switchState() {
@@ -192577,23 +192606,23 @@ __webpack_require__.r(__webpack_exports__);
         this.is_oncall = true;
         this.is_offline = false; // User is idle , getting no leads
 
-        this.updateTimeLog('idle');
+        this.updateTimeLog("idle");
       } else if (this.is_oncall == true) {
         this.is_idle = false;
         this.is_oncall = false;
         this.is_offline = true; // User is offline , getting no leads
 
-        this.updateTimeLog('offline');
+        this.updateTimeLog("offline");
       } else if (this.is_offline == true) {
         this.is_idle = true;
         this.is_oncall = false;
         this.is_offline = false; // User is on call , enque leads
 
-        this.updateTimeLog('active');
+        this.updateTimeLog("active");
       }
     },
     updateTimeLog: function updateTimeLog() {
-      var type = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+      var type = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
     },
     showActiveCalls: function showActiveCalls() {
       this.active_calls = true;
@@ -192607,29 +192636,29 @@ __webpack_require__.r(__webpack_exports__);
       this.scripts_active = false;
       this.dialer_active = false;
       this.active_calls_active = false;
-      Fire.$emit('ShowGeneral');
+      Fire.$emit("ShowGeneral");
     },
     showScripts: function showScripts() {
       this.scripts_active = true;
       this.general_active = false;
       this.dialer_active = false;
       this.active_calls_active = false;
-      Fire.$emit('ShowScripts');
+      Fire.$emit("ShowScripts");
     },
     showDialer: function showDialer() {
       this.dialer_active = true;
       this.general_active = false;
       this.scripts_active = false;
       this.active_calls_active = false;
-      Fire.$emit('ShowDialer');
+      Fire.$emit("ShowDialer");
     },
     addNew: function addNew() {
       this.adding_user = !this.adding_user;
-      Fire.$emit('AddingUser');
+      Fire.$emit("AddingUser");
     },
     editUser: function editUser() {
       this.editing_user = !this.editing_user;
-      Fire.$emit('EditingUser');
+      Fire.$emit("EditingUser");
     },
     getFullYear: function getFullYear() {
       var d = new Date();
@@ -197240,6 +197269,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   mounted: function mounted() {
@@ -197301,17 +197348,24 @@ __webpack_require__.r(__webpack_exports__);
     },
     createDeal: function createDeal() {
       var vm = this;
-      axios.post("/deals/create", vm.deal).then(function (response) {
-        if (response.data.success == true) {
-          vm.Toast.fire({
-            type: 'success',
-            title: response.data.message
-          });
-          Fire.$emit('AfterDealAdd');
-          vm.clearDeal();
-        } else {
+      this.$validator.validateAll().then(function (result) {
+        if (!result) {
           vm.$Progress.fail();
-          vm.$swal("Failed", "Opps, something went wrong while retrieving lead, please try again", "warning");
+          vm.$swal("Failed", "Please fill in all the fields", "warning");
+        } else {
+          axios.post("/deals/create", vm.deal).then(function (response) {
+            if (response.data.success == true) {
+              vm.Toast.fire({
+                type: 'success',
+                title: response.data.message
+              });
+              Fire.$emit('AfterDealAdd');
+              vm.clearDeal();
+            } else {
+              vm.$Progress.fail();
+              vm.$swal("Failed", "Opps, something went wrong while retrieving lead, please try again", "warning");
+            }
+          });
         }
       });
     },
@@ -222750,7 +222804,7 @@ var VBTooltip = {
 /*!*************************************************!*\
   !*** ./node_modules/bootstrap-vue/esm/index.js ***!
   \*************************************************/
-/*! exports provided: BVConfigPlugin, BVConfig, BootstrapVue, install, setConfig, default, componentsPlugin, BVModalPlugin, BVToastPlugin, AlertPlugin, BAlert, BadgePlugin, BBadge, BreadcrumbPlugin, BBreadcrumb, BBreadcrumbItem, ButtonPlugin, BButton, BButtonClose, ButtonGroupPlugin, BButtonGroup, ButtonToolbarPlugin, BButtonToolbar, CardPlugin, BCard, BCardBody, BCardFooter, BCardGroup, BCardHeader, BCardImg, BCardImgLazy, BCardSubTitle, BCardText, BCardTitle, CarouselPlugin, BCarousel, BCarouselSlide, CollapsePlugin, BCollapse, DropdownPlugin, BDropdown, BDropdownItem, BDropdownItemButton, BDropdownDivider, BDropdownForm, BDropdownGroup, BDropdownHeader, BDropdownText, EmbedPlugin, BEmbed, FormPlugin, BForm, BFormDatalist, BFormText, BFormInvalidFeedback, BFormValidFeedback, FormCheckboxPlugin, BFormCheckbox, BFormCheckboxGroup, FormFilePlugin, BFormFile, FormGroupPlugin, BFormGroup, FormInputPlugin, BFormInput, FormRadioPlugin, BFormRadio, BFormRadioGroup, FormSelectPlugin, BFormSelect, FormTextareaPlugin, BFormTextarea, ImagePlugin, BImg, BImgLazy, InputGroupPlugin, BInputGroup, BInputGroupAddon, BInputGroupAppend, BInputGroupPrepend, BInputGroupText, JumbotronPlugin, BJumbotron, LayoutPlugin, BContainer, BRow, BCol, BFormRow, LinkPlugin, BLink, ListGroupPlugin, BListGroup, BListGroupItem, MediaPlugin, BMedia, BMediaAside, BMediaBody, ModalPlugin, BModal, NavPlugin, BNav, BNavForm, BNavItem, BNavItemDropdown, BNavText, NavbarPlugin, BNavbar, BNavbarBrand, BNavbarNav, BNavbarToggle, PaginationPlugin, BPagination, PaginationNavPlugin, BPaginationNav, PopoverPlugin, BPopover, ProgressPlugin, BProgress, BProgressBar, SpinnerPlugin, BSpinner, TablePlugin, BTable, BTableLite, TabsPlugin, BTabs, BTab, ToastPlugin, BToast, BToaster, TooltipPlugin, BTooltip, directivesPlugin, VBModalPlugin, VBModal, VBPopoverPlugin, VBPopover, VBScrollspyPlugin, VBScrollspy, VBTogglePlugin, VBToggle, VBTooltipPlugin, VBTooltip */
+/*! exports provided: componentsPlugin, BVModalPlugin, BVToastPlugin, AlertPlugin, BAlert, BadgePlugin, BBadge, BreadcrumbPlugin, BBreadcrumb, BBreadcrumbItem, ButtonPlugin, BButton, BButtonClose, ButtonGroupPlugin, BButtonGroup, ButtonToolbarPlugin, BButtonToolbar, CardPlugin, BCard, BCardBody, BCardFooter, BCardGroup, BCardHeader, BCardImg, BCardImgLazy, BCardSubTitle, BCardText, BCardTitle, CarouselPlugin, BCarousel, BCarouselSlide, CollapsePlugin, BCollapse, DropdownPlugin, BDropdown, BDropdownItem, BDropdownItemButton, BDropdownDivider, BDropdownForm, BDropdownGroup, BDropdownHeader, BDropdownText, EmbedPlugin, BEmbed, FormPlugin, BForm, BFormDatalist, BFormText, BFormInvalidFeedback, BFormValidFeedback, FormCheckboxPlugin, BFormCheckbox, BFormCheckboxGroup, FormFilePlugin, BFormFile, FormGroupPlugin, BFormGroup, FormInputPlugin, BFormInput, FormRadioPlugin, BFormRadio, BFormRadioGroup, FormSelectPlugin, BFormSelect, FormTextareaPlugin, BFormTextarea, ImagePlugin, BImg, BImgLazy, InputGroupPlugin, BInputGroup, BInputGroupAddon, BInputGroupAppend, BInputGroupPrepend, BInputGroupText, JumbotronPlugin, BJumbotron, LayoutPlugin, BContainer, BRow, BCol, BFormRow, LinkPlugin, BLink, ListGroupPlugin, BListGroup, BListGroupItem, MediaPlugin, BMedia, BMediaAside, BMediaBody, ModalPlugin, BModal, NavPlugin, BNav, BNavForm, BNavItem, BNavItemDropdown, BNavText, NavbarPlugin, BNavbar, BNavbarBrand, BNavbarNav, BNavbarToggle, PaginationPlugin, BPagination, PaginationNavPlugin, BPaginationNav, PopoverPlugin, BPopover, ProgressPlugin, BProgress, BProgressBar, SpinnerPlugin, BSpinner, TablePlugin, BTable, BTableLite, TabsPlugin, BTabs, BTab, ToastPlugin, BToast, BToaster, TooltipPlugin, BTooltip, directivesPlugin, VBModalPlugin, VBModal, VBPopoverPlugin, VBPopover, VBScrollspyPlugin, VBScrollspy, VBTogglePlugin, VBToggle, VBTooltipPlugin, VBTooltip, BVConfigPlugin, BVConfig, BootstrapVue, install, setConfig, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -252427,7 +252481,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n\r\n/*Right Component*/\n.main-header.navbar.navbar-expand[data-v-6ec57eb6] {\r\n  padding: 13px 4% 0.45%;\r\n  position: relative;\n}\n.navbar-nav li.title[data-v-6ec57eb6]{\r\n  line-height: 20px;\n}\n.nav-link.top-link.d-block.text-center[data-v-6ec57eb6] {\r\n  box-shadow: 0 0 7px rgba(0,0,0,0.1);\r\n  height: auto !important;\r\n  font-size: 0.73vw;\n}\n.nav-link.top-link.d-block.text-center[data-v-6ec57eb6]:hover {\r\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow:0 0 5px rgba(0, 0, 0, 0.1);\r\n  -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  background: #ffffff;\n}\na.add-new[data-v-6ec57eb6] {\r\n\tborder-radius: 50rem !important;\r\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  background: #ffffff;\r\n  font-size: 16px;\r\n  color: #989899;\r\n  font-weight: 600;\n}\nli.title a strong[data-v-6ec57eb6]{\r\n  color: #003549;\r\n  font-size: 1.68vw;\r\n  letter-spacing: 0.1em;\n}\na.top-link[data-v-6ec57eb6]{    \r\n  border-radius: 26px;\r\n  height: 30px !important;\r\n  padding: 6px 17px 6px !important;\r\n  font-family: 'Rubik', sans-serif;\r\n  letter-spacing: 1px;\n}\na.active[data-v-6ec57eb6]{    \r\n  border-radius: 26px;\r\n  background: #F98B39 !important;\r\n  border-color: #F98B39 !important;\r\n  color: #fff !important;\r\n  padding: 6px 17px 6px !important;\n}\nselect[data-v-6ec57eb6]{\r\n  font-family: 'Rubik', sans-serif;\r\n  border-radius: 26px;\r\n  border:0;\r\n  margin: 5px 8px 8px 55px !important;\r\n  height: 30px !important;\r\n  background: #fff !important;\r\n  color: #003549 !important;\r\n  padding: 0 16px 0 !important;\r\n  box-shadow: 0 0 5px rgba(0,0,0,0.1);\r\n  -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.1);\r\n  -moz-box-shadow: 0 0 5px rgba(0,0,0,0.1);\r\n  -o-box-shadow: 0 0 5px rgba(0,0,0,0.1);\r\n  letter-spacing: 1px;\r\n  font-size: 14px;\n}\nselect.month-selector[data-v-6ec57eb6] {\r\n  margin-left: 0!important;\r\n  margin-right: 0!important;\n}\n.callIcons li a[data-v-6ec57eb6]{\r\n  color: black;\r\n  background-size: 59px !important;\r\n  background-repeat: no-repeat !important;\r\n  background-position: center center !important;\n}\n.searchBar li a[data-v-6ec57eb6]{\r\n  color: black;\r\n  background-size: 13px !important;\r\n  background-repeat: no-repeat !important;\r\n  background-position: center center !important;\n}\n.searchBar a[data-v-6ec57eb6]{\r\n  background-color: #fff;\r\n  background-image: url('/images/icons/top-nav/Search.svg') !important;\r\n  background-size: 15px!important;\r\n  background-repeat: no-repeat;\r\n  border-radius: 50rem;\r\n\tbox-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n\twidth: 40px;\r\n  height: 40px;\n}\n.searchBar a[data-v-6ec57eb6]:hover{\r\n  background-image: url('/images/icons/Asset 61.svg') !important;\r\n  background-size: 170%!important;\r\n  background-repeat: no-repeat;\n}\n.searchBar input[data-v-6ec57eb6] {\r\n  box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  -o-box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n  padding:14px 0 14px;\r\n  right: -40px;\r\n  position: absolute;\r\n  top: -24px;\r\n  width:0;\r\n  transition: width 2s;\n}\n.searchBar:hover input[data-v-6ec57eb6] {\r\n  width:auto;\r\n  padding:14px 40px 14px 15px;\n}\n.searchBar:hover input[data-v-6ec57eb6]:focus {\r\n  outline: 0 !important;\n}\n.searchBar input[data-v-6ec57eb6]::-webkit-input-placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: 'Rubik', sans-serif;\r\n  font-style: italic;\n}\n.searchBar input[data-v-6ec57eb6]::-moz-placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: 'Rubik', sans-serif;\r\n  font-style: italic;\n}\n.searchBar input[data-v-6ec57eb6]:-ms-input-placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: 'Rubik', sans-serif;\r\n  font-style: italic;\n}\n.searchBar input[data-v-6ec57eb6]::-ms-input-placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: 'Rubik', sans-serif;\r\n  font-style: italic;\n}\n.searchBar input[data-v-6ec57eb6]::placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: 'Rubik', sans-serif;\r\n  font-style: italic;\n}\n.callIcons li.idle .status[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 55.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li.on-call .status[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 56.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li.offline .status[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/Asset 57.svg') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/top-nav/Start_Call.svg') !important;\r\n  background-size: 20px;\r\n  background-position: center;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]:hover{\r\n  background-image: url('/images/icons/Call/Start Call Hover.svg') !important;\r\n  background-size: 170%;\r\n  background-repeat: no-repeat;\n}\n.callIcons li button.call[data-v-6ec57eb6],\r\n.callIcons button.status[data-v-6ec57eb6],\r\n.callIcons button.end-call[data-v-6ec57eb6] {\r\n    border-radius: 50rem;\r\n    box-shadow: 0 0 4px rgba(0,0,0,0.1);\r\n    width: 40px;\r\n    height: 40px;\n}\n.callIcons li .end-call[data-v-6ec57eb6]{\r\n  background-image: url('/images/icons/top-nav/End_Call.svg') !important;\r\n  background-size: 25px;\r\n  background-position: center;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .end-call[data-v-6ec57eb6]:hover{\r\n  background-image: url('/images/icons/Call/End Call Hover.svg') !important;\r\n  background-size: 170%;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .add-call-back-btn[data-v-6ec57eb6]{\r\n  background-image: url('/images/workstation/Asset 28@4x.png') !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-color: transparent;\r\n  border: none;\r\n  padding: 14px;\r\n  margin-top: 5px;\r\n  margin-left: 20px;\n}\n.modal-content[data-v-6ec57eb6]{\r\n  background: linear-gradient(to right, rgba(255,128,51,1) 0%, rgba(255,147,58,1) 100%);\n}\r\n/*is error being used?*/\n.error[data-v-6ec57eb6]{\r\n  color:#F98B39;\n}\r\n/*End Right Component*/\r\n", ""]);
+exports.push([module.i, "\n\r\n/*Right Component*/\n.main-header.navbar.navbar-expand[data-v-6ec57eb6] {\r\n  padding: 13px 4% 0.45%;\r\n  position: relative;\n}\n.navbar-nav li.title[data-v-6ec57eb6] {\r\n  line-height: 20px;\n}\n.nav-link.top-link.d-block.text-center[data-v-6ec57eb6] {\r\n  box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);\r\n  height: auto !important;\r\n  font-size: 0.73vw;\n}\n.nav-link.top-link.d-block.text-center[data-v-6ec57eb6]:hover {\r\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  background: #ffffff;\n}\n.nav-item.d-sm-inline-block.dialer-icon[data-v-6ec57eb6] {\r\n    position: relative;\r\n    top: 17px;\n}\na.add-new[data-v-6ec57eb6] {\r\n  border-radius: 50rem !important;\r\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  background: #ffffff;\r\n  font-size: 16px;\r\n  color: #989899;\r\n  font-weight: 600;\n}\nli.title a strong[data-v-6ec57eb6] {\r\n  color: #003549;\r\n  font-size: 1.68vw;\r\n  letter-spacing: 0.1em;\n}\na.top-link[data-v-6ec57eb6] {\r\n  border-radius: 26px;\r\n  height: 30px !important;\r\n  padding: 6px 17px 6px !important;\r\n  font-family: \"Rubik\", sans-serif;\r\n  letter-spacing: 1px;\n}\na.active[data-v-6ec57eb6] {\r\n  border-radius: 26px;\r\n  background: #f98b39 !important;\r\n  border-color: #f98b39 !important;\r\n  color: #fff !important;\r\n  padding: 6px 17px 6px !important;\n}\nselect[data-v-6ec57eb6] {\r\n  font-family: \"Rubik\", sans-serif;\r\n  border-radius: 26px;\r\n  border: 0;\r\n  margin: 5px 8px 8px 55px !important;\r\n  height: 30px !important;\r\n  background: #fff !important;\r\n  color: #003549 !important;\r\n  padding: 0 16px 0 !important;\r\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  letter-spacing: 1px;\r\n  font-size: 14px;\n}\nselect.month-selector[data-v-6ec57eb6] {\r\n  margin-left: 0 !important;\r\n  margin-right: 0 !important;\n}\n.callIcons li a[data-v-6ec57eb6] {\r\n  color: black;\r\n  background-size: 59px !important;\r\n  background-repeat: no-repeat !important;\r\n  background-position: center center !important;\n}\n.searchBar li a[data-v-6ec57eb6] {\r\n  color: black;\r\n  background-size: 13px !important;\r\n  background-repeat: no-repeat !important;\r\n  background-position: center center !important;\n}\n.searchBar a[data-v-6ec57eb6] {\r\n  background-color: #fff;\r\n  background-image: url(\"/images/icons/top-nav/Search.svg\") !important;\r\n  background-size: 15px !important;\r\n  background-repeat: no-repeat;\r\n  border-radius: 50rem;\r\n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\r\n  -o-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\r\n  width: 40px;\r\n  height: 40px;\n}\n.searchBar a[data-v-6ec57eb6]:hover {\r\n  background-image: url(\"/images/icons/Asset 61.svg\") !important;\r\n  background-size: 170% !important;\r\n  background-repeat: no-repeat;\n}\n.searchBar input[data-v-6ec57eb6] {\r\n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\r\n  -o-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\r\n  padding: 14px 0 14px;\r\n  right: -40px;\r\n  position: absolute;\r\n  top: -24px;\r\n  width: 0;\r\n  transition: width 2s;\n}\n.searchBar:hover input[data-v-6ec57eb6] {\r\n  width: auto;\r\n  padding: 14px 40px 14px 15px;\n}\n.searchBar:hover input[data-v-6ec57eb6]:focus {\r\n  outline: 0 !important;\n}\n.searchBar input[data-v-6ec57eb6]::-webkit-input-placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: \"Rubik\", sans-serif;\r\n  font-style: italic;\n}\n.searchBar input[data-v-6ec57eb6]::-moz-placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: \"Rubik\", sans-serif;\r\n  font-style: italic;\n}\n.searchBar input[data-v-6ec57eb6]:-ms-input-placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: \"Rubik\", sans-serif;\r\n  font-style: italic;\n}\n.searchBar input[data-v-6ec57eb6]::-ms-input-placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: \"Rubik\", sans-serif;\r\n  font-style: italic;\n}\n.searchBar input[data-v-6ec57eb6]::placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: \"Rubik\", sans-serif;\r\n  font-style: italic;\n}\n.callIcons li.idle .status[data-v-6ec57eb6] {\r\n  background-image: url(\"/images/icons/Asset 55.svg\") !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li.on-call .status[data-v-6ec57eb6] {\r\n  background-image: url(\"/images/icons/Asset 56.svg\") !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li.offline .status[data-v-6ec57eb6] {\r\n  background-image: url(\"/images/icons/Asset 57.svg\") !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6] {\r\n  background-image: url(\"/images/icons/top-nav/Start_Call.svg\") !important;\r\n  background-size: 20px;\r\n  background-position: center;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]:hover {\r\n  background-image: url(\"/images/icons/Call/Start Call Hover.svg\") !important;\r\n  background-size: 170%;\r\n  background-repeat: no-repeat;\n}\n.callIcons li button.call[data-v-6ec57eb6],\r\n.callIcons button.status[data-v-6ec57eb6],\r\n.callIcons button.end-call[data-v-6ec57eb6] {\r\n  border-radius: 50rem;\r\n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\r\n  width: 40px;\r\n  height: 40px;\n}\n.callIcons li .end-call[data-v-6ec57eb6] {\r\n  background-image: url(\"/images/icons/top-nav/End_Call.svg\") !important;\r\n  background-size: 25px;\r\n  background-position: center;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .end-call[data-v-6ec57eb6]:hover {\r\n  background-image: url(\"/images/icons/Call/End Call Hover.svg\") !important;\r\n  background-size: 170%;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .add-call-back-btn[data-v-6ec57eb6] {\r\n  background-image: url(\"/images/workstation/Asset 28@4x.png\") !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-color: transparent;\r\n  border: none;\r\n  padding: 14px;\r\n  margin-top: 5px;\r\n  margin-left: 20px;\n}\n.modal-content[data-v-6ec57eb6] {\r\n  background: linear-gradient(\r\n    to right,\r\n    rgba(255, 128, 51, 1) 0%,\r\n    rgba(255, 147, 58, 1) 100%\r\n  );\n}\r\n/*is error being used?*/\n.error[data-v-6ec57eb6] {\r\n  color: #f98b39;\n}\r\n/*End Right Component*/\r\n", ""]);
 
 // exports
 
@@ -388221,85 +388275,61 @@ var render = function() {
                   )
                 : _vm._e(),
               _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-12" }, [
-                  _c("div", { staticClass: "col-6" }, [
-                    _vm.active == "workstation" ||
-                    _vm.active == "call-history" ||
-                    _vm.active == "transactions" ||
-                    _vm.active == "inventory"
-                      ? _c(
-                          "ul",
-                          {
-                            staticClass: "d-inline-block navbar-nav searchBar"
-                          },
-                          [_vm._m(0)]
-                        )
-                      : _vm._e()
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-6" }, [
-                    _vm.active == "workstation"
-                      ? _c(
-                          "ul",
-                          {
-                            staticClass: "d-inline-block navbar-nav callIcons"
-                          },
-                          [
-                            _vm.auto_dialer_settings.disabled == 1
-                              ? _c(
-                                  "li",
-                                  { staticClass: "nav-item d-sm-inline-block" },
-                                  [
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "row mx-0 align-items-center"
-                                      },
-                                      [
-                                        _c(
-                                          "div",
-                                          { staticClass: "col-auto px-0" },
-                                          [
-                                            !_vm.is_oncall
-                                              ? _c("button", {
-                                                  staticClass:
-                                                    "nav-link border-0 bg-transparent call",
-                                                  attrs: { id: "show-btn" },
-                                                  on: {
-                                                    click: function($event) {
-                                                      return _vm.startCall()
-                                                    }
-                                                  }
-                                                })
-                                              : _vm._e(),
-                                            _vm._v(" "),
-                                            _vm.is_oncall
-                                              ? _c("button", {
-                                                  staticClass:
-                                                    "nav-link border-0 bg-transparent end-call",
-                                                  attrs: { id: "show-btn" },
-                                                  on: {
-                                                    click: function($event) {
-                                                      return _vm.endCall()
-                                                    }
-                                                  }
-                                                })
-                                              : _vm._e()
-                                          ]
-                                        )
-                                      ]
-                                    )
-                                  ]
-                                )
-                              : _vm._e()
-                          ]
-                        )
-                      : _vm._e()
-                  ])
-                ])
-              ])
+              _vm.active == "workstation" ||
+              _vm.active == "call-history" ||
+              _vm.active == "transactions" ||
+              _vm.active == "inventory"
+                ? _c(
+                    "ul",
+                    { staticClass: "d-inline-block navbar-nav searchBar" },
+                    [_vm._m(0)]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.active == "workstation"
+                ? _c(
+                    "ul",
+                    { staticClass: "d-inline-block navbar-nav callIcons" },
+                    [
+                      _vm.auto_dialer_settings.disabled == 1
+                        ? _c(
+                            "li",
+                            {
+                              staticClass:
+                                "nav-item d-sm-inline-block dialer-icon"
+                            },
+                            [
+                              !_vm.is_oncall
+                                ? _c("button", {
+                                    staticClass:
+                                      "nav-link border-0 bg-transparent call",
+                                    attrs: { id: "show-btn" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.startCall()
+                                      }
+                                    }
+                                  })
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _vm.is_oncall
+                                ? _c("button", {
+                                    staticClass:
+                                      "nav-link border-0 bg-transparent end-call",
+                                    attrs: { id: "show-btn" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.endCall()
+                                      }
+                                    }
+                                  })
+                                : _vm._e()
+                            ]
+                          )
+                        : _vm._e()
+                    ]
+                  )
+                : _vm._e()
             ])
           ]
         )
@@ -393862,6 +393892,12 @@ var render = function() {
                     rawName: "v-model",
                     value: _vm.deal.deal_name,
                     expression: "deal.deal_name"
+                  },
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: "required|min:1",
+                    expression: "'required|min:1'"
                   }
                 ],
                 staticClass: "form-control rounded-pill",
@@ -393876,6 +393912,23 @@ var render = function() {
                   }
                 }
               }),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.errors.has("DealName"),
+                      expression: "errors.has('DealName')"
+                    }
+                  ],
+                  staticClass: "help-block",
+                  attrs: { id: "error" }
+                },
+                [_vm._v(_vm._s(_vm.errors.first("DealName")))]
+              ),
               _vm._v(" "),
               _c(
                 "label",
@@ -393915,11 +393968,9 @@ var render = function() {
                   }
                 },
                 [
-                  _c(
-                    "a-select-option",
-                    { attrs: { value: "-None-", selected: "" } },
-                    [_vm._v("-None-")]
-                  ),
+                  _c("a-select-option", { attrs: { value: "-None-" } }, [
+                    _vm._v("-None-")
+                  ]),
                   _vm._v(" "),
                   _c("a-select-option", { attrs: { value: "1" } }, [
                     _vm._v("Existing Business")
@@ -393981,6 +394032,12 @@ var render = function() {
                     rawName: "v-model",
                     value: _vm.deal.amount,
                     expression: "deal.amount"
+                  },
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: "required|min:1",
+                    expression: "'required|min:1'"
                   }
                 ],
                 staticClass: "form-control rounded-pill",
@@ -393995,6 +394052,23 @@ var render = function() {
                   }
                 }
               }),
+              _vm._v(" "),
+              _c(
+                "span",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.errors.has("Amount"),
+                      expression: "errors.has('Amount')"
+                    }
+                  ],
+                  staticClass: "help-block",
+                  attrs: { id: "error" }
+                },
+                [_vm._v(_vm._s(_vm.errors.first("Amount")))]
+              ),
               _vm._v(" "),
               _c(
                 "label",
@@ -394061,6 +394135,12 @@ var render = function() {
                   rawName: "v-model",
                   value: _vm.deal.description,
                   expression: "deal.description"
+                },
+                {
+                  name: "validate",
+                  rawName: "v-validate",
+                  value: "required|min:1",
+                  expression: "'required|min:1'"
                 }
               ],
               staticClass: "form-control ",
@@ -394074,7 +394154,24 @@ var render = function() {
                   _vm.$set(_vm.deal, "description", $event.target.value)
                 }
               }
-            })
+            }),
+            _vm._v(" "),
+            _c(
+              "span",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.errors.has("Info"),
+                    expression: "errors.has('Info')"
+                  }
+                ],
+                staticClass: "help-block",
+                attrs: { id: "error" }
+              },
+              [_vm._v(_vm._s(_vm.errors.first("Info")))]
+            )
           ])
         ])
       ]),
@@ -394096,10 +394193,16 @@ var render = function() {
                 rawName: "v-model",
                 value: _vm.deal.probability,
                 expression: "deal.probability"
+              },
+              {
+                name: "validate",
+                rawName: "v-validate",
+                value: "required|min:1",
+                expression: "'required|min:1'"
               }
             ],
             staticClass: "form-control rounded-pill",
-            attrs: { type: "text", id: "probability", name: "Probability" },
+            attrs: { type: "number", id: "probability", name: "Probability" },
             domProps: { value: _vm.deal.probability },
             on: {
               input: function($event) {
@@ -394110,6 +394213,23 @@ var render = function() {
               }
             }
           }),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.errors.has("Probability"),
+                  expression: "errors.has('Probability')"
+                }
+              ],
+              staticClass: "help-block",
+              attrs: { id: "error" }
+            },
+            [_vm._v(_vm._s(_vm.errors.first("Probability")))]
+          ),
           _vm._v(" "),
           _c(
             "label",
@@ -394124,6 +394244,12 @@ var render = function() {
                 rawName: "v-model",
                 value: _vm.deal.expected_revenue,
                 expression: "deal.expected_revenue"
+              },
+              {
+                name: "validate",
+                rawName: "v-validate",
+                value: "required|min:1",
+                expression: "'required|min:1'"
               }
             ],
             staticClass: "form-control rounded-pill",
@@ -394138,6 +394264,23 @@ var render = function() {
               }
             }
           }),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.errors.has("Revenue"),
+                  expression: "errors.has('Revenue')"
+                }
+              ],
+              staticClass: "help-block",
+              attrs: { id: "error" }
+            },
+            [_vm._v(_vm._s(_vm.errors.first("Revenue")))]
+          ),
           _vm._v(" "),
           _c(
             "label",
@@ -394191,6 +394334,12 @@ var render = function() {
                 rawName: "v-model",
                 value: _vm.deal.contact_name,
                 expression: "deal.contact_name"
+              },
+              {
+                name: "validate",
+                rawName: "v-validate",
+                value: "required|min:1",
+                expression: "'required|min:1'"
               }
             ],
             staticClass: "form-control rounded-pill",
@@ -394207,9 +394356,44 @@ var render = function() {
           }),
           _vm._v(" "),
           _c(
+            "span",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.errors.has("ContactName"),
+                  expression: "errors.has('ContactName')"
+                }
+              ],
+              staticClass: "help-block",
+              attrs: { id: "error" }
+            },
+            [_vm._v(_vm._s(_vm.errors.first("ContactName")))]
+          ),
+          _vm._v(" "),
+          _c(
             "label",
             { staticClass: "col-lg-12 control-label w-100 p-0 mb-2" },
-            [_vm._v("Contact Number")]
+            [
+              _vm._v("Contact Number "),
+              _c(
+                "span",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.errors.has("ContactNumber"),
+                      expression: "errors.has('ContactNumber')"
+                    }
+                  ],
+                  staticClass: "help-block",
+                  attrs: { id: "error" }
+                },
+                [_vm._v(_vm._s(_vm.errors.first("ContactNumber")))]
+              )
+            ]
           ),
           _vm._v(" "),
           _c("input", {
@@ -394219,10 +394403,20 @@ var render = function() {
                 rawName: "v-model",
                 value: _vm.deal.contact_number,
                 expression: "deal.contact_number"
+              },
+              {
+                name: "validate",
+                rawName: "v-validate",
+                value: "required|min:10",
+                expression: "'required|min:10'"
               }
             ],
             staticClass: "form-control rounded-pill",
-            attrs: { type: "tel", id: "contact-number", name: "ContactNumber" },
+            attrs: {
+              type: "number",
+              id: "contact-number",
+              name: "ContactNumber"
+            },
             domProps: { value: _vm.deal.contact_number },
             on: {
               input: function($event) {
@@ -396023,669 +396217,760 @@ var render = function() {
                 "row mx-0 pb-5 justify-content-between top-section agent-stats-1"
             },
             _vm._l(_vm.module_item.item_meta, function(item, name, i) {
-              return _c(
-                "div",
-                { key: i, staticClass: "col-6" },
-                _vm._l(_vm.item_custom_fields, function(custom_field, index) {
-                  return item.custom_field_id == custom_field.id
-                    ? _c("div", { key: index, staticClass: "2" }, [
-                        item.custom_field_id == custom_field.id &&
-                        item.custom_field_value !== null
-                          ? _c(
-                              "div",
-                              { staticClass: "inner-div border-bottom-grey" },
-                              [
-                                item.custom_field_name == "source"
-                                  ? _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "row mx-0 border-top-grey align-items-center"
-                                      },
-                                      [
-                                        _c(
-                                          "div",
-                                          { staticClass: "col-4 p10-25 top" },
-                                          [
-                                            _c("p", { staticClass: "top" }, [
-                                              _vm._v(
-                                                _vm._s(
-                                                  custom_field.display_name
-                                                )
-                                              )
-                                            ])
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
+              return item.custom_field_value !== null
+                ? _c(
+                    "div",
+                    { key: i, staticClass: "col-6" },
+                    _vm._l(_vm.item_custom_fields, function(
+                      custom_field,
+                      index
+                    ) {
+                      return item.custom_field_id == custom_field.id
+                        ? _c("div", { key: index, staticClass: "2" }, [
+                            item.custom_field_id == custom_field.id &&
+                            item.custom_field_value !== null
+                              ? _c(
+                                  "div",
+                                  {
+                                    staticClass: "inner-div border-bottom-grey",
+                                    staticStyle: { height: "47px" }
+                                  },
+                                  [
+                                    item.custom_field_name == "source"
+                                      ? _c(
                                           "div",
                                           {
                                             staticClass:
-                                              "col-8 bottom truncate border-left-grey"
+                                              "row mx-0 border-top-grey align-items-center"
                                           },
                                           [
                                             _c(
-                                              "a-select",
+                                              "div",
                                               {
-                                                staticClass:
-                                                  "form-control editable border-0 p-0",
-                                                attrs: {
-                                                  type: "text",
-                                                  id: "Source",
-                                                  name: "Source"
-                                                },
-                                                on: {
-                                                  change: function($event) {
-                                                    return _vm.submitEdit(
-                                                      _vm.item_field
-                                                    )
-                                                  }
-                                                },
-                                                model: {
-                                                  value:
-                                                    item.custom_field_value,
-                                                  callback: function($$v) {
-                                                    _vm.$set(
-                                                      item,
-                                                      "custom_field_value",
-                                                      $$v
-                                                    )
-                                                  },
-                                                  expression:
-                                                    "item.custom_field_value"
-                                                }
+                                                staticClass: "col-4 p10-25 top"
                                               },
                                               [
                                                 _c(
-                                                  "a-select-option",
-                                                  { attrs: { value: null } },
-                                                  [_vm._v("- None -")]
-                                                ),
-                                                _vm._v(" "),
-                                                _vm._l(_vm.sources, function(
-                                                  item,
-                                                  index
-                                                ) {
-                                                  return _c(
-                                                    "a-select-option",
-                                                    {
-                                                      key: index,
-                                                      attrs: { value: item.id }
+                                                  "p",
+                                                  { staticClass: "top" },
+                                                  [
+                                                    _vm._v(
+                                                      _vm._s(
+                                                        custom_field.display_name
+                                                      )
+                                                    )
+                                                  ]
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "col-8 bottom truncate border-left-grey"
+                                              },
+                                              [
+                                                _c(
+                                                  "a-select",
+                                                  {
+                                                    staticClass:
+                                                      "form-control editable border-0 p-0",
+                                                    attrs: {
+                                                      type: "text",
+                                                      id: "Source",
+                                                      name: "Source"
                                                     },
-                                                    [_vm._v(_vm._s(item.name))]
-                                                  )
-                                                })
-                                              ],
-                                              2
-                                            )
-                                          ],
-                                          1
-                                        )
-                                      ]
-                                    )
-                                  : item.custom_field_name == "product" &&
-                                    item.custom_field_value !== null
-                                  ? _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "row mx-0 border-top-grey align-items-center"
-                                      },
-                                      [
-                                        _c(
-                                          "div",
-                                          { staticClass: "col-4 p10-25 top" },
-                                          [
-                                            _c("p", { staticClass: "top" }, [
-                                              _vm._v(
-                                                _vm._s(
-                                                  custom_field.display_name
-                                                )
-                                              )
-                                            ])
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          {
-                                            staticClass:
-                                              "col-8 bottom truncate border-left-grey"
-                                          },
-                                          [
-                                            _c(
-                                              "a-select",
-                                              {
-                                                staticClass:
-                                                  "form-control editable border-0 p-0",
-                                                attrs: {
-                                                  type: "text",
-                                                  id: "Source",
-                                                  name: "Source"
-                                                },
-                                                on: {
-                                                  change: function($event) {
-                                                    return _vm.submitEdit(
-                                                      _vm.item_field
-                                                    )
-                                                  }
-                                                },
-                                                model: {
-                                                  value:
-                                                    item.custom_field_value,
-                                                  callback: function($$v) {
-                                                    _vm.$set(
-                                                      item,
-                                                      "custom_field_value",
-                                                      $$v
-                                                    )
-                                                  },
-                                                  expression:
-                                                    "item.custom_field_value"
-                                                }
-                                              },
-                                              [
-                                                _c(
-                                                  "a-select-option",
-                                                  { attrs: { value: null } },
-                                                  [_vm._v("- None -")]
-                                                ),
-                                                _vm._v(" "),
-                                                _vm._l(_vm.packages, function(
-                                                  item,
-                                                  index
-                                                ) {
-                                                  return _c(
-                                                    "a-select-option",
-                                                    {
-                                                      key: index,
-                                                      attrs: { value: item.id }
+                                                    on: {
+                                                      change: function($event) {
+                                                        return _vm.submitEdit(
+                                                          _vm.item_field
+                                                        )
+                                                      }
                                                     },
-                                                    [_vm._v(_vm._s(item.name))]
-                                                  )
-                                                })
-                                              ],
-                                              2
-                                            )
-                                          ],
-                                          1
-                                        )
-                                      ]
-                                    )
-                                  : item.custom_field_name == "owner" ||
-                                    (item.custom_field_name == "assignee" &&
-                                      item.custom_field_value !== null)
-                                  ? _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "row mx-0 border-let-grey align-items-center"
-                                      },
-                                      [
-                                        _c(
-                                          "div",
-                                          { staticClass: "col-4 p10-25 top" },
-                                          [
-                                            _c("p", { staticClass: "top" }, [
-                                              _vm._v(
-                                                _vm._s(
-                                                  custom_field.display_name
-                                                )
-                                              )
-                                            ])
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          {
-                                            staticClass:
-                                              "col-8 bottom truncate border-left-grey"
-                                          },
-                                          [
-                                            _c(
-                                              "a-select",
-                                              {
-                                                staticClass:
-                                                  "form-control editable border-0 p-0",
-                                                attrs: {
-                                                  type: "text",
-                                                  id: "Source",
-                                                  name: "Source"
-                                                },
-                                                on: {
-                                                  change: function($event) {
-                                                    return _vm.submitEdit(
-                                                      _vm.item_field
-                                                    )
-                                                  }
-                                                },
-                                                model: {
-                                                  value:
-                                                    item.custom_field_value,
-                                                  callback: function($$v) {
-                                                    _vm.$set(
-                                                      item,
-                                                      "custom_field_value",
-                                                      $$v
-                                                    )
+                                                    model: {
+                                                      value:
+                                                        item.custom_field_value,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          item,
+                                                          "custom_field_value",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "item.custom_field_value"
+                                                    }
                                                   },
-                                                  expression:
-                                                    "item.custom_field_value"
-                                                }
-                                              },
-                                              [
-                                                _c(
-                                                  "a-select-option",
-                                                  { attrs: { value: null } },
-                                                  [_vm._v("- None -")]
-                                                ),
-                                                _vm._v(" "),
-                                                _vm._l(
-                                                  _vm.active_users,
-                                                  function(item, index) {
-                                                    return _c(
+                                                  [
+                                                    _c(
                                                       "a-select-option",
                                                       {
-                                                        key: index,
+                                                        attrs: { value: null }
+                                                      },
+                                                      [_vm._v("- None -")]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _vm._l(
+                                                      _vm.sources,
+                                                      function(item, index) {
+                                                        return _c(
+                                                          "a-select-option",
+                                                          {
+                                                            key: index,
+                                                            attrs: {
+                                                              value: item.id
+                                                            }
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              _vm._s(item.name)
+                                                            )
+                                                          ]
+                                                        )
+                                                      }
+                                                    )
+                                                  ],
+                                                  2
+                                                )
+                                              ],
+                                              1
+                                            )
+                                          ]
+                                        )
+                                      : item.custom_field_name == "product" &&
+                                        item.custom_field_value !== null
+                                      ? _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "row mx-0 border-top-grey align-items-center"
+                                          },
+                                          [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass: "col-4 p10-25 top"
+                                              },
+                                              [
+                                                _c(
+                                                  "p",
+                                                  { staticClass: "top" },
+                                                  [
+                                                    _vm._v(
+                                                      _vm._s(
+                                                        custom_field.display_name
+                                                      )
+                                                    )
+                                                  ]
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "col-8 bottom truncate border-left-grey"
+                                              },
+                                              [
+                                                _c(
+                                                  "a-select",
+                                                  {
+                                                    staticClass:
+                                                      "form-control editable border-0 p-0",
+                                                    attrs: {
+                                                      type: "text",
+                                                      id: "Source",
+                                                      name: "Source"
+                                                    },
+                                                    on: {
+                                                      change: function($event) {
+                                                        return _vm.submitEdit(
+                                                          _vm.item_field
+                                                        )
+                                                      }
+                                                    },
+                                                    model: {
+                                                      value:
+                                                        item.custom_field_value,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          item,
+                                                          "custom_field_value",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "item.custom_field_value"
+                                                    }
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "a-select-option",
+                                                      {
+                                                        attrs: { value: null }
+                                                      },
+                                                      [_vm._v("- None -")]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _vm._l(
+                                                      _vm.packages,
+                                                      function(item, index) {
+                                                        return _c(
+                                                          "a-select-option",
+                                                          {
+                                                            key: index,
+                                                            attrs: {
+                                                              value: item.id
+                                                            }
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              _vm._s(item.name)
+                                                            )
+                                                          ]
+                                                        )
+                                                      }
+                                                    )
+                                                  ],
+                                                  2
+                                                )
+                                              ],
+                                              1
+                                            )
+                                          ]
+                                        )
+                                      : item.custom_field_name == "owner" ||
+                                        (item.custom_field_name == "assignee" &&
+                                          item.custom_field_value !== null)
+                                      ? _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "row mx-0 border-let-grey align-items-center"
+                                          },
+                                          [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass: "col-4 p10-25 top"
+                                              },
+                                              [
+                                                _c(
+                                                  "p",
+                                                  { staticClass: "top" },
+                                                  [
+                                                    _vm._v(
+                                                      _vm._s(
+                                                        custom_field.display_name
+                                                      )
+                                                    )
+                                                  ]
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "col-8 bottom truncate border-left-grey"
+                                              },
+                                              [
+                                                _c(
+                                                  "a-select",
+                                                  {
+                                                    staticClass:
+                                                      "form-control editable border-0 p-0",
+                                                    attrs: {
+                                                      type: "text",
+                                                      id: "Source",
+                                                      name: "Source"
+                                                    },
+                                                    on: {
+                                                      change: function($event) {
+                                                        return _vm.submitEdit(
+                                                          _vm.item_field
+                                                        )
+                                                      }
+                                                    },
+                                                    model: {
+                                                      value:
+                                                        item.custom_field_value,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          item,
+                                                          "custom_field_value",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "item.custom_field_value"
+                                                    }
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "a-select-option",
+                                                      {
+                                                        attrs: { value: null }
+                                                      },
+                                                      [_vm._v("- None -")]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _vm._l(
+                                                      _vm.active_users,
+                                                      function(item, index) {
+                                                        return _c(
+                                                          "a-select-option",
+                                                          {
+                                                            key: index,
+                                                            attrs: {
+                                                              value: item.id
+                                                            }
+                                                          },
+                                                          [
+                                                            _vm._v(
+                                                              _vm._s(
+                                                                item.name +
+                                                                  " " +
+                                                                  item.lastname
+                                                              )
+                                                            )
+                                                          ]
+                                                        )
+                                                      }
+                                                    )
+                                                  ],
+                                                  2
+                                                )
+                                              ],
+                                              1
+                                            )
+                                          ]
+                                        )
+                                      : item.custom_field_name == "status" &&
+                                        item.custom_field_value !== null
+                                      ? _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "row mx-0 border-let-grey align-items-center"
+                                          },
+                                          [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass: "col-4 p10-25 top"
+                                              },
+                                              [
+                                                _c(
+                                                  "p",
+                                                  { staticClass: "top" },
+                                                  [
+                                                    _vm._v(
+                                                      _vm._s(
+                                                        custom_field.display_name
+                                                      )
+                                                    )
+                                                  ]
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "col-8 bottom truncate border-left-grey"
+                                              },
+                                              [
+                                                _c(
+                                                  "a-select",
+                                                  {
+                                                    staticClass:
+                                                      "form-control editable border-0 p-0",
+                                                    attrs: {
+                                                      type: "text",
+                                                      id: "Source",
+                                                      name: "Source"
+                                                    },
+                                                    on: {
+                                                      change: function($event) {
+                                                        return _vm.submitEdit(
+                                                          _vm.item_field
+                                                        )
+                                                      }
+                                                    },
+                                                    model: {
+                                                      value:
+                                                        item.custom_field_value,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          item,
+                                                          "custom_field_value",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "item.custom_field_value"
+                                                    }
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "a-select-option",
+                                                      {
+                                                        attrs: { value: null }
+                                                      },
+                                                      [_vm._v("- None -")]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "a-select-option",
+                                                      { attrs: { value: "1" } },
+                                                      [_vm._v("Active")]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "a-select-option",
+                                                      { attrs: { value: "2" } },
+                                                      [_vm._v("Inactive")]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "a-select-option",
+                                                      { attrs: { value: "3" } },
+                                                      [_vm._v("Canceled")]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "a-select-option",
+                                                      { attrs: { value: "0" } },
+                                                      [_vm._v("Disabled")]
+                                                    )
+                                                  ],
+                                                  1
+                                                )
+                                              ],
+                                              1
+                                            )
+                                          ]
+                                        )
+                                      : item.custom_field_name == "title" &&
+                                        item.custom_field_value !== null
+                                      ? _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "row mx-0 border-let-grey align-items-center"
+                                          },
+                                          [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass: "col-4 p10-25 top"
+                                              },
+                                              [
+                                                _c(
+                                                  "p",
+                                                  { staticClass: "top" },
+                                                  [
+                                                    _vm._v(
+                                                      _vm._s(
+                                                        custom_field.display_name
+                                                      )
+                                                    )
+                                                  ]
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "col-8 bottom truncate border-left-grey"
+                                              },
+                                              [
+                                                _c(
+                                                  "a-select",
+                                                  {
+                                                    staticClass:
+                                                      "form-control editable border-0 p-0",
+                                                    attrs: {
+                                                      type: "text",
+                                                      id: "Source",
+                                                      name: "Source"
+                                                    },
+                                                    on: {
+                                                      change: function($event) {
+                                                        return _vm.submitEdit(
+                                                          _vm.item_field
+                                                        )
+                                                      }
+                                                    },
+                                                    model: {
+                                                      value:
+                                                        item.custom_field_value,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          item,
+                                                          "custom_field_value",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "item.custom_field_value"
+                                                    }
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "a-select-option",
+                                                      {
+                                                        attrs: { value: null }
+                                                      },
+                                                      [_vm._v("- None -")]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "a-select-option",
+                                                      {
+                                                        attrs: { value: "Dr" }
+                                                      },
+                                                      [_vm._v("Dr")]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "a-select-option",
+                                                      {
+                                                        attrs: { value: "Mr" }
+                                                      },
+                                                      [_vm._v("Mr")]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "a-select-option",
+                                                      {
+                                                        attrs: { value: "Mrs" }
+                                                      },
+                                                      [_vm._v("Mrs")]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "a-select-option",
+                                                      {
+                                                        attrs: { value: "Miss" }
+                                                      },
+                                                      [_vm._v("Miss")]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "a-select-option",
+                                                      {
+                                                        attrs: { value: "Prof" }
+                                                      },
+                                                      [_vm._v("Prof")]
+                                                    )
+                                                  ],
+                                                  1
+                                                )
+                                              ],
+                                              1
+                                            )
+                                          ]
+                                        )
+                                      : item.custom_field_name == "gender" &&
+                                        item.custom_field_value !== null
+                                      ? _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "row mx-0 border-let-grey align-items-center"
+                                          },
+                                          [
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass: "col-4 p10-25 top"
+                                              },
+                                              [
+                                                _c(
+                                                  "p",
+                                                  { staticClass: "top" },
+                                                  [
+                                                    _vm._v(
+                                                      _vm._s(
+                                                        custom_field.display_name
+                                                      )
+                                                    )
+                                                  ]
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "col-8 bottom truncate border-left-grey"
+                                              },
+                                              [
+                                                _c(
+                                                  "a-select",
+                                                  {
+                                                    staticClass:
+                                                      "form-control editable border-0 p-0",
+                                                    attrs: {
+                                                      type: "text",
+                                                      id: "Source",
+                                                      name: "Source"
+                                                    },
+                                                    on: {
+                                                      change: function($event) {
+                                                        return _vm.submitEdit(
+                                                          _vm.item_field
+                                                        )
+                                                      }
+                                                    },
+                                                    model: {
+                                                      value:
+                                                        item.custom_field_value,
+                                                      callback: function($$v) {
+                                                        _vm.$set(
+                                                          item,
+                                                          "custom_field_value",
+                                                          $$v
+                                                        )
+                                                      },
+                                                      expression:
+                                                        "item.custom_field_value"
+                                                    }
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "a-select-option",
+                                                      {
+                                                        attrs: { value: null }
+                                                      },
+                                                      [_vm._v("- None -")]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "a-select-option",
+                                                      {
+                                                        attrs: { value: "Male" }
+                                                      },
+                                                      [_vm._v("Male")]
+                                                    ),
+                                                    _vm._v(" "),
+                                                    _c(
+                                                      "a-select-option",
+                                                      {
                                                         attrs: {
-                                                          value: item.id
+                                                          value: "Female"
                                                         }
                                                       },
-                                                      [
-                                                        _vm._v(
-                                                          _vm._s(
-                                                            item.name +
-                                                              " " +
-                                                              item.lastname
-                                                          )
-                                                        )
-                                                      ]
+                                                      [_vm._v("Female")]
                                                     )
-                                                  }
-                                                )
-                                              ],
-                                              2
-                                            )
-                                          ],
-                                          1
-                                        )
-                                      ]
-                                    )
-                                  : item.custom_field_name == "status" &&
-                                    item.custom_field_value !== null
-                                  ? _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "row mx-0 border-let-grey align-items-center"
-                                      },
-                                      [
-                                        _c(
-                                          "div",
-                                          { staticClass: "col-4 p10-25 top" },
-                                          [
-                                            _c("p", { staticClass: "top" }, [
-                                              _vm._v(
-                                                _vm._s(
-                                                  custom_field.display_name
-                                                )
-                                              )
-                                            ])
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          {
-                                            staticClass:
-                                              "col-8 bottom truncate border-left-grey"
-                                          },
-                                          [
-                                            _c(
-                                              "a-select",
-                                              {
-                                                staticClass:
-                                                  "form-control editable border-0 p-0",
-                                                attrs: {
-                                                  type: "text",
-                                                  id: "Source",
-                                                  name: "Source"
-                                                },
-                                                on: {
-                                                  change: function($event) {
-                                                    return _vm.submitEdit(
-                                                      _vm.item_field
-                                                    )
-                                                  }
-                                                },
-                                                model: {
-                                                  value:
-                                                    item.custom_field_value,
-                                                  callback: function($$v) {
-                                                    _vm.$set(
-                                                      item,
-                                                      "custom_field_value",
-                                                      $$v
-                                                    )
-                                                  },
-                                                  expression:
-                                                    "item.custom_field_value"
-                                                }
-                                              },
-                                              [
-                                                _c(
-                                                  "a-select-option",
-                                                  { attrs: { value: null } },
-                                                  [_vm._v("- None -")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "a-select-option",
-                                                  { attrs: { value: "1" } },
-                                                  [_vm._v("Active")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "a-select-option",
-                                                  { attrs: { value: "2" } },
-                                                  [_vm._v("Inactive")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "a-select-option",
-                                                  { attrs: { value: "3" } },
-                                                  [_vm._v("Canceled")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "a-select-option",
-                                                  { attrs: { value: "0" } },
-                                                  [_vm._v("Disabled")]
+                                                  ],
+                                                  1
                                                 )
                                               ],
                                               1
                                             )
-                                          ],
-                                          1
-                                        )
-                                      ]
-                                    )
-                                  : item.custom_field_name == "title" &&
-                                    item.custom_field_value !== null
-                                  ? _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "row mx-0 border-let-grey align-items-center"
-                                      },
-                                      [
-                                        _c(
-                                          "div",
-                                          { staticClass: "col-4 p10-25 top" },
-                                          [
-                                            _c("p", { staticClass: "top" }, [
-                                              _vm._v(
-                                                _vm._s(
-                                                  custom_field.display_name
-                                                )
-                                              )
-                                            ])
                                           ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
+                                        )
+                                      : item.custom_field_name != "source" &&
+                                        item.custom_field_name != "product" &&
+                                        item.custom_field_name != "owner" &&
+                                        item.custom_field_name != "assignee" &&
+                                        item.custom_field_name != "status" &&
+                                        item.custom_field_name != "title" &&
+                                        item.custom_field_name != "gender"
+                                      ? _c(
                                           "div",
                                           {
                                             staticClass:
-                                              "col-8 bottom truncate border-left-grey"
+                                              "row mx-0 border-let-grey align-items-center"
                                           },
                                           [
                                             _c(
-                                              "a-select",
+                                              "div",
                                               {
-                                                staticClass:
-                                                  "form-control editable border-0 p-0",
-                                                attrs: {
-                                                  type: "text",
-                                                  id: "Source",
-                                                  name: "Source"
-                                                },
-                                                on: {
-                                                  change: function($event) {
-                                                    return _vm.submitEdit(
-                                                      _vm.item_field
-                                                    )
-                                                  }
-                                                },
-                                                model: {
-                                                  value:
-                                                    item.custom_field_value,
-                                                  callback: function($$v) {
-                                                    _vm.$set(
-                                                      item,
-                                                      "custom_field_value",
-                                                      $$v
-                                                    )
-                                                  },
-                                                  expression:
-                                                    "item.custom_field_value"
-                                                }
+                                                staticClass: "col-4 p10-25 top"
                                               },
                                               [
                                                 _c(
-                                                  "a-select-option",
-                                                  { attrs: { value: null } },
-                                                  [_vm._v("- None -")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "a-select-option",
-                                                  { attrs: { value: "Dr" } },
-                                                  [_vm._v("Dr")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "a-select-option",
-                                                  { attrs: { value: "Mr" } },
-                                                  [_vm._v("Mr")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "a-select-option",
-                                                  { attrs: { value: "Mrs" } },
-                                                  [_vm._v("Mrs")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "a-select-option",
-                                                  { attrs: { value: "Miss" } },
-                                                  [_vm._v("Miss")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "a-select-option",
-                                                  { attrs: { value: "Prof" } },
-                                                  [_vm._v("Prof")]
+                                                  "p",
+                                                  { staticClass: "top" },
+                                                  [
+                                                    _vm._v(
+                                                      _vm._s(
+                                                        custom_field.display_name
+                                                      )
+                                                    )
+                                                  ]
                                                 )
-                                              ],
-                                              1
-                                            )
-                                          ],
-                                          1
-                                        )
-                                      ]
-                                    )
-                                  : item.custom_field_name == "gender" &&
-                                    item.custom_field_value !== null
-                                  ? _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "row mx-0 border-let-grey align-items-center"
-                                      },
-                                      [
-                                        _c(
-                                          "div",
-                                          { staticClass: "col-4 p10-25 top" },
-                                          [
-                                            _c("p", { staticClass: "top" }, [
-                                              _vm._v(
-                                                _vm._s(
-                                                  custom_field.display_name
-                                                )
-                                              )
-                                            ])
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          {
-                                            staticClass:
-                                              "col-8 bottom truncate border-left-grey"
-                                          },
-                                          [
+                                              ]
+                                            ),
+                                            _vm._v(" "),
                                             _c(
-                                              "a-select",
+                                              "div",
                                               {
                                                 staticClass:
-                                                  "form-control editable border-0 p-0",
-                                                attrs: {
-                                                  type: "text",
-                                                  id: "Source",
-                                                  name: "Source"
-                                                },
-                                                on: {
-                                                  change: function($event) {
-                                                    return _vm.submitEdit(
-                                                      _vm.item_field
-                                                    )
-                                                  }
-                                                },
-                                                model: {
-                                                  value:
-                                                    item.custom_field_value,
-                                                  callback: function($$v) {
-                                                    _vm.$set(
-                                                      item,
-                                                      "custom_field_value",
-                                                      $$v
-                                                    )
-                                                  },
-                                                  expression:
-                                                    "item.custom_field_value"
-                                                }
+                                                  "col-8 bottom truncate border-left-grey"
                                               },
                                               [
-                                                _c(
-                                                  "a-select-option",
-                                                  { attrs: { value: null } },
-                                                  [_vm._v("- None -")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "a-select-option",
-                                                  { attrs: { value: "Male" } },
-                                                  [_vm._v("Male")]
-                                                ),
-                                                _vm._v(" "),
-                                                _c(
-                                                  "a-select-option",
-                                                  {
-                                                    attrs: { value: "Female" }
+                                                _c("input", {
+                                                  directives: [
+                                                    {
+                                                      name: "model",
+                                                      rawName: "v-model",
+                                                      value:
+                                                        item.custom_field_value,
+                                                      expression:
+                                                        "item.custom_field_value"
+                                                    }
+                                                  ],
+                                                  staticClass:
+                                                    "bottom mb-0 form-control border-0",
+                                                  attrs: {
+                                                    type: "text",
+                                                    name: "itemName"
                                                   },
-                                                  [_vm._v("Female")]
-                                                )
-                                              ],
-                                              1
-                                            )
-                                          ],
-                                          1
-                                        )
-                                      ]
-                                    )
-                                  : item.custom_field_name != "source" &&
-                                    item.custom_field_name != "product" &&
-                                    item.custom_field_name != "owner" &&
-                                    item.custom_field_name != "assignee" &&
-                                    item.custom_field_name != "status" &&
-                                    item.custom_field_name != "title" &&
-                                    item.custom_field_name != "gender"
-                                  ? _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "row mx-0 border-let-grey align-items-center"
-                                      },
-                                      [
-                                        _c(
-                                          "div",
-                                          { staticClass: "col-4 p10-25 top" },
-                                          [
-                                            _c("p", { staticClass: "top" }, [
-                                              _vm._v(
-                                                _vm._s(
-                                                  custom_field.display_name
-                                                )
-                                              )
-                                            ])
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "div",
-                                          {
-                                            staticClass:
-                                              "col-8 bottom truncate border-left-grey"
-                                          },
-                                          [
-                                            _c("input", {
-                                              directives: [
-                                                {
-                                                  name: "model",
-                                                  rawName: "v-model",
-                                                  value:
-                                                    item.custom_field_value,
-                                                  expression:
-                                                    "item.custom_field_value"
-                                                }
-                                              ],
-                                              staticClass:
-                                                "bottom mb-0 form-control border-0",
-                                              attrs: {
-                                                type: "text",
-                                                name: "itemName"
-                                              },
-                                              domProps: {
-                                                value: item.custom_field_value
-                                              },
-                                              on: {
-                                                input: function($event) {
-                                                  if ($event.target.composing) {
-                                                    return
+                                                  domProps: {
+                                                    value:
+                                                      item.custom_field_value
+                                                  },
+                                                  on: {
+                                                    input: function($event) {
+                                                      if (
+                                                        $event.target.composing
+                                                      ) {
+                                                        return
+                                                      }
+                                                      _vm.$set(
+                                                        item,
+                                                        "custom_field_value",
+                                                        $event.target.value
+                                                      )
+                                                    }
                                                   }
-                                                  _vm.$set(
-                                                    item,
-                                                    "custom_field_value",
-                                                    $event.target.value
-                                                  )
-                                                }
-                                              }
-                                            })
+                                                })
+                                              ]
+                                            )
                                           ]
                                         )
-                                      ]
-                                    )
-                                  : _vm._e()
-                              ]
-                            )
-                          : _vm._e()
-                      ])
-                    : _vm._e()
-                }),
-                0
-              )
+                                      : _vm._e()
+                                  ]
+                                )
+                              : _vm._e()
+                          ])
+                        : _vm._e()
+                    }),
+                    0
+                  )
+                : _vm._e()
             }),
             0
           ),
