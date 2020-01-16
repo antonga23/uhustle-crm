@@ -155,7 +155,7 @@ p.card-text {
   margin: 0;
   width: 100%;
   float: right;
-  font-family: 'Montserrat bold', sans-serif;
+  font-family: 'Rubik', sans-serif;
 }
   
   p.card-text span {

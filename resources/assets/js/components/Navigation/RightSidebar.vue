@@ -182,13 +182,13 @@ h3 img {
 }
 
 .description {
-  font-size: 10px;
+  font-size: 0.73vw;
   font-family: "Rubik", sans-serif;
   color: #1e2331;
   padding-bottom: 7px;
 }
 .description-text {
-  font-size: 0.73vw !important;
+  font-size: 10px !important;
   color: #808080 !important;
 }
 
@@ -585,7 +585,7 @@ p.heading {
   padding-right: 10px;
 }
 .callback-cal p {
-  font-size: 10px;
+  font-size: 0.63vw;
   color: #757575;
   border-color: #ccc;
   margin-top: 13.5%;
@@ -816,6 +816,10 @@ font-size: 0.83vw;
 }
 .terms-text {
   padding-left: 37px;
+}
+.inner-tasks-list {
+  max-height: 250px;
+  overflow: auto;
 }
 .new-task input {
   border-left: 0;
@@ -1984,7 +1988,7 @@ input.save-text:focus {
                           <span class="mr-1 border-0">Reminders</span>
                         </template>
 
-                        <ul class="pl-0" v-if="tasks.length > 0 && !add_task">
+                        <ul class="pl-0 inner-tasks-list" v-if="tasks.length > 0 && !add_task">
                           <!--When adding a new task, the whole li tag should be added and change input ids -->
                           <li
                             v-for="(task, i) in tasks"
@@ -2130,7 +2134,7 @@ input.save-text:focus {
                             </transition>
                           </li> 
                         </ul> 
-                        <div class="row m-2 pl-0 align-items-center custom-control custom-checkbox"> 
+                         <div class="row m-2 pl-0 align-items-center custom-control custom-checkbox"> 
                           <a href="#" @click="addTask"> 
                             <img src="/images/icons/right-sidebar/Add_Task.svg" class="add-task" /> 
                           </a> 

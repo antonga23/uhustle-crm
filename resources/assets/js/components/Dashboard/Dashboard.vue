@@ -61,6 +61,7 @@ select.rounded-pill {
   line-height: 1em;
   letter-spacing: 0.1em;
   margin-top: 12px;
+  color: #0DA25A;
 }
 .agent-graphs {
   margin-top: 3.4%;
@@ -264,6 +265,12 @@ select.rounded-pill {
     font-family: 'Rubik', sans-serif;
     font-size: 10px;
   }
+  .calendar p.cb-name {
+      font-size: 0.73vw !important; 
+  }
+  .calendar p.cb-date {
+      font-size: 0.63vw !important; 
+  }
   .reminders p {
     font-size: 16px;
     font-family: 'Rubik', sans-serif;
@@ -314,7 +321,7 @@ margin-left: 35px;
   }
   a.Edit{
     background-image: url('/images/DataTables/Edit_Icon.svg');
-    background-size: 20px;
+    background-size: 25px;
     background-repeat: no-repeat;
     width:20px;
     height:20px;
@@ -322,7 +329,7 @@ margin-left: 35px;
   a.Edit:hover,
   a.Edit:active{
     background-image: url('/images/DataTables/Edit_Icon_Active.svg');
-    background-size: 20px;
+    background-size: 25px;
     background-repeat: no-repeat;
   }
   .callback-capture {
@@ -436,7 +443,7 @@ margin-left: 35px;
      outline: 0 !important; 
   }
   .reminders .terms-text .desc-text {
-    font-size: 0.73vw !important;
+    font-size: 10px !important;
     color: #808080 !important;
   }
  label.terms-text.desc-text-label, .ant-calendar-picker {
@@ -824,7 +831,6 @@ border-top: 1px solid #f7f7f7;
         <div class="card border-0">
           <div class="row mx-0">
             <div class="col border-right pl-0 calendar">
-              <h4 class="font-weight-regular mb-0">Filter</h4>
               <vc-calendar 
                 class="border-0" 
                 :attributes='attrs'
@@ -833,16 +839,16 @@ border-top: 1px solid #f7f7f7;
               
               <div class="card border-0" v-if="">
                 <div class="card-title mb-0">
-                  <p class="mb-0">{{ call_back_name }}</p>
+                  <p class="mb-0 cb-name">{{ call_back_name }}</p>
                 </div>
 
                 <div class="row mx-0 justify-content-between align-items-center">
                   <div class="col-auto pl-0 mb-2">
                     <div class="row mx-0 align-items-center">
                       <p
-                        class="d-inline-block mr-2 mb-0"
+                        class="d-inline-block mr-2 mb-0 cb-date"
                       >{{ moment(call_back_date).format( 'DD MMM' ) }}</p>
-                      <a class="d-inline-block Edit" href="#" @click="editNextCB" title="Edit"></a>
+                      <a class="d-inline-block Edit cb-date" href="#" @click="editNextCB" title="Edit"></a>
                     </div>
                   </div>
 

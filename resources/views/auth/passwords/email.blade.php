@@ -13,13 +13,12 @@
                             <div class="row justify-content-center mx-auto">
                                 <div class="col-lg-12 mb-4 p-0 center">
                                     <a class="navbar-brand" href="{{ url('/') }}">
-                                        <img id="top-landing-logo" src="/images/SVG_Images/Logo.svg" class=" lp-logo m-0">
+                                    <img id="top-landing-logo" src="\images\Sign_In\Assests\Login_Logo.svg" class=" lp-logo m-0"> 
                                     </a>
                                 </div>
                             </div>
                             <div class="row justify-content-center">
                                 <div class="col-lg-12 mb-0 p-0 center">
-                                    <p class="logo-title mb-0">UHUSTLE</p>
                                     <p>{{ __('Reset Password') }}</p>
                                 </div>
                             </div>
@@ -46,7 +45,7 @@
                                                 <div class="form-group row mb-0">
                                                     <div class="col-12">
                                                         <button type="submit" class="btn btn-primary w-100 m-0">
-                                                            {{ __('Send Password Reset Link') }}
+                                                            {{ __('Send Link') }}
                                                         </button>
                                                     </div>
                                                 </div>
