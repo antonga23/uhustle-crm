@@ -43,20 +43,20 @@ select.rounded-pill {
   margin-right: 0.9%;
 }
 #top-section .agent-stats .card .card-numeral {
-  font-size: 1.58vw;
+  font-size: 1.88vw;
   line-height: 1em;
   letter-spacing: 0.1em;
   color: #333333;
 }
 #top-section .agent-stats .card .card-desc {
-  font-size: 0.82vw;
+  font-size: 0.73vw;
   font-family: "Rubik", sans-serif;
   line-height: 1em;
   color: #333333;
   margin-top: 8px;
 }
 #top-section .agent-stats .card .card-stat {
-  font-size: 0.71vw;
+  font-size: 0.83vw;
   font-family: "Rubik", sans-serif;
   line-height: 1em;
   letter-spacing: 0.1em;
@@ -86,7 +86,7 @@ select.rounded-pill {
 }
 .nav.nav-tabs.card-header-tabs .nav-link {
   color: #808080;
-  font-size: 0.73vw;
+  font-size: 0.68vw;
   border: none;
 }
 .nav.nav-tabs.card-header-tabs .nav-link .icon {
@@ -173,7 +173,7 @@ select.rounded-pill {
   }
   .legend p {
     font-family: 'Rubik', sans-serif;
-    font-size: 0.7vw;
+    font-size: 0.58vw;
     color:#999999;
   }
   .comparison-month {
@@ -184,7 +184,7 @@ select.rounded-pill {
   }
   .progress-bar{
     background: #F2F2F2;
-    min-height:100px;
+    min-height:175px;
     max-width:20px;
     justify-content: flex-end;
     margin:0 auto;
@@ -611,7 +611,7 @@ border-top: 1px solid #f7f7f7;
                         class="d-inline-block mr-2"
                         src="images/icons/dashboard/calls.svg"
                         alt="legend key icon"
-                        width="9"
+                        width="15"
                       />
                       <p class="d-inline-block mb-0">Calls</p>
                     </div>
@@ -620,7 +620,7 @@ border-top: 1px solid #f7f7f7;
                         class="d-inline-block mr-2"
                         src="images/icons/dashboard/sales.svg"
                         alt="legend key icon"
-                        width="9"
+                        width="15"
                       />
                       <p class="d-inline-block mb-0">Sales</p>
                     </div>
@@ -692,7 +692,7 @@ border-top: 1px solid #f7f7f7;
                         class="d-inline-block mr-2"
                         src="images/icons/dashboard/answers.svg"
                         alt="legend key icon"
-                        width="9"
+                        width="15"
                       />
                       <p class="d-inline-block mb-0">Answers</p>
                     </div>
@@ -701,7 +701,7 @@ border-top: 1px solid #f7f7f7;
                         class="d-inline-block mr-2"
                         src="images/icons/dashboard/dialing.svg"
                         alt="legend key icon"
-                        width="9"
+                        width="15"
                       />
                       <p class="d-inline-block mb-0">Dialling</p>
                     </div>

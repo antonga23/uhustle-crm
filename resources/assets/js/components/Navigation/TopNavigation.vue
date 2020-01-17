@@ -41,7 +41,7 @@ a.add-new {
 }
 li.title a strong {
   color: #003549;
-  font-size: 1.68vw;
+  font-size: 1.50vw;
   letter-spacing: 0.1em;
 }
 a.top-link {
