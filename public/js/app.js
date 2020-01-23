@@ -67111,19 +67111,19 @@ function moveTo(from, to, targetIndexes, insertBefore) {
 /*!***********************************************************!*\
   !*** ./node_modules/@syncfusion/ej2-navigations/index.js ***!
   \***********************************************************/
-/*! exports provided: HScroll, VScroll, MenuAnimationSettings, MenuItem, Item, Toolbar, AccordionActionSettings, AccordionAnimationSettings, AccordionItem, Accordion, ContextMenu, Menu, TabActionSettings, TabAnimationSettings, Header, TabItem, Tab, FieldsSettings, ActionSettings, NodeAnimationSettings, TreeView, Sidebar */
+/*! exports provided: MenuAnimationSettings, MenuItem, HScroll, VScroll, Item, Toolbar, AccordionActionSettings, AccordionAnimationSettings, AccordionItem, Accordion, ContextMenu, Menu, TabActionSettings, TabAnimationSettings, Header, TabItem, Tab, FieldsSettings, ActionSettings, NodeAnimationSettings, TreeView, Sidebar */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _src_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./src/index */ "./node_modules/@syncfusion/ej2-navigations/src/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HScroll", function() { return _src_index__WEBPACK_IMPORTED_MODULE_0__["HScroll"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VScroll", function() { return _src_index__WEBPACK_IMPORTED_MODULE_0__["VScroll"]; });
-
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MenuAnimationSettings", function() { return _src_index__WEBPACK_IMPORTED_MODULE_0__["MenuAnimationSettings"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MenuItem", function() { return _src_index__WEBPACK_IMPORTED_MODULE_0__["MenuItem"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HScroll", function() { return _src_index__WEBPACK_IMPORTED_MODULE_0__["HScroll"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VScroll", function() { return _src_index__WEBPACK_IMPORTED_MODULE_0__["VScroll"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Item", function() { return _src_index__WEBPACK_IMPORTED_MODULE_0__["Item"]; });
 
@@ -68969,7 +68969,7 @@ var HScroll = /** @class */ (function (_super) {
 /*!**********************************************************************!*\
   !*** ./node_modules/@syncfusion/ej2-navigations/src/common/index.js ***!
   \**********************************************************************/
-/*! exports provided: HScroll, VScroll, MenuAnimationSettings, MenuItem */
+/*! exports provided: MenuAnimationSettings, MenuItem, HScroll, VScroll */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -71582,19 +71582,19 @@ __webpack_require__.r(__webpack_exports__);
 /*!***************************************************************!*\
   !*** ./node_modules/@syncfusion/ej2-navigations/src/index.js ***!
   \***************************************************************/
-/*! exports provided: HScroll, VScroll, MenuAnimationSettings, MenuItem, Item, Toolbar, AccordionActionSettings, AccordionAnimationSettings, AccordionItem, Accordion, ContextMenu, Menu, TabActionSettings, TabAnimationSettings, Header, TabItem, Tab, FieldsSettings, ActionSettings, NodeAnimationSettings, TreeView, Sidebar */
+/*! exports provided: MenuAnimationSettings, MenuItem, HScroll, VScroll, Item, Toolbar, AccordionActionSettings, AccordionAnimationSettings, AccordionItem, Accordion, ContextMenu, Menu, TabActionSettings, TabAnimationSettings, Header, TabItem, Tab, FieldsSettings, ActionSettings, NodeAnimationSettings, TreeView, Sidebar */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _common_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./common/index */ "./node_modules/@syncfusion/ej2-navigations/src/common/index.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HScroll", function() { return _common_index__WEBPACK_IMPORTED_MODULE_0__["HScroll"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VScroll", function() { return _common_index__WEBPACK_IMPORTED_MODULE_0__["VScroll"]; });
-
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MenuAnimationSettings", function() { return _common_index__WEBPACK_IMPORTED_MODULE_0__["MenuAnimationSettings"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "MenuItem", function() { return _common_index__WEBPACK_IMPORTED_MODULE_0__["MenuItem"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HScroll", function() { return _common_index__WEBPACK_IMPORTED_MODULE_0__["HScroll"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "VScroll", function() { return _common_index__WEBPACK_IMPORTED_MODULE_0__["VScroll"]; });
 
 /* harmony import */ var _toolbar_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./toolbar/index */ "./node_modules/@syncfusion/ej2-navigations/src/toolbar/index.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Item", function() { return _toolbar_index__WEBPACK_IMPORTED_MODULE_1__["Item"]; });
@@ -200951,6 +200951,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -222814,7 +222821,7 @@ var VBTooltip = {
 /*!*************************************************!*\
   !*** ./node_modules/bootstrap-vue/esm/index.js ***!
   \*************************************************/
-/*! exports provided: componentsPlugin, BVModalPlugin, BVToastPlugin, AlertPlugin, BAlert, BadgePlugin, BBadge, BreadcrumbPlugin, BBreadcrumb, BBreadcrumbItem, ButtonPlugin, BButton, BButtonClose, ButtonGroupPlugin, BButtonGroup, ButtonToolbarPlugin, BButtonToolbar, CardPlugin, BCard, BCardBody, BCardFooter, BCardGroup, BCardHeader, BCardImg, BCardImgLazy, BCardSubTitle, BCardText, BCardTitle, CarouselPlugin, BCarousel, BCarouselSlide, CollapsePlugin, BCollapse, DropdownPlugin, BDropdown, BDropdownItem, BDropdownItemButton, BDropdownDivider, BDropdownForm, BDropdownGroup, BDropdownHeader, BDropdownText, EmbedPlugin, BEmbed, FormPlugin, BForm, BFormDatalist, BFormText, BFormInvalidFeedback, BFormValidFeedback, FormCheckboxPlugin, BFormCheckbox, BFormCheckboxGroup, FormFilePlugin, BFormFile, FormGroupPlugin, BFormGroup, FormInputPlugin, BFormInput, FormRadioPlugin, BFormRadio, BFormRadioGroup, FormSelectPlugin, BFormSelect, FormTextareaPlugin, BFormTextarea, ImagePlugin, BImg, BImgLazy, InputGroupPlugin, BInputGroup, BInputGroupAddon, BInputGroupAppend, BInputGroupPrepend, BInputGroupText, JumbotronPlugin, BJumbotron, LayoutPlugin, BContainer, BRow, BCol, BFormRow, LinkPlugin, BLink, ListGroupPlugin, BListGroup, BListGroupItem, MediaPlugin, BMedia, BMediaAside, BMediaBody, ModalPlugin, BModal, NavPlugin, BNav, BNavForm, BNavItem, BNavItemDropdown, BNavText, NavbarPlugin, BNavbar, BNavbarBrand, BNavbarNav, BNavbarToggle, PaginationPlugin, BPagination, PaginationNavPlugin, BPaginationNav, PopoverPlugin, BPopover, ProgressPlugin, BProgress, BProgressBar, SpinnerPlugin, BSpinner, TablePlugin, BTable, BTableLite, TabsPlugin, BTabs, BTab, ToastPlugin, BToast, BToaster, TooltipPlugin, BTooltip, directivesPlugin, VBModalPlugin, VBModal, VBPopoverPlugin, VBPopover, VBScrollspyPlugin, VBScrollspy, VBTogglePlugin, VBToggle, VBTooltipPlugin, VBTooltip, BVConfigPlugin, BVConfig, BootstrapVue, install, setConfig, default */
+/*! exports provided: BVConfigPlugin, BVConfig, BootstrapVue, install, setConfig, default, componentsPlugin, BVModalPlugin, BVToastPlugin, AlertPlugin, BAlert, BadgePlugin, BBadge, BreadcrumbPlugin, BBreadcrumb, BBreadcrumbItem, ButtonPlugin, BButton, BButtonClose, ButtonGroupPlugin, BButtonGroup, ButtonToolbarPlugin, BButtonToolbar, CardPlugin, BCard, BCardBody, BCardFooter, BCardGroup, BCardHeader, BCardImg, BCardImgLazy, BCardSubTitle, BCardText, BCardTitle, CarouselPlugin, BCarousel, BCarouselSlide, CollapsePlugin, BCollapse, DropdownPlugin, BDropdown, BDropdownItem, BDropdownItemButton, BDropdownDivider, BDropdownForm, BDropdownGroup, BDropdownHeader, BDropdownText, EmbedPlugin, BEmbed, FormPlugin, BForm, BFormDatalist, BFormText, BFormInvalidFeedback, BFormValidFeedback, FormCheckboxPlugin, BFormCheckbox, BFormCheckboxGroup, FormFilePlugin, BFormFile, FormGroupPlugin, BFormGroup, FormInputPlugin, BFormInput, FormRadioPlugin, BFormRadio, BFormRadioGroup, FormSelectPlugin, BFormSelect, FormTextareaPlugin, BFormTextarea, ImagePlugin, BImg, BImgLazy, InputGroupPlugin, BInputGroup, BInputGroupAddon, BInputGroupAppend, BInputGroupPrepend, BInputGroupText, JumbotronPlugin, BJumbotron, LayoutPlugin, BContainer, BRow, BCol, BFormRow, LinkPlugin, BLink, ListGroupPlugin, BListGroup, BListGroupItem, MediaPlugin, BMedia, BMediaAside, BMediaBody, ModalPlugin, BModal, NavPlugin, BNav, BNavForm, BNavItem, BNavItemDropdown, BNavText, NavbarPlugin, BNavbar, BNavbarBrand, BNavbarNav, BNavbarToggle, PaginationPlugin, BPagination, PaginationNavPlugin, BPaginationNav, PopoverPlugin, BPopover, ProgressPlugin, BProgress, BProgressBar, SpinnerPlugin, BSpinner, TablePlugin, BTable, BTableLite, TabsPlugin, BTabs, BTab, ToastPlugin, BToast, BToaster, TooltipPlugin, BTooltip, directivesPlugin, VBModalPlugin, VBModal, VBPopoverPlugin, VBPopover, VBScrollspyPlugin, VBScrollspy, VBTogglePlugin, VBToggle, VBTooltipPlugin, VBTooltip */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -252491,7 +252498,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n\r\n/*Right Component*/\n.main-header.navbar.navbar-expand[data-v-6ec57eb6] {\r\n  padding: 13px 4% 0.45%;\r\n  position: relative;\n}\n.navbar-nav li.title[data-v-6ec57eb6] {\r\n  line-height: 20px;\n}\n.nav-link.top-link.d-block.text-center[data-v-6ec57eb6] {\r\n  box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);\r\n  height: auto !important;\r\n  font-size: 0.73vw;\n}\n.nav-link.top-link.d-block.text-center[data-v-6ec57eb6]:hover {\r\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  background: #ffffff;\n}\n.nav-item.d-sm-inline-block.dialer-icon[data-v-6ec57eb6] {\r\n    position: relative;\r\n    top: 17px;\n}\na.add-new[data-v-6ec57eb6] {\r\n  border-radius: 50rem !important;\r\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  background: #ffffff;\r\n  font-size: 16px;\r\n  color: #989899;\r\n  font-weight: 600;\n}\nli.title a strong[data-v-6ec57eb6] {\r\n  color: #003549;\r\n  font-size: 1.50vw;\r\n  letter-spacing: 0.1em;\n}\na.top-link[data-v-6ec57eb6] {\r\n  border-radius: 26px;\r\n  height: 30px !important;\r\n  padding: 6px 17px 6px !important;\r\n  font-family: \"Rubik\", sans-serif;\r\n  letter-spacing: 1px;\n}\na.active[data-v-6ec57eb6] {\r\n  border-radius: 26px;\r\n  background: #f98b39 !important;\r\n  border-color: #f98b39 !important;\r\n  color: #fff !important;\r\n  padding: 6px 17px 6px !important;\n}\nselect[data-v-6ec57eb6] {\r\n  font-family: \"Rubik\", sans-serif;\r\n  border-radius: 26px;\r\n  border: 0;\r\n  margin: 5px 8px 8px 55px !important;\r\n  height: 30px !important;\r\n  background: #fff !important;\r\n  color: #003549 !important;\r\n  padding: 0 16px 0 !important;\r\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  letter-spacing: 1px;\r\n  font-size: 14px;\n}\nselect.month-selector[data-v-6ec57eb6] {\r\n  margin-left: 0 !important;\r\n  margin-right: 0 !important;\n}\n.callIcons li a[data-v-6ec57eb6] {\r\n  color: black;\r\n  background-size: 59px !important;\r\n  background-repeat: no-repeat !important;\r\n  background-position: center center !important;\n}\n.searchBar li a[data-v-6ec57eb6] {\r\n  color: black;\r\n  background-size: 13px !important;\r\n  background-repeat: no-repeat !important;\r\n  background-position: center center !important;\n}\n.searchBar a[data-v-6ec57eb6] {\r\n  background-color: #fff;\r\n  background-image: url(\"/images/icons/top-nav/Search.svg\") !important;\r\n  background-size: 15px !important;\r\n  background-repeat: no-repeat;\r\n  border-radius: 50rem;\r\n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\r\n  -o-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\r\n  width: 40px;\r\n  height: 40px;\n}\n.searchBar a[data-v-6ec57eb6]:hover {\r\n  background-image: url(\"/images/icons/Asset 61.svg\") !important;\r\n  background-size: 170% !important;\r\n  background-repeat: no-repeat;\n}\n.searchBar input[data-v-6ec57eb6] {\r\n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\r\n  -o-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\r\n  padding: 14px 0 14px;\r\n  right: -40px;\r\n  position: absolute;\r\n  top: -24px;\r\n  width: 0;\r\n  transition: width 2s;\n}\n.searchBar:hover input[data-v-6ec57eb6] {\r\n  width: auto;\r\n  padding: 14px 40px 14px 15px;\n}\n.searchBar:hover input[data-v-6ec57eb6]:focus {\r\n  outline: 0 !important;\n}\n.searchBar input[data-v-6ec57eb6]::-webkit-input-placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: \"Rubik\", sans-serif;\r\n  font-style: italic;\n}\n.searchBar input[data-v-6ec57eb6]::-moz-placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: \"Rubik\", sans-serif;\r\n  font-style: italic;\n}\n.searchBar input[data-v-6ec57eb6]:-ms-input-placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: \"Rubik\", sans-serif;\r\n  font-style: italic;\n}\n.searchBar input[data-v-6ec57eb6]::-ms-input-placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: \"Rubik\", sans-serif;\r\n  font-style: italic;\n}\n.searchBar input[data-v-6ec57eb6]::placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: \"Rubik\", sans-serif;\r\n  font-style: italic;\n}\n.callIcons li.idle .status[data-v-6ec57eb6] {\r\n  background-image: url(\"/images/icons/Asset 55.svg\") !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li.on-call .status[data-v-6ec57eb6] {\r\n  background-image: url(\"/images/icons/Asset 56.svg\") !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li.offline .status[data-v-6ec57eb6] {\r\n  background-image: url(\"/images/icons/Asset 57.svg\") !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6] {\r\n  background-image: url(\"/images/icons/top-nav/Start_Call.svg\") !important;\r\n  background-size: 20px;\r\n  background-position: center;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]:hover {\r\n  background-image: url(\"/images/icons/Call/Start Call Hover.svg\") !important;\r\n  background-size: 170%;\r\n  background-repeat: no-repeat;\n}\n.callIcons li button.call[data-v-6ec57eb6],\r\n.callIcons button.status[data-v-6ec57eb6],\r\n.callIcons button.end-call[data-v-6ec57eb6] {\r\n  border-radius: 50rem;\r\n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\r\n  width: 40px;\r\n  height: 40px;\n}\n.callIcons li .end-call[data-v-6ec57eb6] {\r\n  background-image: url(\"/images/icons/top-nav/End_Call.svg\") !important;\r\n  background-size: 25px;\r\n  background-position: center;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .end-call[data-v-6ec57eb6]:hover {\r\n  background-image: url(\"/images/icons/Call/End Call Hover.svg\") !important;\r\n  background-size: 170%;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .add-call-back-btn[data-v-6ec57eb6] {\r\n  background-image: url(\"/images/workstation/Asset 28@4x.png\") !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-color: transparent;\r\n  border: none;\r\n  padding: 14px;\r\n  margin-top: 5px;\r\n  margin-left: 20px;\n}\n.modal-content[data-v-6ec57eb6] {\r\n  background: linear-gradient(\r\n    to right,\r\n    rgba(255, 128, 51, 1) 0%,\r\n    rgba(255, 147, 58, 1) 100%\r\n  );\n}\r\n/*is error being used?*/\n.error[data-v-6ec57eb6] {\r\n  color: #f98b39;\n}\r\n/*End Right Component*/\r\n", ""]);
+exports.push([module.i, "\n\r\n/*Right Component*/\n.main-header.navbar.navbar-expand[data-v-6ec57eb6] {\r\n  padding: 13px 4% 0.45%;\r\n  position: relative;\n}\n.navbar-nav li.title[data-v-6ec57eb6] {\r\n  line-height: 20px;\n}\n.nav-link.top-link.d-block.text-center[data-v-6ec57eb6] {\r\n  box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);\r\n  height: auto !important;\r\n  font-size: 0.73vw;\n}\n.nav-link.top-link.d-block.text-center[data-v-6ec57eb6]:hover {\r\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  background: #ffffff;\n}\n.nav-item.d-sm-inline-block.dialer-icon[data-v-6ec57eb6] {\r\n    position: relative;\r\n    top: 6px;\n}\na.add-new[data-v-6ec57eb6] {\r\n  border-radius: 50rem !important;\r\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  background: #ffffff;\r\n  font-size: 16px;\r\n  color: #989899;\r\n  font-weight: 600;\n}\nli.title a strong[data-v-6ec57eb6] {\r\n  color: #003549;\r\n  font-size: 1.50vw;\r\n  letter-spacing: 0.1em;\n}\na.top-link[data-v-6ec57eb6] {\r\n  border-radius: 26px;\r\n  height: 30px !important;\r\n  padding: 6px 17px 6px !important;\r\n  font-family: \"Rubik\", sans-serif;\r\n  letter-spacing: 1px;\n}\na.active[data-v-6ec57eb6] {\r\n  border-radius: 26px;\r\n  background: #f98b39 !important;\r\n  border-color: #f98b39 !important;\r\n  color: #fff !important;\r\n  padding: 6px 17px 6px !important;\n}\nselect[data-v-6ec57eb6] {\r\n  font-family: \"Rubik\", sans-serif;\r\n  border-radius: 26px;\r\n  border: 0;\r\n  margin: 5px 8px 8px 55px !important;\r\n  height: 30px !important;\r\n  background: #fff !important;\r\n  color: #003549 !important;\r\n  padding: 0 16px 0 !important;\r\n  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);\r\n  letter-spacing: 1px;\r\n  font-size: 14px;\n}\nselect.month-selector[data-v-6ec57eb6] {\r\n  margin-left: 0 !important;\r\n  margin-right: 0 !important;\n}\n.callIcons li a[data-v-6ec57eb6] {\r\n  color: black;\r\n  background-size: 59px !important;\r\n  background-repeat: no-repeat !important;\r\n  background-position: center center !important;\n}\n.searchBar li a[data-v-6ec57eb6] {\r\n  color: black;\r\n  background-size: 13px !important;\r\n  background-repeat: no-repeat !important;\r\n  background-position: center center !important;\n}\n.searchBar a[data-v-6ec57eb6] {\r\n  background-color: #fff;\r\n  background-image: url(\"/images/icons/top-nav/Search.svg\") !important;\r\n  background-size: 15px !important;\r\n  background-repeat: no-repeat;\r\n  border-radius: 50rem;\r\n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\r\n  -o-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\r\n  width: 40px;\r\n  height: 40px;\n}\n.searchBar a[data-v-6ec57eb6]:hover {\r\n  background-image: url(\"/images/icons/Asset 61.svg\") !important;\r\n  background-size: 170% !important;\r\n  background-repeat: no-repeat;\n}\n.searchBar input[data-v-6ec57eb6] {\r\n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\r\n  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\r\n  -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\r\n  -o-box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\r\n  padding: 14px 0 14px;\r\n  right: -40px;\r\n  position: absolute;\r\n  top: -24px;\r\n  width: 0;\r\n  transition: width 2s;\n}\n.searchBar:hover input[data-v-6ec57eb6] {\r\n  width: auto;\r\n  padding: 14px 40px 14px 15px;\n}\n.searchBar:hover input[data-v-6ec57eb6]:focus {\r\n  outline: 0 !important;\n}\n.searchBar input[data-v-6ec57eb6]::-webkit-input-placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: \"Rubik\", sans-serif;\r\n  font-style: italic;\n}\n.searchBar input[data-v-6ec57eb6]::-moz-placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: \"Rubik\", sans-serif;\r\n  font-style: italic;\n}\n.searchBar input[data-v-6ec57eb6]:-ms-input-placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: \"Rubik\", sans-serif;\r\n  font-style: italic;\n}\n.searchBar input[data-v-6ec57eb6]::-ms-input-placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: \"Rubik\", sans-serif;\r\n  font-style: italic;\n}\n.searchBar input[data-v-6ec57eb6]::placeholder {\r\n  font-size: 12px;\r\n  font-weight: 300;\r\n  font-family: \"Rubik\", sans-serif;\r\n  font-style: italic;\n}\n.callIcons li.idle .status[data-v-6ec57eb6] {\r\n  background-image: url(\"/images/icons/Asset 55.svg\") !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li.on-call .status[data-v-6ec57eb6] {\r\n  background-image: url(\"/images/icons/Asset 56.svg\") !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li.offline .status[data-v-6ec57eb6] {\r\n  background-image: url(\"/images/icons/Asset 57.svg\") !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6] {\r\n  background-image: url(\"/images/icons/top-nav/Start_Call.svg\") !important;\r\n  background-size: 20px;\r\n  background-position: center;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .call[data-v-6ec57eb6]:hover {\r\n  background-image: url(\"/images/icons/Call/Start Call Hover.svg\") !important;\r\n  background-size: 170%;\r\n  background-repeat: no-repeat;\n}\n.callIcons li button.call[data-v-6ec57eb6],\r\n.callIcons button.status[data-v-6ec57eb6],\r\n.callIcons button.end-call[data-v-6ec57eb6] {\r\n  border-radius: 50rem;\r\n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);\r\n  width: 40px;\r\n  height: 40px;\n}\n.callIcons li .end-call[data-v-6ec57eb6] {\r\n  background-image: url(\"/images/icons/top-nav/End_Call.svg\") !important;\r\n  background-size: 25px;\r\n  background-position: center;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .end-call[data-v-6ec57eb6]:hover {\r\n  background-image: url(\"/images/icons/Call/End Call Hover.svg\") !important;\r\n  background-size: 170%;\r\n  background-repeat: no-repeat;\n}\n.callIcons li .add-call-back-btn[data-v-6ec57eb6] {\r\n  background-image: url(\"/images/workstation/Asset 28@4x.png\") !important;\r\n  background-size: contain;\r\n  background-repeat: no-repeat;\r\n  background-color: transparent;\r\n  border: none;\r\n  padding: 14px;\r\n  margin-top: 5px;\r\n  margin-left: 20px;\n}\n.modal-content[data-v-6ec57eb6] {\r\n  background: linear-gradient(\r\n    to right,\r\n    rgba(255, 128, 51, 1) 0%,\r\n    rgba(255, 147, 58, 1) 100%\r\n  );\n}\r\n/*is error being used?*/\n.error[data-v-6ec57eb6] {\r\n  color: #f98b39;\n}\r\n/*End Right Component*/\r\n", ""]);
 
 // exports
 
@@ -388286,61 +388293,41 @@ var render = function() {
                   )
                 : _vm._e(),
               _vm._v(" "),
-              _vm.active == "workstation" ||
-              _vm.active == "call-history" ||
-              _vm.active == "transactions" ||
-              _vm.active == "inventory"
-                ? _c(
-                    "ul",
-                    { staticClass: "d-inline-block navbar-nav searchBar" },
-                    [_vm._m(0)]
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.active == "workstation"
-                ? _c(
-                    "ul",
-                    { staticClass: "d-inline-block navbar-nav callIcons" },
-                    [
-                      _vm.auto_dialer_settings.disabled == 1
-                        ? _c(
-                            "li",
-                            {
+              _c("ul", { staticClass: "d-inline-block navbar-nav callIcons" }, [
+                _vm.auto_dialer_settings.disabled == 1
+                  ? _c(
+                      "li",
+                      { staticClass: "nav-item d-sm-inline-block dialer-icon" },
+                      [
+                        !_vm.is_oncall
+                          ? _c("button", {
                               staticClass:
-                                "nav-item d-sm-inline-block dialer-icon"
-                            },
-                            [
-                              !_vm.is_oncall
-                                ? _c("button", {
-                                    staticClass:
-                                      "nav-link border-0 bg-transparent call",
-                                    attrs: { id: "show-btn" },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.startCall()
-                                      }
-                                    }
-                                  })
-                                : _vm._e(),
-                              _vm._v(" "),
-                              _vm.is_oncall
-                                ? _c("button", {
-                                    staticClass:
-                                      "nav-link border-0 bg-transparent end-call",
-                                    attrs: { id: "show-btn" },
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.endCall()
-                                      }
-                                    }
-                                  })
-                                : _vm._e()
-                            ]
-                          )
-                        : _vm._e()
-                    ]
-                  )
-                : _vm._e()
+                                "nav-link border-0 bg-transparent call",
+                              attrs: { id: "show-btn" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.startCall()
+                                }
+                              }
+                            })
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.is_oncall
+                          ? _c("button", {
+                              staticClass:
+                                "nav-link border-0 bg-transparent end-call",
+                              attrs: { id: "show-btn" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.endCall()
+                                }
+                              }
+                            })
+                          : _vm._e()
+                      ]
+                    )
+                  : _vm._e()
+              ])
             ])
           ]
         )
@@ -388348,27 +388335,7 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "nav-item d-sm-inline-block" }, [
-      _c("div", { staticClass: "row mx-0 align-items-center" }, [
-        _c("div", { staticClass: "col px-0" }, [
-          _c("input", {
-            staticClass: "border-0 rounded-pill",
-            attrs: { placeholder: "Search" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-auto px-0" }, [
-          _c("a", { staticClass: "nav-link p-0", attrs: { href: "#" } })
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -396231,7 +396198,27 @@ var render = function() {
               return item.custom_field_value !== null
                 ? _c(
                     "div",
-                    { key: i, staticClass: "col-6" },
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value:
+                            item.custom_field_name !== "owner" &&
+                            item.custom_field_name !== "assignee" &&
+                            item.custom_field_name !== "status" &&
+                            item.custom_field_name !== "product" &&
+                            item.custom_field_name !== "phone_number" &&
+                            item.custom_field_name !== "email" &&
+                            item.custom_field_name !== "product_variant" &&
+                            item.custom_field_name !== "instagram_account",
+                          expression:
+                            "item.custom_field_name !== 'owner'\n       && item.custom_field_name !== 'assignee' \n       && item.custom_field_name !== 'status' \n       && item.custom_field_name !== 'product' \n       && item.custom_field_name !== 'phone_number'\n       && item.custom_field_name !=='email'\n       && item.custom_field_name !== 'product_variant'\n       && item.custom_field_name !=='instagram_account'"
+                        }
+                      ],
+                      key: i,
+                      staticClass: "col-6"
+                    },
                     _vm._l(_vm.item_custom_fields, function(
                       custom_field,
                       index

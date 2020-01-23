@@ -25,7 +25,7 @@
 
 .nav-item.d-sm-inline-block.dialer-icon {
     position: relative;
-    top: 17px;
+    top: 6px;
 }
 
 a.add-new {
@@ -334,7 +334,7 @@ select.month-selector {
             </a-select>
           </div>
 
-          <ul
+          <!-- <ul
             v-if="(active == 'workstation' || active == 'call-history' || active == 'transactions' || active == 'inventory')"
             class="d-inline-block navbar-nav searchBar"
           >
@@ -349,9 +349,9 @@ select.month-selector {
                 </div>
               </div>
             </li>
-          </ul>
+          </ul> -->
 
-          <ul v-if="active == 'workstation'" class="d-inline-block navbar-nav callIcons">
+          <ul class="d-inline-block navbar-nav callIcons">
             <!-- <li :class="{ 'nav-item d-sm-inline-block' : true, 'idle' : is_idle, 'on-call' : is_oncall, 'offline' : is_offline }">
                         <button id="toggle-btn" class="nav-link border-0 bg-transparent status"  @click="switchState()"></button>
             </li>-->
