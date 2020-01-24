@@ -487,7 +487,7 @@ export default {
     endCall() {
       Fire.$emit("CallEnded");
       this.is_oncall = false;
-      this.idle = false;
+      this.idle = true;
     },
 
     startCall() {

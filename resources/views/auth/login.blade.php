@@ -14,7 +14,7 @@
                     <div class="col-lg-12 mb-4 p-0"> 
                         <div class="row mx-0"> 
                             <div class="col-md-12"> 
-                                <a href="/register" class="btn center pt-4 w-100 m-0 inactiveBtn">Sign Up</a> 
+                                <!-- <a href="/register" class="btn center pt-4 w-100 m-0 inactiveBtn">Sign Up</a>  -->
                             </div> 
                         </div> 
                     </div> 
