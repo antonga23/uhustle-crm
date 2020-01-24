@@ -1,4 +1,7 @@
 <style scoped> 
+.display {
+  display: block !important;
+}
 .general-section-stats .agent-stats-1 {
   padding-left: 5%; 
   padding-right: 5%; 
@@ -439,13 +442,15 @@ p.maximize a {
   background-repeat: no-repeat; 
   height: 600px; 
 } 
+
 .top-animation-minimized { 
   padding: 7px; 
   background-image: url("/images/Idle_Pages_Assest/Asset 11900.svg") !important; 
   background-size: 33%; 
   background-position: center; 
   background-repeat: no-repeat; 
-  height: 133px; 
+  height: 133px;
+  cursor: pointer; 
 } 
 .idle-footer { 
   margin: 0 auto; 
@@ -900,9 +905,34 @@ a.down-scroll:hover {
       <scripts /> 
     </div> 
     <!-- Scripts Section ends --> 
+
+     <!-- Dialer Section Starts -->  
+    <div class v-if="idle == false || call_ended">  
+      <div  
+        :class="{ 'row idle-div mx-0 mt-0' : true }"  
+        data-aos="fade-up"  
+        data-aos-duration="700"  
+        data-aos-offset="700"  
+        style="margin-top: 1%"  
+      >   
+        <div v-if="!is_oncall"
+          :class="{ 'col-lg-12' : true, 'top-animation' : general == true && show_general_on_dialer == true , 'top-animation-minimized' : general == true && show_general_on_dialer == false & is_oncall ==true }"  
+        >
+      
+        </div>  
+      </div>  
+  
+      <div class="row mx-0">  
+        <div class="col-lg-12 tip call-status" style="padding-top:10px;">  
+          <h1 class="text-center" style="font-size: 19px;color: #1c2331;">{{ call_status }}...</h1>  
+        </div>  
+      </div>  
+      <education v-if="has_education" />  
+    </div>  
+    <!-- Dialer Section Ends -->  
  
     <!-- General Section Starts --> 
-    <div class="general-section-stats" v-if="general == true"> 
+    <div class="general-section-stats" v-if="general == true && show_general_on_dialer == false && is_oncall == true"  :class="{ 'display' : true}" style="display: none;"> 
       <div class="row mx-0 pb-5 justify-content-between top-section agent-stats-1" > 
         <div v-if="item.custom_field_value !== null" class="col-6" v-for="(item, name, i) in module_item.item_meta" :key="i" v-show="item.custom_field_name !== 'owner'
          && item.custom_field_name !== 'assignee' 
@@ -2059,31 +2089,8 @@ a.down-scroll:hover {
     </div>  
     <!-- General Section Ends -->  
   
-    <!-- Dialer Section Starts -->  
-    <div class v-if="idle == true">  
-      <div  
-        :class="{ 'row idle-div mx-0 mt-0' : true }"  
-        data-aos="fade-up"  
-        data-aos-duration="700"  
-        data-aos-offset="700"  
-        style="margin-top: 1%"  
-      >  
-        <div  
-          :class="{ 'col-lg-12' : true, 'top-animation' : !show_edication_blocks, 'top-animation-minimized' : show_edication_blocks }"  
-        ></div>  
-      </div>  
-  
-      <div class="row mx-0">  
-        <div class="col-lg-12 tip call-status" style="padding-top:10px;">  
-          <h1 class="text-center" style="font-size: 19px;color: #1c2331;">{{ call_status }}...</h1>  
-        </div>  
-      </div>  
-      <education v-if="has_education" />  
-    </div>  
-    <!-- Dialer Section Ends -->  
-  
     <!-- Active calls Section Starts -->  
-    <div class="" v-if="active_calls == true">    
+    <!-- <div class="" v-if="active_calls == true">    
       <div class="row stats mt-4 w-100 mx-0">    
         <div class="col-lg-12 left-padding-4">    
           <div class="scroll-hidden">
@@ -2092,7 +2099,7 @@ a.down-scroll:hover {
           </div>
         </div>    
       </div>    
-    </div> 
+    </div>  -->
     <!-- Active calls Section Ends -->  
   
     <!-- Modals Section Starts -->  
@@ -2216,7 +2223,7 @@ export default {
       vm.enqueueLead(vm.item_id);  
       vm.getActivities();  
       vm.getDeals();  
-      vm.general = true;  
+      vm.general = true; 
       vm.active_calls = false;  
       Fire.$emit("ShowGeneral");  
     } else {  
@@ -2236,7 +2243,7 @@ export default {
     vm.prepDates();  
   
     Fire.$on("CallStarted", function() {  
-      vm.general = false;  
+      vm.general = true;  
       vm.idle = true;  
       vm.scripts = false;  
       vm.active_calls = false;  
@@ -2245,6 +2252,7 @@ export default {
   
     Fire.$on("CallEnded", function() {  
       vm.endCall();  
+       vm.general = false; 
     });  
   
     Fire.$on("ShowScripts", function() {  
@@ -2257,7 +2265,7 @@ export default {
     Fire.$on("ShowGeneral", function() {  
       vm.general = true;  
       vm.scripts = false;  
-      vm.idle = false;  
+      // vm.idle = false;  
       vm.active_calls = false;  
     });  
   
@@ -2314,7 +2322,8 @@ export default {
       notes_data: [],  
       minimized: false,  
       scripts: false,  
-      general: false,  
+      general: false,
+      show_general_on_dialer: true,
       active_calls: false,  
       calling: false,  
       has_education: false,  
@@ -2328,6 +2337,7 @@ export default {
       call_status: "",  
       call_sid: "",  
       handle: "",  
+      is_oncall: false,
       set_time: 2 * 60 * 1000,  
       comment: {  
         id: "",  
@@ -2561,6 +2571,7 @@ export default {
 
       });
     },
+  
     getActiveCalls() {  
       var vm = this;  
       vm.show_page_loader = true;  
@@ -2956,10 +2967,13 @@ export default {
     },  
     startCall() {  
       var vm = this;  
-      this.idle = true;  
-      this.show_edication_blocks = true;  
-      this.general = false;  
-      var audioCtx = new AudioContext();  
+      this.general = true;
+      this.show_general_on_dialer = false;
+      this.idle = false;  
+      this.is_oncall = true;
+      var audioCtx = new AudioContext(); 
+     console.log("Should show general block");
+      vm.general.display = "block";
   
       audioCtx.resume();  
   
@@ -2974,10 +2988,12 @@ export default {
       };  
   
       Device.connect(form_data);  
-    },  
+    }, 
     endCall() {  
       var vm = this;  
-  
+        if (is_oncall == false) {
+
+        }
       Device.disconnectAll(function(conn) {});  
   
       // vm.idle = true;  

@@ -243,15 +243,15 @@ select.month-selector {
               </a>
             </li>
 
-            <li v-if="active_calls" class="nav-item d-none d-sm-inline-block px-3">
+            <!-- <li v-if="active_calls" class="nav-item d-none d-sm-inline-block px-3">
               <a
                 role="button"
                 ref="ActiveCallsBtn"
                 @click="showActiveCalls()"
                 :class="{ 'nav-link top-link d-block text-center' : true, 'active' : active_calls_active }"
               >Active Calls</a>
-            </li>
-
+            </li> -->
+<!-- 
             <li
               v-if="active == 'workstation' && lead_id !== ''"
               class="nav-item d-none d-sm-inline-block px-3"
@@ -261,7 +261,7 @@ select.month-selector {
                 @click="showGeneral();"
                 :class="{ 'nav-link top-link d-block text-center' : true, 'active' : general_active }"
               >General</a>
-            </li>
+            </li> -->
 
             <!-- <li v-if="active == 'workstation'" class="nav-item d-none d-sm-inline-block px-3" style="display:none;">
 							<a 
@@ -271,7 +271,7 @@ select.month-selector {
 							>Scripts ss</a>
             </li>-->
 
-            <li
+            <!-- <li
               v-if="active == 'workstation' && auto_dialer_settings.disabled == 1"
               class="nav-item d-none d-sm-inline-block px-3"
             >
@@ -280,7 +280,7 @@ select.month-selector {
                 @click="showDialer();"
                 :class="{ 'nav-link top-link d-block text-center' : true, 'active' : dialer_active }"
               >Dialer</a>
-            </li>
+            </li> -->
 
             <li
               v-if="active == 'dashboard' || active == 'call-history' || active == 'social-board'"
@@ -351,11 +351,11 @@ select.month-selector {
             </li>
           </ul> -->
 
-          <ul class="d-inline-block navbar-nav callIcons">
+          <ul v-if="active == 'workstation'" class="d-inline-block navbar-nav callIcons">
             <!-- <li :class="{ 'nav-item d-sm-inline-block' : true, 'idle' : is_idle, 'on-call' : is_oncall, 'offline' : is_offline }">
                         <button id="toggle-btn" class="nav-link border-0 bg-transparent status"  @click="switchState()"></button>
-            </li>-->
-            <li class="nav-item d-sm-inline-block dialer-icon" v-if="auto_dialer_settings.disabled == 1">
+            </li> -->
+            <li class="nav-item d-sm-inline-block dialer-icon" v-if="auto_dialer_settings.disabled == 1 ">
                         <button v-if="!is_oncall" id="show-btn" class="nav-link border-0 bg-transparent call" @click="startCall()"></button>
                         <button v-if="is_oncall" id="show-btn" class="nav-link border-0 bg-transparent end-call" @click="endCall()"></button>
             </li>
@@ -487,6 +487,7 @@ export default {
     endCall() {
       Fire.$emit("CallEnded");
       this.is_oncall = false;
+      this.idle = false;
     },
 
     startCall() {

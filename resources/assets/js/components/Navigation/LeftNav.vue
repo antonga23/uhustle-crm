@@ -112,7 +112,7 @@
 
             <li class="nav-item">
               <a 
-                href="/workstation"  
+                href="/workstation/35"  
                 id="workstation" 
                 :class="{ 'nav-link workstation' : true, 'active shadow-none' : (active == 'workstation')? true : false }" 
                 class="w-100 m-0 p-0 rounded-0">
@@ -141,7 +141,7 @@
               </a>
             </li> -->
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a 
                 href="/call-history" 
                 :class="{ 'nav-link call-history' : true, 'active shadow-none' : (active == 'call-history')? true : false }" 
@@ -149,7 +149,7 @@
                 <img src="/images/icons/left-sidebar/no-shadows/Call history.svg" alt="nav icon" width="51"/>
                 <span>Call History</span>
               </a>
-            </li>
+            </li> -->
 
             <!-- <li class="nav-item">
               <a 
