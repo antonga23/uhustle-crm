@@ -69,7 +69,7 @@ label{
   <div class="createDeal">   
     <p>Deal information</p>   
     <div class="row mx-0 align-items-end">   
-      <div class="col-7 pl-0">   
+      <div class="col-8 pl-0">   
         <div class="row mx-0">   
           <div class="col-6 pl-0">   
             <label class="col-lg-12 control-label w-100 p-0 mb-2">Agent Name</label>   
@@ -162,7 +162,7 @@ label{
         </div>   
       </div>   
 
-      <div class="col-3">      
+      <div class="col-4">      
         <label class="col-lg-12 control-label w-100 p-0 mb-2">Probability (%)</label>   
         <input
           v-model="deal.probability"    

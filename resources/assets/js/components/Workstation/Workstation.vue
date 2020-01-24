@@ -616,10 +616,11 @@ a.down-scroll:hover {
 .deals .card-header-tabs { 
   box-shadow: inset 0 -10px 10px #f5f5f5; 
 } 
-.activities input {
+.activities input, textarea {
   font-family: 'Rubik', sans-serif;
   font-size: 12px;
   color: #999999;
+  height: 48px !important;
 }
 .deals #seven input,
 .deals #seven textarea {
@@ -1661,432 +1662,431 @@ a.down-scroll:hover {
           </div> 
         </div>   
   
-        <!-- Activities Starts -->  
-        <div class="row mx-0 mb-0 activities">    
-          <div class="col-lg-12 px-0">    
-            <div class="card shadow-none mt-3 border-0 tab-card">    
-              <div class="card-header tab-card-header border-bottom-0 pt-0 px-0">    
-                <ul class="nav nav-tabs card-header-tabs mx-0" id="myTab" role="tablist">    
-                  <li class="nav-item">    
-                    <a    
-                      class="nav-link active"    
-                      id="one-tab"    
-                      data-toggle="tab"    
-                      href="#five"    
-                      role="tab"    
-                      aria-controls="Five"    
-                      aria-selected="true"   
-                    >    
-                      <img    
-                        src="/images/icons/workstation/Open Activities.svg"    
-                        alt="Open Activities Icon"    
-                        class="icon"    
-                        width="31"   
-                      />    
-                      <span>Open Activities</span>
-                      <img src="/images/icons/Field_Add.svg" alt="Add field icon" width="16" class="d-none add-activity" @click="addActivityCollapse()"/>
-                    </a>    
-                  </li>    
-   
-                  <li class="nav-item">    
-                    <a    
-                      class="nav-link"    
-                      id="two-tab"    
-                      data-toggle="tab"    
-                      href="#six"    
-                      role="tab"    
-                      aria-controls="Six"    
-                      aria-selected="false"   
-                    >    
-                      <img    
-                        src="/images/icons/workstation/Closed Activities.svg"    
-                        alt="Closed Activities Icon"    
-                        class="icon"    
-                        width="31"   
-                      />    
-                      <span>Closed Activities</span>    
-                    </a>    
-                  </li>    
-                </ul>    
-              </div>    
-   
-              <div class="tab-content" id="myTabContent">   
-                <div    
-                  class="tab-pane fade show active"    
-                  id="five" role="tabpanel"    
-                  aria-labelledby="one-tab"   
-                >  
-                  <div v-if="add_client_activity" class="mb-5 new-activity">
-                    <div class="row mx-0 align-items-center permissions-divider">
-                      <div class="col-auto pl-0">
-                        <h5 class="mb-0">Create a new activity</h5>
-                      </div>
-
-                      <div class="col px-0">
-                        <div class="divider-line"></div>
-                      </div>
-                    </div>
-
-                    <div class="row mx-0">
-                      <div class="col-6 px-0">
-                        <label>Subject</label>
-                        <a-input placeholder="Please enter an activity subject..." v-model="activity.title" class="w-100 rounded-pill activity-subject" name="Subject" v-validate="'required'"  />
-                        <span id="error" v-show="errors.has('Subject')" class="help-block">{{ errors.first('Subject') }}</span> 
-
-                        <div class="row mx-0 align-items-end">
+       
+        <div class="card-deck row mx-0 mb-0 activities">  
+           <!-- Activities Starts -->   
+              <div class="col-lg-6 px-0">    
+                <div class="card mt-3 border-0 shadow-none mr-4 ml-0 tab-card h-100">    
+                  <div class="card-header tab-card-header border-bottom-0 pt-0 px-0">    
+                    <ul class="nav nav-tabs card-header-tabs mx-0" id="myTab" role="tablist">    
+                      <li class="nav-item w-50">    
+                        <a    
+                          class="nav-link active"    
+                          id="one-tab"    
+                          data-toggle="tab"    
+                          href="#five"    
+                          role="tab"    
+                          aria-controls="Five"    
+                          aria-selected="true"   
+                        >    
+                          <img    
+                            src="/images/icons/workstation/Open Activities.svg"    
+                            alt="Open Activities Icon"    
+                            class="icon"    
+                            width="31"   
+                          />    
+                          <span>Open Activities</span>
+                          <img src="/images/icons/Field_Add.svg" alt="Add field icon" width="16" class="d-none add-activity" @click="addActivityCollapse()"/>
+                        </a>    
+                      </li>    
+      
+                      <li class="nav-item w-50">    
+                        <a    
+                          class="nav-link"    
+                          id="two-tab"    
+                          data-toggle="tab"    
+                          href="#six"    
+                          role="tab"    
+                          aria-controls="Six"    
+                          aria-selected="false"   
+                        >    
+                          <img    
+                            src="/images/icons/workstation/Closed Activities.svg"    
+                            alt="Closed Activities Icon"    
+                            class="icon"    
+                            width="31"   
+                          />    
+                          <span>Closed Activities</span>    
+                        </a>    
+                      </li>    
+                    </ul>    
+                  </div>    
+      
+                  <div class="tab-content h-100" id="myTabContent">   
+                    <div    
+                      class="tab-pane fade show active"    
+                      id="five" role="tabpanel"    
+                      aria-labelledby="one-tab"   
+                    >  
+                      <div v-if="add_client_activity" class="mb-5 new-activity">
+                        <div class="row mx-0 align-items-center permissions-divider">
                           <div class="col-auto pl-0">
-                            <label class="d-block">Due date</label>
-                            <a-date-picker name="Due Date"  @change="onDateChange" class="ml-2"/> 
+                            <h5 class="mb-0">Create a new activity</h5>
                           </div>
 
-                          <div class="col-auto pl-0">
-                            <label class="d-block">Time</label>
-                            <a-time-picker use24Hours format="HH:mm" @change="onTimeChange"  class="ml-2" /> 
+                          <div class="col px-0">
+                            <div class="divider-line"></div>
                           </div>
+                        </div>
 
-                          <div class="col-auto activity-status-col">
-                            <label class="d-block ml-0">Status</label>
-                            <a-select v-model="activity.status" class="activity-status-input">
-                              <a-select-option :value="0"><div class="d-inline-block activity-status finished-activity"></div>Finished</a-select-option>
-                              <a-select-option :value="1"><div class="d-inline-block activity-status in-progress-activity"></div>In Progress</a-select-option>
-                              <a-select-option :value="2"><div class="d-inline-block activity-status not-started-activity"></div>Not Started</a-select-option>
-                            </a-select>
-                          </div>
+                        <div class="row mx-0">
+                          <div class="col-12 px-0">
+                            <label>Subject</label>
+                            <a-input placeholder="Please enter an activity subject..." v-model="activity.title" class="w-100 rounded-pill activity-subject" name="Subject" v-validate="'required'"  />
+                            <span id="error" v-show="errors.has('Subject')" class="help-block">{{ errors.first('Subject') }}</span> 
 
-                          <div class="col-auto ml-auto pr-0">
-                            <button type="submit" class="btn btn-primary update-user w-100 rounded-pill m-0 font-weight-bold" @click="addActivity()">Add</button> 
+                            <div class="row mx-0 align-items-end">
+                              <div class="col-auto pl-0">
+                                <label class="d-block">Due date</label>
+                                <a-date-picker name="Due Date"  @change="onDateChange" class="ml-2"/> 
+                              </div>
+
+                              <div class="col-auto pl-0">
+                                <label class="d-block">Time</label>
+                                <a-time-picker use24Hours format="HH:mm" @change="onTimeChange"  class="ml-2" /> 
+                              </div>
+
+                              <div class="col-auto activity-status-col">
+                                <label class="d-block ml-0">Status</label>
+                                <a-select v-model="activity.status" class="activity-status-input">
+                                  <a-select-option :value="0"><div class="d-inline-block activity-status finished-activity"></div>Finished</a-select-option>
+                                  <a-select-option :value="1"><div class="d-inline-block activity-status in-progress-activity"></div>In Progress</a-select-option>
+                                  <a-select-option :value="2"><div class="d-inline-block activity-status not-started-activity"></div>Not Started</a-select-option>
+                                </a-select>
+                              </div>
+
+                              <div class="col-auto ml-auto pr-0">
+                                <button type="submit" class="btn btn-primary update-user w-100 rounded-pill m-0 font-weight-bold" @click="addActivity()">Add</button> 
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </div>
-   
-                  <b-table    
-                    hover    
-                    :items="activityItems"    
-                    :per-page="perPage"   
-                    :current-page="currentPage"   
-                    sticky-header  
-                    responsive 
-                  >
-                    <template slot="statusColor" slot-scope="data">   
-                      <div class="activity-status" :style="{backgroundColor: data.item.statusColor}"></div>   
-                    </template>
+      
+                      <b-table    
+                        hover    
+                        :items="activityItems"    
+                        :per-page="perPage"   
+                        :current-page="currentPage"   
+                        sticky-header  
+                        responsive 
+                      >
+                        <template slot="statusColor" slot-scope="data">   
+                          <div class="activity-status" :style="{backgroundColor: data.item.statusColor}"></div>   
+                        </template>
 
-                    <template slot="subject" slot-scope="data">   
-                      <input
-                        @blur="updateActivity(data.item)"
-                        v-model="data.item.subject"     
-                        type="text"    
-                        id="deal-name"     
-                        name="DealName"   
-                        class="form-control border-0 rounded-pill"/> 
-                    </template> 
+                        <template slot="subject" slot-scope="data">   
+                          <input
+                            @blur="updateActivity(data.item)"
+                            v-model="data.item.subject"     
+                            type="text"    
+                            id="deal-name"     
+                            name="DealName"   
+                            class="form-control border-0 rounded-pill"/> 
+                        </template> 
 
-                    <template slot="status" slot-scope="data">   
-                      <a-select v-model="data.item.status" class="activity-status-input" @change="updateActivity(data.item)">
-                        <a-select-option :value="0"><div class="d-inline-block activity-status finished-activity"></div>Finished</a-select-option>
-                        <a-select-option :value="1"><div class="d-inline-block activity-status in-progress-activity"></div>In Progress</a-select-option>
-                        <a-select-option :value="2"><div class="d-inline-block activity-status not-started-activity"></div>Not Started</a-select-option>
-                      </a-select> 
-                    </template> 
+                        <template slot="status" slot-scope="data">   
+                          <a-select v-model="data.item.status" class="activity-status-input" @change="updateActivity(data.item)">
+                            <a-select-option :value="0"><div class="d-inline-block activity-status finished-activity"></div>Finished</a-select-option>
+                            <a-select-option :value="1"><div class="d-inline-block activity-status in-progress-activity"></div>In Progress</a-select-option>
+                            <a-select-option :value="2"><div class="d-inline-block activity-status not-started-activity"></div>Not Started</a-select-option>
+                          </a-select> 
+                        </template> 
 
-                    <template slot="dueDate" slot-scope="data">   
-                      <a-date-picker v-model="data.item.dueDate" name="Due Date" @change="updateActivity(data.item)" /> 
-                    </template>
+                        <template slot="dueDate" slot-scope="data">   
+                          <a-date-picker v-model="data.item.dueDate" name="Due Date" @change="updateActivity(data.item)" /> 
+                        </template>
 
-                    <template slot="time" slot-scope="data">   
-                      <a-time-picker v-model="data.item.time" name="Time" use24Hours format="HH:mm" @change="updateActivity(data.item)" /> 
-                    </template>
+                        <template slot="time" slot-scope="data">   
+                          <a-time-picker v-model="data.item.time" name="Time" use24Hours format="HH:mm" @change="updateActivity(data.item)" /> 
+                        </template>
 
-                    <template slot="timeModified" slot-scope="data">   
-                      <p>{{ data.item.timeModified | toDate}}</p>
-                    </template>
-                  </b-table>   
-   
-                  <b-pagination   
-                    v-model="currentPage"   
-                    :total-rows="rows"   
-                    :per-page="perPage"   
-                    aria-controls="my-table"   
-                    align="center"
-                    size="sm"
-                  ></b-pagination>                
-                </div>   
-   
-                <div
-                  class="tab-pane fade"    
-                  id="six"    
-                  role="tabpanel"    
-                  aria-labelledby="two-tab"   
-                >     
-                  <b-table 
-                    hover 
-                    :items="closedActivityItems" 
-                    sticky-header
-                    :per-page="perPage"
-                    responsive
-                    class="closed-activities"
-                  > 
-                    <template slot="statusColor" slot-scope="data">   
-                      <div class="activity-status" :style="{backgroundColor: data.item.statusColor}"></div>   
-                    </template>
+                        <template slot="timeModified" slot-scope="data">   
+                          <p>{{ data.item.timeModified | toDate}}</p>
+                        </template>
+                      </b-table>   
+      
+                      <b-pagination   
+                        v-model="currentPage"   
+                        :total-rows="rows"   
+                        :per-page="perPage"   
+                        aria-controls="my-table"   
+                        align="center"
+                        size="sm"
+                        class="mt-4"
+                      ></b-pagination>                
+                    </div>   
+      
+                    <div
+                      class="tab-pane fade"    
+                      id="six"    
+                      role="tabpanel"    
+                      aria-labelledby="two-tab"   
+                    >     
+                      <b-table 
+                        hover 
+                        :items="closedActivityItems" 
+                        sticky-header
+                        :per-page="perPage"
+                        responsive
+                        class="closed-activities"
+                      > 
+                        <template slot="statusColor" slot-scope="data">   
+                          <div class="activity-status" :style="{backgroundColor: data.item.statusColor}"></div>   
+                        </template>
 
-                    <template slot="subject" slot-scope="data">   
-                      <p>{{data.item.subject}}</p> 
-                    </template> 
+                        <template slot="subject" slot-scope="data">   
+                          <p>{{data.item.subject}}</p> 
+                        </template> 
 
-                    <template slot="status" slot-scope="data">   
-                      <p>{{data.item.status}}</p> 
-                    </template> 
+                        <template slot="status" slot-scope="data">   
+                          <p>{{data.item.status}}</p> 
+                        </template> 
 
-                    <template slot="dueDate" slot-scope="data">   
-                      <p>{{data.item.dueDate | toDate }}</p> 
-                    </template>
+                        <template slot="dueDate" slot-scope="data">   
+                          <p>{{data.item.dueDate | toDate }}</p> 
+                        </template>
 
-                    <template slot="time" slot-scope="data">   
-                      <p>{{data.item.time}}</p> 
-                    </template>
+                        <template slot="time" slot-scope="data">   
+                          <p>{{data.item.time}}</p> 
+                        </template>
 
-                    <template slot="timeModified" slot-scope="data">   
-                      <p>{{ data.item.timeModified | toDate }}</p>
-                    </template>
-                  </b-table>  
+                        <template slot="timeModified" slot-scope="data">   
+                          <p>{{ data.item.timeModified | toDate }}</p>
+                        </template>
+                      </b-table>  
 
-                  <b-pagination   
-                    v-model="currentPage"   
-                    :total-rows="rows"   
-                    :per-page="perPage"   
-                    aria-controls="my-table" 
-                    align="center"
-                    size="sm"  
-                  ></b-pagination> 
+                      <b-pagination   
+                        v-model="currentPage"   
+                        :total-rows="rows"   
+                        :per-page="perPage"   
+                        aria-controls="my-table" 
+                        align="center"
+                        size="sm"  
+                      ></b-pagination> 
+                    </div>    
+                  </div>    
                 </div>    
-              </div>    
-            </div>    
-          </div>     
+              </div>     
+            <!-- Activities Starts End --> 
+             <!-- Deals Starts -->   
+             <div class="col-lg-6 px-0">    
+                <div class="card shadow-none mt-3 mr-0 ml-4 border-0 tab-card h-100">    
+                  <div class="card-header tab-card-header border-bottom-0 pt-0 px-0">    
+                    <ul class="nav nav-tabs card-header-tabs mx-0" id="myTab" role="tablist">    
+                      <li class="nav-item w-50">    
+                        <a    
+                          class="nav-link active"    
+                          id="one-tab"    
+                          data-toggle="tab"    
+                          href="#seven"    
+                          role="tab"    
+                          aria-controls="Seven"    
+                          aria-selected="true"   
+                        >    
+                          <img    
+                            src="/images/icons/workstation/Deals.svg"    
+                            alt="Deals Icon"    
+                            class="icon"    
+                            width="31"   
+                          />    
+                          <span>Deals</span>    
+                        </a>    
+                      </li>    
+      
+                      <li class="nav-item w-50">    
+                        <a    
+                          class="nav-link"    
+                          id="two-tab"    
+                          data-toggle="tab"    
+                          href="#eight"    
+                          role="tab"    
+                          aria-controls="Eight"    
+                          aria-selected="false"   
+                        >    
+                          <img    
+                            src="/images/icons/workstation/Create_a_deal.svg"    
+                            alt="Create a deal Icon"    
+                            class="icon"    
+                            width="31"  
+                          />    
+                          <span>Create a Deal</span>    
+                        </a>    
+                      </li>    
+                    </ul>    
+                  </div>    
+      
+                  <div class="tab-content h-100" id="myTabContent">    
+                    <div    
+                      class="tab-pane fade show active"    
+                      id="seven" role="tabpanel"    
+                      aria-labelledby="one-tab"   
+                    >    
+                      <b-table 
+                        hover 
+                        :fields="dealHeaders"
+                        :items="dealItems" 
+                        :per-page="perPage"   
+                        :current-page="currentPage"   
+                        sticky-header
+                        responsive
+                        class="deals-table"
+                      >
+                        <template slot="agent_name" slot-scope="data">   
+                          <input
+                            v-model="data.item.agent_name"     
+                            type="text"    
+                            id="deal-name"     
+                            name="DealName"   
+                            class="form-control border-0 rounded-pill"/> 
+                        </template>
+
+                        <template slot="deal_name" slot-scope="data">   
+                          <input
+                            v-model="data.item.deal_name"    
+                            type="text"    
+                            id="agent-name"     
+                            name="AgentName"   
+                            class="form-control border-0 rounded-pill"/> 
+                        </template>
+
+                        <template slot="closing_date" slot-scope="data">   
+                          <a-date-picker    
+                            v-model="data.item.closing_date"    
+                            id="closing-date"     
+                            name="ClosingDate"   
+                            class="form-control border-0 rounded-pill p-0"/> 
+                        </template>
+
+                        <template slot="type" slot-scope="data">   
+                          <a-select v-model="data.item.type" class="custom-select rounded-pill border-0 type-input">   
+                            <a-select-option value="-None-" selected>-None-</a-select-option>   
+                            <a-select-option value="1">Existing Business</a-select-option>   
+                            <a-select-option value="2">New Business</a-select-option>   
+                          </a-select> 
+                        </template>
+
+                        <template slot="lead_source" slot-scope="data">   
+                          <a-select v-model="data.item.lead_source" class="custom-select rounded-pill border-0 lead-source-input">   
+                            <a-select-option value="-None-" selected>-None-</a-select-option>   
+                            <a-select-option value="1">Advertising</a-select-option>   
+                            <a-select-option value="2">Cold Call</a-select-option>   
+                            <a-select-option value="3">Employee Referral</a-select-option>   
+                            <a-select-option value="4">External Referral</a-select-option>   
+                            <a-select-option value="5">Online Store</a-select-option>    
+                          </a-select>    
+                        </template>
+
+                        <template slot="amount" slot-scope="data">   
+                          <input   
+                            v-model="data.item.amount" 
+                            type="number"    
+                            id="amount"     
+                            name="Amount"   
+                            class="form-control rounded-pill border-0"/> 
+                        </template>
+
+                        <template slot="description" slot-scope="data">   
+                          <textarea 
+                            v-model="data.item.description"   
+                            id="info"     
+                            name="Info"   
+                            class="form-control rounded-pill border-0"/> 
+                        </template>
+
+                        <template slot="stage" slot-scope="data">   
+                          <a-select v-model="data.item.stage" class="custom-select rounded-pill border-0 stage-input">   
+                            <a-select-option value="-None-" selected>-None-</a-select-option>   
+                            <a-select-option value="1">Qualification</a-select-option>   
+                            <a-select-option value="2">Needs Analysis</a-select-option>   
+                            <a-select-option value="3">Value Proposition</a-select-option>   
+                            <a-select-option value="4">Proposal</a-select-option>   
+                            <a-select-option value="5">Negotiation</a-select-option>   
+                          </a-select> 
+                        </template>
+
+                        <template slot="probability" slot-scope="data">   
+                          <input
+                            v-model="data.item.probability"    
+                            type="text"    
+                            id="probability"     
+                            name="Probability"   
+                            class="form-control rounded-pill border-0"/> 
+                        </template>
+
+                        <template slot="expected_revenue" slot-scope="data">   
+                          <input
+                            v-model="data.item.expected_revenue"    
+                            type="number"    
+                            id="revenue"     
+                            name="Revenue"   
+                            class="form-control rounded-pill border-0"/> 
+                        </template>
+
+                        <template slot="contact_name" slot-scope="data">   
+                          <input  
+                            v-model="data.item.contact_name"   
+                            type="text"    
+                            id="contact-name"     
+                            name="ContactName"   
+                            class="form-control rounded-pill border-0"/> 
+                        </template>
+
+                        <template slot="contact_number" slot-scope="data">   
+                          <input 
+                            v-model="data.item.contact_number"    
+                            type="tel"    
+                            id="contact-number"     
+                            name="ContactNumber"   
+                            class="form-control rounded-pill border-0"/> 
+                        </template>
+
+                        <template slot="status" slot-scope="data">     
+                          <div class="d-inline-block activity-status" :style="{backgroundColor: dealStatColor(data.item.status)}"></div>
+
+                          <a-select v-model="data.item.status" class="custom-select rounded-pill border-0 status-input">   
+                            <a-select-option value="-None-" selected>-None-</a-select-option>   
+                            <a-select-option :value="1">Paid</a-select-option>   
+                            <a-select-option :value="2">Pending</a-select-option>   
+                            <a-select-option :value="3">Due</a-select-option>   
+                            <a-select-option :value="4">Rejected</a-select-option>     
+                          </a-select> 
+                        </template>
+
+                        <template slot="created_at" slot-scope="data">   
+                          <p>{{ data.item.created_at | toDate }}</p> 
+                        </template>
+                      </b-table>   
+
+                      <b-pagination   
+                        v-model="currentPage"   
+                        :total-rows="rows"   
+                        :per-page="perPage"   
+                        aria-controls="my-table" 
+                        align="center"
+                        size="sm"  
+                        class="mt-4"
+                      ></b-pagination>        
+                    </div>   
+      
+                    <div    
+                      class="tab-pane fade"    
+                      id="eight"    
+                      role="tabpanel"    
+                      aria-labelledby="two-tab"   
+                    >     
+                    <create-deal 
+                      :empty_deal="deal" 
+                      :lead_id="item_id" 
+                      :agent_id="user_id" 
+                      :agent_name="user_name" 
+                      /> 
+                    </div>    
+                  </div>    
+                </div>    
+            </div> 
+           <!-- Deals Ends -->  
         </div> 
-        <!-- Activities Starts End -->  
-  
-        <!-- Deals Starts -->  
-        <div class="row mx-0 mb-0 deals">    
-          <div class="col-lg-12 px-0">    
-            <div class="card shadow-none mt-3 border-0 tab-card">    
-              <div class="card-header tab-card-header border-bottom-0 pt-0 px-0">    
-                <ul class="nav nav-tabs card-header-tabs mx-0" id="myTab" role="tablist">    
-                  <li class="nav-item">    
-                    <a    
-                      class="nav-link active"    
-                      id="one-tab"    
-                      data-toggle="tab"    
-                      href="#seven"    
-                      role="tab"    
-                      aria-controls="Seven"    
-                      aria-selected="true"   
-                    >    
-                      <img    
-                        src="/images/icons/workstation/Deals.svg"    
-                        alt="Deals Icon"    
-                        class="icon"    
-                        width="31"   
-                      />    
-                      <span>Deals</span>    
-                    </a>    
-                  </li>    
-   
-                  <li class="nav-item">    
-                    <a    
-                      class="nav-link"    
-                      id="two-tab"    
-                      data-toggle="tab"    
-                      href="#eight"    
-                      role="tab"    
-                      aria-controls="Eight"    
-                      aria-selected="false"   
-                    >    
-                      <img    
-                        src="/images/icons/workstation/Create_a_deal.svg"    
-                        alt="Create a deal Icon"    
-                        class="icon"    
-                        width="31"  
-                      />    
-                      <span>Create a Deal</span>    
-                    </a>    
-                  </li>    
-                </ul>    
-              </div>    
-   
-              <div class="tab-content" id="myTabContent">    
-                <div    
-                  class="tab-pane fade show active"    
-                  id="seven" role="tabpanel"    
-                  aria-labelledby="one-tab"   
-                >    
-                  <b-table 
-                    hover 
-                    :fields="dealHeaders"
-                    :items="dealItems" 
-                    :per-page="perPage"   
-                    :current-page="currentPage"   
-                    sticky-header
-                    responsive
-                    class="deals-table"
-                  >
-                    <template slot="agent_name" slot-scope="data">   
-                      <input
-                        v-model="data.item.agent_name"     
-                        type="text"    
-                        id="deal-name"     
-                        name="DealName"   
-                        class="form-control border-0 rounded-pill"/> 
-                    </template>
-
-                    <template slot="deal_name" slot-scope="data">   
-                      <input
-                        v-model="data.item.deal_name"    
-                        type="text"    
-                        id="agent-name"     
-                        name="AgentName"   
-                        class="form-control border-0 rounded-pill"/> 
-                    </template>
-
-                    <template slot="closing_date" slot-scope="data">   
-                      <a-date-picker    
-                        v-model="data.item.closing_date"    
-                        id="closing-date"     
-                        name="ClosingDate"   
-                        class="form-control border-0 rounded-pill p-0"/> 
-                    </template>
-
-                    <template slot="type" slot-scope="data">   
-                      <a-select v-model="data.item.type" class="custom-select rounded-pill border-0 type-input">   
-                        <a-select-option value="-None-" selected>-None-</a-select-option>   
-                        <a-select-option value="1">Existing Business</a-select-option>   
-                        <a-select-option value="2">New Business</a-select-option>   
-                      </a-select> 
-                    </template>
-
-                    <template slot="lead_source" slot-scope="data">   
-                      <a-select v-model="data.item.lead_source" class="custom-select rounded-pill border-0 lead-source-input">   
-                        <a-select-option value="-None-" selected>-None-</a-select-option>   
-                        <a-select-option value="1">Advertising</a-select-option>   
-                        <a-select-option value="2">Cold Call</a-select-option>   
-                        <a-select-option value="3">Employee Referral</a-select-option>   
-                        <a-select-option value="4">External Referral</a-select-option>   
-                        <a-select-option value="5">Online Store</a-select-option>    
-                      </a-select>    
-                    </template>
-
-                    <template slot="amount" slot-scope="data">   
-                      <input   
-                        v-model="data.item.amount" 
-                        type="number"    
-                        id="amount"     
-                        name="Amount"   
-                        class="form-control rounded-pill border-0"/> 
-                    </template>
-
-                    <template slot="description" slot-scope="data">   
-                      <textarea 
-                        v-model="data.item.description"   
-                        id="info"     
-                        name="Info"   
-                        class="form-control rounded-pill border-0"/> 
-                    </template>
-
-                    <template slot="stage" slot-scope="data">   
-                      <a-select v-model="data.item.stage" class="custom-select rounded-pill border-0 stage-input">   
-                        <a-select-option value="-None-" selected>-None-</a-select-option>   
-                        <a-select-option value="1">Qualification</a-select-option>   
-                        <a-select-option value="2">Needs Analysis</a-select-option>   
-                        <a-select-option value="3">Value Proposition</a-select-option>   
-                        <a-select-option value="4">Proposal</a-select-option>   
-                        <a-select-option value="5">Negotiation</a-select-option>   
-                      </a-select> 
-                    </template>
-
-                    <template slot="probability" slot-scope="data">   
-                      <input
-                        v-model="data.item.probability"    
-                        type="text"    
-                        id="probability"     
-                        name="Probability"   
-                        class="form-control rounded-pill border-0"/> 
-                    </template>
-
-                    <template slot="expected_revenue" slot-scope="data">   
-                      <input
-                        v-model="data.item.expected_revenue"    
-                        type="number"    
-                        id="revenue"     
-                        name="Revenue"   
-                        class="form-control rounded-pill border-0"/> 
-                    </template>
-
-                    <template slot="contact_name" slot-scope="data">   
-                      <input  
-                        v-model="data.item.contact_name"   
-                        type="text"    
-                        id="contact-name"     
-                        name="ContactName"   
-                        class="form-control rounded-pill border-0"/> 
-                    </template>
-
-                    <template slot="contact_number" slot-scope="data">   
-                      <input 
-                        v-model="data.item.contact_number"    
-                        type="tel"    
-                        id="contact-number"     
-                        name="ContactNumber"   
-                        class="form-control rounded-pill border-0"/> 
-                    </template>
-
-                    <template slot="status" slot-scope="data">     
-                      <div class="d-inline-block activity-status" :style="{backgroundColor: dealStatColor(data.item.status)}"></div>
-
-                      <a-select v-model="data.item.status" class="custom-select rounded-pill border-0 status-input">   
-                        <a-select-option value="-None-" selected>-None-</a-select-option>   
-                        <a-select-option :value="1">Paid</a-select-option>   
-                        <a-select-option :value="2">Pending</a-select-option>   
-                        <a-select-option :value="3">Due</a-select-option>   
-                        <a-select-option :value="4">Rejected</a-select-option>     
-                      </a-select> 
-                    </template>
-
-                    <template slot="created_at" slot-scope="data">   
-                      <p>{{ data.item.created_at | toDate }}</p> 
-                    </template>
-                  </b-table>   
-
-                  <b-pagination   
-                    v-model="currentPage"   
-                    :total-rows="rows"   
-                    :per-page="perPage"   
-                    aria-controls="my-table" 
-                    align="center"
-                    size="sm"  
-                    class="mt-4"
-                  ></b-pagination>        
-                </div>   
-   
-                <div    
-                  class="tab-pane fade"    
-                  id="eight"    
-                  role="tabpanel"    
-                  aria-labelledby="two-tab"   
-                >     
-                 <create-deal 
-                  :empty_deal="deal" 
-                  :lead_id="item_id" 
-                  :agent_id="user_id" 
-                  :agent_name="user_name" 
-                  /> 
-                </div>    
-              </div>    
-            </div>    
-          </div>     
-        </div>  
-        <!-- Deals Ends -->  
       </div>  
     </div>  
     <!-- General Section Ends -->  
