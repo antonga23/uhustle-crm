@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: uhustle_mysql_db
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: uhustle
+      MYSQL_USER: alatha
+      MYSQL_PASSWORD: 123456
+    ports:
+      - "3369:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ../dbstore/dump_25_11_2019/dump_25_11_2019.sql:/docker-entrypoint-initdb.d/dump.sql
+    networks:
+      - mysql-network
+
+volumes:
+  mysql-data:
+
+networks:
+  mysql-network:
+    driver: bridge

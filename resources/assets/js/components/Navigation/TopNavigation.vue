@@ -356,6 +356,9 @@ select.month-selector {
                         <button id="toggle-btn" class="nav-link border-0 bg-transparent status"  @click="switchState()"></button>
             </li> -->
             <li class="nav-item d-sm-inline-block dialer-icon" v-if="auto_dialer_settings.disabled == 1 ">
+                        <button @click="click2Call()">Clikc 2 call</button>
+            </li>
+            <li class="nav-item d-sm-inline-block dialer-icon" v-if="auto_dialer_settings.disabled == 1 ">
                         <button v-if="!is_oncall" id="show-btn" class="nav-link border-0 bg-transparent call" @click="startCall()"></button>
                         <button v-if="is_oncall" id="show-btn" class="nav-link border-0 bg-transparent end-call" @click="endCall()"></button>
             </li>
@@ -482,8 +485,22 @@ export default {
     showFilter() {
       this.top_nav_show_filter = !this.top_nav_show_filter;
       Fire.$emit("ShowFilter");
+    },   
+    click2Call (){
+      axios
+        .get('https://jpt.contaqt.com/api/cc_agent/originate?user_id=41097&api_key=2esjhpSs0SsfBoe2DTat&destination=27840319048', {
+          headers: {
+            'Access-Control-Allow-Origin' : '*'
+          }
+        })
+        .then(response => {
+            this.c_c = response.data
+            console.log(response.data)
+        })
+        .catch(e => {
+            console.log("error")
+        })
     },
-
     endCall() {
       Fire.$emit("CallEnded");
       this.is_oncall = false;

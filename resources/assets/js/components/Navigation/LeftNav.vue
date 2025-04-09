@@ -76,7 +76,7 @@
   transition: width .5s ease, padding .5s ease, overflow .5s ease, left .5s ease;
 }
 .nav-link:hover span{
-  width: auto; 
+  width: auto;
   overflow:visible;
   padding: 18px 35px 18px 40px;
   left: -20px!important;
@@ -101,9 +101,9 @@
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
             <li class="nav-item">
-              <a 
-                href="/dashboard" 
-                :class="{ 'nav-link dashboard' : true, 'active shadow-none' : (active == 'dashboard')? true : false }" 
+              <a
+                href="/dashboard"
+                :class="{ 'nav-link dashboard' : true, 'active shadow-none' : (active == 'dashboard')? true : false }"
                 class="w-100 m-0 p-0 rounded-0">
                 <img src="/images/icons/left-sidebar/no-shadows/Dashboard.svg" alt="nav icon" width="51"/>
                 <span>Dashboard</span>
@@ -111,20 +111,20 @@
             </li>
 
             <li class="nav-item">
-              <a 
-                href="/workstation/35"  
-                id="workstation" 
-                :class="{ 'nav-link workstation' : true, 'active shadow-none' : (active == 'workstation')? true : false }" 
+              <a
+                href="/workstation/35"
+                id="workstation"
+                :class="{ 'nav-link workstation' : true, 'active shadow-none' : (active == 'workstation')? true : false }"
                 class="w-100 m-0 p-0 rounded-0">
                 <img src="/images/icons/left-sidebar/no-shadows/Workstation.svg" alt="nav icon" width="51"/>
                 <span>Workstation</span>
               </a>
             </li>
 
-            <!-- <li class="nav-item">
-              <a 
+            <li class="nav-item">
+              <a
                 href="/modules/contacts"
-                :class="{ 'nav-link contacts' : true, 'active shadow-none' : (active == 'contacts')? true : false }" 
+                :class="{ 'nav-link contacts' : true, 'active shadow-none' : (active == 'contacts')? true : false }"
                 class="w-100 m-0 p-0 rounded-0">
                 <img src="/images/icons/left-sidebar/no-shadows/Contacts.svg" alt="nav icon" width="51"/>
                 <span>Contacts</span>
@@ -132,29 +132,29 @@
             </li>
 
             <li class="nav-item">
-              <a 
-                href="/modules/leads" 
-                :class="{ 'nav-link leads' : true, 'active shadow-none' : (active == 'leads')? true : false }" 
+              <a
+                href="/modules/leads"
+                :class="{ 'nav-link leads' : true, 'active shadow-none' : (active == 'leads')? true : false }"
                 class="w-100 m-0 p-0 rounded-0">
                 <img src="/images/icons/left-sidebar/no-shadows/Leads.svg" alt="nav icon" width="51"/>
                 <span>Leads</span>
               </a>
-            </li> -->
+            </li>
 
-            <!-- <li class="nav-item">
-              <a 
-                href="/call-history" 
-                :class="{ 'nav-link call-history' : true, 'active shadow-none' : (active == 'call-history')? true : false }" 
+            <li class="nav-item">
+              <a
+                href="/call-history"
+                :class="{ 'nav-link call-history' : true, 'active shadow-none' : (active == 'call-history')? true : false }"
                 class="w-100 m-0 p-0 rounded-0">
                 <img src="/images/icons/left-sidebar/no-shadows/Call history.svg" alt="nav icon" width="51"/>
                 <span>Call History</span>
               </a>
-            </li> -->
+            </li>
 
-            <!-- <li class="nav-item">
-              <a 
-                href="/inventory" 
-                :class="{ 'nav-link inventory' : true, 'active shadow-none' : (active == 'inventory')? true : false }" 
+            <li class="nav-item">
+              <a
+                href="/inventory"
+                :class="{ 'nav-link inventory' : true, 'active shadow-none' : (active == 'inventory')? true : false }"
                 class="w-100 m-0 p-0 rounded-0">
                 <img src="/images/icons/left-sidebar/no-shadows/Inventory.svg" alt="nav icon" width="51"/>
                 <span>Inventory</span>
@@ -162,30 +162,30 @@
             </li>
 
             <li class="nav-item" v-if="current_user.role_id == 1">
-              <a 
-                href="/transactions"  
-                :class="{ 'nav-link transactions' : true, 'active shadow-none' : (active == 'transactions')? true : false }" 
+              <a
+                href="/transactions"
+                :class="{ 'nav-link transactions' : true, 'active shadow-none' : (active == 'transactions')? true : false }"
                 class="w-100 m-0 p-0 rounded-0">
                 <img src="/images/icons/left-sidebar/no-shadows/Transactions.svg" alt="nav icon" width="51"/>
                 <span>Transactions</span>
               </a>
-            </li> -->
+            </li>
 
-            <!-- <li class="nav-item">
-              <a 
-                href="/social-board" 
-                :class="{ 'nav-link social-board' : true, 'active shadow-none' : (active == 'social-board')? true : false }" 
+            <li class="nav-item">
+              <a
+                href="/social-board"
+                :class="{ 'nav-link social-board' : true, 'active shadow-none' : (active == 'social-board')? true : false }"
                 class="w-100 m-0 p-0 rounded-0">
                 <img src="/images/icons/left-sidebar/no-shadows/Social Board.svg" alt="nav icon" width="51"/>
                 <span>Social Board</span>
               </a>
-            </li> -->
+            </li>
 
-            <!-- <li class="nav-item" style="display:none;">
-              <a 
-                href="/education" 
-                :class="{ 'nav-link education' : true, 'active shadow-none' : (active == 'education')? true : false }" 
-                class="w-100 m-0 p-0 rounded-0" 
+            <li class="nav-item" style="display:none;">
+              <a
+                href="/education"
+                :class="{ 'nav-link education' : true, 'active shadow-none' : (active == 'education')? true : false }"
+                class="w-100 m-0 p-0 rounded-0"
                 disabled>
                 <img src="/images/icons/left-sidebar/no-shadows/Leads.svg" alt="nav icon" width="51"/>
                 <span>Education</span>
@@ -193,9 +193,9 @@
             </li>
 
             <li class="nav-item" v-if="current_user.role_id == 1">
-              <a 
-                href="/users" 
-                :class="{ 'nav-link users' : true, 'active shadow-none' : (active == 'users')? true : false }" 
+              <a
+                href="/users"
+                :class="{ 'nav-link users' : true, 'active shadow-none' : (active == 'users')? true : false }"
                 class="w-100 m-0 p-0 rounded-0">
                 <img src="/images/icons/left-sidebar/no-shadows/Users.svg" alt="nav icon" width="51"/>
                 <span>Users</span>
@@ -203,14 +203,14 @@
             </li>
 
             <li class="nav-item"  v-if="current_user.role_id == 1">
-              <a 
-                href="/preferences"  
-                :class="{ 'nav-link preferences' : true, 'active shadow-none' : (active == 'preferences')? true : false }" 
+              <a
+                href="/preferences"
+                :class="{ 'nav-link preferences' : true, 'active shadow-none' : (active == 'preferences')? true : false }"
                 class="w-100 m-0 p-0 rounded-0">
                 <img src="/images/icons/left-sidebar/no-shadows/System Pref.svg" alt="nav icon" width="51"/>
                 <span>System Preferences</span>
               </a>
-            </li> -->
+            </li>
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
@@ -229,7 +229,7 @@
         current_user: []
       }
     },
-    
+
     mounted() {
         console.log('Component mounted.');
 
