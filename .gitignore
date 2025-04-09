@@ -16,6 +16,5 @@ error.log
 dbstore/
 .idea/
 dbstore/
- node_modules/
- server-keys/
-uHustle Designs/
+node_modules/
+server-keys/
